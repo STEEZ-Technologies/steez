@@ -93,8 +93,10 @@ export const COPY = {
   },
 
   footer: {
+    brandTagline:
+      "The digital bridge between Chinese makers and the buyers searching for them.",
     locations: {
-      heading: { en: "Locations", cn: "工厂分布" },
+      heading: { en: "Locations", cn: "办事处" },
       items: [
         { en: "Shenzhen", cn: "深圳" },
         { en: "Yiwu", cn: "义乌" },
@@ -112,11 +114,11 @@ export const COPY = {
       ],
     },
     index: {
-      heading: { en: "Index", cn: "导航" },
+      heading: { en: "Index", cn: "目录" },
       items: [
         { en: "About", cn: "关于", href: "#about" },
         { en: "Services", cn: "服务", href: "#services" },
-        { en: "Projects", cn: "案例", href: "#projects" },
+        { en: "Case Studies", cn: "案例", href: "#projects" },
         { en: "Contact", cn: "联系", href: "#contact" },
       ],
     },
