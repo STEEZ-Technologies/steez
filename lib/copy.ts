@@ -59,7 +59,7 @@ export const COPY = {
   },
 
   projects: {
-    headingEn: "Projects",
+    headingEn: "Case Studies",
     headingCn: "案例",
     items: [
       {
@@ -68,7 +68,7 @@ export const COPY = {
         catCn: "电子制造",
         en: "Shenzhen Precision",
         cn: "深圳精密",
-        op: "Wei Chen · Sales Director",
+        op: "Wei Chen, Sales Director",
         body: "PCB assembly + injection molding. STEEZ activated 1,247 buyer scans across 38 countries in the first 90 days; buyer-side dashboard routes every scan into the sales pipeline.",
       },
       {
@@ -77,7 +77,7 @@ export const COPY = {
         catCn: "纺织",
         en: "Yiwu Knit Co.",
         cn: "义乌针织",
-        op: "Mei Lin · Export Manager",
+        op: "Mei Lin, Export Manager",
         body: "Knitwear at 220 GSM, 200-cycle wash tested. Catalog auto-translated to ES, AR, PT — Mei Lin closed her first European wholesale account three weeks after the rollout.",
       },
       {
@@ -86,7 +86,7 @@ export const COPY = {
         catCn: "工业",
         en: "Foshan Hardware Group",
         cn: "佛山五金",
-        op: "Liu Jian · Founder",
+        op: "Liu Jian, Founder",
         body: "5-axis CNC parts to ±0.005mm. WeChat-first activation flow — a buyer in Riyadh went from card scan to a live thread with Liu Jian in 47 seconds.",
       },
     ],
