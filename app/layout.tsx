@@ -22,6 +22,10 @@ export const metadata: Metadata = {
     "Premium digital business cards for Chinese makers. Each STEEZ card is a digital bridge — scan once, land buyers in Berlin, São Paulo, or Riyadh on your full showroom.",
 };
 
+export const viewport = {
+  themeColor: "#0E2D24",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
