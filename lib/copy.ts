@@ -92,6 +92,24 @@ export const COPY = {
     ],
   },
 
+  portfolio: {
+    headingEn: "3D Catalogue",
+    headingCn: "三维产品目录",
+    subtitle:
+      "Your product in 3D — every buyer in the world, in their own language, in under three seconds.",
+    product: {
+      cat: "Industrial",
+      client: "Jiangsu AquaTech",
+      name: "GX-2000 Centrifugal Pump",
+      spec: "Flow: 2,000 m³/h · Head: 120 m · Power: 185 kW",
+    },
+    stats: [
+      { value: "3s", label: "scan to showroom" },
+      { value: "38+", label: "buyer countries" },
+      { value: "6×", label: "inquiry rate lift" },
+    ],
+  },
+
   footer: {
     brandTagline:
       "The digital bridge between Chinese makers and the buyers searching for them.",
