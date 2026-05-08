@@ -10,6 +10,9 @@
   --color-ivory: #f2efe5;
   --color-bone: #e8efea;
   --color-charcoal: #0e2d24;
+  --color-gold: #E0A93A;
+  --color-charcoal-deep: #1A1A1A;
+  --color-off-white: #FAF9F5;
 
   --font-sans: var(--font-inter), var(--font-noto-sc), system-ui, sans-serif;
   --font-cn: var(--font-noto-sc), var(--font-inter), sans-serif;
@@ -34,6 +37,10 @@
   --hairline: rgba(111, 201, 161, 0.15);
   --hairline-strong: rgba(111, 201, 161, 0.4);
   --hairline-dark: rgba(14, 45, 36, 0.15);
+
+  --gold: #E0A93A;
+  --charcoal-deep: #1A1A1A;
+  --off-white: #FAF9F5;
 }
 
 :root[data-theme="ivory"] {
