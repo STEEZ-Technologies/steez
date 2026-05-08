@@ -4,14 +4,14 @@ const TILE_W = 420;
 const TILE_H = 270;
 
 const T = {
-  forest: "#0E2D24",
-  forestDeep: "#0A211B",
-  forestMid: "#14392F",
-  mint: "#6FC9A1",
-  mintGlow: "#A4DEC2",
-  ivory: "#F2EFE5",
-  bone: "#E8EFEA",
-  hairline: "rgba(111, 201, 161, 0.20)",
+  forest: "#04342C",
+  forestDeep: "#021F18",
+  forestMid: "#084A3D",
+  mint: "#E0A93A",
+  mintGlow: "#F0C75A",
+  ivory: "#FAF9F5",
+  bone: "#FAF9F5",
+  hairline: "rgba(224, 169, 58, 0.20)",
 } as const;
 
 type TileFrameProps = {
@@ -31,12 +31,12 @@ function TileFrame({ bg = T.forestDeep, children, kind }: TileFrameProps) {
     >
       <defs>
         <linearGradient id="tileGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#10342A" />
-          <stop offset="1" stopColor="#0A211B" />
+          <stop offset="0" stopColor="#084A3D" />
+          <stop offset="1" stopColor="#021F18" />
         </linearGradient>
         <linearGradient id="mintGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#6FC9A1" />
-          <stop offset="1" stopColor="#A4DEC2" />
+          <stop offset="0" stopColor="#E0A93A" />
+          <stop offset="1" stopColor="#F0C75A" />
         </linearGradient>
       </defs>
       {children}
@@ -716,7 +716,7 @@ export function Dashboard1() {
           points="10,80 50,72 90,68 130,55 170,50 210,38 250,40 290,28 330,22 370,18"
         />
         <polyline
-          fill="rgba(111,201,161,0.18)"
+          fill="rgba(224, 169, 58,0.18)"
           stroke="none"
           points="10,80 50,72 90,68 130,55 170,50 210,38 250,40 290,28 330,22 370,18 370,90 10,90"
         />
@@ -1170,7 +1170,7 @@ export function WeChat3() {
           width="120"
           height="76"
           rx="6"
-          fill="#0E2D24"
+          fill="#04342C"
           stroke={T.mint}
         />
         <text

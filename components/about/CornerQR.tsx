@@ -5,7 +5,7 @@ export function CornerQR() {
     <div
       style={{
         transform: "perspective(800px) rotateY(-15deg) rotate(-8deg)",
-        filter: "drop-shadow(0 30px 50px rgba(111,201,161,0.30))",
+        filter: "drop-shadow(0 30px 50px rgba(224, 169, 58,0.30))",
         width: "100%",
       }}
     >
@@ -17,7 +17,7 @@ export function CornerQR() {
           aspectRatio: "1 / 1",
         }}
       >
-        <QRPattern size={200} fg="#0A211B" />
+        <QRPattern size={200} fg="#021F18" />
       </div>
     </div>
   );

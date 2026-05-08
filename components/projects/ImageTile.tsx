@@ -14,7 +14,7 @@ export function ImageTile({ tall, fill, children }: ImageTileProps) {
         borderRadius: "clamp(28px, 3vw, 44px)",
         overflow: "hidden",
         background: "var(--forest)",
-        border: "1px solid rgba(111, 201, 161, 0.18)",
+        border: "1px solid rgba(224, 169, 58, 0.18)",
         aspectRatio: fill ? "0.9 / 1" : aspect,
         height: fill ? "100%" : "auto",
         minHeight: tall

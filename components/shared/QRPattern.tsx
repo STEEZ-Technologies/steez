@@ -8,7 +8,7 @@ type QRPatternProps = {
 
 export function QRPattern({
   size = 100,
-  fg = "#0E2D24",
+  fg = "#04342C",
   bg = "transparent",
 }: QRPatternProps) {
   const cells = 11;

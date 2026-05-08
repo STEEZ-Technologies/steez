@@ -17,7 +17,7 @@ export function CornerCardEdge() {
             inset: 0,
             background:
               i % 2 === 0
-                ? "linear-gradient(90deg, #14392F, #0A211B)"
+                ? "linear-gradient(90deg, #084A3D, #021F18)"
                 : "var(--mint)",
             borderRadius: 8,
             transform: `translateY(${i * 8}px)`,

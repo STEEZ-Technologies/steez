@@ -31,6 +31,7 @@ export function Hero({ cardVariant = "dark" }: HeroProps) {
         flexDirection: "column",
         position: "relative",
         overflowX: "clip",
+        background: "#FAF9F5",
       }}
     >
       <Nav />
@@ -62,7 +63,7 @@ export function Hero({ cardVariant = "dark" }: HeroProps) {
           style={{
             fontSize: "clamp(1rem, 2.5vw, 2.25rem)",
             fontWeight: 300,
-            color: "var(--mint)",
+            color: "#E0A93A",
             textAlign: "center",
             letterSpacing: "0.04em",
             marginTop: 8,
@@ -111,7 +112,7 @@ export function Hero({ cardVariant = "dark" }: HeroProps) {
         <FadeIn delay={0.35} y={20}>
           <p
             style={{
-              color: "var(--bone)",
+              color: "rgba(4,52,44,0.7)",
               fontWeight: 300,
               textTransform: "lowercase",
               letterSpacing: "0.02em",

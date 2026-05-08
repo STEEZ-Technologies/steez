@@ -51,7 +51,7 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
           width: "min(1280px, 100%)",
           marginTop: index * 28,
           background: "var(--forest-deep)",
-          border: "2px solid rgba(111, 201, 161, 0.4)",
+          border: "2px solid rgba(224, 169, 58, 0.4)",
           borderRadius: "clamp(40px, 4vw, 60px)",
           padding: "clamp(20px, 2.5vw, 36px)",
           boxShadow: "0 40px 80px rgba(0,0,0,0.4)",

@@ -13,7 +13,7 @@ export function CornerCardStack() {
         width: "100%",
         aspectRatio: "1.2 / 1",
         position: "relative",
-        filter: "drop-shadow(0 30px 50px rgba(111,201,161,0.20))",
+        filter: "drop-shadow(0 30px 50px rgba(224, 169, 58,0.20))",
       }}
     >
       {CARDS.map((c, i) => (
@@ -24,14 +24,14 @@ export function CornerCardStack() {
             inset: "15% 10%",
             transform: `translate(${c.x}%, ${i * -2}%) rotate(${c.rot}deg) perspective(900px) rotateY(-10deg)`,
             background: c.light
-              ? "linear-gradient(135deg, #FFFFFF, #F2EFE5)"
-              : "linear-gradient(135deg, #14392F, #0A211B)",
+              ? "linear-gradient(135deg, #FFFFFF, #FAF9F5)"
+              : "linear-gradient(135deg, #084A3D, #021F18)",
             border: c.light
-              ? "1px solid rgba(14,45,36,0.12)"
-              : "1px solid rgba(111,201,161,0.30)",
+              ? "1px solid rgba(4, 52, 44,0.12)"
+              : "1px solid rgba(224, 169, 58,0.30)",
             borderRadius: 10,
             padding: "12% 12%",
-            color: c.light ? "#0E2D24" : "var(--bone)",
+            color: c.light ? "#04342C" : "var(--bone)",
             zIndex: c.z,
           }}
         >
@@ -64,12 +64,12 @@ export function CornerCardStack() {
               right: "12%",
               width: "32%",
               aspectRatio: "1",
-              background: c.light ? "#0E2D24" : "#F2EFE5",
+              background: c.light ? "#04342C" : "#FAF9F5",
               borderRadius: 4,
               padding: 3,
             }}
           >
-            <QRPattern size={50} fg={c.light ? "var(--mint)" : "#0A211B"} />
+            <QRPattern size={50} fg={c.light ? "var(--mint)" : "#021F18"} />
           </div>
         </div>
       ))}
