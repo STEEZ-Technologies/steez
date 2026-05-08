@@ -48,9 +48,10 @@ export function Services() {
       id="services"
       className="sticky top-0"
       style={{
-        background: "#04342C",
-        borderTopLeftRadius: "clamp(40px, 4vw, 60px)",
-        borderTopRightRadius: "clamp(40px, 4vw, 60px)",
+        background: "#FAF9F5",
+        borderTop: "1px solid rgba(4,52,44,0.15)",
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16,
         padding: "clamp(80px, 10vw, 160px) clamp(20px, 4vw, 40px)",
         zIndex: 3,
       }}
@@ -78,7 +79,7 @@ export function Services() {
             fontSize: "clamp(2.8rem, 8vw, 7rem)",
             lineHeight: 1,
             letterSpacing: "-0.03em",
-            color: "#FAF9F5",
+            color: "#04342C",
             textTransform: "uppercase",
             margin: 0,
           }}
@@ -102,9 +103,9 @@ export function Services() {
               className="service-card"
               style={{
                 height: "100%",
-                background: "#0a211b",
-                border: "1px solid rgba(224,169,58,0.15)",
-                borderRadius: 24,
+                background: "#FFFFFF",
+                border: "1px solid rgba(4,52,44,0.12)",
+                borderRadius: 16,
                 padding: "clamp(24px, 3vw, 36px)",
                 display: "flex",
                 flexDirection: "column",
@@ -120,7 +121,7 @@ export function Services() {
                   right: "clamp(20px, 2.5vw, 28px)",
                   fontWeight: 800,
                   fontSize: "clamp(0.65rem, 0.85vw, 0.78rem)",
-                  color: "rgba(224,169,58,0.5)",
+                  color: "#E0A93A",
                   letterSpacing: "0.12em",
                 }}
               >
@@ -134,10 +135,10 @@ export function Services() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  background: "rgba(224,169,58,0.1)",
+                  background: "rgba(4,52,44,0.06)",
                   borderRadius: 10,
                   fontSize: "1.3rem",
-                  color: "#E0A93A",
+                  color: "#04342C",
                 }}
               >
                 {s.icon}
@@ -148,7 +149,7 @@ export function Services() {
                   style={{
                     fontWeight: 700,
                     fontSize: "clamp(1.1rem, 1.8vw, 1.5rem)",
-                    color: "#FAF9F5",
+                    color: "#04342C",
                     margin: 0,
                     lineHeight: 1.15,
                   }}
@@ -175,7 +176,7 @@ export function Services() {
                   fontWeight: 300,
                   lineHeight: 1.6,
                   fontSize: "clamp(0.82rem, 1.1vw, 0.95rem)",
-                  color: "rgba(250,249,245,0.6)",
+                  color: "rgba(4,52,44,0.7)",
                   margin: 0,
                 }}
               >
@@ -191,7 +192,7 @@ export function Services() {
                   flexDirection: "column",
                   gap: 8,
                   marginTop: "auto",
-                  borderTop: "1px solid rgba(224,169,58,0.1)",
+                  borderTop: "1px solid rgba(4,52,44,0.1)",
                   paddingTop: "clamp(16px, 2vw, 20px)",
                 }}
               >
@@ -203,10 +204,18 @@ export function Services() {
                       alignItems: "baseline",
                       gap: 8,
                       fontSize: "clamp(0.75rem, 1vw, 0.88rem)",
-                      color: "rgba(250,249,245,0.55)",
+                      color: "rgba(4,52,44,0.65)",
                     }}
                   >
-                    <span style={{ color: "#E0A93A", fontWeight: 700, flexShrink: 0 }}>+</span>
+                    <span
+                      style={{
+                        color: "#1D9E75",
+                        fontWeight: 700,
+                        flexShrink: 0,
+                      }}
+                    >
+                      +
+                    </span>
                     {f}
                   </li>
                 ))}

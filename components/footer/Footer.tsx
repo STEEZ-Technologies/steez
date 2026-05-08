@@ -13,11 +13,11 @@ export function Footer() {
     <footer
       id="contact"
       style={{
-        background: "var(--forest-deep)",
-        color: "var(--bone)",
+        background: "#1A1A1A",
+        color: "#FAF9F5",
         padding:
           "clamp(60px, 8vw, 120px) clamp(20px, 4vw, 40px) clamp(28px, 4vw, 48px)",
-        borderTop: "1px solid rgba(111, 201, 161, 0.15)",
+        borderTop: "1px solid rgba(250,249,245,0.15)",
       }}
     >
       <div
@@ -45,7 +45,7 @@ export function Footer() {
             lang="zh"
             style={{
               fontWeight: 700,
-              color: "var(--mint)",
+              color: "#E0A93A",
               letterSpacing: "0.18em",
               marginTop: 4,
             }}
@@ -113,7 +113,7 @@ export function Footer() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          borderTop: "1px solid rgba(111, 201, 161, 0.15)",
+          borderTop: "1px solid rgba(250,249,245,0.12)",
           paddingTop: 24,
           fontSize: "0.78rem",
           opacity: 0.5,

@@ -12,9 +12,10 @@ export function Numbers() {
     <section
       className="sticky top-0"
       style={{
-        background: "#1A1A1A",
-        borderTop: "1px solid rgba(224,169,58,0.2)",
-        borderBottom: "1px solid rgba(224,169,58,0.2)",
+        background: "#04342C",
+        borderTop: "1px solid rgba(250,249,245,0.15)",
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16,
         zIndex: 2,
       }}
     >
@@ -33,7 +34,10 @@ export function Numbers() {
             y={20}
             style={{
               padding: "clamp(40px, 5vw, 80px) clamp(24px, 3vw, 48px)",
-              borderRight: i < STATS.length - 1 ? "1px solid rgba(224,169,58,0.15)" : undefined,
+              borderRight:
+                i < STATS.length - 1
+                  ? "1px solid rgba(250,249,245,0.15)"
+                  : undefined,
               display: "flex",
               flexDirection: "column",
               gap: "clamp(8px, 1vw, 14px)",
@@ -57,7 +61,7 @@ export function Numbers() {
               style={{
                 fontWeight: 400,
                 fontSize: "clamp(0.8rem, 1.2vw, 1rem)",
-                color: "rgba(250,249,245,0.5)",
+                color: "rgba(250,249,245,0.7)",
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
               }}

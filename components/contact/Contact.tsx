@@ -13,11 +13,11 @@ const INTERESTS = [
 
 const FIELD_STYLE: React.CSSProperties = {
   width: "100%",
-  background: "rgba(250,249,245,0.05)",
-  border: "1px solid rgba(224,169,58,0.2)",
+  background: "#FFFFFF",
+  border: "1px solid rgba(4,52,44,0.15)",
   borderRadius: 10,
   padding: "clamp(10px, 1.4vw, 14px) clamp(12px, 1.6vw, 16px)",
-  color: "#FAF9F5",
+  color: "#04342C",
   fontSize: "clamp(0.85rem, 1.1vw, 0.95rem)",
   outline: "none",
   fontFamily: "inherit",
@@ -53,9 +53,10 @@ export function Contact() {
       id="contact"
       className="sticky top-0"
       style={{
-        background: "#1A1A1A",
-        borderTopLeftRadius: "clamp(40px, 4vw, 60px)",
-        borderTopRightRadius: "clamp(40px, 4vw, 60px)",
+        background: "#FAF9F5",
+        borderTop: "1px solid rgba(4,52,44,0.15)",
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16,
         padding: "clamp(80px, 10vw, 160px) clamp(20px, 4vw, 40px)",
         zIndex: 7,
       }}
@@ -83,7 +84,7 @@ export function Contact() {
             fontSize: "clamp(2.8rem, 8vw, 7rem)",
             lineHeight: 1,
             letterSpacing: "-0.03em",
-            color: "#FAF9F5",
+            color: "#04342C",
             textTransform: "uppercase",
             margin: 0,
           }}
@@ -102,13 +103,12 @@ export function Contact() {
           alignItems: "start",
         }}
       >
-        {/* Left: contact info */}
         <FadeIn delay={0.1} x={-30} y={0}>
           <div
             style={{
-              background: "#0a211b",
-              border: "1px solid rgba(224,169,58,0.15)",
-              borderRadius: 24,
+              background: "#FFFFFF",
+              border: "1px solid rgba(4,52,44,0.12)",
+              borderRadius: 16,
               padding: "clamp(28px, 3.5vw, 44px)",
               display: "flex",
               flexDirection: "column",
@@ -137,7 +137,7 @@ export function Contact() {
                 <div
                   style={{
                     fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
-                    color: "rgba(250,249,245,0.8)",
+                    color: "rgba(4,52,44,0.8)",
                     fontWeight: 400,
                   }}
                 >
@@ -148,7 +148,7 @@ export function Contact() {
 
             <div
               style={{
-                borderTop: "1px solid rgba(224,169,58,0.1)",
+                borderTop: "1px solid rgba(4,52,44,0.1)",
                 paddingTop: "clamp(16px, 2vw, 24px)",
                 display: "flex",
                 gap: 12,
@@ -159,11 +159,11 @@ export function Contact() {
                   key={platform}
                   style={{
                     flex: 1,
-                    background: "rgba(224,169,58,0.08)",
-                    border: "1px solid rgba(224,169,58,0.25)",
+                    background: "transparent",
+                    border: "1px solid rgba(4,52,44,0.2)",
                     borderRadius: 999,
                     padding: "clamp(8px, 1.2vw, 12px) 0",
-                    color: "#E0A93A",
+                    color: "#04342C",
                     fontWeight: 600,
                     fontSize: "clamp(0.75rem, 1vw, 0.88rem)",
                     textTransform: "uppercase",
@@ -180,13 +180,12 @@ export function Contact() {
           </div>
         </FadeIn>
 
-        {/* Right: form */}
         <FadeIn delay={0.2} x={30} y={0}>
           <div
             style={{
-              background: "#0a211b",
-              border: "1px solid rgba(224,169,58,0.15)",
-              borderRadius: 24,
+              background: "#FFFFFF",
+              border: "1px solid rgba(4,52,44,0.12)",
+              borderRadius: 16,
               padding: "clamp(28px, 3.5vw, 44px)",
             }}
           >
@@ -201,12 +200,12 @@ export function Contact() {
                   gap: 16,
                 }}
               >
-                <div style={{ fontSize: "2.5rem" }}>✓</div>
+                <div style={{ fontSize: "2.5rem", color: "#1D9E75" }}>✓</div>
                 <div
                   style={{
                     fontWeight: 800,
                     fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
-                    color: "#FAF9F5",
+                    color: "#04342C",
                   }}
                 >
                   Message sent
@@ -214,7 +213,7 @@ export function Contact() {
                 <div
                   style={{
                     fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
-                    color: "rgba(250,249,245,0.5)",
+                    color: "rgba(4,52,44,0.5)",
                   }}
                 >
                   We&apos;ll be in touch within 24 hours.
@@ -225,75 +224,26 @@ export function Contact() {
                 onSubmit={handleSubmit}
                 style={{ display: "flex", flexDirection: "column", gap: 16 }}
               >
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: 16,
-                  }}
-                >
-                  <input
-                    name="name"
-                    placeholder="Name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    style={FIELD_STYLE}
-                  />
-                  <input
-                    name="company"
-                    placeholder="Company"
-                    value={form.company}
-                    onChange={handleChange}
-                    style={FIELD_STYLE}
-                  />
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                  <input name="name" placeholder="Name" value={form.name} onChange={handleChange} required style={FIELD_STYLE} />
+                  <input name="company" placeholder="Company" value={form.company} onChange={handleChange} style={FIELD_STYLE} />
                 </div>
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                  style={FIELD_STYLE}
-                />
-                <input
-                  name="wechat"
-                  placeholder="WeChat ID"
-                  value={form.wechat}
-                  onChange={handleChange}
-                  style={FIELD_STYLE}
-                />
-                <select
-                  name="interest"
-                  value={form.interest}
-                  onChange={handleChange}
-                  style={{ ...FIELD_STYLE, appearance: "none" }}
-                >
-                  <option value="" disabled>
-                    Interest
-                  </option>
+                <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required style={FIELD_STYLE} />
+                <input name="wechat" placeholder="WeChat ID" value={form.wechat} onChange={handleChange} style={FIELD_STYLE} />
+                <select name="interest" value={form.interest} onChange={handleChange} style={{ ...FIELD_STYLE, appearance: "none" }}>
+                  <option value="" disabled>Interest</option>
                   {INTERESTS.map((opt) => (
-                    <option key={opt} value={opt} style={{ background: "#1A1A1A" }}>
-                      {opt}
-                    </option>
+                    <option key={opt} value={opt} style={{ background: "#FAF9F5", color: "#04342C" }}>{opt}</option>
                   ))}
                 </select>
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  rows={4}
-                  value={form.message}
-                  onChange={handleChange}
-                  style={{ ...FIELD_STYLE, resize: "vertical" }}
-                />
+                <textarea name="message" placeholder="Message" rows={4} value={form.message} onChange={handleChange} style={{ ...FIELD_STYLE, resize: "vertical" }} />
                 <button
                   type="submit"
                   style={{
                     width: "100%",
                     padding: "clamp(13px, 1.6vw, 17px) 0",
-                    background: "#E0A93A",
-                    color: "#1A1A1A",
+                    background: "#04342C",
+                    color: "#FAF9F5",
                     border: "none",
                     borderRadius: 999,
                     fontWeight: 700,
@@ -302,7 +252,7 @@ export function Contact() {
                     letterSpacing: "0.1em",
                     cursor: "pointer",
                     fontFamily: "inherit",
-                    transition: "opacity 0.2s ease",
+                    transition: "background 0.2s ease",
                   }}
                 >
                   Send Message

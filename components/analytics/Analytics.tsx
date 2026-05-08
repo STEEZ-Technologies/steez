@@ -28,9 +28,10 @@ export function Analytics() {
     <section
       className="sticky top-0"
       style={{
-        background: "#0a211b",
-        borderTopLeftRadius: "clamp(40px, 4vw, 60px)",
-        borderTopRightRadius: "clamp(40px, 4vw, 60px)",
+        background: "#04342C",
+        borderTop: "1px solid rgba(250,249,245,0.15)",
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16,
         padding: "clamp(80px, 10vw, 160px) clamp(20px, 4vw, 40px)",
         zIndex: 4,
       }}
@@ -45,7 +46,6 @@ export function Analytics() {
           alignItems: "center",
         }}
       >
-        {/* Left: text */}
         <FadeIn delay={0} x={-40} y={0}>
           <div
             style={{
@@ -79,7 +79,7 @@ export function Analytics() {
               fontWeight: 300,
               fontSize: "clamp(0.95rem, 1.4vw, 1.2rem)",
               lineHeight: 1.65,
-              color: "rgba(232,239,234,0.65)",
+              color: "rgba(250,249,245,0.7)",
               marginTop: "clamp(24px, 3vw, 40px)",
               maxWidth: 480,
             }}
@@ -91,12 +91,11 @@ export function Analytics() {
           </p>
         </FadeIn>
 
-        {/* Right: dashboard card */}
         <FadeIn delay={0.2} y={40}>
           <div
             style={{
-              background: "#0F1A18",
-              border: "1px solid rgba(224,169,58,0.2)",
+              background: "rgba(250,249,245,0.05)",
+              border: "1px solid rgba(250,249,245,0.12)",
               borderRadius: 16,
               padding: "clamp(20px, 2.5vw, 32px)",
               display: "flex",
@@ -104,14 +103,13 @@ export function Analytics() {
               gap: "clamp(20px, 2.5vw, 28px)",
             }}
           >
-            {/* Metric cards */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
               {METRICS.map((m) => (
                 <div
                   key={m.label}
                   style={{
-                    background: "rgba(224,169,58,0.06)",
-                    border: "1px solid rgba(224,169,58,0.12)",
+                    background: "rgba(250,249,245,0.07)",
+                    border: "1px solid rgba(250,249,245,0.1)",
                     borderRadius: 10,
                     padding: "clamp(10px,1.5vw,16px)",
                   }}
@@ -129,7 +127,7 @@ export function Analytics() {
                   <div
                     style={{
                       fontSize: "clamp(0.65rem, 0.9vw, 0.78rem)",
-                      color: "rgba(250,249,245,0.45)",
+                      color: "rgba(250,249,245,0.5)",
                       textTransform: "uppercase",
                       letterSpacing: "0.1em",
                       marginTop: 4,
@@ -141,12 +139,11 @@ export function Analytics() {
               ))}
             </div>
 
-            {/* Bar chart */}
             <div>
               <div
                 style={{
                   fontSize: "clamp(0.65rem, 0.9vw, 0.78rem)",
-                  color: "rgba(250,249,245,0.4)",
+                  color: "rgba(250,249,245,0.45)",
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
                   marginBottom: 12,
@@ -154,14 +151,7 @@ export function Analytics() {
               >
                 Buyer Scans by Month
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-end",
-                  gap: 8,
-                  height: 80,
-                }}
-              >
+              <div style={{ display: "flex", alignItems: "flex-end", gap: 8, height: 80 }}>
                 {BAR_DATA.map((d) => (
                   <div
                     key={d.month}
@@ -181,13 +171,12 @@ export function Analytics() {
                         height: `${d.value}%`,
                         background: "#E0A93A",
                         borderRadius: "3px 3px 0 0",
-                        opacity: 0.85 + d.value * 0.0015,
                       }}
                     />
                     <div
                       style={{
                         fontSize: "0.6rem",
-                        color: "rgba(250,249,245,0.35)",
+                        color: "rgba(250,249,245,0.4)",
                         textTransform: "uppercase",
                         letterSpacing: "0.05em",
                       }}
@@ -199,12 +188,11 @@ export function Analytics() {
               </div>
             </div>
 
-            {/* Region breakdown */}
             <div>
               <div
                 style={{
                   fontSize: "clamp(0.65rem, 0.9vw, 0.78rem)",
-                  color: "rgba(250,249,245,0.4)",
+                  color: "rgba(250,249,245,0.45)",
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
                   marginBottom: 10,
@@ -219,7 +207,7 @@ export function Analytics() {
                       style={{
                         width: 110,
                         fontSize: "clamp(0.7rem, 0.95vw, 0.82rem)",
-                        color: "rgba(250,249,245,0.6)",
+                        color: "rgba(250,249,245,0.65)",
                         flexShrink: 0,
                       }}
                     >
@@ -229,7 +217,7 @@ export function Analytics() {
                       style={{
                         flex: 1,
                         height: 6,
-                        background: "rgba(224,169,58,0.12)",
+                        background: "rgba(250,249,245,0.1)",
                         borderRadius: 999,
                         overflow: "hidden",
                       }}
@@ -248,7 +236,7 @@ export function Analytics() {
                         width: 34,
                         textAlign: "right",
                         fontSize: "clamp(0.68rem, 0.9vw, 0.78rem)",
-                        color: "rgba(250,249,245,0.45)",
+                        color: "rgba(250,249,245,0.5)",
                         flexShrink: 0,
                       }}
                     >

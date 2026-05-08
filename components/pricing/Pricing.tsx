@@ -55,8 +55,9 @@ export function Pricing() {
       className="sticky top-0"
       style={{
         background: "#04342C",
-        borderTopLeftRadius: "clamp(40px, 4vw, 60px)",
-        borderTopRightRadius: "clamp(40px, 4vw, 60px)",
+        borderTop: "1px solid rgba(250,249,245,0.15)",
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16,
         padding: "clamp(80px, 10vw, 160px) clamp(20px, 4vw, 40px)",
         zIndex: 6,
       }}
@@ -110,11 +111,9 @@ export function Pricing() {
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
-                background: plan.featured ? "#E0A93A" : "#0a211b",
-                border: plan.featured
-                  ? "none"
-                  : "1px solid rgba(224,169,58,0.2)",
-                borderRadius: 24,
+                background: plan.featured ? "#E0A93A" : "rgba(250,249,245,0.06)",
+                border: plan.featured ? "none" : "1px solid rgba(250,249,245,0.12)",
+                borderRadius: 16,
                 padding: "clamp(24px, 3vw, 40px)",
                 color: plan.featured ? "#1A1A1A" : "#FAF9F5",
                 position: "relative",
@@ -127,8 +126,8 @@ export function Pricing() {
                     top: -14,
                     left: "50%",
                     transform: "translateX(-50%)",
-                    background: "#1A1A1A",
-                    color: "#E0A93A",
+                    background: "#FAF9F5",
+                    color: "#04342C",
                     fontSize: "0.7rem",
                     fontWeight: 700,
                     letterSpacing: "0.12em",
@@ -168,7 +167,7 @@ export function Pricing() {
                     style={{
                       fontWeight: 400,
                       fontSize: "clamp(0.8rem, 1.2vw, 1rem)",
-                      opacity: 0.6,
+                      opacity: 0.55,
                       marginLeft: 4,
                     }}
                   >
@@ -204,9 +203,7 @@ export function Pricing() {
                         fontWeight: 700,
                         flexShrink: 0,
                         color: f.yes
-                          ? plan.featured
-                            ? "#1A1A1A"
-                            : "#E0A93A"
+                          ? plan.featured ? "#04342C" : "#E0A93A"
                           : "inherit",
                       }}
                     >
@@ -230,7 +227,7 @@ export function Pricing() {
                   letterSpacing: "0.1em",
                   textDecoration: "none",
                   borderRadius: 999,
-                  background: plan.featured ? "#1A1A1A" : "#E0A93A",
+                  background: plan.featured ? "#04342C" : "#E0A93A",
                   color: plan.featured ? "#FAF9F5" : "#1A1A1A",
                   transition: "opacity 0.2s ease",
                 }}

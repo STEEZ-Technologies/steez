@@ -11,10 +11,10 @@ export function About() {
   return (
     <section
       id="about"
+      className="sticky top-0"
       style={{
         minHeight: "100vh",
         padding: "clamp(80px, 10vw, 160px) clamp(20px, 4vw, 40px)",
-        position: "relative",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

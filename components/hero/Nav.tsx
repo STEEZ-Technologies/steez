@@ -30,7 +30,7 @@ export function Nav() {
             gap: "clamp(20px, 3vw, 48px)",
             margin: 0,
             padding: 0,
-            color: "var(--bone)",
+            color: "#04342C",
             fontWeight: 500,
             fontSize: "clamp(0.85rem, 1.1vw, 1.2rem)",
             letterSpacing: "0.06em",

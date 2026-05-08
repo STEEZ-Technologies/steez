@@ -21,13 +21,13 @@ export function BizCard({
   const aspect = 1.6;
   const h = width / aspect;
 
-  const fg = isLight ? "#0E2D24" : "#E8EFEA";
+  const fg = isLight ? "#04342C" : "#FAF9F5";
   const sub = isLight
-    ? "rgba(14,45,36,0.55)"
-    : "rgba(232,239,234,0.55)";
+    ? "rgba(4, 52, 44,0.55)"
+    : "rgba(250, 249, 245,0.55)";
   const line = isLight
-    ? "rgba(14,45,36,0.18)"
-    : "rgba(111,201,161,0.30)";
+    ? "rgba(4, 52, 44,0.18)"
+    : "rgba(224, 169, 58,0.30)";
   const padding = width * 0.07;
 
   return (
@@ -38,7 +38,7 @@ export function BizCard({
         position: "relative",
         transform: `perspective(1200px) rotateY(-${tilt}deg) rotateX(4deg)`,
         transformStyle: "preserve-3d",
-        filter: "drop-shadow(0 30px 80px rgba(111, 201, 161, 0.18))",
+        filter: "drop-shadow(0 30px 80px rgba(224, 169, 58, 0.18))",
       }}
     >
       <div
@@ -46,8 +46,8 @@ export function BizCard({
           position: "absolute",
           inset: 0,
           background: isLight
-            ? "linear-gradient(135deg, #FFFFFF 0%, #F2EFE5 70%, #E8E2D2 100%)"
-            : "linear-gradient(135deg, #14392F 0%, #0A211B 65%, #061612 100%)",
+            ? "linear-gradient(135deg, #FFFFFF 0%, #FAF9F5 70%, #EFEDE3 100%)"
+            : "linear-gradient(135deg, #084A3D 0%, #021F18 65%, #021110 100%)",
           borderRadius: width * 0.04,
           border: `1px solid ${line}`,
           overflow: "hidden",
@@ -62,7 +62,7 @@ export function BizCard({
               position: "absolute",
               inset: 0,
               background:
-                "radial-gradient(ellipse at 80% 0%, rgba(111,201,161,0.18), transparent 50%)",
+                "radial-gradient(ellipse at 80% 0%, rgba(224, 169, 58,0.18), transparent 50%)",
               pointerEvents: "none",
             }}
           />
@@ -162,14 +162,14 @@ export function BizCard({
             bottom: padding,
             width: width * 0.18,
             height: width * 0.18,
-            background: isLight ? "#0E2D24" : "#F2EFE5",
+            background: isLight ? "#04342C" : "#FAF9F5",
             borderRadius: width * 0.012,
             padding: width * 0.012,
           }}
         >
           <QRPattern
             size={width * 0.156}
-            fg={isLight ? "var(--mint)" : "#0A211B"}
+            fg={isLight ? "var(--mint)" : "#021F18"}
           />
         </div>
       </div>
