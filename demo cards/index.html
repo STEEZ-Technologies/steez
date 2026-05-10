@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<script>(function(){var t=localStorage.getItem('wa-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万安科技 · WanAn Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root {
+  --bg:      #05101f;
+  --s1:      #0b1a2d;
+  --s2:      #0f2340;
+  --s3:      #152d50;
+  --viewer:  #0d2445;
+  --primary: #38bdf8;
+  --blue:    #0ea5e9;
+  --cyan:    #22d3ee;
+  --accent:  #7dd3fc;
+  --border:  rgba(56,189,248,.14);
+  --borderh: rgba(56,189,248,.42);
+  --text:    #e8f4fd;
+  --muted:   #7fa8c9;
+  --steel:   #4e7090;
+}
+/* ── LIGHT THEME ─────────────────────────────────────────── */
+html[data-theme="light"] {
+  --bg:      #eef4fb;
+  --s1:      #ffffff;
+  --s2:      #f4f8fc;
+  --s3:      #e6f0fa;
+  --viewer:  #0c1830;
+  --primary: #0369a1;
+  --blue:    #0ea5e9;
+  --cyan:    #06b6d4;
+  --accent:  #0284c7;
+  --border:  rgba(3,105,161,.12);
+  --borderh: rgba(3,105,161,.35);
+  --text:    #0c1a2e;
+  --muted:   #64748b;
+  --steel:   #94a3b8;
+}
+html[data-theme="light"] nav{background:rgba(238,244,251,.92);}
+html[data-theme="light"] #hero{background:linear-gradient(160deg,#deeeff 0%,#f0f7ff 40%,#eef4fb 100%);}
+html[data-theme="light"] .hero-grid{background-image:linear-gradient(rgba(3,105,161,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(3,105,161,.06) 1px,transparent 1px);}
+html[data-theme="light"] .hero-lines::before{background-image:repeating-linear-gradient(-45deg,transparent,transparent 80px,rgba(3,105,161,.025) 80px,rgba(3,105,161,.025) 81px);}
+html[data-theme="light"] .hero-orb1{background:radial-gradient(circle,rgba(14,165,233,.14) 0%,transparent 70%);}
+html[data-theme="light"] .hero-orb2{background:radial-gradient(circle,rgba(6,182,212,.09) 0%,transparent 70%);}
+html[data-theme="light"] .hero-orb3{background:radial-gradient(circle,rgba(3,105,161,.07) 0%,transparent 65%);}
+html[data-theme="light"] .hero-title{background:linear-gradient(140deg,#0c1a2e 0%,#0369a1 50%,#0891b2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+html[data-theme="light"] .hero-badge{background:rgba(3,105,161,.08);border-color:rgba(3,105,161,.2);}
+html[data-theme="light"] .btn-ghost{background:rgba(255,255,255,.85);box-shadow:0 2px 8px rgba(0,0,0,.07);}
+html[data-theme="light"] .btn-ghost:hover{background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.1);}
+html[data-theme="light"] .modal-box{box-shadow:0 40px 120px rgba(0,0,0,.15);}
+
+/* Smooth theme switching */
+body,nav,.product-card,.ccard,.astat,.val,.cert,.ftag,
+.fg input,.fg textarea,.fg select,.gthumb,.modal-box,.chip,.card-arr,.card-foot{
+  transition:background-color .3s,border-color .3s,color .3s,box-shadow .3s;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;}
+
+/* ── NAV ─────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 56px;
+  background:rgba(5,16,31,.88);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{
+  width:38px;height:38px;border-radius:9px;
+  background:linear-gradient(135deg,#0284c7,#22d3ee);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Orbitron',monospace;font-weight:900;font-size:10px;color:#fff;
+  box-shadow:0 4px 16px rgba(14,165,233,.4);
+}
+.nav-name{font-size:15px;font-weight:700;color:var(--text);}
+.nav-right{display:flex;align-items:center;gap:32px;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;cursor:pointer;}
+.nav-links a:hover{color:var(--primary);}
+.lang-toggle{display:flex;background:var(--s2);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.lang-toggle button{
+  padding:6px 14px;font-size:12px;font-weight:700;
+  border:none;background:transparent;color:var(--muted);
+  cursor:pointer;transition:all .2s;font-family:'Noto Sans SC',sans-serif;
+}
+.lang-toggle button.active{background:var(--primary);color:#fff;}
+.theme-toggle{
+  width:36px;height:36px;background:var(--s2);border:1px solid var(--border);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--muted);flex-shrink:0;
+}
+.theme-toggle:hover{background:var(--s3);color:var(--primary);border-color:var(--borderh);}
+.theme-toggle svg{width:16px;height:16px;pointer-events:none;}
+
+/* ── HERO ────────────────────────────────────────────────── */
+#hero{
+  min-height:100dvh;display:flex;align-items:center;
+  position:relative;overflow:hidden;padding:120px 56px 80px;
+  background:linear-gradient(155deg,#0a1e3d 0%,#071526 45%,#05101f 100%);
+}
+/* Animated grid pattern */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(56,189,248,.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56,189,248,.065) 1px, transparent 1px);
+  background-size:64px 64px;
+  animation:gridshift 28s linear infinite;
+}
+@keyframes gridshift{to{background-position:64px 64px;}}
+/* Diagonal accent lines */
+.hero-lines{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.55;
+}
+.hero-lines::before{
+  content:'';position:absolute;width:200%;height:200%;
+  top:-50%;left:-50%;
+  background-image:repeating-linear-gradient(
+    -45deg,
+    transparent,transparent 80px,
+    rgba(56,189,248,.04) 80px,rgba(56,189,248,.04) 81px
+  );
+  animation:linedrift 60s linear infinite;
+}
+@keyframes linedrift{to{transform:translate(50%,50%);}}
+/* Glow orbs */
+.hero-orb1{
+  position:absolute;width:900px;height:900px;border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,.22) 0%,rgba(14,165,233,.06) 40%,transparent 70%);
+  top:-250px;right:-200px;pointer-events:none;
+  animation:drifta 22s ease-in-out infinite alternate;
+}
+.hero-orb2{
+  position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(6,182,212,.18) 0%,rgba(6,182,212,.05) 45%,transparent 70%);
+  bottom:-120px;left:-120px;pointer-events:none;
+  animation:driftb 28s ease-in-out infinite alternate;
+}
+.hero-orb3{
+  position:absolute;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(56,189,248,.14) 0%,transparent 65%);
+  top:48%;left:42%;transform:translate(-50%,-50%);pointer-events:none;
+  animation:drifta 16s ease-in-out 6s infinite alternate;
+}
+@keyframes drifta{0%{transform:translate(0,0);}100%{transform:translate(-50px,-60px);}}
+@keyframes driftb{0%{transform:translate(0,0);}100%{transform:translate(60px,44px);}}
+.hero-inner{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:72px;align-items:center;
+  width:100%;max-width:1400px;margin:0 auto;
+}
+.hero-text{max-width:560px;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.22);
+  border-radius:100px;padding:7px 20px;
+  font-size:11px;color:var(--primary);font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:28px;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--primary);animation:blink 2s ease infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-logo-svg{width:68px;height:68px;margin-bottom:18px;filter:drop-shadow(0 4px 16px rgba(3,105,161,.3));}
+.hero-title{
+  font-size:clamp(46px,6vw,84px);font-weight:900;line-height:1.0;letter-spacing:-3px;
+  background:linear-gradient(140deg,#e8f4fd 0%,#38bdf8 50%,#22d3ee 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:12px;
+}
+.hero-en{
+  font-family:'Orbitron',monospace;font-size:clamp(11px,1.2vw,14px);
+  font-weight:700;letter-spacing:5px;color:var(--muted);margin-bottom:16px;text-transform:uppercase;
+}
+.hero-sub{
+  color:var(--muted);font-size:15.5px;line-height:1.8;margin-bottom:24px;max-width:460px;
+}
+.hero-ftags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
+.ftag{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.2);
+  border-radius:8px;padding:5px 13px;font-size:12px;font-weight:600;color:var(--muted);
+  transition:background .2s,border-color .2s;
+}
+.ftag:hover{background:rgba(56,189,248,.14);border-color:rgba(56,189,248,.4);color:var(--accent);}
+.ftag-check{color:var(--cyan);font-size:11px;}
+.hero-stats{display:flex;gap:36px;margin-bottom:48px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-family:'Orbitron',monospace;font-size:26px;font-weight:900;color:var(--cyan);line-height:1;}
+.stat-label{font-size:12px;color:var(--muted);margin-top:4px;}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 30px;border-radius:11px;border:none;cursor:pointer;
+  font-size:15px;font-weight:600;font-family:'Noto Sans SC',sans-serif;
+  text-decoration:none;transition:transform .2s,box-shadow .2s;
+}
+.btn:active{transform:scale(.97)!important;}
+.btn-primary{background:linear-gradient(135deg,#0284c7,#0ea5e9);color:#fff;box-shadow:0 4px 24px rgba(14,165,233,.35);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(14,165,233,.5);}
+.btn-ghost{background:rgba(255,255,255,.06);border:1.5px solid var(--border);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.2);}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:var(--borderh);transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.3);}
+
+/* Hero 3D */
+.hero-model-wrap{
+  position:relative;
+  background:radial-gradient(ellipse at 35% 40%, #1e4d80 0%, #102d5a 45%, #07192f 100%);
+  border:1px solid rgba(56,189,248,.2);border-radius:24px;
+  overflow:hidden;height:520px;
+  box-shadow:0 0 0 1px rgba(56,189,248,.08),0 24px 80px rgba(14,165,233,.2),inset 0 0 80px rgba(14,165,233,.06);
+}
+.hero-model-wrap canvas{display:block;width:100%!important;height:100%!important;}
+.model-glow{position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to top,rgba(5,16,31,.7),transparent);pointer-events:none;}
+.model-label{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:11px;color:rgba(148,163,184,.7);letter-spacing:1px;pointer-events:none;}
+#hero-spinner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+.spin-ring{width:36px;height:36px;border:2px solid rgba(14,165,233,.25);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── SECTION ─────────────────────────────────────────────── */
+.sw{max-width:1440px;margin:0 auto;padding:104px 56px;}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--primary);font-weight:600;margin-bottom:12px;}
+.stitle{font-size:clamp(28px,3.8vw,50px);font-weight:900;line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px;}
+.sdesc{color:var(--muted);font-size:16px;max-width:580px;line-height:1.75;margin-bottom:64px;}
+
+/* ── PRODUCTS ────────────────────────────────────────────── */
+#products{background:var(--s2);border-top:1px solid var(--border);}
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.product-card{
+  background:var(--s1);border:1.5px solid var(--border);border-radius:22px;
+  overflow:hidden;cursor:pointer;position:relative;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+  box-shadow:0 2px 12px rgba(0,0,0,.05);
+}
+.product-card:hover{
+  border-color:var(--borderh);transform:translateY(-5px);
+  box-shadow:0 24px 60px rgba(3,105,161,.12),0 0 0 1px rgba(3,105,161,.08);
+}
+.card-visual{height:300px;background:radial-gradient(ellipse at 40% 50%, #173660 0%, #0c2444 50%, #06111f 100%);position:relative;overflow:hidden;}
+.card-visual canvas{display:block;width:100%!important;height:100%!important;touch-action:none;}
+.card-loading{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:10px;font-size:12px;color:rgba(148,163,184,.7);
+  transition:opacity .4s;
+}
+.card-loading.hidden{opacity:0;pointer-events:none;}
+.card-drag-hint{
+  position:absolute;bottom:10px;right:10px;
+  background:rgba(0,0,0,.45);border-radius:100px;
+  padding:3px 10px;font-size:11px;color:rgba(255,255,255,.6);
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.product-card:hover .card-drag-hint{opacity:1;}
+.card-body{padding:24px 28px 28px;}
+.card-tag{display:inline-block;padding:3px 11px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
+.card-name{font-size:21px;font-weight:800;line-height:1.15;margin-bottom:3px;color:var(--text);}
+.card-sub{font-size:12px;color:var(--muted);margin-bottom:11px;}
+.card-desc{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:18px;}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;}
+.chip{display:flex;align-items:center;gap:5px;background:var(--s2);border:1px solid var(--border);border-radius:7px;padding:4px 10px;font-size:12px;color:var(--muted);}
+.chip-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.card-foot{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--border);}
+.card-act{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--primary);}
+.card-arr{width:30px;height:30px;background:var(--s2);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.product-card:hover .card-arr{background:var(--primary);border-color:var(--primary);}
+
+/* ── ABOUT ───────────────────────────────────────────────── */
+#about{background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:64px;}
+.about-text p{color:var(--muted);font-size:15.5px;line-height:1.8;margin-bottom:18px;}
+.about-text p:last-child{margin-bottom:0;}
+.about-text strong{color:var(--text);font-weight:700;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1.5px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.05);}
+.astat{background:var(--s2);padding:32px 28px;transition:background .2s;}
+.astat:hover{background:var(--s3);}
+.astat-num{font-family:'Orbitron',monospace;font-size:34px;font-weight:900;color:var(--cyan);line-height:1;margin-bottom:7px;}
+.astat-lab{font-size:13px;color:var(--muted);font-weight:500;}
+.div-line{height:1px;background:var(--border);margin-bottom:48px;}
+.certs-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:20px;text-align:center;}
+.certs{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cert{background:var(--s2);border:1.5px solid var(--border);border-radius:11px;padding:12px 24px;text-align:center;transition:border-color .2s,transform .2s;}
+.cert:hover{border-color:var(--borderh);transform:translateY(-2px);}
+.cert-name{font-family:'Orbitron',monospace;font-size:12px;font-weight:700;color:var(--primary);margin-bottom:3px;}
+.cert-desc{font-size:11px;color:var(--muted);}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;}
+.val{background:var(--s2);border:1.5px solid var(--border);border-radius:16px;padding:26px;transition:border-color .3s,transform .3s,box-shadow .3s;}
+.val:hover{border-color:var(--borderh);transform:translateY(-4px);box-shadow:0 12px 36px rgba(3,105,161,.1);}
+.val-icon{width:46px;height:46px;background:rgba(56,189,248,.08);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.val-name{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--text);}
+.val-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* ── CONTACT ─────────────────────────────────────────────── */
+#contact{background:var(--bg);}
+.contact-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:start;}
+.ccard{background:var(--s1);border:1.5px solid var(--border);border-radius:22px;padding:40px;box-shadow:0 2px 12px rgba(0,0,0,.05);}
+.ci{display:flex;gap:16px;align-items:flex-start;margin-bottom:28px;}
+.ci:last-child{margin-bottom:0;}
+.ci-ico{width:44px;height:44px;flex-shrink:0;background:rgba(56,189,248,.07);border:1px solid var(--border);border-radius:11px;display:flex;align-items:center;justify-content:center;}
+.ci-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:600;margin-bottom:3px;}
+.ci-val{font-size:14px;font-weight:500;color:var(--text);}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.fg label{font-size:13px;color:var(--muted);font-weight:500;}
+.fg input,.fg textarea,.fg select{
+  background:var(--s2);border:1.5px solid var(--border);border-radius:10px;
+  padding:12px 14px;color:var(--text);font-family:'Noto Sans SC',sans-serif;
+  font-size:14px;outline:none;width:100%;transition:border-color .2s,box-shadow .2s;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(3,105,161,.1);}
+.fg textarea{min-height:100px;resize:vertical;}
+.fg select option{background:var(--s1);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer{border-top:1px solid var(--border);padding:40px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;max-width:1440px;margin:0 auto;}
+footer p{font-size:13px;color:var(--muted);}
+
+/* ── MODAL ───────────────────────────────────────────────── */
+#modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;pointer-events:none;}
+.modal-scrim{position:absolute;inset:0;background:rgba(12,26,46,.7);backdrop-filter:blur(16px);opacity:0;transition:opacity .35s;}
+.modal-box{
+  position:relative;z-index:1;background:var(--s1);border:1.5px solid var(--border);
+  border-radius:26px;max-width:1100px;width:100%;max-height:92dvh;overflow-y:auto;
+  opacity:0;transform:translateY(20px) scale(.97);transition:opacity .35s,transform .35s;
+  box-shadow:0 40px 120px rgba(0,0,0,.25);
+}
+#modal.open{pointer-events:all;}
+#modal.open .modal-scrim{opacity:1;}
+#modal.open .modal-box{opacity:1;transform:none;}
+.mhead{display:flex;align-items:flex-start;justify-content:space-between;padding:30px 34px 0;}
+.mclose{width:36px;height:36px;background:var(--s2);border:1.5px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);flex-shrink:0;transition:all .2s;}
+.mclose:hover{background:var(--s3);color:var(--text);}
+.mcontent{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:24px 34px 34px;}
+.mleft{display:flex;flex-direction:column;gap:12px;}
+#m3d{
+  background:radial-gradient(ellipse at 40% 45%, #1a3f70 0%, #0d2748 50%, #060f1e 100%);
+  border-radius:16px;height:340px;position:relative;
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(56,189,248,.18);
+}
+#m3d canvas{display:block;width:100%!important;height:100%!important;}
+#mspinner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+.mctrls{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:11px;color:rgba(148,163,184,.6);pointer-events:none;}
+
+/* Gallery */
+.mgallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.gthumb{
+  background:var(--s2);border:1.5px solid var(--border);border-radius:10px;
+  height:90px;overflow:hidden;cursor:pointer;position:relative;
+  transition:border-color .2s,transform .2s;display:flex;align-items:center;justify-content:center;
+}
+.gthumb:hover{border-color:var(--borderh);transform:scale(1.03);}
+.gthumb.active{border-color:var(--primary);box-shadow:0 0 0 2px rgba(3,105,161,.15);}
+.gthumb svg{width:100%;height:100%;}
+.gthumb-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(0,0,0,.5),transparent);
+  font-size:9px;color:rgba(255,255,255,.8);text-align:center;
+  padding:4px 4px 5px;font-weight:600;letter-spacing:.5px;
+}
+
+.mdetail{padding:0 0 0 32px;display:flex;flex-direction:column;}
+.mtag-wrap{margin-bottom:10px;}
+.mname{font-size:26px;font-weight:900;line-height:1.1;margin-bottom:3px;color:var(--text);}
+.msub{font-size:13px;color:var(--muted);margin-bottom:16px;}
+.mdesc{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:22px;}
+.slabel{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px;}
+.stbl{width:100%;border-collapse:collapse;margin-bottom:22px;}
+.stbl tr{border-bottom:1px solid var(--border);}
+.stbl td{padding:9px 0;font-size:13px;}
+.stbl td:first-child{color:var(--muted);width:44%;}
+.stbl td:last-child{color:var(--text);font-weight:600;}
+.mactions{display:flex;gap:10px;margin-top:auto;padding-top:20px;}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media(max-width:1100px){
+  .hero-inner{grid-template-columns:1fr;gap:44px;}
+  .hero-text{max-width:100%;}
+  .hero-model-wrap{height:380px;}
+  .about-grid{grid-template-columns:1fr;gap:44px;}
+}
+@media(max-width:768px){
+  nav{padding:14px 20px;}
+  .nav-links{display:none;}
+  .sw{padding:60px 20px;}
+  #hero{padding:100px 20px 60px;}
+  .hero-stats{gap:20px;}
+  .products-grid{grid-template-columns:1fr;}
+  .contact-layout{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:1fr;}
+  .vals{grid-template-columns:1fr;}
+  .mcontent{grid-template-columns:1fr;}
+  .mdetail{padding:20px 0 0;}
+  #m3d{height:240px;}
+  footer{flex-direction:column;text-align:center;}
+}
+@media(max-width:480px){.hero-cta{flex-direction:column;}.btn{justify-content:center;}.form-row{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-brand">
+    <div class="logo-mark">WA</div>
+    <span class="nav-name" data-zh="万安科技" data-en="WanAn Technology">万安科技</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#products" data-zh="产品" data-en="Products">产品</a></li>
+      <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
+      <li><a href="#contact" data-zh="联系" data-en="Contact">联系</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button id="btn-zh" class="active" onclick="setLang('zh')">中文</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+      <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4.5"/>
+        <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-orb3"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        <span data-zh="工业水泵制造商 · 全球出口" data-en="Industrial Pump Manufacturer · Global Export">工业水泵制造商 · 全球出口</span>
+      </div>
+      <svg class="hero-logo-svg" viewBox="0 0 80 80" fill="none">
+        <defs><linearGradient id="hg" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs>
+        <circle cx="40" cy="40" r="37" stroke="url(#hg)" stroke-width="2.5"/>
+        <path d="M40 18C40 18 58 28 58 40C58 52 46 56 40 56C34 56 22 52 22 40C22 28 40 18 40 18Z" stroke="url(#hg)" stroke-width="1.5" fill="rgba(56,189,248,.1)"/>
+        <circle cx="40" cy="40" r="9" fill="url(#hg)"/>
+        <circle cx="40" cy="40" r="4" fill="#05101f"/>
+        <rect x="36" y="4" width="8" height="16" rx="3" fill="url(#hg)" opacity=".85"/>
+        <rect x="60" y="36" width="16" height="8" rx="3" fill="url(#hg)" opacity=".85"/>
+      </svg>
+      <h1 class="hero-title" data-zh="万安科技" data-en="WanAn Technology">万安科技</h1>
+      <p class="hero-en">WANAN TECHNOLOGY CO., LTD.</p>
+      <p class="hero-sub" data-zh="专注工业水泵研发制造 20 年，为全球 500+ 工厂与贸易商提供高性能流体动力解决方案。" data-en="20 years of industrial pump R&D — delivering high-performance fluid solutions to 500+ factories and traders across 50+ countries.">专注工业水泵研发制造 20 年，为全球 500+ 工厂与贸易商提供高性能流体动力解决方案。</p>
+      <div class="hero-ftags">
+        <div class="ftag"><span class="ftag-check">✓</span> <span data-zh="OEM / ODM 定制" data-en="OEM / ODM">OEM / ODM 定制</span></div>
+        <div class="ftag"><span class="ftag-check">✓</span> <span data-zh="现货快速发货" data-en="Fast Stock Delivery">现货快速发货</span></div>
+        <div class="ftag"><span class="ftag-check">✓</span> <span data-zh="ISO 国际认证" data-en="ISO Certified">ISO 国际认证</span></div>
+        <div class="ftag"><span class="ftag-check">✓</span> <span data-zh="50+ 国出口" data-en="50+ Country Export">50+ 国出口</span></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">20+</div><div class="stat-label" data-zh="年经验" data-en="Yrs Exp.">年经验</div></div>
+        <div class="stat"><div class="stat-num">50+</div><div class="stat-label" data-zh="出口国" data-en="Countries">出口国</div></div>
+        <div class="stat"><div class="stat-num">500+</div><div class="stat-label" data-zh="全球客户" data-en="Clients">全球客户</div></div>
+        <div class="stat"><div class="stat-num">ISO</div><div class="stat-label" data-zh="认证" data-en="Certified">认证</div></div>
+      </div>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">
+          <span data-zh="查看产品" data-en="View Products">查看产品</span>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost"><span data-zh="获取报价" data-en="Get a Quote">获取报价</span></a>
+        <a href="tel:+8620XXXXXXXX" class="btn btn-ghost"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.39 2 2 0 013.6 1.22h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.91a16 16 0 006.18 6.18l.96-.96a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span data-zh="立即咨询" data-en="Call Now">立即咨询</span></a>
+      </div>
+    </div>
+    <div class="hero-model-wrap" id="hero-wrap">
+      <canvas id="hero-canvas"></canvas>
+      <div class="model-glow"></div>
+      <div id="hero-spinner"><div class="spin-ring"></div><span style="font-size:12px;color:rgba(148,163,184,.8)" data-zh="加载 3D 模型…" data-en="Loading…">加载 3D 模型…</span></div>
+      <div class="model-label" data-zh="⟳ 360° 自动旋转 · 拖动交互" data-en="⟳ 360° Auto-spin · Drag to interact">⟳ 360° 自动旋转 · 拖动交互</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="sw">
+    <p class="eyebrow" data-zh="产品系列" data-en="PRODUCT LINE">产品系列</p>
+    <h2 class="stitle" data-zh="高性能工业水泵" data-en="High-Performance Industrial Pumps">高性能工业水泵</h2>
+    <p class="sdesc" data-zh="每款产品均搭载实时 3D 模型，360° 慢速旋转展示。点击卡片查看完整规格与详细 3D 视图。" data-en="Every product features a live 3D model with slow 360° auto-rotation. Click any card for full specs and detailed 3D view.">每款产品均搭载实时 3D 模型，360° 慢速旋转展示。点击卡片查看完整规格与详细 3D 视图。</p>
+    <div class="products-grid" id="pgrid"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sw">
+    <p class="eyebrow" data-zh="企业介绍" data-en="ABOUT US">企业介绍</p>
+    <h2 class="stitle" data-zh="二十年专注，铸就水泵品质" data-en="20 Years of Excellence in Pump Manufacturing">二十年专注，铸就水泵品质</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-zh="<strong>万安科技</strong>成立于 2003 年，总部位于广东广州，是专注工业水泵研发、制造与出口的高新技术企业，厂区面积逾 <strong>30,000 平方米</strong>，拥有完整研发、制造与质控体系。" data-en="<strong>WanAn Technology</strong>, founded in 2003 in Guangzhou, is a high-tech enterprise specialising in industrial pump R&D, manufacturing, and export. Campus spans over <strong>30,000 m²</strong> with complete R&D, manufacturing, and QC systems."><strong>万安科技</strong>成立于 2003 年，总部位于广东广州，是专注工业水泵研发、制造与出口的高新技术企业，厂区面积逾 <strong>30,000 平方米</strong>，拥有完整研发、制造与质控体系。</p>
+        <p data-zh="产品广泛应用于工业供水、农业灌溉、市政工程、消防系统及建筑机电，销往全球 <strong>50 余个国家和地区</strong>，在欧洲、东南亚及中东市场享有高度声誉。" data-en="Products serve industrial water supply, agriculture, municipal engineering, fire protection, and building M&E — exported to <strong>50+ countries and regions</strong>, with strong recognition across Europe, Southeast Asia, and the Middle East.">产品广泛应用于工业供水、农业灌溉、市政工程、消防系统及建筑机电，销往全球 <strong>50 余个国家和地区</strong>，在欧洲、东南亚及中东市场享有高度声誉。</p>
+        <p data-zh="研发中心配备 <strong>80+ 名专业工程师</strong>，持续推进水泵技术创新。所有产品通过 ISO 9001、CE 及 CCC 国际认证，在多国注册商标，构建稳固的全球品牌体系。" data-en="R&D centre houses <strong>80+ professional engineers</strong> driving continuous innovation. All products carry ISO 9001, CE, and CCC certifications, with trademarks registered in multiple countries.">研发中心配备 <strong>80+ 名专业工程师</strong>，持续推进水泵技术创新。所有产品通过 ISO 9001、CE 及 CCC 国际认证，在多国注册商标，构建稳固的全球品牌体系。</p>
+      </div>
+      <div class="stats-grid">
+        <div class="astat"><div class="astat-num counter" data-target="2003" data-suffix="">2003</div><div class="astat-lab" data-zh="年创立" data-en="Founded">年创立</div></div>
+        <div class="astat"><div class="astat-num counter" data-target="300" data-suffix="+">300+</div><div class="astat-lab" data-zh="员工人数" data-en="Employees">员工人数</div></div>
+        <div class="astat"><div class="astat-num counter" data-target="30" data-suffix="k㎡">30k㎡</div><div class="astat-lab" data-zh="工厂面积" data-en="Factory Area">工厂面积</div></div>
+        <div class="astat"><div class="astat-num counter" data-target="50" data-suffix="+">50+</div><div class="astat-lab" data-zh="出口国家" data-en="Export Countries">出口国家</div></div>
+      </div>
+    </div>
+    <div class="div-line"></div>
+    <p class="certs-label" data-zh="资质认证" data-en="CERTIFICATIONS & STANDARDS">资质认证</p>
+    <div class="certs">
+      <div class="cert"><div class="cert-name">ISO 9001</div><div class="cert-desc" data-zh="质量管理体系" data-en="Quality Management">质量管理体系</div></div>
+      <div class="cert"><div class="cert-name">CE</div><div class="cert-desc" data-zh="欧盟合格认证" data-en="EU Conformity">欧盟合格认证</div></div>
+      <div class="cert"><div class="cert-name">CCC</div><div class="cert-desc" data-zh="中国强制认证" data-en="China Mandatory">中国强制认证</div></div>
+      <div class="cert"><div class="cert-name">FM / UL</div><div class="cert-desc" data-zh="美国消防认证" data-en="US Fire Listing">美国消防认证</div></div>
+      <div class="cert"><div class="cert-name">GB 6245</div><div class="cert-desc" data-zh="消防泵国标" data-en="Fire Pump Std.">消防泵国标</div></div>
+      <div class="cert"><div class="cert-name">IP68</div><div class="cert-desc" data-zh="潜水防护等级" data-en="Submersible Rating">潜水防护等级</div></div>
+    </div>
+    <div class="vals">
+      <div class="val"><div class="val-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="val-name" data-zh="精密制造" data-en="Precision Mfg.">精密制造</div><div class="val-desc" data-zh="CNC 数控加工精度达 0.01mm，确保每台水泵的稳定性与耐久性。" data-en="CNC machining to 0.01mm precision guarantees stability and durability in every pump.">CNC 数控加工精度达 0.01mm，确保每台水泵的稳定性与耐久性。</div></div>
+      <div class="val"><div class="val-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="val-name" data-zh="快速交付" data-en="Fast Delivery">快速交付</div><div class="val-desc" data-zh="标准产品现货库存，定制产品 15–30 天完成，准时交付保障您的生产计划。" data-en="Standard stock ready. Custom orders in 15–30 days, on-time delivery guaranteed.">标准产品现货库存，定制产品 15–30 天完成，准时交付保障您的生产计划。</div></div>
+      <div class="val"><div class="val-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="val-name" data-zh="全程售后" data-en="After-sales">全程售后</div><div class="val-desc" data-zh="2 年质保，配件全球直邮，专属技术支持团队 7×24 小时响应。" data-en="2-year warranty, global spare parts, dedicated technical support 24/7.">2 年质保，配件全球直邮，专属技术支持团队 7×24 小时响应。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sw">
+    <p class="eyebrow" data-zh="联系我们" data-en="CONTACT US">联系我们</p>
+    <h2 class="stitle" data-zh="开始合作" data-en="Start a Partnership">开始合作</h2>
+    <p class="sdesc" data-zh="无论标准产品还是定制方案，我们的团队随时准备为您提供专业支持与报价。" data-en="Whether standard products or custom solutions, our team is ready with professional support and quotes.">无论标准产品还是定制方案，我们的团队随时准备为您提供专业支持与报价。</p>
+    <div class="contact-layout">
+      <div class="ccard">
+        <div class="ci"><div class="ci-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div><div class="ci-label" data-zh="地址" data-en="Address">地址</div><div class="ci-val" data-zh="广东省广州市番禺区工业大道 188 号" data-en="188 Industrial Ave, Panyu, Guangzhou, Guangdong">广东省广州市番禺区工业大道 188 号</div></div></div>
+        <div class="ci"><div class="ci-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="ci-label" data-zh="电话" data-en="Phone">电话</div><div class="ci-val">+86 020-8888-9999</div></div></div>
+        <div class="ci"><div class="ci-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg></div><div><div class="ci-label">Email</div><div class="ci-val">export@wananpump.com</div></div></div>
+        <div class="ci"><div class="ci-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div><div class="ci-label">WeChat</div><div class="ci-val">WananPump_Official</div></div></div>
+      </div>
+      <div class="ccard">
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="fg"><label data-zh="姓名" data-en="Name">姓名</label><input type="text" required autocomplete="name"></div>
+            <div class="fg"><label>Email</label><input type="email" required autocomplete="email"></div>
+          </div>
+          <div class="fg"><label data-zh="公司 / 国家" data-en="Company / Country">公司 / 国家</label><input type="text"></div>
+          <div class="fg"><label data-zh="感兴趣产品" data-en="Product Interest">感兴趣产品</label><select id="psel"></select></div>
+          <div class="fg"><label data-zh="询盘内容" data-en="Message">询盘内容</label><textarea></textarea></div>
+          <button type="submit" class="btn btn-primary" id="sbtn" style="width:100%;justify-content:center;">
+            <span data-zh="发送询盘" data-en="Send Inquiry">发送询盘</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="nav-brand"><div class="logo-mark">WA</div><span class="nav-name">万安科技 · WanAn Technology</span></div>
+  <p data-zh="© 2024 万安科技有限公司 · 保留所有权利" data-en="© 2024 WanAn Technology Co., Ltd. · All Rights Reserved">© 2024 万安科技有限公司 · 保留所有权利</p>
+</footer>
+
+<!-- MODAL -->
+<div id="modal">
+  <div class="modal-scrim" onclick="closeModal()"></div>
+  <div class="modal-box">
+    <div class="mhead">
+      <div><div id="mtag" style="margin-bottom:8px"></div><div class="mname" id="mname"></div><div class="msub" id="msub"></div></div>
+      <button class="mclose" onclick="closeModal()"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="mcontent">
+      <div class="mleft">
+        <div id="m3d">
+          <canvas id="mcanvas"></canvas>
+          <div id="mspinner"><div class="spin-ring"></div><span style="font-size:12px;color:rgba(148,163,184,.8)">Loading…</span></div>
+          <div class="mctrls" data-zh="拖动旋转 · 滚轮缩放" data-en="Drag to rotate · Scroll to zoom">拖动旋转 · 滚轮缩放</div>
+        </div>
+        <div class="mgallery" id="mgallery"></div>
+      </div>
+      <div class="mdetail">
+        <p class="mdesc" id="mdesc"></p>
+        <div class="slabel" data-zh="技术规格" data-en="SPECIFICATIONS">技术规格</div>
+        <table class="stbl" id="mspecs"></table>
+        <div class="mactions">
+          <a href="#contact" class="btn btn-primary" onclick="closeModal()" style="flex:1;justify-content:center;"><span data-zh="获取报价" data-en="Get Quote">获取报价</span></a>
+          <button class="btn btn-ghost" onclick="closeModal()"><span data-zh="返回" data-en="Back">返回</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ── THEME ────────────────────────────────────────────────────
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  const sun  = document.getElementById('icon-sun');
+  const moon = document.getElementById('icon-moon');
+  if (t === 'light') { sun.style.display='none'; moon.style.display='block'; }
+  else               { sun.style.display='block'; moon.style.display='none'; }
+}
+window.toggleTheme = function() {
+  const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  applyTheme(next);
+  localStorage.setItem('wa-theme', next);
+};
+applyTheme(localStorage.getItem('wa-theme') || 'dark');
+
+// ── PRODUCT DATA ────────────────────────────────────────────
+const PRODUCTS = [
+  { id:'centrifugal', model:'water_pump.glb',         color:'#0369a1', tagBg:'rgba(3,105,161,.1)',   tagColor:'#0369a1',
+    tag:{zh:'工业泵',en:'Industrial'},  name:{zh:'离心泵',en:'Centrifugal Pump'}, sub:{zh:'Centrifugal Pump',en:'离心泵'},
+    desc:{zh:'适用于工业供水、农业灌溉及化工流体输送，流量稳定，节能降耗，可与变频器配合实现精确调速。',en:'For industrial water supply, irrigation, and chemical fluid transfer. Stable flow, energy-saving, VFD-compatible for precise speed control.'},
+    specs:{zh:[['流量','5–500 m³/h'],['扬程','10–120 m'],['功率','0.75–110 kW'],['材质','铸铁 / 不锈钢'],['转速','1450 / 2900 rpm'],['认证','ISO 9001, CE']],en:[['Flow Rate','5–500 m³/h'],['Head','10–120 m'],['Power','0.75–110 kW'],['Material','Cast Iron / SS'],['Speed','1450 / 2900 rpm'],['Cert.','ISO 9001, CE']]},
+    chips:{zh:['工业级','节能','耐腐蚀','变频可调'],en:['Industrial','Energy-saving','Corrosion-proof','VFD Ready']},
+    images:[{label:{zh:'产品正视图',en:'Front View'},bg:'#e8f4fd'},{label:{zh:'剖面图',en:'Cross-section'},bg:'#f0fafb'},{label:{zh:'应用场景',en:'Application'},bg:'#edf6ff'}]
+  },
+  { id:'submersible', model:'shower_head.glb',         color:'#0891b2', tagBg:'rgba(8,145,178,.1)',   tagColor:'#0891b2',
+    tag:{zh:'潜水泵',en:'Submersible'}, name:{zh:'潜水泵',en:'Submersible Pump'}, sub:{zh:'Submersible Pump',en:'潜水泵'},
+    desc:{zh:'全密封 IP68 防水结构，适用于深水抽取、污水处理及地下排水，运行安静，免维护设计。',en:'Fully sealed IP68 for deep water extraction, sewage treatment, and underground drainage. Quiet and maintenance-free.'},
+    specs:{zh:[['流量','2–120 m³/h'],['扬程','5–80 m'],['功率','0.37–37 kW'],['防护等级','IP68'],['冷却','水冷式'],['认证','ISO, CE, CCC']],en:[['Flow Rate','2–120 m³/h'],['Head','5–80 m'],['Power','0.37–37 kW'],['IP Rating','IP68'],['Cooling','Water-cooled'],['Cert.','ISO, CE, CCC']]},
+    chips:{zh:['IP68防水','低噪音','污水处理','免维护'],en:['IP68','Low Noise','Sewage','Maintenance-free']},
+    images:[{label:{zh:'产品正视图',en:'Front View'},bg:'#e8fafd'},{label:{zh:'结构图',en:'Structure'},bg:'#f0f9fb'},{label:{zh:'安装示意',en:'Installation'},bg:'#e8f8fd'}]
+  },
+  { id:'deepwell',    model:'water_pump.glb',         color:'#6d28d9', tagBg:'rgba(109,40,217,.1)',  tagColor:'#7c3aed',
+    tag:{zh:'深井泵',en:'Deep Well'},   name:{zh:'深井泵',en:'Deep Well Pump'},   sub:{zh:'Deep Well Pump',en:'深井泵'},
+    desc:{zh:'专为深井地下水源设计，多级串联结构实现超高扬程，适用于农业灌溉、市政供水及矿山排水。',en:'Designed for deep groundwater. Multi-stage configuration for ultra-high head — irrigation, municipal supply, and mine drainage.'},
+    specs:{zh:[['流量','1–50 m³/h'],['扬程','30–400 m'],['功率','0.75–75 kW'],['井径','4–10 英寸'],['级数','2–20 级'],['认证','ISO 9001']],en:[['Flow Rate','1–50 m³/h'],['Head','30–400 m'],['Power','0.75–75 kW'],['Well Dia.','4–10 inch'],['Stages','2–20'],['Cert.','ISO 9001']]},
+    chips:{zh:['超高扬程','多级结构','灌溉','矿山'],en:['High Head','Multi-stage','Irrigation','Mining']},
+    images:[{label:{zh:'产品外观',en:'Product'},bg:'#f3eeff'},{label:{zh:'结构剖面',en:'Section'},bg:'#f5f0ff'},{label:{zh:'应用场景',en:'Application'},bg:'#ede8ff'}]
+  },
+  { id:'booster',     model:'modern_kitchen_tap.glb', color:'#b45309', tagBg:'rgba(180,83,9,.1)',    tagColor:'#d97706',
+    tag:{zh:'增压泵',en:'Booster'},     name:{zh:'增压泵',en:'Booster Pump'},     sub:{zh:'Booster Pump',en:'增压泵'},
+    desc:{zh:'家用和商用智能增压泵，自动感应水压启停，即插即用，显著提升供水压力，低噪音运行。',en:'Smart booster pump for home and commercial use. Auto pressure-sensing, plug-and-play, dramatically improves water pressure.'},
+    specs:{zh:[['流量','0.5–10 m³/h'],['扬程','5–50 m'],['功率','120–1500 W'],['电压','220V / 380V'],['噪音','< 45 dB'],['认证','CE, CCC']],en:[['Flow Rate','0.5–10 m³/h'],['Head','5–50 m'],['Power','120–1500 W'],['Voltage','220V / 380V'],['Noise','< 45 dB'],['Cert.','CE, CCC']]},
+    chips:{zh:['自动感应','家用商用','即插即用','低噪音'],en:['Auto-sense','Home/Commercial','Plug & Play','Quiet']},
+    images:[{label:{zh:'产品外观',en:'Product'},bg:'#fffbeb'},{label:{zh:'安装图',en:'Install'},bg:'#fef8e8'},{label:{zh:'应用场景',en:'Application'},bg:'#fff8e1'}]
+  },
+  { id:'fire',        model:'water_pump.glb',         color:'#b91c1c', tagBg:'rgba(185,28,28,.1)',   tagColor:'#dc2626',
+    tag:{zh:'消防泵',en:'Fire Fighting'},name:{zh:'消防泵',en:'Fire Fighting Pump'},sub:{zh:'Fire Fighting Pump',en:'消防泵'},
+    desc:{zh:'符合 GB6245 国家标准的消防专用泵组，配备主泵、稳压泵与控制柜，响应迅速，可靠性极高。',en:'Fire pump set meeting GB6245 standard — main pump, jockey pump, smart control panel. Ultra-reliable, rapid response.'},
+    specs:{zh:[['流量','10–800 m³/h'],['扬程','20–200 m'],['功率','5.5–400 kW'],['启动','自动 / 手动'],['控制','智能控制柜'],['认证','GB6245, FM, UL']],en:[['Flow Rate','10–800 m³/h'],['Head','20–200 m'],['Power','5.5–400 kW'],['Start','Auto / Manual'],['Control','Smart Panel'],['Cert.','GB6245, FM, UL']]},
+    chips:{zh:['消防专用','FM/UL','自动启动','国标认证'],en:['Fire-rated','FM/UL Listed','Auto-start','GB6245']},
+    images:[{label:{zh:'产品外观',en:'Product'},bg:'#fff1f0'},{label:{zh:'系统配置',en:'System'},bg:'#fef2f2'},{label:{zh:'安装场景',en:'Installation'},bg:'#ffeeed'}]
+  }
+];
+
+// Gallery SVGs (3 per product: product-shot, technical, application)
+function makeGallerySVG(product, idx) {
+  const c = product.color;
+  const bg = product.images[idx].bg;
+  if (idx === 0) {
+    return `<svg viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="90" fill="${bg}"/>
+      <ellipse cx="80" cy="75" rx="55" ry="6" fill="${c}" opacity=".08"/>
+      <rect x="52" y="30" width="56" height="32" rx="8" fill="${c}" opacity=".15" stroke="${c}" stroke-width="1.5"/>
+      <rect x="60" y="22" width="12" height="12" rx="3" fill="${c}" opacity=".6"/>
+      <rect x="88" y="22" width="12" height="12" rx="3" fill="${c}" opacity=".4"/>
+      <circle cx="80" cy="46" rx="10" ry="10" fill="${c}" opacity=".25" stroke="${c}" stroke-width="1.5"/>
+      <circle cx="80" cy="46" r="4" fill="${c}" opacity=".7"/>
+      <rect x="30" y="42" width="24" height="8" rx="3" fill="${c}" opacity=".35"/>
+      <rect x="108" y="42" width="24" height="8" rx="3" fill="${c}" opacity=".35"/>
+      <rect x="50" y="62" width="60" height="6" rx="2" fill="${c}" opacity=".2"/>
+    </svg>`;
+  }
+  if (idx === 1) {
+    return `<svg viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="90" fill="${bg}"/>
+      <line x1="20" y1="45" x2="140" y2="45" stroke="${c}" stroke-width="0.5" stroke-opacity=".3" stroke-dasharray="4 3"/>
+      <line x1="80" y1="10" x2="80" y2="80" stroke="${c}" stroke-width="0.5" stroke-opacity=".3" stroke-dasharray="4 3"/>
+      <rect x="48" y="22" width="64" height="46" rx="6" fill="none" stroke="${c}" stroke-width="1.5"/>
+      <circle cx="80" cy="45" r="16" fill="none" stroke="${c}" stroke-width="1.5"/>
+      <circle cx="80" cy="45" r="8" fill="${c}" opacity=".12" stroke="${c}" stroke-width="1"/>
+      <circle cx="80" cy="45" r="3" fill="${c}" opacity=".6"/>
+      ${[0,1,2,3,4,5].map(i=>{const a=i*60*Math.PI/180;const x1=80+8*Math.cos(a);const y1=45+8*Math.sin(a);const x2=80+14*Math.cos(a+.4);const y2=45+14*Math.sin(a+.4);return `<line x1="${x1.toFixed(0)}" y1="${y1.toFixed(0)}" x2="${x2.toFixed(0)}" y2="${y2.toFixed(0)}" stroke="${c}" stroke-width="1" stroke-opacity=".6"/>`;}).join('')}
+      <text x="80" y="82" text-anchor="middle" font-size="7" fill="${c}" opacity=".5" font-family="monospace">CROSS-SECTION</text>
+    </svg>`;
+  }
+  return `<svg viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="160" height="90" fill="${bg}"/>
+    <rect x="10" y="50" width="140" height="32" rx="4" fill="${c}" opacity=".06"/>
+    <rect x="15" y="40" width="30" height="42" rx="3" fill="${c}" opacity=".15" stroke="${c}" stroke-width="1"/>
+    <rect x="65" y="28" width="40" height="54" rx="4" fill="${c}" opacity=".12" stroke="${c}" stroke-width="1.5"/>
+    <circle cx="85" cy="52" r="10" fill="${c}" opacity=".2" stroke="${c}" stroke-width="1"/>
+    <circle cx="85" cy="52" r="4" fill="${c}" opacity=".5"/>
+    <rect x="48" y="48" width="18" height="6" rx="2" fill="${c}" opacity=".3"/>
+    <rect x="105" y="44" width="6" height="16" rx="2" fill="${c}" opacity=".3"/>
+    <rect x="115" y="36" width="25" height="36" rx="3" fill="${c}" opacity=".1" stroke="${c}" stroke-width="1"/>
+    <text x="80" y="86" text-anchor="middle" font-size="7" fill="${c}" opacity=".5" font-family="monospace">APPLICATION</text>
+  </svg>`;
+}
+
+// ── SHARED STATE ────────────────────────────────────────────
+const loader   = new GLTFLoader();
+const cache    = new Map();
+const cardMap  = new Map(); // id → {renderer,scene,camera,controls,active}
+let heroR, heroScene, heroCamera, heroControls;
+let modalR, modalScene, modalCamera, modalControls;
+let lang = 'zh';
+const L = o => o[lang] || o.zh;
+
+// ── LIGHTING ────────────────────────────────────────────────
+// Bright, clean studio-style lighting for the light theme
+function addLights(scene, hex) {
+  const col = new THREE.Color(hex);
+  scene.add(new THREE.AmbientLight(0xffffff, 2.4));
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xd0e8ff, 1.2));
+  const key = new THREE.DirectionalLight(0xffffff, 3.5);
+  key.position.set(4, 6, 5); scene.add(key);
+  const fill = new THREE.DirectionalLight(0xd6eaff, 2.0);
+  fill.position.set(-5, 2, 4); scene.add(fill);
+  const back = new THREE.DirectionalLight(0xffffff, 1.5);
+  back.position.set(0, -4, -5); scene.add(back);
+  const rim = new THREE.DirectionalLight(col, 0.4);
+  rim.position.set(3, 0, 6); scene.add(rim);
+}
+
+function configRenderer(r) {
+  r.toneMapping = THREE.ACESFilmicToneMapping;
+  r.toneMappingExposure = 2.2;
+  r.outputColorSpace = THREE.SRGBColorSpace;
+}
+
+// ── GLB LOADING ─────────────────────────────────────────────
+function loadGLB(file) {
+  if (cache.has(file)) return Promise.resolve(cache.get(file).clone());
+  return new Promise((res,rej) => loader.load('./models/'+file, g => { cache.set(file,g.scene); res(g.scene.clone()); }, undefined, rej));
+}
+
+function fitModel(m) {
+  const box = new THREE.Box3().setFromObject(m);
+  const c = box.getCenter(new THREE.Vector3());
+  const s = box.getSize(new THREE.Vector3());
+  const scale = 2.6 / Math.max(s.x,s.y,s.z);
+  m.scale.setScalar(scale);
+  m.position.sub(c.multiplyScalar(scale));
+  return m;
+}
+
+// ── HERO ────────────────────────────────────────────────────
+async function initHero() {
+  const wrap = document.getElementById('hero-wrap');
+  const canvas = document.getElementById('hero-canvas');
+  const w = wrap.offsetWidth, h = wrap.offsetHeight;
+  heroR = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  heroR.setPixelRatio(Math.min(devicePixelRatio,1.5));
+  heroR.setSize(w,h);
+  configRenderer(heroR);
+  heroScene = new THREE.Scene();
+  heroCamera = new THREE.PerspectiveCamera(38, w/h, 0.01, 100);
+  heroCamera.position.set(0, 0.5, 5);
+  heroControls = new OrbitControls(heroCamera, canvas);
+  heroControls.enableDamping = true; heroControls.dampingFactor = 0.06;
+  heroControls.autoRotate = true; heroControls.autoRotateSpeed = 0.5;
+  heroControls.minDistance = 2; heroControls.maxDistance = 10;
+  heroControls.addEventListener('start', () => { heroControls.autoRotate=false; });
+  heroControls.addEventListener('end',   () => { setTimeout(()=>{ heroControls.autoRotate=true; }, 2000); });
+  addLights(heroScene, '#0ea5e9');
+  try {
+    const m = await loadGLB('water_pump.glb');
+    fitModel(m); heroScene.add(m);
+    document.getElementById('hero-spinner').style.display = 'none';
+  } catch(e) {
+    document.getElementById('hero-spinner').innerHTML = '<span style="font-size:11px;color:rgba(148,163,184,.7)">Serve with python3 -m http.server 8000</span>';
+  }
+  window.addEventListener('resize', () => {
+    const w2=wrap.offsetWidth, h2=wrap.offsetHeight;
+    heroR.setSize(w2,h2); heroCamera.aspect=w2/h2; heroCamera.updateProjectionMatrix();
+  });
+}
+
+// ── CARD SCENES ─────────────────────────────────────────────
+async function initCard(product) {
+  const canvas = document.getElementById('cvs-'+product.id);
+  if (!canvas || cardMap.has(product.id)) return;
+  const r = new THREE.WebGLRenderer({canvas, antialias:false, alpha:true, powerPreference:'low-power'});
+  r.setPixelRatio(1); r.setSize(canvas.offsetWidth||640, canvas.offsetHeight||300, false);
+  configRenderer(r);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(42, canvas.offsetWidth/canvas.offsetHeight, 0.01, 50);
+  camera.position.set(0, 0.4, 4.5);
+  const controls = new OrbitControls(camera, canvas);
+  controls.enableDamping=true; controls.dampingFactor=0.06;
+  controls.autoRotate=true; controls.autoRotateSpeed=0.4;
+  controls.enableZoom=false; controls.enablePan=false;
+  controls.addEventListener('start', ()=>{ controls.autoRotate=false; });
+  controls.addEventListener('end',   ()=>{ setTimeout(()=>{ controls.autoRotate=true; },3000); });
+  addLights(scene, product.color);
+  cardMap.set(product.id, {renderer:r, scene, camera, controls, active:false});
+  try {
+    const m = await loadGLB(product.model);
+    fitModel(m); scene.add(m);
+    const el = document.getElementById('load-'+product.id);
+    if (el) el.classList.add('hidden');
+  } catch(e) {
+    const el = document.getElementById('load-'+product.id);
+    if (el) el.innerHTML = '<span style="font-size:11px;color:rgba(148,163,184,.6)">3D unavailable</span>';
+  }
+}
+
+// ── GLOBAL RAF ──────────────────────────────────────────────
+(function loop() {
+  requestAnimationFrame(loop);
+  if (heroControls) { heroControls.update(); heroR.render(heroScene,heroCamera); }
+  for (const [,s] of cardMap) { if (s.active) { s.controls.update(); s.renderer.render(s.scene,s.camera); } }
+  if (modalControls) { modalControls.update(); modalR.render(modalScene,modalCamera); }
+})();
+
+// ── INTERSECTION OBSERVER ────────────────────────────────────
+const visObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    const id = e.target.dataset.id;
+    const s = cardMap.get(id);
+    if (s) s.active = e.isIntersecting;
+    if (e.isIntersecting && !cardMap.has(id)) {
+      const p = PRODUCTS.find(p=>p.id===id); if (p) initCard(p);
+    }
+  });
+}, {threshold:0.1});
+
+// ── MODAL RENDERER ───────────────────────────────────────────
+function ensureModal() {
+  if (modalR) return;
+  const canvas = document.getElementById('mcanvas');
+  const wrap   = document.getElementById('m3d');
+  const w=wrap.offsetWidth, h=wrap.offsetHeight;
+  modalR = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  modalR.setPixelRatio(Math.min(devicePixelRatio,1.5));
+  modalR.setSize(w,h); configRenderer(modalR);
+  modalScene  = new THREE.Scene();
+  modalCamera = new THREE.PerspectiveCamera(40, w/h, 0.01, 100);
+  modalCamera.position.set(0, 0.5, 5);
+  modalControls = new OrbitControls(modalCamera, canvas);
+  modalControls.enableDamping=true; modalControls.dampingFactor=0.06;
+  modalControls.autoRotate=true; modalControls.autoRotateSpeed=0.6;
+  modalControls.addEventListener('start',()=>{ modalControls.autoRotate=false; });
+  modalControls.addEventListener('end',  ()=>{ setTimeout(()=>{ modalControls.autoRotate=true; },2000); });
+  addLights(modalScene, '#0ea5e9');
+}
+
+async function loadModalModel(product) {
+  ensureModal();
+  addLights(modalScene, product.color); // re-set accent
+  const wrap=document.getElementById('m3d');
+  modalR.setSize(wrap.offsetWidth,wrap.offsetHeight);
+  modalCamera.aspect=wrap.offsetWidth/wrap.offsetHeight;
+  modalCamera.updateProjectionMatrix();
+  modalScene.children.filter(c=>c.type==='Group'||c.type==='Object3D').forEach(c=>modalScene.remove(c));
+  document.getElementById('mspinner').style.display='flex';
+  try {
+    const m = await loadGLB(product.model);
+    fitModel(m); modalScene.add(m);
+    document.getElementById('mspinner').style.display='none';
+    modalCamera.position.set(0,0.5,5); modalControls.reset(); modalControls.autoRotate=true;
+  } catch(e) {
+    document.getElementById('mspinner').innerHTML='<span style="font-size:11px;color:rgba(148,163,184,.7)">Serve from http://localhost:8000</span>';
+  }
+}
+
+// ── RENDER CARDS ─────────────────────────────────────────────
+function renderCards() {
+  const grid = document.getElementById('pgrid');
+  grid.innerHTML = '';
+  PRODUCTS.forEach(p => {
+    const card = document.createElement('div');
+    card.className='product-card'; card.style.cssText='opacity:0;transform:translateY(32px)';
+    card.innerHTML = `
+      <div class="card-visual">
+        <canvas id="cvs-${p.id}" data-id="${p.id}" style="width:100%;height:100%;display:block;touch-action:none"></canvas>
+        <div class="card-loading" id="load-${p.id}"><div class="spin-ring"></div><span style="font-size:11px;color:rgba(148,163,184,.7)">${lang==='zh'?'加载 3D…':'Loading 3D…'}</span></div>
+        <div class="card-drag-hint">${lang==='zh'?'拖动旋转':'Drag to rotate'}</div>
+      </div>
+      <div class="card-body">
+        <div class="card-tag" style="background:${p.tagBg};color:${p.tagColor}">${L(p.tag)}</div>
+        <div class="card-name">${L(p.name)}</div>
+        <div class="card-sub">${L(p.sub)}</div>
+        <div class="card-desc">${L(p.desc)}</div>
+        <div class="chips">${p.chips[lang].map(c=>`<div class="chip"><div class="chip-dot" style="background:${p.color}"></div>${c}</div>`).join('')}</div>
+        <div class="card-foot">
+          <span class="card-act">
+            <span>${lang==='zh'?'查看详情':'View Details'}</span>
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4l4 4-4 4" stroke="${p.color}" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <div class="card-arr"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        </div>
+      </div>`;
+    card.addEventListener('click', ()=>window.openModal(p));
+    grid.appendChild(card);
+    requestAnimationFrame(() => {
+      const cvs = document.getElementById('cvs-'+p.id);
+      if (cvs) { cvs.dataset.id=p.id; visObs.observe(cvs); }
+    });
+  });
+}
+
+// ── MODAL ────────────────────────────────────────────────────
+window.openModal = function(p) {
+  document.getElementById('mtag').innerHTML = `<span style="display:inline-block;background:${p.tagBg};color:${p.tagColor};padding:3px 11px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase">${L(p.tag)}</span>`;
+  document.getElementById('mname').textContent = L(p.name);
+  document.getElementById('msub').textContent  = L(p.sub);
+  document.getElementById('mdesc').textContent = L(p.desc);
+  document.getElementById('mspecs').innerHTML  = p.specs[lang].map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+  // Gallery
+  const gal = document.getElementById('mgallery');
+  gal.innerHTML = p.images.map((img,i)=>`
+    <div class="gthumb ${i===0?'active':''}" onclick="setGalleryThumb(this)">
+      ${makeGallerySVG(p,i)}
+      <div class="gthumb-label">${img.label[lang]}</div>
+    </div>`).join('');
+  document.querySelectorAll('#modal [data-zh]').forEach(el=>{const t=el.getAttribute('data-'+lang);if(t)el.textContent=t;});
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+  requestAnimationFrame(()=>loadModalModel(p));
+};
+
+window.setGalleryThumb = function(el) {
+  document.querySelectorAll('.gthumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+};
+
+window.closeModal = function() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+};
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') window.closeModal(); });
+
+// ── LANGUAGE ─────────────────────────────────────────────────
+window.setLang = function(l) {
+  lang=l; document.documentElement.lang=l;
+  document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.querySelectorAll('[data-zh]').forEach(el=>{ const t=el.getAttribute('data-'+l); if(t!==null)el.innerHTML=t; });
+  renderCards(); populateSelect();
+  setTimeout(animateCards,50);
+};
+
+// ── CONTACT ──────────────────────────────────────────────────
+function populateSelect() {
+  const s=document.getElementById('psel'); if(!s) return;
+  s.innerHTML=`<option>${lang==='zh'?'-- 请选择 --':'-- Select --'}</option>`+PRODUCTS.map(p=>`<option>${L(p.name)}</option>`).join('');
+}
+
+window.handleSubmit = function(e) {
+  e.preventDefault();
+  const btn=document.getElementById('sbtn'), sp=btn.querySelector('span'), orig=sp.textContent;
+  btn.style.background='#059669'; sp.textContent=lang==='zh'?'✓ 已发送!':'✓ Sent!'; btn.disabled=true;
+  setTimeout(()=>{ btn.style.background=''; sp.textContent=orig; btn.disabled=false; e.target.reset(); },3000);
+};
+
+// ── GSAP ─────────────────────────────────────────────────────
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.timeline({defaults:{ease:'power3.out'}})
+  .from('.hero-badge',        {opacity:0,y:24,duration:.7})
+  .from('.hero-logo-svg',     {opacity:0,scale:.7,duration:.9,ease:'back.out(1.7)'},'-=.3')
+  .from('.hero-title',        {opacity:0,y:32,duration:.8},'-=.5')
+  .from('.hero-en',           {opacity:0,y:16,duration:.6},'-=.5')
+  .from('.hero-stats .stat',  {opacity:0,y:18,duration:.5,stagger:.1},'-=.4')
+  .from('.hero-cta .btn',     {opacity:0,y:16,duration:.5,stagger:.12},'-=.3')
+  .from('.hero-model-wrap',   {opacity:0,x:36,duration:.9,ease:'power3.out'},'-=.8');
+
+gsap.utils.toArray('.eyebrow,.stitle,.sdesc').forEach(el=>{
+  gsap.from(el,{scrollTrigger:{trigger:el,start:'top 88%'},opacity:0,y:26,duration:.7,ease:'power3.out'});
+});
+['.astat','.val','.cert'].forEach(sel=>{
+  gsap.utils.toArray(sel).forEach((el,i)=>{
+    gsap.from(el,{scrollTrigger:{trigger:el,start:'top 90%'},opacity:0,y:22,duration:.6,delay:(i%4)*.1,ease:'power3.out'});
+  });
+});
+gsap.utils.toArray('.ccard').forEach((el,i)=>{
+  gsap.from(el,{scrollTrigger:{trigger:el,start:'top 86%'},opacity:0,x:i===0?-24:24,duration:.8,ease:'power3.out'});
+});
+
+document.querySelectorAll('.counter[data-target]').forEach(el=>{
+  const target=+el.dataset.target, suffix=el.dataset.suffix||'';
+  ScrollTrigger.create({trigger:el,start:'top 80%',once:true,onEnter:()=>{
+    gsap.to({val:0},{val:target,duration:2,ease:'power2.out',
+      onUpdate(){el.textContent=(target>=1000?Math.round(this.targets()[0].val).toLocaleString():Math.round(this.targets()[0].val))+suffix;}});
+  }});
+});
+
+function animateCards() {
+  document.querySelectorAll('.product-card').forEach((c,i)=>{
+    ScrollTrigger.create({trigger:c,start:'top 90%',once:true,
+      onEnter:()=>gsap.to(c,{opacity:1,y:0,duration:.7,delay:(i%2)*.1,ease:'power3.out'})});
+  });
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+renderCards(); populateSelect(); initHero();
+requestAnimationFrame(()=>requestAnimationFrame(animateCards));
+</script>
+</body>
+</html>
