@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"/>
+<meta name="description" content="MAISON VELA — Premium Fashion Accessories Catalogue 2026. OEM/ODM Manufacturer, Shenzhen. Interactive digital showroom by steez.digital"/>
+<title>MAISON VELA — Fashion Accessories Catalogue 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Barlow+Condensed:wght@700;800;900&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ─── TOKENS ─── */
+:root{
+  --n:#070604;--dk:#0D0B08;--ch:#1C1914;
+  --iv:#F2EDE3;--gold:#C4973A;--glt:#D9B265;
+  --pad:clamp(1.5rem,5vw,5rem);--sm:clamp(1rem,3vw,2.5rem);
+  --td:rgba(242,237,227,.42);--tm:rgba(242,237,227,.65);
+  --bd:rgba(242,237,227,.10);--bd2:rgba(242,237,227,.06);
+  --gbd:rgba(196,151,58,.35);--al:#C44B2B;
+}
+/* ─── LIGHT MODE ─── */
+html[data-theme="light"]{
+  --n:#F5F2EC;--dk:#E8E3D8;--ch:#DDD8CC;
+  --iv:#1C1914;--gold:#8A6820;--glt:#A07D28;
+  --td:rgba(28,25,20,.52);--tm:rgba(28,25,20,.75);
+  --bd:rgba(28,25,20,.10);--bd2:rgba(28,25,20,.06);
+  --gbd:rgba(138,104,32,.35);--al:#C44B2B;
+}
+html[data-theme="light"] #tb.sol{background:rgba(245,242,236,.95);}
+html[data-theme="light"] #mn{background:var(--n);}
+html[data-theme="light"] .sp-shape-inner{border-color:rgba(28,25,20,.18);}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--n);color:var(--iv);overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+
+/* ─── TOPBAR UTILITY BUTTONS ─── */
+.lbtn{background:none;border:1px solid transparent;color:var(--td);font-family:'Geist Mono',monospace;font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 7px;transition:all .2s;line-height:1}
+.lbtn.on,.lbtn:hover{border-color:var(--gbd);color:var(--gold)}
+.tmbtn{background:none;border:1px solid var(--bd);color:var(--td);font-size:.78rem;width:22px;height:22px;display:flex;align-items:center;justify-content:center;transition:all .2s;padding:0}
+.tmbtn:hover{border-color:var(--gbd);color:var(--gold)}
+#hero-canvas{cursor:grab}
+#hero-canvas:active{cursor:grabbing}
+section,footer{scroll-margin-top:52px}
+button{cursor:pointer}a{text-decoration:none}
+
+/* ─── FADE ─── */
+.fu{opacity:1;transform:none;transition:opacity .7s,transform .7s}
+body.jr .fu{opacity:0;transform:translateY(22px)}
+body.jr .fu.in{opacity:1;transform:none}
+
+/* ─── EYEBROW ─── */
+.ey{font-family:'Geist Mono',monospace;font-size:clamp(.54rem,.85vw,.68rem);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.65rem}
+.ey::before{content:'';width:22px;height:1px;background:var(--gbd);flex-shrink:0}
+
+/* ═══════════════════════════════════════
+   SPLASH
+═══════════════════════════════════════ */
+#splash{position:fixed;inset:0;z-index:9999;background:var(--n);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;cursor:pointer;overflow:hidden}
+#splash.out{animation:spOut .9s cubic-bezier(.4,0,1,1) forwards}
+@keyframes spOut{to{opacity:0;transform:translateY(-24px);pointer-events:none;visibility:hidden}}
+.sp-lines{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.sp-line{position:absolute;left:-100%;width:300%;height:1px;background:linear-gradient(90deg,transparent,rgba(196,151,58,.25),transparent);animation:lsw 2.8s ease-in-out forwards}
+.sp-line:nth-child(1){top:28%;animation-delay:.3s}
+.sp-line:nth-child(2){top:50%;animation-delay:.65s}
+.sp-line:nth-child(3){top:72%;animation-delay:1s}
+@keyframes lsw{from{transform:translateX(0);opacity:0}10%{opacity:1}to{transform:translateX(50%);opacity:0}}
+.sp-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,9vw,5rem);letter-spacing:.38em;text-transform:uppercase;color:var(--iv);overflow:hidden;line-height:1.1}
+.sp-name .c{display:inline-block;animation:cRev .8s cubic-bezier(.16,1,.3,1) both;opacity:0}
+@keyframes cRev{from{opacity:0;transform:translateY(100%)}to{opacity:1;transform:none}}
+.sp-sub{font-family:'Geist Mono',monospace;font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);animation:fIn 1s 1.2s ease both}
+.sp-tag{font-size:clamp(.88rem,2vw,1.05rem);font-style:italic;color:var(--td);animation:fIn .8s 1.65s ease both;letter-spacing:.04em;text-align:center}
+@keyframes fIn{from{opacity:0}to{opacity:1}}
+.sp-mets{display:flex;gap:clamp(1.5rem,5vw,4rem);animation:fIn .8s 2.1s ease both;opacity:0}
+.smet{display:flex;flex-direction:column;align-items:center;gap:.18rem}
+.smet-n{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(1.4rem,4vw,2.1rem);color:var(--gold);line-height:1;letter-spacing:-.02em}
+.smet-l{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.14em;text-transform:uppercase;color:var(--td)}
+.sp-hint{font-family:'Geist Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--td);animation:pulse 2s 2.9s ease-in-out infinite both;position:absolute;bottom:clamp(1.4rem,4vw,2.4rem);opacity:0}
+@keyframes pulse{0%,100%{opacity:.2}50%{opacity:.72}}
+.sp-cr{position:absolute;bottom:clamp(.6rem,2vw,.9rem);right:clamp(.75rem,2vw,1rem);font-family:'Geist Mono',monospace;font-size:.42rem;letter-spacing:.09em;color:rgba(196,151,58,.22);text-transform:uppercase}
+
+/* ═══════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════ */
+#tb{position:fixed;top:0;left:0;right:0;z-index:500;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--sm);background:transparent;border-bottom:1px solid transparent;transition:background .35s,border-color .35s}
+#tb.sol{background:rgba(7,6,4,.95);border-color:var(--bd);backdrop-filter:blur(14px)}
+.tb-logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(.95rem,2vw,1.25rem);letter-spacing:.2em;text-transform:uppercase;color:var(--iv);display:flex;align-items:center;gap:.5rem}
+.tb-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.tb-nav{display:flex;list-style:none;gap:clamp(.5rem,1.6vw,1.8rem)}
+@media(max-width:700px){.tb-nav{display:none}}
+.tb-nav a{font-family:'Geist Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--td);transition:color .2s}
+.tb-nav a:hover{color:var(--gold)}
+.tb-r{display:flex;align-items:center;gap:.5rem}
+.ib{display:flex;align-items:center;gap:.4rem;background:transparent;border:1px solid var(--gbd);color:var(--gold);font-family:'Geist Mono',monospace;font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;transition:all .22s}
+.ib:hover{background:var(--gold);color:var(--n);border-color:var(--gold)}
+.ic{background:var(--gold);color:var(--n);width:15px;height:15px;border-radius:50%;font-size:.5rem;font-weight:700;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0);transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.ic.on{opacity:1;transform:scale(1)}
+.hb{background:none;border:none;color:var(--iv);font-size:1.1rem;padding:4px;display:none}
+@media(max-width:700px){.hb{display:block}}
+#mn{display:none;position:fixed;inset:0;z-index:800;background:var(--n);flex-direction:column;align-items:center;justify-content:center;gap:1.4rem}
+#mn.on{display:flex}
+#mn a{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,9vw,3.8rem);letter-spacing:.18em;text-transform:uppercase;color:var(--iv);transition:color .2s}
+#mn a:hover{color:var(--gold)}
+#mc{position:absolute;top:16px;right:18px;background:none;border:none;color:var(--td);font-size:1.4rem}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--n);padding-top:52px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 60% 40%,rgba(196,151,58,.055) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 18% 75%,rgba(196,151,58,.03) 0%,transparent 60%)}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;align-items:center;width:100%;min-height:calc(100svh - 52px);padding:0 var(--pad);gap:2.5rem}
+@media(max-width:800px){.hero-in{grid-template-columns:1fr;text-align:center;padding:3rem var(--sm) 6rem;gap:2.2rem}}
+.hero-txt{order:1;display:flex;flex-direction:column;gap:1.15rem}
+@media(max-width:800px){.hero-txt{order:2}}
+.hero-season{font-family:'Geist Mono',monospace;font-size:.54rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.hero-hl{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.8rem,7vw,6.5rem);line-height:.93;letter-spacing:-.01em;color:var(--iv)}
+.hero-hl em{font-style:italic;color:var(--gold)}
+.hero-hl .hw{display:block;overflow:hidden}
+.hero-hl .hw span{display:inline-block;animation:slideUp .9s cubic-bezier(.16,1,.3,1) both}
+.hw:nth-child(2) span{animation-delay:.1s}
+.hw:nth-child(3) span{animation-delay:.2s}
+@keyframes slideUp{from{transform:translateY(110%)}to{transform:none}}
+.hero-rule{width:48px;height:1px;background:var(--gbd)}
+@media(max-width:800px){.hero-rule{margin:0 auto}}
+.hero-sub{font-size:clamp(.9rem,1.5vw,1.1rem);font-weight:300;line-height:1.7;color:var(--tm);max-width:40ch;font-style:italic}
+@media(max-width:800px){.hero-sub{margin:0 auto}}
+.hero-btns{display:flex;gap:.6rem;flex-wrap:wrap}
+@media(max-width:800px){.hero-btns{justify-content:center}}
+.btn-p{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;padding:12px 24px;background:var(--gold);color:var(--n);border:1px solid var(--gold);transition:all .25s}
+.btn-p:hover{background:var(--glt);border-color:var(--glt)}
+.btn-o{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;padding:12px 24px;background:transparent;color:var(--iv);border:1px solid var(--bd);transition:all .25s}
+.btn-o:hover{border-color:var(--gbd);color:var(--gold)}
+.hero-cr{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.1em;color:rgba(196,151,58,.2);text-transform:uppercase;margin-top:.2rem}
+.hero-prod{order:2;position:relative;display:flex;align-items:center;justify-content:center}
+@media(max-width:800px){.hero-prod{order:1;height:250px}}
+#hero-canvas{width:100%;height:480px;display:block}
+@media(max-width:800px){#hero-canvas{height:250px}}
+.hero-lbl{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.18em;text-transform:uppercase;color:var(--td);white-space:nowrap;animation:pulse 3.2s ease-in-out infinite}
+.hero-scr{position:absolute;bottom:clamp(1rem,2.5vw,1.8rem);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;z-index:2}
+.scr-line{width:1px;height:34px;background:linear-gradient(to bottom,var(--gbd),transparent);animation:scrL 2s ease-in-out infinite}
+@keyframes scrL{0%,100%{opacity:.3}50%{opacity:.85}}
+.scr-txt{font-family:'Geist Mono',monospace;font-size:.42rem;letter-spacing:.2em;text-transform:uppercase;color:var(--td)}
+
+/* ═══════════════════════════════════════
+   METRICS
+═══════════════════════════════════════ */
+#metrics{background:var(--ch);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--bd)}
+@media(max-width:620px){#metrics{grid-template-columns:repeat(2,1fr)}}
+.mi{padding:clamp(1.3rem,3vw,2.2rem) var(--sm);border-right:1px solid var(--bd);display:flex;flex-direction:column;gap:.3rem}
+.mi:last-child{border-right:none}
+@media(max-width:620px){.mi:nth-child(2){border-right:none}.mi:nth-child(3){border-right:1px solid var(--bd)}}
+.mi-num{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.9rem,4.5vw,3.4rem);color:var(--gold);line-height:1;letter-spacing:-.02em}
+.mi-lbl{font-family:'Geist Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--td)}
+
+/* ═══════════════════════════════════════
+   SECTION HEADER
+═══════════════════════════════════════ */
+.sh{padding:clamp(3.5rem,7vw,7rem) var(--pad) clamp(1.5rem,3vw,2.8rem);position:relative;overflow:hidden}
+.sh-wm{position:absolute;right:var(--pad);top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(4.5rem,12vw,10.5rem);color:rgba(242,237,227,.022);letter-spacing:.05em;text-transform:uppercase;pointer-events:none;user-select:none;line-height:1}
+.sh-t{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.4rem,6.5vw,5.5rem);line-height:.95;letter-spacing:-.02em;color:var(--iv);margin-top:.62rem}
+.sh-t em{font-style:italic;color:var(--gold)}
+.sh-s{font-family:'Cormorant Garamond',serif;font-size:clamp(.9rem,1.5vw,1.18rem);font-style:italic;color:var(--td);margin-top:.55rem;max-width:52ch}
+
+/* ═══════════════════════════════════════
+   STORY
+═══════════════════════════════════════ */
+#story{background:var(--n);padding-bottom:clamp(3.5rem,7vw,7rem)}
+.story-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);padding:0 var(--pad)}
+@media(max-width:700px){.story-panels{grid-template-columns:1fr}}
+.spnl{background:var(--n);display:flex;flex-direction:column}
+.spnl-img{position:relative;overflow:hidden;height:clamp(210px,27vw,350px)}
+.spnl-bg{position:absolute;inset:0;transition:transform .65s ease}
+.spnl:hover .spnl-bg{transform:scale(1.05)}
+.si-1{background:linear-gradient(158deg,#2C1F10 0%,#18120A 40%,#0E0B06 100%)}
+.si-1::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 75% at 50% 28%,rgba(196,151,58,.18) 0%,transparent 70%)}
+.si-2{background:linear-gradient(158deg,#1A1A1A 0%,#101010 50%,#0A0A0A 100%)}
+.si-2::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 45% 55% at 40% 50%,rgba(242,237,227,.07) 0%,transparent 70%)}
+.si-3{background:linear-gradient(158deg,#1B1208 0%,#12100A 50%,#0A0806 100%)}
+.si-3::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 65% at 60% 38%,rgba(196,151,58,.13) 0%,transparent 70%)}
+.spnl-body{padding:clamp(1.3rem,2.5vw,2rem);flex:1;border-top:1px solid var(--bd)}
+.spnl-num{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.18em;color:var(--gold);margin-bottom:.65rem}
+.spnl-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.15rem,2vw,1.65rem);color:var(--iv);line-height:1.15;margin-bottom:.45rem}
+.spnl-d{font-size:clamp(.8rem,1.2vw,.93rem);font-weight:300;color:var(--td);line-height:1.65}
+
+/* ═══════════════════════════════════════
+   COLLECTION SWITCHER
+═══════════════════════════════════════ */
+#collections{padding:clamp(3.5rem,7vw,7rem) var(--pad);background:var(--ch);position:relative;overflow:hidden}
+.coll-bg{position:absolute;inset:0;transition:background 1.2s ease}
+.coll-in{position:relative;z-index:1}
+.coll-tabs{display:flex;gap:.38rem;flex-wrap:wrap;margin-bottom:clamp(2.4rem,5vw,4.2rem)}
+.ct{font-family:'Geist Mono',monospace;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;padding:7px 15px;background:transparent;border:1px solid var(--bd);color:var(--td);transition:all .25s}
+.ct.on,.ct:hover{background:var(--gold);border-color:var(--gold);color:var(--n)}
+.cc{display:none;animation:fsIn .45s ease both}
+.cc.on{display:block}
+@keyframes fsIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.cc-hl{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,4.2vw,3.6rem);color:var(--iv);margin-bottom:.6rem;line-height:1.05;white-space:pre-line}
+.cc-d{font-size:clamp(.88rem,1.4vw,1.08rem);font-weight:300;color:var(--tm);line-height:1.65;max-width:62ch;margin-bottom:clamp(1.8rem,4vw,3rem);font-style:italic}
+.cc-row{display:flex;gap:.85rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+.cc-row::-webkit-scrollbar{display:none}
+.cc-pcard{flex:0 0 clamp(145px,25vw,205px);background:rgba(242,237,227,.04);border:1px solid var(--bd2);display:flex;flex-direction:column;cursor:pointer;transition:border-color .22s}
+.cc-pcard:hover{border-color:var(--gbd)}
+.cc-pi{height:clamp(115px,15vw,162px);position:relative;overflow:hidden}
+.cc-pb{padding:.8rem .9rem}
+.cc-pn{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(.92rem,1.6vw,1.18rem);color:var(--iv);margin-bottom:.18rem}
+.cc-ps{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.1em;color:var(--td)}
+
+/* ═══════════════════════════════════════
+   SPOTLIGHT
+═══════════════════════════════════════ */
+#spotlight{background:var(--n);padding:clamp(3.5rem,7vw,7rem) 0;overflow:hidden}
+.sp-in{display:grid;grid-template-columns:1fr 1fr;min-height:58vh;padding:0 var(--pad);gap:4rem;align-items:center}
+@media(max-width:800px){.sp-in{grid-template-columns:1fr;gap:2rem;padding:0 var(--sm)}}
+.sp-prod{position:relative;display:flex;align-items:center;justify-content:center}
+.sp-cw{width:100%;padding-bottom:90%;position:relative;overflow:hidden;perspective:1000px}
+.sp-3d{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.sp-shape{width:55%;height:55%;position:relative;transform-style:preserve-3d;animation:spFloat 4s ease-in-out infinite}
+@keyframes spFloat{0%,100%{transform:rotateY(0deg) translateY(0)}50%{transform:rotateY(10deg) translateY(-14px)}}
+.sp-shape-inner{position:absolute;inset:0;border-radius:10px;border:1px solid var(--gbd);transition:background .6s ease,box-shadow .6s ease}
+.sp-light{position:absolute;top:0;left:50%;width:2px;height:100%;background:linear-gradient(to bottom,rgba(196,151,58,.38),transparent);transform:translateX(-50%)}
+.sp-floor{position:absolute;bottom:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--gbd),transparent)}
+.sp-info{display:flex;flex-direction:column;gap:1rem}
+.sp-ctr{font-family:'Geist Mono',monospace;font-size:.5rem;letter-spacing:.2em;color:var(--td)}
+.sp-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,5vw,3.8rem);line-height:.96;color:var(--iv)}
+.sp-coll{font-family:'Geist Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.sp-rule{width:48px;height:1px;background:var(--gbd)}
+.sp-desc{font-size:clamp(.86rem,1.4vw,1.04rem);font-style:italic;font-weight:300;color:var(--tm);line-height:1.68;max-width:44ch}
+.sp-chips{display:flex;flex-wrap:wrap;gap:.32rem}
+.sc{font-family:'Geist Mono',monospace;font-size:.48rem;letter-spacing:.06em;padding:4px 8px;border:1px solid var(--bd);color:var(--td)}
+.sp-nav{display:flex;align-items:center;gap:.75rem}
+.spn-b{width:40px;height:40px;border:1px solid var(--bd);background:transparent;color:var(--iv);font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .22s}
+.spn-b:hover{border-color:var(--gold);color:var(--gold)}
+.sp-acts{display:flex;gap:.6rem;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════
+   CATALOGUE
+═══════════════════════════════════════ */
+#catalogue{background:var(--dk);padding-bottom:clamp(3.5rem,7vw,7rem)}
+.fwrap{padding:0 var(--pad) clamp(1.4rem,3vw,2.4rem);display:flex;gap:.38rem;flex-wrap:wrap}
+.fp{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;padding:5px 13px;background:transparent;border:1px solid var(--bd);color:var(--td);transition:all .22s}
+.fp.on,.fp:hover{background:var(--gold);color:var(--n);border-color:var(--gold)}
+.pgrid{padding:0 var(--pad);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd)}
+@media(max-width:840px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.pgrid{grid-template-columns:1fr}}
+.pgrid-feat .pc:first-child{grid-column:span 2}
+@media(max-width:840px){.pgrid-feat .pc:first-child{grid-column:span 1}}
+.pc{background:var(--dk);display:flex;flex-direction:column;cursor:pointer;transition:background .2s}
+.pc:hover{background:var(--ch)}
+.pc-img{overflow:hidden;position:relative;aspect-ratio:1/1}
+.pgrid-feat .pc:first-child .pc-img{aspect-ratio:2/1}
+@media(max-width:840px){.pgrid-feat .pc:first-child .pc-img{aspect-ratio:1/1}}
+.pc-ib{position:absolute;inset:0;transition:transform .62s ease}
+.pc:hover .pc-ib{transform:scale(1.05)}
+.pc-bgs{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:3px;z-index:2}
+.pb{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;line-height:1.3}
+.pb.new{background:var(--gold);color:var(--n)}
+.pb.best{background:var(--iv);color:var(--n)}
+.pb.oem{background:rgba(242,237,227,.1);color:var(--td);border:1px solid var(--bd)}
+.pc-body{padding:clamp(.8rem,1.5vw,1.15rem);flex:1;display:flex;flex-direction:column;gap:.5rem}
+.pc-sku{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.1em;color:var(--td)}
+.pc-n{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1rem,2vw,1.42rem);color:var(--iv);line-height:1.1}
+.pc-c{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.pc-d{font-size:clamp(.74rem,1.1vw,.88rem);font-weight:300;color:var(--td);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pc-cols{display:flex;gap:4px}
+.pcs{width:11px;height:11px;border-radius:50%;border:1px solid rgba(255,255,255,.15)}
+.pc-acts{display:grid;grid-template-columns:1fr 1fr;margin-top:auto;border-top:1px solid var(--bd)}
+.pc-db{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:clamp(.5rem,1vh,.82rem) 8px;background:transparent;border:none;border-right:1px solid var(--bd);color:var(--td);text-align:center;transition:all .2s}
+.pc-db:hover{color:var(--iv);background:rgba(242,237,227,.04)}
+.pc-qb{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:clamp(.5rem,1vh,.82rem) 8px;background:var(--ch);border:none;color:var(--iv);text-align:center;transition:all .2s}
+.pc-qb:hover,.pc-qb.added{background:var(--gold);color:var(--n)}
+
+/* Product image CSS backgrounds */
+.pi-1{background:linear-gradient(135deg,#3D2812 0%,#1E1108 50%,#2C1C0C 100%)}
+.pi-1::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 34%,rgba(196,151,58,.22) 0%,transparent 65%)}
+.pi-2{background:linear-gradient(145deg,#1A1A1A 0%,#0D0D0D 50%,#151515 100%)}
+.pi-2::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 40% 50% at 50% 40%,rgba(242,237,227,.08) 0%,transparent 65%)}
+.pi-3{background:linear-gradient(140deg,#1C1C1C 0%,#141414 50%,#0E0E0E 100%)}
+.pi-3::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 45% 44%,rgba(196,151,58,.14) 0%,transparent 70%)}
+.pi-4{background:linear-gradient(135deg,#200F0F 0%,#120808 50%,#100606 100%)}
+.pi-4::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 52% 37%,rgba(180,120,100,.15) 0%,transparent 65%)}
+.pi-5{background:linear-gradient(150deg,#EEE5D9 0%,#E0D8CC 50%,#D5CCBF 100%)}
+.pi-5::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 45% 55% at 50% 40%,rgba(196,151,58,.18) 0%,transparent 60%)}
+.pi-6{background:linear-gradient(135deg,#141414 0%,#0A0A0A 50%,#111111 100%)}
+.pi-6::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 44%,rgba(196,196,196,.08) 0%,transparent 65%)}
+.pi-7{background:linear-gradient(140deg,#2C1A06 0%,#1A0E03 50%,#200F04 100%)}
+.pi-7::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 65% at 50% 37%,rgba(196,151,58,.2) 0%,transparent 60%)}
+.pi-8{background:linear-gradient(135deg,#0D0D0D 0%,#090909 50%,#111111 100%)}
+.pi-8::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 40% 40% at 50% 50%,rgba(242,237,227,.06) 0%,transparent 60%)}
+
+/* ═══════════════════════════════════════
+   MATERIALS
+═══════════════════════════════════════ */
+#materials{background:var(--n);padding:clamp(3.5rem,7vw,7rem) var(--pad)}
+.mat-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bd);margin-top:clamp(1.8rem,4vw,3.2rem)}
+@media(max-width:900px){.mat-g{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.mat-g{grid-template-columns:1fr}}
+.mc{background:var(--n);display:flex;flex-direction:column}
+.mc-img{height:clamp(145px,17vw,215px);position:relative;overflow:hidden}
+.mc-bi{position:absolute;inset:0;transition:transform .65s ease}
+.mc:hover .mc-bi{transform:scale(1.07)}
+.mi-1{background:linear-gradient(135deg,#3D2A0F 0%,#2C1E0B 40%,#1E1508 100%)}
+.mi-1::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(196,151,58,.04) 0,rgba(196,151,58,.04) 1px,transparent 1px,transparent 8px)}
+.mi-2{background:linear-gradient(135deg,#1A1A1A 0%,#101010 40%,#151515 100%)}
+.mi-2::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(242,237,227,.03) 0,rgba(242,237,227,.03) 1px,transparent 1px,transparent 10px)}
+.mi-3{background:linear-gradient(135deg,#1E1E28 0%,#12121A 50%,#1A1A24 100%)}
+.mi-3::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(180,180,242,.09) 0%,transparent 60%)}
+.mi-4{background:linear-gradient(135deg,#141414 0%,#0A0A0A 50%,#111111 100%)}
+.mi-4::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(242,237,227,.025) 0,rgba(242,237,227,.025) 1px,transparent 1px,transparent 12px)}
+.mc-body{padding:clamp(1rem,2vw,1.55rem);flex:1;border-top:1px solid var(--bd)}
+.mc-ico{font-size:.95rem;color:var(--gold);margin-bottom:.55rem}
+.mc-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1rem,1.8vw,1.32rem);color:var(--iv);margin-bottom:.32rem}
+.mc-d{font-size:clamp(.76rem,1.1vw,.9rem);font-weight:300;color:var(--td);line-height:1.62}
+
+/* ═══════════════════════════════════════
+   PRIVATE LABEL
+═══════════════════════════════════════ */
+#pl{background:var(--ch);padding:clamp(3.5rem,7vw,7rem) var(--pad)}
+.pl-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.8rem,6vw,6rem);align-items:center;margin-top:clamp(1.8rem,4vw,3.2rem)}
+@media(max-width:800px){.pl-g{grid-template-columns:1fr}}
+.pl-steps{display:flex;flex-direction:column;gap:1.35rem}
+.pl-step{display:flex;gap:1.35rem;align-items:flex-start;padding-bottom:1.35rem;border-bottom:1px solid var(--bd2)}
+.pl-step:last-child{border-bottom:none;padding-bottom:0}
+.pls-n{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.7rem,3.5vw,2.7rem);color:var(--gold);opacity:.38;line-height:1;flex-shrink:0;width:2.6rem}
+.pls-b{flex:1}
+.pls-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1rem,1.9vw,1.3rem);color:var(--iv);margin-bottom:.22rem}
+.pls-d{font-size:clamp(.78rem,1.2vw,.92rem);font-weight:300;color:var(--td);line-height:1.62}
+.pl-vis{background:rgba(242,237,227,.03);border:1px solid var(--bd);padding:clamp(1.8rem,4vw,3.2rem);display:flex;flex-direction:column;gap:1.3rem}
+.plv-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.2rem,2.2vw,1.65rem);color:var(--iv)}
+.plv-opts{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+.plv-opt{font-family:'Geist Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--td);padding:.6rem .7rem;border:1px solid var(--bd2);background:transparent;text-align:center;cursor:pointer;transition:all .22s}
+.plv-opt:hover,.plv-opt.on{border-color:var(--gold);color:var(--gold);background:rgba(196,151,58,.06)}
+.plv-ctas{display:flex;flex-direction:column;gap:.45rem;margin-top:.35rem}
+
+/* ═══════════════════════════════════════
+   FACTORY
+═══════════════════════════════════════ */
+#factory{background:var(--n);padding:clamp(3.5rem,7vw,7rem) var(--pad)}
+.fac-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);margin-top:clamp(1.8rem,4vw,3.2rem);margin-bottom:clamp(2.5rem,5vw,4.5rem)}
+@media(max-width:620px){.fac-stats{grid-template-columns:repeat(2,1fr)}}
+.fst{background:var(--n);padding:clamp(1.35rem,3vw,2.1rem)}
+.fst-n{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.6rem,5.5vw,4.2rem);color:var(--gold);line-height:1;letter-spacing:-.02em}
+.fst-l{font-family:'Geist Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--td);margin-top:.22rem}
+.certs-row{display:flex;flex-wrap:wrap;gap:.35rem}
+.cbadge{font-family:'Geist Mono',monospace;font-size:.5rem;letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--gbd);color:var(--gold)}
+
+/* ═══════════════════════════════════════
+   LOOKBOOK
+═══════════════════════════════════════ */
+#lookbook{background:var(--dk);overflow:hidden}
+.lb-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd)}
+@media(max-width:700px){.lb-panels{grid-template-columns:1fr}}
+.lbp{position:relative;min-height:clamp(260px,40vw,540px);overflow:hidden;display:flex;align-items:flex-end}
+.lbp-bg{position:absolute;inset:0;transition:transform .85s ease}
+.lbp:hover .lbp-bg{transform:scale(1.05)}
+.lb-1{background:linear-gradient(160deg,#2C1F10 0%,#1A1008 40%,#0E0B06 100%)}
+.lb-2{background:linear-gradient(140deg,#121218 0%,#0A0A10 50%,#0E0E16 100%)}
+.lb-3{background:linear-gradient(160deg,#1A1008 0%,#101008 50%,#141208 100%)}
+.lbp-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,6,4,.88) 0%,transparent 55%)}
+.lbp-body{position:relative;z-index:1;padding:clamp(1.35rem,3vw,2.1rem)}
+.lbp-l{font-family:'Geist Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.38rem}
+.lbp-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.15rem,2.5vw,1.85rem);color:var(--iv);line-height:1.15}
+
+/* ═══════════════════════════════════════
+   INQUIRY SECTION
+═══════════════════════════════════════ */
+#inq-sec{background:var(--ch);padding:clamp(3.5rem,7vw,7rem) var(--pad)}
+.inq-lay{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.8rem,5vw,5rem);margin-top:clamp(1.8rem,4vw,3.2rem);border-top:1px solid var(--bd);padding-top:clamp(1.8rem,4vw,3.2rem)}
+@media(max-width:800px){.inq-lay{grid-template-columns:1fr}}
+.inq-bh{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(.8rem,1.4vw,.93rem);letter-spacing:.14em;text-transform:uppercase;color:var(--iv);margin-bottom:1.3rem}
+#bsk-tbl{width:100%;border-collapse:collapse}
+#bsk-tbl th{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--td);padding:5px 0;text-align:left;border-bottom:1px solid var(--bd)}
+#bsk-tbl td{padding:9px 5px 9px 0;border-bottom:1px solid var(--bd2);vertical-align:middle}
+.bt-n{font-size:.9rem;color:var(--iv);font-family:'Cormorant Garamond',serif;font-weight:600}
+.bt-c{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.08em;color:var(--td);display:block}
+.bt-q{font-family:'Geist Mono',monospace;font-size:.66rem;background:transparent;border:1px solid var(--bd);color:var(--iv);width:50px;padding:3px 5px;text-align:center}
+.bt-rm{background:none;border:none;color:var(--td);font-size:.78rem;padding:2px 4px;transition:color .2s}
+.bt-rm:hover{color:var(--al)}
+#bsk-empty{color:var(--td);font-size:.9rem;padding:2.2rem 0;text-align:center;font-style:italic}
+.inq-fr{display:flex;flex-direction:column;gap:.8rem}
+.flbl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--td);display:block;margin-bottom:.22rem}
+.fi,.fs,.ft{width:100%;padding:9px 12px;background:transparent;border:1px solid var(--bd);color:var(--iv);font-family:'Cormorant Garamond',serif;font-size:.96rem;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;border-radius:0}
+.fi::placeholder,.ft::placeholder{color:var(--td);font-style:italic}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--gbd)}
+.fs{background:var(--n)}
+.ft{min-height:72px;resize:vertical}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+@media(max-width:520px){.fgrid{grid-template-columns:1fr}}
+.btn-sub{width:100%;padding:13px;background:var(--gold);color:var(--n);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:.92rem;letter-spacing:.18em;text-transform:uppercase;border:none;transition:background .22s;margin-top:.3rem}
+.btn-sub:hover{background:var(--glt)}
+#fok{display:none;text-align:center;padding:2.8rem 1rem}
+#fok.on{display:block}
+.fok-ico{font-size:2.2rem;margin-bottom:.8rem;color:var(--gold)}
+.fok-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.4rem,3vw,2rem);color:var(--iv);margin-bottom:.38rem}
+.fok-s{font-size:.92rem;color:var(--td);line-height:1.65;font-style:italic}
+
+/* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+#contact{background:var(--dk);position:relative;overflow:hidden}
+.cont-grad{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(196,151,58,.04) 0%,transparent 70%)}
+.cont-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;min-height:58vh;align-items:start;padding:clamp(3.5rem,7vw,7rem) var(--pad);gap:clamp(2.8rem,6vw,6rem)}
+@media(max-width:720px){.cont-in{grid-template-columns:1fr}}
+.cont-l{display:flex;flex-direction:column;gap:1.05rem}
+.cont-hl{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.9rem,4.5vw,3.7rem);color:var(--iv);line-height:1.04;letter-spacing:-.01em}
+.cont-hl em{font-style:italic;color:var(--gold)}
+.cont-sub{font-size:clamp(.86rem,1.4vw,1.04rem);font-weight:300;color:var(--tm);line-height:1.67;max-width:44ch;font-style:italic}
+.chs{display:flex;flex-direction:column;gap:.45rem}
+.chc{display:flex;align-items:center;gap:.82rem;padding:11px 14px;background:rgba(242,237,227,.04);border:1px solid var(--bd2);border-left:2px solid transparent;transition:border-left-color .22s}
+.chc:hover{border-left-color:var(--gold)}
+.chi{font-size:1rem;flex-shrink:0}
+.ch-l{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--td);display:block;margin-bottom:2px}
+.ch-v{font-size:.86rem;color:var(--iv)}
+.cont-credit{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.08em;color:rgba(196,151,58,.28);margin-top:.35rem;text-transform:uppercase}
+.cont-r{display:flex;flex-direction:column;gap:1.1rem}
+.booth-card{border:1px solid var(--gbd);padding:clamp(1.4rem,3vw,2.4rem);text-align:center;display:flex;flex-direction:column;gap:.78rem;align-items:center}
+.bc-lbl{font-family:'Geist Mono',monospace;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.bc-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.8rem,7vw,5.2rem);color:var(--iv);line-height:1;letter-spacing:.05em}
+.bc-sub{font-family:'Geist Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--td)}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+#footer{background:var(--n);border-top:1px solid var(--bd);padding:clamp(2.8rem,6vw,5rem) var(--pad) clamp(1.4rem,3vw,2rem)}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.4rem;margin-bottom:2.4rem;padding-bottom:2.4rem;border-bottom:1px solid var(--bd)}
+@media(max-width:820px){.ft-top{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.ft-top{grid-template-columns:1fr}}
+.ft-brand{display:flex;flex-direction:column;gap:.6rem}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.15rem,2.5vw,1.65rem);letter-spacing:.22em;text-transform:uppercase;color:var(--iv)}
+.ft-tag{font-size:.86rem;font-weight:300;font-style:italic;color:var(--td);line-height:1.55;max-width:28ch}
+.ft-pw{font-family:'Geist Mono',monospace;font-size:.42rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(196,151,58,.26);margin-top:.3rem}
+.ft-ch-t{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--td);margin-bottom:.8rem}
+.ft-ch-ls{display:flex;flex-direction:column;gap:.38rem}
+.ft-ch-ls a{font-size:.86rem;font-weight:300;color:var(--td);transition:color .2s}
+.ft-ch-ls a:hover{color:var(--gold)}
+.ft-bot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
+.ft-copy{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.1em;color:var(--td)}
+.ft-sd{font-family:'Geist Mono',monospace;font-size:.46rem;letter-spacing:.09em;color:rgba(196,151,58,.35);text-transform:uppercase}
+
+/* ═══════════════════════════════════════
+   PRODUCT DRAWER
+═══════════════════════════════════════ */
+#drawer{position:fixed;inset:0;z-index:700;display:none}
+#drawer.on{display:flex}
+#dov{position:absolute;inset:0;background:rgba(7,6,4,.86);backdrop-filter:blur(6px)}
+#dpanel{position:absolute;bottom:0;left:0;right:0;max-height:92svh;background:var(--dk);border-top:1px solid var(--bd);border-radius:12px 12px 0 0;overflow-y:auto;transform:translateY(100%);transition:transform .45s cubic-bezier(.25,.46,.45,.94);z-index:1;-webkit-overflow-scrolling:touch}
+#drawer.on #dpanel{transform:none}
+@media(min-width:900px){
+  #dpanel{bottom:0;top:0;right:0;left:auto;max-height:100%;width:clamp(390px,42vw,570px);border-radius:0;border-left:1px solid var(--bd);border-top:none;transform:translateX(100%)}
+  #drawer.on #dpanel{transform:none}
+}
+.d-handle{width:36px;height:3px;background:var(--bd);border-radius:2px;margin:11px auto 0}
+@media(min-width:900px){.d-handle{display:none}}
+.d-close{position:sticky;top:0;display:flex;justify-content:flex-end;padding:.6rem .8rem;background:var(--dk);z-index:10}
+.dcb{background:none;border:1px solid var(--bd);color:var(--td);font-size:.76rem;padding:4px 9px;transition:all .2s;font-family:'Geist Mono',monospace}
+.dcb:hover{border-color:var(--gold);color:var(--gold)}
+.d-cw{width:100%;padding-bottom:62%;position:relative;background:var(--ch);overflow:hidden}
+.d-cw canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.d-fb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.45rem}
+.d-body{padding:clamp(1.3rem,3vw,2.1rem)}
+.d-coll{font-family:'Geist Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.38rem}
+.d-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,4vw,2.7rem);color:var(--iv);line-height:.96;margin-bottom:.6rem}
+.d-desc{font-size:clamp(.84rem,1.3vw,.98rem);font-weight:300;font-style:italic;color:var(--tm);line-height:1.67;margin-bottom:1.3rem}
+.d-specs{display:grid;grid-template-columns:1fr 1fr;gap:.38rem 1.1rem;padding-bottom:1.3rem;border-bottom:1px solid var(--bd);margin-bottom:1.3rem}
+.ds-l{font-family:'Geist Mono',monospace;font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--td);margin-bottom:2px}
+.ds-v{font-size:.86rem;color:var(--iv);font-weight:300}
+.d-cols-lbl{font-family:'Geist Mono',monospace;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(--td);margin-bottom:.45rem}
+.d-cols-row{display:flex;gap:.42rem;flex-wrap:wrap;margin-bottom:1.3rem}
+.dcs{width:25px;height:25px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .2s}
+.dcs.on,.dcs:hover{border-color:var(--gold)}
+.d-acts{position:sticky;bottom:0;background:var(--dk);border-top:1px solid var(--bd);padding:.8rem clamp(1.3rem,3vw,2.1rem);display:flex;gap:.45rem}
+.da-p{flex:1;padding:12px;background:var(--gold);color:var(--n);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;border:none;transition:background .22s}
+.da-p:hover{background:var(--glt)}
+.da-p.added{background:rgba(196,151,58,.2);color:var(--gold)}
+.da-wa{padding:12px 13px;background:transparent;border:1px solid var(--bd);color:var(--td);font-family:'Geist Mono',monospace;font-size:.54rem;letter-spacing:.09em;text-transform:uppercase;transition:all .22s;display:flex;align-items:center;text-decoration:none}
+.da-wa:hover{border-color:#25D366;color:#25D366}
+
+/* ═══════════════════════════════════════
+   MOBILE BAR
+═══════════════════════════════════════ */
+#mbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:450;background:rgba(10,9,7,.96);border-top:1px solid var(--bd);backdrop-filter:blur(12px);grid-template-columns:repeat(4,1fr);padding-bottom:env(safe-area-inset-bottom)}
+@media(max-width:700px){#mbar{display:grid}}
+.mb-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;background:none;border:none;color:var(--td);font-family:'Geist Mono',monospace;font-size:.4rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:color .2s;border-right:1px solid var(--bd2)}
+.mb-btn:last-child{border-right:none}
+.mb-btn:hover,.mb-btn:active{color:var(--gold)}
+.mb-ico{font-size:.92rem}
+.mb-iw{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px}
+.mb-ic{position:absolute;top:-3px;right:-8px;background:var(--gold);color:var(--n);width:13px;height:13px;border-radius:50%;font-size:.46rem;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0);transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.mb-ic.on{opacity:1;transform:scale(1)}
+@media(max-width:700px){body{padding-bottom:60px}}
+
+/* ─── STEEZ PILL ─── */
+#sdpill{position:fixed;bottom:.85rem;right:.85rem;z-index:900;background:var(--n);color:var(--gold);font-family:'Geist Mono',monospace;font-size:.5rem;padding:5px 9px;letter-spacing:.07em;text-decoration:none;border:1px solid var(--gbd);transition:all .2s}
+#sdpill:hover{background:var(--gold);color:var(--n)}
+@media(max-width:700px){#sdpill{bottom:68px}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<!-- ═══ SPLASH ═══ -->
+<div id="splash" onclick="dismissSplash()">
+  <div class="sp-lines"><div class="sp-line"></div><div class="sp-line"></div><div class="sp-line"></div></div>
+  <div class="sp-name" id="spn"></div>
+  <div class="sp-sub" data-i="sp-sub2">Fashion Accessories · OEM / ODM · Catalogue 2026</div>
+  <div class="sp-tag" data-i="sp-tag">"Modern Fashion Essentials for Global Buyers"</div>
+  <div class="sp-mets">
+    <div class="smet"><div class="smet-n">12+</div><div class="smet-l" data-i="smet-yr">Years</div></div>
+    <div class="smet"><div class="smet-n">35+</div><div class="smet-l" data-i="smet-mkt">Markets</div></div>
+    <div class="smet"><div class="smet-n">OEM</div><div class="smet-l" data-i="smet-oem">Supported</div></div>
+    <div class="smet"><div class="smet-n">300+</div><div class="smet-l" data-i="smet-des">Designs</div></div>
+  </div>
+  <div class="sp-hint" data-i="sp-hint">Tap anywhere to enter collection</div>
+  <div class="sp-cr" data-i="sp-cr">Interactive catalogue by steez.digital</div>
+</div>
+
+<!-- ═══ TOPBAR ═══ -->
+<nav id="tb">
+  <a class="tb-logo" href="#hero"><span class="tb-dot"></span>MAISON VELA</a>
+  <ul class="tb-nav">
+    <li><a href="#collections" data-i="nav-coll">Collections</a></li>
+    <li><a href="#catalogue" data-i="nav-cat">Catalogue</a></li>
+    <li><a href="#materials" data-i="nav-mat">Craftsmanship</a></li>
+    <li><a href="#pl" data-i="nav-pl">Private Label</a></li>
+    <li><a href="#inq-sec" data-i="nav-inq">Inquiry</a></li>
+    <li><a href="#contact" data-i="nav-con">Contact</a></li>
+  </ul>
+  <div class="tb-r">
+    <button class="lbtn on" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lbtn" id="btn-zh" onclick="setLang('zh')">中</button>
+    <button class="tmbtn" id="tmbtn" onclick="toggleTheme()" title="Toggle light/dark">◐</button>
+    <button class="ib" onclick="document.getElementById('inq-sec').scrollIntoView({behavior:'smooth'})">
+      <span data-i="inq-btn">Inquiry</span> <span class="ic" id="ic">0</span>
+    </button>
+    <button class="hb" onclick="openMnav()">☰</button>
+  </div>
+</nav>
+<div id="mn">
+  <button id="mc" onclick="closeMnav()">✕</button>
+  <a href="#collections" onclick="closeMnav()" data-i="nav-coll">Collections</a>
+  <a href="#catalogue" onclick="closeMnav()" data-i="nav-cat">Catalogue</a>
+  <a href="#inq-sec" onclick="closeMnav()" data-i="nav-inq">Inquiry</a>
+  <a href="#contact" onclick="closeMnav()" data-i="nav-con">Contact</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-in">
+    <div class="hero-txt">
+      <div class="ey" data-i="hero-season">2026 Signature Collection</div>
+      <h1 class="hero-hl">
+        <span class="hw"><span>Where</span></span>
+        <span class="hw"><span>Style</span></span>
+        <span class="hw"><span><em>Meets Craft</em></span></span>
+      </h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub" data-i="hero-sub">A curated collection of premium fashion accessories crafted for international buyers, private labels, and modern retail brands worldwide.</p>
+      <div class="hero-btns">
+        <button class="btn-p" onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'})"><span data-i="hero-cta1">Explore Collection</span></button>
+        <button class="btn-o" onclick="document.getElementById('inq-sec').scrollIntoView({behavior:'smooth'})"><span data-i="hero-cta2">Request Quote</span></button>
+      </div>
+      <div class="hero-cr" data-i="hero-cr">Powered by steez.digital — Interactive Catalogue Platform</div>
+    </div>
+    <div class="hero-prod">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-lbl" data-i="hero-lbl">Drag to rotate · Aurora Tote — 2026 Hero Piece</div>
+    </div>
+  </div>
+  <div class="hero-scr"><div class="scr-line"></div><div class="scr-txt">Scroll</div></div>
+</section>
+
+<!-- ═══ METRICS ═══ -->
+<div id="metrics">
+  <div class="mi fu"><div class="mi-num" data-cnt="12">0</div><div class="mi-lbl" data-i="mi-yr">+ Years Manufacturing</div></div>
+  <div class="mi fu"><div class="mi-num" data-cnt="35">0</div><div class="mi-lbl" data-i="mi-mkt">+ Export Markets</div></div>
+  <div class="mi fu"><div class="mi-num" data-cnt="300">0</div><div class="mi-lbl" data-i="mi-des">+ Active Designs</div></div>
+  <div class="mi fu"><div class="mi-num">OEM / ODM</div><div class="mi-lbl" data-i="mi-oem">Full Custom Support</div></div>
+</div>
+
+<!-- ═══ COLLECTION STORY ═══ -->
+<section id="story">
+  <div class="sh fu">
+    <div class="ey" data-i="s-ey">Collection Story</div>
+    <div class="sh-t" data-i="s-hl">The 2026 <em>Signature</em> Collection</div>
+    <div class="sh-s" data-i="s-sub">Every piece tells a story of material excellence, refined design, and enduring global appeal.</div>
+    <div class="sh-wm">Story</div>
+  </div>
+  <div class="story-panels">
+    <div class="spnl fu">
+      <div class="spnl-img"><div class="spnl-bg si-1"></div></div>
+      <div class="spnl-body">
+        <div class="spnl-num" data-i="s-01n">01 · Material</div>
+        <div class="spnl-t" data-i="s-01t">Premium Sourcing, Global Standards</div>
+        <div class="spnl-d" data-i="s-01d">Top-grain leathers, premium acetates, and surgical-grade hardware. Every material selected to meet international retail and private label requirements.</div>
+      </div>
+    </div>
+    <div class="spnl fu">
+      <div class="spnl-img"><div class="spnl-bg si-2"></div></div>
+      <div class="spnl-body">
+        <div class="spnl-num" data-i="s-02n">02 · Design</div>
+        <div class="spnl-t" data-i="s-02t">Editorial Forms, Timeless Lines</div>
+        <div class="spnl-d" data-i="s-02d">Designed for daily use and elevated by editorial sensibility. Clean silhouettes that translate across cultures, seasons, and retail contexts around the world.</div>
+      </div>
+    </div>
+    <div class="spnl fu">
+      <div class="spnl-img"><div class="spnl-bg si-3"></div></div>
+      <div class="spnl-body">
+        <div class="spnl-num" data-i="s-03n">03 · Craft</div>
+        <div class="spnl-t" data-i="s-03t">Made for Private Label. Built to Last.</div>
+        <div class="spnl-d" data-i="s-03d">12 years of OEM/ODM expertise. Full customization: colors, logos, packaging, and finishes tailored precisely for your brand identity.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COLLECTION SWITCHER ═══ -->
+<section id="collections">
+  <div class="coll-bg" id="coll-bg"></div>
+  <div class="coll-in">
+    <div class="sh fu" style="padding-top:0;padding-bottom:0;margin-bottom:clamp(1.5rem,3vw,2.5rem)">
+      <div class="ey" data-i="coll-ey">Collections</div>
+      <div class="sh-t" data-i="coll-hl">Shop by <em>Style</em></div>
+    </div>
+    <div class="coll-tabs" id="coll-tabs"></div>
+    <div id="coll-contents"></div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCT SPOTLIGHT ═══ -->
+<section id="spotlight">
+  <div class="sh fu" style="padding-bottom:clamp(1.5rem,3vw,2.5rem)">
+    <div class="ey" data-i="sp-ey">Featured Products</div>
+    <div class="sh-t" data-i="sp-hl">Product <em>Spotlight</em></div>
+    <div class="sh-wm">Spotlight</div>
+  </div>
+  <div class="sp-in">
+    <div class="sp-prod">
+      <div class="sp-cw">
+        <div class="sp-3d">
+          <div class="sp-shape" id="sp-shape">
+            <div class="sp-shape-inner" id="sp-inner"></div>
+          </div>
+          <div class="sp-light"></div>
+          <div class="sp-floor"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sp-info">
+      <div class="sp-ctr" id="sp-ctr">01 / 05</div>
+      <div class="sp-coll" id="sp-coll-lbl">Urban Essentials</div>
+      <div class="sp-name" id="sp-name">Aurora Tote</div>
+      <div class="sp-rule"></div>
+      <div class="sp-desc" id="sp-desc">Structured grain-leather tote with custom brass hardware and microfiber suede lining.</div>
+      <div class="sp-chips" id="sp-chips"></div>
+      <div class="sp-nav">
+        <button class="spn-b" onclick="prevSp()">←</button>
+        <button class="spn-b" onclick="nextSp()">→</button>
+      </div>
+      <div class="sp-acts">
+        <button class="btn-p" onclick="openDrawer(spotItems[spIdx])"><span data-i="sp-btn1">View Details</span></button>
+        <button class="btn-o" onclick="addToBasket(spotItems[spIdx])"><span data-i="sp-btn2">Add to Inquiry</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CATALOGUE ═══ -->
+<section id="catalogue">
+  <div class="sh fu">
+    <div class="ey" data-i="cat-ey">Product Catalogue</div>
+    <div class="sh-t" data-i="cat-hl">The <em>Full Collection</em></div>
+    <div class="sh-s" data-i="cat-sub">8 product lines. Full OEM/ODM. Tap any product for details and 3D preview.</div>
+    <div class="sh-wm">Collection</div>
+  </div>
+  <div class="fwrap" id="fwrap"></div>
+  <div class="pgrid pgrid-feat" id="pgrid"></div>
+</section>
+
+<!-- ═══ MATERIALS ═══ -->
+<section id="materials">
+  <div class="sh fu">
+    <div class="ey" data-i="mat-ey">Craftsmanship</div>
+    <div class="sh-t" data-i="mat-hl">Premium <em>Materials</em></div>
+    <div class="sh-s" data-i="mat-sub">Every product defined by its materials. Sourced globally, tested rigorously, finished by hand.</div>
+    <div class="sh-wm">Craft</div>
+  </div>
+  <div class="mat-g">
+    <div class="mc fu"><div class="mc-img"><div class="mc-bi mi-1"></div></div><div class="mc-body"><div class="mc-ico">◈</div><div class="mc-t" data-i="mat-1t">Full-Grain Leather</div><div class="mc-d" data-i="mat-1d">Top-tier hides sourced from certified tanneries. Rich natural grain, ages beautifully. REACH and SGS certified. Available in 24 colorways.</div></div></div>
+    <div class="mc fu"><div class="mc-img"><div class="mc-bi mi-2"></div></div><div class="mc-body"><div class="mc-ico">◉</div><div class="mc-t" data-i="mat-2t">Precision Hardware</div><div class="mc-d" data-i="mat-2d">Brass-plated and zinc alloy with nickel-free finish. Anti-tarnish treatment, 10,000+ open/close cycle rated. EU Nickel Directive compliant.</div></div></div>
+    <div class="mc fu"><div class="mc-img"><div class="mc-bi mi-3"></div></div><div class="mc-body"><div class="mc-ico">◎</div><div class="mc-t" data-i="mat-3t">Optical-Grade Lens</div><div class="mc-d" data-i="mat-3d">CR-39 and polycarbonate lenses with UV400 blocking, AR coating, and impact resistance. All eyewear passes EN ISO 12312-1 standards.</div></div></div>
+    <div class="mc fu"><div class="mc-img"><div class="mc-bi mi-4"></div></div><div class="mc-body"><div class="mc-ico">◇</div><div class="mc-t" data-i="mat-4t">Ionic Ceramic Tech</div><div class="mc-d" data-i="mat-4d">Tourmaline-infused ceramic heating plates for professional hair tools. Even heat distribution, low damage, high shine. CE / ETL certified.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══ PRIVATE LABEL ═══ -->
+<section id="pl">
+  <div class="sh fu">
+    <div class="ey" data-i="pl-ey">OEM · ODM · Private Label</div>
+    <div class="sh-t" data-i="pl-hl">Your Brand, <em>Our Craft</em></div>
+    <div class="sh-s" data-i="pl-sub">From concept to container — full private label service for fashion buyers and brand owners worldwide.</div>
+    <div class="sh-wm">OEM</div>
+  </div>
+  <div class="pl-g">
+    <div class="pl-steps fu">
+      <div class="pl-step"><div class="pls-n">01</div><div class="pls-b"><div class="pls-t" data-i="pl-s1t">Design Brief & Sample Selection</div><div class="pls-d" data-i="pl-s1d">Choose from 300+ existing designs or submit your own brief. Our design team adapts for your market and brand identity. Samples in 10–15 days.</div></div></div>
+      <div class="pl-step"><div class="pls-n">02</div><div class="pls-b"><div class="pls-t" data-i="pl-s2t">Material & Color Customization</div><div class="pls-d" data-i="pl-s2d">Select from premium materials, colorways, hardware finishes, and interior linings. Physical samples provided before bulk production confirmation.</div></div></div>
+      <div class="pl-step"><div class="pls-n">03</div><div class="pls-b"><div class="pls-t" data-i="pl-s3t">Logo & Packaging Design</div><div class="pls-d" data-i="pl-s3d">Debossing, embossing, foil stamping, and custom hang tags. Full custom packaging design service included for orders 500pcs+. Box, bag, and sleeve options.</div></div></div>
+      <div class="pl-step"><div class="pls-n">04</div><div class="pls-b"><div class="pls-t" data-i="pl-s4t">Production & Quality Control</div><div class="pls-d" data-i="pl-s4d">Strict in-line QC at every stage. Pre-shipment inspection and third-party testing available. Full export documentation prepared for your market.</div></div></div>
+    </div>
+    <div class="pl-vis fu">
+      <div class="plv-t" data-i="pl-vis-t">Customization Options</div>
+      <div class="plv-opts" id="plv-opts">
+        <div class="plv-opt on" data-i="plo-1">Custom Colors</div>
+        <div class="plv-opt" data-i="plo-2">Logo Debossing</div>
+        <div class="plv-opt" data-i="plo-3">Gift Packaging</div>
+        <div class="plv-opt" data-i="plo-4">Custom Hardware</div>
+        <div class="plv-opt" data-i="plo-5">Inner Lining</div>
+        <div class="plv-opt" data-i="plo-6">Hang Tags</div>
+        <div class="plv-opt" data-i="plo-7">Certifications</div>
+        <div class="plv-opt" data-i="plo-8">Sample Service</div>
+      </div>
+      <div class="plv-ctas">
+        <button class="btn-p" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"><span data-i="pl-cta1">Start Custom Project</span></button>
+        <button class="btn-o" onclick="document.getElementById('inq-sec').scrollIntoView({behavior:'smooth'})"><span data-i="pl-cta2">Request Private Label Quote</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FACTORY ═══ -->
+<section id="factory">
+  <div class="sh fu">
+    <div class="ey" data-i="fac-ey">Supplier Profile</div>
+    <div class="sh-t" data-i="fac-hl">Factory <em>Strength</em></div>
+    <div class="sh-s" data-i="fac-sub">Behind every MAISON VELA product is a modern Shenzhen facility with 12 years of export excellence and rigorous QC.</div>
+    <div class="sh-wm">Factory</div>
+  </div>
+  <div class="fac-stats">
+    <div class="fst fu"><div class="fst-n" data-cnt="12">0</div><div class="fst-l" data-i="fac-yr">Years Experience</div></div>
+    <div class="fst fu"><div class="fst-n" data-cnt="35">0</div><div class="fst-l" data-i="fac-ctr">Export Countries</div></div>
+    <div class="fst fu"><div class="fst-n" data-cnt="300">0</div><div class="fst-l" data-i="fac-des">Active Designs</div></div>
+    <div class="fst fu"><div class="fst-n">20K+</div><div class="fst-l" data-i="fac-upm">Units / Month</div></div>
+    <div class="fst fu"><div class="fst-n">OEM</div><div class="fst-l" data-i="fac-odm">ODM Fully Supported</div></div>
+    <div class="fst fu"><div class="fst-n">QC</div><div class="fst-l" data-i="fac-qc">In-house &amp; 3rd Party</div></div>
+  </div>
+  <div class="certs-row">
+    <span class="cbadge">ISO 9001</span><span class="cbadge">REACH</span><span class="cbadge">SGS</span><span class="cbadge">CE</span><span class="cbadge">ETL</span><span class="cbadge">BSCI</span><span class="cbadge">Nickel-Free</span><span class="cbadge">UV400</span><span class="cbadge">OEKO-TEX</span>
+  </div>
+</section>
+
+<!-- ═══ LOOKBOOK ═══ -->
+<section id="lookbook">
+  <div class="sh fu" style="padding-bottom:0">
+    <div class="ey" data-i="lb-ey">Lifestyle</div>
+    <div class="sh-t" data-i="lb-hl">The <em>Lookbook</em></div>
+    <div class="sh-wm">Life</div>
+  </div>
+  <div class="lb-panels">
+    <div class="lbp fu"><div class="lbp-bg lb-1"></div><div class="lbp-ov"></div><div class="lbp-body"><div class="lbp-l" data-i="lb-l1">Urban · Daily Carry</div><div class="lbp-t" data-i="lb-t1">The Aurora Tote — City Ready, World-Ready</div></div></div>
+    <div class="lbp fu"><div class="lbp-bg lb-2"></div><div class="lbp-ov"></div><div class="lbp-body"><div class="lbp-l" data-i="lb-l2">Smart Beauty · Daily Ritual</div><div class="lbp-t" data-i="lb-t2">Nova Mirror — Your Personal Studio</div></div></div>
+    <div class="lbp fu"><div class="lbp-bg lb-3"></div><div class="lbp-ov"></div><div class="lbp-body"><div class="lbp-l" data-i="lb-l3">Travel · On the Move</div><div class="lbp-t" data-i="lb-t3">Vela Case — Luxury in Transit</div></div></div>
+  </div>
+</section>
+
+<!-- ═══ INQUIRY SECTION ═══ -->
+<section id="inq-sec">
+  <div class="sh fu">
+    <div class="ey" data-i="inq-ey">Buyer Inquiry</div>
+    <div class="sh-t" data-i="inq-hl">Build Your <em>Inquiry List</em></div>
+    <div class="sh-s" data-i="inq-sub-s">Add products to your inquiry, specify quantities, and send all requirements in one message.</div>
+    <div class="sh-wm">Inquiry</div>
+  </div>
+  <div class="inq-lay">
+    <div>
+      <div class="inq-bh" data-i="inq-sel">Selected Products</div>
+      <table id="bsk-tbl">
+        <thead><tr><th data-i="inq-th-p">Product</th><th data-i="inq-th-c">Collection</th><th data-i="inq-th-q">Qty</th><th></th></tr></thead>
+        <tbody id="bsk-body"></tbody>
+      </table>
+      <div id="bsk-empty" data-i="inq-empty">— Browse the catalogue and click "Add to Inquiry" on any product —</div>
+    </div>
+    <div>
+      <div class="inq-fr" id="form-area">
+        <div class="fgrid">
+          <div><label class="flbl" data-i="f-fn-l">Full Name *</label><input class="fi" type="text" id="f-name" placeholder="Your name" data-ph="f-fn-ph"/></div>
+          <div><label class="flbl" data-i="f-co-l">Company *</label><input class="fi" type="text" id="f-co" placeholder="Company name" data-ph="f-co-ph"/></div>
+        </div>
+        <div class="fgrid">
+          <div><label class="flbl" data-i="f-ctry-l">Country *</label>
+            <select class="fs" id="f-ctry">
+              <option value="" data-i="f-ctry-ph">Select country</option>
+              <option>UAE</option><option>Saudi Arabia</option><option>United States</option><option>United Kingdom</option><option>Germany</option><option>France</option><option>Russia</option><option>Australia</option><option>Canada</option><option>Japan</option><option>South Korea</option><option>Malaysia</option><option>Indonesia</option><option>Other</option>
+            </select>
+          </div>
+          <div><label class="flbl" data-i="f-wa-l">WhatsApp / WeChat *</label><input class="fi" type="text" id="f-wa" placeholder="+1 or ID" data-ph="f-wa-ph"/></div>
+        </div>
+        <label class="flbl" data-i="f-em-l">Email *</label><input class="fi" type="email" id="f-em" placeholder="buyer@company.com" data-ph="f-em-ph"/>
+        <div class="fgrid">
+          <div><label class="flbl" data-i="f-mkt-l">Target Market</label><select class="fs" id="f-mkt"><option data-i="f-mkt-1">Retail</option><option data-i="f-mkt-2">Distribution</option><option data-i="f-mkt-3">OEM Resale</option><option data-i="f-mkt-4">Private Label</option><option data-i="f-mkt-5">E-commerce</option></select></div>
+          <div><label class="flbl" data-i="f-vol-l">Est. Annual Volume</label><input class="fi" type="text" id="f-vol" placeholder="e.g. 50,000 pcs" data-ph="f-vol-ph"/></div>
+        </div>
+        <label class="flbl" data-i="f-note-l">Notes / Customization Requirements</label>
+        <textarea class="ft" id="f-note" placeholder="Logo, colors, packaging, or special requirements..." data-ph="f-note-ph"></textarea>
+        <button class="btn-sub" onclick="submitInq()"><span data-i="f-sub">Send Inquiry to MAISON VELA</span></button>
+      </div>
+      <div id="fok">
+        <div class="fok-ico">✦</div>
+        <div class="fok-t" data-i="fok-t">Inquiry Sent Successfully</div>
+        <div class="fok-s" data-i="fok-s">Our export team will respond within 24 hours with pricing, samples, and customization options tailored to your brand.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="cont-grad"></div>
+  <div class="cont-in">
+    <div class="cont-l">
+      <div class="ey fu" data-i="cont-ey">Ready to Order</div>
+      <div class="cont-hl fu" data-i="cont-hl">Let's Build Your <em>Collection</em></div>
+      <p class="cont-sub fu" data-i="cont-sub">Send your selected products, quantities, and customization needs. Our team will respond with pricing, samples, and production timelines.</p>
+      <div class="chs">
+        <div class="chc"><span class="chi">📱</span><div><span class="ch-l" data-i="ch-wa">WhatsApp</span><span class="ch-v">+86 138 0000 0000</span></div></div>
+        <div class="chc"><span class="chi">💬</span><div><span class="ch-l" data-i="ch-wc">WeChat</span><span class="ch-v">maisonvela_export</span></div></div>
+        <div class="chc"><span class="chi">✉</span><div><span class="ch-l" data-i="ch-em">Email</span><span class="ch-v">export@maisonvela.com</span></div></div>
+        <div class="chc"><span class="chi">📍</span><div><span class="ch-l" data-i="ch-fa">Factory Address</span><span class="ch-v" data-i="ch-fa-v">Shenzhen, Guangdong Province, China</span></div></div>
+      </div>
+      <div class="cont-credit" data-i="cont-credit">This digital showroom was created by steez.digital</div>
+    </div>
+    <div class="cont-r fu">
+      <div class="booth-card">
+        <div class="bc-lbl" data-i="bc-lbl">Trade Show Booth</div>
+        <div class="bc-num">A3 — 095</div>
+        <div class="bc-sub" data-i="bc-sub">Canton Fair · Hall 3 · Spring 2026</div>
+      </div>
+      <div class="booth-card" style="border-color:var(--bd)">
+        <div class="bc-lbl" data-i="bc-req">Request</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.3rem,3vw,2rem);color:var(--iv);line-height:1.1;text-align:center" data-i="bc-fv">Factory Visit<br><em style="color:var(--gold)">& Sample Room</em></div>
+        <div class="bc-sub" data-i="bc-appt">Available Monday – Friday, by appointment</div>
+        <button class="btn-p" onclick="document.getElementById('inq-sec').scrollIntoView({behavior:'smooth'})" style="width:100%;margin-top:.35rem"><span data-i="bc-meet">Book a Meeting</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="footer">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <div class="ft-logo">MAISON VELA</div>
+      <div class="ft-tag" data-i="ft-tag">Modern fashion accessories for global buyers. OEM/ODM manufacturer, Shenzhen.</div>
+      <div class="ft-pw" data-i="ft-pw">Powered by steez.digital — Interactive Catalogue Platform</div>
+    </div>
+    <div>
+      <div class="ft-ch-t" data-i="ft-col-h">Collections</div>
+      <div class="ft-ch-ls">
+        <a href="#collections" data-i="ft-col-1">Urban Essentials</a>
+        <a href="#collections" data-i="ft-col-2">Luxury Travel</a>
+        <a href="#collections" data-i="ft-col-3">Everyday Elegance</a>
+        <a href="#collections" data-i="ft-col-4">Smart Beauty</a>
+        <a href="#collections" data-i="ft-col-5">Private Label</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-ch-t" data-i="ft-svc-h">Services</div>
+      <div class="ft-ch-ls">
+        <a href="#pl" data-i="ft-svc-1">OEM Manufacturing</a>
+        <a href="#pl" data-i="ft-svc-2">ODM Design</a>
+        <a href="#pl" data-i="ft-svc-3">Private Label</a>
+        <a href="#pl" data-i="ft-svc-4">Custom Packaging</a>
+        <a href="#pl" data-i="ft-svc-5">Sample Service</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-ch-t" data-i="ft-con-h">Contact</div>
+      <div class="ft-ch-ls">
+        <a href="#contact">WhatsApp</a>
+        <a href="#contact">WeChat</a>
+        <a href="#contact" data-i="ft-con-em">Email Us</a>
+        <a href="#inq-sec" data-i="ft-con-inq">Send Inquiry</a>
+        <a href="#contact" data-i="ft-con-mtg">Book Meeting</a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <div class="ft-copy" data-i="ft-copy">© 2026 MAISON VELA. All rights reserved. Shenzhen, Guangdong, China.</div>
+    <div class="ft-sd" data-i="ft-sd">Interactive catalogue by steez.digital</div>
+  </div>
+</footer>
+
+<!-- ═══ PRODUCT DRAWER ═══ -->
+<div id="drawer" onclick="handleDrOvClick(event)">
+  <div id="dov"></div>
+  <div id="dpanel">
+    <div class="d-handle"></div>
+    <div class="d-close"><button class="dcb" onclick="closeDrawer()" data-i="d-close">Close ✕</button></div>
+    <div class="d-cw" id="d-cw">
+      <canvas id="d-canvas"></canvas>
+      <div class="d-fb" id="d-fb" style="display:none">
+        <span style="font-size:2rem;color:var(--gbd)">◈</span>
+        <span style="font-family:'Geist Mono',monospace;font-size:.5rem;letter-spacing:.12em;color:var(--td)">Loading 3D View…</span>
+      </div>
+    </div>
+    <div class="d-body">
+      <div class="d-coll" id="d-coll"></div>
+      <div class="d-name" id="d-name"></div>
+      <div class="d-desc" id="d-desc"></div>
+      <div class="d-specs" id="d-specs"></div>
+      <div class="d-cols-lbl" data-i="d-cols-lbl">Available Colors</div>
+      <div class="d-cols-row" id="d-cols"></div>
+    </div>
+    <div class="d-acts">
+      <button class="da-p" id="d-inq-btn" onclick="addFromDrawer()">Add to Inquiry</button>
+      <a class="da-wa" href="https://wa.me/8613800000000" target="_blank">WhatsApp ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MOBILE BAR ═══ -->
+<div id="mbar">
+  <a class="mb-btn" href="#catalogue"><span class="mb-ico">◫</span><span data-i="mb-prod">Products</span></a>
+  <button class="mb-btn" onclick="document.getElementById('inq-sec').scrollIntoView({behavior:'smooth'})">
+    <div class="mb-iw"><span class="mb-ico">⊕</span><span class="mb-ic" id="mb-ic">0</span></div>
+    <span data-i="mb-inq">Inquiry</span>
+  </button>
+  <a class="mb-btn" href="https://wa.me/8613800000000" target="_blank"><span class="mb-ico">💬</span>WhatsApp</a>
+  <a class="mb-btn" href="#contact"><span class="mb-ico">✉</span><span data-i="mb-con">Contact</span></a>
+</div>
+
+<a id="sdpill" href="https://steez.digital" target="_blank">steez.digital ↗</a>
+
+<!-- ═══ THREE.JS + APP ═══ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script>
+/* ─── LANG + I18N — must come first (used by render functions called in INIT block) ─── */
+let curLang='en';
+const i18n={
+  en:{
+    'nav-coll':'Collections','nav-cat':'Catalogue','nav-mat':'Craftsmanship',
+    'nav-pl':'Private Label','nav-inq':'Inquiry','nav-con':'Contact',
+    'inq-btn':'Inquiry',
+    'hero-season':'2026 Signature Collection',
+    'hero-lbl':'Drag to rotate · Aurora Tote — 2026 Hero Piece',
+    'hero-cta1':'Explore Collection','hero-cta2':'Request Quote',
+    'hero-cr':'Powered by steez.digital — Interactive Catalogue Platform',
+    'splash-sub':'MAISON VELA · SHENZHEN · EST. 2014',
+    'splash-tag':'Premium Fashion Accessories OEM / ODM',
+    'splash-hint':'Tap to enter the collection',
+    'mi-yr':'+ Years Manufacturing','mi-mkt':'+ Export Markets',
+    'mi-des':'+ Active Designs','mi-oem':'Full Custom Support',
+    's-ey':'Collection Story',
+    's-hl':'The 2026 <em>Signature</em> Collection',
+    's-sub':'Every piece tells a story of material excellence, refined design, and enduring global appeal.',
+    's-01n':'01 · Material','s-01t':'Premium Sourcing, Global Standards',
+    's-01d':'Top-grain leathers, premium acetates, and surgical-grade hardware. Every material selected to meet international retail and private label requirements.',
+    's-02n':'02 · Design','s-02t':'Editorial Forms, Timeless Lines',
+    's-02d':'Designed for daily use and elevated by editorial sensibility. Clean silhouettes that translate across cultures, seasons, and retail contexts around the world.',
+    's-03n':'03 · Craft','s-03t':'Made for Private Label. Built to Last.',
+    's-03d':'12 years of OEM/ODM expertise. Full customization: colors, logos, packaging, and finishes tailored precisely for your brand identity.',
+    'coll-ey':'Collections','coll-hl':'Shop by <em>Style</em>',
+    'sp-ey':'Featured Products','sp-hl':'Product <em>Spotlight</em>',
+    'sp-btn1':'View Details','sp-btn2':'Add to Inquiry',
+    'cat-ey':'Product Catalogue','cat-hl':'The <em>Full Collection</em>',
+    'cat-sub':'8 product lines. Full OEM/ODM. Tap any product for details and 3D preview.',
+    'mat-ey':'Craftsmanship','mat-hl':'Premium <em>Materials</em>',
+    'mat-sub':'Every product defined by its materials. Sourced globally, tested rigorously, finished by hand.',
+    'mat-1t':'Full-Grain Leather','mat-1d':'Top-tier hides sourced from certified tanneries. Rich natural grain, ages beautifully. REACH and SGS certified. Available in 24 colorways.',
+    'mat-2t':'Precision Hardware','mat-2d':'Brass-plated and zinc alloy with nickel-free finish. Anti-tarnish treatment, 10,000+ open/close cycle rated. EU Nickel Directive compliant.',
+    'mat-3t':'Optical-Grade Lens','mat-3d':'CR-39 and polycarbonate lenses with UV400 blocking, AR coating, and impact resistance. All eyewear passes EN ISO 12312-1 standards.',
+    'mat-4t':'Ionic Ceramic Tech','mat-4d':'Tourmaline-infused ceramic heating plates for professional hair tools. Even heat distribution, low damage, high shine. CE / ETL certified.',
+    'pl-ey':'OEM · ODM · Private Label','pl-hl':'Your Brand, <em>Our Craft</em>',
+    'pl-sub':'From concept to container — full private label service for fashion buyers and brand owners worldwide.',
+    'pl-s1t':'Design Brief & Sample Selection','pl-s1d':'Choose from 300+ existing designs or submit your own brief. Our design team adapts for your market and brand identity. Samples in 10–15 days.',
+    'pl-s2t':'Material & Color Customization','pl-s2d':'Select from premium materials, colorways, hardware finishes, and interior linings. Physical samples provided before bulk production confirmation.',
+    'pl-s3t':'Logo & Packaging Design','pl-s3d':'Debossing, embossing, foil stamping, and custom hang tags. Full custom packaging design service included for orders 500pcs+. Box, bag, and sleeve options.',
+    'pl-s4t':'Production & Quality Control','pl-s4d':'Strict in-line QC at every stage. Pre-shipment inspection and third-party testing available. Full export documentation prepared for your market.',
+    'pl-vis-t':'Customization Options','pl-cta1':'Start Custom Project','pl-cta2':'Request Private Label Quote',
+    'fac-ey':'Supplier Profile','fac-hl':'Factory <em>Strength</em>',
+    'fac-sub':'Behind every MAISON VELA product is a modern Shenzhen facility with 12 years of export excellence and rigorous QC.',
+    'fac-yr':'Years Experience','fac-ctr':'Export Countries','fac-des':'Active Designs',
+    'fac-upm':'Units / Month','fac-odm':'ODM Fully Supported','fac-qc':'In-house & 3rd Party',
+    'lb-ey':'Lifestyle','lb-hl':'The <em>Lookbook</em>',
+    'lb-l1':'Urban · Daily Carry','lb-t1':'The Aurora Tote — City Ready, World-Ready',
+    'lb-l2':'Smart Beauty · Daily Ritual','lb-t2':'Nova Mirror — Your Personal Studio',
+    'lb-l3':'Travel · On the Move','lb-t3':'Vela Case — Luxury in Transit',
+    'inq-ey':'Buyer Inquiry','inq-hl':'Build Your <em>Inquiry List</em>',
+    'inq-sub-s':'Add products to your inquiry, specify quantities, and send all requirements in one message.',
+    'inq-sel':'Selected Products','inq-th-p':'Product','inq-th-c':'Collection','inq-th-q':'Qty',
+    'inq-empty':'— Browse the catalogue and click "Add to Inquiry" on any product —',
+    'f-fn-l':'Full Name *','f-fn-ph':'Your name','f-co-l':'Company *','f-co-ph':'Company name',
+    'f-ctry-l':'Country *','f-ctry-ph':'Select country',
+    'f-wa-l':'WhatsApp / WeChat *','f-wa-ph':'+1 or ID',
+    'f-em-l':'Email *','f-em-ph':'buyer@company.com',
+    'f-mkt-l':'Target Market','f-mkt-1':'Retail','f-mkt-2':'Distribution','f-mkt-3':'OEM Resale','f-mkt-4':'Private Label','f-mkt-5':'E-commerce',
+    'f-vol-l':'Est. Annual Volume','f-vol-ph':'e.g. 50,000 pcs',
+    'f-note-l':'Notes / Customization Requirements','f-note-ph':'Logo, colors, packaging, or special requirements...',
+    'f-sub':'Send Inquiry to MAISON VELA',
+    'fok-t':'Inquiry Sent Successfully',
+    'fok-s':'Our export team will respond within 24 hours with pricing, samples, and customization options tailored to your brand.',
+    'cont-ey':'Ready to Order','cont-hl':'Let\'s Build Your <em>Collection</em>',
+    'cont-sub':'Send your selected products, quantities, and customization needs. Our team will respond with pricing, samples, and production timelines.',
+    'ch-wa':'WhatsApp','ch-wc':'WeChat','ch-em':'Email',
+    'ch-fa':'Factory Address','ch-fa-v':'Shenzhen, Guangdong Province, China',
+    'cont-credit':'This digital showroom was created by steez.digital',
+    'bc-lbl':'Trade Show Booth','bc-sub':'Canton Fair · Hall 3 · Spring 2026',
+    'bc-req':'Request','bc-fv':'Factory Visit<br><em style="color:var(--gold)">& Sample Room</em>',
+    'bc-appt':'Available Monday – Friday, by appointment','bc-meet':'Book a Meeting',
+    'ft-tag':'Modern fashion accessories for global buyers. OEM/ODM manufacturer, Shenzhen.',
+    'ft-pw':'Powered by steez.digital — Interactive Catalogue Platform',
+    'ft-col-h':'Collections','ft-col-1':'Urban Essentials','ft-col-2':'Luxury Travel',
+    'ft-col-3':'Everyday Elegance','ft-col-4':'Smart Beauty','ft-col-5':'Private Label',
+    'ft-svc-h':'Services','ft-svc-1':'OEM Manufacturing','ft-svc-2':'ODM Design',
+    'ft-svc-3':'Private Label','ft-svc-4':'Custom Packaging','ft-svc-5':'Sample Service',
+    'ft-con-h':'Contact','ft-con-em':'Email Us','ft-con-inq':'Send Inquiry','ft-con-mtg':'Book Meeting',
+    'ft-copy':'© 2026 MAISON VELA. All rights reserved. Shenzhen, Guangdong, China.',
+    'ft-sd':'Interactive catalogue by steez.digital',
+    'd-close':'Close ✕','d-cols-lbl':'Available Colors',
+    'mb-prod':'Products','mb-inq':'Inquiry','mb-con':'Contact',
+    'badge-new':'New Arrival','badge-best':'Best Seller','badge-oem':'OEM Ready',
+    'grid-view':'View Details','grid-add':'Add to Inquiry','grid-added':'✓ Added',
+    'drawer-add':'Add to Inquiry','drawer-added':'✓ Added to Inquiry',
+    'sp-sub2':'Fashion Accessories · OEM / ODM · Catalogue 2026',
+    'sp-tag':'"Modern Fashion Essentials for Global Buyers"',
+    'sp-hint':'Tap anywhere to enter collection',
+    'sp-cr':'Interactive catalogue by steez.digital',
+    'smet-yr':'Years','smet-mkt':'Markets','smet-oem':'Supported','smet-des':'Designs',
+    'hero-sub':'A curated collection of premium fashion accessories crafted for international buyers, private labels, and modern retail brands worldwide.',
+    'plo-1':'Custom Colors','plo-2':'Logo Debossing','plo-3':'Gift Packaging','plo-4':'Custom Hardware',
+    'plo-5':'Inner Lining','plo-6':'Hang Tags','plo-7':'Certifications','plo-8':'Sample Service',
+  },
+  zh:{
+    'nav-coll':'系列','nav-cat':'产品目录','nav-mat':'工艺',
+    'nav-pl':'贴牌定制','nav-inq':'询价','nav-con':'联系我们',
+    'inq-btn':'询价',
+    'hero-season':'2026 签名系列',
+    'hero-lbl':'拖动旋转 · Aurora Tote — 2026 主打款',
+    'hero-cta1':'浏览系列','hero-cta2':'请求报价',
+    'hero-cr':'由 steez.digital 提供技术支持 — 互动目录平台',
+    'splash-sub':'MAISON VELA · 深圳 · 创立于 2014',
+    'splash-tag':'高端时尚配饰 OEM / ODM 制造商',
+    'splash-hint':'点击进入系列',
+    'mi-yr':'+ 年制造经验','mi-mkt':'+ 出口市场',
+    'mi-des':'+ 在售款式','mi-oem':'全程定制支持',
+    's-ey':'系列故事',
+    's-hl':'2026 <em>签名</em>系列',
+    's-sub':'每一件作品都承载着对材质、设计与工艺的执着追求，为全球买家而生。',
+    's-01n':'01 · 材质','s-01t':'优质原材，全球标准',
+    's-01d':'顶级全粒面皮革、优质醋酸纤维与外科级五金。每种材料均经过严格筛选，以满足国际零售和贴牌定制要求。',
+    's-02n':'02 · 设计','s-02t':'编辑视角，永恒线条',
+    's-02d':'兼顾日常使用与高级时尚感。简洁轮廓跨越文化、季节与零售场景，在全球市场均展现出独特魅力。',
+    's-03n':'03 · 工艺','s-03t':'为贴牌而生，历久弥坚。',
+    's-03d':'12年OEM/ODM专业经验，全面定制服务：颜色、标志、包装和表面处理，精准呈现您的品牌个性。',
+    'coll-ey':'系列','coll-hl':'按<em>风格</em>选购',
+    'sp-ey':'精选产品','sp-hl':'产品<em>聚焦</em>',
+    'sp-btn1':'查看详情','sp-btn2':'加入询价',
+    'cat-ey':'产品目录','cat-hl':'<em>完整系列</em>',
+    'cat-sub':'8个产品系列，全面OEM/ODM支持。点击任意产品查看详情及3D预览。',
+    'mat-ey':'工艺','mat-hl':'优质<em>材料</em>',
+    'mat-sub':'每件产品以材质为根基，全球采购，严格检测，手工精修。',
+    'mat-1t':'全粒面皮革','mat-1d':'源自认证鞣制厂的顶级皮革，天然纹理丰富，越用越有质感。通过REACH和SGS认证，提供24种色系。',
+    'mat-2t':'精密五金','mat-2d':'镀黄铜及锌合金，无镍表面处理，防锈，10,000次以上开合测试。符合欧盟镍指令。',
+    'mat-3t':'光学级镜片','mat-3d':'CR-39与聚碳酸酯镜片，UV400防护，AR镀膜，抗冲击。所有眼镜均通过EN ISO 12312-1标准。',
+    'mat-4t':'负离子陶瓷技术','mat-4d':'电气石注入陶瓷加热板，专业护发工具专用。均匀导热，低损伤，高光泽，通过CE / ETL认证。',
+    'pl-ey':'OEM · ODM · 贴牌定制','pl-hl':'您的品牌，<em>我们的工艺</em>',
+    'pl-sub':'从设计概念到装箱出货，为全球时尚买家和品牌商提供全程贴牌服务。',
+    'pl-s1t':'设计方案与样品选择','pl-s1d':'从300+现有款式中选择，或提交您自己的设计方案。我们的设计团队将为您的市场和品牌定制方案，10–15天内提供样品。',
+    'pl-s2t':'材质与颜色定制','pl-s2d':'从优质材料、色系、五金表面和内衬中进行选择，大货生产确认前提供实物样品。',
+    'pl-s3t':'标志与包装设计','pl-s3d':'烫金、压印、箔印和定制吊牌。500件以上订单包含全套包装设计服务，可选盒装、袋装和套装。',
+    'pl-s4t':'生产与质量控制','pl-s4d':'每道工序严格在线质检。提供发货前检验和第三方检测，并为您的目标市场准备完整的出口文件。',
+    'pl-vis-t':'定制选项','pl-cta1':'开始定制项目','pl-cta2':'申请贴牌报价',
+    'fac-ey':'供应商档案','fac-hl':'工厂<em>实力</em>',
+    'fac-sub':'每件MAISON VELA产品背后，是深圳现代化工厂12年出口经验与严格质量管控的支撑。',
+    'fac-yr':'年经验','fac-ctr':'出口国家','fac-des':'在售款式',
+    'fac-upm':'件 / 月','fac-odm':'全程ODM支持','fac-qc':'内部及第三方',
+    'lb-ey':'生活方式','lb-hl':'形象<em>大片</em>',
+    'lb-l1':'都市 · 日常携带','lb-t1':'Aurora Tote — 城市就绪，放眼全球',
+    'lb-l2':'智慧美颜 · 日常仪式','lb-t2':'Nova Mirror — 私人化妆台',
+    'lb-l3':'旅行 · 随时出发','lb-t3':'Vela Case — 旅途中的奢华',
+    'inq-ey':'买家询价','inq-hl':'建立您的<em>询价清单</em>',
+    'inq-sub-s':'将产品加入询价单，填写数量，一次性发送所有需求。',
+    'inq-sel':'已选产品','inq-th-p':'产品','inq-th-c':'系列','inq-th-q':'数量',
+    'inq-empty':'— 浏览产品目录，点击任意产品的"加入询价"按钮 —',
+    'f-fn-l':'全名 *','f-fn-ph':'您的姓名','f-co-l':'公司 *','f-co-ph':'公司名称',
+    'f-ctry-l':'国家 *','f-ctry-ph':'选择国家',
+    'f-wa-l':'WhatsApp / 微信 *','f-wa-ph':'+86 或 微信号',
+    'f-em-l':'电子邮箱 *','f-em-ph':'buyer@company.com',
+    'f-mkt-l':'目标市场','f-mkt-1':'零售','f-mkt-2':'分销','f-mkt-3':'OEM转售','f-mkt-4':'贴牌定制','f-mkt-5':'电商',
+    'f-vol-l':'预计年采购量','f-vol-ph':'如 50,000 件',
+    'f-note-l':'备注 / 定制要求','f-note-ph':'标志、颜色、包装或特殊要求...',
+    'f-sub':'发送询价至 MAISON VELA',
+    'fok-t':'询价发送成功',
+    'fok-s':'我们的出口团队将在24小时内回复定价、样品及专属定制方案。',
+    'cont-ey':'准备下单','cont-hl':'共创您的<em>系列</em>',
+    'cont-sub':'发送您选择的产品、数量及定制需求，我们的团队将回复报价、样品和生产周期。',
+    'ch-wa':'WhatsApp','ch-wc':'微信','ch-em':'电子邮箱',
+    'ch-fa':'工厂地址','ch-fa-v':'中国广东省深圳市',
+    'cont-credit':'本数字展厅由 steez.digital 创建',
+    'bc-lbl':'展会摊位','bc-sub':'广交会 · 3号馆 · 2026春季',
+    'bc-req':'预约','bc-fv':'工厂参观<br><em style="color:var(--gold)">& 样品间</em>',
+    'bc-appt':'周一至周五，预约开放','bc-meet':'预约参观',
+    'ft-tag':'面向全球买家的现代时尚配饰，深圳OEM/ODM制造商。',
+    'ft-pw':'由 steez.digital 提供技术支持 — 互动目录平台',
+    'ft-col-h':'系列','ft-col-1':'都市精选','ft-col-2':'奢旅系列',
+    'ft-col-3':'日常雅致','ft-col-4':'智慧美颜','ft-col-5':'贴牌定制',
+    'ft-svc-h':'服务','ft-svc-1':'OEM制造','ft-svc-2':'ODM设计',
+    'ft-svc-3':'贴牌定制','ft-svc-4':'定制包装','ft-svc-5':'样品服务',
+    'ft-con-h':'联系','ft-con-em':'发送邮件','ft-con-inq':'发送询价','ft-con-mtg':'预约洽谈',
+    'ft-copy':'© 2026 MAISON VELA. 保留所有权利. 中国广东省深圳市.',
+    'ft-sd':'由 steez.digital 创建的互动目录',
+    'd-close':'关闭 ✕','d-cols-lbl':'可选颜色',
+    'mb-prod':'产品','mb-inq':'询价','mb-con':'联系',
+    'badge-new':'新品上架','badge-best':'热销款','badge-oem':'支持OEM',
+    'grid-view':'查看详情','grid-add':'加入询价','grid-added':'✓ 已添加',
+    'drawer-add':'加入询价','drawer-added':'✓ 已加入询价',
+    'sp-sub2':'时尚配饰 · OEM / ODM · 2026年目录',
+    'sp-tag':'"为全球买家甄选的现代时尚精品"',
+    'sp-hint':'点击任意位置进入系列',
+    'sp-cr':'互动目录由 steez.digital 创建',
+    'smet-yr':'年经验','smet-mkt':'出口市场','smet-oem':'定制支持','smet-des':'在售款式',
+    'hero-sub':'为国际买家、贴牌品牌和现代零售商精心打造的高端时尚配饰系列。',
+    'plo-1':'定制颜色','plo-2':'标志压印','plo-3':'礼品包装','plo-4':'定制五金',
+    'plo-5':'内衬定制','plo-6':'吊牌设计','plo-7':'认证支持','plo-8':'样品服务',
+  }
+};
+const catLabels={
+  en:{All:'All',bag:'Bags',eyewear:'Eyewear',beauty:'Beauty',travel:'Travel',watch:'Watches',scarf:'Scarves',wallet:'Wallets'},
+  zh:{All:'全部',bag:'手袋',eyewear:'眼镜',beauty:'美妆',travel:'旅行',watch:'手表',scarf:'丝巾',wallet:'钱包'},
+};
+
+/* ─── PRODUCT DATA ─── */
+const products = [
+  {id:'p1',sku:'MV-BAG-001',name:'Aurora Tote',coll:'Urban Essentials',cid:'urban',
+   desc:'Structured grain-leather tote with custom brass hardware and microfiber suede lining. Designed for global retail.',
+   mat:'Top-grain leather',dims:'34×12×26 cm',weight:'580g',moq:'100 pcs',lead:'25–35 days',
+   zh:{name:'极光托特包',coll:'都市精选',desc:'结构感全粒面皮革托特包，配定制黄铜五金和超细纤维绒面革内衬，专为全球零售打造。',mat:'全粒面皮革',
+       specs:{材质:'全粒面皮革',尺寸:'34×12×26 cm',五金:'镀黄铜',内衬:'超细纤维绒面革',最小起订量:'100 件',生产周期:'25–35 天',OEM:'支持',认证:'REACH, SGS'}},
+   colors:['#8B5E3C','#1A1A1A','#C4973A','#F0E8DC'],badges:['best'],imgC:'pi-1',cat:'bag',geo:'box',gc:0x8B5E3C,
+   specs:{Material:'Top-grain leather',Dimensions:'34×12×26 cm',Hardware:'Brass plated',Lining:'Microfiber suede',MOQ:'100 pcs','Lead Time':'25–35 days',OEM:'Yes',Certs:'REACH, SGS'}},
+  {id:'p2',sku:'MV-SUN-002',name:'Lumière Frames',coll:'Everyday Elegance',cid:'elegance',
+   desc:'Handcrafted premium acetate frames with polarized CR-39 lenses. UV400 protection meets editorial runway design.',
+   mat:'Premium acetate',dims:'142×52×14 mm',weight:'28g',moq:'200 pcs',lead:'20–28 days',
+   zh:{name:'流光镜框',coll:'日常雅致',desc:'手工打造优质醋酸纤维镜框，配偏振CR-39镜片，UV400防护，兼具时尚感与实用性。',mat:'优质醋酸纤维',
+       specs:{材质:'优质醋酸纤维',镜片:'偏振CR-39，UV400',镜框宽:'142mm',鼻梁:'18mm',镜腿:'145mm',最小起订量:'200 件',生产周期:'20–28 天',OEM:'支持'}},
+   colors:['#3D2A1A','#1A1A1A','#C4973A','#8B7B6A'],badges:['new'],imgC:'pi-2',cat:'eyewear',geo:'torus',gc:0x3D2A1A,
+   specs:{Material:'Premium acetate',Lens:'Polarized CR-39, UV400',Width:'142mm',Bridge:'18mm',Temple:'145mm',MOQ:'200 pcs','Lead Time':'20–28 days',OEM:'Yes'}},
+  {id:'p3',sku:'MV-HST-003',name:'SilkEdge Pro',coll:'Smart Beauty',cid:'beauty',
+   desc:'Professional ionic ceramic hair styler. 230°C max, tourmaline plates, dual voltage 110–240V. Salon results for daily use.',
+   mat:'ABS + ionic ceramic',dims:'28×6×4 cm',weight:'410g',moq:'150 pcs',lead:'30–40 days',
+   zh:{name:'丝滑直发器专业版',coll:'智慧美颜',desc:'专业级负离子陶瓷直发器，最高230°C，电气石陶瓷板，110–240V双电压，沙龙级效果日常可用。',mat:'ABS + 负离子陶瓷',
+       specs:{材质:'ABS + 负离子陶瓷',最高温度:'230°C',加热板:'电气石陶瓷',电压:'110–240V 双电压',功率:'40W',最小起订量:'150 件',生产周期:'30–40 天',认证:'CE, ETL, UKCA'}},
+   colors:['#1A1A1A','#C4973A','#F0E8DC','#2C2C2C'],badges:['best','oem'],imgC:'pi-3',cat:'beauty',geo:'cylinder',gc:0x222222,
+   specs:{Material:'ABS + ionic ceramic',Temperature:'Up to 230°C',Plates:'Tourmaline ceramic',Voltage:'110–240V dual',Power:'40W',MOQ:'150 pcs','Lead Time':'30–40 days',Certs:'CE, ETL, UKCA'}},
+  {id:'p4',sku:'MV-MIR-004',name:'Nova Mirror',coll:'Smart Beauty',cid:'beauty',
+   desc:'LED vanity mirror with 1× / 10× magnification, adjustable 3000–6000K lighting, touch dimmer. Desktop or wall mount.',
+   mat:'Aluminium alloy',dims:'30cm diameter',weight:'1.2kg',moq:'100 pcs',lead:'28–38 days',
+   zh:{name:'星耀美妆镜',coll:'智慧美颜',desc:'LED化妆镜，1× / 10×放大倍率，3000–6000K可调光，触控调光，桌面或壁挂两用。',mat:'铝合金',
+       specs:{材质:'铝合金',直径:'30cm',放大倍率:'1× / 10×',灯光:'LED，3000–6000K',电源:'USB-C 5V',最小起订量:'100 件',生产周期:'28–38 天',认证:'CE, FCC'}},
+   colors:['#C4A882','#1A1A1A','#F0E8DC'],badges:['new'],imgC:'pi-4',cat:'beauty',geo:'sphere',gc:0xC4A882,
+   specs:{Material:'Aluminium alloy',Diameter:'30cm',Magnification:'1× / 10×',Lighting:'LED, 3000–6000K',Power:'USB-C 5V',MOQ:'100 pcs','Lead Time':'28–38 days',Certs:'CE, FCC'}},
+  {id:'p5',sku:'MV-JEW-005',name:'Vela Jewelry Case',coll:'Luxury Travel',cid:'travel',
+   desc:'Ivory vegan leather travel jewelry organizer. Velvet-lined compartments and anti-tarnish fabric interior. Hand-finished.',
+   mat:'Vegan leather + velvet',dims:'22×10×4 cm',weight:'280g',moq:'150 pcs',lead:'20–28 days',
+   zh:{name:'维拉珠宝收纳盒',coll:'奢旅系列',desc:'象牙白素皮旅行珠宝收纳盒，天鹅绒分隔格，防氧化内衬，手工精修完成。',mat:'素皮 + 天鹅绒',
+       specs:{材质:'素皮 + 天鹅绒',尺寸:'22×10×4 cm',格层:'8戒指格 + 2拉链格',内衬:'天鹅绒，防氧化',最小起订量:'150 件',生产周期:'20–28 天',OEM:'支持'}},
+   colors:['#F0E8DC','#1A1A1A','#C4973A','#8B7B6A'],badges:['best'],imgC:'pi-5',cat:'travel',geo:'box',gc:0xE0D5C4,
+   specs:{Material:'Vegan leather + velvet',Dimensions:'22×10×4 cm',Compartments:'8 ring + 2 zip',Lining:'Velvet, anti-tarnish',MOQ:'150 pcs','Lead Time':'20–28 days',OEM:'Yes'}},
+  {id:'p6',sku:'MV-WAT-006',name:'Tempus Watch',coll:'Urban Essentials',cid:'urban',
+   desc:'Minimalist fashion watch. Brushed mesh stainless steel band, sapphire-coated mineral glass, 5ATM water resistance.',
+   mat:'Stainless steel',dims:'40mm case',weight:'82g',moq:'200 pcs',lead:'35–45 days',
+   zh:{name:'极简时光腕表',coll:'都市精选',desc:'极简时尚腕表，拉丝网格不锈钢表带，蓝宝石镀膜矿物玻璃，5ATM防水。',mat:'不锈钢',
+       specs:{材质:'不锈钢',表壳:'40mm',表带:'网格不锈钢',防水:'5ATM / 50m',机芯:'日本石英',最小起订量:'200 件',生产周期:'35–45 天',OEM:'支持'}},
+   colors:['#C4C4C4','#C4973A','#1A1A1A'],badges:['oem'],imgC:'pi-6',cat:'watch',geo:'torus',gc:0x888888,
+   specs:{Material:'Stainless steel',Case:'40mm',Band:'Mesh stainless steel',Resistance:'5ATM / 50m',Movement:'Japanese quartz',MOQ:'200 pcs','Lead Time':'35–45 days',OEM:'Yes'}},
+  {id:'p7',sku:'MV-SCF-007',name:'Soie Scarf',coll:'Everyday Elegance',cid:'elegance',
+   desc:'Hand-printed 100% silk twill scarf, 90×90cm. Custom pattern design service available. Hand-hemmed finish. Seasonal colorways.',
+   mat:'100% silk twill, 16mm',dims:'90×90 cm',weight:'65g',moq:'100 pcs',lead:'25–35 days',
+   zh:{name:'索伊真丝丝巾',coll:'日常雅致',desc:'手工印花100%真丝斜纹绸丝巾，90×90cm，可定制图案，手工卷边，提供季节性色系。',mat:'100% 真丝斜纹绸，16mm',
+       specs:{材质:'100% 真丝斜纹绸，16mm',尺寸:'90×90 cm',工艺:'手工卷边',印花:'数码 / 丝网印花',最小起订量:'100 件',生产周期:'25–35 天',OEM:'完全定制设计'}},
+   colors:['#C4973A','#F0E8DC','#1A1A1A','#8B4A4A'],badges:['best','oem'],imgC:'pi-7',cat:'scarf',geo:'plane',gc:0xC4973A,
+   specs:{Material:'100% silk twill, 16mm',Dimensions:'90×90 cm',Finish:'Hand-hemmed',Printing:'Digital / screen print',MOQ:'100 pcs','Lead Time':'25–35 days',OEM:'Full custom design'}},
+  {id:'p8',sku:'MV-WAL-008',name:'Mono Wallet',coll:'Urban Essentials',cid:'urban',
+   desc:'Ultra-slim RFID-blocking cardholder in full-grain leather. 8 card slots + cash. Custom debossing and logo available.',
+   mat:'Full-grain leather',dims:'10×7×0.8 cm',weight:'55g',moq:'200 pcs',lead:'18–25 days',
+   zh:{name:'单色超薄钱包',coll:'都市精选',desc:'超薄RFID防护全粒面皮革卡包，8卡槽加现金夹，可定制压印标志。',mat:'全粒面皮革',
+       specs:{材质:'全粒面皮革',尺寸:'10×7×0.8 cm',卡槽:'8卡槽 + 现金夹',防护:'RFID屏蔽',压印:'可定制标志',最小起订量:'200 件',生产周期:'18–25 天'}},
+   colors:['#1A1A1A','#8B5E3C','#C4973A','#3D2A1A'],badges:['new'],imgC:'pi-8',cat:'wallet',geo:'box',gc:0x111111,
+   specs:{Material:'Full-grain leather',Dimensions:'10×7×0.8 cm',Cards:'8 card slots + cash',Protection:'RFID blocking',Deboss:'Custom logo avail.',MOQ:'200 pcs','Lead Time':'18–25 days'}}
+];
+
+const colls = [
+  {id:'urban',
+   en:{label:'Urban Essentials',hl:'Designed for\nthe Modern City',desc:'Everyday carry pieces engineered for style and function. Structured totes, minimalist watches, slim wallets — the essentials, elevated.'},
+   zh:{label:'都市精选',hl:'为现代城市\n而设计',desc:'专为都市日常而生——结构感托特包、极简手表、超薄钱包，必备之选，格调升级。'},
+   prods:['p1','p6','p8'],bg:'rgba(139,94,60,.06)'},
+  {id:'travel',
+   en:{label:'Luxury Travel',hl:'Refined for\nthe Global Traveller',desc:'Premium travel accessories for buyers who curate quality. Jewelry cases and travel essentials in premium materials and finishes.'},
+   zh:{label:'奢旅系列',hl:'为全球旅人\n精心打磨',desc:'为追求品质的买家而选——优质材料与工艺打造的珠宝收纳盒和旅行必备品。'},
+   prods:['p5','p1'],bg:'rgba(30,30,60,.05)'},
+  {id:'elegance',
+   en:{label:'Everyday Elegance',hl:'The Art of\nEveryday Style',desc:'Fashion accessories that elevate daily life. Silk scarves, premium frames — refined pieces for lifestyle retail buyers worldwide.'},
+   zh:{label:'日常雅致',hl:'日常风格\n的艺术',desc:'提升日常生活品位的时尚配饰——丝巾、优质镜框，为全球生活方式零售买家而生。'},
+   prods:['p2','p7'],bg:'rgba(196,151,58,.05)'},
+  {id:'beauty',
+   en:{label:'Smart Beauty',hl:'Where Beauty\nMeets Technology',desc:'Premium beauty appliances for international retail. Professional hair tools, smart mirrors, and beauty accessories with private label support.'},
+   zh:{label:'智慧美颜',hl:'美颜与科技\n的交汇',desc:'面向国际零售的高端美妆电器——专业护发工具、智能镜，全程支持贴牌定制。'},
+   prods:['p3','p4'],bg:'rgba(50,28,28,.06)'},
+  {id:'minimal',
+   en:{label:'Minimal Edit',hl:'Less, but\nPerfectly Made',desc:'A curated selection of minimally designed pieces. Clean lines, premium materials — no excess, nothing missing.'},
+   zh:{label:'极简精选',hl:'少即是多，\n精工制造',desc:'精选极简设计单品——利落线条，优质材料，去繁就简，完美无瑕。'},
+   prods:['p6','p8','p2'],bg:'rgba(20,20,20,.06)'},
+  {id:'label',
+   en:{label:'Private Label',hl:'Your Brand,\nOur Craft',desc:'Every product available for private label production. Custom colors, packaging, logos, and finishes for your brand identity.'},
+   zh:{label:'贴牌定制',hl:'您的品牌，\n我们的工艺',desc:'所有产品均可贴牌生产。颜色、包装、标志和表面处理，全面呈现您的品牌个性。'},
+   prods:['p1','p3','p7','p8'],bg:'rgba(196,151,58,.06)'},
+];
+
+const spotItems = ['p1','p2','p3','p4','p5'];
+let spIdx = 0;
+let basket = JSON.parse(localStorage.getItem('mv_basket')||'[]');
+let curProd = null;
+
+/* ─── SPLASH ─── */
+(function(){
+  const nm = 'MAISON VELA';
+  const el = document.getElementById('spn');
+  nm.split('').forEach((ch,i)=>{
+    const s=document.createElement('span');
+    s.className='c';
+    s.style.animationDelay=(.38+i*.058)+'s';
+    s.textContent=ch===' '?' ':ch;
+    el.appendChild(s);
+  });
+  setTimeout(dismissSplash,4000);
+})();
+
+function dismissSplash(){
+  const sp=document.getElementById('splash');
+  if(sp&&!sp.classList.contains('out')){
+    sp.classList.add('out');
+    setTimeout(()=>{sp.style.display='none';document.body.classList.add('jr');initFU();},900);
+  }
+}
+
+/* ─── TOPBAR ─── */
+window.addEventListener('scroll',()=>{document.getElementById('tb').classList.toggle('sol',scrollY>60)});
+function openMnav(){document.getElementById('mn').classList.add('on');document.body.style.overflow='hidden'}
+function closeMnav(){document.getElementById('mn').classList.remove('on');document.body.style.overflow=''}
+
+/* ─── FADE IN ─── */
+function initFU(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+}
+
+/* ─── HERO 3D — TOTE BAG MODEL ─── */
+function initHero3D(){
+  if(typeof THREE==='undefined')return;
+  const canvas=document.getElementById('hero-canvas');
+  const scene=new THREE.Scene();
+  const _cw=canvas.clientWidth||canvas.parentElement.clientWidth||480;
+  const _ch=canvas.clientHeight||480;
+  const camera=new THREE.PerspectiveCamera(38,_cw/_ch,0.1,100);
+  camera.position.set(0,0.2,8.5);
+  /* lighting rig */
+  scene.add(new THREE.AmbientLight(0x1C1408,1.4));
+  const kl=new THREE.PointLight(0xF5E8C8,5.5,30); kl.position.set(5,7,6); scene.add(kl);
+  const fl=new THREE.PointLight(0xC4973A,2.4,22); fl.position.set(-5,-1,5); scene.add(fl);
+  const rl=new THREE.PointLight(0x60380A,1.2,18); rl.position.set(1,-7,-3); scene.add(rl);
+
+  /* ── MATERIALS ── */
+  const mL=new THREE.MeshStandardMaterial({color:0x7A4E2A,metalness:0.04,roughness:0.74});
+  const mLD=new THREE.MeshStandardMaterial({color:0x5A3415,metalness:0.03,roughness:0.82});
+  const mH=new THREE.MeshStandardMaterial({color:0xC4973A,metalness:0.95,roughness:0.04});
+  const mT=new THREE.MeshStandardMaterial({color:0x2E1C0A,metalness:0.02,roughness:0.92});
+
+  const bag=new THREE.Group(); scene.add(bag);
+
+  /* ── BODY ── */
+  bag.add(Object.assign(new THREE.Mesh(new THREE.BoxGeometry(2.8,2.2,1.0),mL)));
+
+  /* front pocket panel */
+  const fp=new THREE.Mesh(new THREE.BoxGeometry(2.02,1.32,0.06),mLD);
+  fp.position.set(0,-0.16,0.53); bag.add(fp);
+
+  /* pocket stitching line (thin strips) */
+  [[2.04,0.02,0.04,0,-0.49,0.56],[0.02,1.34,0.04,-1.0,-0.16,0.56],[0.02,1.34,0.04,1.0,-0.16,0.56],[2.04,0.02,0.04,0,0.17,0.56]].forEach(([w,h,d,x,y,z])=>{
+    const s=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mT);
+    s.position.set(x,y,z); bag.add(s);
+  });
+
+  /* ── TOP TRIM BAND ── */
+  const tt=new THREE.Mesh(new THREE.BoxGeometry(2.8,0.17,1.0),mT);
+  tt.position.y=1.185; bag.add(tt);
+
+  /* ── BOTTOM BASE ── */
+  const bb=new THREE.Mesh(new THREE.BoxGeometry(2.9,0.2,1.06),mT);
+  bb.position.y=-1.2; bag.add(bb);
+
+  /* ── CLASP ── */
+  const cl=new THREE.Mesh(new THREE.CylinderGeometry(0.22,0.20,0.14,24),mH);
+  cl.position.set(0,1.19,0.52); bag.add(cl);
+  const cs=new THREE.Mesh(new THREE.SphereGeometry(0.1,14,14),mH);
+  cs.position.set(0,1.27,0.52); bag.add(cs);
+
+  /* ── BOTTOM CORNER STUDS ── */
+  [[-1.15,-1.26,0.4],[1.15,-1.26,0.4],[-1.15,-1.26,-0.4],[1.15,-1.26,-0.4]].forEach(p=>{
+    const st=new THREE.Mesh(new THREE.SphereGeometry(0.085,12,12),mH);
+    st.position.set(...p); bag.add(st);
+  });
+
+  /* ── HANDLES (semi-circle arc, radius 0.45) ── */
+  const hGeo=new THREE.TorusGeometry(0.45,0.075,12,40,Math.PI);
+  [-0.75,0.75].forEach(cx=>{
+    const h=new THREE.Mesh(hGeo,mL);
+    /* Default TorusGeometry arc=PI lies flat in XY, arc from +X to -X through +Y */
+    h.position.set(cx,1.1,0);
+    bag.add(h);
+    /* D-rings at attach points */
+    const dg=new THREE.TorusGeometry(0.095,0.026,8,20);
+    [cx-0.45,cx+0.45].forEach(hx=>{
+      const d=new THREE.Mesh(dg,mH);
+      d.position.set(hx,1.11,0); d.rotation.x=Math.PI/2; bag.add(d);
+    });
+  });
+
+  /* ── SIDE GUSSETS (depth panels) ── */
+  [0.5,-0.5].forEach(z=>{
+    const g=new THREE.Mesh(new THREE.BoxGeometry(0.06,2.2,1.02),mLD);
+    g.position.set(0,0,z); bag.add(g);
+  });
+
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const cw=canvas.clientWidth||canvas.parentElement.clientWidth||480;
+  const ch=canvas.clientHeight||480;
+  renderer.setSize(cw,ch);
+  renderer.setClearColor(0,0);
+
+  /* drag + inertia */
+  let hDrag=false,hPx=0,hPy=0,hRotY=0.35,hRotX=-0.08,hVelY=0,hVelX=0,t=0;
+  document.addEventListener('mousemove',e=>{
+    if(!hDrag){bag.position.x=(e.clientX/innerWidth-.5)*.12;bag.position.y=(e.clientY/innerHeight-.5)*-.08;}
+  });
+  canvas.addEventListener('pointerdown',e=>{
+    hDrag=true;hPx=e.clientX;hPy=e.clientY;hVelY=0;hVelX=0;
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener('pointermove',e=>{
+    if(!hDrag)return;
+    const dx=e.clientX-hPx,dy=e.clientY-hPy;
+    hVelY=dx*.009;hVelX=dy*.009;hRotY+=dx*.009;hRotX+=dy*.009;
+    hPx=e.clientX;hPy=e.clientY;
+  });
+  canvas.addEventListener('pointerup',()=>{hDrag=false;});
+  canvas.addEventListener('pointerleave',()=>{hDrag=false;});
+
+  (function anim(){
+    requestAnimationFrame(anim);
+    t+=.007;
+    if(!hDrag){
+      hVelY*=.93;hVelX*=.93;
+      hRotY+=hVelY;hRotX+=hVelX;
+      if(Math.abs(hVelY)<.001&&Math.abs(hVelX)<.001){
+        hRotY+=.0035;
+        hRotX+=(-0.08-hRotX)*.018;
+      }
+    }
+    bag.rotation.y=hRotY;
+    bag.rotation.x=hRotX;
+    bag.position.y=(bag.position.y||0)+Math.sin(t*.55)*.0008;
+    if(!hDrag) bag.position.y=Math.sin(t*.55)*.07;
+    renderer.render(scene,camera);
+  })();
+
+  new ResizeObserver(()=>{
+    const cw=canvas.clientWidth,ch=canvas.clientHeight;
+    camera.aspect=cw/ch;camera.updateProjectionMatrix();
+    renderer.setSize(cw,ch);
+  }).observe(canvas.parentElement);
+}
+
+/* ─── DRAWER 3D ─── */
+let dR,dScene,dCamera,dMesh,dDrag=false,dPx=0,dPy=0,dRx=.2,dRy=0;
+
+function initDrawer3D(geoShape,geoColor){
+  const canvas=document.getElementById('d-canvas');
+  if(!canvas||typeof THREE==='undefined')return;
+  if(dR){dR.dispose();}
+  dMesh=null;
+  dScene=new THREE.Scene();
+  const cw=canvas.clientWidth,ch=Math.max(canvas.clientHeight,180);
+  dCamera=new THREE.PerspectiveCamera(40,cw/ch,0.1,100);
+  dCamera.position.set(0,.4,5.8);
+  dScene.add(new THREE.AmbientLight(0x120d08,.7));
+  const kl=new THREE.PointLight(0xC4973A,3.2,22); kl.position.set(3,4,4); dScene.add(kl);
+  const fl=new THREE.PointLight(0xF2EDE3,.7,16); fl.position.set(-3,-2,3); dScene.add(fl);
+  const geos={
+    box:()=>new THREE.BoxGeometry(2.5,1.8,1,2,2,2),
+    sphere:()=>new THREE.SphereGeometry(1.65,32,32),
+    torus:()=>new THREE.TorusGeometry(1.25,.4,16,100),
+    cylinder:()=>new THREE.CylinderGeometry(.32,.44,2.9,32),
+    plane:()=>new THREE.BoxGeometry(2.9,2.9,.09),
+  };
+  const geo=(geos[geoShape]||geos.box)();
+  const mat=new THREE.MeshStandardMaterial({color:geoColor,metalness:.72,roughness:.22});
+  dMesh=new THREE.Mesh(geo,mat); dScene.add(dMesh);
+  dR=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  dR.setPixelRatio(Math.min(devicePixelRatio,2));
+  dR.setSize(cw,ch);
+  dR.setClearColor(0,0);
+  dRx=.2;dRy=0;
+  (function anim(){
+    if(!dMesh)return;
+    requestAnimationFrame(anim);
+    if(!dDrag)dRy+=.009;
+    dMesh.rotation.y=dRy;
+    dMesh.rotation.x=dRx;
+    dR.render(dScene,dCamera);
+  })();
+  canvas.addEventListener('pointerdown',e=>{dDrag=true;dPx=e.clientX;dPy=e.clientY;});
+  window.addEventListener('pointermove',e=>{if(!dDrag)return;dRy+=(e.clientX-dPx)*.012;dRx+=(e.clientY-dPy)*.006;dPx=e.clientX;dPy=e.clientY;});
+  window.addEventListener('pointerup',()=>dDrag=false);
+}
+
+/* ─── BASKET ─── */
+function saveBasket(){localStorage.setItem('mv_basket',JSON.stringify(basket));}
+
+function addToBasket(id){
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
+  if(!basket.find(b=>b.id===id)){
+    basket.push({id,name:p.name,coll:p.coll,qty:1});
+    saveBasket();updateBasketUI();
+    flashBadge();
+  }
+}
+
+function flashBadge(){
+  const ic=document.getElementById('ic');
+  ic.style.transform='scale(1.4)';
+  setTimeout(()=>ic.style.transform='',300);
+}
+
+function removeFromBasket(id){
+  basket=basket.filter(b=>b.id!==id);
+  saveBasket();updateBasketUI();
+}
+
+function updateQty(id,val){
+  const b=basket.find(x=>x.id===id);
+  if(b){b.qty=Math.max(1,parseInt(val)||1);saveBasket();}
+}
+
+function updateBasketUI(){
+  const n=basket.length;
+  const ic=document.getElementById('ic');
+  const mbic=document.getElementById('mb-ic');
+  ic.textContent=n;ic.classList.toggle('on',n>0);
+  mbic.textContent=n;mbic.classList.toggle('on',n>0);
+  const body=document.getElementById('bsk-body');
+  const empty=document.getElementById('bsk-empty');
+  if(!body)return;
+  if(n===0){body.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  body.innerHTML=basket.map(b=>{const pr=products.find(x=>x.id===b.id);const bn=pr?pT(pr,'name'):b.name;const bc=pr?pT(pr,'coll'):b.coll;return`<tr>
+    <td><span class="bt-n">${bn}</span><span class="bt-c">${bc}</span></td>
+    <td><span class="bt-c">${bc}</span></td>
+    <td><input class="bt-q" type="number" min="1" value="${b.qty}" onchange="updateQty('${b.id}',this.value)"/></td>
+    <td><button class="bt-rm" onclick="removeFromBasket('${b.id}')">✕</button></td>
+  </tr>`;}).join('');
+  const t=i18n[curLang]||i18n.en;
+  document.querySelectorAll('.pc-qb').forEach(btn=>{
+    const pid=btn.getAttribute('data-pid');
+    const added=basket.some(b=>b.id===pid);
+    btn.classList.toggle('added',added);
+    btn.textContent=added?t['grid-added']:t['grid-add'];
+  });
+}
+
+/* ─── DRAWER ─── */
+function openDrawer(id){
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
+  curProd=p;
+  document.getElementById('d-coll').textContent=pT(p,'coll');
+  document.getElementById('d-name').textContent=pT(p,'name');
+  document.getElementById('d-desc').textContent=pT(p,'desc');
+  const activeSpecs=(curLang==='zh'&&p.zh&&p.zh.specs)||p.specs;
+  document.getElementById('d-specs').innerHTML=Object.entries(activeSpecs).map(([k,v])=>`<div><div class="ds-l">${k}</div><div class="ds-v">${v}</div></div>`).join('');
+  document.getElementById('d-cols').innerHTML=p.colors.map(c=>`<div class="dcs" style="background:${c}" title="${c}"></div>`).join('');
+  const btn=document.getElementById('d-inq-btn');
+  const added=basket.some(b=>b.id===id);
+  btn.classList.toggle('added',added);
+  btn.textContent=added?(i18n[curLang]||i18n.en)['drawer-added']:(i18n[curLang]||i18n.en)['drawer-add'];
+  document.getElementById('drawer').classList.add('on');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>initDrawer3D(p.geo,p.gc),120);
+}
+
+function closeDrawer(){
+  document.getElementById('drawer').classList.remove('on');
+  document.body.style.overflow='';
+  dMesh=null;
+}
+
+function handleDrOvClick(e){if(e.target===document.getElementById('dov'))closeDrawer();}
+
+function addFromDrawer(){
+  if(!curProd)return;
+  addToBasket(curProd.id);
+  const btn=document.getElementById('d-inq-btn');
+  btn.classList.add('added');
+  btn.textContent=(i18n[curLang]||i18n.en)['drawer-added'];
+}
+
+/* ─── CATALOGUE FILTER & GRID ─── */
+let activeCat='All';
+
+function renderFilter(){
+  const labels=catLabels[curLang]||catLabels.en;
+  document.getElementById('fwrap').innerHTML=Object.keys(catLabels.en).map(c=>`<button class="fp${c===activeCat?' on':''}" onclick="filterProds('${c}')">${labels[c]||catLabels.en[c]}</button>`).join('');
+}
+
+function filterProds(cat){activeCat=cat;renderFilter();renderGrid();}
+
+function renderGrid(){
+  const g=document.getElementById('pgrid');
+  const ps=activeCat==='All'?products:products.filter(p=>p.cat===activeCat);
+  g.className='pgrid'+(activeCat==='All'?' pgrid-feat':'');
+  const t=i18n[curLang]||i18n.en;
+  g.innerHTML=ps.map((p,i)=>`
+  <div class="pc fu" onclick="openDrawer('${p.id}')">
+    <div class="pc-img">
+      <div class="pc-ib ${p.imgC}"></div>
+      <div class="pc-bgs">${p.badges.map(b=>`<span class="pb ${b}">${b==='new'?t['badge-new']:b==='best'?t['badge-best']:t['badge-oem']}</span>`).join('')}</div>
+    </div>
+    <div class="pc-body">
+      <div class="pc-sku">${p.sku}</div>
+      <div class="pc-n">${pT(p,'name')}</div>
+      <div class="pc-c">${pT(p,'coll')}</div>
+      <div class="pc-d">${pT(p,'desc')}</div>
+      <div class="pc-cols">${p.colors.map(c=>`<div class="pcs" style="background:${c}"></div>`).join('')}</div>
+    </div>
+    <div class="pc-acts">
+      <button class="pc-db" onclick="event.stopPropagation();openDrawer('${p.id}')">${t['grid-view']}</button>
+      <button class="pc-qb${basket.some(b=>b.id===p.id)?' added':''}" data-pid="${p.id}" onclick="event.stopPropagation();addToBasket('${p.id}')">
+        ${basket.some(b=>b.id===p.id)?t['grid-added']:t['grid-add']}
+      </button>
+    </div>
+  </div>`).join('');
+  setTimeout(initFU,50);
+}
+
+/* ─── COLLECTION SWITCHER ─── */
+let activeColl='urban';
+
+function collT(c){return(c[curLang]||c.en);}
+function pT(p,f){return(curLang==='zh'&&p.zh&&p.zh[f]!=null?p.zh[f]:p[f]);}
+
+function renderCollTabs(){
+  document.getElementById('coll-tabs').innerHTML=colls.map(c=>`<button class="ct${c.id===activeColl?' on':''}" data-id="${c.id}" onclick="switchColl('${c.id}')">${collT(c).label}</button>`).join('');
+  const t=i18n[curLang]||i18n.en;
+  document.getElementById('coll-contents').innerHTML=colls.map(c=>`
+  <div class="cc${c.id===activeColl?' on':''}" id="cc-${c.id}">
+    <div class="cc-hl">${collT(c).hl.replace(/\n/g,'<br>')}</div>
+    <div class="cc-d">${collT(c).desc}</div>
+    <div class="cc-row">${c.prods.map(pid=>{
+      const p=products.find(x=>x.id===pid);
+      if(!p)return'';
+      return`<div class="cc-pcard" onclick="openDrawer('${p.id}')"><div class="cc-pi ${p.imgC}"></div><div class="cc-pb"><div class="cc-pn">${pT(p,'name')}</div><div class="cc-ps">${pT(p,'coll')} · MOQ ${p.moq}</div></div></div>`;
+    }).join('')}</div>
+  </div>`).join('');
+}
+
+function switchColl(id){
+  activeColl=id;
+  const c=colls.find(x=>x.id===id);
+  document.getElementById('coll-bg').style.background=c?c.bg:'';
+  document.querySelectorAll('.ct').forEach(el=>el.classList.toggle('on',el.getAttribute('data-id')===id));
+  document.querySelectorAll('.cc').forEach(el=>el.classList.toggle('on',el.id==='cc-'+id));
+}
+
+/* ─── SPOTLIGHT ─── */
+function renderSpotlight(){
+  const p=products.find(x=>x.id===spotItems[spIdx]);
+  if(!p)return;
+  document.getElementById('sp-ctr').textContent=`0${spIdx+1} / 0${spotItems.length}`;
+  document.getElementById('sp-coll-lbl').textContent=pT(p,'coll');
+  document.getElementById('sp-name').textContent=pT(p,'name');
+  document.getElementById('sp-desc').textContent=pT(p,'desc');
+  document.getElementById('sp-chips').innerHTML=[pT(p,'mat'),p.dims,'MOQ: '+p.moq,p.lead].map(s=>`<span class="sc">${s}</span>`).join('');
+  const inner=document.getElementById('sp-inner');
+  inner.style.background=`radial-gradient(ellipse at 35% 30%,${p.colors[0]}cc,${p.colors[1]||'#1a1a1a'} 80%)`;
+  inner.style.boxShadow=`0 0 55px ${p.colors[0]}44`;
+}
+
+function nextSp(){spIdx=(spIdx+1)%spotItems.length;renderSpotlight();}
+function prevSp(){spIdx=(spIdx-1+spotItems.length)%spotItems.length;renderSpotlight();}
+
+/* spotlight swipe */
+(function(){
+  let ts=0,tx=0;
+  const el=document.getElementById('spotlight');
+  if(!el)return;
+  el.addEventListener('touchstart',e=>{ts=e.touches[0].clientX;tx=e.touches[0].clientY;},{passive:true});
+  el.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-ts,dy=e.changedTouches[0].clientY-tx;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40){dx<0?nextSp():prevSp();}
+  });
+})();
+
+/* ─── COUNTER ANIMATION ─── */
+function animCounters(){
+  document.querySelectorAll('[data-cnt]').forEach(el=>{
+    const target=parseInt(el.getAttribute('data-cnt'));
+    let val=0;
+    const step=Math.ceil(target/45);
+    const timer=setInterval(()=>{
+      val=Math.min(val+step,target);
+      el.textContent=val+'+';
+      if(val>=target)clearInterval(timer);
+    },32);
+  });
+}
+
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animCounters();e.target._cntDone=true;}});
+},{threshold:.3}).observe(document.getElementById('metrics'));
+
+/* ─── PRIVATE LABEL OPTS ─── */
+document.getElementById('plv-opts').addEventListener('click',e=>{
+  const opt=e.target.closest('.plv-opt');
+  if(!opt)return;
+  document.querySelectorAll('.plv-opt').forEach(o=>o.classList.remove('on'));
+  opt.classList.add('on');
+});
+
+/* ─── FORM SUBMIT ─── */
+function submitInq(){
+  if(!document.getElementById('f-name').value.trim()||
+     !document.getElementById('f-co').value.trim()||
+     !document.getElementById('f-em').value.trim()||
+     !document.getElementById('f-wa').value.trim()){
+    alert('Please fill all required fields (*).');return;
+  }
+  document.getElementById('form-area').style.display='none';
+  document.getElementById('fok').classList.add('on');
+}
+
+/* ─── INIT ─── */
+renderFilter();
+renderGrid();
+renderCollTabs();
+renderSpotlight();
+updateBasketUI();
+window.addEventListener('load',initHero3D);
+
+/* ─── setLang ─── */
+const _del_start=null; /* placeholder — real i18n at top of script */
+if(_del_start){const _noop={
+  en:{
+    'nav-coll':'Collections','nav-cat':'Catalogue','nav-mat':'Craftsmanship',
+    'nav-pl':'Private Label','nav-inq':'Inquiry','nav-con':'Contact',
+    'inq-btn':'Inquiry',
+    /* hero */
+    'hero-season':'2026 Signature Collection',
+    'hero-lbl':'Drag to rotate · Aurora Tote — 2026 Hero Piece',
+    'hero-cta1':'Explore Collection','hero-cta2':'Request Quote',
+    'hero-cr':'Powered by steez.digital — Interactive Catalogue Platform',
+    /* splash */
+    'splash-sub':'MAISON VELA · SHENZHEN · EST. 2014',
+    'splash-tag':'Premium Fashion Accessories OEM / ODM',
+    'splash-hint':'Tap to enter the collection',
+    /* metrics */
+    'mi-yr':'+ Years Manufacturing','mi-mkt':'+ Export Markets',
+    'mi-des':'+ Active Designs','mi-oem':'Full Custom Support',
+    /* story */
+    's-ey':'Collection Story',
+    's-hl':'The 2026 <em>Signature</em> Collection',
+    's-sub':'Every piece tells a story of material excellence, refined design, and enduring global appeal.',
+    's-01n':'01 · Material','s-01t':'Premium Sourcing, Global Standards',
+    's-01d':'Top-grain leathers, premium acetates, and surgical-grade hardware. Every material selected to meet international retail and private label requirements.',
+    's-02n':'02 · Design','s-02t':'Editorial Forms, Timeless Lines',
+    's-02d':'Designed for daily use and elevated by editorial sensibility. Clean silhouettes that translate across cultures, seasons, and retail contexts around the world.',
+    's-03n':'03 · Craft','s-03t':'Made for Private Label. Built to Last.',
+    's-03d':'12 years of OEM/ODM expertise. Full customization: colors, logos, packaging, and finishes tailored precisely for your brand identity.',
+    /* collections */
+    'coll-ey':'Collections','coll-hl':'Shop by <em>Style</em>',
+    /* spotlight */
+    'sp-ey':'Featured Products','sp-hl':'Product <em>Spotlight</em>',
+    'sp-btn1':'View Details','sp-btn2':'Add to Inquiry',
+    /* catalogue */
+    'cat-ey':'Product Catalogue','cat-hl':'The <em>Full Collection</em>',
+    'cat-sub':'8 product lines. Full OEM/ODM. Tap any product for details and 3D preview.',
+    /* materials */
+    'mat-ey':'Craftsmanship','mat-hl':'Premium <em>Materials</em>',
+    'mat-sub':'Every product defined by its materials. Sourced globally, tested rigorously, finished by hand.',
+    'mat-1t':'Full-Grain Leather','mat-1d':'Top-tier hides sourced from certified tanneries. Rich natural grain, ages beautifully. REACH and SGS certified. Available in 24 colorways.',
+    'mat-2t':'Precision Hardware','mat-2d':'Brass-plated and zinc alloy with nickel-free finish. Anti-tarnish treatment, 10,000+ open/close cycle rated. EU Nickel Directive compliant.',
+    'mat-3t':'Optical-Grade Lens','mat-3d':'CR-39 and polycarbonate lenses with UV400 blocking, AR coating, and impact resistance. All eyewear passes EN ISO 12312-1 standards.',
+    'mat-4t':'Ionic Ceramic Tech','mat-4d':'Tourmaline-infused ceramic heating plates for professional hair tools. Even heat distribution, low damage, high shine. CE / ETL certified.',
+    /* private label */
+    'pl-ey':'OEM · ODM · Private Label','pl-hl':'Your Brand, <em>Our Craft</em>',
+    'pl-sub':'From concept to container — full private label service for fashion buyers and brand owners worldwide.',
+    'pl-s1t':'Design Brief & Sample Selection','pl-s1d':'Choose from 300+ existing designs or submit your own brief. Our design team adapts for your market and brand identity. Samples in 10–15 days.',
+    'pl-s2t':'Material & Color Customization','pl-s2d':'Select from premium materials, colorways, hardware finishes, and interior linings. Physical samples provided before bulk production confirmation.',
+    'pl-s3t':'Logo & Packaging Design','pl-s3d':'Debossing, embossing, foil stamping, and custom hang tags. Full custom packaging design service included for orders 500pcs+. Box, bag, and sleeve options.',
+    'pl-s4t':'Production & Quality Control','pl-s4d':'Strict in-line QC at every stage. Pre-shipment inspection and third-party testing available. Full export documentation prepared for your market.',
+    'pl-vis-t':'Customization Options','pl-cta1':'Start Custom Project','pl-cta2':'Request Private Label Quote',
+    /* factory */
+    'fac-ey':'Supplier Profile','fac-hl':'Factory <em>Strength</em>',
+    'fac-sub':'Behind every MAISON VELA product is a modern Shenzhen facility with 12 years of export excellence and rigorous QC.',
+    'fac-yr':'Years Experience','fac-ctr':'Export Countries','fac-des':'Active Designs',
+    'fac-upm':'Units / Month','fac-odm':'ODM Fully Supported','fac-qc':'In-house & 3rd Party',
+    /* lookbook */
+    'lb-ey':'Lifestyle','lb-hl':'The <em>Lookbook</em>',
+    'lb-l1':'Urban · Daily Carry','lb-t1':'The Aurora Tote — City Ready, World-Ready',
+    'lb-l2':'Smart Beauty · Daily Ritual','lb-t2':'Nova Mirror — Your Personal Studio',
+    'lb-l3':'Travel · On the Move','lb-t3':'Vela Case — Luxury in Transit',
+    /* inquiry */
+    'inq-ey':'Buyer Inquiry','inq-hl':'Build Your <em>Inquiry List</em>',
+    'inq-sub-s':'Add products to your inquiry, specify quantities, and send all requirements in one message.',
+    'inq-sel':'Selected Products','inq-th-p':'Product','inq-th-c':'Collection','inq-th-q':'Qty',
+    'inq-empty':'— Browse the catalogue and click "Add to Inquiry" on any product —',
+    'f-fn-l':'Full Name *','f-fn-ph':'Your name','f-co-l':'Company *','f-co-ph':'Company name',
+    'f-ctry-l':'Country *','f-ctry-ph':'Select country',
+    'f-wa-l':'WhatsApp / WeChat *','f-wa-ph':'+1 or ID',
+    'f-em-l':'Email *','f-em-ph':'buyer@company.com',
+    'f-mkt-l':'Target Market','f-mkt-1':'Retail','f-mkt-2':'Distribution','f-mkt-3':'OEM Resale','f-mkt-4':'Private Label','f-mkt-5':'E-commerce',
+    'f-vol-l':'Est. Annual Volume','f-vol-ph':'e.g. 50,000 pcs',
+    'f-note-l':'Notes / Customization Requirements','f-note-ph':'Logo, colors, packaging, or special requirements...',
+    'f-sub':'Send Inquiry to MAISON VELA',
+    'fok-t':'Inquiry Sent Successfully',
+    'fok-s':'Our export team will respond within 24 hours with pricing, samples, and customization options tailored to your brand.',
+    /* contact */
+    'cont-ey':'Ready to Order','cont-hl':'Let\'s Build Your <em>Collection</em>',
+    'cont-sub':'Send your selected products, quantities, and customization needs. Our team will respond with pricing, samples, and production timelines.',
+    'ch-wa':'WhatsApp','ch-wc':'WeChat','ch-em':'Email',
+    'ch-fa':'Factory Address','ch-fa-v':'Shenzhen, Guangdong Province, China',
+    'cont-credit':'This digital showroom was created by steez.digital',
+    'bc-lbl':'Trade Show Booth','bc-sub':'Canton Fair · Hall 3 · Spring 2026',
+    'bc-req':'Request','bc-fv':'Factory Visit<br><em style="color:var(--gold)">& Sample Room</em>',
+    'bc-appt':'Available Monday – Friday, by appointment','bc-meet':'Book a Meeting',
+    /* footer */
+    'ft-tag':'Modern fashion accessories for global buyers. OEM/ODM manufacturer, Shenzhen.',
+    'ft-pw':'Powered by steez.digital — Interactive Catalogue Platform',
+    'ft-col-h':'Collections','ft-col-1':'Urban Essentials','ft-col-2':'Luxury Travel',
+    'ft-col-3':'Everyday Elegance','ft-col-4':'Smart Beauty','ft-col-5':'Private Label',
+    'ft-svc-h':'Services','ft-svc-1':'OEM Manufacturing','ft-svc-2':'ODM Design',
+    'ft-svc-3':'Private Label','ft-svc-4':'Custom Packaging','ft-svc-5':'Sample Service',
+    'ft-con-h':'Contact','ft-con-em':'Email Us','ft-con-inq':'Send Inquiry','ft-con-mtg':'Book Meeting',
+    'ft-copy':'© 2026 MAISON VELA. All rights reserved. Shenzhen, Guangdong, China.',
+    'ft-sd':'Interactive catalogue by steez.digital',
+    /* drawer */
+    'd-close':'Close ✕','d-cols-lbl':'Available Colors',
+    /* mobile bar */
+    'mb-prod':'Products','mb-inq':'Inquiry','mb-con':'Contact',
+    /* JS dynamic strings */
+    'badge-new':'New Arrival','badge-best':'Best Seller','badge-oem':'OEM Ready',
+    'grid-view':'View Details','grid-add':'Add to Inquiry','grid-added':'✓ Added',
+    'drawer-add':'Add to Inquiry','drawer-added':'✓ Added to Inquiry',
+  },
+  zh:{
+    /* nav */
+    'nav-coll':'系列','nav-cat':'产品目录','nav-mat':'工艺',
+    'nav-pl':'贴牌定制','nav-inq':'询价','nav-con':'联系我们',
+    'inq-btn':'询价',
+    /* hero */
+    'hero-season':'2026 签名系列',
+    'hero-lbl':'拖动旋转 · Aurora Tote — 2026 主打款',
+    'hero-cta1':'浏览系列','hero-cta2':'请求报价',
+    'hero-cr':'由 steez.digital 提供技术支持 — 互动目录平台',
+    /* splash */
+    'splash-sub':'MAISON VELA · 深圳 · 创立于 2014',
+    'splash-tag':'高端时尚配饰 OEM / ODM 制造商',
+    'splash-hint':'点击进入系列',
+    /* metrics */
+    'mi-yr':'+ 年制造经验','mi-mkt':'+ 出口市场',
+    'mi-des':'+ 在售款式','mi-oem':'全程定制支持',
+    /* story */
+    's-ey':'系列故事',
+    's-hl':'2026 <em>签名</em>系列',
+    's-sub':'每一件作品都承载着对材质、设计与工艺的执着追求，为全球买家而生。',
+    's-01n':'01 · 材质','s-01t':'优质原材，全球标准',
+    's-01d':'顶级全粒面皮革、优质醋酸纤维与外科级五金。每种材料均经过严格筛选，以满足国际零售和贴牌定制要求。',
+    's-02n':'02 · 设计','s-02t':'编辑视角，永恒线条',
+    's-02d':'兼顾日常使用与高级时尚感。简洁轮廓跨越文化、季节与零售场景，在全球市场均展现出独特魅力。',
+    's-03n':'03 · 工艺','s-03t':'为贴牌而生，历久弥坚。',
+    's-03d':'12年OEM/ODM专业经验，全面定制服务：颜色、标志、包装和表面处理，精准呈现您的品牌个性。',
+    /* collections */
+    'coll-ey':'系列','coll-hl':'按<em>风格</em>选购',
+    /* spotlight */
+    'sp-ey':'精选产品','sp-hl':'产品<em>聚焦</em>',
+    'sp-btn1':'查看详情','sp-btn2':'加入询价',
+    /* catalogue */
+    'cat-ey':'产品目录','cat-hl':'<em>完整系列</em>',
+    'cat-sub':'8个产品系列，全面OEM/ODM支持。点击任意产品查看详情及3D预览。',
+    /* materials */
+    'mat-ey':'工艺','mat-hl':'优质<em>材料</em>',
+    'mat-sub':'每件产品以材质为根基，全球采购，严格检测，手工精修。',
+    'mat-1t':'全粒面皮革','mat-1d':'源自认证鞣制厂的顶级皮革，天然纹理丰富，越用越有质感。通过REACH和SGS认证，提供24种色系。',
+    'mat-2t':'精密五金','mat-2d':'镀黄铜及锌合金，无镍表面处理，防锈，10,000次以上开合测试。符合欧盟镍指令。',
+    'mat-3t':'光学级镜片','mat-3d':'CR-39与聚碳酸酯镜片，UV400防护，AR镀膜，抗冲击。所有眼镜均通过EN ISO 12312-1标准。',
+    'mat-4t':'负离子陶瓷技术','mat-4d':'电气石注入陶瓷加热板，专业护发工具专用。均匀导热，低损伤，高光泽，通过CE / ETL认证。',
+    /* private label */
+    'pl-ey':'OEM · ODM · 贴牌定制','pl-hl':'您的品牌，<em>我们的工艺</em>',
+    'pl-sub':'从设计概念到装箱出货，为全球时尚买家和品牌商提供全程贴牌服务。',
+    'pl-s1t':'设计方案与样品选择','pl-s1d':'从300+现有款式中选择，或提交您自己的设计方案。我们的设计团队将为您的市场和品牌定制方案，10–15天内提供样品。',
+    'pl-s2t':'材质与颜色定制','pl-s2d':'从优质材料、色系、五金表面和内衬中进行选择，大货生产确认前提供实物样品。',
+    'pl-s3t':'标志与包装设计','pl-s3d':'烫金、压印、箔印和定制吊牌。500件以上订单包含全套包装设计服务，可选盒装、袋装和套装。',
+    'pl-s4t':'生产与质量控制','pl-s4d':'每道工序严格在线质检。提供发货前检验和第三方检测，并为您的目标市场准备完整的出口文件。',
+    'pl-vis-t':'定制选项','pl-cta1':'开始定制项目','pl-cta2':'申请贴牌报价',
+    /* factory */
+    'fac-ey':'供应商档案','fac-hl':'工厂<em>实力</em>',
+    'fac-sub':'每件MAISON VELA产品背后，是深圳现代化工厂12年出口经验与严格质量管控的支撑。',
+    'fac-yr':'年经验','fac-ctr':'出口国家','fac-des':'在售款式',
+    'fac-upm':'件 / 月','fac-odm':'全程ODM支持','fac-qc':'内部及第三方',
+    /* lookbook */
+    'lb-ey':'生活方式','lb-hl':'形象<em>大片</em>',
+    'lb-l1':'都市 · 日常携带','lb-t1':'Aurora Tote — 城市就绪，放眼全球',
+    'lb-l2':'智慧美颜 · 日常仪式','lb-t2':'Nova Mirror — 私人化妆台',
+    'lb-l3':'旅行 · 随时出发','lb-t3':'Vela Case — 旅途中的奢华',
+    /* inquiry */
+    'inq-ey':'买家询价','inq-hl':'建立您的<em>询价清单</em>',
+    'inq-sub-s':'将产品加入询价单，填写数量，一次性发送所有需求。',
+    'inq-sel':'已选产品','inq-th-p':'产品','inq-th-c':'系列','inq-th-q':'数量',
+    'inq-empty':'— 浏览产品目录，点击任意产品的"加入询价"按钮 —',
+    'f-fn-l':'全名 *','f-fn-ph':'您的姓名','f-co-l':'公司 *','f-co-ph':'公司名称',
+    'f-ctry-l':'国家 *','f-ctry-ph':'选择国家',
+    'f-wa-l':'WhatsApp / 微信 *','f-wa-ph':'+86 或 微信号',
+    'f-em-l':'电子邮箱 *','f-em-ph':'buyer@company.com',
+    'f-mkt-l':'目标市场','f-mkt-1':'零售','f-mkt-2':'分销','f-mkt-3':'OEM转售','f-mkt-4':'贴牌定制','f-mkt-5':'电商',
+    'f-vol-l':'预计年采购量','f-vol-ph':'如 50,000 件',
+    'f-note-l':'备注 / 定制要求','f-note-ph':'标志、颜色、包装或特殊要求...',
+    'f-sub':'发送询价至 MAISON VELA',
+    'fok-t':'询价发送成功',
+    'fok-s':'我们的出口团队将在24小时内回复定价、样品及专属定制方案。',
+    /* contact */
+    'cont-ey':'准备下单','cont-hl':'共创您的<em>系列</em>',
+    'cont-sub':'发送您选择的产品、数量及定制需求，我们的团队将回复报价、样品和生产周期。',
+    'ch-wa':'WhatsApp','ch-wc':'微信','ch-em':'电子邮箱',
+    'ch-fa':'工厂地址','ch-fa-v':'中国广东省深圳市',
+    'cont-credit':'本数字展厅由 steez.digital 创建',
+    'bc-lbl':'展会摊位','bc-sub':'广交会 · 3号馆 · 2026春季',
+    'bc-req':'预约','bc-fv':'工厂参观<br><em style="color:var(--gold)">& 样品间</em>',
+    'bc-appt':'周一至周五，预约开放','bc-meet':'预约参观',
+    /* footer */
+    'ft-tag':'面向全球买家的现代时尚配饰，深圳OEM/ODM制造商。',
+    'ft-pw':'由 steez.digital 提供技术支持 — 互动目录平台',
+    'ft-col-h':'系列','ft-col-1':'都市精选','ft-col-2':'奢旅系列',
+    'ft-col-3':'日常雅致','ft-col-4':'智慧美颜','ft-col-5':'贴牌定制',
+    'ft-svc-h':'服务','ft-svc-1':'OEM制造','ft-svc-2':'ODM设计',
+    'ft-svc-3':'贴牌定制','ft-svc-4':'定制包装','ft-svc-5':'样品服务',
+    'ft-con-h':'联系','ft-con-em':'发送邮件','ft-con-inq':'发送询价','ft-con-mtg':'预约洽谈',
+    'ft-copy':'© 2026 MAISON VELA. 保留所有权利. 中国广东省深圳市.',
+    'ft-sd':'由 steez.digital 创建的互动目录',
+    /* drawer */
+    'd-close':'关闭 ✕','d-cols-lbl':'可选颜色',
+    /* mobile bar */
+    'mb-prod':'产品','mb-inq':'询价','mb-con':'联系',
+    /* JS dynamic strings */
+    'badge-new':'新品上架','badge-best':'热销款','badge-oem':'支持OEM',
+    'grid-view':'查看详情','grid-add':'加入询价','grid-added':'✓ 已添加',
+  }
+};} /* end dead-code block */
+function setLang(lang){
+  curLang=lang;
+  /* innerHTML for rich text, textContent safe for plain strings */
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const key=el.getAttribute('data-i');
+    const val=i18n[lang]&&i18n[lang][key];
+    if(val===undefined)return;
+    /* use innerHTML only on elements that may have em/br in the translation */
+    const htmlKeys=['s-hl','coll-hl','sp-hl','cat-hl','mat-hl','pl-hl','fac-hl','lb-hl',
+      'inq-hl','cont-hl','bc-fv'];
+    if(htmlKeys.includes(key)) el.innerHTML=val;
+    else el.textContent=val;
+  });
+  /* placeholder attributes */
+  document.querySelectorAll('[data-ph]').forEach(el=>{
+    const key=el.getAttribute('data-ph');
+    if(i18n[lang]&&i18n[lang][key]) el.placeholder=i18n[lang][key];
+  });
+  /* hero headline words */
+  const hw={'en':['Where','Style','<em>Meets Craft</em>'],'zh':['风格','源于','<em>匠心工艺</em>']};
+  if(hw[lang]){
+    document.querySelectorAll('.hero-hl .hw span').forEach((s,i)=>{if(hw[lang][i])s.innerHTML=hw[lang][i];});
+  }
+  /* lang toggle state */
+  document.getElementById('btn-en').classList.toggle('on',lang==='en');
+  document.getElementById('btn-zh').classList.toggle('on',lang==='zh');
+  document.documentElement.lang=lang==='zh'?'zh':'en';
+  localStorage.setItem('mv-lang',lang);
+  /* re-render JS-generated sections */
+  renderGrid();
+  renderFilter();
+  renderCollTabs();
+  renderSpotlight();
+  updateBasketUI();
+  if(curProd&&document.getElementById('drawer').classList.contains('on')){
+    document.getElementById('d-coll').textContent=pT(curProd,'coll');
+    document.getElementById('d-name').textContent=pT(curProd,'name');
+    document.getElementById('d-desc').textContent=pT(curProd,'desc');
+    const activeSpecs=(lang==='zh'&&curProd.zh&&curProd.zh.specs)||curProd.specs;
+    document.getElementById('d-specs').innerHTML=Object.entries(activeSpecs).map(([k,v])=>`<div><div class="ds-l">${k}</div><div class="ds-v">${v}</div></div>`).join('');
+  }
+}
+
+/* ─── THEME ─── */
+function applyTheme(theme){
+  document.documentElement.setAttribute('data-theme',theme);
+  localStorage.setItem('mv-theme',theme);
+}
+function toggleTheme(){
+  const cur=document.documentElement.getAttribute('data-theme');
+  applyTheme(cur==='light'?'dark':'light');
+}
+
+/* ─── INIT PREFERENCES ─── */
+(function initPrefs(){
+  const savedTheme=localStorage.getItem('mv-theme')||'dark';
+  applyTheme(savedTheme);
+  const savedLang=localStorage.getItem('mv-lang')||'en';
+  if(savedLang!=='en') setLang(savedLang);
+})();
+</script>
+</body>
+</html>
