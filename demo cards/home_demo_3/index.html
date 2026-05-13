@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE HOME | Digital Showroom</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    
+    <style>
+        :root {
+            --warm-white: #FCFAf7;
+            --soft-beige: #F5F0E8;
+            --stone-gray: #E8E2D9;
+            --charcoal: #1A1A1A;
+            --muted-gold: #C5A059;
+            --bronze: #8E6E4A;
+            --glass: rgba(255, 255, 255, 0.4);
+            --glass-thick: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background-color: var(--warm-white);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.4;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+        }
+
+        /* --- Language Toggle --- */
+        .lang-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 2000;
+            background: var(--charcoal);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: var(--transition);
+        }
+
+        /* --- Header Section --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .company-name {
+            font-size: clamp(3rem, 12vw, 8rem);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .awards-box {
+            background: white;
+            border: 1px solid var(--stone-gray);
+            padding: 1.5rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            display: flex;
+            gap: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .stat-val {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--muted-gold);
+        }
+
+        /* --- Hero Model Section --- */
+        .hero-showroom {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding: 4rem 2rem;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-showroom {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        #hero-3d-container {
+            width: 100%;
+            height: 60vh;
+            background: radial-gradient(circle at center, #ffffff 0%, var(--soft-beige) 100%);
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-info {
+            padding: 2rem;
+        }
+
+        #hero-typewriter {
+            font-size: 1.2rem;
+            color: #666;
+            min-height: 100px;
+            border-left: 2px solid var(--muted-gold);
+            padding-left: 1.5rem;
+        }
+
+        /* --- Categories Page --- */
+        #categories {
+            padding: 8rem 2rem;
+            background: var(--soft-beige);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--muted-gold);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+        }
+
+        .product-img {
+            width: 100%;
+            aspect-ratio: 1;
+            background: var(--warm-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-img svg {
+            width: 60%;
+            height: 60%;
+            opacity: 0.8;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        /* --- Detail View --- */
+        #detail-view {
+            position: fixed;
+            inset: 0;
+            background: var(--warm-white);
+            z-index: 3000;
+            display: none;
+            opacity: 0;
+            flex-direction: column;
+        }
+
+        .detail-header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-detail {
+            width: 50px;
+            height: 50px;
+            background: var(--charcoal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .detail-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            overflow: hidden;
+        }
+
+        @media (min-width: 1024px) {
+            .detail-content {
+                grid-template-columns: 1.5fr 1fr;
+            }
+        }
+
+        #detail-3d-container {
+            background: radial-gradient(circle at center, #ffffff 0%, var(--stone-gray) 100%);
+        }
+
+        .detail-panel {
+            padding: 4rem;
+            background: white;
+            overflow-y: auto;
+            border-left: 1px solid var(--stone-gray);
+        }
+
+        /* --- Contact Page --- */
+        #contact {
+            padding: 10rem 2rem;
+            text-align: center;
+            background: var(--charcoal);
+            color: white;
+        }
+
+        /* --- Utils --- */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .steez-branding {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            font-size: 0.6rem;
+            opacity: 0.4;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="steez-branding mono" id="branding-text">Digital Showroom by steez.digital</div>
+    <div class="lang-toggle" onclick="toggleLang()">EN / 中文</div>
+
+    <main>
+        <!-- Header -->
+        <header id="header">
+            <h1 class="company-name" id="h-name">LUXE HOME</h1>
+            <div class="awards-box" id="h-awards">
+                <div class="stat-item">
+                    <span class="stat-val">200+</span>
+                    <span class="mono" id="h-sells">Global Sells</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">15+</span>
+                    <span class="mono" id="h-awards-lbl">Design Awards</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Showroom -->
+        <section class="hero-showroom">
+            <div id="hero-3d-container">
+                <canvas id="hero-canvas"></canvas>
+            </div>
+            <div class="hero-info">
+                <h2 class="reveal-up" id="hero-title" style="font-size: 3rem; margin-bottom: 2rem;">Zenith Collection</h2>
+                <div id="hero-typewriter"></div>
+                <div class="reveal-up" style="margin-top: 3rem;">
+                    <span class="mono" style="color: var(--muted-gold);" id="hero-badge">Luxury Craftsmanship</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories / Products -->
+        <section id="categories">
+            <div class="section-title">
+                <span class="mono reveal-up" id="cat-eyebrow">Our Collections</span>
+                <h2 class="reveal-up" id="cat-title" style="font-size: 3.5rem;">Explore Products</h2>
+            </div>
+            <div class="product-grid" id="product-list">
+                <!-- Products injected via JS -->
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 4rem; margin-bottom: 2rem;" id="contact-title">Start Your Collection</h2>
+                <p style="opacity: 0.6; margin-bottom: 4rem;" id="contact-desc">Contact our export team for premium home product solutions.</p>
+                
+                <div style="display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;">
+                    <div class="mono">WhatsApp: +86 138 0000 0000</div>
+                    <div class="mono">WeChat: LUXEHOME_OFFICIAL</div>
+                </div>
+                
+                <div class="mono" style="margin-top: 8rem; opacity: 0.2;">
+                    Interactive Catalogue Powered by steez.digital
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detail View -->
+    <div id="detail-view">
+        <div class="detail-header">
+            <div class="mono" id="d-cat">Category</div>
+            <div class="close-detail" onclick="closeDetail()">&times;</div>
+        </div>
+        <div class="detail-content">
+            <div id="detail-3d-container">
+                <canvas id="detail-canvas"></canvas>
+            </div>
+            <div class="detail-panel">
+                <h2 id="d-name" style="font-size: 3rem; margin-bottom: 1.5rem;">Product</h2>
+                <p id="d-desc" style="opacity: 0.6; margin-bottom: 3rem;"></p>
+                <div id="d-specs-box">
+                    <h3 class="mono" style="font-size: 0.8rem; margin-bottom: 1.5rem; color: var(--muted-gold);">Specifications</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 1rem; font-size: 0.9rem;">
+                        <div style="opacity: 0.4;" id="lbl-mat">Material</div> <div id="d-mat">--</div>
+                        <div style="opacity: 0.4;" id="lbl-moq">MOQ</div> <div id="d-moq">--</div>
+                    </div>
+                </div>
+                <div style="margin-top: 4rem;">
+                    <button class="mono" style="width: 100%; padding: 1.5rem; background: var(--charcoal); color: white; border: none; border-radius: 12px; cursor: pointer;" id="btn-inquiry">Inquiry Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Bilingual Data ---
+        const LANG = {
+            en: {
+                branding: "Digital Showroom by steez.digital",
+                name: "LUXE HOME",
+                sells: "Global Sells",
+                awards: "Design Awards",
+                hero_title: "Zenith Collection",
+                hero_badge: "Luxury Craftsmanship",
+                hero_desc: "A masterwork of minimalist design, our Zenith lamp features hand-blown glass and sustainable brass internals. Perfect for the contemporary home office.",
+                cat_eyebrow: "Our Collections",
+                cat_title: "Explore Products",
+                contact_title: "Start Your Collection",
+                contact_desc: "Contact our export team for premium home product solutions.",
+                lbl_mat: "Material",
+                lbl_moq: "MOQ",
+                btn_inquiry: "Inquiry Now",
+                category_names: ["Kitchen", "Bathroom", "Lighting", "Furniture"],
+                prod_view: "View Details"
+            },
+            zh: {
+                branding: "steez.digital 打造的数字展厅",
+                name: "思智家居",
+                sells: "全球销量",
+                awards: "设计大奖",
+                hero_title: "巅峰系列",
+                hero_badge: "奢华工艺",
+                hero_desc: "极简设计的杰作，巅峰系列台灯采用手工吹制玻璃和环保黄铜内饰。是现代家庭办公的完美选择。",
+                cat_eyebrow: "产品系列",
+                cat_title: "探索产品",
+                contact_title: "开启您的收藏",
+                contact_desc: "联系我们的出口团队，获取优质家居产品解决方案。",
+                lbl_mat: "材质",
+                lbl_moq: "最小起订量",
+                btn_inquiry: "立即询价",
+                category_names: ["厨房", "卫浴", "照明", "家具"],
+                prod_view: "查看详情"
+            }
+        };
+
+        const PRODUCTS = [
+            { id: 0, cat: 2, name: {en: "Minimalist Pendant", zh: "极简吊灯"}, desc: {en: "Soft lighting for modern dining spaces.", zh: "为现代餐饮空间提供柔和照明。"}, mat: {en: "Aluminium", zh: "铝材"}, moq: "200" },
+            { id: 1, cat: 0, name: {en: "Chef's Mixer", zh: "厨师龙头"}, desc: {en: "Professional grade flow control.", zh: "专业级流量控制。"}, mat: {en: "Brass", zh: "黄铜"}, moq: "500" },
+            { id: 2, cat: 1, name: {en: "Eco Shower", zh: "环保花洒"}, desc: {en: "Saving water without losing pressure.", zh: "在不损失压力的情况下节约用水。"}, mat: {en: "Steel", zh: "不锈钢"}, moq: "1000" },
+            { id: 3, cat: 3, name: {en: "Nordic Stool", zh: "北欧圆凳"}, desc: {en: "Sustainably sourced oak wood.", zh: "可持续来源的橡木。"}, mat: {en: "Oak", zh: "橡木"}, moq: "100" },
+            { id: 4, cat: 2, name: {en: "Sphere Lamp", zh: "球形灯"}, desc: {en: "Diffused orb of warm light.", zh: "漫射的温暖光球。"}, mat: {en: "Glass", zh: "玻璃"}, moq: "300" },
+            { id: 5, cat: 0, name: {en: "Grid Organizer", zh: "格状收纳"}, desc: {en: "Keep your kitchen perfectly tidy.", zh: "让您的厨房保持完美整洁。"}, mat: {en: "Polymer", zh: "聚合物"}, moq: "2000" },
+            { id: 6, cat: 1, name: {en: "Marble Basin", zh: "大理石台盆"}, desc: {en: "Hand-carved natural stone.", zh: "手工雕刻的天然石材。"}, mat: {en: "Marble", zh: "大理石"}, moq: "50" },
+            { id: 7, cat: 3, name: {en: "Float Shelf", zh: "悬浮架"}, desc: {en: "Invisible mounting system.", zh: "隐形安装系统。"}, mat: {en: "Steel", zh: "冷轧钢"}, moq: "500" },
+            { id: 8, cat: 2, name: {en: "Slim Desk Lamp", zh: "纤细台灯"}, desc: {en: "Touch sensitive dimming.", zh: "触摸感应调光。"}, mat: {en: "Aluminium", zh: "铝合金"}, moq: "300" },
+            { id: 9, cat: 0, name: {en: "Bamboo Block", zh: "竹制刀架"}, desc: {en: "Antibacterial bamboo surface.", zh: "抗菌竹面。"}, mat: {en: "Bamboo", zh: "竹子"}, moq: "1000" }
+        ];
+
+        let currentLang = 'en';
+
+        // --- Init ---
+        window.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger, TextPlugin);
+            updateUI();
+            initHeaderAnim();
+            initHero3D();
+            initScrollAnims();
+        });
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            updateUI();
+        }
+
+        function updateUI() {
+            const data = LANG[currentLang];
+            document.getElementById('branding-text').innerText = data.branding;
+            document.getElementById('h-name').innerText = data.name;
+            document.getElementById('h-sells').innerText = data.sells;
+            document.getElementById('h-awards-lbl').innerText = data.awards;
+            document.getElementById('hero-title').innerText = data.hero_title;
+            document.getElementById('hero-badge').innerText = data.hero_badge;
+            document.getElementById('cat-eyebrow').innerText = data.cat_eyebrow;
+            document.getElementById('cat-title').innerText = data.cat_title;
+            document.getElementById('contact-title').innerText = data.contact_title;
+            document.getElementById('contact-desc').innerText = data.contact_desc;
+            document.getElementById('lbl-mat').innerText = data.lbl_mat;
+            document.getElementById('lbl-moq').innerText = data.lbl_moq;
+            document.getElementById('btn-inquiry').innerText = data.btn_inquiry;
+
+            // Render Products
+            const list = document.getElementById('product-list');
+            list.innerHTML = '';
+            PRODUCTS.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card reveal-up';
+                card.onclick = () => openDetail(p);
+                card.innerHTML = `
+                    <div class="product-img">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="60" height="60" x="20" y="20" rx="10" fill="var(--muted-gold)" fill-opacity="0.1" stroke="var(--muted-gold)" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="10" fill="var(--muted-gold)"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="mono" style="color: var(--muted-gold); font-size: 0.6rem;">${data.category_names[p.cat]}</span>
+                        <h3 style="margin-top: 0.5rem;">${p.name[currentLang]}</h3>
+                        <p style="opacity: 0.5; font-size: 0.85rem; margin-top: 0.5rem;">${p.desc[currentLang]}</p>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+
+            // Typewriter reset
+            gsap.to("#hero-typewriter", {
+                duration: 2,
+                text: data.hero_desc,
+                ease: "none"
+            });
+        }
+
+        function initHeaderAnim() {
+            const tl = gsap.timeline();
+            tl.to("#h-name", { opacity: 1, y: 0, duration: 1.5, ease: "power4.out" })
+              .to("#h-awards", { opacity: 1, y: 0, duration: 1, ease: "power4.out" }, "-=0.8");
+        }
+
+        function initScrollAnims() {
+            gsap.utils.toArray('.reveal-up').forEach(el => {
+                gsap.to(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 90%",
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    ease: "power3.out"
+                });
+            });
+        }
+
+        // --- Three.js Hero ---
+        let heroScene, heroCamera, heroRenderer, heroModel;
+        function initHero3D() {
+            const container = document.getElementById('hero-3d-container');
+            const canvas = document.getElementById('hero-canvas');
+            
+            heroScene = new THREE.Scene();
+            heroCamera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+            heroRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+            heroRenderer.setSize(container.clientWidth, container.clientHeight);
+            heroRenderer.setPixelRatio(window.devicePixelRatio);
+
+            const ambient = new THREE.AmbientLight(0xffffff, 1);
+            heroScene.add(ambient);
+            const direct = new THREE.DirectionalLight(0xffffff, 0.8);
+            direct.position.set(5, 10, 5);
+            heroScene.add(direct);
+
+            // Create "Zenith Lamp" Procedural Model
+            heroModel = new THREE.Group();
+            
+            const baseGeo = new THREE.CylinderGeometry(0.5, 0.6, 0.1, 32);
+            const baseMat = new THREE.MeshStandardMaterial({ color: 0xC5A059, metalness: 0.8, roughness: 0.2 });
+            const base = new THREE.Mesh(baseGeo, baseMat);
+            heroModel.add(base);
+
+            const stemGeo = new THREE.CylinderGeometry(0.05, 0.05, 1.5, 16);
+            const stem = new THREE.Mesh(stemGeo, baseMat);
+            stem.position.y = 0.75;
+            heroModel.add(stem);
+
+            const shadeGeo = new THREE.SphereGeometry(0.4, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2);
+            const shadeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.8, roughness: 0 });
+            const shade = new THREE.Mesh(shadeGeo, shadeMat);
+            shade.position.y = 1.5;
+            shade.rotation.x = Math.PI;
+            heroModel.add(shade);
+
+            heroScene.add(heroModel);
+            heroCamera.position.set(2, 2, 3);
+            heroCamera.lookAt(0, 0.75, 0);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                heroModel.rotation.y += 0.005;
+                heroRenderer.render(heroScene, heroCamera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                heroCamera.aspect = container.clientWidth / container.clientHeight;
+                heroCamera.updateProjectionMatrix();
+                heroRenderer.setSize(container.clientWidth, container.clientHeight);
+            });
+        }
+
+        // --- Detail View Logic ---
+        let detailScene, detailCamera, detailRenderer, detailModel, detailControls;
+
+        function openDetail(p) {
+            const data = LANG[currentLang];
+            document.getElementById('d-name').innerText = p.name[currentLang];
+            document.getElementById('d-cat').innerText = data.category_names[p.cat];
+            document.getElementById('d-desc').innerText = p.desc[currentLang];
+            document.getElementById('d-mat').innerText = p.mat[currentLang];
+            document.getElementById('d-moq').innerText = p.moq + " PCS";
+
+            const view = document.getElementById('detail-view');
+            view.style.display = 'flex';
+            gsap.to(view, { opacity: 1, duration: 0.8, ease: "power4.out" });
+            document.body.style.overflow = 'hidden';
+
+            initDetail3D();
+        }
+
+        function closeDetail() {
+            const view = document.getElementById('detail-view');
+            gsap.to(view, { opacity: 0, duration: 0.5, onComplete: () => {
+                view.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                if (detailRenderer) {
+                    detailRenderer.dispose();
+                    detailRenderer = null;
+                }
+            }});
+        }
+
+        function initDetail3D() {
+            const container = document.getElementById('detail-3d-container');
+            const canvas = document.getElementById('detail-canvas');
+            
+            detailScene = new THREE.Scene();
+            detailCamera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+            detailRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+            detailRenderer.setSize(container.clientWidth, container.clientHeight);
+            detailRenderer.setPixelRatio(window.devicePixelRatio);
+
+            detailScene.add(new THREE.AmbientLight(0xffffff, 1.2));
+            const d = new THREE.DirectionalLight(0xffffff, 1);
+            d.position.set(5, 5, 5);
+            detailScene.add(d);
+
+            detailControls = new THREE.OrbitControls(detailCamera, canvas);
+            detailControls.enableDamping = true;
+            detailControls.autoRotate = true;
+
+            // Simple Box Model for Details (Representative)
+            const geo = new THREE.BoxGeometry(1, 1, 1);
+            const mat = new THREE.MeshStandardMaterial({ color: 0xC5A059, metalness: 0.5, roughness: 0.5 });
+            detailModel = new THREE.Mesh(geo, mat);
+            detailScene.add(detailModel);
+
+            detailCamera.position.z = 3;
+
+            function animate() {
+                if (!detailRenderer) return;
+                requestAnimationFrame(animate);
+                detailControls.update();
+                detailRenderer.render(detailScene, detailCamera);
+            }
+            animate();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="zh" data-lang="cn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXE HAUS 潮流家电 · Premium Beauty Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Noto+Serif+SC:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFFFF;--off-white:#F8F6F2;--light-gray:#F0EDE8;--border:#E5E0D8;--dark:#1A1614;--mid:#5A5450;--muted:#9A9088;--accent:#E8442A;--accent-light:#FFF0EE;--accent-dark:#C02010;--gold:#B8922A;--gold-light:#F5E6C0}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--off-white);color:var(--dark);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+html[data-lang="cn"] .en-text{display:none!important}
+html[data-lang="en"] .cn-text{display:none!important}
+
+@keyframes shimmer{0%{transform:translateX(-150%) skewX(-20deg)}100%{transform:translateX(320%) skewX(-20deg)}}
+@keyframes mercuryRise{0%,100%{height:28%}50%{height:82%}}
+@keyframes atomSpin1{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes atomSpin2{from{transform:rotate(60deg)}to{transform:rotate(420deg)}}
+@keyframes atomSpin3{from{transform:rotate(120deg)}to{transform:rotate(480deg)}}
+@keyframes eyePulse{0%,100%{transform:scale(.8)}50%{transform:scale(1.2)}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes ledBlink{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0px)}50%{transform:translateX(-50%) translateY(-14px)}}
+@keyframes heatRise{0%{transform:translateY(0px);opacity:.5}100%{transform:translateY(-24px);opacity:0}}
+@keyframes sonicRing{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes ledGlow{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes dialSpin{0%{transform:rotate(0deg)}100%{transform:rotate(270deg)}}
+@keyframes bitVibrate{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes goldSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes dotFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes sqRotate{0%,100%{transform:rotate(45deg)}50%{transform:rotate(90deg)}}
+@keyframes productFloat{0%,100%{transform:translateY(0px)}50%{transform:translateY(-12px)}}
+
+[data-reveal]{opacity:0;transform:translateY(60px);transition:opacity .7s ease,transform .7s ease}
+[data-reveal].revealed{opacity:1;transform:translateY(0)}
+
+/* ── NAV ─────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07)}
+@media(max-width:767px){.nav{padding:0 20px}}
+.nav-logo{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.nav-logo-main{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;font-weight:600;color:var(--dark)}
+.nav-sep{color:var(--muted);font-size:18px;margin:0 2px}
+.nav-logo-cn{font-family:'Noto Serif SC',serif;font-size:14px;color:var(--mid)}
+.nav-links{display:flex;align-items:center;gap:32px;position:absolute;left:50%;transform:translateX(-50%)}
+@media(max-width:1023px){.nav-links{display:none}}
+.nlbtn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 0;position:relative;background:none;border:none;cursor:pointer}
+.nlbtn::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .2s}
+.nlbtn:hover::after{transform:scaleX(1)}
+.nl-cn{font-family:'Noto Serif SC',serif;font-size:14px;color:var(--mid);transition:color .2s}
+.nl-en{font-family:'Inter',sans-serif;font-size:10px;color:var(--muted);letter-spacing:.04em;transition:color .2s}
+.nlbtn:hover .nl-cn,.nlbtn:hover .nl-en{color:var(--accent)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.lang-pill{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--mid);background:none;border:1px solid var(--border);border-radius:20px;padding:6px 14px;cursor:pointer;transition:all .2s}
+.lang-pill:hover{border-color:var(--accent);color:var(--accent)}
+.btn-buy-nav{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:#fff;background:var(--accent);border:none;border-radius:4px;padding:9px 18px;cursor:pointer;transition:background .2s;position:relative;overflow:hidden}
+.btn-buy-nav::before{content:'';position:absolute;top:0;left:-150%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-20deg);animation:shimmer 3s ease-in-out infinite}
+.btn-buy-nav:hover{background:var(--accent-dark)}
+@media(max-width:1023px){.btn-buy-nav{display:none}}
+.burger{display:none;flex-direction:column;justify-content:space-between;width:22px;height:16px;background:none;border:none;padding:0;cursor:pointer}
+.burger span{display:block;width:100%;height:1.5px;background:var(--dark);transition:all .3s;transform-origin:center}
+.burger.open span:nth-child(1){transform:translateY(7.25px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:translateY(-7.25px) rotate(-45deg)}
+@media(max-width:1023px){.burger{display:flex}}
+
+/* ── DRAWER ───────────────────────────────── */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:280px;background:var(--white);z-index:1500;transform:translateX(100%);transition:transform .35s cubic-bezier(.25,.46,.45,.94);padding:80px 28px 28px;box-shadow:-4px 0 24px rgba(0,0,0,.09)}
+.drawer.open{transform:translateX(0)}
+.dlink{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border);cursor:pointer;text-decoration:none}
+.dlink:hover .dl-cn{color:var(--accent)}
+.dl-cn{font-family:'Noto Serif SC',serif;font-size:18px;color:var(--dark);transition:color .2s}
+.dl-en{font-family:'Inter',sans-serif;font-size:11px;color:var(--muted)}
+.dbuy{margin-top:28px;width:100%;height:48px;background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;border:none;border-radius:4px;cursor:pointer;transition:background .2s}
+.dbuy:hover{background:var(--accent-dark)}
+.doverlay{position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:1499;opacity:0;pointer-events:none;transition:opacity .35s}
+.doverlay.open{opacity:1;pointer-events:all}
+body.locked{overflow:hidden}
+
+/* ── HERO — two column ─────────────────────── */
+#hero{min-height:100svh;background:var(--off-white);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:100px 40px 80px;gap:40px}
+@media(max-width:1023px){#hero{grid-template-columns:1fr;padding:96px 20px 60px}}
+.hero-content{position:relative;z-index:1;max-width:520px}
+.hero-eyebrow{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px}
+.hero-h1-cn{font-family:'Noto Serif SC',serif;font-size:clamp(38px,6vw,52px);font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:12px}
+.hero-h1-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(26px,4vw,36px);font-weight:300;color:var(--mid);margin-bottom:20px;line-height:1.3}
+.hero-body{font-family:'Inter',sans-serif;font-size:15px;font-weight:300;color:var(--mid);line-height:1.75;margin-bottom:40px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:#fff;background:var(--accent);border:none;border-radius:4px;padding:0 30px;height:48px;cursor:pointer;position:relative;overflow:hidden;transition:background .2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-primary::before{content:'';position:absolute;top:0;left:-150%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-20deg);animation:shimmer 3s ease-in-out infinite}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-outline{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--accent);background:var(--white);border:1.5px solid var(--accent);border-radius:4px;padding:0 26px;height:48px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;text-decoration:none}
+.btn-outline:hover{background:var(--accent-light)}
+
+/* hero right column */
+.hero-right{position:relative;height:480px;z-index:1}
+@media(max-width:1023px){.hero-right{height:380px;width:100%}}
+@media(max-width:767px){.hero-right{height:300px}}
+.hr-bg-circle{position:absolute;width:320px;height:320px;border-radius:50%;background:linear-gradient(135deg,#FFF0EE 0%,#F8F6F2 100%);top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none;z-index:0}
+@media(max-width:767px){.hr-bg-circle{width:240px;height:240px}}
+.hr-product-group{position:absolute;top:12px;left:50%;transform:translateX(-50%) translateY(0px);animation:float 4s ease-in-out infinite;z-index:2}
+.hr-styler{display:flex;flex-direction:column;align-items:center;width:90px}
+.hr-cord{width:4px;height:80px;background:linear-gradient(180deg,#2a2a2a,#444);border-radius:2px;transform:rotate(15deg);transform-origin:top center;align-self:center}
+.hr-handle{width:90px;height:260px;border-radius:45px;background:linear-gradient(160deg,#f0f0f0 0%,#ffffff 35%,#d8d8d8 70%,#c0c0c0 100%);box-shadow:inset -8px 0 20px rgba(0,0,0,.15),4px 8px 30px rgba(0,0,0,.12);position:relative;flex-shrink:0}
+.hr-grip{position:absolute;top:156px;left:0;right:0;height:18px;background:linear-gradient(90deg,#a0a0a0,#e8e8e8,#a0a0a0)}
+.hr-pwbtn{position:absolute;width:16px;height:16px;border-radius:50%;background:#e8e8e8;border:2px solid #c0c0c0;right:-8px;top:110px}
+.hr-tip{width:60px;height:80px;border-radius:30px 30px 50% 50%;background:linear-gradient(180deg,var(--accent) 0%,#ff6b4a 100%);position:relative;flex-shrink:0;margin-top:6px;overflow:visible}
+.hr-steam{position:absolute;width:2px;height:30px;background:var(--accent);opacity:.4;border-radius:1px;bottom:calc(100% + 6px);animation:heatRise 2s ease-in-out infinite}
+.hr-st1{left:6px;animation-delay:0s}
+.hr-st2{left:29px;animation-delay:.5s}
+.hr-st3{left:50px;animation-delay:1s}
+.hr-gold-ring{position:absolute;width:180px;height:180px;border:2px solid var(--gold);border-radius:50%;opacity:.3;top:-10px;right:-20px;animation:goldSpin 20s linear infinite;pointer-events:none;z-index:1}
+.hr-accent-sq{position:absolute;width:40px;height:40px;background:var(--accent-light);transform:rotate(45deg);bottom:100px;left:10px;animation:sqRotate 8s ease-in-out infinite alternate;z-index:1}
+.hr-dot{position:absolute;width:6px;height:6px;background:var(--gold);border-radius:50%;z-index:1}
+.hr-dot1{top:80px;right:18%;animation:dotFloat 3s ease-in-out infinite}
+.hr-dot2{top:190px;right:6%;animation:dotFloat 4s ease-in-out infinite;animation-delay:.5s}
+.hr-dot3{top:280px;left:8%;animation:dotFloat 5s ease-in-out infinite;animation-delay:1s}
+.hr-dot4{bottom:130px;right:14%;animation:dotFloat 3.5s ease-in-out infinite;animation-delay:1.5s}
+.hr-dot5{bottom:100px;left:22%;animation:dotFloat 4.5s ease-in-out infinite;animation-delay:.8s}
+.hr-tag{position:absolute;top:28px;right:8px;background:#fff;border-radius:20px;padding:5px 12px;font-family:'Inter',sans-serif;font-size:10px;font-weight:500;color:var(--mid);box-shadow:0 2px 8px rgba(0,0,0,.08);z-index:3;white-space:nowrap}
+.hr-stats{position:absolute;bottom:0;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.hr-stat{background:#fff;border-radius:20px;padding:6px 12px;font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--dark);box-shadow:0 2px 8px rgba(0,0,0,.08);white-space:nowrap}
+@media(max-width:767px){.hr-stat{font-size:9px;padding:5px 8px}.hr-stats{gap:4px}}
+
+.scroll-cue{position:absolute;bottom:32px;left:50%;animation:bounce 1.5s ease-in-out infinite;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;transition:opacity .4s}
+.scroll-cue.hidden{opacity:0;pointer-events:none}
+.sc-line{width:1px;height:32px;background:var(--accent);opacity:.4}
+.sc-chev{width:10px;height:10px;border-right:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(45deg);opacity:.5}
+
+/* ── BRAND STORY ─────────────────────────── */
+#brand-story{background:var(--white);padding:100px 40px}
+@media(max-width:767px){#brand-story{padding:80px 20px}}
+.bs-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto}
+@media(max-width:767px){.bs-grid{grid-template-columns:1fr;gap:48px}}
+.sec-lbl{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+.bs-hl-cn{font-family:'Noto Serif SC',serif;font-size:30px;font-weight:700;color:var(--dark);line-height:1.4;margin-bottom:6px}
+.bs-hl-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--mid);margin-bottom:24px}
+.bs-body{font-size:15px;color:var(--mid);line-height:1.85;margin-bottom:8px}
+.bs-body.cn{font-family:'Noto Serif SC',serif;font-weight:300}
+.bs-body.en{font-family:'Inter',sans-serif;font-size:14px;margin-bottom:32px}
+.bs-stats{display:flex;gap:28px;flex-wrap:wrap}
+.bsn{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:var(--accent);display:block;line-height:1;margin-bottom:4px}
+.bsc{font-family:'Noto Serif SC',serif;font-size:12px;color:var(--muted);display:block}
+.bse{font-family:'Inter',sans-serif;font-size:11px;color:var(--muted);display:block}
+.bv-vis{position:relative;height:300px;width:100%}
+.bvr{position:absolute;border-radius:2px}
+.bvr1{width:210px;height:260px;background:var(--accent);top:20px;left:60px;transform:rotate(-6deg);opacity:.9}
+.bvr2{width:200px;height:258px;background:var(--gold);top:28px;left:78px;transform:rotate(0deg);opacity:.7}
+.bvr3{width:190px;height:248px;background:var(--light-gray);border:1px solid var(--border);top:38px;left:96px;transform:rotate(5deg)}
+
+/* ── PRODUCTS ────────────────────────────── */
+#products{background:var(--off-white);padding:100px 0 80px}
+.prod-hd{padding:0 40px;margin-bottom:36px}
+@media(max-width:767px){.prod-hd{padding:0 20px}}
+.sec-title-cn{font-family:'Noto Serif SC',serif;font-size:36px;font-weight:700;color:var(--dark);margin-bottom:6px}
+.sec-title-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;font-weight:300;color:var(--mid)}
+.ptabs{display:flex;padding:0 40px;border-bottom:2px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.ptabs::-webkit-scrollbar{display:none}
+@media(max-width:767px){.ptabs{padding:0 20px}}
+.ptab{font-family:'Noto Serif SC',serif;font-size:14px;color:var(--mid);background:var(--white);border:1px solid var(--border);border-bottom:none;border-radius:4px 4px 0 0;padding:11px 20px;cursor:pointer;white-space:nowrap;transition:all .2s;margin-right:6px;flex-shrink:0}
+.ptab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ptab:hover:not(.active){color:var(--accent);border-color:var(--accent)}
+.pdtl{padding:40px;transition:opacity .15s}
+@media(max-width:767px){.pdtl{padding:20px}}
+.pdtl.fading{opacity:0}
+.playout{display:grid;grid-template-columns:55% 45%;gap:48px;max-width:1200px;margin:0 auto;align-items:start}
+@media(max-width:767px){.playout{grid-template-columns:1fr;gap:24px}}
+.pvis-card{background:var(--white);border-radius:8px;border:1px solid var(--border);height:380px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+@media(max-width:767px){.pvis-card{height:280px}}
+.illus{display:none;width:100%;height:100%;align-items:center;justify-content:center}
+.illus.active{display:flex}
+.product-shadow{width:80px;height:16px;background:radial-gradient(ellipse,rgba(0,0,0,.2),transparent);margin:4px auto 0}
+.pthumbs{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.pthumb{width:64px;height:64px;border-radius:6px;background:var(--white);border:1.5px solid var(--border);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-family:'Inter',sans-serif;font-size:10px;color:var(--muted);transition:all .2s;flex-shrink:0}
+.pthumb.active{border-color:var(--accent);color:var(--accent)}
+.pthumb:hover:not(.active){border-color:var(--mid)}
+.pswatches{display:flex;gap:10px;margin-top:14px;align-items:center}
+.sw-lbl{font-family:'Inter',sans-serif;font-size:11px;color:var(--muted)}
+.swatch{width:22px;height:22px;border-radius:50%;cursor:pointer;transition:all .2s;box-shadow:0 0 0 1px var(--border);flex-shrink:0}
+.swatch.active{box-shadow:0 0 0 2px var(--accent)}
+.p-slbl{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.p-ncn{font-family:'Noto Serif SC',serif;font-size:26px;font-weight:700;color:var(--dark);margin-bottom:4px;line-height:1.3}
+.p-nen{font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);margin-bottom:14px}
+.p-rating{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.stars{color:var(--gold);font-size:14px;letter-spacing:1px}
+.rnum{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--dark)}
+.rct{font-family:'Inter',sans-serif;font-size:12px;color:var(--muted)}
+.p-price{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:var(--accent);display:block;line-height:1;margin-bottom:4px}
+.p-install{font-family:'Inter',sans-serif;font-size:12px;color:var(--muted);margin-bottom:22px}
+.spec-tbl{width:100%;border-collapse:collapse;margin-bottom:22px;font-size:12px}
+.spec-tbl tr:nth-child(even) td{background:var(--off-white)}
+.spec-tbl td{padding:8px 10px;border:1px solid var(--border)}
+.sc{color:var(--muted);width:30%}
+.se{color:var(--muted);width:22%}
+.sv{color:var(--dark);font-weight:500}
+.p-dc{font-family:'Noto Serif SC',serif;font-size:14px;font-weight:300;color:var(--mid);line-height:1.9;margin-bottom:6px}
+.p-de{font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+.btn-buy{width:100%;height:56px;background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;border:none;border-radius:4px;cursor:pointer;margin-bottom:10px;position:relative;overflow:hidden;transition:background .2s;letter-spacing:.04em}
+.btn-buy::before{content:'';position:absolute;top:0;left:-150%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-20deg);animation:shimmer 3s ease-in-out infinite}
+.btn-buy:hover{background:var(--accent-dark)}
+.btn-cart{width:100%;height:48px;background:transparent;color:var(--accent);font-family:'Inter',sans-serif;font-size:14px;font-weight:500;border:1.5px solid var(--accent);border-radius:4px;cursor:pointer;margin-bottom:18px;transition:all .2s;letter-spacing:.04em}
+.btn-cart:hover{background:var(--accent-light)}
+.pperks{display:flex;gap:18px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:14px}
+
+/* ── CSS ILLUSTRATIONS ────────────────────────────────────── */
+
+/* LH-001 — Hair Styler Pro */
+.hs-wrap{--pc:#E8442A;display:flex;align-items:center;justify-content:center;width:100%;height:100%;overflow:hidden}
+.hs2-outer{display:flex;flex-direction:column;align-items:center;animation:productFloat 4s ease-in-out infinite}
+.hs2-cord{width:4px;height:60px;background:linear-gradient(180deg,#2a2a2a,#444);border-radius:2px;transform:rotate(8deg);transform-origin:top center;align-self:center}
+.hs2-handle{width:72px;height:160px;border-radius:36px;background:linear-gradient(160deg,#f5f5f5 0%,#ffffff 30%,#e0e0e0 65%,#c8c8c8 100%);box-shadow:inset -6px 0 16px rgba(0,0,0,.12),2px 4px 20px rgba(0,0,0,.10);position:relative;flex-shrink:0}
+.hs2-disp{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:36px;height:48px;border-radius:6px;background:linear-gradient(180deg,#1a1a2e,#16213e);border:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.hs2-led{width:20px;height:2px;background:var(--accent);border-radius:1px;opacity:.8}
+.hs2-grip{position:absolute;bottom:30px;left:0;right:0;height:20px;background:repeating-linear-gradient(90deg,#888 0px,#aaa 4px,#666 8px);border-top:1px solid rgba(255,255,255,.3);border-bottom:1px solid rgba(0,0,0,.2)}
+.hs2-steam-row{display:flex;gap:8px;justify-content:center;margin:2px 0;align-self:center}
+.hs2-s{width:2px;height:20px;background:linear-gradient(180deg,transparent,var(--accent),transparent);border-radius:1px;opacity:.5;animation:heatRise 1.8s ease-in-out infinite}
+.hs2-s1{animation-delay:0s}.hs2-s2{animation-delay:.3s}.hs2-s3{animation-delay:.6s}
+.hs2-barrel{width:52px;height:120px;border-radius:26px 26px 40% 40%;background:linear-gradient(160deg,var(--pc) 0%,#ff6b4a 40%,#c02010 100%);box-shadow:inset -4px 0 12px rgba(0,0,0,.2),0 8px 24px rgba(232,68,42,.35);position:relative;align-self:center;flex-shrink:0}
+.hs2-vnt{position:absolute;left:50%;transform:translateX(-50%);width:30px;height:2px;background:rgba(0,0,0,.15);border-radius:1px}
+.hs2-vnt:nth-child(1){top:16px}.hs2-vnt:nth-child(2){top:28px}.hs2-vnt:nth-child(3){top:40px}.hs2-vnt:nth-child(4){top:52px}
+.hs2-pwbtn{position:absolute;right:-8px;top:28px;width:14px;height:14px;border-radius:50%;background:#f0f0f0;border:1px solid #ddd;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+.hs-box{display:none;flex-direction:column;align-items:center;justify-content:center;width:120px;height:168px;background:#f4f4f4;border:2px solid var(--accent);border-radius:4px;gap:8px;padding:14px;flex-shrink:0}
+.hs-bx-mini{width:18px;height:56px;background:linear-gradient(90deg,#ccc,#eee,#ccc);border-radius:9px}
+.hs-bx-stripe{width:60px;height:2px;background:var(--accent)}
+.hs-bx-lbl{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:var(--mid);text-align:center}
+.hs-wrap[data-view="1"] .hs2-outer{animation:none;transform:perspective(600px) rotateY(35deg)}
+.hs-wrap[data-view="2"] .hs2-outer{animation:none;transform:scale(1.4) translateY(-20px)}
+.hs-wrap[data-view="2"]{overflow:hidden}
+.hs-wrap[data-view="3"] .hs2-outer{display:none}
+.hs-wrap[data-view="3"] .hs-box{display:flex}
+
+/* LH-002 — Sonic Facial Device */
+.sd-wrap{--pc:#D4C4E0;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;overflow:hidden}
+.sd2-outer{display:flex;flex-direction:column;align-items:center;animation:productFloat 4s ease-in-out infinite}
+.sd2{position:relative;width:80px;height:200px;background:linear-gradient(160deg,#f8f8f8 0%,#ffffff 40%,#e8e8e8 100%);border-radius:40px;box-shadow:inset -4px 0 12px rgba(0,0,0,.08),4px 8px 32px rgba(0,0,0,.10)}
+.sd2-emitter{position:absolute;top:35%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px}
+.sd2-ring{position:absolute;border-radius:50%;border:2px solid var(--pc)}
+.sd2-r1{width:64px;height:64px;top:0;left:0;opacity:.3;animation:sonicRing 2s ease-in-out infinite}
+.sd2-r2{width:48px;height:48px;top:8px;left:8px;opacity:.5;animation:sonicRing 2s ease-in-out infinite .2s}
+.sd2-r3{width:32px;height:32px;top:16px;left:16px;opacity:.7;animation:sonicRing 2s ease-in-out infinite .4s}
+.sd2-r4{width:16px;height:16px;top:24px;left:24px;background:var(--pc);border:none;opacity:.9}
+.sd2-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);top:29px;left:29px}
+.sd2-led-strip{position:absolute;left:2px;top:30%;width:4px;height:60px;border-radius:2px;background:linear-gradient(180deg,#00ff88,#0088ff,#ff0088);opacity:.8}
+.sd2-modeBtn{position:absolute;right:-1px;top:45%;width:24px;height:24px;border-radius:50%;background:#f0f0f0;border:1px solid #ddd;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+.sd2-base-cap{position:absolute;bottom:0;left:0;width:80px;height:16px;border-radius:0 0 40px 40px;background:linear-gradient(180deg,#d8d8d8,#c0c0c0)}
+.sd2-acc{display:none;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;padding:8px;margin-top:8px}
+.sd2-ai{width:38px;height:38px;border-radius:50%;background:var(--light-gray);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:9px;font-family:'Inter',sans-serif;color:var(--muted)}
+.sd-wrap[data-view="1"] .sd2-outer{animation:none;transform:perspective(600px) rotateY(35deg)}
+.sd-wrap[data-view="2"] .sd2-outer{animation:none;transform:scale(1.4) translateY(-20px)}
+.sd-wrap[data-view="2"]{overflow:hidden}
+.sd-wrap[data-view="3"] .sd2-outer{display:none}
+.sd-wrap[data-view="3"] .sd2-acc{display:flex}
+
+/* LH-003 — LED Therapy Mask */
+.lm-wrap{--pc:#1A1614;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%}
+.lm2-outer{display:flex;flex-direction:column;align-items:center;animation:productFloat 4s ease-in-out infinite}
+.lm2{position:relative;width:248px;height:210px}
+.lm2-face{position:absolute;left:50%;transform:translateX(-50%);width:200px;height:210px;background:var(--pc);border-radius:50% 50% 45% 45% / 55% 55% 42% 42%;border:1px solid rgba(255,255,255,.08);overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.3)}
+.lm2-eye{position:absolute;background:#0a0a0a;border-radius:50%;border:1px solid #333}
+.lm2-el{width:48px;height:24px;top:50px;left:18px}
+.lm2-er{width:48px;height:24px;top:50px;right:18px}
+.lm2-grid{position:absolute;top:90px;left:10px;display:grid;grid-template-columns:repeat(8,1fr);gap:4px;width:180px}
+.lm-dot{width:5px;height:5px;border-radius:50%;animation:ledGlow 3s ease-in-out infinite}
+.lm2-chin{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);width:40px;height:4px;border-radius:2px;background:#2a2a2a}
+.lm2-port{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:12px;height:4px;border-radius:2px;background:#444}
+.lm2-strap{position:absolute;top:50%;transform:translateY(-50%);width:24px;height:80px;background:linear-gradient(90deg,#2a2a2a,#1a1a1a);border-radius:4px}
+.lm2-sl{left:0}.lm2-sr{right:0}
+.lm-pouch{display:none;width:110px;height:72px;background:var(--light-gray);border:1px solid var(--border);border-radius:8px;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:10px;color:var(--muted)}
+.lm-wrap[data-view="1"] .lm2-outer{animation:none;transform:perspective(600px) rotateY(40deg)}
+.lm-wrap[data-view="2"] .lm2-outer{animation:none}
+.lm-wrap[data-view="2"] .lm2-face{background:linear-gradient(160deg,#0a0a1a,#111)}
+.lm-wrap[data-view="2"] .lm-dot{animation:ledBlink .5s ease-in-out infinite!important;animation-delay:0s!important}
+.lm-wrap[data-view="3"] .lm2-outer{animation:none;transform:scale(.52) translateY(-28px)}
+.lm-wrap[data-view="3"] .lm-pouch{display:flex}
+
+/* LH-004 — Precision Nail Studio */
+.ns-wrap{--pc:#FFFFFF;display:flex;align-items:center;justify-content:center;width:100%;height:100%;overflow:hidden}
+.ns2-layout{position:relative;width:220px;height:310px;animation:productFloat 4s ease-in-out infinite}
+.ns2-handpiece{position:absolute;left:135px;top:0;display:flex;flex-direction:column;align-items:center}
+.ns2-bit{width:4px;height:24px;border-radius:2px;background:linear-gradient(180deg,#888,#aaa);animation:bitVibrate .1s linear infinite}
+.ns2-chuck{width:10px;height:20px;border-radius:5px 5px 0 0;background:linear-gradient(90deg,#a0a0a0,#c0c0c0,#a0a0a0)}
+.ns2-shaft{width:14px;height:130px;background:linear-gradient(90deg,#e0e0e0,#ffffff,#c8c8c8);border-radius:0 0 7px 7px;box-shadow:inset -2px 0 6px rgba(0,0,0,.1);position:relative;flex-shrink:0}
+.ns2-shaft-grip{position:absolute;bottom:0;left:0;right:0;height:52px;background:repeating-linear-gradient(90deg,#ccc 0px,#e0e0e0 3px);border-radius:0 0 7px 7px}
+.ns2-base{position:absolute;bottom:44px;left:0;width:220px;height:90px;background:linear-gradient(160deg,#eae8e6,#f5f3f0,#ddd);border-radius:12px;border:1px solid var(--border);box-shadow:4px 8px 32px rgba(0,0,0,.12);display:flex;align-items:center;padding:0 14px;gap:10px}
+.ns2-ctrl{display:flex;flex-direction:column;align-items:center;gap:5px;width:68px;flex-shrink:0}
+.ns2-dial{width:32px;height:32px;border-radius:50%;border:3px solid #ddd;position:relative;background:var(--white)}
+.ns2-ind{position:absolute;width:4px;height:12px;background:var(--accent);border-radius:2px;top:3px;left:calc(50% - 2px);transform-origin:bottom center;animation:dialSpin 3s ease-in-out infinite alternate}
+.ns2-rpm{font-family:'Inter',sans-serif;font-size:7px;color:var(--muted);letter-spacing:.05em}
+.ns2-pled{width:8px;height:8px;border-radius:50%;background:#00cc44;box-shadow:0 0 5px #00cc44}
+.ns2-dust{width:36px;height:7px;border-radius:3px;background:#ddd;border:1px solid #ccc}
+.ns2-screen{flex:1;height:44px;border-radius:4px;background:linear-gradient(180deg,#1a1a2e,#0a0a1e);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.ns2-num{font-family:monospace;font-size:11px;color:#00ff88;letter-spacing:.05em}
+.ns2-subt{font-family:'Inter',sans-serif;font-size:6px;color:rgba(255,255,255,.5);letter-spacing:.1em}
+.ns2-bits-row{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);display:flex;gap:8px;align-items:flex-end}
+.ns2-b{background:linear-gradient(180deg,#b0b0b0,#888);box-shadow:0 2px 4px rgba(0,0,0,.2)}
+.ns2-b1{width:6px;height:20px;border-radius:3px}
+.ns2-b2{width:8px;height:8px;border-radius:50%}
+.ns2-b3{width:6px;height:16px;border-radius:3px 3px 0 0}
+.ns2-b4{width:10px;height:6px;border-radius:2px}
+.ns2-b5{width:5px;height:18px;border-radius:2px}
+.ns2-b6{width:8px;height:10px;border-radius:50% 50% 0 0}
+.ns-wrap[data-view="1"] .ns2-layout{animation:none;transform:perspective(600px) rotateY(35deg)}
+.ns-wrap[data-view="2"] .ns2-layout{animation:none;transform:scale(1.4) translateY(-20px)}
+.ns-wrap[data-view="2"]{overflow:hidden}
+.ns-wrap[data-view="3"] .ns2-layout{animation:none;transform:perspective(600px) rotateX(12deg) rotateY(14deg)}
+
+/* ── TECHNOLOGY ───────────────────────────── */
+#technology{background-color:var(--white);background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,var(--border) 20px,var(--border) 21px);padding:100px 40px}
+@media(max-width:767px){#technology{padding:80px 20px}}
+.tech-hd{max-width:1200px;margin:0 auto 48px}
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
+@media(max-width:767px){.tech-grid{grid-template-columns:1fr}}
+.tcard{background:var(--white);border:1px solid var(--border);border-radius:8px;border-top:3px solid var(--accent);padding:32px}
+.ticon{height:68px;display:flex;align-items:center;margin-bottom:24px}
+.tstnum{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--accent);display:block;line-height:1;margin-bottom:6px}
+.tstcn{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--mid);display:block;margin-bottom:2px}
+.tsten{font-family:'Inter',sans-serif;font-size:11px;color:var(--muted);display:block}
+.t-tw{position:relative;width:20px;height:64px}
+.t-tube{position:absolute;left:3px;top:0;width:14px;height:44px;border:1.5px solid var(--mid);border-bottom:none;border-radius:7px 7px 0 0;overflow:hidden}
+.t-merc{position:absolute;bottom:0;left:0;right:0;background:var(--accent);animation:mercuryRise 3s ease-in-out infinite;will-change:height}
+.t-bulb{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;border:1.5px solid var(--mid);background:var(--accent)}
+.t-aw{position:relative;width:56px;height:56px}
+.t-nuc{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(232,68,42,.35)}
+.t-orb{position:absolute;top:50%;left:50%;border:1px solid var(--accent);border-radius:50%}
+.to1{width:50px;height:20px;margin:-10px 0 0 -25px;animation:atomSpin1 4s linear infinite}
+.to2{width:50px;height:20px;margin:-10px 0 0 -25px;transform:rotate(60deg);animation:atomSpin2 4s linear infinite;opacity:.65}
+.to3{width:50px;height:20px;margin:-10px 0 0 -25px;transform:rotate(120deg);animation:atomSpin3 4s linear infinite;opacity:.4}
+.t-ew{width:60px;height:32px;border:1.5px solid var(--mid);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.t-iris{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;animation:eyePulse 2s ease-in-out infinite;will-change:transform}
+.t-pupil{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+
+/* ── LOOKBOOK ────────────────────────────── */
+#lookbook{background:var(--accent);padding:100px 40px}
+@media(max-width:767px){#lookbook{padding:80px 20px}}
+.lb-ttl{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:48px;font-weight:300;color:#fff;margin-bottom:6px}
+.lb-sub{font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.6);margin-bottom:44px;letter-spacing:.12em;text-transform:uppercase}
+.lb-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1200px;margin:0 auto}
+@media(max-width:767px){.lb-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;-webkit-overflow-scrolling:touch;padding-bottom:8px;scrollbar-width:none}}
+@media(max-width:767px){.lb-grid::-webkit-scrollbar{display:none}}
+.lb-card{background:var(--white);border-radius:4px;padding:28px}
+.lb-wide{grid-column:1/-1}
+@media(max-width:767px){.lb-card{min-width:260px;scroll-snap-align:start;flex-shrink:0}}
+.lb-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:80px;font-weight:300;color:var(--accent);line-height:1;margin-bottom:8px}
+.lb-hcn{font-family:'Noto Serif SC',serif;font-size:22px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.lb-hen{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--mid);margin-bottom:14px}
+.lb-date{font-family:'Inter',sans-serif;font-size:11px;color:var(--muted)}
+.lb-mini{display:flex;justify-content:center;align-items:center;padding:14px 0;min-height:80px}
+.m-sd{width:28px;height:64px;background:linear-gradient(160deg,#f4f4f4,#fff,#e4e4e4);border-radius:14px;border:1px solid #e0e0e0;position:relative}
+.m-sdr{position:absolute;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--accent);top:46%}
+.m-r1{width:18px;height:18px}.m-r2{width:11px;height:11px}
+.m-lm{width:62px;height:70px;background:#1a1a2a;border-radius:50% 50% 45% 45% / 55% 55% 45% 45%;border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
+.m-dots{position:absolute;top:30px;left:7px;display:grid;grid-template-columns:repeat(5,1fr);gap:3px;width:48px}
+.m-d{width:4px;height:4px;border-radius:50%}
+
+/* ── ABOUT ───────────────────────────────── */
+#about{background:var(--off-white);padding:100px 40px}
+@media(max-width:767px){#about{padding:80px 20px}}
+.ab-hd{max-width:1200px;margin:0 auto 52px}
+.ab-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto 64px;text-align:center}
+@media(max-width:767px){.ab-stats{grid-template-columns:repeat(2,1fr)}}
+.asn{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;color:var(--accent);display:block;line-height:1;margin-bottom:8px}
+.asc{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--mid);display:block;margin-bottom:2px}
+.ase{font-family:'Inter',sans-serif;font-size:11px;color:var(--muted);display:block}
+.mq{text-align:center;max-width:660px;margin:0 auto 60px;position:relative;padding:0 56px}
+.mq::before,.mq::after{content:'';position:absolute;top:50%;width:36px;height:1px;background:var(--accent)}
+.mq::before{left:0}.mq::after{right:0}
+.mq-cn{font-family:'Noto Serif SC',serif;font-size:18px;font-weight:400;color:var(--dark);display:block;line-height:2;margin-bottom:8px}
+.mq-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;font-weight:300;color:var(--mid);display:block}
+.tl-sec{max-width:1200px;margin:0 auto 40px}
+.tl-hdr{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:32px}
+.tl-wrap{position:relative}
+.tl-track{position:absolute;top:20px;left:10px;right:10px;height:2px;background:var(--border);transform-origin:left;transform:scaleX(0);transition:transform 1.2s ease}
+.tl-track.drawn{transform:scaleX(1)}
+.tl-nodes{display:flex;justify-content:space-between;position:relative;z-index:1}
+@media(max-width:767px){.tl-nodes{flex-direction:column;gap:20px;padding-left:28px}.tl-track{display:none}}
+.tl-node{display:flex;flex-direction:column;align-items:center}
+@media(max-width:767px){.tl-node{flex-direction:row;align-items:flex-start;gap:14px}}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--accent-light),0 0 0 5px var(--accent);flex-shrink:0}
+.tl-yr{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--accent);margin-top:12px;margin-bottom:4px}
+@media(max-width:767px){.tl-yr{margin-top:0}}
+.tl-tcn{font-family:'Noto Serif SC',serif;font-size:12px;color:var(--mid);text-align:center;max-width:150px}
+.tl-ten{font-family:'Inter',sans-serif;font-size:11px;color:var(--muted);text-align:center;margin-top:2px;max-width:150px}
+@media(max-width:767px){.tl-tcn,.tl-ten{text-align:left;max-width:none}}
+.offices{text-align:center;font-family:'Inter',sans-serif;font-size:10px;font-weight:500;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;max-width:1200px;margin:0 auto}
+
+/* ── FOOTER / CONTACT ─────────────────────── */
+#contact{background:var(--dark);padding:80px 40px 40px;position:relative;overflow:hidden}
+@media(max-width:767px){#contact{padding:60px 20px 36px}}
+.f-ghost{position:absolute;bottom:-30px;left:-10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:160px;font-weight:700;color:#fff;opacity:.04;line-height:1;pointer-events:none;user-select:none;white-space:nowrap}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;max-width:1200px;margin:0 auto 56px;position:relative;z-index:1}
+@media(max-width:767px){.f-grid{grid-template-columns:1fr;gap:32px}}
+.f-brand{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;font-weight:600;color:#fff;margin-bottom:12px}
+.f-tag{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.4);margin-bottom:24px;line-height:1.6}
+.f-nl{display:flex}
+.f-nli{flex:1;height:48px;background:transparent;border:none;border-bottom:1px solid var(--gold);color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:300;padding:0 12px;outline:none}
+.f-nli::placeholder{color:rgba(255,255,255,.3)}
+.f-nlb{width:48px;height:48px;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.f-nlb:hover{background:var(--accent-dark)}
+.f-nlb svg{width:18px;height:18px}
+.f-cttl{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+.f-ci{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.6);margin-bottom:10px}
+.f-on{font-family:'Noto Serif SC',serif;font-size:12px;color:rgba(255,255,255,.35);margin-bottom:3px}
+.f-oa{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:16px}
+.f-btm{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);padding-top:24px;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.f-copy{font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.25)}
+
+/* STEEZ BADGE */
+.steez-badge{position:fixed;bottom:20px;right:16px;padding:7px 14px;font-family:'Inter',sans-serif;font-size:10px;font-weight:500;letter-spacing:.05em;color:#E8442A;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:.5px solid rgba(232,68,42,.35);border-radius:20px;z-index:9999;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:all .3s;text-decoration:none;display:inline-block}
+.steez-badge:hover{background:rgba(232,68,42,.08);border-color:rgba(232,68,42,.6)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <span class="nav-logo-main">LUXE HAUS</span>
+    <span class="nav-sep">·</span>
+    <span class="nav-logo-cn">潮流家电</span>
+  </div>
+  <div class="nav-links">
+    <button class="nlbtn" data-href="#hero"><span class="nl-cn">首页</span><span class="nl-en">Home</span></button>
+    <button class="nlbtn" data-href="#products"><span class="nl-cn">产品</span><span class="nl-en">Products</span></button>
+    <button class="nlbtn" data-href="#technology"><span class="nl-cn">技术</span><span class="nl-en">Technology</span></button>
+    <button class="nlbtn" data-href="#lookbook"><span class="nl-cn">形象</span><span class="nl-en">Lookbook</span></button>
+    <button class="nlbtn" data-href="#about"><span class="nl-cn">关于</span><span class="nl-en">About</span></button>
+    <button class="nlbtn" data-href="#contact"><span class="nl-cn">联系</span><span class="nl-en">Contact</span></button>
+  </div>
+  <div class="nav-right">
+    <button class="lang-pill" id="langBtn">中文 · EN</button>
+    <button class="btn-buy-nav" id="navBuy">立即购买</button>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <a class="dlink" href="#hero"><span class="dl-cn">首页</span><span class="dl-en">Home</span></a>
+  <a class="dlink" href="#products"><span class="dl-cn">产品</span><span class="dl-en">Products</span></a>
+  <a class="dlink" href="#technology"><span class="dl-cn">技术</span><span class="dl-en">Technology</span></a>
+  <a class="dlink" href="#lookbook"><span class="dl-cn">形象</span><span class="dl-en">Lookbook</span></a>
+  <a class="dlink" href="#about"><span class="dl-cn">关于</span><span class="dl-en">About</span></a>
+  <a class="dlink" href="#contact"><span class="dl-cn">联系</span><span class="dl-en">Contact</span></a>
+  <button class="dbuy" id="drawerBuy">立即购买</button>
+</div>
+<div class="doverlay" id="doverlay"></div>
+
+<!-- S01: HERO -->
+<section id="hero">
+  <!-- LEFT: text -->
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-reveal>2024 新品系列 · NEW COLLECTION</p>
+    <h1 class="hero-h1-cn cn-text" data-reveal>重新定义<br>美丽科技</h1>
+    <p class="hero-h1-en en-text" data-reveal>The New Language<br>of Beauty.</p>
+    <p class="hero-body" data-reveal>
+      <span class="cn-text">精工匠心，为现代生活创造美丽仪式</span><br>
+      <span class="en-text">Precision-engineered rituals for modern living.</span>
+    </p>
+    <div class="hero-btns" data-reveal>
+      <a href="#products" class="btn-primary">探索产品 EXPLORE →</a>
+      <a href="#brand-story" class="btn-outline"><span class="cn-text">品牌故事</span><span class="en-text">OUR STORY</span></a>
+    </div>
+  </div>
+
+  <!-- RIGHT: CSS product showcase -->
+  <div class="hero-right">
+    <div class="hr-bg-circle"></div>
+    <div class="hr-product-group">
+      <div class="hr-styler">
+        <div class="hr-cord"></div>
+        <div class="hr-handle">
+          <div class="hr-grip"></div>
+          <div class="hr-pwbtn"></div>
+        </div>
+        <div class="hr-tip">
+          <div class="hr-steam hr-st1"></div>
+          <div class="hr-steam hr-st2"></div>
+          <div class="hr-steam hr-st3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hr-gold-ring"></div>
+    <div class="hr-accent-sq"></div>
+    <div class="hr-dot hr-dot1"></div>
+    <div class="hr-dot hr-dot2"></div>
+    <div class="hr-dot hr-dot3"></div>
+    <div class="hr-dot hr-dot4"></div>
+    <div class="hr-dot hr-dot5"></div>
+    <div class="hr-tag">旗舰系列 FLAGSHIP</div>
+    <div class="hr-stats">
+      <div class="hr-stat">¥2,880 起</div>
+      <div class="hr-stat">2年保修</div>
+      <div class="hr-stat">★ 4.9</div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" id="scrollCue">
+    <div class="sc-line"></div>
+    <div class="sc-chev"></div>
+  </div>
+</section>
+
+<!-- S02: BRAND STORY -->
+<section id="brand-story">
+  <div class="bs-grid">
+    <div>
+      <p class="sec-lbl" data-reveal>品牌故事 · BRAND STORY</p>
+      <h2 class="bs-hl-cn cn-text" data-reveal>源于东方，超越时代。</h2>
+      <p class="bs-hl-en en-text" data-reveal>Born of the East. Beyond the age.</p>
+      <p class="bs-body cn cn-text" data-reveal>潮流家电成立于2018年，总部位于上海。我们相信，美丽科技不应是冰冷的工具，而应是一种生活仪式。每一款产品，都是工程师与设计师历经三年打磨的心血结晶。</p>
+      <p class="bs-body en en-text" data-reveal>Founded in Shanghai in 2018, LUXE HAUS believes beauty technology should feel like ritual, not routine. Each product represents three years of engineering obsession and design restraint.</p>
+      <div class="bs-stats" data-reveal>
+        <div><span class="bsn" data-count="2018" data-pre="" data-suf="">2018</span><span class="bsc cn-text">创立年份</span><span class="bse en-text">Founded</span></div>
+        <div><span class="bsn" data-count="14" data-pre="" data-suf="">14</span><span class="bsc cn-text">全球城市</span><span class="bse en-text">Cities</span></div>
+        <div><span class="bsn" data-count="23" data-pre="" data-suf="">23</span><span class="bsc cn-text">设计大奖</span><span class="bse en-text">Awards</span></div>
+      </div>
+    </div>
+    <div data-reveal>
+      <div class="bv-vis"><div class="bvr bvr1"></div><div class="bvr bvr2"></div><div class="bvr bvr3"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- S03: PRODUCTS -->
+<section id="products">
+  <div class="prod-hd" data-reveal>
+    <p class="sec-lbl">产品系列 · PRODUCT SERIES</p>
+    <h2 class="sec-title-cn cn-text">精选旗舰产品</h2>
+    <p class="sec-title-en en-text">Our Flagship Collection</p>
+  </div>
+  <div class="ptabs" id="ptabs">
+    <button class="ptab active" data-pid="LH-001"><span class="cn-text">智能美发仪</span><span class="en-text">Hair Styler</span></button>
+    <button class="ptab" data-pid="LH-002"><span class="cn-text">超声波美容仪</span><span class="en-text">Sonic Device</span></button>
+    <button class="ptab" data-pid="LH-003"><span class="cn-text">LED光疗面膜</span><span class="en-text">LED Mask</span></button>
+    <button class="ptab" data-pid="LH-004"><span class="cn-text">精准美甲站</span><span class="en-text">Nail Studio</span></button>
+  </div>
+  <div class="pdtl" id="pdtl">
+    <div class="playout">
+
+      <!-- LEFT: Visual -->
+      <div>
+        <div class="pvis-card">
+
+          <!-- LH-001 Hair Styler -->
+          <div class="hs-wrap illus active" id="illus-LH-001" data-view="0">
+            <div class="hs2-outer">
+              <div class="hs2-cord"></div>
+              <div class="hs2-handle">
+                <div class="hs2-disp">
+                  <div class="hs2-led"></div>
+                  <div class="hs2-led"></div>
+                  <div class="hs2-led"></div>
+                </div>
+                <div class="hs2-grip"></div>
+              </div>
+              <div class="hs2-steam-row">
+                <div class="hs2-s hs2-s1"></div>
+                <div class="hs2-s hs2-s2"></div>
+                <div class="hs2-s hs2-s3"></div>
+              </div>
+              <div class="hs2-barrel">
+                <div class="hs2-vnt"></div>
+                <div class="hs2-vnt"></div>
+                <div class="hs2-vnt"></div>
+                <div class="hs2-vnt"></div>
+                <div class="hs2-pwbtn"></div>
+              </div>
+              <div class="product-shadow"></div>
+            </div>
+            <div class="hs-box">
+              <div class="hs-bx-mini"></div>
+              <div class="hs-bx-stripe"></div>
+              <span class="hs-bx-lbl">LUXE HAUS</span>
+            </div>
+          </div>
+
+          <!-- LH-002 Sonic Device -->
+          <div class="sd-wrap illus" id="illus-LH-002" data-view="0">
+            <div class="sd2-outer">
+              <div class="sd2">
+                <div class="sd2-emitter">
+                  <div class="sd2-ring sd2-r1"></div>
+                  <div class="sd2-ring sd2-r2"></div>
+                  <div class="sd2-ring sd2-r3"></div>
+                  <div class="sd2-ring sd2-r4"></div>
+                  <div class="sd2-dot"></div>
+                </div>
+                <div class="sd2-led-strip"></div>
+                <div class="sd2-modeBtn"></div>
+                <div class="sd2-base-cap"></div>
+              </div>
+              <div class="product-shadow"></div>
+            </div>
+            <div class="sd2-acc">
+              <div class="sd2-ai">充</div><div class="sd2-ai">盒</div><div class="sd2-ai">头</div>
+            </div>
+          </div>
+
+          <!-- LH-003 LED Mask -->
+          <div class="lm-wrap illus" id="illus-LH-003" data-view="0">
+            <div class="lm2-outer">
+              <div class="lm2">
+                <div class="lm2-face">
+                  <div class="lm2-eye lm2-el"></div>
+                  <div class="lm2-eye lm2-er"></div>
+                  <div class="lm2-grid" id="lmDots"></div>
+                  <div class="lm2-chin"></div>
+                  <div class="lm2-port"></div>
+                </div>
+                <div class="lm2-strap lm2-sl"></div>
+                <div class="lm2-strap lm2-sr"></div>
+              </div>
+              <div class="product-shadow"></div>
+            </div>
+            <div class="lm-pouch">收纳袋</div>
+          </div>
+
+          <!-- LH-004 Nail Studio -->
+          <div class="ns-wrap illus" id="illus-LH-004" data-view="0">
+            <div class="ns2-layout">
+              <div class="ns2-handpiece">
+                <div class="ns2-bit"></div>
+                <div class="ns2-chuck"></div>
+                <div class="ns2-shaft">
+                  <div class="ns2-shaft-grip"></div>
+                </div>
+              </div>
+              <div class="ns2-base">
+                <div class="ns2-ctrl">
+                  <div class="ns2-dial"><div class="ns2-ind"></div></div>
+                  <div class="ns2-rpm">RPM</div>
+                  <div class="ns2-pled"></div>
+                  <div class="ns2-dust"></div>
+                </div>
+                <div class="ns2-screen">
+                  <span class="ns2-num">35000</span>
+                  <span class="ns2-subt">RPM</span>
+                </div>
+              </div>
+              <div class="ns2-bits-row">
+                <div class="ns2-b ns2-b1"></div>
+                <div class="ns2-b ns2-b2"></div>
+                <div class="ns2-b ns2-b3"></div>
+                <div class="ns2-b ns2-b4"></div>
+                <div class="ns2-b ns2-b5"></div>
+                <div class="ns2-b ns2-b6"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="pthumbs" id="thumbs"></div>
+        <div class="pswatches" id="swatches"></div>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div>
+        <div class="p-slbl" id="pSlbl"></div>
+        <h2 class="p-ncn cn-text" id="pNcn"></h2>
+        <p class="p-nen en-text" id="pNen"></p>
+        <div class="p-rating" id="pRating"></div>
+        <span class="p-price" id="pPrice"></span>
+        <p class="p-install" id="pInstall"></p>
+        <table class="spec-tbl"><tbody id="specBody"></tbody></table>
+        <p class="p-dc cn-text" id="pDc"></p>
+        <p class="p-de en-text" id="pDe"></p>
+        <button class="btn-buy"><span class="cn-text">立即购买 · BUY NOW</span><span class="en-text">BUY NOW · 立即购买</span></button>
+        <button class="btn-cart"><span class="cn-text">加入购物车 · ADD TO CART</span><span class="en-text">ADD TO CART · 加入购物车</span></button>
+        <div class="pperks">
+          <span>🚚 <span class="cn-text">顺丰包邮</span><span class="en-text">Free shipping</span></span>
+          <span>↩ <span class="cn-text">30天退换</span><span class="en-text">30-day returns</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S04: TECHNOLOGY -->
+<section id="technology">
+  <div class="tech-hd" data-reveal>
+    <p class="sec-lbl">核心技术 · CORE TECHNOLOGY</p>
+    <h2 class="sec-title-cn cn-text">三大核心科技</h2>
+    <p class="sec-title-en en-text">Three Pillars of Innovation</p>
+  </div>
+  <div class="tech-grid">
+    <div class="tcard" data-reveal>
+      <div class="ticon"><div class="t-tw"><div class="t-tube"><div class="t-merc"></div></div><div class="t-bulb"></div></div></div>
+      <span class="tstnum" data-count="0.1" data-pre="±" data-suf="°C">±0.1°C</span>
+      <span class="tstcn cn-text">智能温度控制精度</span><span class="tsten en-text">Thermal precision control</span>
+    </div>
+    <div class="tcard" data-reveal>
+      <div class="ticon"><div class="t-aw"><div class="t-nuc"></div><div class="t-orb to1"></div><div class="t-orb to2"></div><div class="t-orb to3"></div></div></div>
+      <span class="tstnum" data-count="3000000" data-pre="" data-suf=" ions/s">3,000,000 ions/s</span>
+      <span class="tstcn cn-text">每秒负离子释放量</span><span class="tsten en-text">Negative ions per second</span>
+    </div>
+    <div class="tcard" data-reveal>
+      <div class="ticon"><div class="t-ew"><div class="t-iris"><div class="t-pupil"></div></div></div></div>
+      <span class="tstnum" data-count="0.02" data-pre="" data-suf="s">0.02s</span>
+      <span class="tstcn cn-text">皮肤感应响应速度</span><span class="tsten en-text">Skin sensor response time</span>
+    </div>
+  </div>
+</section>
+
+<!-- S05: LOOKBOOK -->
+<section id="lookbook">
+  <div data-reveal>
+    <p class="lb-ttl">Lookbook.</p>
+    <p class="lb-sub">2024 COLLECTION · 形象大片</p>
+  </div>
+  <div class="lb-grid">
+    <div class="lb-card lb-wide" data-reveal>
+      <div class="lb-num">01</div>
+      <p class="lb-hcn cn-text">光 · LIGHT</p>
+      <p class="lb-hen">光 · LIGHT</p>
+      <p class="lb-date">2024秋冬系列 / Autumn Winter 2024</p>
+    </div>
+    <div class="lb-card" data-reveal>
+      <div class="lb-num">02</div>
+      <p class="lb-hcn cn-text">仪式感</p>
+      <p class="lb-hen">The Ritual</p>
+      <div class="lb-mini"><div class="m-sd"><div class="m-sdr m-r1"></div><div class="m-sdr m-r2"></div></div></div>
+    </div>
+    <div class="lb-card" data-reveal>
+      <div class="lb-num">03</div>
+      <p class="lb-hcn cn-text">科技之美</p>
+      <p class="lb-hen">Beauty of Science</p>
+      <div class="lb-mini"><div class="m-lm"><div class="m-dots" id="miniDots"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- S06: ABOUT -->
+<section id="about">
+  <div class="ab-hd" data-reveal>
+    <p class="sec-lbl">关于我们 · ABOUT LUXE HAUS</p>
+  </div>
+  <div class="ab-stats" data-reveal>
+    <div><span class="asn" data-count="2018" data-pre="" data-suf="">2018</span><span class="asc cn-text">创立年份</span><span class="ase en-text">Founded</span></div>
+    <div><span class="asn" data-count="14" data-pre="" data-suf="">14</span><span class="asc cn-text">全球城市</span><span class="ase en-text">Cities</span></div>
+    <div><span class="asn" data-count="23" data-pre="" data-suf="">23</span><span class="asc cn-text">设计大奖</span><span class="ase en-text">Awards</span></div>
+    <div><span class="asn" data-count="500000" data-pre="" data-suf="+">500,000+</span><span class="asc cn-text">全球用户</span><span class="ase en-text">Customers</span></div>
+  </div>
+  <div class="mq" data-reveal>
+    <span class="mq-cn cn-text">"我们不制造家电，我们创造仪式。"</span>
+    <span class="mq-en en-text">"We don't make appliances. We create rituals."</span>
+  </div>
+  <div class="tl-sec" data-reveal>
+    <p class="tl-hdr">发展历程 · MILESTONES</p>
+    <div class="tl-wrap">
+      <div class="tl-track" id="tlTrack"></div>
+      <div class="tl-nodes">
+        <div class="tl-node"><div class="tl-dot"></div><div class="tl-yr">2018</div><p class="tl-tcn cn-text">创立于上海</p><p class="tl-ten en-text">Founded in Shanghai</p></div>
+        <div class="tl-node"><div class="tl-dot"></div><div class="tl-yr">2020</div><p class="tl-tcn cn-text">首款旗舰发布</p><p class="tl-ten en-text">Flagship product launch</p></div>
+        <div class="tl-node"><div class="tl-dot"></div><div class="tl-yr">2022</div><p class="tl-tcn cn-text">进军亚太市场</p><p class="tl-ten en-text">Asia-Pacific expansion</p></div>
+        <div class="tl-node"><div class="tl-dot"></div><div class="tl-yr">2024</div><p class="tl-tcn cn-text">全球新品首发</p><p class="tl-ten en-text">Global collection debut</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="offices" data-reveal>上海 SHANGHAI &nbsp;·&nbsp; 东京 TOKYO &nbsp;·&nbsp; 巴黎 PARIS &nbsp;·&nbsp; 伦敦 LONDON</div>
+</section>
+
+<!-- S07: FOOTER / CONTACT -->
+<section id="contact">
+  <div class="f-ghost">LUXE HAUS</div>
+  <div class="f-grid">
+    <div>
+      <div class="f-brand">LUXE HAUS</div>
+      <p class="f-tag"><span class="cn-text">重新定义美丽科技的边界</span><span class="en-text">Redefining the boundaries of beauty technology</span></p>
+      <div class="f-nl">
+        <input class="f-nli" type="email" placeholder="您的邮箱 · Your email">
+        <button class="f-nlb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div>
+      <p class="f-cttl">联系 · CONTACT</p>
+      <p class="f-ci">hello@luxehaus.cn</p>
+      <p class="f-ci">微信: LUXEHAUS_OFFICIAL</p>
+      <p class="f-ci">Instagram: @luxehaus.official</p>
+    </div>
+    <div>
+      <p class="f-cttl">办公室 · OFFICES</p>
+      <p class="f-on cn-text">上海总部</p>
+      <p class="f-oa">上海市静安区愚园路1376号</p>
+      <p class="f-on cn-text">东京办公室</p>
+      <p class="f-oa">Tokyo, Shibuya-ku 3-2-1</p>
+    </div>
+  </div>
+  <div class="f-btm">
+    <span class="f-copy">© 2024 LUXE HAUS 潮流家电 · All rights reserved</span>
+    <span class="f-copy">Design by STEEZ · steez.digital</span>
+  </div>
+</section>
+
+<a href="https://steez.digital" target="_blank" rel="noopener" class="steez-badge">Built by STEEZ · steez.digital</a>
+
+<script>
+// ── PRODUCT DATA ──────────────────────────────────────────────
+const products = {
+  'LH-001':{nameCN:'智能美发造型仪',nameEN:'Smart Hair Styler Pro',price:'¥2,880',install:'¥240/月 · 12期',rating:4.9,reviews:187,colors:['#1A1614','#C0A882','#E8442A'],specs:[['功率','Power','1800W'],['温度精度','Temp','±0.1°C'],['负离子量','Ions','3,000,000/s'],['电压','Voltage','100–240V'],['重量','Weight','320g'],['保修','Warranty','2年']],descCN:'智能温控技术，360°负离子护发，为每一缕发丝注入光泽与生命力。',descEN:'Smart thermal control with 360° negative ion technology. Infuses every strand with shine and vitality.',views:['正面','侧面','细节','包装']},
+  'LH-002':{nameCN:'超声波美容仪',nameEN:'Sonic Facial Device Ultra',price:'¥4,260',install:'¥355/月 · 12期',rating:4.8,reviews:342,colors:['#FFFFFF','#F0E8D0','#D4C4E0'],specs:[['频率','Frequency','1MHz'],['模式','Modes','5种护理'],['防水','Waterproof','IPX7'],['续航','Battery','90分钟'],['充电','Charging','磁吸充电'],['保修','Warranty','2年']],descCN:'100万次/秒超声波振动，深层导入精华，肌肤焕活新生。',descEN:'1MHz ultrasonic vibration drives serums deep for radiant, youthful skin.',views:['正面','背面','使用中','配件']},
+  'LH-003':{nameCN:'LED光疗面膜',nameEN:'LED Therapy Mask Pro',price:'¥3,590',install:'¥299/月 · 12期',rating:4.7,reviews:218,colors:['#1A1614','#C0A882'],specs:[['光源','Light','7色LED'],['波长','Wavelength','415–850nm'],['功率','Power','60W'],['定时','Timer','10/20/30min'],['材质','Material','医用硅胶'],['保修','Warranty','2年']],descCN:'7种波长精准作用，医用级硅胶面膜，光疗修护触手可及。',descEN:'7 wavelengths target every skin concern. Medical-grade silicone shell.',views:['完整','侧面','发光','收纳']},
+  'LH-004':{nameCN:'精准美甲工作站',nameEN:'Precision Nail Studio',price:'¥1,980',install:'¥165/月 · 12期',rating:4.9,reviews:156,colors:['#FFFFFF','#F8D0D0','#D0E8F0'],specs:[['钻速','Speed','35,000rpm'],['扭矩','Torque','6N·cm'],['噪音','Noise','<45dB'],['钻头','Bits','6种配件'],['防尘','Dust','集尘功能'],['保修','Warranty','18个月']],descCN:'35000转专业钻速，静音设计，沙龙级美甲轻松在家实现。',descEN:'35,000rpm professional speed. Whisper-quiet motor. Salon nails at home.',views:['套装','手柄','钻头','使用中']}
+};
+
+// ── STATE ─────────────────────────────────────────────────────
+let currentPid = 'LH-001';
+let currentView = 0;
+
+// ── NAV SCROLL ────────────────────────────────────────────────
+const navEl = document.getElementById('nav');
+const scrollCueEl = document.getElementById('scrollCue');
+let cuehidden = false;
+window.addEventListener('scroll', () => {
+  navEl.classList.toggle('scrolled', scrollY > 80);
+  if (!cuehidden && scrollY > 60) { scrollCueEl.classList.add('hidden'); cuehidden = true; }
+}, { passive: true });
+
+// ── NAV LINK BUTTONS ──────────────────────────────────────────
+document.querySelectorAll('.nlbtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = document.querySelector(btn.dataset.href);
+    if (t) t.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+document.getElementById('navBuy').addEventListener('click', () => {
+  document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+});
+
+// ── DRAWER ────────────────────────────────────────────────────
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('drawer');
+const doverlay = document.getElementById('doverlay');
+
+function openDrawer() { burger.classList.add('open'); drawer.classList.add('open'); doverlay.classList.add('open'); document.body.classList.add('locked'); }
+function closeDrawer() { burger.classList.remove('open'); drawer.classList.remove('open'); doverlay.classList.remove('open'); document.body.classList.remove('locked'); }
+
+burger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+doverlay.addEventListener('click', closeDrawer);
+drawer.querySelectorAll('.dlink').forEach(l => l.addEventListener('click', closeDrawer));
+document.getElementById('drawerBuy').addEventListener('click', () => { closeDrawer(); document.querySelector('#products').scrollIntoView({ behavior: 'smooth' }); });
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); closeDrawer(); }
+  });
+});
+
+// ── LANGUAGE TOGGLE ───────────────────────────────────────────
+const langBtn = document.getElementById('langBtn');
+const htmlEl = document.documentElement;
+htmlEl.setAttribute('data-lang', localStorage.getItem('lh-lang') || 'cn');
+langBtn.addEventListener('click', () => {
+  const next = htmlEl.getAttribute('data-lang') === 'cn' ? 'en' : 'cn';
+  htmlEl.setAttribute('data-lang', next);
+  localStorage.setItem('lh-lang', next);
+});
+
+// ── REVEAL OBSERVER ───────────────────────────────────────────
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const siblings = Array.from(el.parentElement.querySelectorAll('[data-reveal]'));
+    const idx = siblings.indexOf(el);
+    setTimeout(() => el.classList.add('revealed'), idx * 100);
+    revObs.unobserve(el);
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('[data-reveal]').forEach(el => revObs.observe(el));
+
+// ── COUNT UP ─────────────────────────────────────────────────
+function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+function countUp(el) {
+  const target = parseFloat(el.dataset.count);
+  const pre = el.dataset.pre || '', suf = el.dataset.suf || '';
+  const dec = (String(target).split('.')[1] || '').length;
+  const dur = 1500, t0 = performance.now();
+  (function tick(now) {
+    const p = Math.min((now - t0) / dur, 1), v = target * easeOut(p);
+    let d = target >= 10000 ? Math.round(v).toLocaleString() : dec ? v.toFixed(dec) : Math.round(v);
+    el.textContent = pre + d + suf;
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+const cntObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); cntObs.unobserve(e.target); } });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
+
+// ── PRODUCT SYSTEM ────────────────────────────────────────────
+function renderInfo(pid) {
+  const p = products[pid];
+  document.getElementById('pSlbl').textContent = pid + ' · 旗舰系列 · FLAGSHIP';
+  document.getElementById('pNcn').textContent = p.nameCN;
+  document.getElementById('pNen').textContent = p.nameEN;
+  document.getElementById('pRating').innerHTML =
+    `<span class="stars">★★★★${p.rating >= 4.9 ? '★' : '☆'}</span>
+     <span class="rnum">${p.rating}</span>
+     <span class="rct">(${p.reviews.toLocaleString()}条评价)</span>`;
+  document.getElementById('pPrice').textContent = p.price;
+  document.getElementById('pInstall').innerHTML =
+    `<span class="cn-text">免息分期 · ${p.install}</span><span class="en-text">0% installment available</span>`;
+  const tbody = document.getElementById('specBody');
+  tbody.innerHTML = '';
+  p.specs.forEach(([cn, en, val]) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td class="sc cn-text">${cn}</td><td class="se en-text">${en}</td><td class="sv">${val}</td>`;
+    tbody.appendChild(tr);
+  });
+  document.getElementById('pDc').textContent = p.descCN;
+  document.getElementById('pDe').textContent = p.descEN;
+  renderThumbs(pid);
+  renderSwatches(pid);
+}
+
+const thumbSymbols = {'正面':'▢','侧面':'◁','细节':'⊙','包装':'⬜','背面':'▷','使用中':'⌘','配件':'⋮','完整':'◯','发光':'✦','收纳':'⊡','套装':'≡','手柄':'|','钻头':'●'};
+
+function renderThumbs(pid) {
+  const container = document.getElementById('thumbs');
+  container.innerHTML = '';
+  products[pid].views.forEach((view, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'pthumb' + (i === 0 ? ' active' : '');
+    btn.innerHTML = `<span style="font-size:15px;color:var(--accent)">${thumbSymbols[view] || '○'}</span><span>${view}</span>`;
+    btn.addEventListener('click', () => {
+      container.querySelectorAll('.pthumb').forEach(x => x.classList.remove('active'));
+      btn.classList.add('active');
+      currentView = i;
+      document.getElementById('illus-' + currentPid).setAttribute('data-view', i);
+    });
+    container.appendChild(btn);
+  });
+}
+
+function renderSwatches(pid) {
+  const container = document.getElementById('swatches');
+  container.innerHTML = '<span class="sw-lbl"><span class="cn-text">颜色</span><span class="en-text"> Color</span></span>';
+  const p = products[pid];
+  p.colors.forEach((color, i) => {
+    const s = document.createElement('div');
+    s.className = 'swatch' + (i === 0 ? ' active' : '');
+    s.style.background = color;
+    if (color === '#FFFFFF') s.style.boxShadow = '0 0 0 1px #ccc';
+    s.addEventListener('click', () => {
+      container.querySelectorAll('.swatch').forEach(x => x.classList.remove('active'));
+      s.classList.add('active');
+      document.getElementById('illus-' + currentPid).style.setProperty('--pc', color);
+    });
+    container.appendChild(s);
+  });
+  document.getElementById('illus-' + pid).style.setProperty('--pc', p.colors[0]);
+}
+
+function activateIllus(pid) {
+  document.querySelectorAll('.illus').forEach(el => el.classList.remove('active'));
+  const el = document.getElementById('illus-' + pid);
+  if (el) { el.classList.add('active'); el.setAttribute('data-view', '0'); }
+}
+
+function updateTabs(pid) {
+  document.querySelectorAll('.ptab').forEach(t => t.classList.toggle('active', t.dataset.pid === pid));
+}
+
+function switchProduct(pid) {
+  const panel = document.getElementById('pdtl');
+  panel.classList.add('fading');
+  const t0 = performance.now();
+  (function wait(now) {
+    if (now - t0 >= 150) {
+      currentPid = pid; currentView = 0;
+      renderInfo(pid); activateIllus(pid); updateTabs(pid);
+      panel.classList.remove('fading');
+    } else requestAnimationFrame(wait);
+  })(t0);
+}
+
+document.getElementById('ptabs').addEventListener('click', e => {
+  const tab = e.target.closest('.ptab');
+  if (tab && tab.dataset.pid !== currentPid) switchProduct(tab.dataset.pid);
+});
+
+// ── TIMELINE ─────────────────────────────────────────────────
+const tlTrack = document.getElementById('tlTrack');
+const tlObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { tlTrack.classList.add('drawn'); tlObs.unobserve(e.target); } });
+}, { threshold: 0.4 });
+tlObs.observe(tlTrack.closest('.tl-sec'));
+
+// ── BUILD LED DOTS ────────────────────────────────────────────
+function buildDots(container, count, cls, useLedColors) {
+  const clrs = useLedColors
+    ? ['#ff0000','#ff8800','#ffff00','#00ff00','#0088ff','#8800ff','#ff0088']
+    : ['#FF4444','#FF8C00','#8B5CF6','#3B82F6','#FF0066'];
+  for (let i = 0; i < count; i++) {
+    const d = document.createElement('div');
+    d.className = cls;
+    d.style.background = clrs[i % clrs.length];
+    if (useLedColors) {
+      d.style.animationDuration = (2 + Math.random() * 2).toFixed(1) + 's';
+      d.style.animationDelay = (Math.random() * 2).toFixed(2) + 's';
+    }
+    container.appendChild(d);
+  }
+}
+buildDots(document.getElementById('lmDots'), 80, 'lm-dot', true);
+buildDots(document.getElementById('miniDots'), 20, 'm-d', false);
+
+// ── INITIALIZE ────────────────────────────────────────────────
+renderInfo('LH-001');
+updateTabs('LH-001');
+</script>
+</body>
+</html>

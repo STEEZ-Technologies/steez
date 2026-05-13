@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="light" data-lang="zh" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>宁波鑫达家居有限公司 · 2026产品目录</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ── TOKENS ── */
+:root{
+  --cream:#FAF7F2;--chalk:#F2EDE4;--sand:#E5DDD0;
+  --clay:#C4A882;--clay-dk:#A88E6A;
+  --charcoal:#1C1C1A;--charcoal-lt:#2A2826;
+  --ink:#2A2826;--stone:#8A8278;--muted:#B4ADA5;
+  --border:#E0D8CC;--bg:#FAF7F2;--surface:#FFFFFF;--card:#FFFFFF;
+  --nav-bg:rgba(250,247,242,.97);
+  --r:2px;
+  --shadow:0 1px 12px rgba(44,38,30,.06);
+  --shadow-lg:0 8px 48px rgba(44,38,30,.10);
+  --trans:.35s cubic-bezier(.4,0,.2,1);
+  --serif:'Playfair Display','Noto Serif SC',serif;
+  --sans:'Noto Sans SC',sans-serif;
+  --mono:'Geist Mono',monospace;
+}
+[data-theme="dark"]{
+  --bg:#1C1C1A;--surface:#242422;--card:#2A2826;
+  --nav-bg:rgba(28,28,26,.97);--border:#383430;
+  --stone:#7A7470;--muted:#5C5854;--ink:#F2EDE4;
+  --chalk:#F2EDE4;--cream:#F2EDE4;
+  --shadow:0 1px 12px rgba(0,0,0,.28);--shadow-lg:0 8px 48px rgba(0,0,0,.42);
+}
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);transition:background var(--trans),color var(--trans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+[dir="rtl"]{direction:rtl;text-align:right}
+a{text-decoration:none;color:inherit}
+/* ── UTILS ── */
+.container{max-width:1120px;margin:0 auto;padding:0 36px}
+.wide{max-width:1360px;margin:0 auto;padding:0 36px}
+.serif{font-family:var(--serif)}.mono{font-family:var(--mono)}.sans{font-family:var(--sans)}
+.fade-up{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:none}
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 20px;border-radius:var(--r);border:none;cursor:pointer;font-family:var(--sans);font-weight:500;font-size:11.5px;transition:all .22s;white-space:nowrap;min-height:38px;letter-spacing:.03em}
+.btn-gold,.btn-clay{background:var(--clay);color:#FAF7F2}.btn-gold:hover,.btn-clay:hover{background:var(--clay-dk)}
+.btn-green,.btn-dark{background:var(--charcoal);color:var(--cream)}.btn-green:hover,.btn-dark:hover{background:#111110}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--border)}.btn-outline:hover{border-color:var(--clay);color:var(--clay)}
+.btn-full{width:100%}
+/* ── PAGE SECTIONS ──────────────────────── */
+.page-section{position:relative;padding:80px 0}
+.page-num{font-family:var(--mono);font-size:9px;color:var(--muted);opacity:.55;letter-spacing:.14em;position:absolute;top:32px;right:32px}
+/* ── SECTION MARKERS ── */
+.sm{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.sm-line{flex:1;height:1px;background:var(--border)}
+.sm-line.lt{background:rgba(255,255,255,.1)}
+.sm-inner{display:flex;align-items:center;gap:8px;flex-shrink:0;white-space:nowrap}
+.sm-cn{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--clay);text-transform:uppercase}
+.sm-dot{color:var(--clay);font-size:8px;opacity:.5}
+.sm-en{font-family:var(--mono);font-size:8px;font-weight:600;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.sm.on-dark .sm-en{color:rgba(250,247,242,.3)}
+.sm.on-dark .sm-line{background:rgba(255,255,255,.08)}
+.sec-cn{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
+.sec-en{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.2em;color:var(--muted);margin-bottom:22px;text-transform:uppercase}
+.ornament{text-align:center;font-family:var(--mono);font-size:11px;color:var(--clay);opacity:.45;letter-spacing:.1em}
+.gold-rule{height:1px;background:var(--clay);opacity:.32;margin:18px 0}
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background var(--trans)}
+.nav-inner{max-width:1360px;margin:0 auto;padding:0 36px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-brand-cn{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+[data-theme="dark"] .nav-brand-cn{color:var(--cream)}
+.nav-brand-pill{font-family:var(--mono);font-size:9px;color:var(--stone);padding:2px 7px;border:1px solid var(--border);border-radius:1px;letter-spacing:.09em}
+.nav-links{display:flex;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;color:var(--stone);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-ctrl{display:flex;align-items:center;gap:6px}
+.lang-btn{font-family:var(--mono);font-size:10px;font-weight:600;padding:3px 8px;border-radius:1px;border:1px solid var(--border);background:transparent;color:var(--stone);cursor:pointer;transition:all .18s;letter-spacing:.05em}
+.lang-btn.active,.lang-btn:hover{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal)}
+[data-theme="dark"] .lang-btn.active,[data-theme="dark"] .lang-btn:hover{background:var(--clay);color:#FAF7F2;border-color:var(--clay)}
+.theme-btn{font-size:14px;padding:4px 9px;border-radius:1px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--stone);transition:all .18s}
+.theme-btn:hover{border-color:var(--clay);color:var(--clay)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:5px;border:none;background:none}
+.hamburger span{width:20px;height:1.5px;background:var(--ink);display:block;border-radius:0;transition:all .25s}
+.nav-mobile{display:none;position:fixed;top:58px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:16px 36px;z-index:999;flex-direction:column;gap:0}
+.nav-mobile.open{display:flex}
+.nav-mobile a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:12px 0;border-bottom:1px solid var(--border);color:var(--ink)}
+.nav-mobile a:last-child{border-bottom:none}
+/* ── CART PILL ── */
+#cart-pill{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(90px);z-index:1500;background:var(--charcoal);color:var(--cream);font-family:var(--mono);font-size:11px;font-weight:600;padding:11px 24px;border-radius:100px;box-shadow:0 4px 24px rgba(28,28,26,.32);cursor:pointer;transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;gap:10px;white-space:nowrap;border:none;letter-spacing:.06em}
+#cart-pill.show{transform:translateX(-50%) translateY(0)}
+.pill-dot{background:var(--clay);color:#FAF7F2;font-size:10px;font-weight:700;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+/* ── COVER P.00 ── */
+#cover{min-height:100vh;display:flex;align-items:stretch;position:relative;overflow:hidden;padding-top:58px;background:var(--charcoal)}
+.cover-vlines{position:absolute;inset:0;z-index:1;pointer-events:none}
+.cover-vlines::before{content:'';position:absolute;left:36px;top:0;bottom:0;width:1px;background:rgba(196,168,130,.05)}
+.cover-vlines::after{content:'';position:absolute;right:36px;top:0;bottom:0;width:1px;background:rgba(196,168,130,.05)}
+.cover-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;width:100%;padding:64px 72px;max-width:1360px;margin:0 auto;flex:1}
+.cover-pnum{position:absolute;top:28px;right:72px;font-family:var(--mono);font-size:9px;color:rgba(196,168,130,.35);letter-spacing:.16em}
+.cover-overline{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);margin-bottom:20px;opacity:.8}
+.cover-title{font-family:'Playfair Display',serif;font-size:clamp(4.5rem,10vw,9.5rem);font-weight:700;color:var(--cream);line-height:.95;letter-spacing:-.02em;margin-bottom:4px}
+.cover-title-sub{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,8vw,7.5rem);font-weight:400;font-style:italic;color:rgba(250,247,242,.2);line-height:.95;letter-spacing:-.01em;margin-bottom:32px}
+.cover-rule{width:48px;height:1px;background:var(--clay);margin-bottom:28px}
+.cover-meta-row{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.cover-meta-item{font-family:var(--mono);font-size:9.5px;color:rgba(196,168,130,.6);letter-spacing:.14em;text-transform:uppercase}
+.cover-scroll{font-family:var(--mono);font-size:9px;color:rgba(196,168,130,.45);letter-spacing:.14em;text-transform:uppercase;margin-top:40px;animation:scrollBlink 2.4s ease-in-out infinite}
+@keyframes scrollBlink{0%,100%{opacity:.45}50%{opacity:.9}}
+.cover-company{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,247,242,.42);margin-bottom:5px}
+.cover-yc{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:rgba(250,247,242,.25)}
+.cover-stats-row{display:flex;gap:0;margin-top:14px;flex-wrap:wrap}
+.cstat{font-family:var(--mono);font-size:9px;color:rgba(250,247,242,.32);letter-spacing:.06em;padding-right:22px;border-right:1px solid rgba(255,255,255,.07);margin-right:22px}
+.cstat:last-child{border-right:none;margin-right:0}
+.cover-booth{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);border:1px solid rgba(196,168,130,.3);padding:8px 18px;display:inline-block}
+/* ── ABOUT P.01 ── */
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:8px;align-items:start}
+.about-left{position:relative}
+.about-wm{position:absolute;top:-16px;left:-8px;font-family:var(--serif);font-size:200px;font-weight:700;color:var(--clay);opacity:.04;line-height:1;pointer-events:none;z-index:0;letter-spacing:.02em;user-select:none;font-style:italic}
+.about-wrap{position:relative;z-index:1}
+.about-cn-h{font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.65rem);font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:4px}
+.about-en-h{font-family:var(--mono);font-size:10px;color:var(--stone);letter-spacing:.08em;margin-bottom:20px;text-transform:uppercase}
+.about-body-cn{font-size:.9rem;line-height:1.9;color:var(--stone);margin-bottom:8px}
+.about-body-en{font-size:.84rem;line-height:1.82;color:var(--muted);margin-bottom:26px}
+.cap-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.cap-chip{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.06em;padding:4px 10px;border:1px solid var(--border);color:var(--stone);cursor:default;transition:all .2s;border-radius:0}
+.cap-chip:hover{border-color:var(--clay);color:var(--clay)}
+.cert-row{display:flex;flex-wrap:wrap;gap:6px}
+.cert-b{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.1em;padding:3px 9px;border:1px solid rgba(196,168,130,.38);color:var(--clay);cursor:default;position:relative;transition:all .2s;border-radius:0}
+.cert-b:hover{background:rgba(196,168,130,.07)}
+.cert-tip{display:none;position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);background:var(--charcoal);color:var(--cream);font-size:8.5px;padding:4px 8px;white-space:nowrap;z-index:10;font-weight:400;letter-spacing:.03em}
+.cert-b:hover .cert-tip{display:block}
+.about-imgs{display:flex;flex-direction:column;gap:12px}
+.aimg{position:relative;overflow:hidden}
+.aimg-cap{position:absolute;bottom:0;left:0;right:0;font-family:var(--mono);font-size:9px;color:rgba(250,247,242,.8);padding:8px 12px;background:linear-gradient(transparent,rgba(28,28,26,.48));letter-spacing:.08em}
+.img-qc{height:190px;background:linear-gradient(rgba(28,28,26,.22),rgba(28,28,26,.22)),linear-gradient(135deg,#2A2018 0%,#3C2E1A 50%,#282018 100%)}
+.img-qc::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 40% 50%,rgba(196,168,130,.16) 0%,transparent 70%)}
+.img-wh{height:160px;background:linear-gradient(rgba(28,28,26,.3),rgba(28,28,26,.3)),linear-gradient(135deg,#1E1E18 0%,#262620 50%,#1A1A14 100%)}
+.img-wh::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(196,168,130,.025) 29px)}
+/* ── STRIP ── */
+.strip{height:68px;background:var(--charcoal);display:flex;align-items:center;justify-content:space-between;padding:0 36px;position:relative}
+.strip::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 48px,rgba(196,168,130,.03) 49px)}
+.strip-l{font-family:var(--serif);font-size:.95rem;color:rgba(250,247,242,.5);letter-spacing:.02em;font-style:italic}
+.strip-r{font-family:var(--mono);font-size:8.5px;color:var(--clay);letter-spacing:.16em;text-transform:uppercase}
+/* ── PRODUCTS ── */
+#products{background:var(--chalk)}
+.filter-bar{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:28px}
+.fbtn{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--border);background:transparent;color:var(--stone);cursor:pointer;transition:all .2s;border-radius:0}
+.fbtn.active,.fbtn:hover{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal)}
+[data-theme="dark"] .fbtn.active,[data-theme="dark"] .fbtn:hover{background:var(--clay);color:#FAF7F2;border-color:var(--clay)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+/* ── PRODUCT CARD ── */
+.pcard{background:var(--surface);border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:box-shadow .3s,transform .3s;border-radius:0}
+.pcard:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.pcard.hidden{display:none}
+.pcard-media{position:relative;height:240px;overflow:hidden;background:var(--chalk)}
+.pcard-2d{width:100%;height:100%;position:absolute;inset:0}
+.pcard-2d svg{width:100%;height:100%;display:block}
+.pcard-canvas{width:100%;height:100%;position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none}
+.pcard-canvas.active{opacity:1;pointer-events:auto}
+.pcard-canvas canvas{width:100%!important;height:100%!important;display:block}
+.view-toggle{position:absolute;bottom:10px;right:10px;font-family:var(--mono);font-size:8px;font-weight:600;letter-spacing:.1em;padding:4px 10px;background:rgba(28,28,26,.68);color:rgba(250,247,242,.9);border:none;cursor:pointer;transition:all .2s;z-index:3;backdrop-filter:blur(8px)}
+.view-toggle:hover{background:rgba(28,28,26,.9)}
+.pcard-body{padding:16px}
+.pcard-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.pcard-code{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.08em;color:var(--muted)}
+.pcard-cattag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;color:var(--clay);border:1px solid rgba(196,168,130,.38);padding:2px 7px}
+.pcard-cn{font-family:var(--serif);font-size:14.5px;font-weight:700;line-height:1.25;color:var(--ink);margin-bottom:2px}
+.pcard-en{font-family:var(--sans);font-size:10px;color:var(--muted);margin-bottom:10px}
+.pcard-specs{border-top:1px solid var(--border);padding-top:10px}
+.srow{display:flex;align-items:baseline;padding:2.5px 0;border-bottom:1px solid var(--border)}
+.srow:last-child{border-bottom:none}
+.sk{font-family:var(--mono);color:var(--muted);min-width:64px;font-size:9.5px;letter-spacing:.04em;flex-shrink:0}
+.sv{font-family:var(--mono);color:var(--ink);font-size:9.5px;font-weight:500;flex:1}
+.hot-tag{display:inline-flex;align-items:center;gap:4px;background:rgba(196,168,130,.08);color:var(--clay);font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;padding:2px 8px;border:1px solid rgba(196,168,130,.28);margin-bottom:8px;text-transform:uppercase}
+.pcard-btns{display:flex;gap:7px;margin-top:12px}
+.pcard-btns .btn{flex:1;font-size:10px;padding:7px 8px;min-height:34px}
+/* ── MODAL ── */
+#modal-overlay{position:fixed;inset:0;background:rgba(28,28,26,.82);backdrop-filter:blur(16px);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
+#modal-overlay.open{display:flex}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:0;max-width:860px;width:100%;max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;box-shadow:0 32px 100px rgba(0,0,0,.3);animation:mfadeIn .3s ease}
+@keyframes mfadeIn{from{opacity:0;transform:translateY(14px) scale(.99)}to{opacity:1;transform:none}}
+.modal-hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;border-bottom:1px solid var(--border);background:var(--card);gap:12px}
+.modal-code-tag{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--muted);letter-spacing:.08em}
+.modal-cat-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;color:var(--clay);border:1px solid rgba(196,168,130,.38);padding:2px 7px}
+.modal-hdr-r{display:flex;align-items:center;gap:7px}
+.modal-share-btn{font-family:var(--mono);font-size:9px;color:var(--stone);padding:4px 9px;border:1px solid var(--border);background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.04em}
+.modal-share-btn:hover{border-color:var(--clay);color:var(--clay)}
+.modal-x{width:30px;height:30px;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:13px;color:var(--stone);display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.modal-x:hover{background:var(--border);color:var(--ink)}
+.modal-body{padding:0 22px 22px}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:20px}
+.modal-media{display:flex;flex-direction:column;gap:8px}
+.modal-2d{height:188px;overflow:hidden;border:1px solid var(--border);background:var(--chalk)}
+.modal-2d svg{width:100%;height:100%;display:block}
+.modal-3d{height:188px;background:var(--chalk);border:1px solid var(--border);overflow:hidden;position:relative}
+.modal-3d canvas{width:100%!important;height:100%!important}
+.modal-3d-lbl{position:absolute;bottom:7px;left:9px;font-family:var(--mono);font-size:7.5px;color:var(--muted);letter-spacing:.08em;pointer-events:none;opacity:.65}
+.modal-info{}
+.mname-cn{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.55rem);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:4px}
+.mname-en{font-family:var(--sans);font-size:11px;color:var(--stone);margin-bottom:14px}
+.mgold-rule{height:1px;background:var(--clay);opacity:.32;margin-bottom:14px}
+.mspec-table{width:100%;border-collapse:collapse;margin-bottom:14px}
+.mspec-table tr{border-bottom:1px solid var(--border)}
+.mspec-table tr:last-child{border-bottom:none}
+.mspec-table td{padding:5px 0;font-size:10.5px;vertical-align:top}
+.mspec-table td:first-child{font-family:var(--mono);color:var(--muted);width:90px;font-size:9.5px;letter-spacing:.04em}
+.mspec-table td:last-child{font-family:var(--mono);color:var(--ink);font-weight:500}
+.mdesc-cn{font-size:.84rem;line-height:1.82;color:var(--ink);margin-bottom:7px}
+.mdesc-en{font-size:.79rem;line-height:1.75;color:var(--stone);margin-bottom:14px}
+.mmeta{display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.mmeta-item{display:flex;flex-direction:column;gap:2px}
+.mmeta-k{font-family:var(--mono);color:var(--muted);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase}
+.mmeta-v{font-family:var(--mono);color:var(--ink);font-size:11.5px;font-weight:600}
+.mcerts{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.mcustom{font-family:var(--mono);font-size:9.5px;color:var(--stone);margin-bottom:13px}
+.mcustom strong{color:var(--clay)}
+.modal-nav{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border);margin-top:6px}
+.mnav-btn{font-family:var(--mono);font-size:9.5px;color:var(--stone);cursor:pointer;padding:6px 12px;border:1px solid var(--border);background:transparent;transition:all .2s;letter-spacing:.04em}
+.mnav-btn:hover{border-color:var(--clay);color:var(--clay)}
+/* ── GLOBAL REACH P.05 ───────────────────── */
+#global{position:relative;padding:80px 0;overflow:hidden;background:var(--charcoal);color:var(--chalk)}
+.global-inner{position:relative;z-index:1}
+.ghead-cn{font-family:var(--serif);font-size:clamp(2.2rem,5vw,4rem);font-weight:700;font-style:italic;color:var(--clay);text-align:center;letter-spacing:.01em;margin-bottom:6px}
+.ghead-en{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:rgba(242,237,228,.38);text-align:center;text-transform:uppercase;margin-bottom:40px}
+.global-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.region-item{margin-bottom:20px}
+.rh{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:5px}
+.rcn{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--chalk)}
+.ren{font-family:var(--mono);font-size:10px;color:rgba(242,237,228,.35);margin-left:5px}
+.rpct{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--clay)}
+.rcities{font-family:var(--mono);font-size:9px;color:rgba(242,237,228,.28);letter-spacing:.04em;margin-bottom:6px}
+.bar-bg{height:3px;background:rgba(255,255,255,.06);overflow:hidden}
+.bar-fill{height:100%;background:var(--clay);width:0;transition:width 1.35s cubic-bezier(.4,0,.2,1)}
+.map-dot{animation:mpulse 2.6s ease-in-out infinite}
+@keyframes mpulse{0%,100%{r:4;opacity:.9}50%{r:8.5;opacity:.3}}
+/* ── INQUIRY P.06 ────────────────────────── */
+#inquiry{background:var(--bg)}
+.inq-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:28px;margin-top:22px}
+.cart-wrap{background:var(--card);border:1px solid var(--border);padding:18px}
+.cart-h{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.cart-sub{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.07em;margin-bottom:10px}
+.cart-rule{height:1px;background:var(--clay);opacity:.35;margin-bottom:10px}
+.cart-tbl{width:100%;border-collapse:collapse;font-size:11px}
+.cart-tbl th{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;padding:3px 0;border-bottom:1px solid var(--border);text-align:left}
+.cart-tbl td{padding:8px 0;border-bottom:1px solid var(--border);font-family:var(--sans);vertical-align:middle}
+.cart-tbl tr:last-child td{border-bottom:none}
+.ccode{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.04em}
+.ccn{font-family:var(--serif);font-size:12px;font-weight:700;color:var(--ink)}
+.cqty{width:52px;padding:3px 6px;border:1.5px solid var(--border);font-family:var(--mono);font-size:11px;background:var(--bg);color:var(--ink);text-align:center}
+.crm{background:transparent;border:none;cursor:pointer;color:var(--muted);font-size:13px;transition:color .2s;padding:2px 4px}
+.crm:hover{color:var(--alert)}
+.cart-total-row{font-family:var(--mono);font-size:10px;color:var(--muted);padding-top:10px;border-top:1px solid var(--border);margin-top:6px}
+.cart-total-row strong{color:var(--clay)}
+.cart-empty{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center;padding:20px 0;letter-spacing:.04em}
+.cart-moq-note{font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:7px;opacity:.65;letter-spacing:.04em}
+.form-wrap{background:var(--card);border:1px solid var(--border);padding:22px}
+.form-title-h{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--ink);margin-bottom:14px}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.frow{margin-bottom:10px}
+.flabel{display:block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.finput,.fselect,.ftextarea{width:100%;padding:8px 11px;border:1.5px solid var(--border);background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:12px;transition:border-color .2s,box-shadow .2s;outline:none}
+.finput:focus,.fselect:focus,.ftextarea:focus{border-color:var(--clay);box-shadow:0 0 0 3px rgba(196,168,130,.12)}
+.ftextarea{min-height:76px;resize:vertical}
+.form-success{text-align:center;padding:36px}
+.scheckmark{width:56px;height:56px;margin:0 auto 14px}
+.scheckmark svg{width:56px;height:56px}
+.sc-circle{stroke:var(--clay);stroke-width:2;fill:none;stroke-dasharray:166;stroke-dashoffset:166;animation:drawC .6s ease forwards}
+.sc-path{stroke:var(--clay);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:50;stroke-dashoffset:50;animation:drawP .4s ease .5s forwards}
+@keyframes drawC{to{stroke-dashoffset:0}}
+@keyframes drawP{to{stroke-dashoffset:0}}
+.stitle-cn{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--clay);margin-bottom:3px}
+.stitle-en{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.07em;margin-bottom:9px}
+.sbody{font-size:12px;color:var(--muted);line-height:1.65}
+/* ── CONTACT P.07 ────────────────────────── */
+#contact{position:relative;padding:80px 0;overflow:hidden;background:var(--charcoal);color:var(--chalk)}
+.contact-inner{position:relative;z-index:1}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:22px}
+.ccard{background:rgba(255,255,255,.04);border:1px solid rgba(242,237,228,.1);padding:18px}
+.ccard-t{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);margin-bottom:11px}
+.citem{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;font-size:12px;color:rgba(242,237,228,.65);line-height:1.5}
+.citem svg{flex-shrink:0;margin-top:2px;opacity:.5}
+.citem a{color:inherit;transition:color .2s}.citem a:hover{color:var(--clay)}
+.platlinks{display:flex;flex-direction:column;gap:5px;margin-top:10px}
+.platlink{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;color:rgba(242,237,228,.4);padding:6px 11px;border:1px solid rgba(242,237,228,.08);transition:all .2s;cursor:pointer;background:none}
+.platlink:hover{border-color:rgba(196,168,130,.5);color:var(--clay)}
+.map-card{height:210px;background:rgba(255,255,255,.03);border:1px solid rgba(196,168,130,.2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.map-card::before{content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(255,255,255,.025) 29px),
+  repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(255,255,255,.025) 29px)}
+.map-pin{z-index:1;margin-bottom:4px}
+.map-city{font-family:var(--serif);font-size:15px;font-weight:700;font-style:italic;color:var(--chalk);z-index:1;text-align:center}
+.map-prov{font-family:var(--mono);font-size:9px;color:rgba(242,237,228,.38);letter-spacing:.09em;z-index:1}
+.map-tag{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--clay);border:1px solid rgba(196,168,130,.3);padding:3px 9px;margin-top:7px;z-index:1;letter-spacing:.09em}
+/* ── QR MODAL ────────────────────────────── */
+#qr-overlay{position:fixed;inset:0;background:rgba(28,28,26,.88);backdrop-filter:blur(14px);z-index:3000;display:none;align-items:center;justify-content:center}
+#qr-overlay.open{display:flex}
+.qr-card{background:var(--surface);border:1px solid var(--border);padding:28px;text-align:center;max-width:260px;width:100%}
+.qr-box{width:140px;height:140px;margin:0 auto 14px;background:var(--chalk);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--muted);text-align:center;position:relative;padding:12px}
+.qr-box::before{content:'';position:absolute;top:7px;left:7px;width:22px;height:22px;border-left:3px solid var(--clay);border-top:3px solid var(--clay)}
+.qr-box::after{content:'';position:absolute;bottom:7px;right:7px;width:22px;height:22px;border-right:3px solid var(--clay);border-bottom:3px solid var(--clay)}
+.qr-lbl{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.07em;margin-bottom:3px}
+.qr-id{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink);margin-bottom:14px}
+/* ── FOOTER ─────────────────────────────── */
+#footer{background:var(--charcoal);color:var(--chalk);padding:44px 0 24px}
+.footer-row{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap}
+.footer-cn{font-family:var(--serif);font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:700;font-style:italic;letter-spacing:.02em;color:var(--chalk)}
+.footer-mid{text-align:center;flex:1}
+.footer-orn{font-family:var(--mono);font-size:11px;color:rgba(196,168,130,.45);letter-spacing:.1em;margin-bottom:8px}
+.footer-yr{font-family:var(--mono);font-size:10px;color:rgba(242,237,228,.22);letter-spacing:.07em;margin-bottom:3px}
+.footer-r{font-family:var(--mono);font-size:9px;color:rgba(242,237,228,.18);letter-spacing:.05em}
+.footer-steez{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--clay);text-align:right;letter-spacing:.06em}
+/* ── STEEZ BADGE ─────────────────────────── */
+#steez-badge{position:fixed;bottom:20px;right:20px;z-index:3000;background:var(--charcoal);color:var(--clay);font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;padding:6px 11px;box-shadow:0 3px 14px rgba(28,28,26,.55);text-decoration:none;transition:transform .2s;white-space:nowrap;border:1px solid rgba(196,168,130,.28)}
+#steez-badge:hover{transform:scale(1.05)}
+[data-theme="dark"] #steez-badge{background:var(--clay);color:var(--charcoal)}
+/* ── RESPONSIVE ──────────────────────────── */
+@media(max-width:1024px){
+  .about-grid,.modal-grid,.global-grid,.inq-grid,.contact-grid{grid-template-columns:1fr}
+  .pgrid{grid-template-columns:repeat(2,1fr)}
+  .footer-row{flex-direction:column;align-items:center;text-align:center}
+  .footer-steez{text-align:center}
+}
+@media(max-width:768px){
+  .page-section{padding:52px 0}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .lang-btn{display:none}
+  .cover-content{padding:28px 22px 52px}
+  .cover-title{font-size:clamp(2.6rem,11vw,4.2rem)}
+  .cover-vlines{display:none}
+  .cover-meta-row{flex-direction:column;gap:10px}
+  .about-wm{font-size:110px}
+  .mmeta{flex-wrap:wrap;gap:8px}
+  .modal-grid{grid-template-columns:1fr}
+  .modal{max-width:100%;margin:0 12px}
+}
+@media(max-width:520px){
+  .pgrid{grid-template-columns:1fr}
+  .fg2{grid-template-columns:1fr}
+  #modal-overlay{padding:0;align-items:flex-end}
+  .modal{border-radius:0;max-height:94vh;animation:mSlideUp .3s ease;margin:0}
+  @keyframes mSlideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .container,.wide{padding:0 16px}
+  .cover-content{padding:24px 16px 44px}
+  #cart-pill{bottom:16px;font-size:11px;padding:9px 18px}
+  #steez-badge{bottom:60px}
+  .pcard-canvas{height:160px}
+  .cover-en{font-size:clamp(.55rem,2.5vw,.75rem);letter-spacing:.14em}
+  .modal-hdr{padding:11px 14px}
+  .modal-body{padding:0 14px 16px}
+  .nav-inner{padding:0 14px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-brand-cn serif">鑫达家居</div>
+      <div class="nav-brand-pill mono">XD · 2026</div>
+    </div>
+    <div class="nav-links" id="nav-links"></div>
+    <div class="nav-ctrl">
+      <button class="lang-btn active" data-l="zh">中文</button>
+      <button class="lang-btn" data-l="en">EN</button>
+      <button class="lang-btn" data-l="ar">عربية</button>
+      <button class="lang-btn" data-l="ru">РУС</button>
+      <button class="theme-btn" id="theme-btn">◑</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="nav-mobile"></div>
+</nav>
+
+<!-- ── CART PILL ── -->
+<button id="cart-pill" onclick="scrollToInquiry()">
+  <span id="cart-pill-txt">询价单</span>
+  <span class="pill-dot" id="cart-dot">0</span>
+</button>
+
+<!-- ── P.00 COVER ── -->
+<section id="cover">
+  <div class="cover-vlines" aria-hidden="true">
+    <div></div><div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cover-content wide fade-up">
+    <div class="cover-pnum mono">P.00</div>
+    <div class="cover-overline mono">2026 · PRODUCT CATALOGUE · NINGBO</div>
+    <h1 class="cover-title serif">鑫达家居</h1>
+    <div class="cover-title-sub serif" data-str="cover_en">Ningbo Xinda Home Co., Ltd.</div>
+    <div class="cover-rule"></div>
+    <div class="cover-meta-row">
+      <div class="cover-meta-item mono" data-str="cover_yc">2026 产品目录</div>
+      <div class="cover-meta-item mono" data-str="cover_booth">广交会 · CANTON FAIR · BOOTH 3-240</div>
+      <div class="cover-meta-item mono" id="cover-stats"></div>
+    </div>
+    <div class="cover-scroll mono" data-str="cover_scroll">向下翻页 · Turn Page ↓</div>
+  </div>
+</section>
+
+<!-- ── P.01 ABOUT ── -->
+<section id="about" class="page-section">
+  <div class="page-num mono">P.01</div>
+  <div class="container">
+    <div class="sm fade-up">
+      <div class="sm-line"></div>
+      <div class="sm-inner"><span class="sm-cn" data-str="sm_about_cn">关于我们</span><span class="sm-dot">◆</span><span class="sm-en" data-str="sm_about_en">ABOUT</span></div>
+      <div class="sm-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-left fade-up">
+        <div class="about-wm">家居</div>
+        <div class="about-wrap">
+          <h2 class="about-cn-h serif">宁波鑫达家居有限公司</h2>
+          <div class="about-en-h mono">Ningbo Xinda Home Co., Ltd.</div>
+          <p class="about-body-cn" data-str="about_cn"></p>
+          <p class="about-body-en" data-str="about_en"></p>
+          <div class="cap-chips" id="cap-chips"></div>
+          <div class="cert-row" id="cert-row"></div>
+        </div>
+      </div>
+      <div class="about-imgs fade-up" style="transition-delay:.14s">
+        <div class="aimg"><div class="img-qc"></div><div class="aimg-cap" data-str="img_qc_cap">品质控制 · Quality Control</div></div>
+        <div class="aimg"><div class="img-wh"></div><div class="aimg-cap" data-str="img_wh_cap">仓储物流 · Warehouse &amp; Logistics</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── P.02 PRODUCTS ── -->
+<section id="products" class="page-section" style="padding-top:0">
+  <div class="page-num mono">P.02</div>
+  <div class="strip fade-up">
+    <div class="strip-l mono" data-str="strip_l">精选家居用品</div>
+    <div class="strip-r mono" data-str="strip_r">Curated Homewares · XD Home</div>
+  </div>
+  <div class="container" style="margin-top:36px">
+    <div class="sm fade-up">
+      <div class="sm-line"></div>
+      <div class="sm-inner"><span class="sm-cn" data-str="sm_prod_cn">产品系列</span><span class="sm-dot">◆</span><span class="sm-en" data-str="sm_prod_en">2026 COLLECTION</span></div>
+      <div class="sm-line"></div>
+    </div>
+    <div class="fade-up">
+      <div class="sec-cn serif" data-str="prod_title_cn">精选产品系列</div>
+      <div class="sec-en mono" data-str="prod_title_en">CURATED PRODUCT RANGE</div>
+    </div>
+    <div class="filter-bar fade-up" id="filter-bar"></div>
+    <div class="pgrid" id="pgrid"></div>
+  </div>
+</section>
+
+<!-- ── P.05 GLOBAL REACH ── -->
+<section id="global">
+  <div class="global-bg"></div>
+  <div class="global-wm">宁</div>
+  <div class="global-inner container" style="padding-top:80px;padding-bottom:80px">
+    <div class="page-num mono" style="position:relative;top:0;right:0;text-align:right;margin-bottom:14px">P.05</div>
+    <div class="sm on-dark fade-up">
+      <div class="sm-line lt"></div>
+      <div class="sm-inner"><span class="sm-cn" data-str="sm_global_cn">全球市场</span><span class="sm-dot">◆</span><span class="sm-en" data-str="sm_global_en">GLOBAL REACH</span></div>
+      <div class="sm-line lt"></div>
+    </div>
+    <div class="ghead-cn serif fade-up" data-str="g_count">40+个国家</div>
+    <div class="ghead-en mono fade-up" data-str="g_sub">选择鑫达 · Choose Xinda</div>
+    <div class="global-grid fade-up">
+      <div id="region-bars"></div>
+      <svg id="world-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── P.06 INQUIRY ── -->
+<section id="inquiry" class="page-section">
+  <div class="page-num mono">P.06</div>
+  <div class="container">
+    <div class="sm fade-up">
+      <div class="sm-line"></div>
+      <div class="sm-inner"><span class="sm-cn" data-str="sm_inq_cn">询价单</span><span class="sm-dot">◆</span><span class="sm-en" data-str="sm_inq_en">INQUIRY FORM</span></div>
+      <div class="sm-line"></div>
+    </div>
+    <div class="inq-grid fade-up">
+      <div class="cart-wrap">
+        <div class="cart-h serif" data-str="cart_h">已选产品</div>
+        <div class="cart-sub mono" data-str="cart_sub">Selected Items · XD Home</div>
+        <div class="cart-rule"></div>
+        <div id="cart-content"></div>
+        <div class="cart-moq-note mono" data-str="cart_note">最低订单按各产品MOQ · Min order per product MOQ</div>
+      </div>
+      <div class="form-wrap" id="form-wrap">
+        <div id="form-container">
+          <div class="form-title-h serif" data-str="form_h">联系信息</div>
+          <form id="inquiry-form" onsubmit="submitForm(event)">
+            <div class="fg2">
+              <div class="frow"><label class="flabel mono" data-str="flbl_name">姓名 Full Name *</label><input type="text" class="finput" required/></div>
+              <div class="frow"><label class="flabel mono" data-str="flbl_company">公司 Company *</label><input type="text" class="finput" required/></div>
+              <div class="frow"><label class="flabel mono" data-str="flbl_country">国家/地区 Country *</label><input type="text" class="finput" required/></div>
+              <div class="frow"><label class="flabel mono" data-str="flbl_wechat">微信/WhatsApp *</label><input type="text" class="finput" required/></div>
+              <div class="frow"><label class="flabel mono" data-str="flbl_email">Email *</label><input type="email" class="finput" required/></div>
+              <div class="frow"><label class="flabel mono" data-str="flbl_target">目标市场</label><select class="fselect" id="sel-market"></select></div>
+              <div class="frow"><label class="flabel mono" data-str="flbl_qty">年采购量估计</label><input type="text" class="finput"/></div>
+              <div class="frow"><label class="flabel mono" data-str="flbl_app">产品用途</label><select class="fselect" id="sel-app"></select></div>
+            </div>
+            <div class="frow"><label class="flabel mono" data-str="flbl_notes">备注 Notes</label><textarea class="ftextarea"></textarea></div>
+            <button type="submit" class="btn btn-gold btn-full" data-str="form_submit">发送样品申请 · Send Sample Request</button>
+          </form>
+        </div>
+        <div class="form-success" id="form-success" style="display:none">
+          <div class="scheckmark"><svg viewBox="0 0 56 56"><circle class="sc-circle" cx="28" cy="28" r="26"/><path class="sc-path" d="M16 28 L24 36 L40 20"/></svg></div>
+          <div class="stitle-cn serif" data-str="s_cn">申请已收到！</div>
+          <div class="stitle-en mono" data-str="s_en">Request received.</div>
+          <div class="sbody" data-str="s_body">鑫达家居将在24小时内回复。<br/>Xinda Home will reply within 24 hours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── P.07 CONTACT ── -->
+<section id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-inner container" style="padding-top:80px;padding-bottom:80px">
+    <div class="page-num mono" style="position:relative;top:0;right:0;text-align:right;margin-bottom:14px">P.07</div>
+    <div class="sm on-dark fade-up">
+      <div class="sm-line lt"></div>
+      <div class="sm-inner"><span class="sm-cn" data-str="sm_contact_cn">联系我们</span><span class="sm-dot">◆</span><span class="sm-en" data-str="sm_contact_en">CONTACT</span></div>
+      <div class="sm-line lt"></div>
+    </div>
+    <div class="contact-grid fade-up">
+      <div>
+        <div class="ccard">
+          <div class="ccard-t mono" data-str="cc_title">联系方式 · CONTACT</div>
+          <div class="citem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12 19.79 19.79 0 0 1 1.04 3.38a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+86 574 0000 0000</span></div>
+          <div class="citem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:export@xindahome.com">export@xindahome.com</a></div>
+          <div class="citem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><div><span data-str="wechat_id">微信号: XindaHomeExport</span><br/><button onclick="openQR()" style="background:transparent;border:none;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--clay);padding:2px 0;letter-spacing:.04em" data-str="wechat_scan">扫码加微信 Scan QR →</button></div></div>
+          <div class="citem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-str="contact_addr">宁波市鄞州区工业园区 · Yinzhou Industrial Park, Ningbo, Zhejiang, China</span></div>
+          <div class="citem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-str="contact_hours">周一至周六 08:30–18:00 CST</span></div>
+          <div class="platlinks">
+            <button class="platlink"><span>🌐</span><span data-str="plat_ali">阿里巴巴国际站 · Alibaba International</span></button>
+            <button class="platlink"><span>🛒</span><span data-str="plat_1688">1688批发平台 · Wholesale Platform</span></button>
+            <button class="platlink"><span>🏛</span><span data-str="plat_cf">广交会 · Canton Fair Profile</span></button>
+            <button class="platlink"><span>🏭</span><span data-str="plat_mic">Made-in-China Profile</span></button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="map-card">
+          <svg class="map-pin" width="28" height="36" viewBox="0 0 32 40"><path d="M16 0C7.16 0 0 7.16 0 16 0 28 16 40 16 40S32 28 32 16C32 7.16 24.84 0 16 0z" fill="var(--clay)" opacity=".88"/><circle cx="16" cy="16" r="7" fill="var(--charcoal)"/></svg>
+          <div class="map-city serif" data-str="map_city">宁波市 · Ningbo</div>
+          <div class="map-prov mono" data-str="map_prov">浙江省 · Zhejiang Province</div>
+          <div class="map-tag mono" data-str="map_booth">广交会摊位 · BOOTH 3-240</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-cn serif">宁波鑫达家居有限公司</div>
+      <div class="footer-mid">
+        <div class="footer-orn mono">─────·◆·─────</div>
+        <div class="footer-yr mono">2026产品目录 · END OF CATALOGUE</div>
+        <div class="footer-r mono">© 2026 宁波鑫达家居有限公司 · All Rights Reserved</div>
+      </div>
+      <div class="footer-steez mono">Built by STEEZ · steez.digital</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── PRODUCT MODAL ── -->
+<div id="modal-overlay">
+  <div class="modal" id="modal">
+    <div class="modal-hdr">
+      <div style="display:flex;align-items:center;gap:9px">
+        <span class="modal-code-tag mono" id="m-code"></span>
+        <span class="modal-cat-tag mono" id="m-cat"></span>
+      </div>
+      <div class="modal-hdr-r">
+        <button class="modal-share-btn mono" data-str="m_wechat">微信分享</button>
+        <button class="modal-share-btn mono" data-str="m_copy">复制链接</button>
+        <button class="modal-x" id="modal-x">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div>
+          <div class="modal-media">
+            <div class="modal-2d" id="m-2d"></div>
+            <div class="modal-3d" id="m-3d"></div>
+            <div class="modal-3d-lbl">Interactive 3D · Drag to Rotate</div>
+          </div>
+        </div>
+        <div class="modal-info">
+          <h2 class="mname-cn serif" id="m-cn"></h2>
+          <div class="mname-en sans" id="m-en"></div>
+          <div class="mgold-rule"></div>
+          <table class="mspec-table" id="m-specs"></table>
+          <p class="mdesc-cn sans" id="m-desc-cn"></p>
+          <p class="mdesc-en sans" id="m-desc-en"></p>
+          <div class="mmeta">
+            <div class="mmeta-item"><span class="mmeta-k mono" data-str="m_moq_k">起订量 MOQ</span><span class="mmeta-v mono" id="m-moq"></span></div>
+            <div class="mmeta-item"><span class="mmeta-k mono" data-str="m_lead_k">交期 Lead Time</span><span class="mmeta-v mono" data-str="m_lead_v">14工作日 / 14 days</span></div>
+          </div>
+          <div class="mcerts" id="m-certs"></div>
+          <div class="mcustom" id="m-custom"></div>
+          <button class="btn btn-gold btn-full" id="m-add" onclick="addToCart(activeP)">
+            <span data-str="m_add">+ 加入询价单 Add to Inquiry</span>
+          </button>
+        </div>
+      </div>
+      <div class="modal-nav">
+        <button class="mnav-btn mono" id="m-prev" data-str="m_prev">← 上一个</button>
+        <button class="modal-share-btn mono" onclick="closeModal()" data-str="m_close">关闭 Close</button>
+        <button class="mnav-btn mono" id="m-next" data-str="m_next">下一个 →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── QR MODAL ── -->
+<div id="qr-overlay">
+  <div class="qr-card">
+    <div class="qr-box">WeChat QR<br/>Placeholder<br/><br/>XindaHomeExport</div>
+    <div class="qr-lbl mono" data-str="qr_lbl">微信号 · WeChat ID</div>
+    <div class="qr-id mono">XindaHomeExport</div>
+    <button class="btn btn-outline btn-full" onclick="closeQR()" data-str="qr_close">关闭 · Close</button>
+  </div>
+</div>
+
+<!-- ── STEEZ BADGE ── -->
+<a href="https://steez.digital" target="_blank" id="steez-badge">Built by STEEZ · steez.digital</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ═══════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════ */
+const LANGS={
+  zh:{
+    nav_about:'关于',nav_products:'产品',nav_global:'市场',nav_inquiry:'询价',nav_contact:'联系',
+    cover_en:'NINGBO XINDA HOME CO., LTD.',cover_yc:'2026 产品目录 · PRODUCT CATALOGUE',
+    cover_booth:'广交会 · CANTON FAIR · BOOTH 3-240',cover_scroll:'向下翻页 · Turn Page ↓',
+    cstat_staff:'员工 180人 · Staff 180',cstat_units:'年产量 240万件 · 2.4M Units/yr',cstat_export:'出口 40+国 · 40+ Countries',
+    sm_about_cn:'关于我们',sm_about_en:'ABOUT',
+    about_cn:'成立于2008年，鑫达家居专注于家用产品ODM/OEM制造，产品远销全球40余个国家和地区，在厨房工具、收纳储物、清洁用品及家居杂货领域深耕多年，是宁波领先的家居出口制造商。',
+    about_en:'Established in 2008, Xinda Home specializes in household goods ODM/OEM manufacturing, exporting to 40+ countries worldwide. Deep expertise in kitchen tools, storage, cleaning products, and homewares. A leading Ningbo home goods exporter.',
+    img_qc_cap:'品质控制 · Quality Control',img_wh_cap:'仓储物流 · Warehouse & Logistics',
+    strip_l:'精选家居用品',strip_r:'Curated Homewares · XD Home',
+    sm_prod_cn:'产品系列',sm_prod_en:'2026 COLLECTION',
+    prod_title_cn:'精选产品系列',prod_title_en:'CURATED PRODUCT RANGE',
+    cat_all:'全部 All',cat_kitchen:'厨房工具 Kitchen',cat_storage:'收纳储物 Storage',cat_cleaning:'清洁用品 Cleaning',cat_homewares:'家居杂货 Homewares',
+    card_details:'查看详情',card_inquiry:'询价',card_added:'已添加 ✓',hot_label:'🔥 热销 BESTSELLER',
+    sm_global_cn:'全球市场',sm_global_en:'GLOBAL REACH',
+    g_count:'40+个国家',g_sub:'选择鑫达 · Choose Xinda',
+    r_me:'中东',r_me_en:'Middle East',r_me_c:'UAE · Saudi · Kuwait · Qatar',
+    r_ru:'俄罗斯',r_ru_en:'Russia & CIS',r_ru_c:'Russia · Kazakhstan · Ukraine',
+    r_eu:'欧洲',r_eu_en:'Europe',r_eu_c:'Germany · France · UK · Netherlands',
+    r_sea:'东南亚',r_sea_en:'SE Asia',r_sea_c:'Malaysia · Vietnam · Indonesia · Thailand',
+    sm_inq_cn:'询价单',sm_inq_en:'INQUIRY FORM',
+    cart_h:'已选产品',cart_sub:'Selected Items · XD Home',cart_note:'最低订单按各产品MOQ · Min order per product MOQ',
+    form_h:'联系信息',
+    flbl_name:'姓名 Full Name *',flbl_company:'公司 Company *',flbl_country:'国家/地区 Country *',
+    flbl_wechat:'微信/WhatsApp *',flbl_email:'电子邮件 Email *',flbl_target:'目标市场',
+    flbl_qty:'年采购量估计',flbl_app:'产品用途',flbl_notes:'备注 Notes',
+    form_submit:'发送样品申请 · Send Sample Request',
+    mkt_opts:['-- 请选择','中东','欧洲','俄罗斯/独联体','东南亚','北美','其他'],
+    app_opts:['-- 请选择','零售 Retail','经销商 Distribution','OEM转售','白牌 Private Label','其他'],
+    s_cn:'申请已收到！',s_en:'Request received.',
+    s_body:'鑫达家居将在24小时内回复。<br/>Xinda Home will reply within 24 hours.',
+    sm_contact_cn:'联系我们',sm_contact_en:'CONTACT',
+    cc_title:'联系方式 · CONTACT',wechat_id:'微信号: XindaHomeExport',wechat_scan:'扫码加微信 Scan QR →',
+    contact_addr:'宁波市鄞州区工业园区 · Yinzhou Industrial Park, Ningbo, Zhejiang, China',
+    contact_hours:'周一至周六 08:30–18:00 CST',
+    plat_ali:'阿里巴巴国际站 · Alibaba International',plat_1688:'1688批发平台 · Wholesale Platform',
+    plat_cf:'广交会 · Canton Fair Profile',plat_mic:'Made-in-China Profile',
+    map_city:'宁波市 · Ningbo',map_prov:'浙江省 · Zhejiang Province',map_booth:'广交会摊位 · BOOTH 3-240',
+    m_wechat:'微信分享',m_copy:'复制链接',m_moq_k:'起订量 MOQ',m_lead_k:'交期 Lead Time',m_lead_v:'14工作日 / 14 days',
+    m_add:'+ 加入询价单 Add to Inquiry',m_added:'✓ 已加入询价单',
+    m_prev:'← 上一个',m_next:'下一个 →',m_close:'关闭 Close',
+    m_custom_lbl:'定制选项 · Custom Options',
+    qr_lbl:'微信号 · WeChat ID',qr_close:'关闭 · Close',cart_pill:'询价单',
+  },
+  en:{
+    nav_about:'About',nav_products:'Products',nav_global:'Markets',nav_inquiry:'Inquiry',nav_contact:'Contact',
+    cover_en:'NINGBO XINDA HOME CO., LTD.',cover_yc:'2026 PRODUCT CATALOGUE',
+    cover_booth:'CANTON FAIR · BOOTH 3-240',cover_scroll:'Scroll Down ↓',
+    cstat_staff:'Staff 180',cstat_units:'2.4M Units / Year',cstat_export:'40+ Export Countries',
+    sm_about_cn:'关于我们',sm_about_en:'ABOUT',
+    about_cn:'成立于2008年，鑫达家居专注于家用产品ODM/OEM制造，产品远销全球40余个国家和地区。',
+    about_en:'Established in 2008, Xinda Home specializes in household goods ODM/OEM manufacturing, exporting to 40+ countries worldwide. Deep expertise in kitchen tools, storage, cleaning products, and homewares. Ningbo\'s premier home goods manufacturer.',
+    img_qc_cap:'品质控制 · Quality Control',img_wh_cap:'仓储物流 · Warehouse & Logistics',
+    strip_l:'Curated Homewares',strip_r:'精选家居用品 · XD Home',
+    sm_prod_cn:'产品系列',sm_prod_en:'2026 COLLECTION',
+    prod_title_cn:'Curated Product Range',prod_title_en:'XINDA HOME · 2026',
+    cat_all:'All',cat_kitchen:'Kitchen Tools',cat_storage:'Storage',cat_cleaning:'Cleaning',cat_homewares:'Homewares',
+    card_details:'Details',card_inquiry:'Inquiry',card_added:'Added ✓',hot_label:'🔥 BESTSELLER',
+    sm_global_cn:'全球市场',sm_global_en:'GLOBAL REACH',
+    g_count:'40+ Countries',g_sub:'Choose Xinda · 选择鑫达',
+    r_me:'Middle East',r_me_en:'中东',r_me_c:'UAE · Saudi · Kuwait · Qatar',
+    r_ru:'Russia & CIS',r_ru_en:'俄罗斯',r_ru_c:'Russia · Kazakhstan · Ukraine',
+    r_eu:'Europe',r_eu_en:'欧洲',r_eu_c:'Germany · France · UK · Netherlands',
+    r_sea:'SE Asia',r_sea_en:'东南亚',r_sea_c:'Malaysia · Vietnam · Indonesia · Thailand',
+    sm_inq_cn:'询价单',sm_inq_en:'INQUIRY FORM',
+    cart_h:'Selected Items',cart_sub:'已选产品 · XD Home',cart_note:'Min order per product MOQ · 最低订单按各产品MOQ',
+    form_h:'Contact Details',
+    flbl_name:'Full Name *',flbl_company:'Company *',flbl_country:'Country *',
+    flbl_wechat:'WeChat / WhatsApp *',flbl_email:'Email *',flbl_target:'Target Market',
+    flbl_qty:'Est. Annual Qty',flbl_app:'Product Application',flbl_notes:'Notes',
+    form_submit:'Send Sample Request · 发送样品申请',
+    mkt_opts:['-- Select','Middle East','Europe','Russia/CIS','SE Asia','North America','Other'],
+    app_opts:['-- Select','Retail','Distribution','OEM Resale','Private Label','Other'],
+    s_cn:'申请已收到！',s_en:'Request received.',
+    s_body:'Xinda Home will reply within 24 hours.<br/>鑫达家居将在24小时内回复。',
+    sm_contact_cn:'联系我们',sm_contact_en:'CONTACT',
+    cc_title:'CONTACT · 联系方式',wechat_id:'WeChat: XindaHomeExport',wechat_scan:'Scan WeChat QR →',
+    contact_addr:'Yinzhou Industrial Park, Ningbo, Zhejiang, China · 宁波市鄞州区工业园区',
+    contact_hours:'Mon–Sat 08:30–18:00 CST',
+    plat_ali:'Alibaba International · 阿里巴巴国际站',plat_1688:'1688 Wholesale Platform',
+    plat_cf:'Canton Fair Profile · 广交会',plat_mic:'Made-in-China Profile',
+    map_city:'Ningbo · 宁波',map_prov:'Zhejiang Province · 浙江省',map_booth:'CANTON FAIR · BOOTH 3-240',
+    m_wechat:'WeChat Share',m_copy:'Copy Link',m_moq_k:'MOQ',m_lead_k:'Lead Time',m_lead_v:'14 business days',
+    m_add:'+ Add to Inquiry',m_added:'✓ Added to Inquiry',
+    m_prev:'← Prev',m_next:'Next →',m_close:'Close',
+    m_custom_lbl:'Custom Options:',
+    qr_lbl:'WeChat ID',qr_close:'Close',cart_pill:'Inquiry',
+  },
+  ar:{
+    nav_about:'عن الشركة',nav_products:'المنتجات',nav_global:'الأسواق',nav_inquiry:'الاستفسار',nav_contact:'اتصل',
+    cover_en:'شركة نينغبو شيندا هوم المحدودة',cover_yc:'كتالوج المنتجات 2026',
+    cover_booth:'معرض كانتون · جناح 3-240',cover_scroll:'التمرير لأسفل ↓',
+    cstat_staff:'180 موظف',cstat_units:'2.4 مليون وحدة/سنة',cstat_export:'40+ دولة',
+    sm_about_cn:'关于我们',sm_about_en:'عن الشركة',
+    about_cn:'成立于2008年，鑫达家居专注于家用产品ODM/OEM制造，产品远销全球40余个国家和地区。',
+    about_en:'تأسست عام 2008، تتخصص شيندا هوم في تصنيع المنتجات المنزلية ODM/OEM، مع التصدير إلى أكثر من 40 دولة حول العالم في مجالات أدوات المطبخ والتخزين ومنتجات التنظيف والأواني المنزلية.',
+    img_qc_cap:'مراقبة الجودة',img_wh_cap:'المستودع والخدمات اللوجستية',
+    strip_l:'منتجات منزلية مختارة',strip_r:'Curated Homewares · XD Home',
+    sm_prod_cn:'产品系列',sm_prod_en:'مجموعة 2026',
+    prod_title_cn:'مجموعة المنتجات المختارة',prod_title_en:'XINDA HOME · 2026',
+    cat_all:'الكل',cat_kitchen:'أدوات المطبخ',cat_storage:'التخزين',cat_cleaning:'التنظيف',cat_homewares:'الأواني المنزلية',
+    card_details:'التفاصيل',card_inquiry:'استفسار',card_added:'تمت الإضافة ✓',hot_label:'🔥 الأكثر مبيعاً',
+    sm_global_cn:'全球市场',sm_global_en:'الأسواق العالمية',
+    g_count:'+40 دولة',g_sub:'اختر شيندا · Choose Xinda',
+    r_me:'الشرق الأوسط',r_me_en:'Middle East',r_me_c:'الإمارات · السعودية · الكويت · قطر',
+    r_ru:'روسيا',r_ru_en:'Russia & CIS',r_ru_c:'روسيا · كازاخستان · أوكرانيا',
+    r_eu:'أوروبا',r_eu_en:'Europe',r_eu_c:'ألمانيا · فرنسا · المملكة المتحدة · هولندا',
+    r_sea:'جنوب شرق آسيا',r_sea_en:'SE Asia',r_sea_c:'ماليزيا · فيتنام · إندونيسيا · تايلاند',
+    sm_inq_cn:'询价单',sm_inq_en:'نموذج الاستفسار',
+    cart_h:'المنتجات المختارة',cart_sub:'Selected Items · XD Home',cart_note:'الحد الأدنى للطلب حسب MOQ لكل منتج',
+    form_h:'بيانات التواصل',
+    flbl_name:'الاسم الكامل *',flbl_company:'الشركة *',flbl_country:'الدولة *',
+    flbl_wechat:'واتساب / وي تشات *',flbl_email:'البريد الإلكتروني *',flbl_target:'السوق المستهدف',
+    flbl_qty:'الكمية السنوية المتوقعة',flbl_app:'تطبيق المنتج',flbl_notes:'ملاحظات',
+    form_submit:'إرسال طلب العينة',
+    mkt_opts:['-- اختر','الشرق الأوسط','أوروبا','روسيا','جنوب شرق آسيا','أمريكا الشمالية','أخرى'],
+    app_opts:['-- اختر','التجزئة','التوزيع','إعادة بيع OEM','العلامة الخاصة','أخرى'],
+    s_cn:'تم استلام الطلب!',s_en:'Request received.',
+    s_body:'ستقوم شيندا هوم بالرد خلال 24 ساعة.',
+    sm_contact_cn:'联系我们',sm_contact_en:'اتصل بنا',
+    cc_title:'معلومات الاتصال',wechat_id:'وي تشات: XindaHomeExport',wechat_scan:'مسح رمز QR →',
+    contact_addr:'حديقة يينتشو الصناعية، نينغبو، تشجيانغ، الصين',
+    contact_hours:'الاثنين–السبت 08:30–18:00 بتوقيت الصين',
+    plat_ali:'علي بابا الدولي',plat_1688:'1688 منصة الجملة',plat_cf:'معرض كانتون',plat_mic:'Made-in-China',
+    map_city:'مدينة نينغبو',map_prov:'مقاطعة تشجيانغ',map_booth:'معرض كانتون · جناح 3-240',
+    m_wechat:'مشاركة وي تشات',m_copy:'نسخ الرابط',m_moq_k:'الحد الأدنى للطلب',m_lead_k:'وقت التسليم',m_lead_v:'14 يوم عمل',
+    m_add:'+ إضافة للاستفسار',m_added:'✓ تمت الإضافة',
+    m_prev:'← السابق',m_next:'التالي →',m_close:'إغلاق',
+    m_custom_lbl:'خيارات التخصيص:',
+    qr_lbl:'رمز QR وي تشات',qr_close:'إغلاق',cart_pill:'الاستفسار',
+  },
+  ru:{
+    nav_about:'О нас',nav_products:'Продукция',nav_global:'Рынки',nav_inquiry:'Запрос',nav_contact:'Контакты',
+    cover_en:'NINGBO XINDA HOME CO., LTD.',cover_yc:'Каталог продукции 2026',
+    cover_booth:'Кантонская ярмарка · Стенд 3-240',cover_scroll:'Прокрутите вниз ↓',
+    cstat_staff:'180 сотрудников',cstat_units:'2.4 млн ед./год',cstat_export:'40+ стран экспорта',
+    sm_about_cn:'关于我们',sm_about_en:'О КОМПАНИИ',
+    about_cn:'成立于2008年，鑫达家居专注于家用产品ODM/OEM制造，产品远销全球40余个国家和地区。',
+    about_en:'Основана в 2008 году. Xinda Home специализируется на ODM/OEM товарах для дома, экспортируя в 40+ стран. Глубокая экспертиза в кухонных инструментах, хранении, уборке и домашних товарах. Ведущий экспортёр Нинбо.',
+    img_qc_cap:'Контроль качества · QC',img_wh_cap:'Склад и логистика',
+    strip_l:'Подборка товаров для дома',strip_r:'Curated Homewares · XD Home',
+    sm_prod_cn:'产品系列',sm_prod_en:'КОЛЛЕКЦИЯ 2026',
+    prod_title_cn:'Подборка продукции',prod_title_en:'XINDA HOME · 2026',
+    cat_all:'Все',cat_kitchen:'Кухня',cat_storage:'Хранение',cat_cleaning:'Уборка',cat_homewares:'Товары для дома',
+    card_details:'Подробнее',card_inquiry:'Запрос',card_added:'Добавлено ✓',hot_label:'🔥 БЕСТСЕЛЛЕР',
+    sm_global_cn:'全球市场',sm_global_en:'МИРОВЫЕ РЫНКИ',
+    g_count:'40+ стран',g_sub:'Выбирайте Xinda · Choose Xinda',
+    r_me:'Ближний Восток',r_me_en:'Middle East',r_me_c:'ОАЭ · Саудовская Аравия · Кувейт · Катар',
+    r_ru:'Россия и СНГ',r_ru_en:'Russia & CIS',r_ru_c:'Россия · Казахстан · Украина',
+    r_eu:'Европа',r_eu_en:'Europe',r_eu_c:'Германия · Франция · Великобритания · Нидерланды',
+    r_sea:'ЮВ Азия',r_sea_en:'SE Asia',r_sea_c:'Малайзия · Вьетнам · Индонезия · Таиланд',
+    sm_inq_cn:'询价单',sm_inq_en:'ФОРМА ЗАПРОСА',
+    cart_h:'Выбранные товары',cart_sub:'Selected Items · XD Home',cart_note:'Мин. заказ по MOQ каждого продукта',
+    form_h:'Контактные данные',
+    flbl_name:'Полное имя *',flbl_company:'Компания *',flbl_country:'Страна *',
+    flbl_wechat:'WeChat / WhatsApp *',flbl_email:'Email *',flbl_target:'Целевой рынок',
+    flbl_qty:'Ожид. ежегод. объём',flbl_app:'Применение',flbl_notes:'Примечания',
+    form_submit:'Отправить запрос на образцы',
+    mkt_opts:['-- Выберите','Ближний Восток','Европа','Россия/СНГ','ЮВ Азия','Сев. Америка','Другое'],
+    app_opts:['-- Выберите','Розница','Дистрибуция','OEM-перепродажа','Частная марка','Другое'],
+    s_cn:'Запрос получен!',s_en:'Request received.',
+    s_body:'Xinda Home ответит в течение 24 часов.<br/>鑫达家居将在24小时内回复。',
+    sm_contact_cn:'联系我们',sm_contact_en:'КОНТАКТЫ',
+    cc_title:'КОНТАКТЫ · 联系方式',wechat_id:'WeChat: XindaHomeExport',wechat_scan:'Сканировать QR →',
+    contact_addr:'Промышленный парк Иньчжоу, Нинбо, Чжэцзян, Китай',
+    contact_hours:'Пн–Сб 08:30–18:00 по Пекину',
+    plat_ali:'Alibaba International · 阿里巴巴',plat_1688:'1688 Оптовая платформа',
+    plat_cf:'Кантонская ярмарка · Canton Fair',plat_mic:'Made-in-China',
+    map_city:'Нинбо · 宁波',map_prov:'Чжэцзян · 浙江省',map_booth:'Кантон. ярмарка · Стенд 3-240',
+    m_wechat:'Поделиться WeChat',m_copy:'Копировать ссылку',m_moq_k:'Мин. заказ',m_lead_k:'Срок',m_lead_v:'14 рабочих дней',
+    m_add:'+ Добавить в запрос',m_added:'✓ Добавлено',
+    m_prev:'← Пред.',m_next:'След. →',m_close:'Закрыть',
+    m_custom_lbl:'Опции кастомизации:',
+    qr_lbl:'WeChat ID',qr_close:'Закрыть',cart_pill:'Запрос',
+  }
+};
+
+const CAP_CHIPS=[
+  {zh:'OEM代工',en:'OEM Mfg',ar:'تصنيع OEM',ru:'OEM производство'},
+  {zh:'ODM设计',en:'ODM Design',ar:'تصميم ODM',ru:'ODM разработка'},
+  {zh:'快速打样',en:'Rapid Sampling',ar:'عينات سريعة',ru:'Быстрые образцы'},
+  {zh:'低起订量',en:'Low MOQ',ar:'حد أدنى منخفض',ru:'Низкий MOQ'},
+  {zh:'定制包装',en:'Custom Packaging',ar:'تعبئة مخصصة',ru:'Кастомная упаковка'},
+  {zh:'自主研发',en:'In-house R&D',ar:'بحث داخلي',ru:'Собственный R&D'},
+];
+
+const ABOUT_CERTS=['LFGB','FDA','CE','BSCI','ISO 9001','RoHS','REACH','SGS'];
+const CERT_FULL={
+  LFGB:'LFGB (German Food-Safe)',FDA:'FDA (US Food Safety)',CE:'CE Mark (EU)',
+  BSCI:'BSCI (Social Compliance)',ISO:'ISO 9001:2015',RoHS:'RoHS (Hazardous Substances)',
+  REACH:'REACH (Chemical Safety)',SGS:'SGS Tested & Certified',FSC:'FSC (Forest Stewardship)',
+  'ISO 9001':'ISO 9001:2015 Quality Management',
+};
+
+const REGIONS=[
+  {cn:'r_me',pct:35,dot:[700,248]},
+  {cn:'r_ru',pct:25,dot:[560,158]},
+  {cn:'r_eu',pct:22,dot:[488,192]},
+  {cn:'r_sea',pct:18,dot:[770,300]},
+];
+
+const PRODUCTS=[
+  {id:0,code:'XD-KT-001',cat:'kitchen',hot:true,
+   name:{zh:'实木刀架套装',en:"Chef's Knife Block Set",ar:'طقم حامل السكاكين الخشبي',ru:'Набор с деревянной подставкой для ножей'},
+   certs:['LFGB','FDA','CE'],custom:['Logo','Color','Packaging','OEM'],
+   desc:{
+     zh:'高端相思木刀架，全尺寸锻造刀片，三铆接手柄，MOQ 1000起支持激光雕刻，礼盒包装可选。畅销欧洲及中东市场。',
+     en:'Premium acacia wood block, full-tang forged blades, triple-riveted handles. Custom laser engraving from MOQ 1000, retail gift box available. Bestseller in Europe + Middle East.',
+     ar:'حامل خشبي من خشب الأكاسيا الفاخر، شفرات مطرقة كاملة، مقابض بثلاثة مسامير.',
+     ru:'Подставка из дерева акации, кованые лезвия, тройные заклёпки. Лазерная гравировка от MOQ 1000.',
+   },
+   keySpecs:[
+     {zh:'材质',en:'Material',ar:'المادة',ru:'Материал',val:'Acacia wood + SS'},
+     {zh:'槽位',en:'Slots',ar:'الفتحات',ru:'Слотов',val:'6-slot block'},
+     {zh:'套刀',en:'Knives',ar:'السكاكين',ru:'Ножей',val:'5 knives + shears'},
+     {zh:'起订量',en:'MOQ',ar:'الحد الأدنى',ru:'MOQ',val:'500 sets'},
+   ],
+   fullSpecs:[
+     {zh:'材质',en:'Material',val:'Acacia wood + stainless steel'},
+     {zh:'槽位',en:'Slots',val:'6-slot block'},
+     {zh:'套刀',en:'Knives',val:'8" chef · 8" bread · 7" santoku · 5" utility · 3.5" paring + shears'},
+     {zh:'表面',en:'Surface',val:'Oiled acacia, natural grain'},
+     {zh:'柄',en:'Handle',val:'Triple-riveted, ergonomic'},
+     {zh:'起订量',en:'MOQ',val:'500 sets'},
+   ],
+   color:0x8B6445,geo:'knifeblock',moq:'500 sets'},
+
+  {id:1,code:'XD-KT-002',cat:'kitchen',hot:false,
+   name:{zh:'竹制砧板三件套',en:'Bamboo Cutting Board Set',ar:'طقم ألواح تقطيع من الخيزران',ru:'Набор разделочных досок из бамбука'},
+   certs:['LFGB','FDA','FSC','CE'],custom:['Logo','Packaging'],
+   desc:{
+     zh:'3件套渐变尺寸，抗菌竹面，可洗碗机清洗，可品牌定制标识，环保包装可选。',
+     en:'3-piece graduated set, antimicrobial bamboo surface, dishwasher-safe. Custom logo branding available, eco-packaging option.',
+     ar:'طقم 3 قطع متدرجة، سطح خيزران مضاد للبكتيريا، مناسب لغسالة الأطباق.',
+     ru:'Набор 3 шт. градуированных досок, антибактериальная поверхность, пригодны для посудомойки.',
+   },
+   keySpecs:[
+     {zh:'材质',en:'Material',ar:'المادة',ru:'Материал',val:'Moso bamboo (FSC)'},
+     {zh:'尺寸',en:'Sizes',ar:'الأحجام',ru:'Размеры',val:'S·M·L set'},
+     {zh:'特点',en:'Feature',ar:'الميزة',ru:'Функция',val:'Juice groove · Non-slip'},
+     {zh:'起订量',en:'MOQ',ar:'الحد الأدنى',ru:'MOQ',val:'1,000 sets'},
+   ],
+   fullSpecs:[
+     {zh:'材质',en:'Material',val:'Moso bamboo (Mao Zhu)'},
+     {zh:'尺寸',en:'Sizes',val:'S 25×20 · M 35×25 · L 45×30cm'},
+     {zh:'特点',en:'Features',val:'Juice groove · Non-slip feet · Hanging hole'},
+     {zh:'表面',en:'Surface',val:'FSC certified, food-safe oil'},
+     {zh:'清洗',en:'Washing',val:'Dishwasher safe'},
+     {zh:'起订量',en:'MOQ',val:'1,000 sets'},
+   ],
+   color:0xD4B882,geo:'board',moq:'1,000 sets'},
+
+  {id:2,code:'XD-KT-003',cat:'kitchen',hot:false,
+   name:{zh:'旋转调料架',en:'Rotating Spice Rack',ar:'رف توابل دوار',ru:'Вращающаяся подставка для специй'},
+   certs:['LFGB','FDA','CE','RoHS'],custom:['Logo','Jar count','Lid style'],
+   desc:{
+     zh:'12罐标注调料瓶，竹盖可选，防锈镀铬底座，MOQ 500起可定制罐数。',
+     en:'12 labelled spice jars, bamboo lid option available, anti-rust chrome base, custom jar count from MOQ 500.',
+     ar:'12 جرة توابل مصنفة، خيار غطاء خيزران، قاعدة كروم مقاومة للصدأ.',
+     ru:'12 маркированных баночек для специй, опция крышки из бамбука, хромированная антикоррозионная основа.',
+   },
+   keySpecs:[
+     {zh:'材质',en:'Material',ar:'المادة',ru:'Материал',val:'Chrome steel + borosilicate'},
+     {zh:'罐数',en:'Jars',ar:'الجرارات',ru:'Баночек',val:'12 × 150ml'},
+     {zh:'底座',en:'Base',ar:'القاعدة',ru:'Основание',val:'360° lazy susan'},
+     {zh:'起订量',en:'MOQ',ar:'الحد الأدنى',ru:'MOQ',val:'200 units'},
+   ],
+   fullSpecs:[
+     {zh:'材质',en:'Material',val:'Chrome-plated steel + borosilicate glass'},
+     {zh:'罐数',en:'Jars',val:'12 × 150ml'},
+     {zh:'底座',en:'Base',val:'360° lazy susan, non-slip silicone pad'},
+     {zh:'瓶盖',en:'Lids',val:'Stainless pour/sift lids'},
+     {zh:'尺寸',en:'Dimensions',val:'Ø28cm × H18cm'},
+     {zh:'起订量',en:'MOQ',val:'200 units'},
+   ],
+   color:0xC0C0C0,geo:'spicerack',moq:'200 units'},
+
+  {id:3,code:'XD-ST-001',cat:'storage',hot:true,
+   name:{zh:'可叠加收纳箱系列',en:'Stackable Storage Bin System',ar:'نظام صناديق تخزين قابلة للتكديس',ru:'Система штабелируемых контейнеров'},
+   certs:['CE','RoHS','REACH','FDA'],custom:['Color','Logo','Packaging'],
+   desc:{
+     zh:'4尺寸模块化系统，卡扣盖可选，BPA无毒PP，MOQ 3000起定制颜色，零售包装可定制。畅销俄罗斯及东南亚。',
+     en:'4-size modular system, snap-lock lids optional, BPA-free PP. Custom color from MOQ 3000, retail-ready packaging available. Strong seller Russia + SE Asia.',
+     ar:'نظام 4 أحجام معياري، أغطية قفل انقر، PP خالي من BPA. لون مخصص من MOQ 3000.',
+     ru:'Модульная система 4 размеров, крышки со щелчком, полипропилен без BPA. Цвет на заказ от MOQ 3000.',
+   },
+   keySpecs:[
+     {zh:'材质',en:'Material',ar:'المادة',ru:'Материал',val:'PP food-grade BPA-free'},
+     {zh:'尺寸',en:'Sizes',ar:'الأحجام',ru:'Размеры',val:'XS 3L · S 8L · M 15L · L 28L'},
+     {zh:'颜色',en:'Colors',ar:'الألوان',ru:'Цвета',val:'6 colorways'},
+     {zh:'起订量',en:'MOQ',ar:'الحد الأدنى',ru:'MOQ',val:'2,000 sets'},
+   ],
+   fullSpecs:[
+     {zh:'材质',en:'Material',val:'PP food-grade, BPA-free'},
+     {zh:'尺寸',en:'Sizes',val:'XS 3L / S 8L / M 15L / L 28L'},
+     {zh:'特点',en:'Features',val:'Nesting design, ventilation slots'},
+     {zh:'颜色',en:'Colors',val:'6 colorways available'},
+     {zh:'配件',en:'Accessories',val:'Snap-lock lid optional'},
+     {zh:'起订量',en:'MOQ',val:'2,000 sets (mixed sizes OK)'},
+   ],
+   color:0x7D9B8A,geo:'bin',moq:'2,000 sets'},
+
+  {id:4,code:'XD-ST-002',cat:'storage',hot:false,
+   name:{zh:'真空压缩收纳袋套装',en:'Vacuum Storage Bag Set',ar:'طقم أكياس تخزين بالتفريغ',ru:'Набор вакуумных пакетов для хранения'},
+   certs:['CE','RoHS','REACH'],custom:['Logo','Pump branding','Packaging'],
+   desc:{
+     zh:'三层PA/PE复合膜，双重密封拉链，含手泵，旅行及季节性收纳两用，支持OEM包装及手泵品牌定制。',
+     en:'Triple-layer PA/PE film, double zip-lock seal, hand pump included. Travel + seasonal storage use, OEM packaging + pump branding available.',
+     ar:'طبقة ثلاثية PA/PE، سحاب مزدوج محكم، مضخة يدوية مرفقة.',
+     ru:'Трёхслойная плёнка PA/PE, двойная молния, ручной насос в комплекте.',
+   },
+   keySpecs:[
+     {zh:'材质',en:'Material',ar:'المادة',ru:'Материал',val:'PA + PE multilayer film'},
+     {zh:'尺寸',en:'Sizes',ar:'الأحجام',ru:'Размеры',val:'S·M·L (3 bags/set)'},
+     {zh:'压缩',en:'Compression',ar:'الضغط',ru:'Сжатие',val:'Up to 75% reduction'},
+     {zh:'起订量',en:'MOQ',ar:'الحد الأدنى',ru:'MOQ',val:'500 sets'},
+   ],
+   fullSpecs:[
+     {zh:'材质',en:'Material',val:'PA + PE multilayer film'},
+     {zh:'尺寸',en:'Sizes',val:'S 40×60 / M 60×80 / L 80×100cm'},
+     {zh:'密封',en:'Seal',val:'Double zip-lock'},
+     {zh:'附件',en:'Includes',val:'Hand pump'},
+     {zh:'压缩率',en:'Compression',val:'Up to 75%'},
+     {zh:'起订量',en:'MOQ',val:'500 sets'},
+   ],
+   color:0xA8BFB4,geo:'vacbag',moq:'500 sets'},
+
+  {id:5,code:'XD-CL-001',cat:'cleaning',hot:false,
+   name:{zh:'喷水平拖系统',en:'Microfibre Spray Mop System',ar:'نظام ممسحة بالرش',ru:'Система шваберы с распылителем'},
+   certs:['CE','RoHS','REACH'],custom:['Color','Logo'],
+   desc:{
+     zh:'免桶喷水设计，内置300ml水箱，可水洗拖把垫替代100+纸巾，含2片拖把垫，支持手柄颜色及Logo定制。',
+     en:'No-bucket spray mop, integrated 300ml tank, washable pad replaces 100+ paper sheets. 2 pads included, custom handle color + logo branding available.',
+     ar:'ممسحة بالرش بدون دلو، خزان 300مل مدمج، قماشة قابلة للغسيل.',
+     ru:'Швабра с распылителем без ведра, встроенный бак 300 мл, моющаяся насадка.',
+   },
+   keySpecs:[
+     {zh:'材质',en:'Material',ar:'المادة',ru:'Материал',val:'Aluminium + PP + microfibre'},
+     {zh:'杆长',en:'Pole',ar:'العصا',ru:'Штанга',val:'80–130cm telescoping'},
+     {zh:'拖头',en:'Head',ar:'الرأس',ru:'Голова',val:'360° swivel 42cm'},
+     {zh:'起订量',en:'MOQ',ar:'الحد الأدنى',ru:'MOQ',val:'300 sets'},
+   ],
+   fullSpecs:[
+     {zh:'材质',en:'Material',val:'Aluminium pole + PP head + microfibre pad'},
+     {zh:'杆长',en:'Pole',val:'80–130cm push-button telescoping'},
+     {zh:'拖头',en:'Head',val:'360° swivel, 42cm wide'},
+     {zh:'拖布',en:'Pad',val:'280gsm microfibre, 500x machine washable'},
+     {zh:'水箱',en:'Tank',val:'300ml integrated spray bottle'},
+     {zh:'起订量',en:'MOQ',val:'300 sets'},
+   ],
+   color:0x6B9E8C,geo:'mop',moq:'300 sets'},
+
+  {id:6,code:'XD-CL-002',cat:'cleaning',hot:false,
+   name:{zh:'玻璃清洁套装',en:'Window Cleaning Kit',ar:'طقم تنظيف النوافذ',ru:'Набор для мытья окон'},
+   certs:['CE','RoHS'],custom:['Packaging','Blade replacement'],
+   desc:{
+     zh:'二合一刮水器+清洗头，铝合金伸缩杆，可更换橡胶刮片，适用平面窗户及汽车玻璃，支持零售泡壳或批量纸箱包装。',
+     en:'2-in-1 washer + squeegee head, extending aluminium pole. Fits all flat windows + car glass. Replacement blades available, retail blister pack or bulk carton.',
+     ar:'رأس مساحة 2 في 1 + غسالة، عمود ألومنيوم قابل للتمديد.',
+     ru:'Головка 2 в 1 (скребок + мытьё), раздвижная алюминиевая штанга.',
+   },
+   keySpecs:[
+     {zh:'材质',en:'Material',ar:'المادة',ru:'Материал',val:'Aluminium + stainless + TPR'},
+     {zh:'杆长',en:'Pole',ar:'العصا',ru:'Штанга',val:'70–120cm twist-lock'},
+     {zh:'刮头',en:'Head',ar:'الرأس',ru:'Головка',val:'30cm rectangle squeegee'},
+     {zh:'起订量',en:'MOQ',ar:'الحد الأدنى',ru:'MOQ',val:'200 sets'},
+   ],
+   fullSpecs:[
+     {zh:'材质',en:'Material',val:'Aluminium + stainless + TPR squeegee'},
+     {zh:'杆长',en:'Pole',val:'70–120cm twist-lock'},
+     {zh:'刮头',en:'Head',val:'Rectangular 30cm, flip microfibre washer'},
+     {zh:'刮条',en:'Rubber',val:'Natural gum, streak-free'},
+     {zh:'起订量',en:'MOQ',val:'200 sets'},
+   ],
+   color:0x8A8E94,geo:'squeegee',moq:'200 sets'},
+
+  {id:7,code:'XD-HW-001',cat:'homewares',hot:true,
+   name:{zh:'折叠硅胶沥水篮',en:'Collapsible Silicone Colander',ar:'مصفاة سيليكون قابلة للطي',ru:'Складной силиконовый дуршлаг'},
+   certs:['LFGB','FDA','CE','RoHS'],custom:['Color','Logo','Packaging'],
+   desc:{
+     zh:'折叠至3.5cm收纳，耐温-40°C至+230°C，6色可选，MOQ 1500起定制颜色及Logo。畅销欧洲及中东市场。',
+     en:'Folds flat to 3.5cm for storage, oven-safe silicone, 6 colors available. Custom color + logo from MOQ 1500. Bestseller Europe + Middle East.',
+     ar:'تنطوي إلى 3.5سم، سيليكون مقاوم للفرن، 6 ألوان متاحة.',
+     ru:'Складывается до 3.5 см, жаростойкий силикон, 6 цветов. Цвет/лого от MOQ 1500.',
+   },
+   keySpecs:[
+     {zh:'材质',en:'Material',ar:'المادة',ru:'Материал',val:'Food-grade silicone + PP'},
+     {zh:'容量',en:'Capacity',ar:'السعة',ru:'Объём',val:'5L expanded'},
+     {zh:'折叠高',en:'Collapsed',ar:'مطوية',ru:'Сложен',val:'3.5cm flat'},
+     {zh:'起订量',en:'MOQ',ar:'الحد الأدنى',ru:'MOQ',val:'800 units'},
+   ],
+   fullSpecs:[
+     {zh:'材质',en:'Material',val:'Food-grade silicone + PP rim'},
+     {zh:'容量',en:'Capacity',val:'5L (expanded)'},
+     {zh:'折叠高',en:'Collapsed',val:'3.5cm flat'},
+     {zh:'直径',en:'Diameter',val:'Ø26cm'},
+     {zh:'耐温',en:'Temp range',val:'-40°C to +230°C'},
+     {zh:'颜色',en:'Colors',val:'6 colors available'},
+     {zh:'起订量',en:'MOQ',val:'800 units'},
+   ],
+   color:0xD4A882,geo:'colander',moq:'800 units'},
+];
+
+const CATS=[
+  {key:'kitchen',  cn:'厨房工具',str:'cat_kitchen'},
+  {key:'storage',  cn:'收纳储物',str:'cat_storage'},
+  {key:'cleaning', cn:'清洁用品',str:'cat_cleaning'},
+  {key:'homewares',cn:'家居杂货',str:'cat_homewares'},
+];
+
+/* ═══════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════ */
+let lang='zh', theme='light', filter='all', cart={}, activeP=null;
+let mRenderer=null, mFrameId=null;
+const cardCleanup=[];
+
+/* ═══════════════════════════════════════════
+   TRANSLATIONS
+═══════════════════════════════════════════ */
+const t=k=>(LANGS[lang]||LANGS.zh)[k]||k;
+function applyStrings(){
+  document.querySelectorAll('[data-str]').forEach(el=>{
+    const k=el.getAttribute('data-str');
+    el.innerHTML=t(k);
+  });
+}
+function setLang(l){
+  lang=l;
+  document.documentElement.setAttribute('data-lang',l);
+  document.documentElement.setAttribute('dir',l==='ar'?'rtl':'ltr');
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.l===l));
+  applyStrings();
+  buildNav();buildCapChips();buildFilterBar();rebuildCards();
+  buildRegionBars();buildCoverStats();buildSelectOptions();renderCart();
+}
+function setTheme(th){theme=th;document.documentElement.setAttribute('data-theme',th);}
+document.getElementById('theme-btn').addEventListener('click',()=>setTheme(theme==='light'?'dark':'light'));
+document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+
+/* ── NAV ── */
+function buildNav(){
+  const links=[{k:'nav_about',href:'#about'},{k:'nav_products',href:'#products'},{k:'nav_global',href:'#global'},{k:'nav_inquiry',href:'#inquiry'},{k:'nav_contact',href:'#contact'}];
+  const h=links.map(l=>`<a href="${l.href}">${t(l.k)}</a>`).join('');
+  document.getElementById('nav-links').innerHTML=h;
+  const cur=document.documentElement.dataset.lang||'zh';
+  const langs=[{l:'zh',label:'中文'},{l:'en',label:'EN'},{l:'ar',label:'عربية'},{l:'ru',label:'РУС'}];
+  const lRow=`<div style="display:flex;gap:6px;padding:10px 0;border-bottom:1px solid var(--border)">${langs.map(({l,label})=>`<button class="lang-btn${l===cur?' active':''}" data-l="${l}" style="display:inline-flex!important">${label}</button>`).join('')}</div>`;
+  document.getElementById('nav-mobile').innerHTML=lRow+h;
+  document.getElementById('nav-mobile').querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+}
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('nav-mobile').classList.toggle('open'));
+document.getElementById('nav-mobile').addEventListener('click',e=>{if(e.target.tagName==='A')document.getElementById('nav-mobile').classList.remove('open');});
+
+/* ── COVER STATS ── */
+function buildCoverStats(){
+  document.getElementById('cover-stats').innerHTML=
+    ['cstat_staff','cstat_units','cstat_export'].map(k=>`<div class="cstat mono">${t(k)}</div>`).join('');
+}
+
+/* ── ABOUT CHIPS & CERTS ── */
+function buildCapChips(){
+  const cl=lang==='zh'?'zh':lang==='en'?'en':lang==='ar'?'ar':'ru';
+  document.getElementById('cap-chips').innerHTML=CAP_CHIPS.map(c=>`<span class="cap-chip mono">${c[cl]||c.en}</span>`).join('');
+  document.getElementById('cert-row').innerHTML=ABOUT_CERTS.map(c=>`<span class="cert-b mono">${c}<span class="cert-tip">${CERT_FULL[c]||c}</span></span>`).join('');
+}
+
+/* ═══════════════════════════════════════════
+   THREE.JS
+═══════════════════════════════════════════ */
+function makeRenderer(canvas,w,h,pr){
+  const r=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  r.setSize(w,h,false);r.setPixelRatio(pr||Math.min(window.devicePixelRatio,2));return r;
+}
+function makeLights(scene){
+  scene.add(new THREE.AmbientLight(0xFFF8F0,.65));
+  const d=new THREE.DirectionalLight(0xFFFAF2,.9);d.position.set(4,5,4);scene.add(d);
+  const w=new THREE.PointLight(0xF5D9B0,.45,20);w.position.set(-3,2,-2);scene.add(w);
+}
+function getCanvasBg(){return theme==='dark'?0x242422:0xF5F0EA;}
+
+function buildMesh(geo,color){
+  const mat=c=>new THREE.MeshPhongMaterial({color:c,shininess:80,specular:0x222222});
+  const mGlass=c=>new THREE.MeshPhongMaterial({color:c,transparent:true,opacity:.82,shininess:160});
+  let mesh;
+  switch(geo){
+    case'knifeblock':{
+      const g=new THREE.Group();
+      const block=new THREE.Mesh(new THREE.BoxGeometry(2.2,1.3,1.0),mat(color));g.add(block);
+      // 6 knife slots on top
+      for(let i=0;i<6;i++){
+        const slot=new THREE.Mesh(new THREE.BoxGeometry(.15,.5,.85),mat(0x5A3010));
+        slot.position.set(-1.1+i*.44,.78,0);g.add(slot);
+      }
+      // knife handles protruding
+      for(let i=0;i<5;i++){
+        const h=new THREE.Mesh(new THREE.CylinderGeometry(.04,.05,.6,8),mat(0x2A1A08));
+        h.position.set(-0.88+i*.44,1.15,0);h.rotation.z=.15;g.add(h);
+      }
+      mesh=g;break;
+    }
+    case'board':{
+      const g=new THREE.Group();
+      // bamboo stripes via alternating thin slabs
+      for(let i=0;i<10;i++){
+        const s=new THREE.Mesh(new THREE.BoxGeometry(.2,.12,1.4),mat(i%2===0?0xC8A060:0xB09050));
+        s.position.set(-0.9+i*.2,0,0);g.add(s);
+      }
+      // groove rim
+      const rim=new THREE.Mesh(new THREE.BoxGeometry(2.06,.14,1.42),mat(0x9A7840));
+      rim.position.y=0;g.add(rim);
+      // rubber feet
+      [[-0.85,-.07,-0.58],[0.85,-.07,-0.58],[-0.85,-.07,0.58],[0.85,-.07,0.58]].forEach(([x,y,z])=>{
+        g.add(new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.06,8),mat(0x222222)).position.set(x,y,z)&&new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.06,8),mat(0x222222)));
+        const f=new THREE.Mesh(new THREE.CylinderGeometry(.07,.07,.05,8),mat(0x111111));
+        f.position.set(x,y,z);g.add(f);
+      });
+      mesh=g;break;
+    }
+    case'spicerack':{
+      const g=new THREE.Group();
+      const base=new THREE.Mesh(new THREE.CylinderGeometry(.92,.92,.08,32),mat(0xC0C0C0));
+      base.position.y=-.55;g.add(base);
+      const pole=new THREE.Mesh(new THREE.CylinderGeometry(.03,.03,.8,8),mat(0xA0A0A0));
+      g.add(pole);
+      // 12 jars in ring
+      for(let i=0;i<12;i++){
+        const a=(i/12)*Math.PI*2;
+        const jar=new THREE.Mesh(new THREE.CylinderGeometry(.1,.1,.35,10),mGlass(0xE8F0E8));
+        jar.position.set(Math.cos(a)*.65,-.15,Math.sin(a)*.65);g.add(jar);
+        const lid=new THREE.Mesh(new THREE.CylinderGeometry(.1,.1,.05,10),mat(0xD0D0D0));
+        lid.position.set(Math.cos(a)*.65,.05,Math.sin(a)*.65);g.add(lid);
+      }
+      mesh=g;break;
+    }
+    case'bin':{
+      const g=new THREE.Group();
+      const body=new THREE.Mesh(new THREE.BoxGeometry(1.8,1.3,1.1),mat(color));g.add(body);
+      // ventilation slots
+      for(let i=0;i<3;i++){
+        const s=new THREE.Mesh(new THREE.BoxGeometry(1.82,.06,.25),mat(0x4A8A80));
+        s.position.set(0,.2-i*.28,0);g.add(s);
+      }
+      const lid=new THREE.Mesh(new THREE.BoxGeometry(1.82,.09,1.12),mat(0x6AAEA0));
+      lid.position.y=.7;g.add(lid);
+      mesh=g;break;
+    }
+    case'vacbag':{
+      const g=new THREE.Group();
+      const bag=new THREE.Mesh(new THREE.BoxGeometry(2.0,1.3,.18),mGlass(0xC8E0D0));
+      g.add(bag);
+      // valve disc
+      const valve=new THREE.Mesh(new THREE.CylinderGeometry(.12,.12,.04,12),mat(0x888888));
+      valve.position.set(0,.35,.1);g.add(valve);
+      // zip edges
+      const zip1=new THREE.Mesh(new THREE.BoxGeometry(2.0,.06,.2),mat(0xAAB8B0));
+      zip1.position.y=.64;g.add(zip1);
+      const zip2=zip1.clone();zip2.position.y=-.64;g.add(zip2);
+      mesh=g;break;
+    }
+    case'mop':{
+      const g=new THREE.Group();
+      const pole=new THREE.Mesh(new THREE.CylinderGeometry(.04,.04,2.5,8),mat(0xA8ACAE));
+      pole.position.y=.4;g.add(pole);
+      // spray nozzle
+      const nozzle=new THREE.Mesh(new THREE.BoxGeometry(.12,.12,.2),mat(0xD0D0D0));
+      nozzle.position.set(.1,.6,.12);g.add(nozzle);
+      // connector
+      const conn=new THREE.Mesh(new THREE.BoxGeometry(.22,.16,.18),mat(0x606868));
+      conn.position.y=-.9;g.add(conn);
+      // mop head
+      const head=new THREE.Mesh(new THREE.BoxGeometry(1.05,.08,.5),mat(0x505858));
+      head.position.y=-1.05;g.add(head);
+      // microfibre pad
+      const pad=new THREE.Mesh(new THREE.BoxGeometry(1.1,.1,.52),mat(color));
+      pad.position.y=-1.16;g.add(pad);
+      mesh=g;break;
+    }
+    case'squeegee':{
+      const g=new THREE.Group();
+      const pole=new THREE.Mesh(new THREE.CylinderGeometry(.04,.04,2.1,8),mat(0xA8ACAE));
+      pole.position.y=.2;g.add(pole);
+      // squeegee head
+      const head=new THREE.Mesh(new THREE.BoxGeometry(1.1,.14,.1),mat(0x707070));
+      head.position.set(0,-.82,.0);g.add(head);
+      // rubber blade
+      const blade=new THREE.Mesh(new THREE.BoxGeometry(1.12,.05,.03),mat(0x111111));
+      blade.position.set(0,-.9,.05);g.add(blade);
+      // flip washer side
+      const washer=new THREE.Mesh(new THREE.BoxGeometry(1.1,.04,.28),mat(color));
+      washer.position.set(0,-.83,-.18);g.add(washer);
+      mesh=g;break;
+    }
+    case'colander':{
+      const g=new THREE.Group();
+      const bowl=new THREE.Mesh(new THREE.SphereGeometry(.9,32,16,0,Math.PI*2,0,Math.PI/2),
+        new THREE.MeshPhongMaterial({color,shininess:60,side:THREE.DoubleSide}));
+      bowl.rotation.x=Math.PI;bowl.position.y=.12;
+      bowl._isColanderBody=true;
+      g.add(bowl);
+      const rim=new THREE.Mesh(new THREE.TorusGeometry(.9,.04,8,32),mat(color));
+      rim.position.y=.12;g.add(rim);
+      // perforations — small discs
+      for(let r=0;r<3;r++)for(let c=0;c<8;c++){
+        const a=(c/8)*Math.PI*2;const rv=.3+r*.28;
+        const hole=new THREE.Mesh(new THREE.CircleGeometry(.055,8),mat(0x333322));
+        hole.position.set(Math.cos(a)*rv,-.25+r*.05,Math.sin(a)*rv);
+        hole.rotation.x=Math.PI/2;g.add(hole);
+      }
+      // handles
+      const h1=new THREE.Mesh(new THREE.BoxGeometry(.5,.08,.12),mat(color));
+      h1.position.set(-1.08,.12,0);g.add(h1);
+      const h2=h1.clone();h2.position.set(1.08,.12,0);g.add(h2);
+      mesh=g;break;
+    }
+    default:mesh=new THREE.Mesh(new THREE.BoxGeometry(1,1,1),mat(color||0x888888));
+  }
+  return mesh;
+}
+
+/* ── colander color cycle ── */
+function startColanderCycle(mesh){
+  const body=mesh.children?.find(c=>c._isColanderBody);
+  if(!body)return null;
+  const rim=mesh.children[1];
+  const colors=[0xE85A5A,0x5AB0E8,0x5AE87A,0xE8C85A,0xE85ACA,0xA05AE8];
+  let i=0;
+  return setInterval(()=>{
+    i=(i+1)%colors.length;
+    body.material.color.setHex(colors[i]);
+    if(rim)rim.material.color.setHex(colors[i]);
+  },1800);
+}
+
+function setupCard(canvas,product){
+  const w=canvas.clientWidth||240,h=canvas.clientHeight||190;
+  const renderer=makeRenderer(canvas,w,h,1);
+  const scene=new THREE.Scene();
+  scene.background=new THREE.Color(getCanvasBg());
+  makeLights(scene);
+  const mesh=buildMesh(product.geo,product.color);
+  scene.add(mesh);
+  const cam=new THREE.PerspectiveCamera(42,w/h,0.1,100);
+  cam.position.set(0,1.4,4.2);cam.lookAt(0,0,0);
+  let frameId,rotating=true,dragging=false,lastX=0;
+  const wrap=canvas.parentElement;
+  wrap.addEventListener('mouseenter',()=>rotating=false);
+  wrap.addEventListener('mouseleave',()=>rotating=true);
+  canvas.addEventListener('mousedown',e=>{dragging=true;lastX=e.clientX;});
+  canvas.addEventListener('mousemove',e=>{if(dragging)mesh.rotation.y+=(e.clientX-lastX)*.012,lastX=e.clientX;});
+  canvas.addEventListener('mouseup',()=>dragging=false);
+  canvas.addEventListener('touchstart',e=>{lastX=e.touches[0].clientX;},{passive:true});
+  canvas.addEventListener('touchmove',e=>{mesh.rotation.y+=(e.touches[0].clientX-lastX)*.012;lastX=e.touches[0].clientX;},{passive:true});
+  let cycleTimer=null;
+  if(product.geo==='colander')cycleTimer=startColanderCycle(mesh);
+  const animate=()=>{frameId=requestAnimationFrame(animate);if(rotating&&!dragging)mesh.rotation.y+=.01;renderer.render(scene,cam);};
+  animate();
+  cardCleanup.push(()=>{cancelAnimationFrame(frameId);renderer.dispose();if(cycleTimer)clearInterval(cycleTimer);});
+}
+
+function setupModalCanvas(wrap,product){
+  if(mFrameId){cancelAnimationFrame(mFrameId);mFrameId=null;}
+  if(mRenderer){mRenderer.dispose();mRenderer=null;}
+  wrap.innerHTML='';
+  const canvas=document.createElement('canvas');
+  wrap.appendChild(canvas);
+  const w=wrap.clientWidth||300,h=w;
+  mRenderer=makeRenderer(canvas,w,h,Math.min(window.devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  scene.background=new THREE.Color(getCanvasBg());
+  makeLights(scene);
+  const mesh=buildMesh(product.geo,product.color);
+  scene.add(mesh);
+  const cam=new THREE.PerspectiveCamera(42,1,0.1,100);
+  cam.position.set(0,1.4,4.2);cam.lookAt(0,0,0);
+  let dragging=false,lastX=0;
+  canvas.style.cursor='grab';
+  canvas.addEventListener('mousedown',e=>{dragging=true;lastX=e.clientX;canvas.style.cursor='grabbing';});
+  canvas.addEventListener('mousemove',e=>{if(dragging)mesh.rotation.y+=(e.clientX-lastX)*.01,lastX=e.clientX;});
+  canvas.addEventListener('mouseup',()=>{dragging=false;canvas.style.cursor='grab';});
+  canvas.addEventListener('touchstart',e=>{lastX=e.touches[0].clientX;},{passive:true});
+  canvas.addEventListener('touchmove',e=>{mesh.rotation.y+=(e.touches[0].clientX-lastX)*.01;lastX=e.touches[0].clientX;},{passive:true});
+  let cycleTimer=null;
+  if(product.geo==='colander')cycleTimer=startColanderCycle(mesh);
+  const animate=()=>{mFrameId=requestAnimationFrame(animate);if(!dragging)mesh.rotation.y+=.008;mRenderer.render(scene,cam);};
+  animate();
+}
+
+/* ═══════════════════════════════════════════
+   FILTER & CARDS
+═══════════════════════════════════════════ */
+function buildFilterBar(){
+  const bar=document.getElementById('filter-bar');
+  const all=`<button class="fbtn${filter==='all'?' active':''}" data-cat="all">${t('cat_all')}</button>`;
+  const cats=CATS.map(c=>`<button class="fbtn${filter===c.key?' active':''}" data-cat="${c.key}">${t(c.str)}</button>`).join('');
+  bar.innerHTML=all+cats;
+  bar.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.cat;buildFilterBar();filterGrid();}));
+}
+function filterGrid(){
+  document.querySelectorAll('.pcard').forEach(c=>{
+    c.classList.toggle('hidden',filter!=='all'&&c.dataset.cat!==filter);
+  });
+}
+function make2dIllustration(p){
+  const geo=p.geo||'';const c='#C4A882';const cl='#E5DDD0';const cd='#8A6845';const bg='none';
+  const illus={
+    knifeblock:`<svg viewBox="0 0 140 120" fill="${bg}" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="52" width="80" height="52" rx="3" fill="${cl}" stroke="${c}" stroke-width="1.5"/>
+      <rect x="38" y="44" width="8" height="40" rx="2" fill="${c}" opacity=".7"/>
+      <rect x="52" y="38" width="8" height="46" rx="2" fill="${c}" opacity=".8"/>
+      <rect x="66" y="42" width="8" height="42" rx="2" fill="${c}" opacity=".75"/>
+      <rect x="80" y="36" width="8" height="48" rx="2" fill="${c}"/>
+      <rect x="94" y="44" width="8" height="40" rx="2" fill="${c}" opacity=".7"/>
+      <line x1="30" y1="66" x2="110" y2="66" stroke="${cd}" stroke-width=".8" opacity=".4"/>
+    </svg>`,
+    board:`<svg viewBox="0 0 140 120" fill="${bg}" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="38" width="100" height="56" rx="4" fill="${cl}" stroke="${c}" stroke-width="1.5"/>
+      ${Array.from({length:8},(_,i)=>`<line x1="${28+i*11}" y1="38" x2="${28+i*11}" y2="94" stroke="${c}" stroke-width=".6" opacity=".45"/>`).join('')}
+      <rect x="20" y="38" width="100" height="8" rx="4" fill="${c}" opacity=".25"/>
+      <rect x="52" y="96" width="36" height="6" rx="3" fill="${cd}" opacity=".6"/>
+    </svg>`,
+    spicerack:`<svg viewBox="0 0 140 120" fill="${bg}" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="70" cy="96" rx="44" ry="8" fill="${cl}" stroke="${c}" stroke-width="1.2"/>
+      ${[0,1,2,3,4,5,6,7,8,9,10,11].map(i=>{const a=i/12*Math.PI*2;const r=32;const x=70+r*Math.sin(a);const y=88-r*.35*Math.cos(a);return `<rect x="${x-6}" y="${y-26}" width="12" height="26" rx="6" fill="${cl}" stroke="${c}" stroke-width="1" opacity=".9"/>`;}).join('')}
+      <ellipse cx="70" cy="88" rx="12" ry="4" fill="${c}" opacity=".3"/>
+    </svg>`,
+    bin:`<svg viewBox="0 0 140 120" fill="${bg}" xmlns="http://www.w3.org/2000/svg">
+      <path d="M28 45 Q28 38 35 38 L105 38 Q112 38 112 45 L112 100 Q112 107 105 107 L35 107 Q28 107 28 100 Z" fill="${cl}" stroke="${c}" stroke-width="1.5"/>
+      <rect x="50" y="26" width="40" height="14" rx="3" fill="${c}" opacity=".5"/>
+      <rect x="60" y="20" width="20" height="10" rx="5" fill="${cd}" opacity=".7"/>
+      <line x1="28" y1="60" x2="112" y2="60" stroke="${c}" stroke-width=".8" opacity=".4"/>
+      <line x1="28" y1="80" x2="112" y2="80" stroke="${c}" stroke-width=".8" opacity=".4"/>
+    </svg>`,
+    vacbag:`<svg viewBox="0 0 140 120" fill="${bg}" xmlns="http://www.w3.org/2000/svg">
+      <rect x="22" y="34" width="96" height="66" rx="6" fill="${cl}" stroke="${c}" stroke-width="1.5"/>
+      <rect x="22" y="34" width="96" height="14" rx="6" fill="${c}" opacity=".35"/>
+      <rect x="48" y="28" width="44" height="10" rx="3" fill="${c}" opacity=".5"/>
+      <circle cx="70" cy="78" r="16" fill="${bg}" stroke="${c}" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <path d="M62 78 L68 84 L80 71" stroke="${cd}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+    mop:`<svg viewBox="0 0 140 120" fill="${bg}" xmlns="http://www.w3.org/2000/svg">
+      <rect x="66" y="10" width="8" height="80" rx="4" fill="${c}" opacity=".7"/>
+      <rect x="30" y="86" width="80" height="24" rx="12" fill="${cl}" stroke="${c}" stroke-width="1.5"/>
+      ${Array.from({length:7},(_,i)=>`<line x1="${36+i*12}" y1="86" x2="${36+i*12}" y2="110" stroke="${c}" stroke-width="1.2" opacity=".5"/>`).join('')}
+      <circle cx="70" cy="28" r="6" fill="${c}" opacity=".5"/>
+    </svg>`,
+    squeegee:`<svg viewBox="0 0 140 120" fill="${bg}" xmlns="http://www.w3.org/2000/svg">
+      <rect x="26" y="46" width="88" height="14" rx="4" fill="${cl}" stroke="${c}" stroke-width="1.5"/>
+      <rect x="26" y="58" width="88" height="8" rx="2" fill="${cd}" opacity=".5"/>
+      <rect x="62" y="20" width="16" height="28" rx="4" fill="${c}" opacity=".6"/>
+      <rect x="58" y="44" width="24" height="4" rx="2" fill="${c}" opacity=".8"/>
+    </svg>`,
+    colander:`<svg viewBox="0 0 140 120" fill="${bg}" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 52 Q22 44 30 44 L110 44 Q118 44 118 52 L108 98 Q106 106 98 106 L42 106 Q34 106 32 98 Z" fill="${cl}" stroke="${c}" stroke-width="1.5"/>
+      ${Array.from({length:5},(_,i)=>Array.from({length:4},(_,j)=>`<circle cx="${42+i*14}" cy="${58+j*10}" r="2.5" fill="${cd}" opacity=".55"/>`).join('')).join('')}
+      <rect x="8" y="46" width="22" height="8" rx="4" fill="${c}" opacity=".6"/>
+      <rect x="110" y="46" width="22" height="8" rx="4" fill="${c}" opacity=".6"/>
+    </svg>`,
+  };
+  return illus[geo]||`<svg viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="30" y="30" width="80" height="60" rx="4" fill="${cl}" stroke="${c}" stroke-width="1.5"/>
+    <line x1="30" y1="55" x2="110" y2="55" stroke="${c}" stroke-width=".8" opacity=".4"/>
+  </svg>`;
+}
+function toggleCardView(id){
+  const media=document.querySelector(`#cc-${id}`)?.closest('.pcard-media');
+  if(!media)return;
+  const is3d=media.dataset.view==='3d';
+  media.dataset.view=is3d?'2d':'3d';
+  media.querySelector('.pcard-canvas').classList.toggle('active',!is3d);
+  media.querySelector('.view-toggle').textContent=is3d?'3D ↻':'2D ◻';
+}
+function renderCard(p,i){
+  const cat=CATS.find(c=>c.key===p.cat);
+  const div=document.createElement('div');
+  div.className='pcard fade-up';div.dataset.cat=p.cat;div.style.transitionDelay=`${i*55}ms`;
+  const hotHtml=p.hot?`<div class="hot-tag mono">${t('hot_label')}</div>`:'';
+  const specs=p.keySpecs.map(s=>`<div class="srow"><span class="sk mono">${s[lang==='zh'?'zh':'en']||s.en}</span><span class="sv mono">${s.val}</span></div>`).join('');
+  div.innerHTML=`
+    <div class="pcard-media" data-view="2d">
+      <div class="pcard-2d">${make2dIllustration(p)}</div>
+      <div class="pcard-canvas" id="cc-${p.id}"></div>
+      <button class="view-toggle mono" onclick="toggleCardView(${p.id})">3D ↻</button>
+    </div>
+    <div class="pcard-body">
+      <div class="pcard-meta">
+        <span class="pcard-code mono">${p.code}</span>
+        <span class="pcard-cattag mono">${t(cat?.str||p.cat)}</span>
+      </div>
+      ${hotHtml}
+      <div class="pcard-cn serif">${p.name[lang]||p.name.en}</div>
+      <div class="pcard-en sans">${p.name.en}</div>
+      <div class="pcard-specs">${specs}</div>
+      <div class="pcard-btns">
+        <button class="btn btn-outline" onclick="openModal(${p.id})">${t('card_details')}</button>
+        <button class="btn btn-gold" id="add-${p.id}" onclick="addToCart(${p.id})">${cart[p.id]?t('card_added'):t('card_inquiry')}</button>
+      </div>
+    </div>`;
+  return div;
+}
+function rebuildCards(){
+  const grid=document.getElementById('pgrid');
+  grid.innerHTML='';
+  cardCleanup.forEach(fn=>fn());cardCleanup.length=0;
+  PRODUCTS.forEach((p,i)=>{grid.appendChild(renderCard(p,i));});
+  requestAnimationFrame(()=>{
+    PRODUCTS.forEach(p=>{
+      const wrap=document.getElementById(`cc-${p.id}`);
+      if(wrap){const canvas=document.createElement('canvas');wrap.appendChild(canvas);setupCard(canvas,p);}
+    });
+    filterGrid();observeFadeUps();
+  });
+}
+
+/* ═══════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════ */
+function openModal(id){
+  const p=PRODUCTS.find(x=>x.id===id);if(!p)return;
+  activeP=id;
+  const cat=CATS.find(c=>c.key===p.cat);
+  document.getElementById('m-code').textContent=p.code;
+  document.getElementById('m-cat').textContent=t(cat?.str||p.cat);
+  document.getElementById('m-cn').textContent=p.name[lang]||p.name.en;
+  document.getElementById('m-en').textContent=p.name.en;
+  document.getElementById('m-moq').textContent=p.moq;
+  document.getElementById('m-desc-cn').textContent=p.desc.zh;
+  document.getElementById('m-desc-en').textContent=p.desc.en;
+  document.getElementById('m-specs').innerHTML=p.fullSpecs.map(s=>
+    `<tr><td>${s[lang==='zh'?'zh':'en']||s.en}</td><td>${s.val}</td></tr>`).join('');
+  document.getElementById('m-certs').innerHTML=p.certs.map(c=>`<span class="cert-b mono">${c}<span class="cert-tip">${CERT_FULL[c]||c}</span></span>`).join('');
+  const custom=p.custom||[];
+  document.getElementById('m-custom').innerHTML=custom.length?`<strong>${t('m_custom_lbl')}</strong> ${custom.join(' · ')}`:'';
+  const addBtn=document.getElementById('m-add');
+  addBtn.innerHTML=`<span>${cart[id]?t('m_added'):t('m_add')}</span>`;
+  const m2d=document.getElementById('m-2d');
+  if(m2d)m2d.innerHTML=make2dIllustration(p);
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setupModalCanvas(document.getElementById('m-3d'),p);
+}
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+  if(mFrameId){cancelAnimationFrame(mFrameId);mFrameId=null;}
+  if(mRenderer){mRenderer.dispose();mRenderer=null;}
+}
+document.getElementById('modal-x').addEventListener('click',closeModal);
+document.getElementById('modal-overlay').addEventListener('click',e=>{if(e.target.id==='modal-overlay')closeModal();});
+document.getElementById('m-prev').addEventListener('click',()=>{
+  const ids=PRODUCTS.map(p=>p.id);openModal(ids[(ids.indexOf(activeP)-1+ids.length)%ids.length]);
+});
+document.getElementById('m-next').addEventListener('click',()=>{
+  const ids=PRODUCTS.map(p=>p.id);openModal(ids[(ids.indexOf(activeP)+1)%ids.length]);
+});
+
+/* ═══════════════════════════════════════════
+   CART
+═══════════════════════════════════════════ */
+function addToCart(id){
+  if(cart[id])return;
+  cart[id]=1;updateCartPill();renderCart();
+  const b=document.getElementById(`add-${id}`);if(b)b.textContent=t('card_added');
+  const mb=document.getElementById('m-add');if(mb&&activeP===id)mb.innerHTML=`<span>${t('m_added')}</span>`;
+}
+function removeFromCart(id){
+  delete cart[id];updateCartPill();renderCart();
+  const b=document.getElementById(`add-${id}`);if(b)b.textContent=t('card_inquiry');
+}
+function updateCartPill(){
+  const n=Object.keys(cart).length;
+  document.getElementById('cart-dot').textContent=n;
+  document.getElementById('cart-pill-txt').textContent=t('cart_pill')||'询价单';
+  document.getElementById('cart-pill').classList.toggle('show',n>0);
+}
+function renderCart(){
+  const el=document.getElementById('cart-content');
+  const keys=Object.keys(cart);
+  if(!keys.length){el.innerHTML=`<div class="cart-empty mono">${lang==='zh'?'暂无选品 · Add from catalogue':lang==='ar'?'لم يتم اختيار منتجات':'Нет товаров'||'No products selected'}</div>`;return;}
+  el.innerHTML=`<table class="cart-tbl">
+    <thead><tr><th>SKU</th><th>${lang==='zh'?'产品':'Product'}</th><th>QTY</th><th></th></tr></thead>
+    <tbody>${keys.map(id=>{
+      const p=PRODUCTS.find(x=>x.id==id);if(!p)return'';
+      return`<tr><td><span class="ccode mono">${p.code}</span></td><td><span class="ccn serif">${p.name[lang]||p.name.en}</span></td>
+      <td><input class="cqty mono" type="number" min="1" value="${cart[id]}" onchange="cart[${id}]=+this.value"/></td>
+      <td><button class="crm" onclick="removeFromCart(${id})">✕</button></td></tr>`;
+    }).join('')}</tbody>
+  </table>
+  <div class="cart-total-row mono">${lang==='zh'?'共':'Total'} <strong>${keys.length} SKU${keys.length>1?'s':''}</strong></div>`;
+}
+function scrollToInquiry(){document.getElementById('inquiry').scrollIntoView({behavior:'smooth'});}
+
+/* ── FORM SELECTS ── */
+function buildSelectOptions(){
+  const mkt=t('mkt_opts')||[];const app=t('app_opts')||[];
+  document.getElementById('sel-market').innerHTML=mkt.map(o=>`<option>${o}</option>`).join('');
+  document.getElementById('sel-app').innerHTML=app.map(o=>`<option>${o}</option>`).join('');
+}
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('form-container').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+
+/* ═══════════════════════════════════════════
+   WORLD MAP
+═══════════════════════════════════════════ */
+function buildWorldMap(){
+  const svg=document.getElementById('world-svg');
+  const bgC=theme==='dark'?'#1C1C1A':'#2A2826';
+  const land=theme==='dark'?'#2A2826':'#3A3632';
+  const stroke=theme==='dark'?'#383430':'#48443E';
+  const lands=["M80,108 L88,88 L112,84 L142,78 L172,84 L188,100 L196,124 L192,148 L180,168 L162,172 L144,182 L132,196 L118,198 L104,188 L94,174 L80,158 L70,136 Z","M178,200 L200,195 L222,204 L232,224 L235,252 L228,282 L218,310 L200,330 L178,324 L163,302 L158,276 L165,254 L172,228 Z","M428,106 L456,98 L476,106 L497,100 L514,109 L524,122 L516,136 L498,142 L486,152 L466,150 L450,146 L436,142 L426,126 Z","M448,162 L476,158 L502,164 L518,180 L522,210 L516,246 L508,276 L494,302 L472,314 L452,308 L436,288 L430,262 L428,232 L434,202 L440,182 Z","M512,78 L584,68 L672,63 L754,70 L812,80 L842,100 L828,122 L798,128 L758,124 L718,130 L676,120 L638,126 L598,116 L558,124 L528,118 L514,103 Z","M528,148 L566,146 L592,155 L607,172 L600,192 L574,197 L548,192 L532,180 L526,164 Z","M618,153 L662,148 L693,158 L702,180 L696,206 L674,216 L648,210 L628,194 L616,173 Z","M700,173 L742,168 L778,176 L792,195 L782,216 L754,222 L728,216 L706,198 Z","M678,112 L732,106 L772,110 L803,124 L807,146 L792,163 L760,168 L728,162 L698,152 L682,138 Z","M738,292 L793,282 L832,294 L852,320 L846,352 L820,370 L784,372 L753,355 L732,324 L734,303 Z","M788,126 L808,126 L820,138 L816,153 L800,156 L786,148 Z","M443,87 L462,83 L474,90 L476,103 L464,108 L450,105 Z"];
+  const bgRect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+  bgRect.setAttribute('width','1000');bgRect.setAttribute('height','500');bgRect.setAttribute('fill',bgC);bgRect.setAttribute('rx','8');
+  svg.innerHTML='';svg.appendChild(bgRect);
+  lands.forEach(d=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('d',d);p.setAttribute('fill',land);p.setAttribute('stroke',stroke);p.setAttribute('stroke-width','1');
+    svg.appendChild(p);
+  });
+  // Ningbo origin ~778, 152
+  const origin={x:778,y:152};
+  const or=document.createElementNS('http://www.w3.org/2000/svg','circle');
+  or.setAttribute('cx',origin.x);or.setAttribute('cy',origin.y);or.setAttribute('r','6');
+  or.setAttribute('fill','#C4A882');or.setAttribute('stroke','#FAF7F2');or.setAttribute('stroke-width','2');
+  svg.appendChild(or);
+  REGIONS.forEach((r,i)=>{
+    const [dx,dy]=r.dot;
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',origin.x);line.setAttribute('y1',origin.y);
+    line.setAttribute('x2',dx);line.setAttribute('y2',dy);
+    line.setAttribute('stroke','#C4A882');line.setAttribute('stroke-width','1.5');
+    line.setAttribute('stroke-dasharray','5,5');line.setAttribute('opacity','.5');
+    svg.appendChild(line);
+    const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    dot.setAttribute('cx',dx);dot.setAttribute('cy',dy);dot.setAttribute('r','5');
+    dot.setAttribute('fill','#C4A882');dot.setAttribute('stroke','#FAF7F2');dot.setAttribute('stroke-width','1.5');
+    dot.setAttribute('class','map-dot');dot.style.animationDelay=`${i*.5}s`;
+    svg.appendChild(dot);
+  });
+}
+function buildRegionBars(){
+  const el=document.getElementById('region-bars');
+  el.innerHTML=REGIONS.map(r=>`
+    <div class="region-item">
+      <div class="rh">
+        <div><span class="rcn serif">${t(r.cn)}</span><span class="ren mono">${t(r.cn+'_en')}</span></div>
+        <span class="rpct mono">${r.pct}%</span>
+      </div>
+      <div class="rcities mono">${t(r.cn+'_c')}</div>
+      <div class="bar-bg"><div class="bar-fill" data-pct="${r.pct}"></div></div>
+    </div>`).join('');
+}
+
+/* ═══════════════════════════════════════════
+   OBSERVERS & INIT
+═══════════════════════════════════════════ */
+function observeFadeUps(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+  },{threshold:.1});
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+}
+const barIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.bar-fill').forEach(b=>{b.style.width=b.dataset.pct+'%';});
+      barIO.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+
+function openQR(){document.getElementById('qr-overlay').classList.add('open');}
+function closeQR(){document.getElementById('qr-overlay').classList.remove('open');}
+document.getElementById('qr-overlay').addEventListener('click',e=>{if(e.target.id==='qr-overlay')closeQR();});
+
+function init(){
+  buildNav();buildCoverStats();buildCapChips();buildFilterBar();
+  rebuildCards();buildWorldMap();buildRegionBars();buildSelectOptions();applyStrings();
+  barIO.observe(document.getElementById('global'));
+  setTimeout(()=>document.querySelector('#cover .fade-up')?.classList.add('visible'),100);
+  observeFadeUps();renderCart();
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>

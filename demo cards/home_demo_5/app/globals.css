@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bone: #F9F8F4;
+  --charcoal: #1A1A1A;
+  --stone: #8C8476;
+}
+
+@layer base {
+  body {
+    background-color: var(--bone);
+    color: var(--charcoal);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
