@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Premium B2B fashion lifestyle digital showroom for global buyers. Pet products, personal products, household textiles, personal textiles and more.">
+<title>LIFESTYLE ATLAS — 时尚生活数字展厅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+img{max-width:100%;display:block}
+button{cursor:pointer;font-family:inherit}
+a{text-decoration:none;color:inherit}
+:root{
+  --bg:#F7F3EC;--bg2:#EDE6D9;--bg3:#F2EDE3;--surface:#FFFDF9;
+  --text:#1F1A16;--text2:#5C4D3C;--muted:rgba(31,26,22,.45);
+  --accent:#8C6730;--accent2:#A67D3D;--gold:#C6A66B;--gold2:#D4B878;
+  --border:#D9CEBD;--border2:rgba(140,103,48,.22);
+  --shadow:rgba(31,26,22,.07);--shadow2:rgba(31,26,22,.14);
+  --r:16px;--r2:12px;--r3:8px
+}
+/* ── Dark mode ── */
+body.dark{
+  --bg:#1C1814;--bg2:#231F1A;--bg3:#1F1C18;--surface:#272318;
+  --text:#F2EDE4;--text2:#C4B5A0;--muted:rgba(242,237,228,.4);
+  --border:#3C3228;--border2:rgba(198,166,107,.28);
+  --shadow:rgba(0,0,0,.35);--shadow2:rgba(0,0,0,.58)
+}
+body.dark #nav{background:rgba(28,24,20,.94)}
+body.dark #hero{background:linear-gradient(150deg,#1C1814 0%,#231F1A 55%,#2A2218 100%)}
+body.dark .hero-pill{background:rgba(35,31,26,.75)}
+body.dark .hero-stats{background:rgba(35,31,26,.75)}
+body.dark .h3o{background:rgba(35,31,26,.65);border-color:rgba(60,50,40,.8)}
+body.dark #showroom{background:linear-gradient(180deg,#1A1714 0%,#231F1A 100%)}
+body.dark .sr3d{background:linear-gradient(135deg,#231F1A 0%,#1A1714 100%)}
+body.dark footer{background:#0F0D0B}
+body.dark .inq-form{background:#231F1A}
+body.dark .fg input,body.dark .fg select,body.dark .fg textarea{background:#1C1814;color:var(--text)}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:'Inter','Noto Sans SC',sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden}
+
+/* ── Shared ── */
+.eyebrow{font-size:clamp(.62rem,.85vw,.75rem);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);display:block;margin-bottom:14px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:var(--text)}
+.section-title-cn{font-family:'Noto Sans SC',sans-serif;font-size:clamp(1rem,1.8vw,1.5rem);font-weight:300;color:var(--accent);margin-bottom:18px;letter-spacing:.04em}
+.section-sub{font-size:clamp(.82rem,1.1vw,1rem);color:var(--text2);line-height:1.75;max-width:580px}
+.section-header{margin-bottom:clamp(36px,5vw,60px)}
+.badge{display:inline-block;padding:3px 9px;border-radius:4px;font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.badge-oem{background:rgba(140,103,48,.1);color:var(--accent)}
+.badge-best{background:rgba(198,166,107,.2);color:#7A5520}
+.badge-new{background:rgba(31,120,80,.08);color:#1D7055}
+
+/* ── Nav ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,60px);height:62px;background:rgba(247,243,236,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(217,206,189,.7);transition:box-shadow .3s}
+#nav.scrolled{box-shadow:0 2px 18px var(--shadow2)}
+.nl{display:flex;flex-direction:column;gap:1px}
+.nl-en{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.07em;color:var(--text);line-height:1}
+.nl-cn{font-size:.54rem;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+.nm{display:flex;align-items:center;gap:clamp(12px,2vw,28px)}
+.nm a{font-size:.8rem;color:var(--text2);letter-spacing:.02em;transition:color .2s}
+.nm a:hover{color:var(--accent)}
+.nr{display:flex;align-items:center;gap:8px}
+.btn-lang{font-size:.72rem;color:var(--text2);padding:5px 10px;border:1px solid var(--border);border-radius:4px;background:none;transition:all .2s}
+.btn-lang:hover{border-color:var(--accent);color:var(--accent)}
+.btn-cta{padding:8px 18px;background:var(--accent);color:#FAF8F2;font-size:.76rem;font-weight:500;letter-spacing:.06em;border:none;border-radius:6px;transition:background .2s;white-space:nowrap}
+.btn-cta:hover{background:var(--accent2)}
+/* Theme toggle */
+.theme-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--text);font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s;cursor:pointer;flex-shrink:0;padding:0}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(140,103,48,.08)}
+/* Hamburger */
+.ham-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px 4px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ham-btn span{display:block;width:22px;height:1.5px;background:var(--text);transition:.3s;transform-origin:center;border-radius:2px}
+.ham-btn.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+.ham-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham-btn.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+
+/* ── Hero ── */
+#hero{min-height:100svh;padding:100px clamp(20px,5vw,80px) 70px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(150deg,#FAF6EE 0%,#EDE6D9 55%,#E2D7C4 100%)}
+.hero-glow{position:absolute;width:70vw;height:70vw;max-width:800px;max-height:800px;border-radius:50%;background:radial-gradient(circle,rgba(198,166,107,.14) 0%,transparent 68%);top:-5%;right:-12%;pointer-events:none}
+.hero-glow2{position:absolute;width:50vw;height:50vw;max-width:600px;max-height:600px;border-radius:50%;background:radial-gradient(circle,rgba(140,103,48,.08) 0%,transparent 68%);bottom:5%;left:-8%;pointer-events:none}
+.hero-body{text-align:center;position:relative;z-index:2;max-width:900px}
+.hero-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 16px;border:1px solid var(--border2);border-radius:50px;background:rgba(255,253,249,.75);margin-bottom:26px}
+.hero-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hero-pill-t{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2)}
+.hero-en{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,6rem);font-weight:900;line-height:1.04;letter-spacing:-.03em;color:var(--text);margin-bottom:10px}
+.hero-cn{font-family:'Noto Sans SC',sans-serif;font-size:clamp(1.1rem,2.5vw,2.4rem);font-weight:300;color:var(--accent);letter-spacing:.06em;margin-bottom:24px}
+.hero-sub{font-size:clamp(.82rem,1.15vw,1rem);color:var(--text2);max-width:640px;margin:0 auto 38px;line-height:1.78}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:50px}
+.btn-prim{padding:13px 28px;background:var(--accent);color:#FAF8F2;border:none;border-radius:8px;font-size:.88rem;font-weight:500;letter-spacing:.05em;transition:all .25s;cursor:pointer}
+.btn-prim:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-out{padding:12px 26px;background:transparent;color:var(--accent);border:1.5px solid var(--accent);border-radius:8px;font-size:.88rem;font-weight:500;letter-spacing:.05em;transition:all .25s;cursor:pointer}
+.btn-out:hover{background:rgba(140,103,48,.07);transform:translateY(-1px)}
+.hero-stats{display:inline-flex;gap:clamp(18px,3.5vw,48px);flex-wrap:wrap;justify-content:center;padding:22px 34px;background:rgba(255,253,249,.75);border:1px solid var(--border);border-radius:14px;backdrop-filter:blur(8px)}
+.hst{text-align:center}
+.hst-v{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2vw,1.9rem);font-weight:700;color:var(--accent);display:block;line-height:1}
+.hst-l{font-size:.64rem;color:var(--text2);letter-spacing:.08em;margin-top:4px;display:block}
+
+/* Hero 3D floaters */
+.h3z{position:absolute;inset:0;pointer-events:none;z-index:1}
+.h3o{position:absolute;border-radius:var(--r2);overflow:hidden;background:rgba(255,253,249,.6);border:1px solid rgba(217,206,189,.8);backdrop-filter:blur(6px);box-shadow:0 8px 32px var(--shadow2)}
+.h3o canvas{display:block}
+
+/* ── Categories ── */
+#categories{padding:clamp(70px,8vw,110px) clamp(20px,5vw,80px);background:var(--surface)}
+.cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.cc{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .35s;cursor:pointer}
+.cc:hover{transform:translateY(-4px);box-shadow:0 14px 44px var(--shadow2);border-color:var(--border2)}
+.cc-img{height:165px;position:relative;overflow:hidden}
+.cc-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .55s ease}
+.cc:hover .cc-bg{transform:scale(1.06)}
+.cc-num{position:absolute;top:10px;left:10px;font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--surface);background:rgba(31,26,22,.55);padding:3px 8px;border-radius:4px}
+.cc-body{padding:16px}
+.cc-en{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.cc-cn{font-size:.72rem;color:var(--accent);margin-bottom:7px}
+.cc-desc{font-size:.7rem;color:var(--text2);line-height:1.58;margin-bottom:11px}
+.cc-lnk{font-size:.66rem;font-weight:500;color:var(--accent);display:inline-flex;align-items:center;gap:5px}
+.cc-lnk::after{content:'→'}
+
+/* ── Catalogue ── */
+#catalogue{padding:clamp(70px,8vw,110px) clamp(20px,5vw,80px);background:var(--bg)}
+.ftabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:34px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.ftab{padding:7px 14px;font-size:.73rem;font-weight:400;letter-spacing:.04em;border:1px solid var(--border);border-radius:50px;background:transparent;color:var(--text2);transition:all .2s;white-space:nowrap;cursor:pointer}
+.ftab.on{background:var(--accent);color:#FAF8F2;border-color:var(--accent)}
+.ftab:hover:not(.on){background:rgba(140,103,48,.06);border-color:var(--border2);color:var(--accent)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:18px}
+.pc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .3s}
+.pc:hover{transform:translateY(-3px);box-shadow:0 10px 36px var(--shadow2)}
+.pc-img{height:208px;position:relative;overflow:hidden;cursor:pointer}
+.pc-ib{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease,opacity .3s}
+.pc:hover .pc-ib{transform:scale(1.04)}
+.pc-img canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;cursor:grab;z-index:2}
+.pc-img canvas:active{cursor:grabbing}
+.pc-3dh{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:3;pointer-events:none;transition:opacity .25s}
+.pc-3dh::after{content:'⟳ 3D';font-family:'Playfair Display',serif;font-style:italic;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--surface);background:rgba(31,26,22,.58);border:1px solid rgba(198,166,107,.35);padding:4px 11px;border-radius:4px}
+.pc-img.is3d .pc-3dh{opacity:0}
+.pc-img.is3d .pc-ib{opacity:0}
+.pc-cls{position:absolute;top:8px;right:8px;z-index:5;background:rgba(31,26,22,.75);border:1px solid var(--border);color:var(--surface);font-size:.7rem;width:21px;height:21px;display:none;align-items:center;justify-content:center;border-radius:4px;cursor:pointer;padding:0;line-height:1}
+.pc-cls:hover{border-color:var(--gold);color:var(--gold)}
+.pc-img.is3d .pc-cls{display:flex}
+.pc-bdg{position:absolute;top:10px;left:10px;z-index:4;display:flex;flex-direction:column;gap:4px}
+.pc-body{padding:14px}
+.pc-en{font-family:'Playfair Display',serif;font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.pc-cn{font-size:.7rem;color:var(--accent);margin-bottom:5px}
+.pc-cat{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pc-mat{font-size:.7rem;color:var(--text2);margin-bottom:10px}
+.pc-acts{display:flex;gap:6px}
+.pca{flex:1;padding:7px 5px;font-size:.62rem;font-weight:400;letter-spacing:.05em;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--accent);transition:all .2s;text-align:center;cursor:pointer}
+.pca:hover{background:var(--accent);color:#FAF8F2;border-color:var(--accent)}
+.pca-p{background:var(--accent);color:#FAF8F2;border-color:var(--accent)}
+.pca-p:hover{background:var(--accent2)}
+
+/* Gradient fallbacks */
+.gi-pet{background:linear-gradient(135deg,#D4BC9A 0%,#C49A68 100%)}
+.gi-pet2{background:linear-gradient(135deg,#E2D0B4 0%,#C8A882 100%)}
+.gi-personal{background:linear-gradient(135deg,#E4C8BE 0%,#C89080 100%)}
+.gi-household{background:linear-gradient(135deg,#CBBFA0 0%,#A89270 100%)}
+.gi-tex{background:linear-gradient(135deg,#C8BCAC 0%,#A89070 100%)}
+.gi-others{background:linear-gradient(135deg,#9E8C78 0%,#7A6248 100%)}
+
+/* ── 3D Showroom ── */
+#showroom{padding:clamp(70px,8vw,110px) clamp(20px,5vw,80px);background:linear-gradient(180deg,var(--bg2) 0%,var(--surface) 100%)}
+.sr-intro{max-width:620px;margin-bottom:clamp(48px,7vw,80px)}
+.sr-items{display:flex;flex-direction:column;gap:clamp(56px,8vw,96px)}
+.sri{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,56px);align-items:center}
+.sri.rev .sr3d{order:2}
+.sr3d{aspect-ratio:1/1;border-radius:var(--r);overflow:hidden;background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);border:1px solid var(--border);position:relative}
+.sr3d canvas{display:block;width:100%!important;height:100%!important;cursor:grab}
+.sr3d canvas:active{cursor:grabbing}
+.sr3d-lbl{position:absolute;bottom:12px;left:12px;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);background:rgba(247,243,236,.9);padding:4px 9px;border-radius:4px;border:1px solid var(--border)}
+.sri-cat{margin-bottom:12px}
+.sri-en{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.2vw,2rem);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px}
+.sri-cn{font-size:clamp(.88rem,1.3vw,1.1rem);color:var(--accent);margin-bottom:16px}
+.sri-desc{font-size:.88rem;color:var(--text2);line-height:1.78;margin-bottom:20px}
+.sri-feats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.sri-feat{padding:4px 11px;font-size:.64rem;border:1px solid var(--border2);border-radius:4px;color:var(--text2);background:var(--surface)}
+.sri-img{width:100%;height:155px;border-radius:var(--r2);overflow:hidden;margin-bottom:18px}
+.sri-img-bg{width:100%;height:100%;background-size:cover;background-position:center}
+.sri-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn-sm{padding:9px 18px;border-radius:6px;font-size:.75rem;font-weight:500;letter-spacing:.05em;border:1.5px solid var(--accent);transition:all .22s;cursor:pointer}
+.btn-sm-p{background:var(--accent);color:#FAF8F2}
+.btn-sm-p:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-sm-o{background:transparent;color:var(--accent)}
+.btn-sm-o:hover{background:rgba(140,103,48,.07);transform:translateY(-1px)}
+
+/* ── OEM/ODM ── */
+#oemodm{padding:clamp(70px,8vw,110px) clamp(20px,5vw,80px);background:var(--bg)}
+.odm-wrap{display:grid;grid-template-columns:1fr 2fr;gap:clamp(36px,5vw,64px);align-items:start;margin-top:clamp(32px,4vw,52px)}
+.odm-copy{font-size:.9rem;color:var(--text2);line-height:1.78;margin-bottom:22px}
+.odm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.odmc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:22px 16px;transition:all .3s}
+.odmc:hover{border-color:var(--border2);box-shadow:0 6px 24px var(--shadow);transform:translateY(-2px)}
+.odmc-icon{width:38px;height:38px;border-radius:9px;background:rgba(140,103,48,.1);display:flex;align-items:center;justify-content:center;font-size:.95rem;margin-bottom:12px}
+.odmc-en{font-size:.86rem;font-weight:500;color:var(--text);margin-bottom:2px}
+.odmc-cn{font-size:.7rem;color:var(--accent);margin-bottom:7px}
+.odmc-desc{font-size:.7rem;color:var(--text2);line-height:1.58}
+
+/* ── Inquiry ── */
+#inquiry{padding:clamp(70px,8vw,110px) clamp(20px,5vw,80px);background:var(--bg3)}
+.inq-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(36px,5vw,64px);align-items:start;margin-top:clamp(32px,4vw,52px)}
+.inq-trust{margin-top:22px;padding:16px;background:rgba(140,103,48,.07);border:1px solid var(--border2);border-radius:10px;font-size:.8rem;color:var(--text2);line-height:1.65}
+.inq-form{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:clamp(22px,3vw,34px)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.fg label{font-size:.7rem;font-weight:500;color:var(--text2);letter-spacing:.04em}
+.fg input,.fg select,.fg textarea{padding:9px 12px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:.82rem;font-family:inherit;outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent)}
+.fg textarea{resize:vertical;min-height:92px}
+.fg select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%238C6730' d='M5 6L0 0h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.btn-submit{width:100%;padding:12px;background:var(--accent);color:#FAF8F2;font-size:.86rem;font-weight:500;letter-spacing:.08em;border:none;border-radius:8px;margin-top:4px;transition:background .2s;cursor:pointer}
+.btn-submit:hover{background:var(--accent2)}
+
+/* ── Footer ── */
+footer{background:#1F1A16;color:rgba(247,243,236,.82);padding:clamp(50px,6vw,78px) clamp(20px,5vw,80px) 26px}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(28px,4vw,52px);margin-bottom:clamp(38px,5vw,56px)}
+.fl-en{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;color:#FAF8F2;letter-spacing:.07em;margin-bottom:3px}
+.fl-cn{font-size:.56rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.fl-about{font-size:.76rem;color:rgba(247,243,236,.55);line-height:1.72}
+.fcol-t{font-size:.63rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:13px}
+.fcol-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fcol-links a{font-size:.76rem;color:rgba(247,243,236,.55);transition:color .2s}
+.fcol-links a:hover{color:#FAF8F2}
+.fb{border-top:1px solid rgba(247,243,236,.1);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fb-credit{font-size:.68rem;color:rgba(247,243,236,.38)}
+.fb-credit a{color:var(--gold2);transition:color .2s}
+.fb-credit a:hover{color:var(--gold)}
+.fb-copy{font-size:.68rem;color:rgba(247,243,236,.38)}
+
+/* ── Mobile menu ── */
+.mm-overlay{position:fixed;inset:0;z-index:290;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.mm-overlay.open{opacity:1;pointer-events:all}
+.mm{position:fixed;top:0;right:0;bottom:0;z-index:300;width:min(340px,100vw);background:var(--surface);border-left:1px solid var(--border);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.mm.open{transform:none}
+.mm-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);flex-shrink:0}
+.mm-close{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0}
+.mm-close:hover{border-color:var(--accent);color:var(--accent)}
+.mm-links{display:flex;flex-direction:column;flex:1}
+.mm-links a{padding:17px 22px;font-size:1rem;font-weight:400;color:var(--text);border-bottom:1px solid var(--border);transition:background .15s;-webkit-tap-highlight-color:transparent;display:flex;align-items:center;justify-content:space-between}
+.mm-links a::after{content:'›';color:var(--accent);font-size:1.1rem;opacity:.6}
+.mm-links a:active{background:rgba(140,103,48,.07);color:var(--accent)}
+.mm-actions{display:flex;gap:10px;padding:16px 20px;border-top:1px solid var(--border);flex-shrink:0}
+.mm-lang-btn{flex:1;padding:12px 8px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--text2);font-size:.78rem;font-family:inherit;transition:all .2s;cursor:pointer;letter-spacing:.04em;text-align:center}
+.mm-lang-btn:hover,.mm-lang-btn:active{border-color:var(--accent);color:var(--accent)}
+.mm-theme-btn{flex:1;padding:12px 8px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--text2);font-size:.78rem;font-family:inherit;transition:all .2s;cursor:pointer;letter-spacing:.04em;display:flex;align-items:center;justify-content:center;gap:6px}
+.mm-theme-btn:hover,.mm-theme-btn:active{border-color:var(--accent);color:var(--accent)}
+.mm-cta-btn{margin:0 20px 20px;padding:14px;background:var(--accent);color:#FAF8F2;font-size:.88rem;font-weight:500;letter-spacing:.06em;border:none;border-radius:8px;cursor:pointer;transition:background .2s;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.mm-cta-btn:active{background:var(--accent2)}
+/* Filter tabs scrollable on mobile */
+.ftabs{-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.ftabs::-webkit-scrollbar{display:none}
+/* ── Animations ── */
+@keyframes floatA{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+@keyframes floatB{0%,100%{transform:translateY(-5px) rotate(2deg)}50%{transform:translateY(12px) rotate(-2deg)}}
+@keyframes floatC{0%,100%{transform:translateY(0) rotate(1deg)}50%{transform:translateY(-10px) rotate(-3deg)}}
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.vis{opacity:1;transform:none}
+.fade-up.d1{transition-delay:.12s}
+.fade-up.d2{transition-delay:.22s}
+.fade-up.d3{transition-delay:.32s}
+.fade-up.d4{transition-delay:.42s}
+.fa{animation:floatA 6s ease-in-out infinite}
+.fb2{animation:floatB 7.5s ease-in-out infinite}
+.fc{animation:floatC 8.5s ease-in-out infinite}
+
+/* ── Responsive ── */
+@media(max-width:1200px){.cat-grid{grid-template-columns:repeat(3,1fr)}.odm-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1024px){.cat-grid{grid-template-columns:repeat(3,1fr)}.sri{grid-template-columns:1fr;gap:26px}.sri.rev .sr3d{order:unset}.inq-wrap{grid-template-columns:1fr}.odm-wrap{grid-template-columns:1fr}.ft{grid-template-columns:1fr 1fr;gap:26px}}
+@media(max-width:768px){
+  .nm,.btn-lang,.btn-cta{display:none}
+  .ham-btn{display:flex}
+  .h3o{display:none}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .odm-grid{grid-template-columns:1fr 1fr}
+  .fr{grid-template-columns:1fr}
+  .ftabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:14px}
+  #hero{padding:88px 20px 60px}
+  .hero-stats{padding:16px 20px;gap:16px}
+  #categories,#catalogue,#showroom,#oemodm,#inquiry{padding-left:18px;padding-right:18px}
+  .pca{padding:10px 5px;font-size:.68rem;min-height:40px}
+  .pc-img{height:190px}
+  .sr3d{aspect-ratio:auto;height:70vw;min-height:260px}
+  .btn-sm{padding:11px 16px;font-size:.82rem}
+  .btn-prim,.btn-out{padding:14px 26px;font-size:.9rem}
+}
+@media(max-width:480px){
+  .cat-grid{grid-template-columns:1fr}
+  .pgrid{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr}
+  .hero-stats{gap:12px;padding:14px 16px}
+  .hero-btns{gap:10px}
+  .btn-prim,.btn-out{flex:1}
+  .odm-grid{grid-template-columns:1fr}
+  .sr3d{height:80vw}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nl">
+    <span class="nl-en">LIFESTYLE ATLAS</span>
+    <span class="nl-cn">时尚生活数字展厅</span>
+  </div>
+  <div class="nm">
+    <a href="#hero" data-en="Home" data-cn="首页">Home</a>
+    <a href="#catalogue" data-en="Catalogue" data-cn="产品目录">Catalogue</a>
+    <a href="#showroom" data-en="3D Showroom" data-cn="3D展厅">3D Showroom</a>
+    <a href="#categories" data-en="Categories" data-cn="行业分类">Categories</a>
+    <a href="#oemodm" data-en="OEM/ODM" data-cn="OEM/ODM">OEM/ODM</a>
+    <a href="#inquiry" data-en="Contact" data-cn="联系我们">Contact</a>
+  </div>
+  <div class="nr">
+    <button class="btn-lang" id="langBtn" onclick="toggleLang()">中文</button>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle dark/light mode">☾</button>
+    <button class="btn-cta" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})" data-en="Get Sourcing Plan" data-cn="获取采购方案">Get Sourcing Plan</button>
+    <button class="ham-btn" id="hamBtn" onclick="toggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mm-overlay" id="mmOverlay" onclick="toggleMenu()"></div>
+<div class="mm" id="mobileMenu" role="dialog" aria-modal="true">
+  <div class="mm-head">
+    <div class="nl">
+      <span class="nl-en">LIFESTYLE ATLAS</span>
+      <span class="nl-cn">时尚生活数字展厅</span>
+    </div>
+    <button class="mm-close" onclick="toggleMenu()" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="mm-links">
+    <a href="#hero" onclick="toggleMenu()" data-en="Home" data-cn="首页">Home</a>
+    <a href="#catalogue" onclick="toggleMenu()" data-en="Catalogue" data-cn="产品目录">Catalogue</a>
+    <a href="#showroom" onclick="toggleMenu()" data-en="3D Showroom" data-cn="3D展厅">3D Showroom</a>
+    <a href="#categories" onclick="toggleMenu()" data-en="Categories" data-cn="行业分类">Categories</a>
+    <a href="#oemodm" onclick="toggleMenu()" data-en="OEM/ODM" data-cn="OEM/ODM">OEM/ODM</a>
+    <a href="#inquiry" onclick="toggleMenu()" data-en="Contact" data-cn="联系我们">Contact</a>
+  </nav>
+  <div class="mm-actions">
+    <button class="mm-lang-btn" id="mmLangBtn" onclick="toggleLang()">EN / 中文</button>
+    <button class="mm-theme-btn" id="mmThemeBtn" onclick="toggleTheme()">
+      <span id="mmThemeIcon">☾</span><span id="mmThemeLabel">Dark Mode</span>
+    </button>
+  </div>
+  <button class="mm-cta-btn" onclick="toggleMenu();setTimeout(()=>document.getElementById('inquiry').scrollIntoView({behavior:'smooth'}),300)" data-en="Get Sourcing Plan" data-cn="获取采购方案">Get Sourcing Plan</button>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="h3z">
+    <div class="h3o fa" style="left:4%;top:20%;width:130px;height:130px"><canvas id="hc1" width="130" height="130"></canvas></div>
+    <div class="h3o fb2" style="right:5%;top:14%;width:158px;height:158px"><canvas id="hc2" width="158" height="158"></canvas></div>
+    <div class="h3o fc" style="right:7%;bottom:21%;width:130px;height:130px"><canvas id="hc3" width="130" height="130"></canvas></div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-pill">
+      <div class="hero-pill-dot"></div>
+      <span class="hero-pill-t" data-en="Premium B2B Digital Showroom" data-cn="专业B2B数字展厅">Premium B2B Digital Showroom</span>
+    </div>
+    <h1 class="hero-en fade-up" data-en="Premium Fashion<br>Lifestyle Digital Showroom" data-cn="全球时尚生活用品<br>数字展厅">Premium Fashion<br>Lifestyle Digital Showroom</h1>
+    <p class="hero-cn fade-up d1" data-en="for Global Buyers" data-cn="时尚生活数字展厅">for Global Buyers</p>
+    <p class="hero-sub fade-up d2"
+       data-en="A premium B2B digital catalogue for pet products, personal products, household textiles, personal textiles, and related fashion lifestyle goods — with OEM/ODM customization and global bulk sourcing support."
+       data-cn="覆盖宠物用品、个人用品、家用纺织品、个人纺织品及相关时尚生活产品，支持OEM/ODM定制与全球批量采购。">A premium B2B digital catalogue for pet products, personal products, household textiles, personal textiles, and related fashion lifestyle goods — with OEM/ODM customization and global bulk sourcing support.</p>
+    <div class="hero-btns fade-up d3">
+      <button class="btn-prim" onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'})" data-en="Explore Catalogue" data-cn="浏览产品目录">Explore Catalogue</button>
+      <button class="btn-out" onclick="document.getElementById('showroom').scrollIntoView({behavior:'smooth'})" data-en="Enter 3D Showroom" data-cn="进入3D展厅">Enter 3D Showroom</button>
+    </div>
+    <div class="hero-stats fade-up d4">
+      <div class="hst"><span class="hst-v">5+</span><span class="hst-l" data-en="Product Categories" data-cn="产品大类">Product Categories</span></div>
+      <div class="hst"><span class="hst-v">300+</span><span class="hst-l" data-en="Product Types" data-cn="产品类型">Product Types</span></div>
+      <div class="hst"><span class="hst-v">OEM</span><span class="hst-l" data-en="ODM Customization" data-cn="ODM定制">ODM Customization</span></div>
+      <div class="hst"><span class="hst-v">150+</span><span class="hst-l" data-en="Countries Served" data-cn="覆盖国家">Countries Served</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="section-header fade-up">
+    <span class="eyebrow" data-en="Industry Categories" data-cn="行业分类">Industry Categories</span>
+    <h2 class="section-title" data-en="Fashion Lifestyle<br>Product Categories" data-cn="时尚生活用品品类">Fashion Lifestyle<br>Product Categories</h2>
+    <p class="section-title-cn" data-en="七、时尚生活用品" data-cn="七、时尚生活用品">七、时尚生活用品</p>
+    <p class="section-sub" data-en="Five major categories covering the full spectrum of fashion lifestyle goods for global sourcing, OEM/ODM, and private label needs." data-cn="五大品类，覆盖时尚生活用品全系列，支持全球采购、OEM/ODM与品牌定制。">Five major categories covering the full spectrum of fashion lifestyle goods for global sourcing, OEM/ODM, and private label needs.</p>
+  </div>
+  <div class="cat-grid" id="catGrid"></div>
+</section>
+
+<!-- CATALOGUE -->
+<section id="catalogue">
+  <div class="section-header fade-up">
+    <span class="eyebrow" data-en="Product Catalogue" data-cn="产品目录">Product Catalogue</span>
+    <h2 class="section-title" data-en="Full Product Collection" data-cn="完整产品系列">Full Product Collection</h2>
+    <p class="section-sub" data-en="Browse our complete fashion lifestyle catalogue. Tap any product image to view its interactive 3D model." data-cn="浏览完整时尚生活用品目录，点击产品图片可查看交互式3D模型。">Browse our complete fashion lifestyle catalogue. Tap any product image to view its interactive 3D model.</p>
+  </div>
+  <div class="ftabs" id="ftabs"></div>
+  <div class="pgrid" id="pgrid"></div>
+</section>
+
+<!-- 3D SHOWROOM -->
+<section id="showroom">
+  <div class="sr-intro fade-up">
+    <span class="eyebrow" data-en="Immersive 3D Showroom" data-cn="沉浸式3D展厅">Immersive 3D Showroom</span>
+    <h2 class="section-title" data-en="Explore Products<br>in 3D" data-cn="沉浸式3D数字展厅">Explore Products<br>in 3D</h2>
+    <p class="section-title-cn">通过可视化3D模型与产品图片同步展示，让采购商更直观地了解产品造型、材质与陈列效果。</p>
+    <p class="section-sub" data-en="Interactive 3D product models paired with premium photography — rotate, inspect, and experience each product's form, texture, and design in full detail." data-cn="交互式3D模型与产品图同步展示，直观了解产品造型、材质与细节。">Interactive 3D product models paired with premium photography — rotate, inspect, and experience each product's form, texture, and design in full detail.</p>
+  </div>
+  <div class="sr-items" id="srItems"></div>
+</section>
+
+<!-- OEM/ODM -->
+<section id="oemodm">
+  <div class="section-header fade-up">
+    <span class="eyebrow" data-en="Sourcing Services" data-cn="采购服务">Sourcing Services</span>
+    <h2 class="section-title" data-en="OEM / ODM<br>Customization Services" data-cn="OEM / ODM 定制服务">OEM / ODM<br>Customization Services</h2>
+  </div>
+  <div class="odm-wrap">
+    <div class="fade-up">
+      <p class="section-title-cn">定制服务，专为全球采购商打造</p>
+      <p class="odm-copy" data-en="We provide product development, sample-based customization, private labeling, packaging design, and bulk sourcing support for the complete range of fashion lifestyle products — from pet products to personal textiles." data-cn="我们为全球客户提供时尚生活用品的产品开发、来样定制、品牌贴牌、包装设计与批量采购支持，覆盖宠物用品至个人纺织品全品类。">We provide product development, sample-based customization, private labeling, packaging design, and bulk sourcing support for the complete range of fashion lifestyle products — from pet products to personal textiles.</p>
+      <button class="btn-sm btn-sm-p" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})" data-en="Get OEM/ODM Quote" data-cn="获取定制报价">Get OEM/ODM Quote</button>
+    </div>
+    <div class="odm-grid" id="odmGrid"></div>
+  </div>
+</section>
+
+<!-- INQUIRY -->
+<section id="inquiry">
+  <div class="section-header fade-up">
+    <span class="eyebrow" data-en="Contact Us" data-cn="联系我们">Contact Us</span>
+    <h2 class="section-title" data-en="Get Your Custom<br>Sourcing Plan" data-cn="获取专属采购方案">Get Your Custom<br>Sourcing Plan</h2>
+    <p class="section-title-cn">获取专属采购方案</p>
+  </div>
+  <div class="inq-wrap">
+    <div class="fade-up">
+      <p class="section-sub" data-en="Tell us your sourcing requirements and our team will prepare a custom proposal covering pricing, MOQ, samples, and logistics." data-cn="告知我们您的采购需求，我们的团队将为您准备涵盖价格、最小起订量、样品及物流的专属方案。">Tell us your sourcing requirements and our team will prepare a custom proposal covering pricing, MOQ, samples, and logistics.</p>
+      <div class="inq-trust">
+        <strong data-en="24-hour response guaranteed." data-cn="保证24小时内回复。">24-hour response guaranteed.</strong><br>
+        <span data-en="Our sourcing team will contact you within 24 hours with a tailored proposal." data-cn="我们的采购团队将在24小时内联系您，提供量身定制的方案。">Our sourcing team will contact you within 24 hours with a tailored proposal.</span>
+      </div>
+    </div>
+    <div class="inq-form fade-up d2">
+      <form onsubmit="handleSubmit(event)">
+        <div class="fr">
+          <div class="fg"><label data-en="Full Name / 姓名" data-cn="姓名">Full Name / 姓名</label><input type="text" placeholder="Your name" required></div>
+          <div class="fg"><label data-en="Company / 公司名称" data-cn="公司名称">Company / 公司名称</label><input type="text" placeholder="Company name" required></div>
+        </div>
+        <div class="fr">
+          <div class="fg"><label data-en="Email / 邮箱" data-cn="邮箱">Email / 邮箱</label><input type="email" placeholder="you@company.com" required></div>
+          <div class="fg"><label data-en="WhatsApp / WeChat" data-cn="WhatsApp / 微信">WhatsApp / WeChat</label><input type="text" placeholder="+1 000 0000 0000"></div>
+        </div>
+        <div class="fr">
+          <div class="fg"><label data-en="Country / 国家" data-cn="国家">Country / 国家</label><input type="text" placeholder="Your country"></div>
+          <div class="fg"><label data-en="Est. Quantity / 预计采购量" data-cn="预计采购数量">Quantity / 预计采购量</label><input type="text" placeholder="e.g. 1000 pcs"></div>
+        </div>
+        <div class="fg">
+          <label data-en="Interested Category / 感兴趣品类" data-cn="感兴趣品类">Interested Category / 品类</label>
+          <select>
+            <option data-en="Pet Products / 宠物用品" data-cn="宠物用品">Pet Products / 宠物用品</option>
+            <option data-en="Personal Products / 个人用品" data-cn="个人用品">Personal Products / 个人用品</option>
+            <option data-en="Household Textiles / 家用纺织品" data-cn="家用纺织品">Household Textiles / 家用纺织品</option>
+            <option data-en="Personal Textiles / 个人纺织品" data-cn="个人纺织品">Personal Textiles / 个人纺织品</option>
+            <option data-en="Others / 其他" data-cn="其他">Others / 其他</option>
+            <option data-en="All Categories / 全部品类" data-cn="全部品类">All Categories / 全部品类</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label data-en="Sourcing Requirements / 采购需求" data-cn="采购需求">Sourcing Requirements / 采购需求</label>
+          <textarea placeholder="Describe your products, customization needs, target markets..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" data-en="Submit Inquiry / 提交询盘" data-cn="提交询盘">Submit Inquiry / 提交询盘</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="fl-en">LIFESTYLE ATLAS</div>
+      <div class="fl-cn">时尚生活数字展厅</div>
+      <p class="fl-about" data-en="A premium digital showroom for global buyers, covering pet products, personal products, household textiles, personal textiles, and related fashion lifestyle goods." data-cn="为全球采购商打造高品质时尚生活用品数字展厅，覆盖宠物用品、个人用品、家用纺织品、个人纺织品及相关时尚生活产品。">A premium digital showroom for global buyers, covering pet products, personal products, household textiles, personal textiles, and related fashion lifestyle goods.</p>
+    </div>
+    <div>
+      <div class="fcol-t" data-en="Categories" data-cn="产品分类">Categories</div>
+      <ul class="fcol-links">
+        <li><a href="#categories" data-en="Pet Products" data-cn="宠物用品">Pet Products</a></li>
+        <li><a href="#categories" data-en="Personal Products" data-cn="个人用品">Personal Products</a></li>
+        <li><a href="#categories" data-en="Household Textiles" data-cn="家用纺织品">Household Textiles</a></li>
+        <li><a href="#categories" data-en="Personal Textiles" data-cn="个人纺织品">Personal Textiles</a></li>
+        <li><a href="#categories" data-en="Others" data-cn="其他">Others</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fcol-t" data-en="Services" data-cn="服务">Services</div>
+      <ul class="fcol-links">
+        <li><a href="#showroom" data-en="3D Showroom" data-cn="3D展厅">3D Showroom</a></li>
+        <li><a href="#oemodm" data-en="OEM/ODM" data-cn="OEM/ODM定制">OEM/ODM</a></li>
+        <li><a href="#inquiry" data-en="Sourcing Plan" data-cn="采购方案">Sourcing Plan</a></li>
+        <li><a href="#inquiry" data-en="Private Label" data-cn="品牌贴牌">Private Label</a></li>
+        <li><a href="#inquiry" data-en="Bulk Orders" data-cn="批量采购">Bulk Orders</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fcol-t" data-en="Contact" data-cn="联系方式">Contact</div>
+      <ul class="fcol-links">
+        <li><a href="mailto:info@lifestyleatlas.com">info@lifestyleatlas.com</a></li>
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">WeChat</a></li>
+        <li><a href="#inquiry" data-en="Send Inquiry" data-cn="发送询盘">Send Inquiry</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fb">
+    <div class="fb-credit">Digital catalogue made by <a href="https://steez.digital" target="_blank">steez.digital</a></div>
+    <div class="fb-copy" data-en="© 2025 Lifestyle Atlas. All rights reserved." data-cn="© 2025 时尚生活数字展厅 保留所有权利">© 2025 Lifestyle Atlas. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// ════════════════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════════════════
+const CATS=[
+  {id:'pet',num:'7.1',en:'Pet Products',cn:'宠物用品',
+   bg:'linear-gradient(135deg,#D4BC9A 0%,#B8906A 100%)',
+   ed:'Covering pet essentials, pet care, toys, apparel, and home-use pet products for a wide range of sourcing needs.',
+   cd:'涵盖宠物日用品、宠物护理、宠物玩具、宠物服饰及居家宠物用品，满足多场景采购需求。'},
+  {id:'personal',num:'7.2',en:'Personal Products',cn:'个人用品',
+   bg:'linear-gradient(135deg,#E4C8BE 0%,#C49080 100%)',
+   ed:'Including accessories, cosmetics, and beauty products for retail, gifting, beauty, and lifestyle markets.',
+   cd:'包括饰品、化妆品与美容用品，适用于零售、礼品、美妆及生活方式消费市场。'},
+  {id:'household',num:'7.3',en:'Household Textiles',cn:'家用纺织品',
+   bg:'linear-gradient(135deg,#CCC0A0 0%,#AA9470 100%)',
+   ed:'Including carpets, tapestries, curtains, and wall coverings that combine functionality with decorative appeal.',
+   cd:'涵盖地毯及挂毯、窗帘、墙布等家居软装产品，兼具功能与装饰价值。'},
+  {id:'tex',num:'7.4',en:'Personal Textiles',cn:'个人纺织品',
+   bg:'linear-gradient(135deg,#C8BCA8 0%,#A89278 100%)',
+   ed:'Covering shoes, socks, hats, underwear, scarves, gloves, and fashion accessories for apparel retail and brand sourcing.',
+   cd:'覆盖鞋子、袜子、帽子、内衣、围巾、手套及服饰配件，适合服装零售与品牌采购。'},
+  {id:'others',num:'7.5',en:'Others',cn:'其他',
+   bg:'linear-gradient(135deg,#A09080 0%,#7A6248 100%)',
+   ed:'Including textile materials, bags and luggage, and fur, leather, and down products for broader lifestyle sourcing demands.',
+   cd:'包含纺织面辅料、箱包及裘革皮羽绒制品，满足更广泛的时尚生活行业采购需求。'},
+];
+
+const PRODUCTS=[
+  // 7.1 Pet
+  {id:'q1',geo:'petbowl',gc:0xD4B89A,cat:'pet',badges:['best','oem'],
+   en:'Pet Ceramic Bowl',cn:'宠物陶瓷碗',
+   ecol:'Pet Products',ccol:'宠物用品',
+   emat:'Food-grade ceramic',cmat:'食品级陶瓷',
+   ed:'Premium food-grade ceramic bowl with anti-slip base. Easy to clean, dishwasher safe. Multiple sizes and glaze colors available.',
+   cd:'优质食品级陶瓷碗，防滑底座，易清洁，支持洗碗机，多尺寸与釉色可选。',
+   img:null,imgC:'gi-pet'},
+  {id:'q2',geo:'petbed',gc:0xC8A888,cat:'pet',badges:['oem'],
+   en:'Pet Comfort Bed',cn:'宠物舒适床',
+   ecol:'Pet Products',ccol:'宠物用品',
+   emat:'Plush fabric + memory foam',cmat:'毛绒面料 + 记忆棉',
+   ed:'Ultra-soft orthopedic pet bed. Removable washable cover, memory foam insert, anti-slip bottom.',
+   cd:'超柔矫形宠物床，可拆洗外罩，记忆棉填充，防滑底部设计。',
+   img:null,imgC:'gi-pet2'},
+  {id:'q3',geo:'leash',gc:0x8C6430,cat:'pet',badges:['oem'],
+   en:'Pet Leash Set',cn:'宠物牵引套装',
+   ecol:'Pet Products',ccol:'宠物用品',
+   emat:'Nylon / genuine leather',cmat:'尼龙 / 真皮',
+   ed:'Durable pet leash and harness set. Adjustable sizing, reflective strips, metal hardware.',
+   cd:'耐用宠物牵引套装，可调节尺寸，反光条，金属五金件。',
+   img:null,imgC:'gi-pet'},
+  {id:'q4',geo:'pettoy',gc:0xC87850,cat:'pet',badges:['best'],
+   en:'Pet Toy Collection',cn:'宠物玩具系列',
+   ecol:'Pet Products',ccol:'宠物用品',
+   emat:'Natural rubber / TPE',cmat:'天然橡胶 / TPE',
+   ed:'Safe interactive pet toy collection. Non-toxic materials, durable construction, multiple shapes.',
+   cd:'安全互动宠物玩具系列，无毒材质，耐用结构，多种造型。',
+   img:null,imgC:'gi-pet2'},
+  // 7.2 Personal
+  {id:'q5',geo:'ring',gc:0xC6A66B,cat:'personal',badges:['best','oem'],
+   en:'Fashion Accessories',cn:'时尚饰品系列',
+   ecol:'Personal Products',ccol:'个人用品',
+   emat:'Brass / stainless steel / alloy',cmat:'黄铜 / 不锈钢 / 合金',
+   ed:'Premium fashion accessories: rings, bracelets, necklaces, earrings. Custom design and OEM/ODM available.',
+   cd:'时尚饰品系列：戒指、手链、项链、耳环，可定制设计，支持OEM/ODM。',
+   img:'https://images.pexels.com/photos/4952482/pexels-photo-4952482.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
+   imgC:'gi-personal'},
+  {id:'q6',geo:'cosmetic',gc:0xD4B0A0,cat:'personal',badges:['oem'],
+   en:'Beauty Care Set',cn:'美容护肤套装',
+   ecol:'Personal Products',ccol:'个人用品',
+   emat:'Glass / ABS / aluminum',cmat:'玻璃 / ABS / 铝',
+   ed:'Premium beauty and skincare product packaging. Custom formulation available. EU/FDA compliant.',
+   cd:'优质美容护肤品包装，可定制配方，符合EU/FDA标准。',
+   img:'https://images.pexels.com/photos/8580762/pexels-photo-8580762.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
+   imgC:'gi-personal'},
+  {id:'q7',geo:'lipstick',gc:0xB88070,cat:'personal',badges:['new','oem'],
+   en:'Cosmetic Packaging',cn:'化妆品包装系列',
+   ecol:'Personal Products',ccol:'个人用品',
+   emat:'Aluminum / acrylic / glass',cmat:'铝 / 亚克力 / 玻璃',
+   ed:'Luxury cosmetic packaging: lipstick tubes, compacts, serums, eye shadow palettes. Full OEM service.',
+   cd:'奢华化妆品包装：口红管、粉饼、精华、眼影盘，提供完整OEM服务。',
+   img:null,imgC:'gi-personal'},
+  {id:'q8',geo:'jewelry',gc:0xD4C4B0,cat:'personal',badges:['best'],
+   en:'Premium Jewelry Collection',cn:'精品首饰',
+   ecol:'Personal Products',ccol:'个人用品',
+   emat:'Sterling silver / gold plated',cmat:'纯银 / 镀金',
+   ed:'Premium jewelry collection in elegant packaging. Rings, earrings, bracelets with anti-tarnish finish.',
+   cd:'精品首饰系列，附优雅包装，戒指、耳环、手链均有防氧化处理。',
+   img:'https://images.pexels.com/photos/16940629/pexels-photo-16940629.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
+   imgC:'gi-personal'},
+  // 7.3 Household
+  {id:'q9',geo:'rug',gc:0xC0A880,cat:'household',badges:['best','oem'],
+   en:'Carpet & Tapestry Series',cn:'地毯及挂毯系列',
+   ecol:'Household Textiles',ccol:'家用纺织品',
+   emat:'Wool / polyester / silk blend',cmat:'羊毛 / 涤纶 / 真丝混纺',
+   ed:'Handcrafted carpet and tapestry collection. Custom patterns, various pile heights.',
+   cd:'手工地毯及挂毯系列，可定制花纹，多种绒高选择。',
+   img:null,imgC:'gi-household'},
+  {id:'q10',geo:'curtain',gc:0xA89878,cat:'household',badges:['oem'],
+   en:'Curtain Collection',cn:'窗帘系列',
+   ecol:'Household Textiles',ccol:'家用纺织品',
+   emat:'Linen / polyester / velvet',cmat:'亚麻 / 涤纶 / 天鹅绒',
+   ed:'Premium curtain collection. Blackout, sheer, and decorative options. Custom size and color.',
+   cd:'优质窗帘系列，遮光、薄透、装饰款可选，可定制尺寸与颜色。',
+   img:null,imgC:'gi-household'},
+  {id:'q11',geo:'wallcloth',gc:0xB8A888,cat:'household',badges:['new'],
+   en:'Wall Covering Collection',cn:'墙布系列',
+   ecol:'Household Textiles',ccol:'家用纺织品',
+   emat:'Non-woven / PVC / glass fiber',cmat:'无纺布 / PVC / 玻璃纤维',
+   ed:'Premium wall covering collection. Fire-resistant, moisture-proof, custom print available.',
+   cd:'优质墙布系列，防火防潮，可定制印花。',
+   img:null,imgC:'gi-household'},
+  // 7.4 Personal Textiles
+  {id:'q12',geo:'shoe',gc:0x8C7060,cat:'tex',badges:['best','oem'],
+   en:'Fashion Footwear',cn:'时尚鞋履',
+   ecol:'Personal Textiles',ccol:'个人纺织品',
+   emat:'Genuine leather / synthetic / rubber sole',cmat:'真皮 / 合成革 / 橡胶底',
+   ed:'Premium fashion footwear: sneakers, loafers, boots. Full OEM/ODM, private label available.',
+   cd:'时尚鞋履，包括运动鞋、乐福鞋、靴子，支持OEM/ODM及品牌贴牌。',
+   img:null,imgC:'gi-tex'},
+  {id:'q13',geo:'sock',gc:0xD4C4B0,cat:'tex',badges:['oem'],
+   en:'Socks Collection',cn:'袜子系列',
+   ecol:'Personal Textiles',ccol:'个人纺织品',
+   emat:'Cotton / wool / bamboo fiber',cmat:'棉 / 羊毛 / 竹纤维',
+   ed:'Full range socks: athletic, fashion, compression. Custom packaging and branding available.',
+   cd:'全系列袜子：运动袜、时尚袜、压力袜，支持定制包装与品牌印制。',
+   img:null,imgC:'gi-tex'},
+  {id:'q14',geo:'hat',gc:0x9A8878,cat:'tex',badges:['oem'],
+   en:'Hat Collection',cn:'帽子系列',
+   ecol:'Personal Textiles',ccol:'个人纺织品',
+   emat:'Wool / cotton / straw / felt',cmat:'羊毛 / 棉 / 草编 / 毛毡',
+   ed:'Structured and unstructured hat collection. Baseball caps, beanies, fedoras, straw hats.',
+   cd:'帽子系列，棒球帽、毛线帽、礼帽、草帽，全系列OEM服务。',
+   img:null,imgC:'gi-tex'},
+  {id:'q15',geo:'garment',gc:0xDDD0C0,cat:'tex',badges:['oem'],
+   en:'Underwear Collection',cn:'内衣系列',
+   ecol:'Personal Textiles',ccol:'个人纺织品',
+   emat:'Cotton / modal / microfiber',cmat:'棉 / 莫代尔 / 超细纤维',
+   ed:'Comfortable underwear collection. Soft materials, ergonomic design, OEM/ODM available.',
+   cd:'舒适内衣系列，柔软面料，人体工学设计，支持OEM/ODM。',
+   img:null,imgC:'gi-tex'},
+  {id:'q16',geo:'scarf',gc:0xC6A66B,cat:'tex',badges:['best','oem'],
+   en:'Scarves and Gloves',cn:'围巾与手套',
+   ecol:'Personal Textiles',ccol:'个人纺织品',
+   emat:'Silk / cashmere / wool blend',cmat:'真丝 / 羊绒 / 羊毛混纺',
+   ed:'Premium scarves and gloves in natural fibers. Custom print, private label, seasonal colorways.',
+   cd:'优质天然纤维围巾与手套，定制印花、品牌贴牌、季节性配色可选。',
+   img:null,imgC:'gi-tex'},
+  {id:'q17',geo:'garment',gc:0x7A6858,cat:'tex',badges:['oem'],
+   en:'Garments and Accessories',cn:'服饰及配件',
+   ecol:'Personal Textiles',ccol:'个人纺织品',
+   emat:'Various — see spec sheet',cmat:'多种面料，详见规格表',
+   ed:'Full apparel and accessories range including outerwear, knitwear, and coordinating accessories.',
+   cd:'服饰及配件全系列，包括外套、针织品及配套配件。',
+   img:null,imgC:'gi-tex'},
+  // 7.5 Others
+  {id:'q18',geo:'bag',gc:0x8C6730,cat:'others',badges:['best','oem'],
+   en:'Bags and Luggage',cn:'箱包系列',
+   ecol:'Others',ccol:'其他',
+   emat:'Full-grain leather / canvas / nylon',cmat:'全粒面皮革 / 帆布 / 尼龙',
+   ed:'Premium bags and luggage: totes, crossbodies, briefcases, carry-ons. Full OEM/ODM.',
+   cd:'优质箱包系列：托特包、斜挎包、公文包、行李箱，全系列OEM/ODM。',
+   img:'https://images.pexels.com/photos/8148587/pexels-photo-8148587.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
+   imgC:'gi-others'},
+  {id:'q19',geo:'leather',gc:0x6A4A30,cat:'others',badges:['oem'],
+   en:'Fur and Leather Goods',cn:'裘革皮制品',
+   ecol:'Others',ccol:'其他',
+   emat:'Genuine leather / faux fur / suede',cmat:'真皮 / 仿皮草 / 麂皮',
+   ed:'Quality leather goods and faux fur products. Wallets, belts, accessories, faux fur trims.',
+   cd:'优质皮革制品及仿皮草产品，钱包、腰带、配件及仿皮草装饰。',
+   img:'https://images.pexels.com/photos/7634160/pexels-photo-7634160.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
+   imgC:'gi-others'},
+  {id:'q20',geo:'down',gc:0xD0C4B4,cat:'others',badges:['new'],
+   en:'Down Product Collection',cn:'羽绒制品',
+   ecol:'Others',ccol:'其他',
+   emat:'90/10 white duck / goose down',cmat:'90/10白鸭绒 / 鹅绒',
+   ed:'Premium down products: jackets, vests, comforters, pillows. RDS certified, custom fill power.',
+   cd:'优质羽绒制品：夹克、背心、被子、枕头，RDS认证，可定制充绒量。',
+   img:null,imgC:'gi-others'},
+  {id:'q21',geo:'textile',gc:0xB0A090,cat:'others',badges:['oem'],
+   en:'Textile Materials',cn:'纺织面辅料',
+   ecol:'Others',ccol:'其他',
+   emat:'Various yarn / fabric / trim',cmat:'各类纱线 / 面料 / 辅料',
+   ed:'Comprehensive textile materials and accessories for garment manufacturing. Fabrics, trims, labels.',
+   cd:'服装制造用综合纺织面辅料，面料、辅料、标签全系列。',
+   img:null,imgC:'gi-others'},
+];
+
+const SHOWROOM=[
+  {id:'s1',geo:'petbowl',gc:0xC8A888,cat:'pet',
+   en:'Pet Ceramic Bowl',cn:'宠物陶瓷碗',
+   ecat:'Pet Products',ccat:'宠物用品',
+   ed:'Our signature pet ceramic bowl demonstrates the quality benchmark for the pet products category. Featuring food-grade glazing, ergonomic rim design, and a weighted anti-slip base — available in 8 glaze colors, 4 sizes.',
+   cd:'我们的标志性宠物陶瓷碗展示了宠物用品品类的品质基准，采用食品级釉料、人体工学碗边设计及加重防滑底座，提供8种釉色与4种尺寸。',
+   feats:['Food-grade ceramic','Anti-slip base','Dishwasher safe','8 glaze colors','OEM/ODM'],
+   img:null,imgC:'gi-pet'},
+  {id:'s2',geo:'cosmetic',gc:0xD4C0B0,cat:'personal',
+   en:'Beauty Cosmetic Bottle',cn:'美容化妆品瓶',
+   ecat:'Personal Products',ccat:'个人用品',
+   ed:'Premium cosmetic packaging that elevates any beauty brand. Aluminum cap, glass body with custom label zone. Available in 30ml, 50ml, 100ml variants with full OEM service.',
+   cd:'顶级化妆品包装，提升任何美妆品牌形象。铝合金瓶盖，玻璃瓶身配定制标签区，提供30ml、50ml、100ml规格，全系列OEM服务。',
+   feats:['Glass body','Aluminum cap','Custom label','30–100ml','OEM/ODM'],
+   img:'https://images.pexels.com/photos/8580762/pexels-photo-8580762.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
+   imgC:'gi-personal'},
+  {id:'s3',geo:'rug',gc:0xC0A878,cat:'household',
+   en:'Luxury Carpet Roll',cn:'奢华地毯卷',
+   ecat:'Household Textiles',ccat:'家用纺织品',
+   ed:'Hand-tufted premium carpet roll in wool blend. Available in custom dimensions, pile heights from 5–20mm, and any pattern design for hospitality, retail, and residential markets.',
+   cd:'手工簇绒高档羊毛混纺地毯卷，可定制尺寸、5–20mm绒高与花型，适用于酒店、零售及家居市场。',
+   feats:['Wool/polyester blend','Custom patterns','5–20mm pile','Eco-dye','OEM/ODM'],
+   img:null,imgC:'gi-household'},
+  {id:'s4',geo:'shoe',gc:0x8A7060,cat:'tex',
+   en:'Fashion Sneaker',cn:'时尚运动鞋',
+   ecat:'Personal Textiles',ccat:'个人纺织品',
+   ed:'Premium fashion sneaker with genuine leather upper, cushioned midsole, and custom colorway options. Full OEM/ODM with brand embossing and custom box packaging.',
+   cd:'高档时尚运动鞋，真皮鞋面，缓震中底，可定制配色，全系列OEM/ODM，含品牌压印与定制鞋盒。',
+   feats:['Leather upper','Cushioned sole','Custom colors','EU35–46','OEM/ODM'],
+   img:null,imgC:'gi-tex'},
+  {id:'s5',geo:'bag',gc:0x8C6730,cat:'others',
+   en:'Structured Handbag',cn:'结构手提包',
+   ecat:'Bags & Leather Goods',ccat:'箱包皮具',
+   ed:'Premium structured handbag in full-grain leather. Brass hardware, suede lining, custom logo embossing. Available in tote, crossbody, and clutch silhouettes.',
+   cd:'全粒面皮革高档结构手提包，黄铜五金，绒面革内衬，可定制品牌压印，提供托特、斜挎、手拿款型。',
+   feats:['Full-grain leather','Brass hardware','Suede lining','Custom logo','OEM/ODM'],
+   img:'https://images.pexels.com/photos/8148587/pexels-photo-8148587.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
+   imgC:'gi-others'},
+];
+
+const ODM=[
+  {icon:'✂️',en:'Sample-based Customization',cn:'来样定制',desc:'Reproduce your existing designs with our full manufacturing capabilities and quality control.'},
+  {icon:'🏷️',en:'Private Label / OEM',cn:'品牌贴牌',desc:'Your brand on our premium products. Full packaging and labeling service included.'},
+  {icon:'📦',en:'Packaging Design',cn:'包装设计',desc:'Custom packaging design from concept to production-ready artwork at any scale.'},
+  {icon:'📊',en:'Bulk Sourcing',cn:'批量采购',desc:'Competitive pricing for large volume orders with flexible MOQ and payment terms.'},
+  {icon:'🌏',en:'Export Support',cn:'出口支持',desc:'Full export documentation, compliance certification, and logistics coordination.'},
+  {icon:'🎨',en:'Collection Development',cn:'产品组合开发',desc:'End-to-end product development from concept sketch to finished collection.'},
+];
+
+// ════════════════════════════════════════════════════
+// LANGUAGE
+// ════════════════════════════════════════════════════
+let lang='en';
+function toggleLang(){
+  lang=lang==='en'?'cn':'en';
+  const lb=document.getElementById('langBtn');if(lb)lb.textContent=lang==='en'?'中文':'EN';
+  const mlb=document.getElementById('mmLangBtn');if(mlb)mlb.textContent=lang==='en'?'切换中文':'Switch EN';
+  applyLang();
+  applyTheme();
+  renderAll();
+}
+function applyLang(){
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const en=el.getAttribute('data-en'),cn=el.getAttribute('data-cn');
+    if(!en||!cn)return;
+    if(el.tagName==='INPUT')el.placeholder=lang==='en'?en:cn;
+    else if(el.tagName==='OPTION')el.textContent=lang==='en'?en:cn;
+    else el.innerHTML=lang==='en'?en:cn;
+  });
+}
+
+// ════════════════════════════════════════════════════
+// BUILD 3D MODEL
+// ════════════════════════════════════════════════════
+function buildModel(type,color){
+  const mat=new THREE.MeshStandardMaterial({color,roughness:.65,metalness:.08});
+  const matM=new THREE.MeshStandardMaterial({color:0xC6A66B,roughness:.18,metalness:.82});
+  const g=new THREE.Group();
+  switch(type){
+    case 'petbowl':{
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(1.5,1.0,1.0,32,1,true),mat));
+      const base=new THREE.Mesh(new THREE.CircleGeometry(1.0,32),mat);base.rotation.x=-Math.PI/2;base.position.y=-.5;g.add(base);
+      const rim=new THREE.Mesh(new THREE.TorusGeometry(1.5,.1,12,48),matM);rim.position.y=.5;g.add(rim);
+      const foot=new THREE.Mesh(new THREE.CylinderGeometry(.85,.85,.12,32),matM);foot.position.y=-.56;g.add(foot);
+      break;}
+    case 'petbed':{
+      const b2=new THREE.Mesh(new THREE.CylinderGeometry(2,2,.22,32),mat);b2.scale.x=1.4;b2.position.y=-.52;g.add(b2);
+      const r2=new THREE.Mesh(new THREE.TorusGeometry(1.9,.45,12,40),mat);r2.scale.x=1.4;g.add(r2);
+      const cush=new THREE.Mesh(new THREE.SphereGeometry(1.3,32,16,0,Math.PI*2,0,Math.PI/2),mat);cush.scale.set(1.3,.5,1);cush.position.y=-.1;g.add(cush);
+      break;}
+    case 'leash':{
+      g.add(new THREE.Mesh(new THREE.TorusGeometry(1.2,.08,12,48),mat).translateY(.6));
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,1.5,16),mat).translateY(-.75));
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(.32,.48,.32),matM));
+      break;}
+    case 'pettoy':{
+      g.add(new THREE.Mesh(new THREE.SphereGeometry(1.4,32,32),mat));
+      const sm=new THREE.Mesh(new THREE.TorusGeometry(1.4,.05,8,48),matM);sm.rotation.x=Math.PI/2;g.add(sm);
+      const sm2=sm.clone();sm2.rotation.y=Math.PI/2;g.add(sm2);
+      g.add(new THREE.Mesh(new THREE.SphereGeometry(.22,12,12),matM).translateY(1.42));
+      break;}
+    case 'ring':{
+      g.add(new THREE.Mesh(new THREE.TorusGeometry(1.0,.22,16,64),matM));
+      const gem=new THREE.Mesh(new THREE.OctahedronGeometry(.35),new THREE.MeshStandardMaterial({color:0xE8E0F8,roughness:0,metalness:.9}));gem.position.y=1.25;g.add(gem);
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(.3,.25,.2,8),matM).translateY(1.1));
+      break;}
+    case 'cosmetic':{
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(1.4,2.6,.8),mat));
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(1.35,1.1,.82),new THREE.MeshStandardMaterial({color:0xF0E8DC,roughness:.9,metalness:0})).translateY(.1));
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(.35,.6,.5,8),mat).translateY(1.55));
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(.25,.35,.4,8),mat).translateY(1.95));
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(.32,.32,.6,8),matM).translateY(2.45));
+      break;}
+    case 'lipstick':{
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(.55,.55,2.2,16),matM));
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(.4,.4,.9,12),mat).translateY(1.65));
+      g.add(new THREE.Mesh(new THREE.ConeGeometry(.4,.35,12),mat).translateY(2.25));
+      g.add(new THREE.Mesh(new THREE.TorusGeometry(.56,.05,8,32),new THREE.MeshStandardMaterial({color:0x222222,roughness:.5,metalness:.4})).translateY(1.1));
+      break;}
+    case 'jewelry':{
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(2.8,.5,2.0),mat).translateY(-.75));
+      ['.95','-.95'].forEach((z,i)=>{const w=new THREE.Mesh(new THREE.BoxGeometry(2.8,.9,.1),mat);w.position.set(0,-.3,parseFloat(z));g.add(w);});
+      [1.35,-1.35].forEach(x=>{const w=new THREE.Mesh(new THREE.BoxGeometry(.1,.9,2.0),mat);w.position.set(x,-.3,0);g.add(w);});
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(2.6,.08,1.8),new THREE.MeshStandardMaterial({color:0x4A3020,roughness:1,metalness:0})).translateY(-.45));
+      const lid=new THREE.Mesh(new THREE.BoxGeometry(2.8,.12,2.0),mat);lid.position.set(-.2,.65,-.5);lid.rotation.x=-Math.PI/4;g.add(lid);
+      const rs=new THREE.Mesh(new THREE.TorusGeometry(.25,.06,8,24),matM);rs.position.set(.4,-.35,0);g.add(rs);
+      break;}
+    case 'rug':{
+      const roll=new THREE.Mesh(new THREE.CylinderGeometry(.75,.75,3.2,32),mat);roll.rotation.z=Math.PI/2;g.add(roll);
+      [1.62,-1.62].forEach((x,i)=>{const e=new THREE.Mesh(new THREE.CircleGeometry(.75,32),matM);e.rotation.y=i===0?Math.PI/2:-Math.PI/2;e.position.x=x;g.add(e);});
+      for(let i=-5;i<=5;i++){[1.62,-1.62].forEach(x=>{const fr=new THREE.Mesh(new THREE.BoxGeometry(.04,.42,.04),new THREE.MeshStandardMaterial({color:0xC6A66B,roughness:.8}));fr.position.set(x,-.5,i*.11);g.add(fr);});}
+      break;}
+    case 'curtain':{
+      const geo=new THREE.PlaneGeometry(2.2,3.5,20,20),pos=geo.attributes.position;
+      for(let i=0;i<pos.count;i++)pos.setZ(i,Math.sin(pos.getX(i)*2.4)*.28+Math.sin(pos.getX(i)*5)*.08);
+      geo.computeVertexNormals();g.add(new THREE.Mesh(geo,mat));
+      const rod=new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,2.5,16),matM);rod.rotation.z=Math.PI/2;rod.position.y=1.82;g.add(rod);
+      for(let i=-4;i<=4;i++){const rg=new THREE.Mesh(new THREE.TorusGeometry(.11,.03,8,16),matM);rg.position.set(i*.28,1.78,0);g.add(rg);}
+      break;}
+    case 'wallcloth':{
+      ['y','y','x','x'].forEach((ax,i)=>{
+        const isY=ax==='y';
+        const m=new THREE.Mesh(isY?new THREE.BoxGeometry(3.2,.15,.15):new THREE.BoxGeometry(.15,3.3,.15),matM);
+        if(ax==='y')m.position.y=i===0?1.65:-1.65;else m.position.x=i===2?1.6:-1.6;
+        g.add(m);
+      });
+      g.add(new THREE.Mesh(new THREE.PlaneGeometry(3.0,3.2),mat).translateZ(-.05));
+      break;}
+    case 'shoe':{
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(3.4,.2,1.2),new THREE.MeshStandardMaterial({color:0x181818,roughness:.95,metalness:0})).translateY(-.82));
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(3.2,.28,1.1),new THREE.MeshStandardMaterial({color:0xF0EDE8,roughness:.8,metalness:0})).translateY(-.58));
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(2.6,.7,.95),mat).translateY(-.05));
+      const toe=new THREE.Mesh(new THREE.SphereGeometry(.55,16,8,0,Math.PI*2,0,Math.PI/2),mat);toe.position.set(1.25,.1,0);toe.rotation.z=-.12;g.add(toe);
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(.65,.9,.9),mat).translateX(-1.25));
+      for(let i=-2;i<=2;i++){const l=new THREE.Mesh(new THREE.BoxGeometry(.7,.04,.04),new THREE.MeshStandardMaterial({color:0xF0EDE8,roughness:.9}));l.position.set(i*.28+.1,.36,.5);g.add(l);}
+      break;}
+    case 'sock':{
+      [.95,-.95].forEach(x=>{
+        const s=new THREE.Mesh(new THREE.SphereGeometry(.85,16,12),mat);s.scale.set(1,1.1,1);s.position.x=x;g.add(s);
+        const b=new THREE.Mesh(new THREE.TorusGeometry(.85,.1,8,32),matM);b.position.x=x;g.add(b);
+      });break;}
+    case 'hat':{
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(2.0,2.0,.15,32),mat).translateY(-.5));
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(1.3,1.6,1.4,32),mat).translateY(.2));
+      g.add(new THREE.Mesh(new THREE.SphereGeometry(1.3,32,16,0,Math.PI*2,0,Math.PI/2),mat).translateY(.9));
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(1.61,1.61,.2,32,1,true),matM).translateY(-.3));
+      break;}
+    case 'scarf':{
+      const sg=new THREE.PlaneGeometry(4.5,1.4,24,4),sp=sg.attributes.position;
+      for(let i=0;i<sp.count;i++){sp.setZ(i,Math.sin(sp.getX(i)*1.2)*.24+Math.sin(sp.getX(i)*3)*.08);sp.setY(i,sp.getY(i)+Math.cos(sp.getX(i)*.8)*.2);}
+      sg.computeVertexNormals();g.add(new THREE.Mesh(sg,mat));
+      [-2.22,2.22].forEach(x=>{for(let i=-8;i<=8;i++){const fr=new THREE.Mesh(new THREE.BoxGeometry(.04,.34,.04),new THREE.MeshStandardMaterial({color:0xC6A66B,roughness:.7}));fr.position.set(x,-.1,i*.12);g.add(fr);}});
+      break;}
+    case 'garment':{
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(2.6,1.8,.5),mat));
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(.5,.6,.56),new THREE.MeshStandardMaterial({color:0xF0EDE8,roughness:.9})).translateY(1.15));
+      [.5,.1,-.3].forEach(y=>{const b=new THREE.Mesh(new THREE.CylinderGeometry(.08,.08,.06,12),matM);b.position.set(0,y,.28);g.add(b);});
+      break;}
+    case 'bag':{
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(2.8,2.2,.9),mat));
+      const flap=new THREE.Mesh(new THREE.BoxGeometry(2.78,.95,.06),mat);flap.position.set(0,1.56,.48);g.add(flap);
+      const handle=new THREE.Mesh(new THREE.TorusGeometry(.75,.1,8,32,Math.PI),matM);handle.position.y=1.95;handle.rotation.x=Math.PI/2;g.add(handle);
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(.28,.28,.12),matM).translateZ(.52).translateY(1.1));
+      break;}
+    case 'leather':{
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(2.4,.08,1.8),mat).translateY(.04));
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(2.35,.06,1.75),new THREE.MeshStandardMaterial({color:0xF0E8D8,roughness:.9})).translateY(.11));
+      for(let i=0;i<4;i++){const cs=new THREE.Mesh(new THREE.BoxGeometry(.8,.05,.04),new THREE.MeshStandardMaterial({color:0xD4B088,roughness:.8}));cs.position.set(.5,.2,-.6+i*.42);g.add(cs);}
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(.08,.2,1.75),matM).translateY(.07));
+      break;}
+    case 'down':{
+      for(let row=-1;row<=1;row++)for(let col=0;col<8;col++){
+        const a=col/8*Math.PI*2,p=new THREE.Mesh(new THREE.SphereGeometry(.55,12,8),mat);
+        p.position.set(Math.cos(a)*.85,row*.72,Math.sin(a)*.85);p.scale.set(1,.62,1);g.add(p);}
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(.06,2.4,.06),matM));
+      break;}
+    case 'textile':{
+      const roll=new THREE.Mesh(new THREE.CylinderGeometry(.7,.7,2.6,32),mat);roll.rotation.z=Math.PI/2;g.add(roll);
+      [1.31,-1.31].forEach((x,i)=>{const e=new THREE.Mesh(new THREE.CircleGeometry(.7,32),new THREE.MeshStandardMaterial({color:0xD4C8B0,roughness:.7}));e.rotation.y=i===0?Math.PI/2:-Math.PI/2;e.position.x=x;g.add(e);});
+      const core=new THREE.Mesh(new THREE.CylinderGeometry(.18,.18,2.62,16),new THREE.MeshStandardMaterial({color:0xA88860,roughness:.8}));core.rotation.z=Math.PI/2;g.add(core);
+      break;}
+    default:g.add(new THREE.Mesh(new THREE.BoxGeometry(2,2,2),mat));
+  }
+  return g;
+}
+
+// ════════════════════════════════════════════════════
+// LIGHTING HELPER
+// ════════════════════════════════════════════════════
+function makeScene(){
+  const s=new THREE.Scene();
+  s.add(new THREE.AmbientLight(0xF7F0E8,1.4));
+  const kl=new THREE.PointLight(0xC6A66B,3.2,22);kl.position.set(5,6,5);s.add(kl);
+  const fl=new THREE.PointLight(0xE8D8C0,.7,16);fl.position.set(-4,-2,4);s.add(fl);
+  return s;
+}
+
+// ════════════════════════════════════════════════════
+// HERO 3D (auto-rotate, no drag)
+// ════════════════════════════════════════════════════
+function initHero3D(canvasId,type,color){
+  const canvas=document.getElementById(canvasId);
+  if(!canvas||typeof THREE==='undefined')return;
+  const w=canvas.width,h=canvas.height;
+  const scene=makeScene(),camera=new THREE.PerspectiveCamera(42,w/h,.1,50);
+  camera.position.set(0,.2,6);
+  const obj=buildModel(type,color);scene.add(obj);
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(w,h);renderer.setClearColor(0,0);
+  let t=0;
+  (function anim(){requestAnimationFrame(anim);t+=.007;obj.rotation.y=t;obj.rotation.x=Math.sin(t*.5)*.12;renderer.render(scene,camera);})();
+}
+
+// ════════════════════════════════════════════════════
+// CATALOGUE CARD 3D (tap to reveal)
+// ════════════════════════════════════════════════════
+const cardRenderers={};
+function tap3D(id,imgEl){
+  if(imgEl.classList.contains('is3d'))return;
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(!p||typeof THREE==='undefined')return;
+  imgEl.classList.add('is3d');
+  const canvas=document.createElement('canvas');imgEl.appendChild(canvas);
+  const cw=imgEl.clientWidth||240,ch=imgEl.clientHeight||208;
+  const scene=makeScene(),camera=new THREE.PerspectiveCamera(42,cw/ch,.1,100);
+  camera.position.set(0,.3,6.5);
+  const obj=buildModel(p.geo,p.gc);scene.add(obj);
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(cw,ch);renderer.setClearColor(0,0);
+  cardRenderers[id]=renderer;
+  let drag=false,px=0,py=0,rotY=.4,rotX=.1;
+  canvas.addEventListener('pointerdown',e=>{drag=true;px=e.clientX;py=e.clientY;canvas.setPointerCapture(e.pointerId);e.stopPropagation();});
+  canvas.addEventListener('pointermove',e=>{if(!drag)return;rotY+=(e.clientX-px)*.013;rotX+=(e.clientY-py)*.007;px=e.clientX;py=e.clientY;e.stopPropagation();});
+  canvas.addEventListener('pointerup',e=>{drag=false;e.stopPropagation();});
+  canvas.addEventListener('click',e=>e.stopPropagation());
+  (function anim(){if(!cardRenderers[id])return;requestAnimationFrame(anim);if(!drag)rotY+=.007;obj.rotation.y=rotY;obj.rotation.x=rotX;renderer.render(scene,camera);})();
+  new ResizeObserver(()=>{const cw2=imgEl.clientWidth,ch2=imgEl.clientHeight;if(!cw2||!ch2)return;camera.aspect=cw2/ch2;camera.updateProjectionMatrix();renderer.setSize(cw2,ch2);}).observe(imgEl);
+}
+function close3D(id,imgEl){
+  if(cardRenderers[id]){cardRenderers[id].dispose();cardRenderers[id]=null;}
+  const cv=imgEl.querySelector('canvas');if(cv)cv.remove();
+  imgEl.classList.remove('is3d');
+}
+function disposeCardRenderers(){
+  for(const id in cardRenderers){if(cardRenderers[id]&&cardRenderers[id].dispose)cardRenderers[id].dispose();cardRenderers[id]=null;}
+}
+
+// ════════════════════════════════════════════════════
+// SHOWROOM 3D (always-on, IntersectionObserver)
+// ════════════════════════════════════════════════════
+const srRenderers={};
+function initSR3D(item){
+  const container=document.getElementById('sr3d-'+item.id);
+  if(!container||srRenderers[item.id])return;
+  const canvas=container.querySelector('canvas');
+  if(!canvas||typeof THREE==='undefined')return;
+  const cw=container.clientWidth||400,ch=container.clientHeight||400;
+  const scene=makeScene(),camera=new THREE.PerspectiveCamera(38,cw/ch,.1,100);
+  camera.position.set(0,.5,7);
+  const obj=buildModel(item.geo,item.gc);scene.add(obj);
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(cw,ch);renderer.setClearColor(0,0);
+  srRenderers[item.id]={renderer,obj};
+  let drag=false,px=0,py=0,rotY=0,rotX=.1;
+  canvas.addEventListener('pointerdown',e=>{drag=true;px=e.clientX;py=e.clientY;canvas.setPointerCapture(e.pointerId);});
+  canvas.addEventListener('pointermove',e=>{if(!drag)return;rotY+=(e.clientX-px)*.012;rotX+=(e.clientY-py)*.007;rotX=Math.max(-.45,Math.min(.45,rotX));px=e.clientX;py=e.clientY;});
+  canvas.addEventListener('pointerup',()=>{drag=false;});
+  new ResizeObserver(()=>{const pw=container.clientWidth,ph=container.clientHeight;if(!pw||!ph)return;camera.aspect=pw/ph;camera.updateProjectionMatrix();renderer.setSize(pw,ph);}).observe(container);
+  (function anim(){if(!srRenderers[item.id])return;requestAnimationFrame(anim);if(!drag)rotY+=.005;obj.rotation.y=rotY;obj.rotation.x=rotX;renderer.render(scene,camera);})();
+}
+
+// ════════════════════════════════════════════════════
+// RENDER FUNCTIONS
+// ════════════════════════════════════════════════════
+function renderCats(){
+  document.getElementById('catGrid').innerHTML=CATS.map(c=>`
+    <div class="cc fade-up" onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'});filterCat('${c.id}')">
+      <div class="cc-img"><div class="cc-bg" style="background:${c.bg}"></div><span class="cc-num">${c.num}</span></div>
+      <div class="cc-body">
+        <div class="cc-en">${c.en}</div>
+        <div class="cc-cn">${c.cn}</div>
+        <div class="cc-desc">${lang==='en'?c.ed:c.cd}</div>
+        <span class="cc-lnk">${lang==='en'?'View Products':'查看产品'}</span>
+      </div>
+    </div>`).join('');
+}
+
+let activeCat='all';
+function filterCat(cat){activeCat=cat;disposeCardRenderers();renderTabs();renderProds();}
+
+function renderTabs(){
+  const all=[{id:'all',en:'All',cn:'全部'},...CATS.map(c=>({id:c.id,en:c.en,cn:c.cn}))];
+  document.getElementById('ftabs').innerHTML=all.map(t=>`
+    <button class="ftab${activeCat===t.id?' on':''}" onclick="filterCat('${t.id}')">${lang==='en'?t.en:t.cn}</button>`).join('');
+}
+
+function renderProds(){
+  const ps=activeCat==='all'?PRODUCTS:PRODUCTS.filter(p=>p.cat===activeCat);
+  document.getElementById('pgrid').innerHTML=ps.map(p=>`
+    <div class="pc">
+      <div class="pc-img" onclick="event.stopPropagation();tap3D('${p.id}',this)">
+        <div class="pc-ib ${p.imgC}"${p.img?` style="background:url('${p.img}') center/cover no-repeat"`:''} ></div>
+        <div class="pc-3dh"></div>
+        <button class="pc-cls" onclick="event.stopPropagation();close3D('${p.id}',this.closest('.pc-img'))">✕</button>
+        <div class="pc-bdg">${p.badges.map(b=>`<span class="badge badge-${b}">${b.toUpperCase()}</span>`).join('')}</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-en">${p.en}</div>
+        <div class="pc-cn">${p.cn}</div>
+        <div class="pc-cat">${lang==='en'?p.ecol:p.ccol}</div>
+        <div class="pc-mat">${lang==='en'?p.emat:p.cmat}</div>
+        <div class="pc-acts">
+          <button class="pca pca-p" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})">${lang==='en'?'Add to Inquiry':'加入询盘'}</button>
+          <button class="pca" onclick="event.stopPropagation();tap3D('${p.id}',this.closest('.pc').querySelector('.pc-img'))">${lang==='en'?'View 3D':'查看3D'}</button>
+        </div>
+      </div>
+    </div>`).join('');
+  setTimeout(initScrollAnimations,50);
+}
+
+function renderShowroom(){
+  for(const id in srRenderers){if(srRenderers[id]&&srRenderers[id].renderer)srRenderers[id].renderer.dispose();delete srRenderers[id];}
+  document.getElementById('srItems').innerHTML=SHOWROOM.map((item,i)=>`
+    <div class="sri fade-up${i%2===1?' rev':''}">
+      <div class="sr3d" id="sr3d-${item.id}">
+        <canvas></canvas>
+        <div class="sr3d-lbl">Interactive 3D · Drag to Rotate</div>
+      </div>
+      <div class="sri-info">
+        <div class="sri-cat"><span class="eyebrow">${lang==='en'?item.ecat:item.ccat}</span></div>
+        <div class="sri-en">${item.en}</div>
+        <div class="sri-cn">${item.cn}</div>
+        <p class="sri-desc">${lang==='en'?item.ed:item.cd}</p>
+        <div class="sri-feats">${item.feats.map(f=>`<span class="sri-feat">${f}</span>`).join('')}</div>
+        <div class="sri-img"><div class="sri-img-bg ${item.imgC}"${item.img?` style="background:url('${item.img}') center/cover no-repeat"`:''} ></div></div>
+        <div class="sri-btns">
+          <button class="btn-sm btn-sm-p" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})">${lang==='en'?'Request Samples':'申请样品'}</button>
+          <button class="btn-sm btn-sm-o" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})">${lang==='en'?'Get OEM Quote':'获取OEM报价'}</button>
+        </div>
+      </div>
+    </div>`).join('');
+  if(typeof IntersectionObserver!=='undefined'){
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const id=e.target.id.replace('sr3d-','');
+          const item=SHOWROOM.find(x=>x.id===id);
+          if(item)initSR3D(item);
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:.2});
+    document.querySelectorAll('[id^="sr3d-"]').forEach(el=>obs.observe(el));
+  }
+}
+
+function renderODM(){
+  document.getElementById('odmGrid').innerHTML=ODM.map(o=>`
+    <div class="odmc fade-up">
+      <div class="odmc-icon">${o.icon}</div>
+      <div class="odmc-en">${o.en}</div>
+      <div class="odmc-cn">${o.cn}</div>
+      <p class="odmc-desc">${o.desc}</p>
+    </div>`).join('');
+}
+
+function renderAll(){renderCats();renderTabs();renderProds();renderShowroom();renderODM();setTimeout(initScrollAnimations,80);}
+
+// ════════════════════════════════════════════════════
+// SCROLL ANIMATIONS
+// ════════════════════════════════════════════════════
+function initScrollAnimations(){
+  if(typeof IntersectionObserver==='undefined')return;
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+  },{threshold:.1,rootMargin:'0px 0px -36px 0px'});
+  document.querySelectorAll('.fade-up:not(.vis)').forEach(el=>obs.observe(el));
+}
+
+// ════════════════════════════════════════════════════
+// FORM
+// ════════════════════════════════════════════════════
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.btn-submit');
+  btn.textContent=lang==='en'?'Inquiry Submitted ✓':'询盘已提交 ✓';
+  btn.style.background='#1D8060';
+  setTimeout(()=>{btn.textContent=lang==='en'?'Submit Inquiry / 提交询盘':'提交询盘';btn.style.background='';},3000);
+}
+
+// ════════════════════════════════════════════════════
+// DARK / LIGHT THEME
+// ════════════════════════════════════════════════════
+let isDark=(()=>{
+  const saved=localStorage.getItem('la-theme');
+  if(saved)return saved==='dark';
+  return window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
+})();
+
+function applyTheme(){
+  document.body.classList.toggle('dark',isDark);
+  const icon=isDark?'☀':'☾';
+  const el=document.getElementById('themeBtn');if(el)el.textContent=icon;
+  const mIcon=document.getElementById('mmThemeIcon');if(mIcon)mIcon.textContent=icon;
+  const mLbl=document.getElementById('mmThemeLabel');
+  if(mLbl)mLbl.textContent=isDark?(lang==='en'?'Light Mode':'浅色模式'):(lang==='en'?'Dark Mode':'深色模式');
+}
+
+function toggleTheme(){
+  isDark=!isDark;
+  localStorage.setItem('la-theme',isDark?'dark':'light');
+  applyTheme();
+}
+
+// ════════════════════════════════════════════════════
+// MOBILE MENU
+// ════════════════════════════════════════════════════
+let menuOpen=false;
+function toggleMenu(){
+  menuOpen=!menuOpen;
+  document.getElementById('mobileMenu').classList.toggle('open',menuOpen);
+  document.getElementById('mmOverlay').classList.toggle('open',menuOpen);
+  document.getElementById('hamBtn').classList.toggle('open',menuOpen);
+  document.body.style.overflow=menuOpen?'hidden':'';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menuOpen)toggleMenu();});
+
+// ════════════════════════════════════════════════════
+// NAV SCROLL SHADOW
+// ════════════════════════════════════════════════════
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+},{passive:true});
+
+// ════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════
+window.addEventListener('load',()=>{
+  applyTheme();
+  renderAll();
+  setTimeout(initScrollAnimations,120);
+  if(typeof THREE!=='undefined'){
+    initHero3D('hc1','petbowl',0xC8A888);
+    initHero3D('hc2','cosmetic',0xD4C0B0);
+    initHero3D('hc3','bag',0x9A7848);
+  }
+});
+</script>
+</body>
+</html>

@@ -249,9 +249,18 @@ body.jr .fu.in{opacity:1;transform:none}
 .pc-img{overflow:hidden;position:relative;aspect-ratio:1/1}
 .pgrid-feat .pc:first-child .pc-img{aspect-ratio:2/1}
 @media(max-width:840px){.pgrid-feat .pc:first-child .pc-img{aspect-ratio:1/1}}
-.pc-ib{position:absolute;inset:0;transition:transform .62s ease}
+.pc-ib{position:absolute;inset:0;transition:transform .62s ease,opacity .35s ease;background-size:cover;background-position:center;background-repeat:no-repeat}
 .pc:hover .pc-ib{transform:scale(1.05)}
-.pc-bgs{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:3px;z-index:2}
+.pc-img canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;cursor:grab;z-index:1}
+.pc-img canvas:active{cursor:grabbing}
+.pc-3dh{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;pointer-events:none;transition:opacity .25s}
+.pc-3dh::after{content:'⟳ 3D';font-family:'Geist Mono',monospace;font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;color:var(--iv);background:rgba(7,6,4,.55);border:1px solid rgba(196,151,58,.35);padding:5px 11px}
+.pc-img.is3d .pc-3dh{opacity:0}
+.pc-img.is3d .pc-ib{opacity:0;transform:none!important}
+.pc-3dc{position:absolute;top:8px;right:8px;z-index:4;background:rgba(7,6,4,.78);border:1px solid var(--bd);color:var(--td);font-size:.8rem;line-height:1;width:22px;height:22px;display:none;align-items:center;justify-content:center;padding:0}
+.pc-3dc:hover{border-color:var(--gbd);color:var(--gold)}
+.pc-img.is3d .pc-3dc{display:flex}
+.pc-bgs{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:3px;z-index:3}
 .pb{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;line-height:1.3}
 .pb.new{background:var(--gold);color:var(--n)}
 .pb.best{background:var(--iv);color:var(--n)}
@@ -830,12 +839,7 @@ body.jr .fu.in{opacity:1;transform:none}
       <div class="cont-credit" data-i="cont-credit">This digital showroom was created by steez.digital</div>
     </div>
     <div class="cont-r fu">
-      <div class="booth-card">
-        <div class="bc-lbl" data-i="bc-lbl">Trade Show Booth</div>
-        <div class="bc-num">A3 — 095</div>
-        <div class="bc-sub" data-i="bc-sub">Canton Fair · Hall 3 · Spring 2026</div>
-      </div>
-      <div class="booth-card" style="border-color:var(--bd)">
+<div class="booth-card" style="border-color:var(--bd)">
         <div class="bc-lbl" data-i="bc-req">Request</div>
         <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.3rem,3vw,2rem);color:var(--iv);line-height:1.1;text-align:center" data-i="bc-fv">Factory Visit<br><em style="color:var(--gold)">& Sample Room</em></div>
         <div class="bc-sub" data-i="bc-appt">Available Monday – Friday, by appointment</div>
@@ -1136,56 +1140,64 @@ const products = [
    mat:'Top-grain leather',dims:'34×12×26 cm',weight:'580g',moq:'100 pcs',lead:'25–35 days',
    zh:{name:'极光托特包',coll:'都市精选',desc:'结构感全粒面皮革托特包，配定制黄铜五金和超细纤维绒面革内衬，专为全球零售打造。',mat:'全粒面皮革',
        specs:{材质:'全粒面皮革',尺寸:'34×12×26 cm',五金:'镀黄铜',内衬:'超细纤维绒面革',最小起订量:'100 件',生产周期:'25–35 天',OEM:'支持',认证:'REACH, SGS'}},
-   colors:['#8B5E3C','#1A1A1A','#C4973A','#F0E8DC'],badges:['best'],imgC:'pi-1',cat:'bag',geo:'box',gc:0x8B5E3C,
+   colors:['#8B5E3C','#1A1A1A','#C4973A','#F0E8DC'],badges:['best'],imgC:'pi-1',cat:'bag',geo:'bag',gc:0x8B5E3C,
+   img:'https://images.pexels.com/photos/8148587/pexels-photo-8148587.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
    specs:{Material:'Top-grain leather',Dimensions:'34×12×26 cm',Hardware:'Brass plated',Lining:'Microfiber suede',MOQ:'100 pcs','Lead Time':'25–35 days',OEM:'Yes',Certs:'REACH, SGS'}},
   {id:'p2',sku:'MV-SUN-002',name:'Lumière Frames',coll:'Everyday Elegance',cid:'elegance',
    desc:'Handcrafted premium acetate frames with polarized CR-39 lenses. UV400 protection meets editorial runway design.',
    mat:'Premium acetate',dims:'142×52×14 mm',weight:'28g',moq:'200 pcs',lead:'20–28 days',
    zh:{name:'流光镜框',coll:'日常雅致',desc:'手工打造优质醋酸纤维镜框，配偏振CR-39镜片，UV400防护，兼具时尚感与实用性。',mat:'优质醋酸纤维',
        specs:{材质:'优质醋酸纤维',镜片:'偏振CR-39，UV400',镜框宽:'142mm',鼻梁:'18mm',镜腿:'145mm',最小起订量:'200 件',生产周期:'20–28 天',OEM:'支持'}},
-   colors:['#3D2A1A','#1A1A1A','#C4973A','#8B7B6A'],badges:['new'],imgC:'pi-2',cat:'eyewear',geo:'torus',gc:0x3D2A1A,
+   colors:['#3D2A1A','#1A1A1A','#C4973A','#8B7B6A'],badges:['new'],imgC:'pi-2',cat:'eyewear',geo:'glasses',gc:0x3D2A1A,
+   img:'https://images.pexels.com/photos/4952482/pexels-photo-4952482.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
    specs:{Material:'Premium acetate',Lens:'Polarized CR-39, UV400',Width:'142mm',Bridge:'18mm',Temple:'145mm',MOQ:'200 pcs','Lead Time':'20–28 days',OEM:'Yes'}},
   {id:'p3',sku:'MV-HST-003',name:'SilkEdge Pro',coll:'Smart Beauty',cid:'beauty',
    desc:'Professional ionic ceramic hair styler. 230°C max, tourmaline plates, dual voltage 110–240V. Salon results for daily use.',
    mat:'ABS + ionic ceramic',dims:'28×6×4 cm',weight:'410g',moq:'150 pcs',lead:'30–40 days',
    zh:{name:'丝滑直发器专业版',coll:'智慧美颜',desc:'专业级负离子陶瓷直发器，最高230°C，电气石陶瓷板，110–240V双电压，沙龙级效果日常可用。',mat:'ABS + 负离子陶瓷',
        specs:{材质:'ABS + 负离子陶瓷',最高温度:'230°C',加热板:'电气石陶瓷',电压:'110–240V 双电压',功率:'40W',最小起订量:'150 件',生产周期:'30–40 天',认证:'CE, ETL, UKCA'}},
-   colors:['#1A1A1A','#C4973A','#F0E8DC','#2C2C2C'],badges:['best','oem'],imgC:'pi-3',cat:'beauty',geo:'cylinder',gc:0x222222,
+   colors:['#1A1A1A','#C4973A','#F0E8DC','#2C2C2C'],badges:['best','oem'],imgC:'pi-3',cat:'beauty',geo:'styler',gc:0x222222,
+   img:'https://images.pexels.com/photos/8467976/pexels-photo-8467976.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
    specs:{Material:'ABS + ionic ceramic',Temperature:'Up to 230°C',Plates:'Tourmaline ceramic',Voltage:'110–240V dual',Power:'40W',MOQ:'150 pcs','Lead Time':'30–40 days',Certs:'CE, ETL, UKCA'}},
   {id:'p4',sku:'MV-MIR-004',name:'Nova Mirror',coll:'Smart Beauty',cid:'beauty',
    desc:'LED vanity mirror with 1× / 10× magnification, adjustable 3000–6000K lighting, touch dimmer. Desktop or wall mount.',
    mat:'Aluminium alloy',dims:'30cm diameter',weight:'1.2kg',moq:'100 pcs',lead:'28–38 days',
    zh:{name:'星耀美妆镜',coll:'智慧美颜',desc:'LED化妆镜，1× / 10×放大倍率，3000–6000K可调光，触控调光，桌面或壁挂两用。',mat:'铝合金',
        specs:{材质:'铝合金',直径:'30cm',放大倍率:'1× / 10×',灯光:'LED，3000–6000K',电源:'USB-C 5V',最小起订量:'100 件',生产周期:'28–38 天',认证:'CE, FCC'}},
-   colors:['#C4A882','#1A1A1A','#F0E8DC'],badges:['new'],imgC:'pi-4',cat:'beauty',geo:'sphere',gc:0xC4A882,
+   colors:['#C4A882','#1A1A1A','#F0E8DC'],badges:['new'],imgC:'pi-4',cat:'beauty',geo:'mirror',gc:0xC4A882,
+   img:'https://images.pexels.com/photos/8580762/pexels-photo-8580762.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
    specs:{Material:'Aluminium alloy',Diameter:'30cm',Magnification:'1× / 10×',Lighting:'LED, 3000–6000K',Power:'USB-C 5V',MOQ:'100 pcs','Lead Time':'28–38 days',Certs:'CE, FCC'}},
   {id:'p5',sku:'MV-JEW-005',name:'Vela Jewelry Case',coll:'Luxury Travel',cid:'travel',
    desc:'Ivory vegan leather travel jewelry organizer. Velvet-lined compartments and anti-tarnish fabric interior. Hand-finished.',
    mat:'Vegan leather + velvet',dims:'22×10×4 cm',weight:'280g',moq:'150 pcs',lead:'20–28 days',
    zh:{name:'维拉珠宝收纳盒',coll:'奢旅系列',desc:'象牙白素皮旅行珠宝收纳盒，天鹅绒分隔格，防氧化内衬，手工精修完成。',mat:'素皮 + 天鹅绒',
        specs:{材质:'素皮 + 天鹅绒',尺寸:'22×10×4 cm',格层:'8戒指格 + 2拉链格',内衬:'天鹅绒，防氧化',最小起订量:'150 件',生产周期:'20–28 天',OEM:'支持'}},
-   colors:['#F0E8DC','#1A1A1A','#C4973A','#8B7B6A'],badges:['best'],imgC:'pi-5',cat:'travel',geo:'box',gc:0xE0D5C4,
+   colors:['#F0E8DC','#1A1A1A','#C4973A','#8B7B6A'],badges:['best'],imgC:'pi-5',cat:'travel',geo:'jewelry',gc:0xE0D5C4,
+   img:'https://images.pexels.com/photos/16940629/pexels-photo-16940629.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
    specs:{Material:'Vegan leather + velvet',Dimensions:'22×10×4 cm',Compartments:'8 ring + 2 zip',Lining:'Velvet, anti-tarnish',MOQ:'150 pcs','Lead Time':'20–28 days',OEM:'Yes'}},
   {id:'p6',sku:'MV-WAT-006',name:'Tempus Watch',coll:'Urban Essentials',cid:'urban',
    desc:'Minimalist fashion watch. Brushed mesh stainless steel band, sapphire-coated mineral glass, 5ATM water resistance.',
    mat:'Stainless steel',dims:'40mm case',weight:'82g',moq:'200 pcs',lead:'35–45 days',
    zh:{name:'极简时光腕表',coll:'都市精选',desc:'极简时尚腕表，拉丝网格不锈钢表带，蓝宝石镀膜矿物玻璃，5ATM防水。',mat:'不锈钢',
        specs:{材质:'不锈钢',表壳:'40mm',表带:'网格不锈钢',防水:'5ATM / 50m',机芯:'日本石英',最小起订量:'200 件',生产周期:'35–45 天',OEM:'支持'}},
-   colors:['#C4C4C4','#C4973A','#1A1A1A'],badges:['oem'],imgC:'pi-6',cat:'watch',geo:'torus',gc:0x888888,
+   colors:['#C4C4C4','#C4973A','#1A1A1A'],badges:['oem'],imgC:'pi-6',cat:'watch',geo:'watch',gc:0x888888,
+   img:'https://images.pexels.com/photos/3766111/pexels-photo-3766111.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
    specs:{Material:'Stainless steel',Case:'40mm',Band:'Mesh stainless steel',Resistance:'5ATM / 50m',Movement:'Japanese quartz',MOQ:'200 pcs','Lead Time':'35–45 days',OEM:'Yes'}},
   {id:'p7',sku:'MV-SCF-007',name:'Soie Scarf',coll:'Everyday Elegance',cid:'elegance',
    desc:'Hand-printed 100% silk twill scarf, 90×90cm. Custom pattern design service available. Hand-hemmed finish. Seasonal colorways.',
    mat:'100% silk twill, 16mm',dims:'90×90 cm',weight:'65g',moq:'100 pcs',lead:'25–35 days',
    zh:{name:'索伊真丝丝巾',coll:'日常雅致',desc:'手工印花100%真丝斜纹绸丝巾，90×90cm，可定制图案，手工卷边，提供季节性色系。',mat:'100% 真丝斜纹绸，16mm',
        specs:{材质:'100% 真丝斜纹绸，16mm',尺寸:'90×90 cm',工艺:'手工卷边',印花:'数码 / 丝网印花',最小起订量:'100 件',生产周期:'25–35 天',OEM:'完全定制设计'}},
-   colors:['#C4973A','#F0E8DC','#1A1A1A','#8B4A4A'],badges:['best','oem'],imgC:'pi-7',cat:'scarf',geo:'plane',gc:0xC4973A,
+   colors:['#C4973A','#F0E8DC','#1A1A1A','#8B4A4A'],badges:['best','oem'],imgC:'pi-7',cat:'scarf',geo:'scarf',gc:0xC4973A,
+   img:'https://images.pexels.com/photos/36455708/pexels-photo-36455708.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
    specs:{Material:'100% silk twill, 16mm',Dimensions:'90×90 cm',Finish:'Hand-hemmed',Printing:'Digital / screen print',MOQ:'100 pcs','Lead Time':'25–35 days',OEM:'Full custom design'}},
   {id:'p8',sku:'MV-WAL-008',name:'Mono Wallet',coll:'Urban Essentials',cid:'urban',
    desc:'Ultra-slim RFID-blocking cardholder in full-grain leather. 8 card slots + cash. Custom debossing and logo available.',
    mat:'Full-grain leather',dims:'10×7×0.8 cm',weight:'55g',moq:'200 pcs',lead:'18–25 days',
    zh:{name:'单色超薄钱包',coll:'都市精选',desc:'超薄RFID防护全粒面皮革卡包，8卡槽加现金夹，可定制压印标志。',mat:'全粒面皮革',
        specs:{材质:'全粒面皮革',尺寸:'10×7×0.8 cm',卡槽:'8卡槽 + 现金夹',防护:'RFID屏蔽',压印:'可定制标志',最小起订量:'200 件',生产周期:'18–25 天'}},
-   colors:['#1A1A1A','#8B5E3C','#C4973A','#3D2A1A'],badges:['new'],imgC:'pi-8',cat:'wallet',geo:'box',gc:0x111111,
+   colors:['#1A1A1A','#8B5E3C','#C4973A','#3D2A1A'],badges:['new'],imgC:'pi-8',cat:'wallet',geo:'wallet',gc:0x111111,
+   img:'https://images.pexels.com/photos/7634160/pexels-photo-7634160.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',
    specs:{Material:'Full-grain leather',Dimensions:'10×7×0.8 cm',Cards:'8 card slots + cash',Protection:'RFID blocking',Deboss:'Custom logo avail.',MOQ:'200 pcs','Lead Time':'18–25 days'}}
 ];
 
@@ -1384,6 +1396,91 @@ function initHero3D(){
 }
 
 /* ─── DRAWER 3D ─── */
+function buildModel(type,color){
+  const mat=new THREE.MeshStandardMaterial({color,metalness:.08,roughness:.72});
+  const matM=new THREE.MeshStandardMaterial({color:0xC4973A,metalness:.88,roughness:.06});
+  const g=new THREE.Group();
+  switch(type){
+    case 'bag':{
+      mat.roughness=.72;mat.metalness=.04;
+      const dk=new THREE.MeshStandardMaterial({color:Math.max(color-0x221108,0),metalness:.03,roughness:.82});
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(2.5,1.85,.88,2,2,2),mat));
+      const fp=new THREE.Mesh(new THREE.BoxGeometry(1.85,1.15,.06),dk);fp.position.set(0,-.16,.47);g.add(fp);
+      const tt=new THREE.Mesh(new THREE.BoxGeometry(2.5,.15,.88),dk);tt.position.y=1.0;g.add(tt);
+      const bb=new THREE.Mesh(new THREE.BoxGeometry(2.6,.17,.94),dk);bb.position.y=-1.01;g.add(bb);
+      const hG=new THREE.TorusGeometry(.44,.068,10,36,Math.PI);
+      [-.65,.65].forEach(x=>{const h=new THREE.Mesh(hG,mat);h.position.set(x,.98,0);g.add(h);});
+      const cl=new THREE.Mesh(new THREE.CylinderGeometry(.18,.16,.12,20),matM);cl.position.set(0,.98,.44);g.add(cl);
+      [[-1.05,-1.02,.32],[1.05,-1.02,.32],[-1.05,-1.02,-.32],[1.05,-1.02,-.32]].forEach(([x,y,z])=>{const s=new THREE.Mesh(new THREE.SphereGeometry(.068,10,10),matM);s.position.set(x,y,z);g.add(s);});
+      break;}
+    case 'glasses':{
+      mat.roughness=.32;mat.metalness=.62;
+      const lf=new THREE.TorusGeometry(.52,.072,10,36);
+      [-.68,.68].forEach(x=>{const l=new THREE.Mesh(lf,mat);l.position.set(x,0,0);g.add(l);});
+      const liMat=new THREE.MeshStandardMaterial({color,metalness:.05,roughness:.08,transparent:true,opacity:.28});
+      [-.68,.68].forEach(x=>{const l=new THREE.Mesh(new THREE.CircleGeometry(.44,32),liMat);l.position.set(x,0,.001);g.add(l);});
+      const br=new THREE.Mesh(new THREE.CylinderGeometry(.042,.042,.32,8),mat);br.rotation.z=Math.PI/2;br.position.y=.1;g.add(br);
+      [-1,1].forEach(s=>{const arm=new THREE.Mesh(new THREE.BoxGeometry(1.0,.065,.052),mat);arm.position.set(s*1.7,.06,-.18);arm.rotation.y=s*.14;g.add(arm);});
+      break;}
+    case 'styler':{
+      mat.roughness=.4;mat.metalness=.14;
+      const hnd=new THREE.Mesh(new THREE.CylinderGeometry(.28,.34,1.5,20),mat);hnd.position.y=-.95;g.add(hnd);
+      const body=new THREE.Mesh(new THREE.BoxGeometry(.58,1.5,.34),mat);body.position.y=.65;g.add(body);
+      const pMat=new THREE.MeshStandardMaterial({color:0xBBBBBB,metalness:.1,roughness:.45});
+      [-.15,.15].forEach(z=>{const p=new THREE.Mesh(new THREE.BoxGeometry(.48,1.3,.05),pMat);p.position.set(0,.65,z);g.add(p);});
+      const btn=new THREE.Mesh(new THREE.CylinderGeometry(.075,.075,.04,12),matM);btn.rotation.z=Math.PI/2;btn.position.set(.27,0,.18);g.add(btn);
+      break;}
+    case 'mirror':{
+      mat.roughness=.28;mat.metalness=.48;
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(1.25,1.25,.09,48),mat));
+      const mFaceMat=new THREE.MeshStandardMaterial({color:0xE5DECE,metalness:.95,roughness:.02});
+      const mf=new THREE.Mesh(new THREE.CircleGeometry(1.15,48),mFaceMat);mf.position.y=.055;mf.rotation.x=-Math.PI/2;g.add(mf);
+      const ledMat=new THREE.MeshStandardMaterial({color:0xFFE090,emissive:0xFFD060,emissiveIntensity:.55,metalness:.1,roughness:.3});
+      const led=new THREE.Mesh(new THREE.TorusGeometry(1.15,.062,8,60),ledMat);led.rotation.x=Math.PI/2;g.add(led);
+      const st=new THREE.Mesh(new THREE.CylinderGeometry(.065,.065,1.2,8),mat);st.position.y=-1.0;g.add(st);
+      const base=new THREE.Mesh(new THREE.BoxGeometry(1.1,.09,.72),mat);base.position.y=-1.65;g.add(base);
+      break;}
+    case 'jewelry':{
+      mat.roughness=.78;mat.metalness=.02;
+      const bot=new THREE.Mesh(new THREE.BoxGeometry(2.6,.16,1.3),mat);bot.position.y=-.32;g.add(bot);
+      const lid=new THREE.Mesh(new THREE.BoxGeometry(2.6,.1,1.3),mat);lid.position.set(0,.24,-.28);lid.rotation.x=-.42;g.add(lid);
+      const vMat=new THREE.MeshStandardMaterial({color:0x12112A,roughness:.99,metalness:0});
+      const inner=new THREE.Mesh(new THREE.BoxGeometry(2.4,.05,1.1),vMat);inner.position.y=-.24;g.add(inner);
+      for(let i=-3;i<=3;i++){const sl=new THREE.Mesh(new THREE.CylinderGeometry(.1,.1,.14,14),vMat);sl.position.set(i*.3,-.2,.1);sl.rotation.z=Math.PI/2;g.add(sl);}
+      const hinge=new THREE.Mesh(new THREE.CylinderGeometry(.055,.055,2.35,8),matM);hinge.rotation.z=Math.PI/2;hinge.position.set(0,.24,-.65);g.add(hinge);
+      break;}
+    case 'watch':{
+      mat.roughness=.22;mat.metalness=.72;
+      g.add(new THREE.Mesh(new THREE.CylinderGeometry(.95,.98,.36,44),mat));
+      const dialMat=new THREE.MeshStandardMaterial({color:0x060606,metalness:.05,roughness:.28});
+      const dial=new THREE.Mesh(new THREE.CylinderGeometry(.86,.86,.02,44),dialMat);dial.position.y=.19;g.add(dial);
+      for(let i=0;i<12;i++){const a=(i/12)*Math.PI*2;const mk=new THREE.Mesh(new THREE.BoxGeometry(.035,.16,.02),matM);mk.position.set(Math.sin(a)*.7,.2,Math.cos(a)*.7);mk.rotation.y=-a;g.add(mk);}
+      const crown=new THREE.Mesh(new THREE.CylinderGeometry(.09,.09,.2,10),mat);crown.rotation.z=Math.PI/2;crown.position.set(1.04,0,0);g.add(crown);
+      [-1,1].forEach(side=>{for(let s=0;s<4;s++){const seg=new THREE.Mesh(new THREE.BoxGeometry(.82,.075,.32),mat);seg.position.y=side*(.24+s*.09+.04);g.add(seg);}});
+      break;}
+    case 'scarf':{
+      const pGeo=new THREE.PlaneGeometry(3.6,2.2,26,18);
+      const pos=pGeo.attributes.position;
+      for(let i=0;i<pos.count;i++){const x=pos.getX(i),y=pos.getY(i);pos.setZ(i,Math.sin(x*1.7)*.16+Math.cos(y*2.2)*.1+Math.sin(x*.9+y*1.1)*.09);}
+      pGeo.computeVertexNormals();
+      const sMat=new THREE.MeshStandardMaterial({color,metalness:.01,roughness:.88,side:THREE.DoubleSide});
+      g.add(new THREE.Mesh(pGeo,sMat));
+      [-1.12,1.12].forEach(y=>{const fr=new THREE.Mesh(new THREE.BoxGeometry(3.6,.055,.055),new THREE.MeshStandardMaterial({color:0xC4973A,metalness:.1,roughness:.8}));fr.position.y=y;g.add(fr);});
+      break;}
+    case 'wallet':{
+      mat.roughness=.68;mat.metalness=.04;
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(2.2,1.5,.15),mat));
+      const cMat=new THREE.MeshStandardMaterial({color:0xD8D0C0,metalness:.08,roughness:.5});
+      [.52,.34,.16].forEach(y=>{const c=new THREE.Mesh(new THREE.BoxGeometry(2.0,.036,.025),cMat);c.position.set(0,y,.09);g.add(c);});
+      const logo=new THREE.Mesh(new THREE.BoxGeometry(.48,.07,.005),matM);logo.position.set(0,-.1,.083);g.add(logo);
+      const rfid=new THREE.Mesh(new THREE.BoxGeometry(.42,.28,.02),new THREE.MeshStandardMaterial({color:0xC4973A,metalness:.65,roughness:.22}));rfid.position.set(-.58,-.42,.09);g.add(rfid);
+      break;}
+    default:
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(2,2,2),mat));
+  }
+  return g;
+}
+
 let dR,dScene,dCamera,dMesh,dDrag=false,dPx=0,dPy=0,dRx=.2,dRy=0;
 
 function initDrawer3D(geoShape,geoColor){
@@ -1398,16 +1495,7 @@ function initDrawer3D(geoShape,geoColor){
   dScene.add(new THREE.AmbientLight(0x120d08,.7));
   const kl=new THREE.PointLight(0xC4973A,3.2,22); kl.position.set(3,4,4); dScene.add(kl);
   const fl=new THREE.PointLight(0xF2EDE3,.7,16); fl.position.set(-3,-2,3); dScene.add(fl);
-  const geos={
-    box:()=>new THREE.BoxGeometry(2.5,1.8,1,2,2,2),
-    sphere:()=>new THREE.SphereGeometry(1.65,32,32),
-    torus:()=>new THREE.TorusGeometry(1.25,.4,16,100),
-    cylinder:()=>new THREE.CylinderGeometry(.32,.44,2.9,32),
-    plane:()=>new THREE.BoxGeometry(2.9,2.9,.09),
-  };
-  const geo=(geos[geoShape]||geos.box)();
-  const mat=new THREE.MeshStandardMaterial({color:geoColor,metalness:.72,roughness:.22});
-  dMesh=new THREE.Mesh(geo,mat); dScene.add(dMesh);
+  dMesh=buildModel(geoShape,geoColor); dScene.add(dMesh);
   dR=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
   dR.setPixelRatio(Math.min(devicePixelRatio,2));
   dR.setSize(cw,ch);
@@ -1529,13 +1617,16 @@ function filterProds(cat){activeCat=cat;renderFilter();renderGrid();}
 
 function renderGrid(){
   const g=document.getElementById('pgrid');
+  disposeCardRenderers();
   const ps=activeCat==='All'?products:products.filter(p=>p.cat===activeCat);
   g.className='pgrid'+(activeCat==='All'?' pgrid-feat':'');
   const t=i18n[curLang]||i18n.en;
   g.innerHTML=ps.map((p,i)=>`
   <div class="pc fu" onclick="openDrawer('${p.id}')">
-    <div class="pc-img">
-      <div class="pc-ib ${p.imgC}"></div>
+    <div class="pc-img" onclick="event.stopPropagation();tap3D('${p.id}',this)">
+      <div class="pc-ib ${p.imgC}"${p.img?` style="background:url('${p.img}') center/cover no-repeat"`:''} ></div>
+      <div class="pc-3dh"></div>
+      <button class="pc-3dc" onclick="event.stopPropagation();close3D('${p.id}',this.closest('.pc-img'))">✕</button>
       <div class="pc-bgs">${p.badges.map(b=>`<span class="pb ${b}">${b==='new'?t['badge-new']:b==='best'?t['badge-best']:t['badge-oem']}</span>`).join('')}</div>
     </div>
     <div class="pc-body">
@@ -1553,6 +1644,62 @@ function renderGrid(){
     </div>
   </div>`).join('');
   setTimeout(initFU,50);
+}
+
+/* ─── CARD 3D VIEWERS ─── */
+const cardRenderers={};
+
+function disposeCardRenderers(){
+  for(const id in cardRenderers){
+    if(cardRenderers[id]&&cardRenderers[id].dispose)cardRenderers[id].dispose();
+    cardRenderers[id]=null;
+  }
+}
+
+function close3D(id,imgEl){
+  if(cardRenderers[id]){cardRenderers[id].dispose();cardRenderers[id]=null;}
+  const cv=imgEl.querySelector('canvas');if(cv)cv.remove();
+  imgEl.classList.remove('is3d');
+}
+
+function tap3D(id,imgEl){
+  if(imgEl.classList.contains('is3d'))return;
+  const p=products.find(x=>x.id===id);
+  if(!p||typeof THREE==='undefined')return;
+  imgEl.classList.add('is3d');
+  const canvas=document.createElement('canvas');
+  imgEl.appendChild(canvas);
+  const cw=imgEl.clientWidth||200,ch=imgEl.clientHeight||200;
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(42,cw/ch,.1,100);
+  camera.position.set(0,.3,6.2);
+  scene.add(new THREE.AmbientLight(0x100C08,.9));
+  const kl=new THREE.PointLight(0xC4973A,2.8,18);kl.position.set(3,4,4);scene.add(kl);
+  const fl=new THREE.PointLight(0xF2EDE3,.5,12);fl.position.set(-3,-2,3);scene.add(fl);
+  const obj=buildModel(p.geo,p.gc);scene.add(obj);
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setSize(cw,ch);
+  renderer.setClearColor(0,0);
+  cardRenderers[id]=renderer;
+  let drag=false,px=0,py=0,rotY=.3,rotX=.12;
+  canvas.addEventListener('pointerdown',e=>{drag=true;px=e.clientX;py=e.clientY;canvas.setPointerCapture(e.pointerId);e.stopPropagation();});
+  canvas.addEventListener('pointermove',e=>{if(!drag)return;rotY+=(e.clientX-px)*.012;rotX+=(e.clientY-py)*.006;px=e.clientX;py=e.clientY;e.stopPropagation();});
+  canvas.addEventListener('pointerup',e=>{drag=false;e.stopPropagation();});
+  canvas.addEventListener('click',e=>e.stopPropagation());
+  (function anim(){
+    if(!cardRenderers[id])return;
+    requestAnimationFrame(anim);
+    if(!drag)rotY+=.007;
+    obj.rotation.y=rotY;obj.rotation.x=rotX;
+    renderer.render(scene,camera);
+  })();
+  new ResizeObserver(()=>{
+    const cw=imgEl.clientWidth,ch=imgEl.clientHeight;
+    if(!cw||!ch)return;
+    camera.aspect=cw/ch;camera.updateProjectionMatrix();
+    renderer.setSize(cw,ch);
+  }).observe(imgEl);
 }
 
 /* ─── COLLECTION SWITCHER ─── */
