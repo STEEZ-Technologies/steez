@@ -9,21 +9,19 @@ const STATS = [
 
 export function Numbers() {
   return (
-    <section
-      className="sticky top-0"
+    <div
       style={{
-        background: "#04342C",
-        borderTop: "1px solid rgba(250,249,245,0.15)",
-        borderTopLeftRadius: 16,
-        borderTopRightRadius: 16,
-        zIndex: 2,
+        width: "100%",
+        background: "transparent",
+        borderTop: "1px solid var(--hairline)",
+        transition: "border-color 0.4s ease",
       }}
     >
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
-          maxWidth: 1280,
+          maxWidth: 1200,
           margin: "0 auto",
         }}
       >
@@ -31,25 +29,28 @@ export function Numbers() {
           <FadeIn
             key={s.label}
             delay={i * 0.1}
-            y={20}
+            y={10}
             style={{
-              padding: "clamp(40px, 5vw, 80px) clamp(24px, 3vw, 48px)",
+              padding: "clamp(12px, 2vw, 24px) clamp(10px, 1.5vw, 20px)",
               borderRight:
                 i < STATS.length - 1
-                  ? "1px solid rgba(250,249,245,0.15)"
+                  ? "1px solid var(--hairline)"
                   : undefined,
               display: "flex",
               flexDirection: "column",
-              gap: "clamp(8px, 1vw, 14px)",
+              alignItems: "center",
+              textAlign: "center",
+              gap: 2,
             }}
           >
             <div
               style={{
                 fontWeight: 900,
-                fontSize: "clamp(2.5rem, 6vw, 5rem)",
+                fontSize: "clamp(1.2rem, 2.5vw, 2rem)",
                 lineHeight: 1,
-                letterSpacing: "-0.04em",
-                color: "#FAF9F5",
+                letterSpacing: "-0.02em",
+                color: "var(--fg)",
+                transition: "color 0.4s ease",
               }}
             >
               {s.value}
@@ -59,11 +60,13 @@ export function Numbers() {
             </div>
             <div
               style={{
-                fontWeight: 400,
-                fontSize: "clamp(0.8rem, 1.2vw, 1rem)",
-                color: "rgba(250,249,245,0.7)",
+                fontWeight: 500,
+                fontSize: "clamp(0.6rem, 0.8vw, 0.7rem)",
+                color: "var(--fg)",
+                opacity: 0.5,
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
+                transition: "color 0.4s ease, opacity 0.4s ease",
               }}
             >
               {s.label}
@@ -71,6 +74,6 @@ export function Numbers() {
           </FadeIn>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

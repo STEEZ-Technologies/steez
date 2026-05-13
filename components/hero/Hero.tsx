@@ -1,135 +1,190 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ContactButton } from "@/components/shared/ContactButton";
+import { useRef } from "react";
+import { useScroll, useTransform, motion } from "motion/react";
 import { FadeIn } from "@/components/shared/FadeIn";
-import { Magnet } from "@/components/shared/Magnet";
 import { COPY } from "@/lib/copy";
-import { BizCard } from "./BizCard";
-import { Nav } from "./Nav";
+import { Numbers } from "@/components/numbers/Numbers";
 
-type HeroProps = { cardVariant?: "dark" | "light" };
+export function Hero() {
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
 
-export function Hero({ cardVariant = "dark" }: HeroProps) {
-  const [cardWidth, setCardWidth] = useState(520);
-
-  useEffect(() => {
-    function update() {
-      setCardWidth(Math.min(560, window.innerWidth * 0.5));
-    }
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 250]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
 
   return (
     <section
+      ref={containerRef}
       id="top"
       style={{
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         position: "relative",
-        overflowX: "clip",
-        background: "#FAF9F5",
+        overflow: "visible",
+        background: "var(--bg)",
+        color: "var(--fg)",
+        transition: "background 0.4s ease, color 0.4s ease",
       }}
     >
-      <Nav />
+      <motion.div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          textAlign: "center",
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          y,
+          opacity,
+          scale,
+          padding: "0 clamp(20px, 4vw, 40px)",
+        }}
+      >
+        <FadeIn delay={0.05} y={20}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 10,
+              alignSelf: "center",
+              padding: "8px 16px",
+              borderRadius: 999,
+              border: "1px solid var(--hairline-strong)",
+              background: "var(--card-bg)",
+              fontSize: "clamp(0.7rem, 0.95vw, 0.82rem)",
+              fontWeight: 600,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "inherit",
+              marginBottom: "clamp(20px, 2.5vw, 32px)",
+            }}
+          >
+            <span
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: "50%",
+                background: "#1D9E75",
+                boxShadow: "0 0 0 4px rgba(29,158,117,0.18)",
+              }}
+            />
+            <span>Shenzhen · 思智</span>
+            <span style={{ opacity: 0.4 }}>/</span>
+            <span style={{ color: "#E0A93A" }}>Open for 2026</span>
+          </div>
+        </FadeIn>
 
-      <div style={{ overflow: "hidden", position: "relative", zIndex: 2 }}>
         <FadeIn delay={0.15} y={40}>
           <h1
             className="hero-heading"
             style={{
-              fontSize: "clamp(180px, 22vw, 460px)",
+              fontSize: "var(--text-display)",
               fontWeight: 900,
               letterSpacing: "-0.04em",
-              lineHeight: 0.85,
+              lineHeight: "var(--leading-display)",
               whiteSpace: "nowrap",
               width: "100%",
               textAlign: "center",
               margin: 0,
-              marginTop: "clamp(-20px, -1vw, 16px)",
               textTransform: "uppercase",
+              color: "inherit",
             }}
           >
             {COPY.hero.title}
           </h1>
         </FadeIn>
-      </div>
 
-      <FadeIn delay={0.25} y={20}>
-        <div
-          style={{
-            fontSize: "clamp(1rem, 2.5vw, 2.25rem)",
-            fontWeight: 300,
-            color: "#E0A93A",
-            textAlign: "center",
-            letterSpacing: "0.04em",
-            marginTop: 8,
-          }}
-        >
-          <span className="cn-text" lang="zh">
-            思智
-          </span>
-          <span style={{ margin: "0 0.4em", opacity: 0.5 }}>·</span>
-          <span className="cn-text" lang="zh">
-            连接全球买家
-          </span>
-        </div>
-      </FadeIn>
-
-      <div
-        style={{
-          position: "absolute",
-          left: "50%",
-          transform: "translateX(-50%)",
-          bottom: "clamp(60px, 6vw, 120px)",
-          zIndex: 1,
-          pointerEvents: "none",
-        }}
-      >
-        <FadeIn delay={0.6} y={30}>
-          <Magnet padding={150} strength={3}>
-            <BizCard width={cardWidth} variant={cardVariant} />
-          </Magnet>
-        </FadeIn>
-      </div>
-
-      <div style={{ flex: 1 }} />
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-          padding:
-            "0 clamp(20px, 4vw, 40px) clamp(28px, 4vw, 48px)",
-          position: "relative",
-          zIndex: 3,
-        }}
-      >
-        <FadeIn delay={0.35} y={20}>
+        <FadeIn delay={0.25} y={20}>
           <p
             style={{
-              color: "rgba(4,52,44,0.7)",
+              color: "var(--fg)",
+              opacity: 0.7,
               fontWeight: 300,
               textTransform: "lowercase",
               letterSpacing: "0.02em",
-              lineHeight: 1.3,
-              fontSize: "clamp(0.78rem, 1.4vw, 1.4rem)",
-              maxWidth: "clamp(160px, 22vw, 320px)",
+              lineHeight: "var(--leading-body-lg)",
+              fontSize: "var(--text-body-lg)",
+              maxWidth: "clamp(300px, 45vw, 520px)",
+              margin: "var(--space-12) auto 0",
             }}
           >
             {COPY.hero.tagline}
           </p>
         </FadeIn>
-        <FadeIn delay={0.5} y={20}>
-          <ContactButton
-            label={COPY.hero.cta.en}
-            cn={COPY.hero.cta.cn}
-          />
+
+        <FadeIn delay={0.35} y={20}>
+          <div
+            style={{
+              fontSize: "clamp(0.85rem, 1.5vw, 1.2rem)",
+              fontWeight: 300,
+              color: "#E0A93A",
+              textAlign: "center",
+              letterSpacing: "0.04em",
+              marginTop: 8,
+            }}
+          >
+            <span className="cn-text" lang="zh">
+              思智
+            </span>
+            <span style={{ margin: "0 0.4em", opacity: 0.5 }}>·</span>
+            <span className="cn-text" lang="zh">
+              连接全球买家
+            </span>
+          </div>
         </FadeIn>
+
+        <FadeIn delay={0.45} y={20}>
+          <div
+            style={{
+              marginTop: "clamp(28px, 3.5vw, 44px)",
+              display: "flex",
+              gap: 12,
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            {[
+              { en: "Digital cards", cn: "数字名片" },
+              { en: "Buyer forms", cn: "买家表单" },
+              { en: "AR catalogues", cn: "AR 目录" },
+              { en: "Live analytics", cn: "实时分析" },
+            ].map((chip) => (
+              <span
+                key={chip.en}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "8px 14px",
+                  borderRadius: 999,
+                  border: "1px solid var(--hairline)",
+                  background: "var(--card-bg)",
+                  fontSize: "clamp(0.7rem, 0.95vw, 0.82rem)",
+                  fontWeight: 500,
+                  color: "inherit",
+                  letterSpacing: "0.04em",
+                }}
+              >
+                <span>{chip.en}</span>
+                <span className="cn-text" lang="zh" style={{ opacity: 0.45 }}>
+                  {chip.cn}
+                </span>
+              </span>
+            ))}
+          </div>
+        </FadeIn>
+      </motion.div>
+
+      <div style={{ position: "relative", zIndex: 3 }}>
+        <Numbers />
       </div>
     </section>
   );

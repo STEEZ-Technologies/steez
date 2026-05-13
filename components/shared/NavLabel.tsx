@@ -3,7 +3,7 @@ type NavLabelProps = { en: string; cn: string };
 export function NavLabel({ en, cn }: NavLabelProps) {
   return (
     <span
-      style={{ display: "inline-flex", alignItems: "baseline", gap: "0.45em" }}
+      style={{ display: "inline-flex", alignItems: "baseline", gap: "0.35em" }}
     >
       <span style={{ textTransform: "uppercase", letterSpacing: "0.08em" }}>
         {en}

@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_SC } from "next/font/google";
+import { Inter, Noto_Sans_SC, Geist } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import { Lenis } from "@/components/shared/Lenis";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,9 +35,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${notoSansSC.variable}`}>
+    <html
+      lang="en"
+      className={cn(inter.variable, notoSansSC.variable, "font-sans", geist.variable)}
+      suppressHydrationWarning
+    >
       <body>
-        <Lenis>{children}</Lenis>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Lenis>{children}</Lenis>
+        </ThemeProvider>
       </body>
     </html>
   );

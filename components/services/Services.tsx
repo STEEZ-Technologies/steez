@@ -1,65 +1,64 @@
+"use client";
+
+import { useRef } from "react";
+import { useScroll, useTransform, motion } from "motion/react";
 import { FadeIn } from "@/components/shared/FadeIn";
 
-const SERVICES = [
+import { RevealCardContainer, IdentityCardBody } from "@/components/ui/reveal-card";
+
+const AGENCY_SERVICES = [
   {
-    n: "01",
-    icon: "⬡",
-    en: "Digital Business Cards",
-    cn: "数字名片",
-    body: "Scan a QR, open a living portfolio. Your products, certifications, and contact info — beautifully presented in any language, dark or light.",
-    features: [
-      "Bilingual, dark / light theme",
-      "Custom QR + map embed",
-      "WeChat & social links",
-      "Shareable link + analytics",
-    ],
+    title: "Business Cards",
+    about: "Digital-first identity systems for global manufacturers. Scan once, connect forever.",
   },
   {
-    n: "02",
-    icon: "◈",
-    en: "Digital Forms",
-    cn: "数字表单",
-    body: "Interactive RFQs, MOQ checklists, and inquiry flows — replacing static WeChat forms with branded, conditional-logic experiences.",
-    features: [
-      "Conditional logic fields",
-      "MOQ & RFQ templates",
-      "WeChat export",
-      "Bilingual output",
-    ],
+    title: "Digital Forms",
+    about: "Smart RFQs and inquiry flows that route buyer data directly to your sales pipeline.",
   },
   {
-    n: "03",
-    icon: "◉",
-    en: "Digital Catalogues",
-    cn: "数字目录",
-    body: "3D and AR product views, filterable by spec, with an inline quote builder so buyers can self-serve from scan to quote.",
-    features: [
-      "3D / AR product views",
-      "Spec filtering",
-      "Inline quote builder",
-      "Multi-language",
-    ],
+    title: "Catalogues",
+    about: "Immersive 3D and AR showrooms that allow buyers to experience products anywhere.",
   },
 ];
 
 export function Services() {
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress: topProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "start start"],
+  });
+
+  const scale = useTransform(topProgress, [0, 0.5], [0.3, 0.95]);
+
   return (
-    <section
+    <motion.section
+      ref={containerRef}
       id="services"
-      className="sticky top-0"
       style={{
-        background: "#FAF9F5",
-        borderTop: "1px solid rgba(4,52,44,0.15)",
-        borderTopLeftRadius: 16,
-        borderTopRightRadius: 16,
-        padding: "clamp(80px, 10vw, 160px) clamp(20px, 4vw, 40px)",
+        background: "var(--section-bg)",
+        color: "var(--section-fg)",
+        borderTop: "1px solid var(--section-hairline)",
+        borderRadius: "var(--radius-cards)",
+        scale,
+        transformOrigin: "top center",
+        marginTop: "var(--space-80)",
+        marginBottom: "var(--space-80)",
+        padding: "var(--space-120) clamp(20px, 4vw, 40px)",
+        position: "relative",
         zIndex: 3,
+        transition: "background 0.4s ease, color 0.4s ease",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+        overflow: "hidden"
       }}
     >
       <FadeIn
         delay={0}
         y={40}
-        style={{ textAlign: "center", marginBottom: "clamp(48px, 6vw, 80px)" }}
+        style={{ textAlign: "center", marginBottom: "clamp(48px, 6vw, 80px)", width: "100%" }}
       >
         <div
           style={{
@@ -79,7 +78,7 @@ export function Services() {
             fontSize: "clamp(2.8rem, 8vw, 7rem)",
             lineHeight: 1,
             letterSpacing: "-0.03em",
-            color: "#04342C",
+            color: "inherit",
             textTransform: "uppercase",
             margin: 0,
           }}
@@ -88,142 +87,82 @@ export function Services() {
         </h2>
       </FadeIn>
 
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "clamp(16px, 2vw, 24px)",
-        }}
-      >
-        {SERVICES.map((s, i) => (
-          <FadeIn key={s.n} delay={i * 0.12} y={30}>
+      {/* THE FIX: Unified wrapper that strictly centers itself */}
+      <div className="w-full max-w-7xl flex flex-col gap-24 lg:gap-32">
+        {AGENCY_SERVICES.map((service, i) => {
+          const isReversed = i % 2 === 1;
+          return (
             <div
-              className="service-card"
-              style={{
-                height: "100%",
-                background: "#FFFFFF",
-                border: "1px solid rgba(4,52,44,0.12)",
-                borderRadius: 16,
-                padding: "clamp(24px, 3vw, 36px)",
-                display: "flex",
-                flexDirection: "column",
-                gap: "clamp(16px, 2vw, 24px)",
-                position: "relative",
-                transition: "border-color 0.25s ease",
-              }}
+              key={service.title}
+              className={`flex w-full flex-col items-center justify-between gap-12 lg:gap-24 ${
+                isReversed ? "lg:flex-row-reverse" : "lg:flex-row"
+              }`}
             >
-              <div
-                style={{
-                  position: "absolute",
-                  top: "clamp(20px, 2.5vw, 28px)",
-                  right: "clamp(20px, 2.5vw, 28px)",
-                  fontWeight: 800,
-                  fontSize: "clamp(0.65rem, 0.85vw, 0.78rem)",
-                  color: "#E0A93A",
-                  letterSpacing: "0.12em",
-                }}
-              >
-                {s.n}
-              </div>
-
-              <div
-                style={{
-                  width: 44,
-                  height: 44,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: "rgba(4,52,44,0.06)",
-                  borderRadius: 10,
-                  fontSize: "1.3rem",
-                  color: "#04342C",
-                }}
-              >
-                {s.icon}
-              </div>
-
-              <div>
-                <h3
-                  style={{
-                    fontWeight: 700,
-                    fontSize: "clamp(1.1rem, 1.8vw, 1.5rem)",
-                    color: "#04342C",
-                    margin: 0,
-                    lineHeight: 1.15,
-                  }}
+              {/* Text Block */}
+              {/* Added dynamic justification so the text "hugs" the middle gap on wide screens */}
+              <div className={`flex w-full lg:w-1/2 lg:flex-1 ${isReversed ? "lg:justify-start" : "lg:justify-end"}`}>
+                <FadeIn 
+                  delay={i * 0.1} 
+                  x={isReversed ? 40 : -40} 
+                  y={0}
+                  className="w-full text-center lg:text-left"
+                  style={{ maxWidth: "540px" }}
                 >
-                  {s.en}
-                </h3>
-                <div
-                  className="cn-text"
-                  lang="zh"
-                  style={{
-                    color: "#E0A93A",
-                    fontSize: "clamp(0.72rem, 1vw, 0.88rem)",
-                    marginTop: 5,
-                    letterSpacing: "0.1em",
-                    fontWeight: 600,
-                  }}
-                >
-                  {s.cn}
-                </div>
-              </div>
-
-              <p
-                style={{
-                  fontWeight: 300,
-                  lineHeight: 1.6,
-                  fontSize: "clamp(0.82rem, 1.1vw, 0.95rem)",
-                  color: "rgba(4,52,44,0.7)",
-                  margin: 0,
-                }}
-              >
-                {s.body}
-              </p>
-
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: 0,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 8,
-                  marginTop: "auto",
-                  borderTop: "1px solid rgba(4,52,44,0.1)",
-                  paddingTop: "clamp(16px, 2vw, 20px)",
-                }}
-              >
-                {s.features.map((f) => (
-                  <li
-                    key={f}
+                  <h3
                     style={{
-                      display: "flex",
-                      alignItems: "baseline",
-                      gap: 8,
-                      fontSize: "clamp(0.75rem, 1vw, 0.88rem)",
-                      color: "rgba(4,52,44,0.65)",
+                      fontWeight: 800,
+                      fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                      lineHeight: 1.1,
+                      letterSpacing: "-0.02em",
+                      marginBottom: "1.5rem",
+                      color: "inherit",
+                      textTransform: "uppercase",
                     }}
                   >
-                    <span
-                      style={{
-                        color: "#1D9E75",
-                        fontWeight: 700,
-                        flexShrink: 0,
-                      }}
-                    >
-                      +
-                    </span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
+                    {service.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontWeight: 300,
+                      fontSize: "clamp(1rem, 1.5vw, 1.25rem)",
+                      lineHeight: 1.6,
+                      color: "inherit",
+                      opacity: 0.8,
+                      margin: 0, // Removed the problematic inline margin
+                    }}
+                  >
+                    {service.about}
+                  </p>
+                </FadeIn>
+              </div>
+
+              {/* Figure Block (Visual Card) */}
+              <div className={`flex w-full lg:w-1/2 lg:flex-1 ${isReversed ? "lg:justify-end" : "lg:justify-start"}`}>
+                <FadeIn delay={i * 0.12} x={isReversed ? -40 : 40} y={0} style={{ width: '100%', maxWidth: '480px' }}>
+                  <RevealCardContainer
+                    base={
+                      <IdentityCardBody
+                        fullName={service.title}
+                        about={service.about}
+                        scheme="plain"
+                        displayAvatar={false}
+                      />
+                    }
+                    overlay={
+                      <IdentityCardBody
+                        fullName={service.title}
+                        about={service.about}
+                        scheme="accented"
+                        displayAvatar={false}
+                      />
+                    }
+                  />
+                </FadeIn>
+              </div>
             </div>
-          </FadeIn>
-        ))}
+          );
+        })}
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -13,8 +13,9 @@ export function STEEZWordmark({ size = 28 }: STEEZWordmarkProps) {
         style={{
           fontWeight: 900,
           fontSize: size,
-          color: "var(--bone)",
+          color: "var(--fg)",
           letterSpacing: "0.14em",
+          transition: "color 0.4s ease",
         }}
       >
         STEEZ

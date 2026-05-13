@@ -23,17 +23,25 @@ const REGIONS = [
   { label: "South America", pct: 8 },
 ];
 
+const FEATURES = [
+  { title: "Real-time scans", desc: "See every QR open within seconds, with device & locale fingerprinting." },
+  { title: "Heat-map regions", desc: "Drill into city-level demand and spot emerging buyer hubs early." },
+  { title: "Funnel exports", desc: "Push scan → form → reply data straight to your CRM via webhook." },
+];
+
 export function Analytics() {
   return (
     <section
-      className="sticky top-0"
       style={{
-        background: "#04342C",
-        borderTop: "1px solid rgba(250,249,245,0.15)",
-        borderTopLeftRadius: 16,
-        borderTopRightRadius: 16,
-        padding: "clamp(80px, 10vw, 160px) clamp(20px, 4vw, 40px)",
+        background: "var(--bg)",
+        color: "var(--fg)",
+        borderTop: "1px solid var(--hairline)",
+        borderTopLeftRadius: "var(--radius-cards)",
+        borderTopRightRadius: "var(--radius-cards)",
+        padding: "var(--space-120) clamp(20px, 4vw, 40px)",
+        position: "relative",
         zIndex: 4,
+        transition: "background 0.4s ease, color 0.4s ease",
       }}
     >
       <div
@@ -65,7 +73,7 @@ export function Analytics() {
               fontSize: "clamp(2.5rem, 6vw, 5rem)",
               lineHeight: 1,
               letterSpacing: "-0.03em",
-              color: "#FAF9F5",
+              color: "inherit",
               textTransform: "uppercase",
               margin: 0,
             }}
@@ -79,7 +87,8 @@ export function Analytics() {
               fontWeight: 300,
               fontSize: "clamp(0.95rem, 1.4vw, 1.2rem)",
               lineHeight: 1.65,
-              color: "rgba(250,249,245,0.7)",
+              color: "inherit",
+              opacity: 0.7,
               marginTop: "clamp(24px, 3vw, 40px)",
               maxWidth: 480,
             }}
@@ -89,18 +98,82 @@ export function Analytics() {
             in the world they are — so you know which markets are heating up
             before your competitors do.
           </p>
+
+          <div
+            style={{
+              marginTop: "clamp(32px, 4vw, 48px)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "clamp(16px, 2vw, 24px)",
+              maxWidth: 480,
+            }}
+          >
+            {FEATURES.map((f) => (
+              <div
+                key={f.title}
+                style={{
+                  display: "flex",
+                  gap: 14,
+                  alignItems: "flex-start",
+                  paddingTop: "clamp(14px, 1.5vw, 18px)",
+                  borderTop: "1px solid var(--hairline)",
+                }}
+              >
+                <div
+                  style={{
+                    width: 28,
+                    height: 28,
+                    borderRadius: "var(--radius-buttons)",
+                    background: "rgba(224,169,58,0.15)",
+                    color: "#E0A93A",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontWeight: 800,
+                    fontSize: 14,
+                    flexShrink: 0,
+                  }}
+                >
+                  +
+                </div>
+                <div>
+                  <div
+                    style={{
+                      fontWeight: 700,
+                      fontSize: "clamp(0.95rem, 1.2vw, 1.05rem)",
+                      color: "inherit",
+                      marginBottom: 4,
+                    }}
+                  >
+                    {f.title}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "clamp(0.82rem, 1vw, 0.92rem)",
+                      color: "inherit",
+                      opacity: 0.6,
+                      lineHeight: 1.55,
+                    }}
+                  >
+                    {f.desc}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </FadeIn>
 
         <FadeIn delay={0.2} y={40}>
           <div
             style={{
-              background: "rgba(250,249,245,0.05)",
-              border: "1px solid rgba(250,249,245,0.12)",
-              borderRadius: 16,
-              padding: "clamp(20px, 2.5vw, 32px)",
+              background: "var(--card-bg, rgba(250,249,245,0.05))",
+              border: "1px solid var(--hairline)",
+              borderRadius: "var(--radius-cards)",
+              padding: "var(--space-32)",
               display: "flex",
               flexDirection: "column",
-              gap: "clamp(20px, 2.5vw, 28px)",
+              gap: "var(--space-28)",
+              transition: "background 0.4s ease",
             }}
           >
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
@@ -108,17 +181,18 @@ export function Analytics() {
                 <div
                   key={m.label}
                   style={{
-                    background: "rgba(250,249,245,0.07)",
-                    border: "1px solid rgba(250,249,245,0.1)",
-                    borderRadius: 10,
+                    background: "var(--icon-bg, rgba(250,249,245,0.07))",
+                    border: "1px solid var(--hairline)",
+                    borderRadius: "var(--radius-inputs)",
                     padding: "clamp(10px,1.5vw,16px)",
+                    transition: "background 0.4s ease",
                   }}
                 >
                   <div
                     style={{
                       fontWeight: 800,
                       fontSize: "clamp(1.2rem, 2vw, 1.7rem)",
-                      color: "#FAF9F5",
+                      color: "inherit",
                       lineHeight: 1.1,
                     }}
                   >
@@ -127,7 +201,8 @@ export function Analytics() {
                   <div
                     style={{
                       fontSize: "clamp(0.65rem, 0.9vw, 0.78rem)",
-                      color: "rgba(250,249,245,0.5)",
+                      color: "inherit",
+                      opacity: 0.5,
                       textTransform: "uppercase",
                       letterSpacing: "0.1em",
                       marginTop: 4,
@@ -143,7 +218,8 @@ export function Analytics() {
               <div
                 style={{
                   fontSize: "clamp(0.65rem, 0.9vw, 0.78rem)",
-                  color: "rgba(250,249,245,0.45)",
+                  color: "inherit",
+                  opacity: 0.45,
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
                   marginBottom: 12,
@@ -176,7 +252,8 @@ export function Analytics() {
                     <div
                       style={{
                         fontSize: "0.6rem",
-                        color: "rgba(250,249,245,0.4)",
+                        color: "inherit",
+                        opacity: 0.4,
                         textTransform: "uppercase",
                         letterSpacing: "0.05em",
                       }}
@@ -192,7 +269,8 @@ export function Analytics() {
               <div
                 style={{
                   fontSize: "clamp(0.65rem, 0.9vw, 0.78rem)",
-                  color: "rgba(250,249,245,0.45)",
+                  color: "inherit",
+                  opacity: 0.45,
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
                   marginBottom: 10,
@@ -207,7 +285,8 @@ export function Analytics() {
                       style={{
                         width: 110,
                         fontSize: "clamp(0.7rem, 0.95vw, 0.82rem)",
-                        color: "rgba(250,249,245,0.65)",
+                        color: "inherit",
+                        opacity: 0.65,
                         flexShrink: 0,
                       }}
                     >
@@ -217,7 +296,7 @@ export function Analytics() {
                       style={{
                         flex: 1,
                         height: 6,
-                        background: "rgba(250,249,245,0.1)",
+                        background: "var(--hairline)",
                         borderRadius: 999,
                         overflow: "hidden",
                       }}
@@ -236,7 +315,8 @@ export function Analytics() {
                         width: 34,
                         textAlign: "right",
                         fontSize: "clamp(0.68rem, 0.9vw, 0.78rem)",
-                        color: "rgba(250,249,245,0.5)",
+                        color: "inherit",
+                        opacity: 0.5,
                         flexShrink: 0,
                       }}
                     >

@@ -11,13 +11,13 @@ const LINK_STYLE = {
 export function Footer() {
   return (
     <footer
-      id="contact"
       style={{
-        background: "#1A1A1A",
-        color: "#FAF9F5",
+        background: "var(--footer-bg, #1A1A1A)",
+        color: "var(--footer-fg, #FAF9F5)",
         padding:
           "clamp(60px, 8vw, 120px) clamp(20px, 4vw, 40px) clamp(28px, 4vw, 48px)",
-        borderTop: "1px solid rgba(250,249,245,0.15)",
+        borderTop: "1px solid var(--hairline-footer, rgba(250,249,245,0.15))",
+        transition: "background 0.4s ease, color 0.4s ease",
       }}
     >
       <div
@@ -34,7 +34,7 @@ export function Footer() {
           <div
             style={{
               fontWeight: 900,
-              fontSize: 28,
+              fontSize: 22,
               letterSpacing: "0.14em",
             }}
           >

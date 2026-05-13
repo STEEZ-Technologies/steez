@@ -1,6 +1,5 @@
 export const COPY = {
   nav: [
-    { en: "About", cn: "关于", href: "#about" },
     { en: "Pricing", cn: "定价", href: "#pricing" },
     { en: "Cards", cn: "名片", href: "#services" },
     { en: "Contact", cn: "联系", href: "#contact" },
@@ -12,13 +11,6 @@ export const COPY = {
     tagline:
       "the digital bridge between chinese makers and the buyers searching for them",
     cta: { en: "Contact", cn: "联系" },
-  },
-
-  about: {
-    headingEn: "About STEEZ",
-    headingCn: "关于思智",
-    body: "We make premium business cards that do more than introduce you. Each STEEZ card is a digital bridge — scan it once and a buyer in Berlin, São Paulo, or Riyadh lands on your factory's full showroom in their own language, ready to message you on WeChat, WhatsApp, or email. Built for the makers of Shenzhen, Yiwu, and beyond. Let's connect your work to the world.",
-    capsLine: "为中国制造商而生 · BUILT FOR CHINESE MAKERS",
   },
 
   services: {
@@ -58,40 +50,6 @@ export const COPY = {
     ],
   },
 
-  projects: {
-    headingEn: "Case Studies",
-    headingCn: "案例",
-    items: [
-      {
-        n: "01",
-        cat: "ELECTRONICS",
-        catCn: "电子制造",
-        en: "Shenzhen Precision",
-        cn: "深圳精密",
-        op: "Wei Chen, Sales Director",
-        body: "PCB assembly + injection molding. STEEZ activated 1,247 buyer scans across 38 countries in the first 90 days; buyer-side dashboard routes every scan into the sales pipeline.",
-      },
-      {
-        n: "02",
-        cat: "TEXTILES",
-        catCn: "纺织",
-        en: "Yiwu Knit Co.",
-        cn: "义乌针织",
-        op: "Mei Lin, Export Manager",
-        body: "Knitwear at 220 GSM, 200-cycle wash tested. Catalog auto-translated to ES, AR, PT — Mei Lin closed her first European wholesale account three weeks after the rollout.",
-      },
-      {
-        n: "03",
-        cat: "INDUSTRIAL",
-        catCn: "工业",
-        en: "Foshan Hardware Group",
-        cn: "佛山五金",
-        op: "Liu Jian, Founder",
-        body: "5-axis CNC parts to ±0.005mm. WeChat-first activation flow — a buyer in Riyadh went from card scan to a live thread with Liu Jian in 47 seconds.",
-      },
-    ],
-  },
-
   footer: {
     brandTagline:
       "The digital bridge between Chinese makers and the buyers searching for them.",
@@ -116,9 +74,8 @@ export const COPY = {
     index: {
       heading: { en: "Index", cn: "目录" },
       items: [
-        { en: "About", cn: "关于", href: "#about" },
-        { en: "Services", cn: "服务", href: "#services" },
-        { en: "Case Studies", cn: "案例", href: "#projects" },
+        { en: "Pricing", cn: "定价", href: "#pricing" },
+        { en: "Cards", cn: "名片", href: "#services" },
         { en: "Contact", cn: "联系", href: "#contact" },
       ],
     },

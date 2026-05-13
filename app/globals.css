@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  /* STEEZ palette */
   --color-forest: #04342C;
   --color-forest-deep: #04342C;
   --color-forest-mid: #0F6E56;
@@ -16,6 +17,79 @@
 
   --font-sans: var(--font-inter), var(--font-noto-sc), system-ui, sans-serif;
   --font-cn: var(--font-noto-sc), var(--font-inter), sans-serif;
+
+  /* --- Awesomic structural tokens (STEEZ palette mapped) --- */
+
+  /* Typography — Awesomic scale, fluid clamps capped at Awesomic px ceilings */
+  --text-caption: clamp(0.625rem, 0.75vw, 0.7rem);
+  --leading-caption: 1.5;
+  --text-body: clamp(0.82rem, 1vw, 0.95rem);
+  --leading-body: 1.56;
+  --text-body-lg: clamp(0.92rem, 1.15vw, 1.05rem);
+  --leading-body-lg: 1.62;
+  --text-subheading: clamp(1rem, 1.3vw, 1.18rem);
+  --leading-subheading: 1.64;
+  --text-heading: clamp(1.55rem, 3vw, 2.1rem);
+  --leading-heading: 1.28;
+  --text-heading-lg: clamp(1.9rem, 4vw, 2.6rem);
+  --leading-heading-lg: 1.25;
+  --text-display-sm: clamp(2.4rem, 5vw, 3.6rem);
+  --leading-display-sm: 1.12;
+  --text-display: clamp(2.6rem, 6vw, 4rem);
+  --leading-display: 1;
+
+  /* Spacing — Awesomic 4–120px scale; small values fixed, large fluid */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: clamp(16px, 1.8vw, 20px);
+  --space-24: clamp(18px, 2vw, 24px);
+  --space-28: clamp(20px, 2.4vw, 28px);
+  --space-32: clamp(22px, 2.8vw, 32px);
+  --space-36: clamp(24px, 3vw, 36px);
+  --space-40: clamp(28px, 3.4vw, 40px);
+  --space-48: clamp(32px, 4vw, 48px);
+  --space-64: clamp(40px, 5vw, 64px);
+  --space-68: clamp(44px, 5.5vw, 68px);
+  --space-80: clamp(48px, 6vw, 80px);
+  --space-120: clamp(64px, 9vw, 120px);
+
+  --section-gap: var(--space-40);
+  --card-padding: var(--space-28);
+  --element-gap: var(--space-8);
+
+  /* Border radius — Awesomic named radii, fluid */
+  --radius-md: 6px;
+  --radius-xl: 12px;
+  --radius-2xl: clamp(14px, 1.4vw, 16px);
+  --radius-2xl-2: clamp(16px, 1.8vw, 20px);
+  --radius-3xl: clamp(18px, 2vw, 24px);
+  --radius-3xl-2: clamp(20px, 2.4vw, 28px);
+  --radius-3xl-3: clamp(24px, 3vw, 36px);
+  --radius-3xl-4: clamp(28px, 3.4vw, 40px);
+  --radius-full-r: clamp(32px, 3.8vw, 48px);
+  --radius-full-r-2: clamp(40px, 4.5vw, 56px);
+  --radius-full-r-3: clamp(44px, 5vw, 64px);
+  --radius-full-r-4: clamp(56px, 6vw, 80px);
+  --radius-pill: 999px;
+
+  /* Awesomic named-element radii */
+  --radius-cards: clamp(24px, 3vw, 36px);
+  --radius-smallercards: clamp(20px, 2.4vw, 28px);
+  --radius-badges: 12px;
+  --radius-inputs: 12px;
+  --radius-buttons: 12px;
+  --radius-buttons-lg: clamp(14px, 1.4vw, 16px);
+  --radius-navigation: 12px;
+  --radius-imagemasks: clamp(32px, 3.8vw, 48px);
+  --radius-iconcontainers: clamp(28px, 3.4vw, 40px);
+  --radius-largeelements: clamp(44px, 5vw, 64px);
+
+  /* Shadows — Awesomic subtle elevation */
+  --shadow-subtle: rgb(228, 228, 231) 0px 1px 0px 0px inset;
+  --shadow-subtle-inset-top: rgb(255, 255, 255) 0px 0.5px 0px 0px inset;
+  --shadow-md: rgba(0, 0, 0, 0.04) 0px 4px 12px 0px;
 }
 
 :root {
@@ -34,13 +108,108 @@
   --fg: #04342C;
   --accent: #1D9E75;
 
-  --hairline: rgba(15, 110, 86, 0.15);
-  --hairline-strong: rgba(15, 110, 86, 0.35);
-  --hairline-dark: rgba(15, 110, 86, 0.12);
+  --bg-secondary: #FFFFFF;
+  --fg-secondary: #04342C;
+  --card-bg: #FFFFFF;
+  --icon-bg: rgba(4, 52, 44, 0.06);
+
+  /* Inverse Section Vars (Dark in Light Mode) */
+  --section-bg: #04342C;
+  --section-fg: #FAF9F5;
+  --section-card-bg: rgba(250, 249, 245, 0.04);
+  --section-icon-bg: rgba(250, 249, 245, 0.06);
+  --section-hairline: rgba(250, 249, 245, 0.1);
+
+  --footer-bg: #1A1A1A;
+  --footer-fg: #FAF9F5;
+  --hairline-footer: rgba(250, 249, 245, 0.15);
+
+  --hairline: rgba(4, 52, 44, 0.12);
+  --hairline-strong: rgba(4, 52, 44, 0.25);
+  --hairline-dark: rgba(4, 52, 44, 0.08);
 
   --gold: #E0A93A;
   --charcoal-deep: #1A1A1A;
   --off-white: #FAF9F5;
+
+  /* --- Awesomic structural tokens (root, for inline-style consumption) --- */
+  --text-caption: clamp(0.625rem, 0.75vw, 0.7rem);
+  --leading-caption: 1.5;
+  --text-body: clamp(0.82rem, 1vw, 0.95rem);
+  --leading-body: 1.56;
+  --text-body-lg: clamp(0.92rem, 1.15vw, 1.05rem);
+  --leading-body-lg: 1.62;
+  --text-subheading: clamp(1rem, 1.3vw, 1.18rem);
+  --leading-subheading: 1.64;
+  --text-heading: clamp(1.55rem, 3vw, 2.1rem);
+  --leading-heading: 1.28;
+  --text-heading-lg: clamp(1.9rem, 4vw, 2.6rem);
+  --leading-heading-lg: 1.25;
+  --text-display-sm: clamp(2.4rem, 5vw, 3.6rem);
+  --leading-display-sm: 1.12;
+  --text-display: clamp(2.6rem, 6vw, 4rem);
+  --leading-display: 1;
+
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: clamp(16px, 1.8vw, 20px);
+  --space-24: clamp(18px, 2vw, 24px);
+  --space-28: clamp(20px, 2.4vw, 28px);
+  --space-32: clamp(22px, 2.8vw, 32px);
+  --space-36: clamp(24px, 3vw, 36px);
+  --space-40: clamp(28px, 3.4vw, 40px);
+  --space-48: clamp(32px, 4vw, 48px);
+  --space-64: clamp(40px, 5vw, 64px);
+  --space-68: clamp(44px, 5.5vw, 68px);
+  --space-80: clamp(48px, 6vw, 80px);
+  --space-120: clamp(64px, 9vw, 120px);
+
+  --section-gap: var(--space-40);
+  --card-padding: var(--space-28);
+  --element-gap: var(--space-8);
+
+  --radius-cards: clamp(24px, 3vw, 36px);
+  --radius-smallercards: clamp(20px, 2.4vw, 28px);
+  --radius-badges: 12px;
+  --radius-inputs: 12px;
+  --radius-buttons: 12px;
+  --radius-buttons-lg: clamp(14px, 1.4vw, 16px);
+  --radius-navigation: 12px;
+  --radius-imagemasks: clamp(32px, 3.8vw, 48px);
+  --radius-iconcontainers: clamp(28px, 3.4vw, 40px);
+  --radius-largeelements: clamp(44px, 5vw, 64px);
+  --radius-pill: 999px;
+
+  --shadow-subtle: rgb(228, 228, 231) 0px 1px 0px 0px inset;
+  --shadow-md: rgba(0, 0, 0, 0.04) 0px 4px 12px 0px;
+}
+
+.dark {
+  --bg: #04342C;
+  --bg-deep: #032a24;
+  --fg: #FAF9F5;
+
+  --bg-secondary: #021a16;
+  --fg-secondary: #FAF9F5;
+  --card-bg: rgba(250, 249, 245, 0.04);
+  --icon-bg: rgba(250, 249, 245, 0.06);
+
+  /* Inverse Section Vars (Light in Dark Mode) */
+  --section-bg: #FAF9F5;
+  --section-fg: #04342C;
+  --section-card-bg: #FFFFFF;
+  --section-icon-bg: rgba(4, 52, 44, 0.06);
+  --section-hairline: rgba(4, 52, 44, 0.12);
+
+  --footer-bg: #010d0b;
+  --footer-fg: #FAF9F5;
+  --hairline-footer: rgba(250, 249, 245, 0.08);
+
+  --hairline: rgba(250, 249, 245, 0.1);
+  --hairline-strong: rgba(250, 249, 245, 0.2);
+  --hairline-dark: rgba(250, 249, 245, 0.05);
 }
 
 * {
@@ -51,11 +220,12 @@
 
 html,
 body {
-  background: #FAF9F5;
-  color: #04342C;
+  background: var(--bg);
+  color: var(--fg);
   font-family: var(--font-inter), var(--font-noto-sc), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 html {
@@ -72,7 +242,7 @@ body {
 }
 
 .hero-heading {
-  color: #04342C;
+  color: inherit;
 }
 
 .btn-contact {
@@ -80,8 +250,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.6em;
-  background: #1D9E75;
-  color: #FAF9F5;
+  background: var(--accent);
+  color: var(--bg);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -92,13 +262,14 @@ body {
   cursor: pointer;
   transition:
     background 0.25s ease,
+    color 0.4s ease,
     transform 0.25s ease;
 }
 .btn-contact:hover {
-  background: #04342C;
+  background: var(--fg);
+  color: var(--bg);
   transform: translateY(-1px);
-}
-.btn-contact:active {
+}.btn-contact:active {
   transform: translateY(0);
 }
 
@@ -107,20 +278,23 @@ body {
   align-items: center;
   gap: 0.6em;
   background: transparent;
-  color: #04342C;
+  color: var(--fg);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  border: 1px solid #04342C;
+  border: 1px solid var(--fg);
   border-radius: 999px;
   padding: 0.7em 2em;
   font-size: clamp(0.8rem, 1vw, 1rem);
   cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
 }
 .btn-ghost:hover {
-  background: #04342C;
-  color: #FAF9F5;
+  background: var(--fg);
+  color: var(--bg);
 }
 
 .service-card:hover {
