@@ -76,6 +76,19 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Noto Sans SC',s
 .ham-btn.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
 .ham-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .ham-btn.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+/* Phone contact popup */
+.cpop-wrap{position:relative;display:none}
+.btn-phone{width:34px;height:34px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#FAF8F2;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;padding:0;transition:background .2s}
+.btn-phone:hover{background:var(--accent2)}
+.btn-phone svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cpop{position:absolute;top:calc(100% + 10px);right:0;min-width:200px;background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.18);padding:12px;display:flex;flex-direction:column;gap:8px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .2s,transform .2s;z-index:200}
+.cpop.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.cpop-row{display:flex;align-items:center;gap:8px;color:var(--text);font-size:.75rem;text-decoration:none;padding:6px 8px;border-radius:6px;transition:background .15s}
+.cpop-row:hover{background:var(--bg2)}
+.cpop-row svg{width:15px;height:15px;flex-shrink:0;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cpop-divider{height:1px;background:var(--border);margin:2px 0}
+.cpop-btn{width:100%;padding:9px 12px;background:var(--accent);color:#FAF8F2;font-size:.73rem;font-weight:600;letter-spacing:.06em;border:none;border-radius:6px;cursor:pointer;transition:background .2s}
+.cpop-btn:hover{background:var(--accent2)}
 
 /* ── Hero ── */
 #hero{min-height:100svh;padding:100px clamp(20px,5vw,80px) 70px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(150deg,#FAF6EE 0%,#EDE6D9 55%,#E2D7C4 100%)}
@@ -163,10 +176,10 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Noto Sans SC',s
 /* ── 3D Showroom ── */
 #showroom{padding:clamp(70px,8vw,110px) clamp(20px,5vw,80px);background:linear-gradient(180deg,var(--bg2) 0%,var(--surface) 100%)}
 .sr-intro{max-width:620px;margin-bottom:clamp(48px,7vw,80px)}
-.sr-items{display:flex;flex-direction:column;gap:clamp(56px,8vw,96px)}
-.sri{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,56px);align-items:center}
+.sr-items{display:flex;flex-direction:column;gap:clamp(36px,5vw,64px)}
+.sri{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3.5vw,44px);align-items:center}
 .sri.rev .sr3d{order:2}
-.sr3d{aspect-ratio:1/1;border-radius:var(--r);overflow:hidden;background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);border:1px solid var(--border);position:relative}
+.sr3d{aspect-ratio:1/1;max-width:58%;margin:auto;border-radius:var(--r);overflow:hidden;background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);border:1px solid var(--border);position:relative}
 .sr3d canvas{display:block;width:100%!important;height:100%!important;cursor:grab}
 .sr3d canvas:active{cursor:grabbing}
 .sr3d-lbl{position:absolute;bottom:12px;left:12px;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);background:rgba(247,243,236,.9);padding:4px 9px;border-radius:4px;border:1px solid var(--border)}
@@ -268,8 +281,9 @@ footer{background:#1F1A16;color:rgba(247,243,236,.82);padding:clamp(50px,6vw,78p
 @media(max-width:1200px){.cat-grid{grid-template-columns:repeat(3,1fr)}.odm-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:1024px){.cat-grid{grid-template-columns:repeat(3,1fr)}.sri{grid-template-columns:1fr;gap:26px}.sri.rev .sr3d{order:unset}.inq-wrap{grid-template-columns:1fr}.odm-wrap{grid-template-columns:1fr}.ft{grid-template-columns:1fr 1fr;gap:26px}}
 @media(max-width:768px){
-  .nm,.btn-lang,.btn-cta{display:none}
-  .ham-btn{display:flex}
+  .nm,.ham-btn,.btn-cta{display:none}
+  .cpop-wrap{display:flex}
+  .btn-lang{display:flex;padding:4px 7px;font-size:.64rem;letter-spacing:.02em}
   .h3o{display:none}
   .cat-grid{grid-template-columns:1fr 1fr}
   .pgrid{grid-template-columns:1fr 1fr}
@@ -287,7 +301,12 @@ footer{background:#1F1A16;color:rgba(247,243,236,.82);padding:clamp(50px,6vw,78p
 }
 @media(max-width:480px){
   .cat-grid{grid-template-columns:1fr}
-  .pgrid{grid-template-columns:1fr}
+  .pgrid{grid-template-columns:1fr 1fr;gap:10px}
+  .pc-img{height:130px}
+  .pc-body{padding:8px 8px 10px}
+  .pc-en{font-size:.68rem}
+  .pc-cn{font-size:.6rem}
+  .pca{padding:7px 3px;font-size:.58rem;min-height:32px}
   .ft{grid-template-columns:1fr}
   .hero-stats{gap:12px;padding:14px 16px}
   .hero-btns{gap:10px}
@@ -295,6 +314,27 @@ footer{background:#1F1A16;color:rgba(247,243,236,.82);padding:clamp(50px,6vw,78p
   .odm-grid{grid-template-columns:1fr}
   .sr3d{height:80vw}
 }
+/* ── Product Detail Modal ── */
+.pdm-ov{position:fixed;inset:0;z-index:500;background:rgba(31,26,22,.75);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,32px);opacity:0;pointer-events:none;transition:opacity .3s}
+.pdm-ov.open{opacity:1;pointer-events:all}
+.pdm{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);width:100%;max-width:860px;max-height:90vh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+.pdm-left{background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);position:relative;aspect-ratio:1/1}
+.pdm-left canvas{display:block;width:100%!important;height:100%!important;cursor:grab}
+.pdm-left canvas:active{cursor:grabbing}
+.pdm-drag{position:absolute;bottom:12px;left:12px;font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);background:rgba(247,243,236,.9);padding:4px 9px;border-radius:4px;border:1px solid var(--border);pointer-events:none}
+.pdm-right{padding:clamp(20px,3vw,32px);overflow-y:auto;display:flex;flex-direction:column;gap:11px}
+.pdm-x{position:absolute;top:12px;right:12px;z-index:10;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:.8rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;padding:0}
+.pdm-x:hover{border-color:var(--accent);color:var(--accent)}
+.pdm-en{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.2vw,1.55rem);font-weight:700;color:var(--text);line-height:1.2}
+.pdm-cn{font-size:.85rem;color:var(--accent);letter-spacing:.04em}
+.pdm-sep{height:1px;background:var(--border)}
+.pdm-f{display:flex;flex-direction:column;gap:3px}
+.pdm-fl{font-size:.58rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.pdm-fv{font-size:.8rem;color:var(--text2);line-height:1.62}
+.pdm-desc{font-size:.83rem;color:var(--text2);line-height:1.76;margin:3px 0 0}
+.pdm-foot{display:flex;gap:8px;margin-top:auto;padding-top:4px}
+.sri-photo{width:100%;max-height:320px;object-fit:cover;display:block;border-radius:var(--r2);margin-bottom:18px;border:1px solid var(--border)}
+@media(max-width:600px){.pdm{grid-template-columns:1fr;max-height:88vh;overflow-y:auto}.pdm-left{aspect-ratio:4/3}.pdm-right{overflow-y:unset}}
 </style>
 </head>
 <body>
@@ -317,6 +357,27 @@ footer{background:#1F1A16;color:rgba(247,243,236,.82);padding:clamp(50px,6vw,78p
     <button class="btn-lang" id="langBtn" onclick="toggleLang()">中文</button>
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle dark/light mode">☾</button>
     <button class="btn-cta" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})" data-en="Get Sourcing Plan" data-cn="获取采购方案">Get Sourcing Plan</button>
+    <div class="cpop-wrap" id="cpopWrap">
+      <button class="btn-phone" onclick="toggleCPop()" aria-label="Contact">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.4 2 2 0 0 1 3.62 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </button>
+      <div class="cpop" id="cpop">
+        <a class="cpop-row" href="tel:+8675512345678">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.4 2 2 0 0 1 3.62 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +86 755 1234 5678
+        </a>
+        <a class="cpop-row" href="mailto:info@lifestyleatlas.com">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          info@lifestyleatlas.com
+        </a>
+        <a class="cpop-row" href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.12-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+          WeChat: lifestyleatlas
+        </a>
+        <div class="cpop-divider"></div>
+        <button class="cpop-btn" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'});toggleCPop()" data-en="Send Inquiry" data-cn="发送询盘">Send Inquiry</button>
+      </div>
+    </div>
     <button class="ham-btn" id="hamBtn" onclick="toggleMenu()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -513,8 +574,7 @@ footer{background:#1F1A16;color:rgba(247,243,236,.82);padding:clamp(50px,6vw,78p
       <div class="fcol-t" data-en="Contact" data-cn="联系方式">Contact</div>
       <ul class="fcol-links">
         <li><a href="mailto:info@lifestyleatlas.com">info@lifestyleatlas.com</a></li>
-        <li><a href="#">WhatsApp</a></li>
-        <li><a href="#">WeChat</a></li>
+        <li><a href="#">WeChat: lifestyleatlas</a></li>
         <li><a href="#inquiry" data-en="Send Inquiry" data-cn="发送询盘">Send Inquiry</a></li>
       </ul>
     </div>
@@ -525,29 +585,38 @@ footer{background:#1F1A16;color:rgba(247,243,236,.82);padding:clamp(50px,6vw,78p
   </div>
 </footer>
 
+<!-- PRODUCT DETAIL MODAL -->
+<div class="pdm-ov" id="pdmOv" onclick="closeProdModal()">
+  <div class="pdm" onclick="event.stopPropagation()">
+    <button class="pdm-x" onclick="closeProdModal()">✕</button>
+    <div class="pdm-left" id="pdmLeft"><div class="pdm-drag">⟳ Drag to Rotate</div></div>
+    <div class="pdm-right" id="pdmRight"></div>
+  </div>
+</div>
+
 <script>
 // ════════════════════════════════════════════════════
 // DATA
 // ════════════════════════════════════════════════════
 const CATS=[
   {id:'pet',num:'7.1',en:'Pet Products',cn:'宠物用品',
-   bg:'linear-gradient(135deg,#D4BC9A 0%,#B8906A 100%)',
+   bg:"url('https://images.pexels.com/photos/4432261/pexels-photo-4432261.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop') center/cover no-repeat, linear-gradient(135deg,#D4BC9A 0%,#B8906A 100%)",
    ed:'Covering pet essentials, pet care, toys, apparel, and home-use pet products for a wide range of sourcing needs.',
    cd:'涵盖宠物日用品、宠物护理、宠物玩具、宠物服饰及居家宠物用品，满足多场景采购需求。'},
   {id:'personal',num:'7.2',en:'Personal Products',cn:'个人用品',
-   bg:'linear-gradient(135deg,#E4C8BE 0%,#C49080 100%)',
+   bg:"url('https://images.pexels.com/photos/34501351/pexels-photo-34501351.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop') center/cover no-repeat, linear-gradient(135deg,#E4C8BE 0%,#C49080 100%)",
    ed:'Including accessories, cosmetics, and beauty products for retail, gifting, beauty, and lifestyle markets.',
    cd:'包括饰品、化妆品与美容用品，适用于零售、礼品、美妆及生活方式消费市场。'},
   {id:'household',num:'7.3',en:'Household Textiles',cn:'家用纺织品',
-   bg:'linear-gradient(135deg,#CCC0A0 0%,#AA9470 100%)',
+   bg:"url('https://images.pexels.com/photos/6114346/pexels-photo-6114346.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop') center/cover no-repeat, linear-gradient(135deg,#CCC0A0 0%,#AA9470 100%)",
    ed:'Including carpets, tapestries, curtains, and wall coverings that combine functionality with decorative appeal.',
    cd:'涵盖地毯及挂毯、窗帘、墙布等家居软装产品，兼具功能与装饰价值。'},
   {id:'tex',num:'7.4',en:'Personal Textiles',cn:'个人纺织品',
-   bg:'linear-gradient(135deg,#C8BCA8 0%,#A89278 100%)',
+   bg:"url('https://images.pexels.com/photos/6357475/pexels-photo-6357475.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop') center/cover no-repeat, linear-gradient(135deg,#C8BCA8 0%,#A89278 100%)",
    ed:'Covering shoes, socks, hats, underwear, scarves, gloves, and fashion accessories for apparel retail and brand sourcing.',
    cd:'覆盖鞋子、袜子、帽子、内衣、围巾、手套及服饰配件，适合服装零售与品牌采购。'},
   {id:'others',num:'7.5',en:'Others',cn:'其他',
-   bg:'linear-gradient(135deg,#A09080 0%,#7A6248 100%)',
+   bg:"url('https://images.pexels.com/photos/7953286/pexels-photo-7953286.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop') center/cover no-repeat, linear-gradient(135deg,#A09080 0%,#7A6248 100%)",
    ed:'Including textile materials, bags and luggage, and fur, leather, and down products for broader lifestyle sourcing demands.',
    cd:'包含纺织面辅料、箱包及裘革皮羽绒制品，满足更广泛的时尚生活行业采购需求。'},
 ];
@@ -560,28 +629,28 @@ const PRODUCTS=[
    emat:'Food-grade ceramic',cmat:'食品级陶瓷',
    ed:'Premium food-grade ceramic bowl with anti-slip base. Easy to clean, dishwasher safe. Multiple sizes and glaze colors available.',
    cd:'优质食品级陶瓷碗，防滑底座，易清洁，支持洗碗机，多尺寸与釉色可选。',
-   img:null,imgC:'gi-pet'},
+   img:'https://images.pexels.com/photos/8434635/pexels-photo-8434635.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-pet'},
   {id:'q2',geo:'petbed',gc:0xC8A888,cat:'pet',badges:['oem'],
    en:'Pet Comfort Bed',cn:'宠物舒适床',
    ecol:'Pet Products',ccol:'宠物用品',
    emat:'Plush fabric + memory foam',cmat:'毛绒面料 + 记忆棉',
    ed:'Ultra-soft orthopedic pet bed. Removable washable cover, memory foam insert, anti-slip bottom.',
    cd:'超柔矫形宠物床，可拆洗外罩，记忆棉填充，防滑底部设计。',
-   img:null,imgC:'gi-pet2'},
+   img:'https://images.pexels.com/photos/2248516/pexels-photo-2248516.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-pet2'},
   {id:'q3',geo:'leash',gc:0x8C6430,cat:'pet',badges:['oem'],
    en:'Pet Leash Set',cn:'宠物牵引套装',
    ecol:'Pet Products',ccol:'宠物用品',
    emat:'Nylon / genuine leather',cmat:'尼龙 / 真皮',
    ed:'Durable pet leash and harness set. Adjustable sizing, reflective strips, metal hardware.',
    cd:'耐用宠物牵引套装，可调节尺寸，反光条，金属五金件。',
-   img:null,imgC:'gi-pet'},
+   img:'https://images.pexels.com/photos/28948920/pexels-photo-28948920.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-pet'},
   {id:'q4',geo:'pettoy',gc:0xC87850,cat:'pet',badges:['best'],
    en:'Pet Toy Collection',cn:'宠物玩具系列',
    ecol:'Pet Products',ccol:'宠物用品',
    emat:'Natural rubber / TPE',cmat:'天然橡胶 / TPE',
    ed:'Safe interactive pet toy collection. Non-toxic materials, durable construction, multiple shapes.',
    cd:'安全互动宠物玩具系列，无毒材质，耐用结构，多种造型。',
-   img:null,imgC:'gi-pet2'},
+   img:'https://images.pexels.com/photos/4445456/pexels-photo-4445456.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-pet2'},
   // 7.2 Personal
   {id:'q5',geo:'ring',gc:0xC6A66B,cat:'personal',badges:['best','oem'],
    en:'Fashion Accessories',cn:'时尚饰品系列',
@@ -605,7 +674,7 @@ const PRODUCTS=[
    emat:'Aluminum / acrylic / glass',cmat:'铝 / 亚克力 / 玻璃',
    ed:'Luxury cosmetic packaging: lipstick tubes, compacts, serums, eye shadow palettes. Full OEM service.',
    cd:'奢华化妆品包装：口红管、粉饼、精华、眼影盘，提供完整OEM服务。',
-   img:null,imgC:'gi-personal'},
+   img:'https://images.pexels.com/photos/12969218/pexels-photo-12969218.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-personal'},
   {id:'q8',geo:'jewelry',gc:0xD4C4B0,cat:'personal',badges:['best'],
    en:'Premium Jewelry Collection',cn:'精品首饰',
    ecol:'Personal Products',ccol:'个人用品',
@@ -621,21 +690,21 @@ const PRODUCTS=[
    emat:'Wool / polyester / silk blend',cmat:'羊毛 / 涤纶 / 真丝混纺',
    ed:'Handcrafted carpet and tapestry collection. Custom patterns, various pile heights.',
    cd:'手工地毯及挂毯系列，可定制花纹，多种绒高选择。',
-   img:null,imgC:'gi-household'},
+   img:'https://images.pexels.com/photos/6146119/pexels-photo-6146119.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-household'},
   {id:'q10',geo:'curtain',gc:0xA89878,cat:'household',badges:['oem'],
    en:'Curtain Collection',cn:'窗帘系列',
    ecol:'Household Textiles',ccol:'家用纺织品',
    emat:'Linen / polyester / velvet',cmat:'亚麻 / 涤纶 / 天鹅绒',
    ed:'Premium curtain collection. Blackout, sheer, and decorative options. Custom size and color.',
    cd:'优质窗帘系列，遮光、薄透、装饰款可选，可定制尺寸与颜色。',
-   img:null,imgC:'gi-household'},
+   img:'https://images.pexels.com/photos/6995148/pexels-photo-6995148.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-household'},
   {id:'q11',geo:'wallcloth',gc:0xB8A888,cat:'household',badges:['new'],
    en:'Wall Covering Collection',cn:'墙布系列',
    ecol:'Household Textiles',ccol:'家用纺织品',
    emat:'Non-woven / PVC / glass fiber',cmat:'无纺布 / PVC / 玻璃纤维',
    ed:'Premium wall covering collection. Fire-resistant, moisture-proof, custom print available.',
    cd:'优质墙布系列，防火防潮，可定制印花。',
-   img:null,imgC:'gi-household'},
+   img:'https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-household'},
   // 7.4 Personal Textiles
   {id:'q12',geo:'shoe',gc:0x8C7060,cat:'tex',badges:['best','oem'],
    en:'Fashion Footwear',cn:'时尚鞋履',
@@ -643,42 +712,42 @@ const PRODUCTS=[
    emat:'Genuine leather / synthetic / rubber sole',cmat:'真皮 / 合成革 / 橡胶底',
    ed:'Premium fashion footwear: sneakers, loafers, boots. Full OEM/ODM, private label available.',
    cd:'时尚鞋履，包括运动鞋、乐福鞋、靴子，支持OEM/ODM及品牌贴牌。',
-   img:null,imgC:'gi-tex'},
+   img:'https://images.pexels.com/photos/12725054/pexels-photo-12725054.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-tex'},
   {id:'q13',geo:'sock',gc:0xD4C4B0,cat:'tex',badges:['oem'],
    en:'Socks Collection',cn:'袜子系列',
    ecol:'Personal Textiles',ccol:'个人纺织品',
    emat:'Cotton / wool / bamboo fiber',cmat:'棉 / 羊毛 / 竹纤维',
    ed:'Full range socks: athletic, fashion, compression. Custom packaging and branding available.',
    cd:'全系列袜子：运动袜、时尚袜、压力袜，支持定制包装与品牌印制。',
-   img:null,imgC:'gi-tex'},
+   img:'https://images.pexels.com/photos/15195384/pexels-photo-15195384.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-tex'},
   {id:'q14',geo:'hat',gc:0x9A8878,cat:'tex',badges:['oem'],
    en:'Hat Collection',cn:'帽子系列',
    ecol:'Personal Textiles',ccol:'个人纺织品',
    emat:'Wool / cotton / straw / felt',cmat:'羊毛 / 棉 / 草编 / 毛毡',
    ed:'Structured and unstructured hat collection. Baseball caps, beanies, fedoras, straw hats.',
    cd:'帽子系列，棒球帽、毛线帽、礼帽、草帽，全系列OEM服务。',
-   img:null,imgC:'gi-tex'},
+   img:'https://images.pexels.com/photos/20817636/pexels-photo-20817636.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-tex'},
   {id:'q15',geo:'garment',gc:0xDDD0C0,cat:'tex',badges:['oem'],
    en:'Underwear Collection',cn:'内衣系列',
    ecol:'Personal Textiles',ccol:'个人纺织品',
    emat:'Cotton / modal / microfiber',cmat:'棉 / 莫代尔 / 超细纤维',
    ed:'Comfortable underwear collection. Soft materials, ergonomic design, OEM/ODM available.',
    cd:'舒适内衣系列，柔软面料，人体工学设计，支持OEM/ODM。',
-   img:null,imgC:'gi-tex'},
+   img:'https://images.pexels.com/photos/9162889/pexels-photo-9162889.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-tex'},
   {id:'q16',geo:'scarf',gc:0xC6A66B,cat:'tex',badges:['best','oem'],
    en:'Scarves and Gloves',cn:'围巾与手套',
    ecol:'Personal Textiles',ccol:'个人纺织品',
    emat:'Silk / cashmere / wool blend',cmat:'真丝 / 羊绒 / 羊毛混纺',
    ed:'Premium scarves and gloves in natural fibers. Custom print, private label, seasonal colorways.',
    cd:'优质天然纤维围巾与手套，定制印花、品牌贴牌、季节性配色可选。',
-   img:null,imgC:'gi-tex'},
+   img:'https://images.pexels.com/photos/16255095/pexels-photo-16255095.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-tex'},
   {id:'q17',geo:'garment',gc:0x7A6858,cat:'tex',badges:['oem'],
    en:'Garments and Accessories',cn:'服饰及配件',
    ecol:'Personal Textiles',ccol:'个人纺织品',
    emat:'Various — see spec sheet',cmat:'多种面料，详见规格表',
    ed:'Full apparel and accessories range including outerwear, knitwear, and coordinating accessories.',
    cd:'服饰及配件全系列，包括外套、针织品及配套配件。',
-   img:null,imgC:'gi-tex'},
+   img:'https://images.pexels.com/photos/33633245/pexels-photo-33633245.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-tex'},
   // 7.5 Others
   {id:'q18',geo:'bag',gc:0x8C6730,cat:'others',badges:['best','oem'],
    en:'Bags and Luggage',cn:'箱包系列',
@@ -702,14 +771,14 @@ const PRODUCTS=[
    emat:'90/10 white duck / goose down',cmat:'90/10白鸭绒 / 鹅绒',
    ed:'Premium down products: jackets, vests, comforters, pillows. RDS certified, custom fill power.',
    cd:'优质羽绒制品：夹克、背心、被子、枕头，RDS认证，可定制充绒量。',
-   img:null,imgC:'gi-others'},
+   img:'https://images.pexels.com/photos/3998647/pexels-photo-3998647.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-others'},
   {id:'q21',geo:'textile',gc:0xB0A090,cat:'others',badges:['oem'],
    en:'Textile Materials',cn:'纺织面辅料',
    ecol:'Others',ccol:'其他',
    emat:'Various yarn / fabric / trim',cmat:'各类纱线 / 面料 / 辅料',
    ed:'Comprehensive textile materials and accessories for garment manufacturing. Fabrics, trims, labels.',
    cd:'服装制造用综合纺织面辅料，面料、辅料、标签全系列。',
-   img:null,imgC:'gi-others'},
+   img:'https://images.pexels.com/photos/4614231/pexels-photo-4614231.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop',imgC:'gi-others'},
 ];
 
 const SHOWROOM=[
@@ -719,7 +788,7 @@ const SHOWROOM=[
    ed:'Our signature pet ceramic bowl demonstrates the quality benchmark for the pet products category. Featuring food-grade glazing, ergonomic rim design, and a weighted anti-slip base — available in 8 glaze colors, 4 sizes.',
    cd:'我们的标志性宠物陶瓷碗展示了宠物用品品类的品质基准，采用食品级釉料、人体工学碗边设计及加重防滑底座，提供8种釉色与4种尺寸。',
    feats:['Food-grade ceramic','Anti-slip base','Dishwasher safe','8 glaze colors','OEM/ODM'],
-   img:null,imgC:'gi-pet'},
+   img:'https://images.pexels.com/photos/8434635/pexels-photo-8434635.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',imgC:'gi-pet'},
   {id:'s2',geo:'cosmetic',gc:0xD4C0B0,cat:'personal',
    en:'Beauty Cosmetic Bottle',cn:'美容化妆品瓶',
    ecat:'Personal Products',ccat:'个人用品',
@@ -734,14 +803,14 @@ const SHOWROOM=[
    ed:'Hand-tufted premium carpet roll in wool blend. Available in custom dimensions, pile heights from 5–20mm, and any pattern design for hospitality, retail, and residential markets.',
    cd:'手工簇绒高档羊毛混纺地毯卷，可定制尺寸、5–20mm绒高与花型，适用于酒店、零售及家居市场。',
    feats:['Wool/polyester blend','Custom patterns','5–20mm pile','Eco-dye','OEM/ODM'],
-   img:null,imgC:'gi-household'},
+   img:'https://images.pexels.com/photos/6146119/pexels-photo-6146119.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',imgC:'gi-household'},
   {id:'s4',geo:'shoe',gc:0x8A7060,cat:'tex',
    en:'Fashion Sneaker',cn:'时尚运动鞋',
    ecat:'Personal Textiles',ccat:'个人纺织品',
    ed:'Premium fashion sneaker with genuine leather upper, cushioned midsole, and custom colorway options. Full OEM/ODM with brand embossing and custom box packaging.',
    cd:'高档时尚运动鞋，真皮鞋面，缓震中底，可定制配色，全系列OEM/ODM，含品牌压印与定制鞋盒。',
    feats:['Leather upper','Cushioned sole','Custom colors','EU35–46','OEM/ODM'],
-   img:null,imgC:'gi-tex'},
+   img:'https://images.pexels.com/photos/12725054/pexels-photo-12725054.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',imgC:'gi-tex'},
   {id:'s5',geo:'bag',gc:0x8C6730,cat:'others',
    en:'Structured Handbag',cn:'结构手提包',
    ecat:'Bags & Leather Goods',ccat:'箱包皮具',
@@ -1045,7 +1114,7 @@ function renderProds(){
         <div class="pc-mat">${lang==='en'?p.emat:p.cmat}</div>
         <div class="pc-acts">
           <button class="pca pca-p" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})">${lang==='en'?'Add to Inquiry':'加入询盘'}</button>
-          <button class="pca" onclick="event.stopPropagation();tap3D('${p.id}',this.closest('.pc').querySelector('.pc-img'))">${lang==='en'?'View 3D':'查看3D'}</button>
+          <button class="pca" onclick="openProdModal('${p.id}')">${lang==='en'?'Details':'详情'}</button>
         </div>
       </div>
     </div>`).join('');
@@ -1066,7 +1135,7 @@ function renderShowroom(){
         <div class="sri-cn">${item.cn}</div>
         <p class="sri-desc">${lang==='en'?item.ed:item.cd}</p>
         <div class="sri-feats">${item.feats.map(f=>`<span class="sri-feat">${f}</span>`).join('')}</div>
-        <div class="sri-img"><div class="sri-img-bg ${item.imgC}"${item.img?` style="background:url('${item.img}') center/cover no-repeat"`:''} ></div></div>
+        ${item.img?`<img class="sri-photo" src="${item.img.replace('&h=500&fit=crop','')}" alt="${item.en}" loading="lazy">`:`<div class="sri-img"><div class="sri-img-bg ${item.imgC}"></div></div>`}
         <div class="sri-btns">
           <button class="btn-sm btn-sm-p" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})">${lang==='en'?'Request Samples':'申请样品'}</button>
           <button class="btn-sm btn-sm-o" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})">${lang==='en'?'Get OEM Quote':'获取OEM报价'}</button>
@@ -1149,6 +1218,15 @@ function toggleTheme(){
 // ════════════════════════════════════════════════════
 // MOBILE MENU
 // ════════════════════════════════════════════════════
+let cpopOpen=false;
+function toggleCPop(){
+  cpopOpen=!cpopOpen;
+  document.getElementById('cpop').classList.toggle('open',cpopOpen);
+}
+document.addEventListener('click',function(e){
+  const wrap=document.getElementById('cpopWrap');
+  if(cpopOpen&&wrap&&!wrap.contains(e.target)){cpopOpen=false;document.getElementById('cpop').classList.remove('open');}
+});
 let menuOpen=false;
 function toggleMenu(){
   menuOpen=!menuOpen;
@@ -1169,6 +1247,54 @@ window.addEventListener('scroll',()=>{
 // ════════════════════════════════════════════════════
 // INIT
 // ════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════
+// PRODUCT DETAIL MODAL
+// ════════════════════════════════════════════════════
+let pdmRend=null;
+function openProdModal(pid){
+  const p=PRODUCTS.find(x=>x.id===pid);
+  if(!p)return;
+  const left=document.getElementById('pdmLeft');
+  const right=document.getElementById('pdmRight');
+  const oldCv=left.querySelector('canvas');if(oldCv)oldCv.remove();
+  if(pdmRend){pdmRend.dispose();pdmRend=null;}
+  if(typeof THREE!=='undefined'&&p.geo){
+    const cv=document.createElement('canvas');left.insertBefore(cv,left.firstChild);
+    const cw=Math.max(left.clientWidth,300),ch=Math.max(left.clientHeight,300);
+    const scene=makeScene(),camera=new THREE.PerspectiveCamera(42,cw/ch,.1,100);camera.position.set(0,.3,6.5);
+    const obj=buildModel(p.geo,p.gc);scene.add(obj);
+    const renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(cw,ch);renderer.setClearColor(0,0);
+    pdmRend=renderer;
+    let drag=false,px=0,py=0,rotY=.4,rotX=.1;
+    cv.addEventListener('pointerdown',e=>{drag=true;px=e.clientX;py=e.clientY;cv.setPointerCapture(e.pointerId);});
+    cv.addEventListener('pointermove',e=>{if(!drag)return;rotY+=(e.clientX-px)*.013;rotX+=(e.clientY-py)*.007;rotX=Math.max(-.5,Math.min(.5,rotX));px=e.clientX;py=e.clientY;});
+    cv.addEventListener('pointerup',()=>drag=false);
+    new ResizeObserver(()=>{const w2=left.clientWidth,h2=left.clientHeight;if(!w2||!h2)return;camera.aspect=w2/h2;camera.updateProjectionMatrix();renderer.setSize(w2,h2);}).observe(left);
+    (function anim(){if(!pdmRend)return;requestAnimationFrame(anim);if(!drag)rotY+=.007;obj.rotation.y=rotY;obj.rotation.x=rotX;renderer.render(scene,camera);})();
+  }
+  right.innerHTML=`
+    <div style="display:flex;gap:5px;flex-wrap:wrap">${p.badges.map(b=>`<span class="badge badge-${b}">${b.toUpperCase()}</span>`).join('')}</div>
+    <div class="pdm-en">${p.en}</div>
+    <div class="pdm-cn">${p.cn}</div>
+    <div class="pdm-sep"></div>
+    <div class="pdm-f"><span class="pdm-fl">${lang==='en'?'Category':'品类'}</span><span class="pdm-fv">${lang==='en'?p.ecol:p.ccol}</span></div>
+    <div class="pdm-f"><span class="pdm-fl">${lang==='en'?'Material':'材质'}</span><span class="pdm-fv">${lang==='en'?p.emat:p.cmat}</span></div>
+    <div class="pdm-sep"></div>
+    <div class="pdm-f"><span class="pdm-fl">${lang==='en'?'Product Overview':'产品概述'}</span><p class="pdm-desc">${lang==='en'?p.ed:p.cd}</p></div>
+    <div class="pdm-foot">
+      <button class="pca pca-p" style="flex:1" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'});closeProdModal()">${lang==='en'?'Add to Inquiry':'加入询盘'}</button>
+    </div>`;
+  document.getElementById('pdmOv').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeProdModal(){
+  document.getElementById('pdmOv').classList.remove('open');
+  document.body.style.overflow='';
+  setTimeout(()=>{if(pdmRend){pdmRend.dispose();pdmRend=null;}},300);
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('pdmOv').classList.contains('open'))closeProdModal();});
+
 window.addEventListener('load',()=>{
   applyTheme();
   renderAll();
