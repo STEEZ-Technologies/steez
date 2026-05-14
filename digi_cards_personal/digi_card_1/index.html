@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#080B14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Daniel Chen | Export Sales Manager | Aurora Home Manufacturing Co., Ltd.">
+  <title>Daniel Chen · Digital Card</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg0: #080B14;
+      --bg1: #0C1022;
+      --bg2: #111830;
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.07);
+      --bdr: rgba(255,255,255,0.08);
+      --bdr2: rgba(255,255,255,0.14);
+      --blue: #5B9EFF;
+      --blue-d: rgba(91,158,255,0.12);
+      --blue-g: rgba(91,158,255,0.25);
+      --gold: #C9A84C;
+      --gold-l: #D4B86A;
+      --gold-d: rgba(201,168,76,0.12);
+      --green: #2DBA6E;
+      --green-d: rgba(45,186,110,0.12);
+      --txt: #EEF0F8;
+      --txt-m: rgba(238,240,248,0.55);
+      --txt-d: rgba(238,240,248,0.28);
+      --r-sm: 10px; --r-md: 14px; --r-lg: 18px; --r-xl: 22px; --r-pill: 999px;
+      --font-d: 'Cormorant Garamond', Georgia, serif;
+      --font-b: 'DM Sans', system-ui, sans-serif;
+      --font-cn: 'Noto Sans SC', 'PingFang SC', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: var(--font-b);
+      background: var(--bg0);
+      color: var(--txt);
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html.zh body { font-family: var(--font-cn); }
+
+    /* ── PAGE ── */
+    .page {
+      max-width: 430px;
+      margin: 0 auto;
+      min-height: 100vh;
+      position: relative;
+      background: linear-gradient(180deg, #080B14 0%, #0A0E1C 50%, #080B14 100%);
+    }
+
+    .page::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      max-width: 430px;
+      left: 50%;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 10%, rgba(91,158,255,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 60% at 80% 85%, rgba(201,168,76,0.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── LOADER ── */
+    #loader {
+      position: fixed; inset: 0;
+      background: var(--bg0);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 18px; z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    #loader.out { opacity: 0; visibility: hidden; }
+    .loader-brand { font-size: 13px; font-weight: 500; letter-spacing: 0.22em; color: var(--txt-d); text-transform: uppercase; }
+    .loader-bar { width: 52px; height: 2px; background: var(--bdr); border-radius: var(--r-pill); overflow: hidden; }
+    .loader-bar::after {
+      content: ''; display: block; width: 100%; height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--gold));
+      animation: barSlide 1s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    @keyframes barSlide { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+
+    /* ── LANG BAR ── */
+    .lang-bar {
+      position: sticky; top: 0; z-index: 100;
+      padding: 10px 20px;
+      background: rgba(8,11,20,0.88);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--bdr);
+      display: flex; justify-content: flex-end;
+    }
+    .lang-toggle {
+      display: flex; background: var(--card); border: 1px solid var(--bdr);
+      border-radius: var(--r-pill); padding: 3px; gap: 2px;
+    }
+    .lang-btn {
+      padding: 5px 14px; border-radius: var(--r-pill); border: none;
+      background: transparent; color: var(--txt-m);
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+      cursor: pointer; transition: all .2s; font-family: var(--font-b);
+    }
+    .lang-btn.active { background: var(--blue); color: #fff; }
+
+    /* ── LANG SWITCH ── */
+    .t-en, .b-en { }
+    .t-zh { display: none; }
+    .b-zh { display: none; }
+    html.zh .t-en { display: none; }
+    html.zh .t-zh { display: inline; }
+    html.zh .b-en { display: none; }
+    html.zh .b-zh { display: block; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 20px; right: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--bdr), transparent);
+    }
+
+    .avatar-wrap {
+      position: relative; display: inline-flex; margin-bottom: 24px;
+      animation: fd 0.9s cubic-bezier(.16,1,.3,1) both;
+    }
+    @keyframes fd { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: none; } }
+    @keyframes fu { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+    .avatar-ring {
+      width: 110px; height: 110px; border-radius: 50%;
+      padding: 2.5px;
+      background: linear-gradient(135deg, var(--blue), var(--gold), var(--blue));
+      animation: ringGlow 3.5s ease-in-out infinite;
+    }
+    @keyframes ringGlow {
+      0%,100% { box-shadow: 0 0 18px rgba(91,158,255,.3), 0 0 36px rgba(91,158,255,.1); }
+      50%      { box-shadow: 0 0 24px rgba(201,168,76,.35), 0 0 48px rgba(201,168,76,.12); }
+    }
+    .avatar-inner {
+      width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
+      background: var(--bg2); display: flex; align-items: center; justify-content: center;
+    }
+    .avatar-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .avatar-fallback {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #111830, #1A2545);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .online-dot {
+      position: absolute; bottom: 6px; right: 6px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--green); border: 2.5px solid var(--bg0);
+      box-shadow: 0 0 10px rgba(45,186,110,.6);
+    }
+
+    .hero-name {
+      font-family: var(--font-d); font-size: clamp(32px,8vw,40px);
+      font-weight: 700; letter-spacing: -.01em; line-height: 1.1;
+      animation: fu 0.9s 0.1s cubic-bezier(.16,1,.3,1) both;
+    }
+    .hero-name-cn {
+      display: block; font-family: var(--font-cn); font-size: 17px;
+      font-weight: 500; color: var(--gold-l); letter-spacing: .08em; margin-top: 5px;
+    }
+    .hero-title {
+      margin-top: 14px; font-size: 11.5px; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--blue);
+      animation: fu 0.9s 0.18s cubic-bezier(.16,1,.3,1) both;
+    }
+    .hero-company {
+      margin-top: 5px; font-size: 13px; color: var(--txt-m);
+      animation: fu 0.9s 0.24s cubic-bezier(.16,1,.3,1) both;
+    }
+    .hero-tagline {
+      margin-top: 16px; font-size: 13.5px; color: var(--txt-m);
+      font-weight: 300; line-height: 1.7; padding: 0 8px;
+      animation: fu 0.9s 0.3s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    /* ── SECTIONS ── */
+    .sec { padding: 28px 20px; position: relative; z-index: 1; }
+    .sec-label {
+      font-size: 10px; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--gold-l); margin-bottom: 16px;
+    }
+    .divider {
+      height: 1px; margin: 0 20px;
+      background: linear-gradient(90deg, transparent, var(--bdr), transparent);
+    }
+
+    /* ── GLASS CARD ── */
+    .gc {
+      background: var(--card); border: 1px solid var(--bdr);
+      border-radius: var(--r-xl); padding: 20px;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* ── CONTACT BUTTONS ── */
+    .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .btn-full { grid-column: span 2; }
+
+    .cbtn {
+      display: flex; align-items: center; gap: 10px;
+      padding: 13px 16px; border-radius: var(--r-md);
+      border: 1px solid var(--bdr); background: var(--card);
+      color: var(--txt); font-family: var(--font-b); font-size: 13px;
+      font-weight: 500; cursor: pointer; text-decoration: none;
+      transition: all .2s; -webkit-tap-highlight-color: transparent;
+    }
+    .cbtn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .cbtn:active { transform: scale(.95); background: var(--card2); }
+
+    .cbtn.primary {
+      background: linear-gradient(135deg, var(--blue), #3B7FD8);
+      border-color: transparent; justify-content: center;
+      font-size: 14px; font-weight: 600; padding: 15px 16px;
+      box-shadow: 0 4px 22px var(--blue-g);
+    }
+    .cbtn.c-green { background: var(--green-d); border-color: rgba(45,186,110,.2); color: #3DDC84; }
+    .cbtn.c-gold { background: var(--gold-d); border-color: rgba(201,168,76,.2); color: var(--gold-l); }
+
+    /* ── ABOUT ── */
+    .about-txt { font-size: 14px; line-height: 1.75; color: var(--txt-m); font-weight: 300; }
+
+    /* ── SKILLS ── */
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
+    .chip {
+      padding: 6px 14px; border-radius: var(--r-pill);
+      background: var(--card); border: 1px solid var(--bdr);
+      font-size: 12px; font-weight: 500; color: var(--txt-m);
+      opacity: 0; transform: translateY(10px) scale(.96);
+      transition: opacity .4s ease, transform .4s ease;
+    }
+    .chip.in { opacity: 1; transform: none; }
+
+    /* ── LANGUAGES ── */
+    .lang-list { display: flex; flex-direction: column; gap: 14px; }
+    .lang-row { display: flex; align-items: center; gap: 12px; }
+    .lang-flag { font-size: 22px; width: 30px; text-align: center; flex-shrink: 0; }
+    .lang-info { flex: 1; }
+    .lang-name-txt { font-size: 14px; font-weight: 500; }
+    .lang-lvl { font-size: 11px; color: var(--txt-m); margin-top: 2px; }
+    .dots { display: flex; gap: 5px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--bdr2); }
+    .dot.on { background: var(--blue); }
+    .dot.half { background: linear-gradient(90deg, var(--blue) 50%, var(--bdr2) 50%); }
+
+    /* ── CONTACT LIST ── */
+    .ci-wrap { display: flex; flex-direction: column; gap: 6px; }
+    .ci {
+      display: flex; align-items: center; gap: 12px;
+      padding: 13px 14px; background: var(--card); border: 1px solid var(--bdr);
+      border-radius: var(--r-md); text-decoration: none; color: var(--txt);
+      transition: all .2s; width: 100%; text-align: left; font-family: var(--font-b);
+      cursor: pointer;
+    }
+    .ci:active { background: var(--card2); transform: scale(.98); }
+    .ci-ico {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; background: var(--blue-d); color: var(--blue);
+    }
+    .ci-ico.g { background: var(--green-d); color: var(--green); }
+    .ci-ico.gd { background: var(--gold-d); color: var(--gold-l); }
+    .ci-ico svg { width: 16px; height: 16px; }
+    .ci-txt { flex: 1; min-width: 0; }
+    .ci-lbl { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--txt-d); }
+    .ci-val { font-size: 13px; font-weight: 500; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .copy-pill {
+      padding: 5px 10px; border-radius: var(--r-pill);
+      background: var(--card); border: 1px solid var(--bdr);
+      color: var(--txt-m); font-size: 11px; font-weight: 500;
+      cursor: pointer; flex-shrink: 0; font-family: var(--font-b);
+      transition: all .2s;
+    }
+    .copy-pill.ok { color: var(--green); border-color: rgba(45,186,110,.25); }
+    .copy-pill:active { transform: scale(.9); }
+
+    /* ── WECHAT ── */
+    .wc-card { text-align: center; }
+    .qr-frame {
+      display: inline-flex; padding: 12px; background: #fff;
+      border-radius: 14px; margin: 14px 0; position: relative;
+    }
+    .qr-frame::before {
+      content: ''; position: absolute; inset: -2px; border-radius: 16px;
+      background: linear-gradient(135deg, rgba(91,158,255,.5), rgba(201,168,76,.4));
+      z-index: -1; animation: qrGlow 3s ease-in-out infinite;
+    }
+    @keyframes qrGlow { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
+    .qr-canvas { display: block; border-radius: 4px; }
+    .wc-id { font-size: 17px; font-weight: 600; letter-spacing: .04em; margin-bottom: 6px; }
+    .wc-hint { font-size: 12px; color: var(--txt-m); margin-bottom: 14px; }
+
+    /* ── LOCATION ── */
+    .loc-row { display: flex; gap: 14px; align-items: flex-start; }
+    .loc-ico {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--blue-d); border: 1px solid rgba(91,158,255,.12);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue); flex-shrink: 0;
+    }
+    .loc-ico svg { width: 20px; height: 20px; }
+    .loc-city { font-size: 17px; font-weight: 600; }
+    .loc-addr { font-size: 12.5px; color: var(--txt-m); margin-top: 4px; line-height: 1.5; }
+    .map-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 14px; padding: 8px 18px; border-radius: var(--r-pill);
+      background: var(--blue-d); border: 1px solid rgba(91,158,255,.15);
+      color: var(--blue); font-size: 12.5px; font-weight: 500;
+      text-decoration: none; transition: all .2s;
+    }
+    .map-link svg { width: 13px; height: 13px; }
+    .map-link:active { transform: scale(.96); }
+
+    /* ── SOCIAL ── */
+    .soc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+    .soc-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 14px 6px; background: var(--card); border: 1px solid var(--bdr);
+      border-radius: var(--r-md); color: var(--txt-m); text-decoration: none;
+      font-size: 10px; font-weight: 500; letter-spacing: .04em;
+      transition: all .2s;
+    }
+    .soc-btn svg { width: 20px; height: 20px; }
+    .soc-btn:active { transform: scale(.9); color: var(--txt); border-color: var(--bdr2); }
+
+    /* ── CTA SECTION ── */
+    .cta-sec { padding: 32px 20px; text-align: center; position: relative; z-index: 1; }
+    .cta-h {
+      font-family: var(--font-d); font-size: clamp(28px,7vw,36px);
+      font-weight: 700; letter-spacing: -.01em; line-height: 1.1; margin-bottom: 10px;
+    }
+    .cta-sub { font-size: 13px; color: var(--txt-m); line-height: 1.7; margin-bottom: 24px; font-weight: 300; padding: 0 8px; }
+    .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 24px 20px 28px; border-top: 1px solid var(--bdr);
+      text-align: center; position: relative; z-index: 1;
+    }
+    .ft-name { font-size: 14px; font-weight: 600; }
+    .ft-co { font-size: 12px; color: var(--txt-m); margin-top: 2px; }
+    .ft-brand { margin-top: 20px; font-size: 11px; color: var(--txt-d); letter-spacing: .05em; }
+    .ft-brand a { color: rgba(91,158,255,.65); text-decoration: none; }
+
+    /* ── STICKY BAR ── */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; max-width: 430px; z-index: 200;
+      background: rgba(8,11,20,0.92);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid var(--bdr);
+      padding: 8px 12px;
+      padding-bottom: calc(8px + env(safe-area-inset-bottom));
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 4px;
+    }
+    .sbtn {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      padding: 7px 4px; border-radius: var(--r-sm); border: none;
+      background: transparent; color: var(--txt-m);
+      font-size: 9.5px; font-weight: 600; letter-spacing: .06em;
+      cursor: pointer; text-decoration: none; transition: all .2s;
+      font-family: var(--font-b);
+    }
+    .sbtn svg { width: 21px; height: 21px; }
+    .sbtn:active { color: var(--blue); transform: scale(.88); }
+    .page-end { height: 90px; }
+
+    /* ── MODAL ── */
+    .modal-bd {
+      position: fixed; inset: 0; background: rgba(0,0,0,.75);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      z-index: 800; display: flex; align-items: flex-end; justify-content: center;
+      opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s;
+    }
+    .modal-bd.open { opacity: 1; visibility: visible; }
+    .modal-sheet {
+      width: 100%; max-width: 430px; background: #0E1428;
+      border: 1px solid var(--bdr); border-radius: 24px 24px 0 0;
+      padding: 0 20px 44px;
+      transform: translateY(100%);
+      transition: transform .35s cubic-bezier(.32,.72,0,1);
+      text-align: center;
+    }
+    .modal-bd.open .modal-sheet { transform: none; }
+    .modal-handle { width: 38px; height: 4px; background: var(--bdr2); border-radius: var(--r-pill); margin: 16px auto 22px; }
+    .modal-title { font-size: 18px; font-weight: 600; margin-bottom: 18px; }
+    .modal-close {
+      margin-top: 14px; background: none; border: none;
+      color: var(--txt-m); font-size: 13px; cursor: pointer;
+      padding: 8px 20px; font-family: var(--font-b); width: 100%;
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; left: 50%; bottom: 100px;
+      transform: translateX(-50%) translateY(10px);
+      background: rgba(18,24,42,.96); border: 1px solid var(--bdr2);
+      border-radius: var(--r-pill); padding: 10px 22px;
+      font-size: 13px; font-weight: 500; z-index: 999;
+      opacity: 0; transition: all .3s cubic-bezier(.16,1,.3,1);
+      white-space: nowrap; pointer-events: none;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ── ANIM ── */
+    .anim { opacity: 0; transform: translateY(20px); transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
+    .anim.in { opacity: 1; transform: none; }
+    .anim.d1 { transition-delay: .06s; }
+    .anim.d2 { transition-delay: .12s; }
+  </style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-brand">steez.digital</div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- WECHAT MODAL -->
+<div class="modal-bd" id="wc-modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title">WeChat · 微信</div>
+    <div class="qr-frame" style="display:inline-flex;margin:0 auto 14px;">
+      <canvas id="modal-qr" class="qr-canvas" width="160" height="160"></canvas>
+    </div>
+    <div class="wc-id">DanielChen_Export</div>
+    <div class="wc-hint">
+      <span class="t-en">Scan or copy to connect on WeChat</span>
+      <span class="t-zh">扫描二维码或复制微信号添加联系</span>
+    </div>
+    <button class="cbtn primary" onclick="copyText('DanielChen_Export')" style="width:100%;justify-content:center;">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      <span class="t-en">Copy WeChat ID</span><span class="t-zh">复制微信号</span>
+    </button>
+    <button class="modal-close" onclick="closeModal()">
+      <span class="t-en">Close</span><span class="t-zh">关闭</span>
+    </button>
+  </div>
+</div>
+
+<!-- PAGE -->
+<div class="page">
+
+  <!-- LANG BAR -->
+  <div class="lang-bar">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+    </div>
+  </div>
+
+  <!-- § 1  HERO -->
+  <section class="hero">
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <img src="https://images.unsplash.com/photo-1548544149-4835e62ee5b3?w=300&h=300&fit=crop&crop=face" alt="Daniel Chen" class="avatar-photo" onerror="this.style.display='none'">
+          <div class="avatar-fallback">
+            <svg width="58" height="58" viewBox="0 0 58 58" fill="none">
+              <circle cx="29" cy="21" r="13" fill="rgba(255,255,255,0.14)"/>
+              <path d="M5 56 C5 39 14 34 29 34 C44 34 53 39 53 56" fill="rgba(255,255,255,0.09)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="online-dot"></div>
+    </div>
+
+    <h1 class="hero-name">
+      Daniel Chen
+      <span class="hero-name-cn t-zh">陈明</span>
+    </h1>
+    <div class="hero-title">
+      <span class="t-en">Export Sales Manager</span>
+      <span class="t-zh">外贸销售经理</span>
+    </div>
+    <div class="hero-company">Aurora Home Manufacturing Co., Ltd.</div>
+    <p class="hero-tagline">
+      <span class="t-en">International sales specialist helping buyers connect with reliable Chinese suppliers.</span>
+      <span class="t-zh">专注国际销售，帮助全球买家对接可靠的中国供应商。</span>
+    </p>
+  </section>
+
+  <!-- § 2  QUICK CONTACT -->
+  <section class="sec anim">
+    <div class="sec-label">
+      <span class="t-en">Quick Connect</span><span class="t-zh">快速联系</span>
+    </div>
+    <div class="btn-grid">
+
+      <button class="cbtn primary btn-full" onclick="saveContact()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        <span class="t-en">Save Contact</span><span class="t-zh">保存联系人</span>
+      </button>
+
+      <a class="cbtn" href="tel:+8613800000000">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <span class="t-en">Call</span><span class="t-zh">电话</span>
+      </a>
+
+      <a class="cbtn" href="mailto:daniel@aurorahome.com">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span class="t-en">Email</span><span class="t-zh">邮件</span>
+      </a>
+
+      <button class="cbtn c-green" onclick="openModal()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M9.5 4C5.36 4 2 7.03 2 10.78c0 2.03.97 3.84 2.49 5.09L3.5 18l2.4-1.31A8.42 8.42 0 009.5 17.56a7.7 7.7 0 001.4-.13c-.17-.5-.27-1.02-.27-1.56 0-3.31 2.89-6 6.45-6 .23 0 .46.01.68.03C16.97 7.24 13.58 4 9.5 4z"/><path d="M17.08 11.12c-2.61 0-4.72 1.87-4.72 4.18s2.11 4.18 4.72 4.18c.71 0 1.38-.16 1.97-.44L21 20l-.78-2.06A4.11 4.11 0 0021.8 15.3c0-2.31-2.11-4.18-4.72-4.18z"/></svg>
+        <span class="t-en">WeChat</span><span class="t-zh">微信</span>
+      </button>
+
+      <a class="cbtn c-green" href="https://wa.me/8613800000000" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+
+      <a class="cbtn" href="https://linkedin.com/in/danielchen" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+
+      <a class="cbtn" href="https://maps.google.com/?q=Ningbo,Zhejiang,China" target="_blank" rel="noopener">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="t-en">Location</span><span class="t-zh">位置</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- § 3  ABOUT -->
+  <section class="sec anim d1">
+    <div class="sec-label"><span class="t-en">About Me</span><span class="t-zh">个人简介</span></div>
+    <div class="gc">
+      <p class="about-txt">
+        <span class="t-en">I work with international buyers to provide clear communication, fast response, and professional support throughout the sourcing and cooperation process. With years of experience in international trade, I'm dedicated to building long-term relationships with global partners.</span>
+        <span class="t-zh">我为国际买家提供清晰沟通、快速响应和专业支持，协助客户顺利完成采购与合作流程。凭借多年外贸经验，致力于与全球合作伙伴建立长期稳定的合作关系。</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- § 4  SKILLS -->
+  <section class="sec">
+    <div class="sec-label anim"><span class="t-en">Skills</span><span class="t-zh">专业技能</span></div>
+    <div class="skills-wrap" id="chips-en">
+      <span class="chip">International Sales</span>
+      <span class="chip">Export Communication</span>
+      <span class="chip">Client Support</span>
+      <span class="chip">Product Sourcing</span>
+      <span class="chip">OEM / ODM Projects</span>
+      <span class="chip">Sample Coordination</span>
+      <span class="chip">Negotiation</span>
+      <span class="chip">Trade Show Communication</span>
+    </div>
+    <div class="skills-wrap" id="chips-zh" style="display:none;">
+      <span class="chip">国际销售</span>
+      <span class="chip">外贸沟通</span>
+      <span class="chip">客户支持</span>
+      <span class="chip">产品采购</span>
+      <span class="chip">OEM / ODM 项目</span>
+      <span class="chip">样品协调</span>
+      <span class="chip">商务谈判</span>
+      <span class="chip">展会沟通</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- § 5  LANGUAGES -->
+  <section class="sec anim">
+    <div class="sec-label"><span class="t-en">Languages</span><span class="t-zh">语言能力</span></div>
+    <div class="gc">
+      <div class="lang-list">
+        <div class="lang-row">
+          <div class="lang-flag">🇨🇳</div>
+          <div class="lang-info">
+            <div class="lang-name-txt"><span class="t-en">Chinese</span><span class="t-zh">中文</span></div>
+            <div class="lang-lvl"><span class="t-en">Native</span><span class="t-zh">母语</span></div>
+          </div>
+          <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
+        </div>
+        <div class="lang-row">
+          <div class="lang-flag">🇬🇧</div>
+          <div class="lang-info">
+            <div class="lang-name-txt"><span class="t-en">English</span><span class="t-zh">英语</span></div>
+            <div class="lang-lvl"><span class="t-en">Professional</span><span class="t-zh">专业沟通</span></div>
+          </div>
+          <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
+        </div>
+        <div class="lang-row">
+          <div class="lang-flag">🇷🇺</div>
+          <div class="lang-info">
+            <div class="lang-name-txt"><span class="t-en">Russian</span><span class="t-zh">俄语</span></div>
+            <div class="lang-lvl"><span class="t-en">Basic</span><span class="t-zh">基础</span></div>
+          </div>
+          <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        </div>
+        <div class="lang-row">
+          <div class="lang-flag">🇸🇦</div>
+          <div class="lang-info">
+            <div class="lang-name-txt"><span class="t-en">Arabic</span><span class="t-zh">阿拉伯语</span></div>
+            <div class="lang-lvl"><span class="t-en">Conversational</span><span class="t-zh">日常沟通</span></div>
+          </div>
+          <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot half"></div><div class="dot"></div><div class="dot"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- § 7  WECHAT CARD -->
+  <section class="sec anim">
+    <div class="sec-label">WeChat · 微信</div>
+    <div class="gc wc-card">
+      <p style="font-size:13px;color:var(--txt-m);">
+        <span class="t-en">Scan or copy my WeChat ID to connect directly.</span>
+        <span class="t-zh">扫描二维码或复制微信号，直接添加联系。</span>
+      </p>
+      <div class="qr-frame">
+        <canvas id="inline-qr" class="qr-canvas" width="160" height="160"></canvas>
+      </div>
+      <div class="wc-id">DanielChen_Export</div>
+      <div class="wc-hint">
+        <span class="t-en">WeChat ID — tap to copy</span><span class="t-zh">微信号 — 点击复制</span>
+      </div>
+      <button class="cbtn" onclick="copyText('DanielChen_Export')" style="width:100%;justify-content:center;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        <span class="t-en">Copy WeChat ID</span><span class="t-zh">复制微信号</span>
+      </button>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- § 8  LOCATION -->
+  <section class="sec anim">
+    <div class="sec-label"><span class="t-en">Office Location</span><span class="t-zh">办公位置</span></div>
+    <div class="gc">
+      <div class="loc-row">
+        <div class="loc-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <div class="loc-city"><span class="t-en">Ningbo, Zhejiang</span><span class="t-zh">浙江宁波</span></div>
+          <div class="loc-addr">
+            <span class="t-en">China · Available for trade shows worldwide</span>
+            <span class="t-zh">中国 · 可参与全球各地展会</span>
+          </div>
+        </div>
+      </div>
+      <a class="map-link" href="https://maps.google.com/?q=Ningbo,Zhejiang,China" target="_blank" rel="noopener">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span class="t-en">Open in Maps</span><span class="t-zh">在地图中打开</span>
+      </a>
+    </div>
+  </section>
+
+
+  <div class="divider"></div>
+
+  <!-- § 10  CTA -->
+  <section class="cta-sec anim">
+    <h2 class="cta-h">
+      <span class="t-en">Let's Connect</span><span class="t-zh">欢迎联系我</span>
+    </h2>
+    <p class="cta-sub">
+      <span class="t-en">Save my contact or message me directly to discuss cooperation, business opportunities, or future communication.</span>
+      <span class="t-zh">您可以保存我的联系方式，或直接发送消息，与我沟通合作、业务机会或后续联系。</span>
+    </p>
+
+    <div class="ci-wrap" style="margin-bottom:16px;text-align:left;">
+
+      <div class="ci" style="cursor:default;">
+        <div class="ci-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="ci-txt">
+          <div class="ci-lbl"><span class="t-en">Phone</span><span class="t-zh">电话</span></div>
+          <div class="ci-val">+86 138 0000 0000</div>
+        </div>
+        <button class="copy-pill" onclick="copyPill(this,'+8613800000000')"><span class="t-en">Copy</span><span class="t-zh">复制</span></button>
+      </div>
+
+      <a class="ci" href="mailto:daniel@aurorahome.com">
+        <div class="ci-ico gd"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="ci-txt">
+          <div class="ci-lbl"><span class="t-en">Email</span><span class="t-zh">邮箱</span></div>
+          <div class="ci-val">daniel@aurorahome.com</div>
+        </div>
+        <button class="copy-pill" onclick="event.preventDefault();event.stopPropagation();copyPill(this,'daniel@aurorahome.com')"><span class="t-en">Copy</span><span class="t-zh">复制</span></button>
+      </a>
+
+      <div class="ci" onclick="openModal()" style="cursor:pointer;">
+        <div class="ci-ico g"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 4C5.36 4 2 7.03 2 10.78c0 2.03.97 3.84 2.49 5.09L3.5 18l2.4-1.31A8.42 8.42 0 009.5 17.56a7.7 7.7 0 001.4-.13c-.17-.5-.27-1.02-.27-1.56 0-3.31 2.89-6 6.45-6 .23 0 .46.01.68.03C16.97 7.24 13.58 4 9.5 4z"/><path d="M17.08 11.12c-2.61 0-4.72 1.87-4.72 4.18s2.11 4.18 4.72 4.18c.71 0 1.38-.16 1.97-.44L21 20l-.78-2.06A4.11 4.11 0 0021.8 15.3c0-2.31-2.11-4.18-4.72-4.18z"/></svg></div>
+        <div class="ci-txt">
+          <div class="ci-lbl">WeChat / 微信</div>
+          <div class="ci-val">DanielChen_Export</div>
+        </div>
+        <button class="copy-pill" onclick="event.stopPropagation();copyPill(this,'DanielChen_Export')"><span class="t-en">Copy</span><span class="t-zh">复制</span></button>
+      </div>
+
+      <a class="ci" href="https://wa.me/8613800000000" target="_blank" rel="noopener">
+        <div class="ci-ico g"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+        <div class="ci-txt">
+          <div class="ci-lbl">WhatsApp</div>
+          <div class="ci-val">+86 138 0000 0000</div>
+        </div>
+      </a>
+
+      <a class="ci" href="https://linkedin.com/in/danielchen" target="_blank" rel="noopener">
+        <div class="ci-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <div class="ci-txt">
+          <div class="ci-lbl">LinkedIn</div>
+          <div class="ci-val">linkedin.com/in/danielchen</div>
+        </div>
+      </a>
+
+      <a class="ci" href="https://aurorahome.com" target="_blank" rel="noopener">
+        <div class="ci-ico gd"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <div class="ci-txt">
+          <div class="ci-lbl"><span class="t-en">Website</span><span class="t-zh">网站</span></div>
+          <div class="ci-val">aurorahome.com</div>
+        </div>
+      </a>
+
+    </div>
+
+    <button class="cbtn primary" onclick="saveContact()" style="width:100%;justify-content:center;">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+      <span class="t-en">Save Contact</span><span class="t-zh">保存联系人</span>
+    </button>
+    <a class="cbtn c-gold" href="#" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:8px;">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      <span class="t-en">View Product Catalogue</span><span class="t-zh">查看产品目录</span>
+    </a>
+  </section>
+
+  <!-- § 11  FOOTER -->
+  <footer>
+    <div class="ft-name">Daniel Chen · 陈明</div>
+    <div class="ft-co">Aurora Home Manufacturing Co., Ltd.</div>
+    <div class="ft-brand">
+      <span class="t-en">Digital business card by <a href="https://steez.digital" target="_blank" rel="noopener">steez.digital</a></span>
+      <span class="t-zh">数字名片由 <a href="https://steez.digital" target="_blank" rel="noopener">steez.digital</a> 打造</span>
+    </div>
+  </footer>
+
+  <div class="page-end"></div>
+</div><!-- /.page -->
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <button class="sbtn" onclick="saveContact()">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+    <span class="t-en">Save</span><span class="t-zh">保存</span>
+  </button>
+  <a class="sbtn" href="tel:+8613800000000">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    <span class="t-en">Call</span><span class="t-zh">电话</span>
+  </a>
+  <button class="sbtn" onclick="openModal()">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 4C5.36 4 2 7.03 2 10.78c0 2.03.97 3.84 2.49 5.09L3.5 18l2.4-1.31A8.42 8.42 0 009.5 17.56a7.7 7.7 0 001.4-.13c-.17-.5-.27-1.02-.27-1.56 0-3.31 2.89-6 6.45-6 .23 0 .46.01.68.03C16.97 7.24 13.58 4 9.5 4z"/><path d="M17.08 11.12c-2.61 0-4.72 1.87-4.72 4.18s2.11 4.18 4.72 4.18c.71 0 1.38-.16 1.97-.44L21 20l-.78-2.06A4.11 4.11 0 0021.8 15.3c0-2.31-2.11-4.18-4.72-4.18z"/></svg>
+    <span class="t-en">WeChat</span><span class="t-zh">微信</span>
+  </button>
+  <a class="sbtn" href="mailto:daniel@aurorahome.com">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <span class="t-en">Email</span><span class="t-zh">邮件</span>
+  </a>
+</div>
+
+<script>
+/* ── LANG ── */
+function setLang(lang) {
+  const h = document.documentElement;
+  const isZh = lang === 'zh';
+  h.classList.toggle('zh', isZh);
+  h.lang = lang;
+  document.getElementById('btn-zh').classList.toggle('active', isZh);
+  document.getElementById('btn-en').classList.toggle('active', !isZh);
+
+  // Toggle skill chip panels
+  document.getElementById('chips-en').style.display = isZh ? 'none' : 'flex';
+  document.getElementById('chips-zh').style.display = isZh ? 'flex' : 'none';
+
+  // Trigger stagger on newly visible chips
+  const wrap = isZh ? document.getElementById('chips-zh') : document.getElementById('chips-en');
+  wrap.querySelectorAll('.chip').forEach((c, i) => {
+    c.classList.remove('in');
+    setTimeout(() => c.classList.add('in'), 30 + i * 55);
+  });
+}
+
+/* ── COPY ── */
+function copyText(text) {
+  const zh = document.documentElement.classList.contains('zh');
+  const msg = zh ? '已复制！' : 'Copied!';
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => showToast(msg));
+  } else {
+    const ta = Object.assign(document.createElement('textarea'), { value: text });
+    ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast(msg);
+  }
+}
+
+function copyPill(btn, text) {
+  copyText(text);
+  btn.classList.add('ok');
+  setTimeout(() => btn.classList.remove('ok'), 2000);
+}
+
+/* ── TOAST ── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+/* ── MODAL ── */
+function openModal() {
+  document.getElementById('wc-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('wc-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ── VCARD ── */
+function saveContact() {
+  const vcf = [
+    'BEGIN:VCARD', 'VERSION:3.0',
+    'FN:Daniel Chen', 'N:Chen;Daniel;;;',
+    'NICKNAME:陈明',
+    'ORG:Aurora Home Manufacturing Co., Ltd.',
+    'TITLE:Export Sales Manager',
+    'TEL;TYPE=CELL,VOICE:+8613800000000',
+    'EMAIL;TYPE=WORK:daniel@aurorahome.com',
+    'URL:https://linkedin.com/in/danielchen',
+    'ADR;TYPE=WORK:;;Ningbo;Zhejiang;;China',
+    'NOTE:WeChat: DanielChen_Export | WhatsApp: +86 138 0000 0000',
+    'END:VCARD'
+  ].join('\r\n');
+  const a = Object.assign(document.createElement('a'), {
+    href: URL.createObjectURL(new Blob([vcf], { type: 'text/vcard' })),
+    download: 'Daniel_Chen.vcf'
+  });
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  const zh = document.documentElement.classList.contains('zh');
+  showToast(zh ? '联系人已保存！' : 'Contact saved!');
+}
+
+/* ── QR PLACEHOLDER ── */
+function drawQR(canvas) {
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, M = 25, S = W / M;
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, W, W);
+  ctx.fillStyle = '#000';
+
+  function finder(ox, oy) {
+    ctx.fillRect(ox*S, oy*S, 7*S, 7*S);
+    ctx.fillStyle = '#fff';
+    ctx.fillRect((ox+1)*S, (oy+1)*S, 5*S, 5*S);
+    ctx.fillStyle = '#000';
+    ctx.fillRect((ox+2)*S, (oy+2)*S, 3*S, 3*S);
+  }
+  finder(0,0); finder(18,0); finder(0,18);
+
+  // Timing
+  for (let i = 8; i <= 16; i += 2) {
+    ctx.fillRect(i*S, 6*S, S, S);
+    ctx.fillRect(6*S, i*S, S, S);
+  }
+
+  // Format info
+  [1,1,1,0,1,0,1,0,0].forEach((v,i) => { if(v) ctx.fillRect(i*S,8*S,S,S); });
+  [1,0,1,0,0,1,0,1,1].forEach((v,i) => { if(v) ctx.fillRect(8*S,i*S,S,S); });
+
+  // Data modules
+  function skip(r,c) {
+    if(r<=8 && c<=8) return true;
+    if(r<=8 && c>=16) return true;
+    if(r>=16 && c<=8) return true;
+    if(r===6 || c===6) return true;
+    return false;
+  }
+  for(let r=0;r<M;r++) {
+    for(let c=0;c<M;c++) {
+      if(skip(r,c)) continue;
+      if(((r*31337 + c*7919 + (r^c)*1234) >>> 0) % 3 === 0) {
+        ctx.fillRect(c*S, r*S, S, S);
+      }
+    }
+  }
+}
+
+/* ── SCROLL ANIM ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.anim').forEach(el => io.observe(el));
+
+/* Skills initial stagger */
+const sio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.chip').forEach((c,i) => setTimeout(() => c.classList.add('in'), i*55));
+      sio.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+sio.observe(document.getElementById('chips-en'));
+
+/* ── INIT ── */
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('out'), 900);
+  drawQR(document.getElementById('inline-qr'));
+  drawQR(document.getElementById('modal-qr'));
+});
+</script>
+</body>
+</html>
