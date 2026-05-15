@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #FAF7F0;
+  --espresso: #2C1A0E;
+  --espresso-light: #3D2A1A;
+  --bronze: #B8860B;
+  --bronze-light: #C9A052;
+  --warm-brown: #8B5E3C;
+  --cream-dark: #F0EBE0;
+}
+
+@layer base {
+  body {
+    background-color: var(--cream);
+    color: var(--espresso);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(44, 26, 14, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 26, 14, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
