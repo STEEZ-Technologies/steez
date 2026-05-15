@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { FadeIn } from "@/components/shared/FadeIn";
+import { motion, AnimatePresence } from "motion/react";
+import { Send } from "lucide-react";
 
 const INTERESTS = [
   "Digital Business Cards",
@@ -13,20 +15,31 @@ const INTERESTS = [
 
 const FIELD_STYLE: React.CSSProperties = {
   width: "100%",
-  background: "#FFFFFF",
-  border: "1px solid rgba(4,52,44,0.15)",
+  background: "var(--bg)",
+  border: "1px solid var(--hairline)",
   borderRadius: "var(--radius-inputs)",
   padding: "clamp(10px, 1.4vw, 14px) clamp(12px, 1.6vw, 16px)",
-  color: "#04342C",
+  color: "inherit",
   fontSize: "clamp(0.85rem, 1.1vw, 0.95rem)",
   outline: "none",
   fontFamily: "inherit",
   boxSizing: "border-box",
+  transition: "border-color 0.3s ease, box-shadow 0.3s ease",
 };
+
+interface FormState {
+  name: string;
+  company: string;
+  email: string;
+  wechat: string;
+  interest: string;
+  message: string;
+}
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [form, setForm] = useState<FormState>({
     name: "",
     company: "",
     email: "",
@@ -35,16 +48,47 @@ export function Contact() {
     message: "",
   });
 
+  const [touched, setTouched] = useState<Partial<Record<keyof FormState, boolean>>>({});
+
+  const errors = useMemo(() => {
+    const e: Partial<Record<keyof FormState, string>> = {};
+    if (!form.name.trim()) e.name = "Name is required";
+    if (!form.email.trim()) {
+      e.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      e.email = "Invalid email address";
+    }
+    if (!form.message.trim()) e.message = "Please leave a short message";
+    return e;
+  }, [form]);
+
   function handleChange(
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleBlur(name: keyof FormState) {
+    setTouched((prev) => ({ ...prev, [name]: true }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    
+    const allTouched: Partial<Record<keyof FormState, boolean>> = {};
+    (Object.keys(form) as Array<keyof FormState>).forEach(key => {
+      allTouched[key] = true;
+    });
+    setTouched(allTouched);
+
+    if (Object.keys(errors).length > 0) return;
+
+    setIsSubmitting(true);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    setIsSubmitting(false);
     setSubmitted(true);
   }
 
@@ -82,7 +126,8 @@ export function Contact() {
         </div>
         <h2
           style={{
-            fontWeight: 900,
+            fontFamily: "var(--font-stack-sans), sans-serif",
+            fontWeight: 700,
             fontSize: "clamp(2.8rem, 8vw, 7rem)",
             lineHeight: 1,
             letterSpacing: "-0.03em",
@@ -121,7 +166,7 @@ export function Contact() {
             {[
               { label: "Phone", value: "+86 755 8888 0000" },
               { label: "Email", value: "hello@steez.cn" },
-              { label: "HQ", value: "Shenzhen, Guangdong" },
+              { label: "HQ", value: "Hangzhou, Zhejiang" },
               { label: "Hours", value: "Mon–Sat 09:00–19:00 CST" },
             ].map((row) => (
               <div key={row.label}>
@@ -192,79 +237,172 @@ export function Contact() {
               borderRadius: "var(--radius-cards)",
               padding: "var(--card-padding)",
               transition: "background 0.4s ease",
+              minHeight: 480,
+              display: "flex",
+              flexDirection: "column"
             }}
           >
-            {submitted ? (
-              <div
-                style={{
-                  textAlign: "center",
-                  padding: "clamp(40px, 6vw, 80px) 0",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 16,
-                }}
-              >
-                <div style={{ fontSize: "2.5rem", color: "#1D9E75" }}>✓</div>
-                <div
+            <AnimatePresence mode="wait">
+              {submitted ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   style={{
-                    fontWeight: 800,
-                    fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
-                    color: "inherit",
+                    textAlign: "center",
+                    padding: "clamp(40px, 6vw, 80px) 0",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: 16,
+                    flex: 1,
+                    justifyContent: "center",
+                    position: "relative",
+                    overflow: "hidden"
                   }}
                 >
-                  Message sent
-                </div>
-                <div
-                  style={{
-                    fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
-                    color: "inherit",
-                    opacity: 0.5,
-                  }}
+                  <motion.div
+                    initial={{ x: -100, y: 100, opacity: 0, rotate: -45 }}
+                    animate={{ 
+                      x: [null, 0, 100, 200], 
+                      y: [null, 0, -100, -200], 
+                      opacity: [0, 1, 1, 0],
+                      rotate: [null, -45, -60, -75]
+                    }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    style={{ position: "absolute" }}
+                  >
+                    <Send size={40} color="#E0A93A" />
+                  </motion.div>
+
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", damping: 12, stiffness: 200, delay: 0.8 }}
+                    style={{ fontSize: "3.5rem", color: "#1D9E75" }}
+                  >
+                    ✓
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.0 }}
+                    style={{
+                      fontWeight: 800,
+                      fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
+                      color: "inherit",
+                    }}
+                  >
+                    Message sent
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.1 }}
+                    style={{
+                      fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
+                      color: "inherit",
+                      opacity: 0.5,
+                    }}
+                  >
+                    We&apos;ll be in touch within 24 hours.
+                  </motion.div>
+                </motion.div>
+              ) : (
+                <motion.form
+                  key="form"
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  onSubmit={handleSubmit}
+                  style={{ display: "flex", flexDirection: "column", gap: 16 }}
                 >
-                  We&apos;ll be in touch within 24 hours.
-                </div>
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                style={{ display: "flex", flexDirection: "column", gap: 16 }}
-              >
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                  <input name="name" placeholder="Name" value={form.name} onChange={handleChange} required style={{ ...FIELD_STYLE, background: "var(--bg)", color: "inherit", borderColor: "var(--hairline)" }} />
-                  <input name="company" placeholder="Company" value={form.company} onChange={handleChange} style={{ ...FIELD_STYLE, background: "var(--bg)", color: "inherit", borderColor: "var(--hairline)" }} />
-                </div>
-                <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required style={{ ...FIELD_STYLE, background: "var(--bg)", color: "inherit", borderColor: "var(--hairline)" }} />
-                <input name="wechat" placeholder="WeChat ID" value={form.wechat} onChange={handleChange} style={{ ...FIELD_STYLE, background: "var(--bg)", color: "inherit", borderColor: "var(--hairline)" }} />
-                <select name="interest" value={form.interest} onChange={handleChange} style={{ ...FIELD_STYLE, appearance: "none", background: "var(--bg)", color: "inherit", borderColor: "var(--hairline)" }}>
-                  <option value="" disabled>Interest</option>
-                  {INTERESTS.map((opt) => (
-                    <option key={opt} value={opt} style={{ background: "var(--bg)", color: "inherit" }}>{opt}</option>
-                  ))}
-                </select>
-                <textarea name="message" placeholder="Message" rows={4} value={form.message} onChange={handleChange} style={{ ...FIELD_STYLE, resize: "vertical", background: "var(--bg)", color: "inherit", borderColor: "var(--hairline)" }} />
-                <button
-                  type="submit"
-                  style={{
-                    width: "100%",
-                    padding: "clamp(13px, 1.6vw, 17px) 0",
-                    background: "var(--fg)",
-                    color: "var(--bg)",
-                    border: "none",
-                    borderRadius: "var(--radius-buttons-lg)",
-                    fontWeight: 700,
-                    fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.1em",
-                    cursor: "pointer",
-                    fontFamily: "inherit",
-                    transition: "background 0.2s ease, color 0.4s ease",
-                  }}
-                >
-                  Send Message
-                </button>
-              </form>
-            )}
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                    <FormField 
+                      name="name" 
+                      placeholder="Name" 
+                      value={form.name} 
+                      onChange={handleChange} 
+                      onBlur={() => handleBlur("name")}
+                      error={touched.name ? errors.name : undefined}
+                      required 
+                    />
+                    <FormField 
+                      name="company" 
+                      placeholder="Company" 
+                      value={form.company} 
+                      onChange={handleChange} 
+                      onBlur={() => handleBlur("company")}
+                    />
+                  </div>
+                  <FormField 
+                    name="email" 
+                    type="email" 
+                    placeholder="Email" 
+                    value={form.email} 
+                    onChange={handleChange} 
+                    onBlur={() => handleBlur("email")}
+                    error={touched.email ? errors.email : undefined}
+                    required 
+                  />
+                  <FormField 
+                    name="wechat" 
+                    placeholder="WeChat ID" 
+                    value={form.wechat} 
+                    onChange={handleChange} 
+                    onBlur={() => handleBlur("wechat")}
+                  />
+                  
+                  <div style={{ position: "relative" }}>
+                    <select 
+                      name="interest" 
+                      value={form.interest} 
+                      onChange={handleChange} 
+                      style={{ ...FIELD_STYLE, appearance: "none" }}
+                    >
+                      <option value="" disabled>Interest</option>
+                      {INTERESTS.map((opt) => (
+                        <option key={opt} value={opt} style={{ background: "var(--bg)", color: "#04342C" }}>{opt}</option>
+                      ))}
+                    </select>
+                    <div style={{ position: "absolute", right: 16, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", opacity: 0.5, fontSize: "0.8rem" }}>▼</div>
+                  </div>
+
+                  <FormField 
+                    name="message" 
+                    as="textarea"
+                    placeholder="Message" 
+                    rows={4} 
+                    value={form.message} 
+                    onChange={handleChange} 
+                    onBlur={() => handleBlur("message")}
+                    error={touched.message ? errors.message : undefined}
+                  />
+
+                  <motion.button
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.98 }}
+                    disabled={isSubmitting}
+                    type="submit"
+                    style={{
+                      width: "100%",
+                      padding: "clamp(13px, 1.6vw, 17px) 0",
+                      background: isSubmitting ? "var(--hairline-strong)" : "var(--fg)",
+                      color: "var(--bg)",
+                      border: "none",
+                      borderRadius: "var(--radius-buttons-lg)",
+                      fontWeight: 700,
+                      fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                      cursor: isSubmitting ? "not-allowed" : "pointer",
+                      fontFamily: "inherit",
+                      transition: "background 0.3s ease, color 0.4s ease",
+                    }}
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </motion.button>
+                </motion.form>
+              )}
+            </AnimatePresence>
           </div>
         </FadeIn>
       </div>
@@ -350,5 +488,55 @@ export function Contact() {
         </div>
       </FadeIn>
     </section>
+  );
+}
+
+function FormField({ 
+  error, 
+  as = "input", 
+  ...props 
+}: { 
+  error?: string; 
+  as?: "input" | "textarea" 
+} & React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>) {
+  const Tag = as as any;
+  
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 4, width: "100%" }}>
+      <motion.div
+        animate={{ 
+          borderColor: error ? "#EF4444" : "var(--hairline)",
+          boxShadow: error ? "0 0 0 1px #EF4444" : "0 0 0 0px transparent" 
+        }}
+        style={{ borderRadius: "var(--radius-inputs)", overflow: "hidden" }}
+      >
+        <Tag
+          {...props}
+          style={{ 
+            ...FIELD_STYLE, 
+            border: "none", 
+            resize: as === "textarea" ? "vertical" : "none"
+          }}
+        />
+      </motion.div>
+      <AnimatePresence>
+        {error && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            style={{ 
+              fontSize: "0.75rem", 
+              color: "#EF4444", 
+              fontWeight: 500, 
+              marginLeft: 4,
+              overflow: "hidden"
+            }}
+          >
+            {error}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

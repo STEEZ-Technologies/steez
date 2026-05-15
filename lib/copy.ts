@@ -21,7 +21,7 @@ export const COPY = {
         n: "01",
         en: "Smart Business Cards",
         cn: "智能名片",
-        body: "Premium tactile cards in light or dark forest-green finish. Each carries an embedded QR that activates your full digital storefront in under three seconds. Designed in Shenzhen, printed on heavyweight uncoated stock, debossed wordmark.",
+        body: "Premium tactile cards in light or dark forest-green finish. Each carries an embedded QR that activates your full digital storefront in under three seconds. Designed in Hangzhou, printed on heavyweight uncoated stock, debossed wordmark.",
       },
       {
         n: "02",
@@ -56,7 +56,7 @@ export const COPY = {
     locations: {
       heading: { en: "Locations", cn: "办事处" },
       items: [
-        { en: "Shenzhen", cn: "深圳" },
+        { en: "Hangzhou", cn: "杭州" },
         { en: "Yiwu", cn: "义乌" },
         { en: "Foshan", cn: "佛山" },
         { en: "Guangzhou", cn: "广州" },
@@ -79,7 +79,7 @@ export const COPY = {
         { en: "Contact", cn: "联系", href: "#contact" },
       ],
     },
-    bottomLeft: "© 2026 STEEZ · 思智 · Designed in Shenzhen",
+    bottomLeft: "© 2026 STEEZ · 思智 · Designed in Hangzhou",
     bottomRight: "BUILT FOR CHINESE MAKERS · 为中国制造商而生",
   },
 } as const;

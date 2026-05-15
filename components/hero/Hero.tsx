@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useScroll, useTransform, motion } from "motion/react";
+import { useScroll, useTransform, motion, useSpring } from "motion/react";
 import { FadeIn } from "@/components/shared/FadeIn";
 import { COPY } from "@/lib/copy";
 import { Numbers } from "@/components/numbers/Numbers";
@@ -14,9 +14,20 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 250]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  // Smooth out the scroll progress for a "weighted" feel
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const y = useTransform(smoothProgress, [0, 1], [0, 250]);
+  const opacity = useTransform(smoothProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(smoothProgress, [0, 1], [1, 0.85]);
+
+  // For the scroll indicator
+  const indicatorOpacity = useTransform(smoothProgress, [0, 0.15], [1, 0]);
+  const indicatorY = useTransform(smoothProgress, [0, 0.15], [0, 20]);
 
   return (
     <section
@@ -76,7 +87,7 @@ export function Hero() {
                 boxShadow: "0 0 0 4px rgba(29,158,117,0.18)",
               }}
             />
-            <span>Shenzhen · 思智</span>
+            <span>Hangzhou · 思智</span>
             <span style={{ opacity: 0.4 }}>/</span>
             <span style={{ color: "#E0A93A" }}>Open for 2026</span>
           </div>
@@ -181,6 +192,62 @@ export function Hero() {
             ))}
           </div>
         </FadeIn>
+
+        <motion.div
+          style={{
+            position: "absolute",
+            bottom: "clamp(20px, 3vw, 40px)",
+            left: "50%",
+            x: "-50%",
+            opacity: indicatorOpacity,
+            y: indicatorY,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 12,
+          }}
+        >
+          <div 
+            style={{ 
+              width: 24, 
+              height: 40, 
+              borderRadius: 20, 
+              border: "1px solid var(--hairline-strong)",
+              position: "relative"
+            }}
+          >
+            <motion.div
+              animate={{ 
+                y: [4, 24, 4],
+                opacity: [0.2, 1, 0.2]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: "50%",
+                x: "-50%",
+                width: 4,
+                height: 8,
+                background: "#E0A93A",
+                borderRadius: 2,
+              }}
+            />
+          </div>
+          <span style={{ 
+            fontSize: "0.65rem", 
+            fontWeight: 600, 
+            textTransform: "uppercase", 
+            letterSpacing: "0.15em",
+            opacity: 0.4
+          }}>
+            Scroll
+          </span>
+        </motion.div>
       </motion.div>
 
       <div style={{ position: "relative", zIndex: 3 }}>
@@ -189,3 +256,4 @@ export function Hero() {
     </section>
   );
 }
+

@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_SC, Geist } from "next/font/google";
+import { Inter, Noto_Sans_SC, Geist, Stack_Sans_Notch } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Lenis } from "@/components/shared/Lenis";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+
+const stackSansNotch = Stack_Sans_Notch({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-stack-sans",
+  display: "swap",
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(inter.variable, notoSansSC.variable, "font-sans", geist.variable)}
+      className={cn(stackSansNotch.variable, inter.variable, notoSansSC.variable, geist.variable, "font-sans")}
       suppressHydrationWarning
     >
       <body>

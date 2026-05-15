@@ -1,16 +1,23 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useTheme } from "next-themes";
 import { Analytics } from "@/components/analytics/Analytics";
 import { Contact } from "@/components/contact/Contact";
 import { Footer } from "@/components/footer/Footer";
-import { Hero } from "@/components/hero/Hero";
+import HeroGeometric from "@/components/ui/hero-geometric";
 import PricingSection from "@/components/pricing/PricingSection";
 import { Services } from "@/components/services/Services";
 import { Nav } from "@/components/hero/Nav";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const isDark = mounted && resolvedTheme === "dark";
+  const color2 = isDark ? "#000000" : "#F0F9FF";
 
   return (
     <main ref={containerRef} style={{ position: "relative" }}>
@@ -30,7 +37,14 @@ export default function Home() {
       </div>
 
       <div className="wrapper">
-        <Hero />
+        <HeroGeometric
+          title1="STEEZ"
+          title2="DIGITAL"
+          description="the digital bridge between chinese makers and the buyers searching for them"
+          color1="#019d86"
+          color2={color2}
+          speed={1}
+        />
 
         <Services />
         <Analytics />

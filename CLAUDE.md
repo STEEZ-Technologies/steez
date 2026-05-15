@@ -2,7 +2,7 @@
 
 # STEEZ — Project Handoff
 
-STEEZ (思智) is a marketing landing page for a Shenzhen-based digital services agency targeting Chinese manufacturers who exhibit at international trade shows. Product: digital business cards, forms, and catalogues with buyer analytics.
+STEEZ (思智) is a marketing landing page for a Hangzhou-based digital services agency targeting Chinese manufacturers who exhibit at international trade shows. Product: digital business cards, forms, and catalogues with buyer analytics.
 
 ---
 

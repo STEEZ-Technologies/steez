@@ -1,4 +1,7 @@
-import { FadeIn } from "@/components/shared/FadeIn";
+"use client";
+
+import { useRef } from "react";
+import { useScroll, useTransform, motion, useSpring } from "motion/react";
 
 const BAR_DATA = [
   { month: "Jan", value: 52 },
@@ -30,8 +33,29 @@ const FEATURES = [
 ];
 
 export function Analytics() {
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const textOpacity = useTransform(smoothProgress, [0.1, 0.25], [0, 1]);
+  const textX = useTransform(smoothProgress, [0.1, 0.3], [-60, 0]);
+  
+  const cardOpacity = useTransform(smoothProgress, [0.2, 0.4], [0, 1]);
+  const cardY = useTransform(smoothProgress, [0.2, 0.45], [100, 0]);
+  const cardScale = useTransform(smoothProgress, [0.2, 0.45], [0.9, 1]);
+
   return (
     <section
+      ref={containerRef}
       style={{
         background: "var(--bg)",
         color: "var(--fg)",
@@ -54,7 +78,7 @@ export function Analytics() {
           alignItems: "center",
         }}
       >
-        <FadeIn delay={0} x={-40} y={0}>
+        <motion.div style={{ opacity: textOpacity, x: textX }}>
           <div
             style={{
               fontWeight: 600,
@@ -69,7 +93,8 @@ export function Analytics() {
           </div>
           <h2
             style={{
-              fontWeight: 900,
+              fontFamily: "var(--font-stack-sans), sans-serif",
+              fontWeight: 700,
               fontSize: "clamp(2.5rem, 6vw, 5rem)",
               lineHeight: 1,
               letterSpacing: "-0.03em",
@@ -108,8 +133,8 @@ export function Analytics() {
               maxWidth: 480,
             }}
           >
-            {FEATURES.map((f) => (
-              <div
+            {FEATURES.map((f, i) => (
+              <motion.div
                 key={f.title}
                 style={{
                   display: "flex",
@@ -117,6 +142,8 @@ export function Analytics() {
                   alignItems: "flex-start",
                   paddingTop: "clamp(14px, 1.5vw, 18px)",
                   borderTop: "1px solid var(--hairline)",
+                  opacity: useTransform(smoothProgress, [0.3 + i * 0.05, 0.4 + i * 0.05], [0, 1]),
+                  y: useTransform(smoothProgress, [0.3 + i * 0.05, 0.4 + i * 0.05], [20, 0]),
                 }}
               >
                 <div
@@ -158,12 +185,12 @@ export function Analytics() {
                     {f.desc}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </FadeIn>
+        </motion.div>
 
-        <FadeIn delay={0.2} y={40}>
+        <motion.div style={{ opacity: cardOpacity, y: cardY, scale: cardScale }}>
           <div
             style={{
               background: "var(--card-bg, rgba(250,249,245,0.05))",
@@ -241,10 +268,10 @@ export function Analytics() {
                       justifyContent: "flex-end",
                     }}
                   >
-                    <div
+                    <motion.div
                       style={{
                         width: "100%",
-                        height: `${d.value}%`,
+                        height: useTransform(smoothProgress, [0.3, 0.5], ["0%", `${d.value}%`]),
                         background: "#E0A93A",
                         borderRadius: "3px 3px 0 0",
                       }}
@@ -301,9 +328,9 @@ export function Analytics() {
                         overflow: "hidden",
                       }}
                     >
-                      <div
+                      <motion.div
                         style={{
-                          width: `${r.pct}%`,
+                          width: useTransform(smoothProgress, [0.35, 0.55], ["0%", `${r.pct}%`]),
                           height: "100%",
                           background: "#E0A93A",
                           borderRadius: 999,
@@ -327,8 +354,9 @@ export function Analytics() {
               </div>
             </div>
           </div>
-        </FadeIn>
+        </motion.div>
       </div>
     </section>
   );
 }
+

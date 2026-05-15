@@ -1,9 +1,7 @@
-"use client";
-
 import NumberFlow from "@number-flow/react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useMotionValue, useTransform, useSpring } from "motion/react";
 import { CheckIcon } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 type Plan = "monthly" | "annually";
 
@@ -109,7 +107,8 @@ export default function PricingSection() {
           </div>
           <h2
             style={{
-              fontWeight: 900,
+              fontFamily: "var(--font-stack-sans), sans-serif",
+              fontWeight: 700,
               fontSize: "clamp(2.8rem, 8vw, 7rem)",
               lineHeight: 1,
               letterSpacing: "-0.03em",
@@ -143,41 +142,63 @@ export default function PricingSection() {
               marginTop: "clamp(24px, 3vw, 36px)",
             }}
           >
-            <span style={{ fontSize: "0.95rem", fontWeight: 500, color: "inherit", opacity: billPlan === "monthly" ? 1 : 0.5, transition: "opacity 0.2s" }}>
+            <button 
+              onClick={() => setBillPlan("monthly")}
+              style={{ 
+                background: "transparent", 
+                border: "none", 
+                cursor: "pointer",
+                fontSize: "0.95rem", 
+                fontWeight: 500, 
+                color: "inherit", 
+                opacity: billPlan === "monthly" ? 1 : 0.4, 
+                transition: "opacity 0.2s" 
+              }}
+            >
               Monthly
-            </span>
-            <button
+            </button>
+            <div
               onClick={() => setBillPlan((p) => (p === "monthly" ? "annually" : "monthly"))}
               style={{
                 position: "relative",
-                width: 48,
-                height: 26,
+                width: 52,
+                height: 28,
                 borderRadius: 999,
-                background: "var(--bg)",
+                background: "var(--card-bg)",
                 border: "1px solid var(--hairline-strong)",
                 cursor: "pointer",
-                flexShrink: 0,
+                padding: 4,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: billPlan === "annually" ? "flex-end" : "flex-start",
               }}
-              aria-label="Toggle billing period"
             >
-              <span
+              <motion.div
+                layout
+                transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 style={{
-                  position: "absolute",
-                  top: 3,
-                  left: 3,
-                  width: 18,
-                  height: 18,
+                  width: 20,
+                  height: 20,
                   borderRadius: "50%",
                   background: "var(--fg)",
-                  transition: "transform 0.3s ease, background 0.4s ease",
-                  transform: billPlan === "annually" ? "translateX(22px)" : "translateX(0)",
-                  display: "block",
                 }}
               />
-            </button>
-            <span style={{ fontSize: "0.95rem", fontWeight: 500, color: "inherit", opacity: billPlan === "annually" ? 1 : 0.5, transition: "opacity 0.2s" }}>
+            </div>
+            <button 
+              onClick={() => setBillPlan("annually")}
+              style={{ 
+                background: "transparent", 
+                border: "none", 
+                cursor: "pointer",
+                fontSize: "0.95rem", 
+                fontWeight: 500, 
+                color: "inherit", 
+                opacity: billPlan === "annually" ? 1 : 0.4, 
+                transition: "opacity 0.2s" 
+              }}
+            >
               Annually
-            </span>
+            </button>
           </div>
         </div>
 
@@ -256,9 +277,39 @@ export default function PricingSection() {
 
 function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
   const isFeatured = plan.id === "standard";
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [10, -10]), { stiffness: 100, damping: 20 });
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-10, 10]), { stiffness: 100, damping: 20 });
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    const xPct = (mouseX / width) - 0.5;
+    const yPct = (mouseY / height) - 0.5;
+    
+    x.set(xPct);
+    y.set(yPct);
+  }
+
+  function handleMouseLeave() {
+    x.set(0);
+    y.set(0);
+  }
 
   return (
-    <div
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -270,6 +321,9 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
         overflow: "visible",
         marginTop: plan.badge ? 14 : 0,
         transition: "background 0.4s ease, border-color 0.4s ease",
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
       }}
     >
       {/* Glow */}
@@ -284,6 +338,7 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
             filter: "blur(60px)",
             zIndex: -1,
             pointerEvents: "none",
+            transform: "translateZ(-1px)"
           }}
         />
       )}
@@ -295,7 +350,7 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
             position: "absolute",
             top: -14,
             left: "50%",
-            transform: "translateX(-50%)",
+            transform: "translateX(-50%) translateZ(20px)",
             background: "#E0A93A",
             color: "#1A1A1A",
             fontSize: "0.68rem",
@@ -312,7 +367,7 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
       )}
 
       {/* Top content */}
-      <div style={{ padding: "var(--space-36)", paddingBottom: 0 }}>
+      <div style={{ padding: "var(--space-36)", paddingBottom: 0, transform: "translateZ(30px)" }}>
         <div
           style={{
             fontStyle: "italic",
@@ -375,7 +430,7 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
       </div>
 
       {/* CTA */}
-      <div style={{ padding: "var(--space-24) var(--space-36)" }}>
+      <div style={{ padding: "var(--space-24) var(--space-36)", transform: "translateZ(40px)" }}>
         <a
           href={plan.link}
           style={{
@@ -410,6 +465,7 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
           flexDirection: "column",
           gap: "clamp(10px, 1.2vw, 14px)",
           flex: 1,
+          transform: "translateZ(20px)"
         }}
       >
         {plan.features.map((feature) => (
@@ -423,6 +479,6 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

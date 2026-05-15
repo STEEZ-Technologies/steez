@@ -1,6 +1,6 @@
 ---
 name: STEEZ (思智)
-description: Marketing landing page for a Shenzhen-based digital services agency targeting Chinese manufacturers at international trade shows.
+description: Marketing landing page for a Hangzhou-based digital services agency targeting Chinese manufacturers at international trade shows.
 
 colors:
   # Core palette
@@ -298,7 +298,7 @@ components:
 
 ## Brand Identity
 
-STEEZ (思智 — "thoughtful intelligence") is a Shenzhen-based digital-services agency that builds digital business cards, smart forms, and AR product catalogues for Chinese manufacturers exhibiting at international trade shows. The brand communicates precision, global reach, and quiet confidence — not flashy tech-startup energy, but the measured authority of a firm that handles serious export business.
+STEEZ (思智 — "thoughtful intelligence") is a Hangzhou-based digital-services agency that builds digital business cards, smart forms, and AR product catalogues for Chinese manufacturers exhibiting at international trade shows. The brand communicates precision, global reach, and quiet confidence — not flashy tech-startup energy, but the measured authority of a firm that handles serious export business.
 
 The name runs in two registers simultaneously: `STEEZ` in Latin capitals (bold, Western-facing) and `思智` in Chinese characters (gold, inward-facing). This bilingual duality is a recurring motif throughout the product: every eyebrow label, every card title, and even the logo on the animated business-card prop carries both scripts.
 
