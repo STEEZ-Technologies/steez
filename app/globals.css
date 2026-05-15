@@ -301,6 +301,16 @@ body {
   border-color: #1D9E75 !important;
 }
 
+@keyframes sceneIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideProgress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
 ::selection {
   background: #1D9E75;
   color: #FAF9F5;

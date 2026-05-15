@@ -1,0 +1,76 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-brand: var(--brand);
+  --color-brand-muted: var(--brand-muted);
+  --color-charcoal: var(--charcoal);
+  --color-stone: var(--stone);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-ring: var(--ring);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --shadow-soft: 0 30px 60px -30px color-mix(in oklab, var(--charcoal) 25%, transparent);
+}
+
+:root {
+  --canvas: oklch(0.972 0.005 80);
+  --surface: oklch(1 0 0);
+  --background: oklch(0.972 0.005 80);
+  --foreground: oklch(0.18 0.005 60);
+  --charcoal: oklch(0.18 0.005 60);
+  --brand: oklch(0.58 0.045 70);
+  --brand-muted: oklch(0.72 0.04 75);
+  --stone: oklch(0.91 0.012 75);
+  --muted: oklch(0.94 0.008 75);
+  --muted-foreground: oklch(0.5 0.01 70);
+  --border: oklch(0.91 0.012 75);
+  --primary: oklch(0.18 0.005 60);
+  --primary-foreground: oklch(0.98 0.005 80);
+  --accent: oklch(0.58 0.045 70);
+  --ring: oklch(0.58 0.045 70);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-charcoal);
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection { background: color-mix(in oklab, var(--brand) 25%, transparent); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(1deg); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.32,0.72,0,1) both; }
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
