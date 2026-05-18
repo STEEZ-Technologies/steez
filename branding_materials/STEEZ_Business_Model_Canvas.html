@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>STEEZ — Business Model Canvas 2026</title>
+<style>
+/* ─── Tokens ───────────────────────────────────────── */
+:root {
+  --forest:  #04342C;
+  --gold:    #E0A93A;
+  --cream:   #FAF9F5;
+  --charcoal:#1A1A1A;
+  --white:   #FFFFFF;
+  --grey:    #888888;
+  --rule:    #D8D8D3;
+  --light:   #F2F1ED;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+
+body {
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  background:#CBCBC8;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  min-height:100vh;
+  padding:20px;
+}
+
+/* ─── Page ─────────────────────────────────────────── */
+.page {
+  width:420mm;
+  min-height:297mm;
+  background:var(--cream);
+  box-shadow:0 6px 40px rgba(0,0,0,.22);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+/* ─── Header strip ─────────────────────────────────── */
+.hdr {
+  background:var(--forest);
+  padding:0 10mm;
+  height:14mm;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-shrink:0;
+}
+.hdr-left {
+  display:flex;
+  align-items:baseline;
+  gap:4mm;
+}
+.hdr-brand {
+  font-size:14pt;
+  font-weight:900;
+  color:var(--gold);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.hdr-doc {
+  font-size:7pt;
+  color:rgba(250,249,245,.45);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.hdr-right {
+  font-size:6.5pt;
+  color:rgba(250,249,245,.35);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+/* Gold rule lines */
+.rules {
+  display:flex;
+  flex-direction:column;
+  gap:1.5px;
+  padding:0;
+  background:var(--forest);
+  flex-shrink:0;
+}
+.rules .r { height:1px; background:rgba(255,255,255,.08); }
+.rules .r.gold { background:var(--gold); opacity:.5; height:1.5px; }
+
+/* ─── Canvas title row ─────────────────────────────── */
+.canvas-title-row {
+  display:flex;
+  align-items:center;
+  padding:4mm 10mm 3mm;
+  border-bottom:1.5px solid var(--gold);
+  flex-shrink:0;
+  gap:6mm;
+}
+.canvas-title {
+  font-size:16pt;
+  font-weight:900;
+  color:var(--forest);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.canvas-subtitle {
+  font-size:7pt;
+  color:var(--grey);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-top:1mm;
+}
+.canvas-date {
+  margin-left:auto;
+  font-size:7pt;
+  color:var(--grey);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+/* ─── Main grid ────────────────────────────────────── */
+.canvas-grid {
+  flex:1;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1.3fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr auto;
+  border-left:1px solid var(--rule);
+}
+
+/* ─── Individual cells ─────────────────────────────── */
+.cell {
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding:5mm 5mm 4mm;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  background:var(--white);
+}
+.cell:nth-child(odd):not(.cell-vp):not(.cell-cost):not(.cell-rev) {
+  background:var(--cream);
+}
+
+/* Value Proposition center column — always cream */
+.cell-vp   { background:var(--cream); grid-row:1/3; }
+
+/* Key Partners — spans 2 rows */
+.cell-kp   { grid-row:1/3; }
+
+/* Customer Segments — spans 2 rows */
+.cell-cs   { grid-row:1/3; }
+
+/* Bottom row: Cost + Revenue */
+.cell-cost { grid-column:1/3; background:var(--forest); }
+.cell-rev  { grid-column:3/6; background:var(--forest); }
+
+/* Cell label (top-left corner tag) */
+.cell-label {
+  font-size:5.5pt;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:3mm;
+  padding-bottom:2mm;
+  border-bottom:1px solid rgba(224,169,58,.25);
+}
+
+/* Cell heading */
+.cell-heading {
+  font-size:10pt;
+  font-weight:900;
+  color:var(--forest);
+  letter-spacing:.02em;
+  margin-bottom:3mm;
+  text-transform:uppercase;
+}
+
+/* Dark cell heading (for cost/revenue) */
+.cell-heading-dark {
+  font-size:10pt;
+  font-weight:900;
+  color:var(--gold);
+  letter-spacing:.02em;
+  margin-bottom:3mm;
+  text-transform:uppercase;
+}
+
+/* Item list inside cells */
+.item-list {
+  list-style:none;
+  padding:0;
+  flex:1;
+}
+.item-list li {
+  font-size:7pt;
+  line-height:1.6;
+  color:#3A3A3A;
+  padding-left:6mm;
+  position:relative;
+  margin-bottom:2mm;
+}
+.item-list li::before {
+  content:'';
+  position:absolute;
+  left:0;
+  top:5px;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:var(--gold);
+}
+
+/* Dark cell list (for cost/revenue) */
+.item-list.dark li {
+  color:rgba(250,249,245,.7);
+}
+.item-list.dark li::before {
+  background:var(--gold);
+  opacity:.7;
+}
+
+/* VP cell has slightly larger text */
+.cell-vp .item-list li {
+  font-size:7.5pt;
+  margin-bottom:2.5mm;
+}
+.cell-vp .item-list li::before {
+  width:4px;
+  height:4px;
+  top:4px;
+}
+
+/* Tag chips for VP key benefits */
+.chip {
+  display:inline-block;
+  background:var(--gold);
+  color:var(--forest);
+  font-size:5.5pt;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:1.5mm 3mm;
+  border-radius:1mm;
+  margin-bottom:2mm;
+  margin-right:1.5mm;
+}
+.chip.outline {
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold);
+}
+
+/* Watermark number on section dividers */
+.watermark-num {
+  position:absolute;
+  bottom:3mm;
+  right:4mm;
+  font-size:28pt;
+  font-weight:900;
+  color:rgba(4,52,44,.06);
+  letter-spacing:-.02em;
+  line-height:1;
+  user-select:none;
+}
+.watermark-num.light {
+  color:rgba(255,255,255,.06);
+}
+
+/* Stat block for CS */
+.stat-mini {
+  display:flex;
+  align-items:baseline;
+  gap:2mm;
+  margin-bottom:3mm;
+  padding-bottom:3mm;
+  border-bottom:0.5px solid var(--rule);
+}
+.stat-mini .num {
+  font-size:18pt;
+  font-weight:900;
+  color:var(--forest);
+  line-height:1;
+}
+.stat-mini .lbl {
+  font-size:6.5pt;
+  color:var(--grey);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  line-height:1.4;
+}
+
+/* ─── Footer ───────────────────────────────────────── */
+.footer {
+  background:var(--forest);
+  padding:3mm 10mm;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-shrink:0;
+}
+.footer-brand {
+  font-size:8pt;
+  font-weight:900;
+  color:var(--gold);
+  letter-spacing:.14em;
+}
+.footer-copy {
+  font-size:6pt;
+  color:rgba(250,249,245,.3);
+  letter-spacing:.08em;
+}
+.footer-url {
+  font-size:6.5pt;
+  color:rgba(224,169,58,.6);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+/* ─── Print ────────────────────────────────────────── */
+@media print {
+  body { background:none; padding:0; }
+  .page { width:420mm; min-height:297mm; box-shadow:none; }
+}
+@page { size:A3 landscape; margin:0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="hdr">
+    <div class="hdr-left">
+      <span class="hdr-brand">STEEZ</span>
+      <span class="hdr-doc">Business Model Canvas</span>
+    </div>
+    <span class="hdr-right">steez.io &nbsp;·&nbsp; 2026</span>
+  </div>
+  <div class="rules">
+    <div class="r"></div>
+    <div class="r"></div>
+    <div class="r gold"></div>
+  </div>
+
+  <!-- Canvas Title Row -->
+  <div class="canvas-title-row">
+    <div>
+      <div class="canvas-title">Business Model Canvas</div>
+      <div class="canvas-subtitle">STEEZ · Digital Presence Platform for Chinese Manufacturers</div>
+    </div>
+    <div class="canvas-date">Version 1.0 &nbsp;·&nbsp; May 2026</div>
+  </div>
+
+  <!-- ─── The 9-Block Grid ─────────────────────────── -->
+  <div class="canvas-grid">
+
+    <!-- 1. KEY PARTNERS (spans rows 1–2) -->
+    <div class="cell cell-kp">
+      <div class="cell-label">Block 01</div>
+      <div class="cell-heading">Key Partners</div>
+      <ul class="item-list">
+        <li>Trade expo organisers across China (Canton Fair, CIIE, industry verticals)</li>
+        <li>Physical product manufacturers for QR cards, desk stands &amp; neck badges</li>
+        <li>Alibaba Cloud / Tencent Cloud for China-side CDN &amp; fast page load</li>
+        <li>Chinese trademark &amp; IP agents (CNIPA registration support)</li>
+        <li>Translation &amp; localisation partners for Arabic and Russian content</li>
+        <li>WeChat ecosystem — sharing, preview cards &amp; Open Graph integration</li>
+        <li>AI coding tools — Claude Code, Lovable, Gemini Pro (build velocity)</li>
+      </ul>
+      <div class="watermark-num">01</div>
+    </div>
+
+    <!-- 2. KEY ACTIVITIES (row 1) -->
+    <div class="cell" style="background:var(--white)">
+      <div class="cell-label">Block 02</div>
+      <div class="cell-heading">Key Activities</div>
+      <ul class="item-list">
+        <li>Building &amp; maintaining the multilingual digital platform (React / Next.js)</li>
+        <li>Pre-building 50–100 company-specific demo sites before each expo</li>
+        <li>QR code generation, redirect layer management &amp; updates</li>
+        <li>Direct sales pitching at factory expo booths across China</li>
+        <li>Client onboarding, card setup &amp; admin panel management</li>
+      </ul>
+      <div class="watermark-num">02</div>
+    </div>
+
+    <!-- 3. VALUE PROPOSITIONS (spans rows 1–2) -->
+    <div class="cell cell-vp">
+      <div class="cell-label">Block 03 &nbsp;·&nbsp; Core</div>
+      <div class="cell-heading">Value Propositions</div>
+      <div style="margin-bottom:3mm">
+        <span class="chip">One QR</span>
+        <span class="chip">Unlimited Languages</span>
+        <span class="chip">Zero Reprints</span>
+        <span class="chip outline">Live Updates</span>
+      </div>
+      <ul class="item-list">
+        <li><strong>Replace print entirely</strong> — one QR code replaces 500 catalogues, hundreds of business cards, and static signage</li>
+        <li><strong>Instant multilingual</strong> — visitors self-select their language on arrival; unlimited languages supported</li>
+        <li><strong>Always current</strong> — update product info, pricing, or contacts in seconds; the QR never changes</li>
+        <li><strong>Digital business card</strong> — QR-linked microsite with company photos, map, WeChat/QQ links, export infographic &amp; bilingual contact info</li>
+        <li><strong>Interactive product catalogue</strong> — 3D model viewer (.glb/.gltf) for Premium clients; no AR complexity</li>
+        <li><strong>QR Display Package</strong> — physical neck badges, desk stands &amp; fullscreen display graphics for the expo floor</li>
+        <li><strong>Dark/Light mode</strong> — adapts to any display environment</li>
+      </ul>
+      <div class="watermark-num">03</div>
+    </div>
+
+    <!-- 4. CUSTOMER RELATIONSHIPS (row 1) -->
+    <div class="cell" style="background:var(--light)">
+      <div class="cell-label">Block 04</div>
+      <div class="cell-heading">Customer Relationships</div>
+      <ul class="item-list">
+        <li>In-person expo pitching — direct, high-trust first contact at the booth</li>
+        <li>Pre-built demo as a personalised "wow" moment for each prospect</li>
+        <li>WeChat-first follow-up — inquiry questionnaire → team responds on WeChat</li>
+        <li>Self-service admin panel for clients to manage links &amp; QR codes</li>
+        <li>Yearly renewal model — trust built before upselling analytics</li>
+      </ul>
+      <div class="watermark-num">04</div>
+    </div>
+
+    <!-- 5. CUSTOMER SEGMENTS (spans rows 1–2) -->
+    <div class="cell cell-cs" style="background:var(--cream)">
+      <div class="cell-label">Block 05</div>
+      <div class="cell-heading">Customer Segments</div>
+
+      <div class="stat-mini">
+        <div class="num">B2B</div>
+        <div class="lbl">Primary model<br/>factory → buyer</div>
+      </div>
+
+      <ul class="item-list">
+        <li><strong>Primary:</strong> Chinese manufacturers &amp; factories attending international trade expos (Canton Fair, CIIE, industry verticals)</li>
+        <li><strong>Ideal client:</strong> Export-oriented factory with 10–500 staff, attending 2+ expos per year, selling to multi-language markets</li>
+        <li><strong>Target regions:</strong> Guangdong, Zhejiang, Jiangsu manufacturing hubs</li>
+        <li><strong>Key pain:</strong> Language barriers, reprint costs, lost business cards, outdated printed materials</li>
+        <li><strong>Secondary:</strong> Trading companies representing multiple Chinese factories at single expo booths</li>
+      </ul>
+
+      <div style="margin-top:3mm;display:flex;gap:2mm;flex-wrap:wrap">
+        <span class="chip outline" style="font-size:5pt">Exporters</span>
+        <span class="chip outline" style="font-size:5pt">Manufacturers</span>
+        <span class="chip outline" style="font-size:5pt">Trading Co's</span>
+        <span class="chip outline" style="font-size:5pt">OEM Factories</span>
+      </div>
+      <div class="watermark-num">05</div>
+    </div>
+
+    <!-- 6. KEY RESOURCES (row 2) -->
+    <div class="cell" style="background:var(--light)">
+      <div class="cell-label">Block 06</div>
+      <div class="cell-heading">Key Resources</div>
+      <ul class="item-list">
+        <li>SaaS platform — React / Next.js hosted on Vercel + Supabase (Postgres + Auth)</li>
+        <li>QR redirect layer — stable links that never need reprinting</li>
+        <li>Multilingual content engine — i18next (unlimited languages)</li>
+        <li>3D model viewer — Three.js / Google model-viewer (.glb/.gltf)</li>
+        <li>Physical QR display package inventory (cards, stands, badges)</li>
+        <li>4-person founding team (2 CS + 2 business)</li>
+      </ul>
+      <div class="watermark-num">06</div>
+    </div>
+
+    <!-- 7. CHANNELS (row 2) -->
+    <div class="cell" style="background:var(--white)">
+      <div class="cell-label">Block 07</div>
+      <div class="cell-heading">Channels</div>
+      <ul class="item-list">
+        <li>Direct expo floor sales — pitching at client booths with pre-built demos</li>
+        <li>steez.io landing page — lead capture &amp; services overview</li>
+        <li>WeChat — primary social &amp; inquiry channel for China market</li>
+        <li>QR Display Package as a physical channel — badge worn = walking ad</li>
+        <li>Word of mouth — one demo seen by neighbouring booths drives referrals</li>
+      </ul>
+      <div class="watermark-num">07</div>
+    </div>
+
+    <!-- 8. COST STRUCTURE (bottom, cols 1–2) -->
+    <div class="cell cell-cost">
+      <div class="cell-label" style="color:rgba(224,169,58,.6)">Block 08</div>
+      <div class="cell-heading-dark">Cost Structure</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm">
+        <ul class="item-list dark">
+          <li>Platform hosting — Vercel (frontend) + Supabase (database &amp; auth)</li>
+          <li>CDN costs — Alibaba Cloud / Tencent Cloud for China delivery</li>
+          <li>Physical QR package production (cards, stands, badges per client)</li>
+          <li>Domain registration &amp; maintenance — steez.io</li>
+        </ul>
+        <ul class="item-list dark">
+          <li>Expo travel &amp; attendance costs per event (flights, hotel, booth access)</li>
+          <li>Trademark filing fees — CNIPA China + home country + WIPO search</li>
+          <li>Founding team costs (4 co-founders)</li>
+          <li>AI tooling subscriptions — Claude Code, Lovable, Gemini Pro</li>
+        </ul>
+      </div>
+      <div class="watermark-num light">08</div>
+    </div>
+
+    <!-- 9. REVENUE STREAMS (bottom, cols 3–5) -->
+    <div class="cell cell-rev">
+      <div class="cell-label" style="color:rgba(224,169,58,.6)">Block 09</div>
+      <div class="cell-heading-dark">Revenue Streams</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm">
+        <div>
+          <div style="font-size:7pt;font-weight:700;color:var(--gold);margin-bottom:2mm;padding-bottom:1.5mm;border-bottom:1px solid rgba(224,169,58,.2)">Basic Plan · Yearly</div>
+          <ul class="item-list dark">
+            <li>Digital business card microsite</li>
+            <li>Unlimited languages</li>
+            <li>Dark / Light mode</li>
+            <li>QR code + shareable link</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:7pt;font-weight:700;color:var(--gold);margin-bottom:2mm;padding-bottom:1.5mm;border-bottom:1px solid rgba(224,169,58,.2)">Standard Plan · Yearly</div>
+          <ul class="item-list dark">
+            <li>Everything in Basic</li>
+            <li>Interactive product catalogue</li>
+            <li>Multi-product listings</li>
+            <li>Enhanced company profile</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:7pt;font-weight:700;color:var(--gold);margin-bottom:2mm;padding-bottom:1.5mm;border-bottom:1px solid rgba(224,169,58,.2)">Premium + Add-ons</div>
+          <ul class="item-list dark">
+            <li>Everything in Standard</li>
+            <li>3D product model viewer</li>
+            <li>QR Display Package (physical)</li>
+            <li>Analytics — future upsell at renewal</li>
+          </ul>
+        </div>
+      </div>
+      <div class="watermark-num light">09</div>
+    </div>
+
+  </div><!-- /canvas-grid -->
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="footer-brand">STEEZ</span>
+    <span class="footer-copy">© 2026 STEEZ — Confidential. For internal use and authorised partners only.</span>
+    <span class="footer-url">steez.io</span>
+  </div>
+
+</div>
+</body>
+</html>
