@@ -1,0 +1,12 @@
+[   94931ms] Uncaught TypeError: Cannot read properties of null (reading 'precision')
+    at r (https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:5:251617)
+    at xi (https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:5:252090)
+    at Mt (https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:5:365763)
+    at Qs (https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:5:366299)
+    at makeShowroomScene (http://localhost:7788/:3324:21)
+    at <anonymous> (http://localhost:7788/:3377:8)
+    at eval (:0:68)
+    at eval (:3:49)
+    at evaluate (:303:15)
+    at <anonymous> (:0:43)
+[   94927ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:5

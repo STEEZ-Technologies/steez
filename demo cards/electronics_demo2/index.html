@@ -227,10 +227,10 @@ svg{display:block}
 [data-theme="dark"] .prod-card{background:var(--dark3);border-color:var(--border-dark)}
 .prod-card.hidden{display:none}
 .prod-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.pc-vis{height:154px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pc-vis{height:200px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .pc-vis-bg{position:absolute;inset:0;background:var(--bg2)}
 [data-theme="dark"] .pc-vis-bg{background:rgba(14,30,56,.75)}
-.pc-icon{position:relative;z-index:1;width:80px;height:80px;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 6px 18px rgba(22,82,240,.22))}
+.pc-icon{position:relative;z-index:1;width:120px;height:120px;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 6px 18px rgba(22,82,240,.22))}
 .pc-badges{position:absolute;top:10px;left:10px;z-index:2;display:flex;gap:5px}
 .pc-body{padding:16px 18px 20px}
 .pc-cat{font-family:var(--mono);font-size:.5rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);margin-bottom:5px;opacity:.85}
@@ -825,15 +825,29 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <ellipse cx="50" cy="34" rx="24" ry="16" fill="rgba(22,82,240,.13)" stroke="#1652F0" stroke-width="1.4"/>
-              <path d="M26 26 L16 22 L16 46 L26 42Z" fill="rgba(22,82,240,.09)" stroke="#1652F0" stroke-width="1.4"/>
-              <rect x="56" y="47" width="13" height="24" rx="6.5" fill="rgba(22,82,240,.11)" stroke="#1652F0" stroke-width="1.4"/>
-              <line x1="37" y1="21" x2="37" y2="47" stroke="rgba(22,82,240,.38)" stroke-width="1.1"/>
-              <line x1="45" y1="19" x2="45" y2="49" stroke="rgba(22,82,240,.32)" stroke-width="1.1"/>
-              <line x1="53" y1="19" x2="53" y2="49" stroke="rgba(22,82,240,.26)" stroke-width="1.1"/>
-              <path d="M5 27 L14 34 M5 34 L14 34 M5 41 L14 34" stroke="#E8A820" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-              <circle cx="62" cy="31" r="2.5" fill="#E8A820"/>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <rect x="6" y="38" width="72" height="26" rx="13" fill="rgba(22,82,240,.16)" stroke="#1652F0" stroke-width="1.8"/>
+              <rect x="8" y="40" width="64" height="9" rx="4.5" fill="rgba(255,255,255,.14)"/>
+              <circle cx="84" cy="44" r="2.5" fill="rgba(22,82,240,.55)"/>
+              <circle cx="84" cy="52" r="2.5" fill="rgba(22,82,240,.45)"/>
+              <circle cx="90" cy="41" r="2.2" fill="rgba(22,82,240,.45)"/>
+              <circle cx="90" cy="49" r="2.2" fill="rgba(22,82,240,.35)"/>
+              <circle cx="90" cy="57" r="2.2" fill="rgba(22,82,240,.25)"/>
+              <circle cx="96" cy="44" r="2" fill="rgba(22,82,240,.35)"/>
+              <circle cx="96" cy="52" r="2" fill="rgba(22,82,240,.25)"/>
+              <circle cx="96" cy="60" r="2" fill="rgba(22,82,240,.15)"/>
+              <path d="M6 42 L1 46 L1 56 L6 54Z" fill="rgba(22,82,240,.42)" stroke="#1652F0" stroke-width="1.3"/>
+              <path d="M62 60 Q64 67 62 78 Q60 87 54 91 L46 91 Q42 87 44 78 Q46 69 54 63Z" fill="rgba(22,82,240,.16)" stroke="#1652F0" stroke-width="1.8"/>
+              <path d="M58 66 Q60 70 58 79" stroke="rgba(255,255,255,.16)" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <line x1="46" y1="76" x2="60" y2="72" stroke="rgba(22,82,240,.18)" stroke-width="1" stroke-linecap="round"/>
+              <line x1="45" y1="81" x2="59" y2="77" stroke="rgba(22,82,240,.13)" stroke-width="1" stroke-linecap="round"/>
+              <rect x="18" y="59" width="24" height="7" rx="3.5" fill="rgba(22,82,240,.3)" stroke="#1652F0" stroke-width="1"/>
+              <circle cx="23" cy="62.5" r="2.2" fill="#E8A820"/>
+              <line x1="31" y1="61" x2="40" y2="61" stroke="rgba(22,82,240,.4)" stroke-width="1" stroke-linecap="round"/>
+              <line x1="31" y1="64" x2="40" y2="64" stroke="rgba(22,82,240,.28)" stroke-width="1" stroke-linecap="round"/>
+              <circle cx="51" cy="87" r="2.5" fill="#0A9E6A" opacity=".9"/>
+              <path d="M47 91 Q41 101 39 111" stroke="rgba(22,82,240,.48)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span></div>
@@ -864,16 +878,27 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <rect x="18" y="28" width="42" height="24" rx="12" fill="rgba(22,82,240,.12)" stroke="#1652F0" stroke-width="1.4"/>
-              <rect x="30" y="50" width="18" height="22" rx="9" fill="rgba(22,82,240,.1)" stroke="#1652F0" stroke-width="1.4"/>
-              <circle cx="16" cy="40" r="9" fill="rgba(22,82,240,.12)" stroke="#E8A820" stroke-width="1.6"/>
-              <circle cx="16" cy="40" r="5" fill="rgba(232,168,32,.3)"/>
-              <circle cx="16" cy="40" r="2" fill="#E8A820"/>
-              <circle cx="48" cy="40" r="3" fill="rgba(22,82,240,.6)"/>
-              <circle cx="54" cy="35" r="2" fill="rgba(22,82,240,.4)"/>
-              <circle cx="54" cy="45" r="2" fill="rgba(22,82,240,.4)"/>
-              <path d="M4 32 Q7 36 4 40 Q7 44 4 48" stroke="#E8A820" stroke-width="1.3" fill="none" stroke-linecap="round" opacity=".75"/>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <rect x="46" y="52" width="28" height="54" rx="12" fill="rgba(22,82,240,.15)" stroke="#1652F0" stroke-width="1.8"/>
+              <rect x="48" y="54" width="7" height="46" rx="3.5" fill="rgba(255,255,255,.12)"/>
+              <line x1="48" y1="74" x2="72" y2="74" stroke="rgba(22,82,240,.18)" stroke-width="1.2"/>
+              <line x1="48" y1="81" x2="72" y2="81" stroke="rgba(22,82,240,.14)" stroke-width="1.2"/>
+              <line x1="48" y1="88" x2="72" y2="88" stroke="rgba(22,82,240,.1)" stroke-width="1.2"/>
+              <rect x="18" y="24" width="84" height="32" rx="14" fill="rgba(22,82,240,.2)" stroke="#1652F0" stroke-width="1.8"/>
+              <rect x="20" y="26" width="76" height="10" rx="5" fill="rgba(255,255,255,.13)"/>
+              <rect x="92" y="28" width="8" height="24" rx="4" fill="rgba(22,82,240,.25)" stroke="#1652F0" stroke-width="1"/>
+              <circle cx="14" cy="40" r="13" fill="rgba(22,82,240,.22)" stroke="#1652F0" stroke-width="1.8"/>
+              <circle cx="14" cy="40" r="8" fill="rgba(22,82,240,.2)"/>
+              <circle cx="11" cy="36" r="3.5" fill="rgba(255,255,255,.18)"/>
+              <circle cx="86" cy="34" r="8" fill="rgba(22,82,240,.25)" stroke="#1652F0" stroke-width="1.3"/>
+              <path d="M86 29 L86 34" stroke="#E8A820" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="52" cy="44" r="2.2" fill="#E8A820" opacity=".95"/>
+              <circle cx="60" cy="44" r="2.2" fill="#E8A820" opacity=".7"/>
+              <circle cx="68" cy="44" r="2.2" fill="#0A9E6A" opacity=".75"/>
+              <circle cx="60" cy="94" r="6.5" fill="rgba(22,82,240,.3)" stroke="#1652F0" stroke-width="1.2"/>
+              <line x1="60" y1="90.5" x2="60" y2="97.5" stroke="rgba(255,255,255,.5)" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M56.5 91 A5.5 5.5 0 1 1 63.5 91" stroke="rgba(255,255,255,.4)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span><span class="badge badge-hot zh-only">热门</span><span class="badge badge-hot en-only">HOT</span></div>
@@ -904,18 +929,26 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <rect x="34" y="26" width="12" height="38" rx="6" fill="rgba(232,168,32,.14)" stroke="#E8A820" stroke-width="1.4"/>
-              <ellipse cx="40" cy="24" rx="12" ry="10" fill="rgba(232,168,32,.22)" stroke="#E8A820" stroke-width="1.4"/>
-              <ellipse cx="40" cy="24" rx="7" ry="6" fill="rgba(232,168,32,.4)"/>
-              <circle cx="40" cy="22" r="3" fill="#E8A820" opacity=".7"/>
-              <rect x="36" y="62" width="8" height="12" rx="4" fill="rgba(22,82,240,.12)" stroke="#1652F0" stroke-width="1.1"/>
-              <path d="M40 74 Q44 78 48 76" stroke="#1652F0" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-              <line x1="30" y1="38" x2="34" y2="38" stroke="rgba(232,168,32,.5)" stroke-width="1.1"/>
-              <line x1="46" y1="38" x2="50" y2="38" stroke="rgba(232,168,32,.5)" stroke-width="1.1"/>
-              <line x1="30" y1="44" x2="34" y2="44" stroke="rgba(232,168,32,.35)" stroke-width="1.1"/>
-              <line x1="46" y1="44" x2="50" y2="44" stroke="rgba(232,168,32,.35)" stroke-width="1.1"/>
-              <circle cx="40" cy="32" r="2" fill="#E8A820" opacity=".4" style="animation:led 2.8s ease-in-out infinite"/>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <ellipse cx="60" cy="24" rx="30" ry="24" fill="rgba(232,168,32,.07)"/>
+              <ellipse cx="60" cy="24" rx="22" ry="18" fill="rgba(232,168,32,.2)" stroke="#E8A820" stroke-width="1.8"/>
+              <ellipse cx="60" cy="24" rx="15" ry="12" fill="rgba(232,168,32,.32)"/>
+              <ellipse cx="60" cy="24" rx="8" ry="6" fill="rgba(232,168,32,.55)"/>
+              <ellipse cx="60" cy="24" rx="3.5" ry="2.8" fill="#E8A820" opacity=".85"/>
+              <line x1="40" y1="12" x2="34" y2="6" stroke="#E8A820" stroke-opacity=".45" stroke-width="1.4" stroke-linecap="round"/>
+              <line x1="60" y1="8" x2="60" y2="2" stroke="#E8A820" stroke-opacity=".38" stroke-width="1.4" stroke-linecap="round"/>
+              <line x1="80" y1="12" x2="86" y2="6" stroke="#E8A820" stroke-opacity=".45" stroke-width="1.4" stroke-linecap="round"/>
+              <line x1="38" y1="24" x2="30" y2="24" stroke="#E8A820" stroke-opacity=".32" stroke-width="1.4" stroke-linecap="round"/>
+              <line x1="82" y1="24" x2="90" y2="24" stroke="#E8A820" stroke-opacity=".32" stroke-width="1.4" stroke-linecap="round"/>
+              <rect x="48" y="40" width="24" height="64" rx="12" fill="rgba(22,82,240,.15)" stroke="#1652F0" stroke-width="1.8"/>
+              <rect x="50" y="42" width="7" height="58" rx="3.5" fill="rgba(255,255,255,.12)"/>
+              <rect x="51" y="56" width="18" height="4" rx="2" fill="#E8A820" fill-opacity=".6"/>
+              <rect x="51" y="65" width="18" height="4" rx="2" fill="#1652F0" fill-opacity=".5"/>
+              <rect x="51" y="74" width="18" height="4" rx="2" fill="#0A9E6A" fill-opacity=".5"/>
+              <circle cx="60" cy="90" r="7" fill="rgba(22,82,240,.28)" stroke="#1652F0" stroke-width="1.3"/>
+              <circle cx="60" cy="90" r="4" fill="rgba(22,82,240,.5)"/>
+              <rect x="54" y="100" width="12" height="5" rx="2.5" fill="rgba(22,82,240,.35)" stroke="#1652F0" stroke-width="1"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span><span class="badge badge-new zh-only">新品</span><span class="badge badge-new en-only">NEW</span></div>
@@ -946,18 +979,25 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <rect x="22" y="52" width="36" height="18" rx="8" fill="rgba(22,82,240,.12)" stroke="#1652F0" stroke-width="1.4"/>
-              <rect x="26" y="40" width="28" height="14" rx="6" fill="rgba(22,82,240,.1)" stroke="#1652F0" stroke-width="1.2"/>
-              <path d="M30 12 L50 12 L44 40 L36 40Z" fill="rgba(22,82,240,.1)" stroke="#1652F0" stroke-width="1.4"/>
-              <rect x="36" y="8" width="8" height="6" rx="3" fill="rgba(22,82,240,.2)" stroke="#1652F0" stroke-width="1.1"/>
-              <line x1="31" y1="22" x2="49" y2="22" stroke="rgba(22,82,240,.35)" stroke-width="1"/>
-              <line x1="32" y1="28" x2="48" y2="28" stroke="rgba(22,82,240,.28)" stroke-width="1"/>
-              <line x1="34" y1="34" x2="46" y2="34" stroke="rgba(22,82,240,.22)" stroke-width="1"/>
-              <circle cx="34" cy="59" r="3" fill="rgba(22,82,240,.5)"/>
-              <circle cx="40" cy="59" r="3" fill="#1652F0" opacity=".8"/>
-              <circle cx="46" cy="59" r="3" fill="rgba(22,82,240,.3)"/>
-              <line x1="40" y1="68" x2="40" y2="74" stroke="rgba(22,82,240,.4)" stroke-width="2" stroke-linecap="round"/>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <ellipse cx="60" cy="18" rx="18" ry="5" fill="rgba(22,82,240,.3)" stroke="#1652F0" stroke-width="1.6"/>
+              <rect x="50" y="10" width="20" height="11" rx="5" fill="rgba(22,82,240,.22)" stroke="#1652F0" stroke-width="1.3"/>
+              <path d="M26 20 L94 20 L82 64 L38 64Z" fill="rgba(22,82,240,.1)" stroke="#1652F0" stroke-width="1.8"/>
+              <path d="M30 24 L40 60" stroke="rgba(255,255,255,.22)" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M36 50 Q60 46 84 50 L82 64 L38 64Z" fill="rgba(22,82,240,.08)"/>
+              <line x1="30" y1="34" x2="90" y2="34" stroke="rgba(22,82,240,.12)" stroke-width="1"/>
+              <line x1="32" y1="44" x2="88" y2="44" stroke="rgba(22,82,240,.1)" stroke-width="1"/>
+              <line x1="34" y1="54" x2="86" y2="54" stroke="rgba(22,82,240,.08)" stroke-width="1"/>
+              <ellipse cx="60" cy="63" rx="22" ry="5" fill="rgba(22,82,240,.3)" stroke="#1652F0" stroke-width="1.3"/>
+              <line x1="40" y1="63" x2="80" y2="63" stroke="#1652F0" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+              <line x1="60" y1="53" x2="60" y2="73" stroke="#1652F0" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+              <rect x="28" y="64" width="64" height="36" rx="10" fill="rgba(22,82,240,.2)" stroke="#1652F0" stroke-width="1.8"/>
+              <rect x="30" y="66" width="56" height="9" rx="4.5" fill="rgba(255,255,255,.12)"/>
+              <circle cx="44" cy="86" r="5" fill="rgba(22,82,240,.4)" stroke="#1652F0" stroke-width="1.2"/>
+              <circle cx="60" cy="86" r="6.5" fill="rgba(22,82,240,.6)" stroke="#1652F0" stroke-width="1.4"/>
+              <circle cx="76" cy="86" r="5" fill="rgba(232,168,32,.6)" stroke="#E8A820" stroke-width="1.2"/>
+              <circle cx="60" cy="93" r="2.2" fill="#0A9E6A" opacity=".85" style="animation:led 2s ease-in-out infinite"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span></div>
@@ -988,19 +1028,33 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
               <defs>
-                <radialGradient id="tl-g" cx="50%" cy="100%" r="80%">
-                  <stop offset="0%" stop-color="#E8A820" stop-opacity=".5"/>
+                <radialGradient id="tlamp-g" cx="50%" cy="30%" r="70%">
+                  <stop offset="0%" stop-color="#E8A820" stop-opacity=".55"/>
+                  <stop offset="100%" stop-color="#E8A820" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="tlamp-glow" cx="50%" cy="0%" r="80%">
+                  <stop offset="0%" stop-color="#E8A820" stop-opacity=".18"/>
                   <stop offset="100%" stop-color="#E8A820" stop-opacity="0"/>
                 </radialGradient>
               </defs>
-              <path d="M20 12 L60 12 L50 44 L30 44Z" fill="rgba(232,168,32,.16)" stroke="#E8A820" stroke-width="1.5"/>
-              <path d="M20 12 L60 12 L50 44 L30 44Z" fill="url(#tl-g)"/>
-              <line x1="40" y1="44" x2="40" y2="68" stroke="#E8A820" stroke-width="1.8"/>
-              <ellipse cx="40" cy="68" rx="16" ry="4.5" fill="rgba(232,168,32,.18)" stroke="#E8A820" stroke-width="1.4"/>
-              <ellipse cx="40" cy="68" rx="9" ry="2.5" fill="rgba(232,168,32,.25)"/>
-              <circle cx="40" cy="14" r="4" fill="#E8A820" opacity=".6"/>
+              <ellipse cx="60" cy="72" rx="38" ry="28" fill="url(#tlamp-glow)"/>
+              <path d="M22 18 L98 18 L80 58 L40 58Z" fill="rgba(232,168,32,.2)" stroke="#E8A820" stroke-width="1.8"/>
+              <path d="M22 18 L98 18 L80 58 L40 58Z" fill="url(#tlamp-g)"/>
+              <path d="M26 22 L44 54" stroke="rgba(255,255,255,.2)" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M40 58 L80 58" stroke="#E8A820" stroke-opacity=".7" stroke-width="2"/>
+              <line x1="22" y1="18" x2="98" y2="18" stroke="#E8A820" stroke-opacity=".65" stroke-width="2"/>
+              <circle cx="60" cy="18" r="6" fill="#E8A820" fill-opacity=".7"/>
+              <circle cx="60" cy="18" r="3.5" fill="#E8A820"/>
+              <line x1="60" y1="58" x2="60" y2="88" stroke="#E8A820" stroke-opacity=".75" stroke-width="2.5" stroke-linecap="round"/>
+              <ellipse cx="60" cy="95" rx="30" ry="9" fill="rgba(232,168,32,.2)" stroke="#E8A820" stroke-width="1.5"/>
+              <ellipse cx="60" cy="95" rx="20" ry="6" fill="rgba(232,168,32,.25)"/>
+              <ellipse cx="60" cy="93" rx="10" ry="3" fill="rgba(232,168,32,.45)"/>
+              <path d="M34 96 Q50 93 58 97" stroke="#E8A820" stroke-opacity=".2" stroke-width="1" fill="none"/>
+              <path d="M62 93 Q72 96 82 94" stroke="#E8A820" stroke-opacity=".15" stroke-width="1" fill="none"/>
+              <path d="M56 104 Q50 112 48 118" stroke="rgba(22,82,240,.35)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span></div>
@@ -1031,21 +1085,39 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <line x1="40" y1="4" x2="40" y2="16" stroke="#E8A820" stroke-width="1.5"/>
-              <rect x="30" y="14" width="20" height="7" rx="3.5" fill="rgba(232,168,32,.2)" stroke="#E8A820" stroke-width="1.2"/>
-              <line x1="40" y1="18" x2="16" y2="36" stroke="#E8A820" stroke-width="1.2"/>
-              <line x1="40" y1="18" x2="64" y2="36" stroke="#E8A820" stroke-width="1.2"/>
-              <line x1="40" y1="18" x2="24" y2="40" stroke="#E8A820" stroke-width="1.2"/>
-              <line x1="40" y1="18" x2="56" y2="40" stroke="#E8A820" stroke-width="1.2"/>
-              <line x1="40" y1="18" x2="40" y2="44" stroke="#E8A820" stroke-width="1.5"/>
-              <circle cx="16" cy="40" r="5.5" fill="rgba(232,168,32,.35)" stroke="#E8A820" stroke-width="1.2"/>
-              <circle cx="64" cy="40" r="5.5" fill="rgba(232,168,32,.35)" stroke="#E8A820" stroke-width="1.2"/>
-              <circle cx="24" cy="44" r="5" fill="rgba(232,168,32,.4)" stroke="#E8A820" stroke-width="1.2"/>
-              <circle cx="56" cy="44" r="5" fill="rgba(232,168,32,.4)" stroke="#E8A820" stroke-width="1.2"/>
-              <circle cx="40" cy="48" r="7" fill="rgba(232,168,32,.48)" stroke="#E8A820" stroke-width="1.5"/>
-              <circle cx="40" cy="48" r="3.5" fill="#E8A820" opacity=".6"/>
-              <ellipse cx="40" cy="60" rx="30" ry="12" fill="rgba(232,168,32,.07)"/>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <ellipse cx="60" cy="10" rx="18" ry="5.5" fill="rgba(232,168,32,.4)" stroke="#E8A820" stroke-width="1.6"/>
+              <line x1="60" y1="15.5" x2="60" y2="34" stroke="#E8A820" stroke-opacity=".75" stroke-width="2.5"/>
+              <circle cx="60" cy="38" r="11" fill="rgba(232,168,32,.3)" stroke="#E8A820" stroke-width="1.8"/>
+              <circle cx="60" cy="38" r="6" fill="rgba(232,168,32,.5)"/>
+              <circle cx="57" cy="35" r="2.5" fill="rgba(255,255,255,.2)"/>
+              <path d="M50 38 Q30 40 20 56" stroke="#E8A820" stroke-opacity=".7" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <circle cx="20" cy="60" r="7" fill="rgba(232,168,32,.35)" stroke="#E8A820" stroke-width="1.3"/>
+              <circle cx="20" cy="60" r="3.5" fill="#E8A820" opacity=".8"/>
+              <ellipse cx="20" cy="70" rx="5.5" ry="7" fill="rgba(232,168,32,.12)" stroke="#E8A820" stroke-width="1"/>
+              <ellipse cx="20" cy="74" rx="6" ry="2" fill="rgba(232,168,32,.18)"/>
+              <path d="M52 44 Q40 52 34 64" stroke="#E8A820" stroke-opacity=".7" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <circle cx="34" cy="68" r="6" fill="rgba(232,168,32,.4)" stroke="#E8A820" stroke-width="1.3"/>
+              <circle cx="34" cy="68" r="3" fill="#E8A820" opacity=".8"/>
+              <ellipse cx="34" cy="77" rx="4.5" ry="6" fill="rgba(232,168,32,.12)" stroke="#E8A820" stroke-width="1"/>
+              <ellipse cx="34" cy="81" rx="5" ry="1.8" fill="rgba(232,168,32,.18)"/>
+              <line x1="60" y1="49" x2="60" y2="64" stroke="#E8A820" stroke-opacity=".7" stroke-width="1.6"/>
+              <circle cx="60" cy="68" r="8" fill="rgba(232,168,32,.45)" stroke="#E8A820" stroke-width="1.6"/>
+              <circle cx="60" cy="68" r="4.5" fill="#E8A820" opacity=".85"/>
+              <ellipse cx="60" cy="80" rx="6" ry="8" fill="rgba(232,168,32,.13)" stroke="#E8A820" stroke-width="1.1"/>
+              <ellipse cx="60" cy="86" rx="6.5" ry="2" fill="rgba(232,168,32,.22)"/>
+              <path d="M68 44 Q80 52 86 64" stroke="#E8A820" stroke-opacity=".7" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <circle cx="86" cy="68" r="6" fill="rgba(232,168,32,.4)" stroke="#E8A820" stroke-width="1.3"/>
+              <circle cx="86" cy="68" r="3" fill="#E8A820" opacity=".8"/>
+              <ellipse cx="86" cy="77" rx="4.5" ry="6" fill="rgba(232,168,32,.12)" stroke="#E8A820" stroke-width="1"/>
+              <ellipse cx="86" cy="81" rx="5" ry="1.8" fill="rgba(232,168,32,.18)"/>
+              <path d="M70 38 Q90 40 100 56" stroke="#E8A820" stroke-opacity=".7" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <circle cx="100" cy="60" r="7" fill="rgba(232,168,32,.35)" stroke="#E8A820" stroke-width="1.3"/>
+              <circle cx="100" cy="60" r="3.5" fill="#E8A820" opacity=".8"/>
+              <ellipse cx="100" cy="70" rx="5.5" ry="7" fill="rgba(232,168,32,.12)" stroke="#E8A820" stroke-width="1"/>
+              <ellipse cx="100" cy="74" rx="6" ry="2" fill="rgba(232,168,32,.18)"/>
+              <ellipse cx="60" cy="104" rx="52" ry="10" fill="rgba(232,168,32,.07)"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span><span class="badge badge-hot zh-only">热门</span><span class="badge badge-hot en-only">HOT</span></div>
@@ -1076,23 +1148,30 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <rect x="10" y="32" width="60" height="10" rx="5" fill="rgba(232,168,32,.2)" stroke="#E8A820" stroke-width="1.4"/>
-              <rect x="12" y="34" width="56" height="6" rx="3" fill="rgba(232,168,32,.3)"/>
-              <circle cx="18" cy="37" r="2" fill="#E8A820"/>
-              <circle cx="26" cy="37" r="2" fill="#E8A820" opacity=".8"/>
-              <circle cx="34" cy="37" r="2" fill="#E8A820" opacity=".7"/>
-              <circle cx="42" cy="37" r="2" fill="#E8A820" opacity=".6"/>
-              <circle cx="50" cy="37" r="2" fill="#E8A820" opacity=".5"/>
-              <circle cx="58" cy="37" r="2" fill="#E8A820" opacity=".4"/>
-              <ellipse cx="40" cy="46" rx="32" ry="10" fill="rgba(232,168,32,.08)"/>
-              <rect x="32" y="52" width="16" height="14" rx="6" fill="rgba(22,82,240,.12)" stroke="#1652F0" stroke-width="1.2"/>
-              <circle cx="38" cy="59" r="2.5" fill="#1652F0" opacity=".6"/>
-              <circle cx="44" cy="59" r="2.5" fill="rgba(22,82,240,.3)"/>
-              <rect x="54" y="16" width="20" height="30" rx="4" fill="rgba(22,82,240,.1)" stroke="#1652F0" stroke-width="1.1"/>
-              <line x1="56" y1="22" x2="72" y2="22" stroke="rgba(22,82,240,.35)" stroke-width="1"/>
-              <line x1="56" y1="27" x2="72" y2="27" stroke="rgba(22,82,240,.28)" stroke-width="1"/>
-              <line x1="56" y1="32" x2="72" y2="32" stroke="rgba(22,82,240,.22)" stroke-width="1"/>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <rect x="6" y="24" width="88" height="18" rx="9" fill="rgba(232,168,32,.22)" stroke="#E8A820" stroke-width="1.8"/>
+              <rect x="8" y="26" width="84" height="14" rx="7" fill="rgba(232,168,32,.15)"/>
+              <circle cx="20" cy="33" r="4.5" fill="#E8A820" opacity=".95"/>
+              <circle cx="33" cy="33" r="4.5" fill="#E8A820" opacity=".88"/>
+              <circle cx="46" cy="33" r="4.5" fill="rgba(22,82,240,.9)"/>
+              <circle cx="59" cy="33" r="4.5" fill="rgba(0,200,80,.9)"/>
+              <circle cx="72" cy="33" r="4.5" fill="rgba(220,60,60,.8)"/>
+              <circle cx="85" cy="33" r="4.5" fill="#E8A820" opacity=".7"/>
+              <ellipse cx="20" cy="47" rx="7" ry="3" fill="rgba(232,168,32,.2)"/>
+              <ellipse cx="46" cy="47" rx="7" ry="3" fill="rgba(22,82,240,.15)"/>
+              <ellipse cx="59" cy="47" rx="7" ry="3" fill="rgba(0,200,80,.12)"/>
+              <rect x="22" y="68" width="76" height="40" rx="9" fill="rgba(22,82,240,.15)" stroke="#1652F0" stroke-width="1.8"/>
+              <rect x="24" y="70" width="68" height="10" rx="5" fill="rgba(255,255,255,.1)"/>
+              <path d="M56 90 Q60 86 64 90" stroke="#E8A820" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <path d="M51 86 Q60 80 69 86" stroke="#E8A820" stroke-opacity=".65" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <path d="M46 82 Q60 74 74 82" stroke="#E8A820" stroke-opacity=".4" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <circle cx="60" cy="93" r="2.5" fill="#E8A820"/>
+              <circle cx="88" cy="78" r="3.5" fill="#0A9E6A" opacity=".85" style="animation:led 2.5s ease-in-out infinite"/>
+              <rect x="28" y="100" width="14" height="5" rx="2.5" fill="rgba(22,82,240,.4)"/>
+              <rect x="46" y="100" width="14" height="5" rx="2.5" fill="rgba(22,82,240,.3)"/>
+              <rect x="64" y="100" width="14" height="5" rx="2.5" fill="rgba(22,82,240,.2)"/>
+              <path d="M54 42 Q50 56 46 68" stroke="rgba(22,82,240,.28)" stroke-width="1.5" stroke-dasharray="3 2" fill="none" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span><span class="badge badge-new zh-only">新品</span><span class="badge badge-new en-only">NEW</span></div>
@@ -1123,15 +1202,27 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <rect x="8" y="28" width="14" height="24" rx="4" fill="rgba(22,82,240,.1)" stroke="#1652F0" stroke-width="1.2"/>
-              <line x1="22" y1="40" x2="38" y2="34" stroke="#E8A820" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="38" y1="34" x2="38" y2="52" stroke="#E8A820" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="38" cy="58" r="12" fill="rgba(232,168,32,.2)" stroke="#E8A820" stroke-width="1.5"/>
-              <circle cx="38" cy="58" r="8" fill="rgba(232,168,32,.3)"/>
-              <circle cx="38" cy="58" r="4.5" fill="rgba(232,168,32,.5)"/>
-              <circle cx="38" cy="58" r="2" fill="#E8A820"/>
-              <ellipse cx="55" cy="62" rx="18" ry="10" fill="rgba(232,168,32,.06)"/>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <defs>
+                <radialGradient id="wlamp-glow" cx="55%" cy="60%" r="60%">
+                  <stop offset="0%" stop-color="#E8A820" stop-opacity=".25"/>
+                  <stop offset="100%" stop-color="#E8A820" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect x="4" y="22" width="18" height="58" rx="7" fill="rgba(22,82,240,.16)" stroke="#1652F0" stroke-width="1.6"/>
+              <rect x="6" y="26" width="6" height="46" rx="3" fill="rgba(255,255,255,.12)"/>
+              <circle cx="13" cy="32" r="3" fill="rgba(22,82,240,.35)" stroke="#1652F0" stroke-width="1"/>
+              <circle cx="13" cy="70" r="3" fill="rgba(22,82,240,.35)" stroke="#1652F0" stroke-width="1"/>
+              <path d="M22 46 Q44 42 58 44" stroke="#E8A820" stroke-opacity=".8" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+              <line x1="58" y1="44" x2="58" y2="58" stroke="#E8A820" stroke-opacity=".8" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M30 55 Q58 50 86 55 L96 88 Q58 98 22 88Z" fill="rgba(232,168,32,.2)" stroke="#E8A820" stroke-width="1.8"/>
+              <path d="M36 59 Q58 55 80 59 L88 84 Q58 92 28 84Z" fill="rgba(232,168,32,.14)"/>
+              <path d="M32 59 L28 84" stroke="rgba(255,255,255,.18)" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="58" cy="56" r="5.5" fill="rgba(232,168,32,.6)" stroke="#E8A820" stroke-width="1.2"/>
+              <circle cx="58" cy="56" r="3" fill="#E8A820" opacity=".9"/>
+              <ellipse cx="59" cy="95" rx="36" ry="12" fill="url(#wlamp-glow)"/>
+              <rect x="70" y="110" width="24" height="8" rx="4" fill="rgba(22,82,240,.18)" stroke="#1652F0" stroke-width="1"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span></div>
@@ -1162,17 +1253,35 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <rect x="24" y="14" width="32" height="46" rx="16" fill="rgba(22,82,240,.12)" stroke="#1652F0" stroke-width="1.4"/>
-              <ellipse cx="40" cy="60" rx="16" ry="5" fill="rgba(22,82,240,.18)" stroke="#1652F0" stroke-width="1.3"/>
-              <ellipse cx="40" cy="14" rx="10" ry="3.5" fill="rgba(22,82,240,.25)" stroke="#1652F0" stroke-width="1.1"/>
-              <circle cx="40" cy="14" r="5" fill="#1652F0" opacity=".45"/>
-              <circle cx="40" cy="14" r="2.5" fill="#1652F0" opacity=".85"/>
-              <line x1="26" y1="26" x2="54" y2="26" stroke="rgba(22,82,240,.35)" stroke-width="1.1"/>
-              <line x1="26" y1="32" x2="54" y2="32" stroke="rgba(22,82,240,.28)" stroke-width="1.1"/>
-              <line x1="26" y1="38" x2="54" y2="38" stroke="rgba(22,82,240,.22)" stroke-width="1.1"/>
-              <line x1="26" y1="44" x2="54" y2="44" stroke="rgba(22,82,240,.16)" stroke-width="1.1"/>
-              <circle cx="40" cy="66" r="2.5" fill="#E8A820" style="animation:led 2.2s ease-in-out infinite"/>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <ellipse cx="60" cy="106" rx="28" ry="6" fill="rgba(4,10,24,.16)"/>
+              <ellipse cx="60" cy="98" rx="28" ry="9" fill="rgba(22,82,240,.22)" stroke="#1652F0" stroke-width="1.5"/>
+              <rect x="32" y="22" width="56" height="76" fill="rgba(22,82,240,.11)"/>
+              <line x1="32" y1="22" x2="32" y2="98" stroke="rgba(22,82,240,.22)" stroke-width="1.5"/>
+              <line x1="88" y1="22" x2="88" y2="98" stroke="rgba(22,82,240,.22)" stroke-width="1.5"/>
+              <ellipse cx="60" cy="22" rx="28" ry="9" fill="rgba(22,82,240,.3)" stroke="#1652F0" stroke-width="1.8"/>
+              <ellipse cx="60" cy="22" rx="22" ry="7" fill="rgba(22,82,240,.28)"/>
+              <ellipse cx="60" cy="22" rx="14" ry="4.5" fill="rgba(22,82,240,.18)"/>
+              <ellipse cx="60" cy="22" rx="10" ry="3.2" fill="none" stroke="#E8A820" stroke-opacity=".55" stroke-width="1.3"/>
+              <line x1="56" y1="22" x2="64" y2="22" stroke="rgba(255,255,255,.3)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="60" y1="18.5" x2="60" y2="25.5" stroke="rgba(255,255,255,.2)" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="34" y1="34" x2="86" y2="34" stroke="rgba(22,82,240,.12)" stroke-width="1"/>
+              <line x1="34" y1="40" x2="86" y2="40" stroke="rgba(22,82,240,.12)" stroke-width="1"/>
+              <line x1="34" y1="46" x2="86" y2="46" stroke="rgba(22,82,240,.12)" stroke-width="1"/>
+              <line x1="34" y1="52" x2="86" y2="52" stroke="rgba(22,82,240,.12)" stroke-width="1"/>
+              <line x1="34" y1="58" x2="86" y2="58" stroke="rgba(22,82,240,.12)" stroke-width="1"/>
+              <line x1="34" y1="64" x2="86" y2="64" stroke="rgba(22,82,240,.12)" stroke-width="1"/>
+              <line x1="34" y1="70" x2="86" y2="70" stroke="rgba(22,82,240,.12)" stroke-width="1"/>
+              <line x1="34" y1="76" x2="86" y2="76" stroke="rgba(22,82,240,.1)" stroke-width="1"/>
+              <line x1="34" y1="82" x2="86" y2="82" stroke="rgba(22,82,240,.08)" stroke-width="1"/>
+              <line x1="34" y1="88" x2="86" y2="88" stroke="rgba(22,82,240,.06)" stroke-width="1"/>
+              <ellipse cx="60" cy="62" rx="16" ry="5" fill="none" stroke="rgba(22,82,240,.2)" stroke-width="1.3"/>
+              <ellipse cx="60" cy="62" rx="10" ry="3" fill="none" stroke="rgba(22,82,240,.15)" stroke-width="1"/>
+              <ellipse cx="60" cy="62" rx="5" ry="1.5" fill="rgba(22,82,240,.12)"/>
+              <ellipse cx="60" cy="98" rx="22" ry="7" fill="none" stroke="#E8A820" stroke-opacity=".5" stroke-width="1.5"/>
+              <circle cx="60" cy="103" r="2.8" fill="#E8A820" opacity=".8" style="animation:led 2.2s ease-in-out infinite"/>
+              <rect x="34" y="28" width="4" height="64" rx="2" fill="rgba(255,255,255,.07)"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span></div>
@@ -1203,14 +1312,26 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <path d="M10 44 Q10 18 40 18 Q70 18 70 44" stroke="#1652F0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-              <rect x="6" y="42" width="14" height="22" rx="7" fill="rgba(22,82,240,.14)" stroke="#1652F0" stroke-width="1.4"/>
-              <rect x="4" y="46" width="18" height="14" rx="6" fill="rgba(22,82,240,.22)"/>
-              <rect x="60" y="42" width="14" height="22" rx="7" fill="rgba(22,82,240,.14)" stroke="#1652F0" stroke-width="1.4"/>
-              <rect x="58" y="46" width="18" height="14" rx="6" fill="rgba(22,82,240,.22)"/>
-              <circle cx="13" cy="53" r="3.5" fill="#E8A820" opacity=".55"/>
-              <circle cx="67" cy="53" r="3.5" fill="#E8A820" opacity=".55"/>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <path d="M14 68 Q14 18 60 14 Q106 18 106 68" stroke="#1652F0" stroke-width="3.8" fill="none" stroke-linecap="round"/>
+              <path d="M20 66 Q20 24 60 20 Q100 24 100 66" stroke="rgba(255,255,255,.14)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+              <ellipse cx="60" cy="14" rx="10" ry="3.5" fill="rgba(22,82,240,.14)" stroke="#1652F0" stroke-width="1"/>
+              <rect x="8" y="60" width="15" height="20" rx="6" fill="rgba(22,82,240,.2)" stroke="#1652F0" stroke-width="1.5"/>
+              <rect x="97" y="60" width="15" height="20" rx="6" fill="rgba(22,82,240,.2)" stroke="#1652F0" stroke-width="1.5"/>
+              <rect x="2" y="74" width="28" height="38" rx="13" fill="rgba(22,82,240,.2)" stroke="#1652F0" stroke-width="2.2"/>
+              <ellipse cx="16" cy="93" rx="10" ry="15" fill="rgba(22,82,240,.15)" stroke="#1652F0" stroke-width="1"/>
+              <ellipse cx="16" cy="93" rx="6" ry="9" fill="rgba(22,82,240,.18)"/>
+              <ellipse cx="16" cy="93" rx="3" ry="4.5" fill="rgba(22,82,240,.25)"/>
+              <rect x="4" y="76" width="6" height="24" rx="3" fill="rgba(255,255,255,.12)"/>
+              <circle cx="26" cy="80" r="4" fill="rgba(22,82,240,.4)" stroke="#1652F0" stroke-width="1"/>
+              <rect x="90" y="74" width="28" height="38" rx="13" fill="rgba(22,82,240,.2)" stroke="#1652F0" stroke-width="2.2"/>
+              <ellipse cx="104" cy="93" rx="10" ry="15" fill="rgba(22,82,240,.15)" stroke="#1652F0" stroke-width="1"/>
+              <ellipse cx="104" cy="93" rx="6" ry="9" fill="rgba(22,82,240,.18)"/>
+              <ellipse cx="104" cy="93" rx="3" ry="4.5" fill="rgba(22,82,240,.25)"/>
+              <rect x="110" y="76" width="6" height="24" rx="3" fill="rgba(255,255,255,.12)"/>
+              <circle cx="94" cy="80" r="4" fill="rgba(232,168,32,.6)" stroke="#E8A820" stroke-width="1"/>
+              <circle cx="94" cy="100" r="3" fill="#0A9E6A" opacity=".8" style="animation:led 2.8s ease-in-out infinite"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span><span class="badge badge-hot zh-only">热门</span><span class="badge badge-hot en-only">HOT</span></div>
@@ -1241,16 +1362,29 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <rect x="10" y="26" width="56" height="28" rx="10" fill="rgba(22,82,240,.12)" stroke="#1652F0" stroke-width="1.4"/>
-              <rect x="66" y="33" width="6" height="14" rx="3" fill="rgba(22,82,240,.2)" stroke="#1652F0" stroke-width="1.1"/>
-              <circle cx="22" cy="40" r="4.5" fill="#1652F0" opacity=".85"/>
-              <circle cx="34" cy="40" r="4.5" fill="#1652F0" opacity=".6"/>
-              <circle cx="46" cy="40" r="4.5" fill="#1652F0" opacity=".35"/>
-              <circle cx="58" cy="40" r="4.5" fill="rgba(22,82,240,.15)" stroke="#1652F0" stroke-width="1" opacity=".5"/>
-              <rect x="16" y="50" width="24" height="3" rx="1.5" fill="rgba(22,82,240,.3)"/>
-              <rect x="44" y="50" width="14" height="3" rx="1.5" fill="rgba(22,82,240,.15)"/>
-              <text x="40" y="22" font-family="IBM Plex Mono" font-size="5.5" fill="rgba(22,82,240,.55)" text-anchor="middle" letter-spacing=".5">PD 65W · 20000mAh</text>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <path d="M14 28 L96 28 L106 38 L24 38Z" fill="rgba(22,82,240,.22)" stroke="#1652F0" stroke-width="1.3"/>
+              <path d="M96 28 L106 38 L106 98 L96 98Z" fill="rgba(22,82,240,.28)" stroke="#1652F0" stroke-width="1.3"/>
+              <rect x="14" y="38" width="82" height="60" rx="10" fill="rgba(22,82,240,.14)" stroke="#1652F0" stroke-width="1.8"/>
+              <rect x="16" y="40" width="78" height="6" rx="3" fill="rgba(255,255,255,.08)"/>
+              <line x1="16" y1="50" x2="94" y2="50" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+              <text x="55" y="46" font-family="monospace" font-size="5.5" fill="rgba(22,82,240,.55)" text-anchor="middle">PD 65W · 20000mAh</text>
+              <circle cx="28" cy="64" r="6.5" fill="rgba(22,82,240,.8)" stroke="#1652F0" stroke-width="1.2"/>
+              <circle cx="46" cy="64" r="6.5" fill="rgba(22,82,240,.7)" stroke="#1652F0" stroke-width="1.2"/>
+              <circle cx="64" cy="64" r="6.5" fill="rgba(22,82,240,.5)" stroke="#1652F0" stroke-width="1.2"/>
+              <circle cx="82" cy="64" r="6.5" fill="rgba(22,82,240,.1)" stroke="rgba(22,82,240,.3)" stroke-width="1.2"/>
+              <circle cx="28" cy="64" r="3.5" fill="#E8A820" opacity=".95"/>
+              <circle cx="46" cy="64" r="3.5" fill="#E8A820" opacity=".85"/>
+              <circle cx="64" cy="64" r="3.5" fill="#E8A820" opacity=".65"/>
+              <circle cx="82" cy="64" r="3.5" fill="rgba(22,82,240,.2)"/>
+              <rect x="20" y="88" width="18" height="8" rx="4" fill="rgba(22,82,240,.38)" stroke="#1652F0" stroke-width="1"/>
+              <rect x="42" y="88" width="18" height="8" rx="4" fill="rgba(22,82,240,.38)" stroke="#1652F0" stroke-width="1"/>
+              <rect x="64" y="89" width="20" height="6" rx="2.5" fill="rgba(22,82,240,.3)" stroke="#1652F0" stroke-width="1"/>
+              <text x="29" y="93.5" font-family="monospace" font-size="4.5" fill="rgba(22,82,240,.6)" text-anchor="middle">C</text>
+              <text x="51" y="93.5" font-family="monospace" font-size="4.5" fill="rgba(22,82,240,.6)" text-anchor="middle">C</text>
+              <text x="74" y="93" font-family="monospace" font-size="4.5" fill="rgba(22,82,240,.5)" text-anchor="middle">A</text>
+              <circle cx="90" cy="33" r="4.5" fill="rgba(22,82,240,.45)" stroke="#1652F0" stroke-width="1"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span></div>
@@ -1281,18 +1415,26 @@ svg{display:block}
         <div class="pc-vis">
           <div class="pc-vis-bg"></div>
           <div class="pc-icon">
-            <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
-              <rect x="26" y="18" width="28" height="28" rx="10" fill="rgba(22,82,240,.12)" stroke="#1652F0" stroke-width="1.4"/>
-              <rect x="34" y="44" width="12" height="6" rx="3" fill="rgba(22,82,240,.2)" stroke="#1652F0" stroke-width="1.1"/>
-              <rect x="36" y="50" width="4" height="7" rx="1.5" fill="rgba(22,82,240,.3)" stroke="#1652F0" stroke-width="1"/>
-              <rect x="42" y="50" width="4" height="7" rx="1.5" fill="rgba(22,82,240,.3)" stroke="#1652F0" stroke-width="1"/>
-              <circle cx="34" cy="30" r="3" fill="rgba(22,82,240,.4)"/>
-              <circle cx="46" cy="30" r="3" fill="rgba(22,82,240,.25)"/>
-              <rect x="38" y="26" width="4" height="8" rx="2" fill="rgba(232,168,32,.4)" stroke="#E8A820" stroke-width="1"/>
-              <path d="M40 57 Q46 66 56 68 Q66 70 66 62" stroke="#E8A820" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-              <rect x="62" y="56" width="10" height="7" rx="3" fill="rgba(232,168,32,.2)" stroke="#E8A820" stroke-width="1.2"/>
-              <path d="M40 57 Q32 68 24 68 Q16 68 16 62" stroke="#1652F0" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-dasharray="3 2"/>
-              <rect x="10" y="58" width="8" height="7" rx="3" fill="rgba(22,82,240,.2)" stroke="#1652F0" stroke-width="1.2"/>
+            
+            <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+              <path d="M24 18 L76 18 L86 28 L34 28Z" fill="rgba(22,82,240,.22)" stroke="#1652F0" stroke-width="1.3"/>
+              <path d="M76 18 L86 28 L86 82 L76 82Z" fill="rgba(22,82,240,.28)" stroke="#1652F0" stroke-width="1.3"/>
+              <rect x="24" y="28" width="52" height="54" rx="10" fill="rgba(22,82,240,.14)" stroke="#1652F0" stroke-width="1.8"/>
+              <rect x="26" y="30" width="8" height="46" rx="4" fill="rgba(255,255,255,.1)"/>
+              <rect x="32" y="36" width="36" height="24" rx="5" fill="rgba(22,82,240,.15)" stroke="rgba(22,82,240,.3)" stroke-width="1"/>
+              <text x="50" y="52" font-family="monospace" font-size="9" font-weight="bold" fill="rgba(22,82,240,.65)" text-anchor="middle">GaN</text>
+              <text x="50" y="62" font-family="monospace" font-size="6" fill="#E8A820" fill-opacity=".8" text-anchor="middle">65W</text>
+              <circle cx="72" cy="70" r="3.5" fill="#0A9E6A" opacity=".8" style="animation:led 2s ease-in-out infinite"/>
+              <rect x="36" y="8" width="6" height="13" rx="3" fill="rgba(22,82,240,.5)" stroke="#1652F0" stroke-width="1.2"/>
+              <rect x="58" y="8" width="6" height="13" rx="3" fill="rgba(22,82,240,.5)" stroke="#1652F0" stroke-width="1.2"/>
+              <rect x="42" y="80" width="16" height="7" rx="3.5" fill="rgba(22,82,240,.4)" stroke="#1652F0" stroke-width="1.2"/>
+              <path d="M50 87 Q50 96 62 100 Q76 104 74 112" stroke="#1652F0" stroke-opacity=".55" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <path d="M50 90 Q53 89 55 91" stroke="rgba(255,255,255,.22)" stroke-width="1" fill="none"/>
+              <path d="M55 94 Q58 93 60 95" stroke="rgba(255,255,255,.18)" fill="none" stroke-width="1"/>
+              <path d="M61 98 Q64 97 66 99" stroke="rgba(255,255,255,.15)" fill="none" stroke-width="1"/>
+              <path d="M67 103 Q70 102 72 104" stroke="rgba(255,255,255,.12)" fill="none" stroke-width="1"/>
+              <rect x="66" y="109" width="16" height="9" rx="4.5" fill="rgba(22,82,240,.45)" stroke="#1652F0" stroke-width="1.3"/>
+              <rect x="69" y="111" width="10" height="5" rx="2.5" fill="rgba(22,82,240,.65)"/>
             </svg>
           </div>
           <div class="pc-badges"><span class="badge badge-oem">OEM/ODM</span><span class="badge badge-new zh-only">新品</span><span class="badge badge-new en-only">NEW</span></div>
@@ -1356,15 +1498,15 @@ svg{display:block}
             </svg>
           </div>
           <div class="sr-label">
-            <div class="sr-label-tag zh-only">展示产品 · 智能音箱</div>
-            <div class="sr-label-tag en-only">Featured Product · Smart Speaker</div>
+            <div class="sr-label-tag zh-only">消费电子 · 展示产品</div>
+            <div class="sr-label-tag en-only">Consumer Electronics · Featured</div>
             <div class="sr-label-name">
-              <span class="sr-label-cn zh-only">智能音箱 Pro</span>
-              <span class="sr-label-cn en-only">Smart Speaker Pro</span>
-              <span class="sr-label-en">360° · BT 5.3</span>
+              <span class="sr-label-cn zh-only">智能音箱</span>
+              <span class="sr-label-cn en-only">Smart Speaker</span>
+              <span class="sr-label-en">360° · BT 5.3 · OEM/ODM</span>
             </div>
             <div class="sr-label-spec zh-only">材质：ABS外壳 · 纤维编织 · 铝合金底座</div>
-            <div class="sr-label-spec en-only">Material: ABS shell · fabric weave · aluminum base</div>
+            <div class="sr-label-spec en-only">Material: ABS · fabric weave · aluminum base</div>
             <div class="sr-dots">
               <div class="sr-dot on"></div>
               <div class="sr-dot"></div>
@@ -2220,6 +2362,1135 @@ function initHeroModels(){
   });
 }
 initHeroModels();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function () {
+  'use strict';
+
+  // ── material helper ────────────────────────────────────────────────────────
+  function mat(hex, opts) {
+    var o = Object.assign({ metal: 0.08, rough: 0.5 }, opts || {});
+    var m = new THREE.MeshStandardMaterial({
+      color: new THREE.Color(hex),
+      metalness: o.metal,
+      roughness: o.rough
+    });
+    if (o.emissive) {
+      m.emissive = new THREE.Color(o.emissive);
+      m.emissiveIntensity = o.emissiveInt || 0.7;
+    }
+    return m;
+  }
+
+
+
+
+  // ── PRODUCT BUILDERS ───────────────────────────────────────────────────────
+
+  var BLUE    = 0x1652F0;
+  var DKBLUE  = 0x0A3ED4;
+  var GOLD    = 0xE8A820;
+  var MINT    = 0x0A9E6A;
+  var DARK    = 0x040A18;
+  var SILVER  = 0xC0C8D8;
+  var WHITE   = 0xFAFAFA;
+
+  // 1. Hair Dryer ─────────────────────────────────────────────────────────────
+  function buildHairDryer(g) {
+    var body  = mat(BLUE,   { metal: 0.14, rough: 0.38 });
+    var dark  = mat(DARK,   { metal: 0.35, rough: 0.45 });
+    var gold  = mat(GOLD,   { metal: 0.2,  rough: 0.3 });
+    var led   = mat(MINT,   { emissive: MINT, emissiveInt: 0.9 });
+
+    // Main barrel (horizontal cylinder)
+    var barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.56, 0.56, 3.0, 40), body);
+    barrel.rotation.z = Math.PI / 2;
+    barrel.castShadow = true;
+    g.add(barrel);
+
+    // Rear vent end cap
+    var cap = new THREE.Mesh(new THREE.CylinderGeometry(0.57, 0.57, 0.14, 40), dark);
+    cap.rotation.z = Math.PI / 2;
+    cap.position.x = 1.58;
+    g.add(cap);
+
+    // Vent grill holes (dark discs on cap face)
+    var holePos = [[ 0, 0.25],[ 0,-0.25],[ 0.25, 0],[-0.25, 0],[0.18, 0.18],[-0.18, 0.18],[0.18,-0.18],[-0.18,-0.18]];
+    holePos.forEach(function(p) {
+      var h = new THREE.Mesh(new THREE.CircleGeometry(0.06, 12), dark);
+      h.rotation.y = Math.PI / 2;
+      h.position.set(1.66, p[1], p[0]);
+      g.add(h);
+    });
+
+    // Nozzle / concentrator at front
+    var nozzle = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.48, 0.75, 24), dark);
+    nozzle.rotation.z = Math.PI / 2;
+    nozzle.position.x = -1.88;
+    g.add(nozzle);
+
+    // Nozzle lip
+    var lip = new THREE.Mesh(new THREE.TorusGeometry(0.32, 0.04, 8, 32), dark);
+    lip.rotation.x = Math.PI / 2;
+    lip.position.x = -2.26;
+    g.add(lip);
+
+    // Handle (angled cylinder)
+    var handle = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.22, 1.65, 28), body);
+    handle.position.set(0.55, -1.05, 0);
+    handle.rotation.z = 0.15;
+    handle.castShadow = true;
+    g.add(handle);
+
+    // Handle bottom cap
+    var hcap = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.1, 20), dark);
+    hcap.position.set(0.68, -1.88, 0);
+    hcap.rotation.z = 0.15;
+    g.add(hcap);
+
+    // Speed/heat dial on barrel underside
+    var dial = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.09, 0.26), mat(DKBLUE, {metal:0.1, rough:0.5}));
+    dial.position.set(0.0, -0.58, 0);
+    g.add(dial);
+
+    // Control indicator
+    var ind = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.1, 12), gold);
+    ind.rotation.x = Math.PI / 2;
+    ind.position.set(-0.18, -0.58, 0.28);
+    g.add(ind);
+
+    // Status LED
+    var ledM = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 8), led);
+    ledM.position.set(0.55, -1.56, 0.24);
+    g.add(ledM);
+
+    g.position.y = -0.15;
+    g.rotation.x = 0.18;
+  }
+
+  // 2. Massage Gun ────────────────────────────────────────────────────────────
+  function buildMassageGun(g) {
+    var body = mat(DKBLUE, { metal: 0.18, rough: 0.35 });
+    var dark = mat(DARK,   { metal: 0.4,  rough: 0.45 });
+    var gold = mat(GOLD,   { metal: 0.25, rough: 0.28 });
+    var foam = mat(0xD4C8B8, { metal: 0, rough: 0.92 });
+    var led  = mat(MINT,   { emissive: MINT, emissiveInt: 0.9 });
+
+    // Motor housing
+    var motor = new THREE.Mesh(new THREE.CylinderGeometry(0.72, 0.72, 2.6, 44), body);
+    motor.rotation.z = Math.PI / 2;
+    motor.castShadow = true;
+    g.add(motor);
+
+    // Motor end cap
+    var mcap = new THREE.Mesh(new THREE.CylinderGeometry(0.73, 0.73, 0.16, 44), dark);
+    mcap.rotation.z = Math.PI / 2;
+    mcap.position.x = 1.4;
+    g.add(mcap);
+
+    // Speed ring
+    var ring = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.09, 10, 40), gold);
+    ring.position.set(0.8, 0.74, 0);
+    g.add(ring);
+
+    // Speed indicator dots
+    for (var i = 0; i < 3; i++) {
+      var lm = i < 2 ? led : mat(0x1a2a3a, {rough:0.8});
+      var dot = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 8), lm);
+      dot.position.set(-0.24 + i * 0.24, 0.74, 0.74);
+      g.add(dot);
+    }
+
+    // Attachment neck
+    var neck = new THREE.Mesh(new THREE.CylinderGeometry(0.21, 0.21, 0.55, 24), dark);
+    neck.rotation.z = Math.PI / 2;
+    neck.position.x = -1.6;
+    g.add(neck);
+
+    // Foam ball head
+    var ball = new THREE.Mesh(new THREE.SphereGeometry(0.56, 32, 32), foam);
+    ball.position.x = -2.4;
+    ball.castShadow = true;
+    g.add(ball);
+
+    // Handle
+    var handle = new THREE.Mesh(new THREE.CylinderGeometry(0.31, 0.26, 2.0, 32), body);
+    handle.position.y = -1.5;
+    handle.castShadow = true;
+    g.add(handle);
+
+    var hcap = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.14, 24), dark);
+    hcap.position.y = -2.57;
+    g.add(hcap);
+
+    // Power button
+    var btn = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.1, 20), gold);
+    btn.rotation.x = Math.PI / 2;
+    btn.position.set(0, -2.52, 0.3);
+    g.add(btn);
+
+    g.position.y = 0.5;
+    g.rotation.x = 0.15;
+  }
+
+  // 3. Beauty Instrument ──────────────────────────────────────────────────────
+  function buildBeautyInstrument(g) {
+    var rose  = mat(0xC8A8B0, { metal: 0.38, rough: 0.24 });
+    var gold  = mat(GOLD,    { metal: 0.45, rough: 0.18 });
+    var glow  = mat(0xFFD888, { metal: 0.1,  rough: 0.4, emissive: 0xFFAA20, emissiveInt: 0.55 });
+    var dark  = mat(DARK,    { metal: 0.5,   rough: 0.4 });
+    var led   = mat(MINT,    { emissive: MINT, emissiveInt: 1.0 });
+
+    // Slim handle
+    var handle = new THREE.Mesh(new THREE.CylinderGeometry(0.29, 0.25, 2.9, 36), rose);
+    handle.castShadow = true;
+    g.add(handle);
+
+    // Handle bottom cap
+    var hcap = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.1, 24), dark);
+    hcap.position.y = -1.5;
+    g.add(hcap);
+
+    // Transition neck
+    var neck = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.29, 0.32, 28), rose);
+    neck.position.y = 1.61;
+    g.add(neck);
+
+    // Outer treatment ring (gold)
+    var outerR = new THREE.Mesh(new THREE.TorusGeometry(0.68, 0.13, 16, 64), gold);
+    outerR.position.y = 1.95;
+    g.add(outerR);
+
+    // Treatment head disc (glowing)
+    var head = new THREE.Mesh(new THREE.CylinderGeometry(0.68, 0.68, 0.16, 48), glow);
+    head.position.y = 1.95;
+    g.add(head);
+
+    // Inner emitter rings
+    var e1 = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.055, 10, 48), gold);
+    e1.position.y = 2.04;
+    g.add(e1);
+
+    var e2 = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.045, 8, 40), gold);
+    e2.position.y = 2.04;
+    g.add(e2);
+
+    // Centre emitter dot
+    var core = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.06, 20), mat(0xFFDD60, {emissive:0xFFCC00, emissiveInt:1.2}));
+    core.position.y = 2.04;
+    g.add(core);
+
+    // LED mode indicators on handle side
+    [0xE8A820, MINT, BLUE].forEach(function(c, i) {
+      var l = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.07, 10), mat(c, {emissive:c, emissiveInt:0.9}));
+      l.rotation.x = Math.PI / 2;
+      l.position.set(0.3, -0.4 + i * 0.26, 0);
+      g.add(l);
+    });
+
+    // Power button
+    var pbtn = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.09, 20), gold);
+    pbtn.rotation.x = Math.PI / 2;
+    pbtn.position.set(0.3, 0.28, 0);
+    g.add(pbtn);
+
+    g.position.y = -0.3;
+    g.rotation.x = 0.08;
+  }
+
+  // 4. Blender ────────────────────────────────────────────────────────────────
+  function buildBlender(g) {
+    var body   = mat(BLUE,     { metal: 0.2,  rough: 0.4 });
+    var glass  = mat(0xC8E0FF, { metal: 0.0,  rough: 0.05 });
+    var dark   = mat(DARK,     { metal: 0.35, rough: 0.5 });
+    var silver = mat(SILVER,   { metal: 0.82, rough: 0.18 });
+
+    // Motor base
+    var base = new THREE.Mesh(new THREE.CylinderGeometry(0.88, 0.92, 1.05, 44), body);
+    base.position.y = -1.42;
+    base.castShadow = true;
+    g.add(base);
+
+    // Base accent ring
+    var aring = new THREE.Mesh(new THREE.TorusGeometry(0.89, 0.05, 8, 44), mat(DKBLUE, {metal:0.15, rough:0.45}));
+    aring.position.y = -0.96;
+    g.add(aring);
+
+    // Blade coupling
+    var coup = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.32, 28), silver);
+    coup.position.y = -0.82;
+    g.add(coup);
+
+    // Glass jar (tapered)
+    var jar = new THREE.Mesh(new THREE.CylinderGeometry(0.72, 0.46, 2.5, 44), glass);
+    jar.position.y = 0.55;
+    jar.castShadow = true;
+    g.add(jar);
+
+    // Liquid (blue water)
+    var liq = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 0.52, 36), mat(0x4499EE, {metal:0, rough:0.12}));
+    liq.position.y = -0.48;
+    g.add(liq);
+
+    // Blade cross
+    for (var i = 0; i < 4; i++) {
+      var bl = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.045, 0.13), silver);
+      bl.rotation.y = (i * Math.PI) / 2;
+      bl.position.set(Math.cos(i * Math.PI / 2) * 0.3, -0.66, Math.sin(i * Math.PI / 2) * 0.3);
+      g.add(bl);
+    }
+
+    // Lid
+    var lid = new THREE.Mesh(new THREE.CylinderGeometry(0.74, 0.74, 0.14, 44), body);
+    lid.position.y = 1.85;
+    g.add(lid);
+
+    // Lid knob
+    var knob = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.23, 0.24, 24), dark);
+    knob.position.y = 2.04;
+    g.add(knob);
+
+    // Control buttons
+    [[DKBLUE, -0.5], [BLUE, 0], [GOLD, 0.5]].forEach(function(pair, ii) {
+      var x = pair[1];
+      var c = [DKBLUE, BLUE, GOLD][ii];
+      var b = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.13, 20), mat(c, {metal:0.1, rough:0.38}));
+      b.rotation.x = -0.3;
+      b.position.set(x, -1.02, 0.89);
+      g.add(b);
+    });
+
+    g.position.y = 0.1;
+    g.rotation.x = 0.06;
+  }
+
+  // 5. Table Lamp ─────────────────────────────────────────────────────────────
+  function buildTableLamp(g) {
+    var shade = mat(0xECBF6A, { metal: 0.06, rough: 0.72 });
+    var inner = mat(0xFFF0A0, { emissive: 0xFFA820, emissiveInt: 0.55, metal: 0, rough: 0.9 });
+    var stem  = mat(0xC8A060, { metal: 0.62, rough: 0.28 });
+    var base  = mat(0xD8D0C8, { metal: 0.08, rough: 0.62 });
+    var bulb  = mat(0xFFE8A0, { emissive: 0xFFBB00, emissiveInt: 1.3, metal: 0, rough: 0.3 });
+
+    // Shade (cone)
+    var shadeMesh = new THREE.Mesh(new THREE.ConeGeometry(1.45, 1.55, 44, 1, true), shade);
+    shadeMesh.position.y = 1.1;
+    shadeMesh.castShadow = true;
+    g.add(shadeMesh);
+
+    // Inner glow
+    var innerMesh = new THREE.Mesh(new THREE.ConeGeometry(1.43, 1.53, 44, 1, true), inner);
+    innerMesh.rotation.z = Math.PI;
+    innerMesh.position.y = 1.1;
+    g.add(innerMesh);
+
+    // Top + bottom rim
+    var topR = new THREE.Mesh(new THREE.TorusGeometry(0.14, 0.06, 8, 32), stem);
+    topR.position.y = 1.87;
+    g.add(topR);
+
+    var botR = new THREE.Mesh(new THREE.TorusGeometry(1.45, 0.06, 8, 40), stem);
+    botR.position.y = 0.34;
+    g.add(botR);
+
+    // Bulb
+    var bulbM = new THREE.Mesh(new THREE.SphereGeometry(0.22, 24, 24), bulb);
+    bulbM.position.y = 1.62;
+    g.add(bulbM);
+
+    // Stem
+    var stemM = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.09, 2.05, 20), stem);
+    stemM.position.y = -0.34;
+    g.add(stemM);
+
+    // Base
+    var baseM = new THREE.Mesh(new THREE.CylinderGeometry(0.82, 0.88, 0.22, 44), base);
+    baseM.position.y = -1.44;
+    baseM.castShadow = true;
+    g.add(baseM);
+
+    var stepM = new THREE.Mesh(new THREE.CylinderGeometry(0.56, 0.56, 0.2, 36), stem);
+    stepM.position.y = -1.25;
+    g.add(stepM);
+
+    g.position.y = -0.05;
+  }
+
+  // 6. Chandelier ─────────────────────────────────────────────────────────────
+  function buildChandelier(g) {
+    var gold  = mat(0xC89840, { metal: 0.78, rough: 0.18 });
+    var dgold = mat(0x806838, { metal: 0.72, rough: 0.24 });
+    var glow  = mat(0xFFF8D0, { emissive: 0xFFBB20, emissiveInt: 1.0, metal: 0.05, rough: 0.12 });
+    var cry   = mat(0xD8EEFF, { metal: 0.08, rough: 0.04 });
+
+    // Canopy
+    var canopy = new THREE.Mesh(new THREE.CylinderGeometry(0.52, 0.42, 0.22, 36), gold);
+    canopy.position.y = 2.4;
+    g.add(canopy);
+
+    // Drop rod
+    var rod = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.88, 12), gold);
+    rod.position.y = 1.9;
+    g.add(rod);
+
+    // Hub
+    var hub = new THREE.Mesh(new THREE.SphereGeometry(0.3, 32, 32), gold);
+    hub.position.y = 1.42;
+    g.add(hub);
+
+    // 5 arms
+    var N = 5;
+    for (var i = 0; i < N; i++) {
+      var ang = (i / N) * Math.PI * 2;
+      var rx = Math.sin(ang) * 1.38;
+      var rz = Math.cos(ang) * 1.38;
+
+      // Arm rod
+      var arm = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.032, 1.35, 10), gold);
+      arm.position.set(rx * 0.5, 1.0, rz * 0.5);
+      arm.rotation.z = -Math.atan2(1.42 - 0.4, Math.sqrt(rx * rx + rz * rz) * 0.5) * Math.sign(rx || 1);
+      arm.rotation.x = -Math.atan2(1.42 - 0.4, Math.sqrt(rx * rx + rz * rz) * 0.5) * Math.sign(rz || 1) * (Math.abs(rx) < 0.1 ? 1 : 0);
+      g.add(arm);
+
+      // Pendant wire
+      var wire = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.72, 8), gold);
+      wire.position.set(rx, 0.35, rz);
+      g.add(wire);
+
+      // Socket
+      var socket = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.22, 20), dgold);
+      socket.position.set(rx, -0.1, rz);
+      g.add(socket);
+
+      // Bulb
+      var b = new THREE.Mesh(new THREE.SphereGeometry(0.28, 22, 22), glow);
+      b.position.set(rx, -0.45, rz);
+      g.add(b);
+
+      // Crystal teardrop
+      var c = new THREE.Mesh(new THREE.ConeGeometry(0.11, 0.42, 8), cry);
+      c.rotation.z = Math.PI;
+      c.position.set(rx, -0.85, rz);
+      g.add(c);
+    }
+
+    g.position.y = -0.5;
+  }
+
+  // 7. Smart Lighting Set ─────────────────────────────────────────────────────
+  function buildSmartLighting(g) {
+    var strip  = mat(0x222830, { metal: 0.3,  rough: 0.6 });
+    var hub    = mat(BLUE,    { metal: 0.2,  rough: 0.4 });
+    var hubTop = mat(0x0A2860, { metal: 0.15, rough: 0.3 });
+
+    // LED strip backing
+    var back = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.15, 0.3), strip);
+    back.position.y = 0.85;
+    back.castShadow = true;
+    g.add(back);
+
+    // LED dots (color variety)
+    var cols = [0xE8A820, 0xE8A820, 0x4488FF, 0x00CC55, 0xFF4444, 0xE8A820];
+    cols.forEach(function(c, i) {
+      var lm = mat(c, { emissive: c, emissiveInt: 0.95 });
+      var l = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.13, 0.24), lm);
+      l.position.set(-1.75 + i * 0.7, 0.94, 0);
+      g.add(l);
+    });
+
+    // Hub body
+    var hubB = new THREE.Mesh(new THREE.BoxGeometry(1.35, 0.86, 1.05), hub);
+    hubB.position.y = -0.82;
+    hubB.castShadow = true;
+    g.add(hubB);
+
+    // Hub top panel
+    var htop = new THREE.Mesh(new THREE.BoxGeometry(1.33, 0.05, 1.03), hubTop);
+    htop.position.y = -0.37;
+    g.add(htop);
+
+    // WiFi arcs
+    for (var i = 0; i < 3; i++) {
+      var ar = new THREE.Mesh(
+        new THREE.TorusGeometry(0.13 + i * 0.14, 0.027, 8, 32, Math.PI),
+        mat(GOLD, { emissive: GOLD, emissiveInt: 0.5 - i * 0.15 })
+      );
+      ar.rotation.x = Math.PI / 2;
+      ar.rotation.z = Math.PI / 2;
+      ar.position.set(0, -0.74 + i * 0.1, 0.54);
+      g.add(ar);
+    }
+    // WiFi dot
+    var wdot = new THREE.Mesh(new THREE.SphereGeometry(0.065, 8, 8), mat(GOLD, {emissive:GOLD, emissiveInt:0.9}));
+    wdot.position.set(0, -0.78, 0.54);
+    g.add(wdot);
+
+    // Status LED
+    var sled = new THREE.Mesh(new THREE.SphereGeometry(0.068, 8, 8), mat(MINT, {emissive:MINT, emissiveInt:1.1}));
+    sled.position.set(0.57, -0.52, 0.54);
+    g.add(sled);
+
+    // Connecting wire (line segments)
+    var pts = [new THREE.Vector3(0, 0.82, 0), new THREE.Vector3(0.4, 0.3, 0.4), new THREE.Vector3(0, -0.37, 0.53)];
+    var wgeo = new THREE.BufferGeometry().setFromPoints(pts);
+    var wl = new THREE.Line(wgeo, new THREE.LineBasicMaterial({ color: 0x3366CC, opacity: 0.65, transparent: true }));
+    g.add(wl);
+
+    g.position.y = 0.05;
+    g.rotation.x = 0.08;
+  }
+
+  // 8. Wall Sconce ────────────────────────────────────────────────────────────
+  function buildWallSconce(g) {
+    var metal  = mat(0xC8A060, { metal: 0.72, rough: 0.22 });
+    var shade  = mat(0xEABF68, { metal: 0.08, rough: 0.72 });
+    var sinner = mat(0xFFF0B0, { emissive: 0xFFB020, emissiveInt: 0.45, metal: 0, rough: 0.88 });
+    var wall   = mat(0x0E1828, { metal: 0.0,  rough: 0.92 });
+    var bulb   = mat(0xFFE888, { emissive: 0xFFAA00, emissiveInt: 1.1 });
+
+    // Wall plate
+    var plate = new THREE.Mesh(new THREE.BoxGeometry(0.42, 1.9, 0.14), wall);
+    plate.position.set(-2.0, 0, 0);
+    g.add(plate);
+
+    [-0.65, 0.65].forEach(function(y) {
+      var sc = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.09, 12), metal);
+      sc.rotation.z = Math.PI / 2;
+      sc.position.set(-1.98, y, 0.08);
+      g.add(sc);
+    });
+
+    // Arm
+    var arm = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.065, 1.28, 16), metal);
+    arm.rotation.z = Math.PI / 2;
+    arm.position.set(-1.36, 0.6, 0);
+    g.add(arm);
+
+    // Vertical drop
+    var drop = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.065, 0.76, 16), metal);
+    drop.position.set(-0.72, 0.24, 0);
+    g.add(drop);
+
+    // Shade (bell cone, opening downward)
+    var shMesh = new THREE.Mesh(new THREE.ConeGeometry(1.15, 1.45, 44, 1, true), shade);
+    shMesh.rotation.z = Math.PI;
+    shMesh.position.set(0.3, -0.54, 0);
+    shMesh.castShadow = true;
+    g.add(shMesh);
+
+    var shIn = new THREE.Mesh(new THREE.ConeGeometry(1.13, 1.43, 44, 1, true), sinner);
+    shIn.position.set(0.3, -0.54, 0);
+    g.add(shIn);
+
+    // Shade rim
+    var rim = new THREE.Mesh(new THREE.TorusGeometry(1.15, 0.055, 8, 44), metal);
+    rim.rotation.x = Math.PI / 2;
+    rim.position.set(0.3, -1.27, 0);
+    g.add(rim);
+
+    // Bulb
+    var bulbM = new THREE.Mesh(new THREE.SphereGeometry(0.24, 22, 22), bulb);
+    bulbM.position.set(0.3, -0.32, 0);
+    g.add(bulbM);
+
+    g.position.set(0.6, 0.25, 0);
+    g.rotation.y = -0.28;
+  }
+
+  // 9. Smart Speaker ──────────────────────────────────────────────────────────
+  function buildSmartSpeaker(g) {
+    var fabric  = mat(0x1A2840, { metal: 0.05, rough: 0.93 });
+    var topCap  = mat(0x0A1826, { metal: 0.22, rough: 0.28 });
+    var ringMat = mat(GOLD,    { emissive: GOLD, emissiveInt: 0.4, metal: 0.32, rough: 0.28 });
+    var ledM    = mat(MINT,    { emissive: MINT, emissiveInt: 1.1 });
+
+    // Main cylinder
+    var body = new THREE.Mesh(new THREE.CylinderGeometry(1.05, 1.05, 2.65, 52), fabric);
+    body.castShadow = true;
+    g.add(body);
+
+    // Top glossy cap
+    var cap = new THREE.Mesh(new THREE.CylinderGeometry(1.06, 1.06, 0.42, 52), topCap);
+    cap.position.y = 1.54;
+    g.add(cap);
+
+    // Touch ring on top
+    var tr = new THREE.Mesh(new THREE.TorusGeometry(0.66, 0.075, 10, 52), ringMat);
+    tr.position.y = 1.77;
+    g.add(tr);
+
+    // Volume marker
+    var vm = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.055, 0.075), mat(WHITE, {rough:0.5}));
+    vm.position.set(0, 1.78, 0.65);
+    g.add(vm);
+
+    // Woofer cone rings (embossed on side)
+    for (var i = 0; i < 3; i++) {
+      var r = 0.3 + i * 0.22;
+      var wf = new THREE.Mesh(new THREE.TorusGeometry(r, 0.038, 7, 44), mat(0x0E1E38, {metal:0.1, rough:0.8}));
+      wf.rotation.y = Math.PI / 2;
+      wf.position.set(1.07, 0, 0);
+      g.add(wf);
+    }
+
+    // Woofer centre disc
+    var wd = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.04, 32), mat(0x080E1C, {metal:0.1, rough:0.7}));
+    wd.rotation.z = Math.PI / 2;
+    wd.position.set(1.07, 0, 0);
+    g.add(wd);
+
+    // LED ring base
+    var lr = new THREE.Mesh(new THREE.TorusGeometry(0.94, 0.055, 8, 52), ringMat);
+    lr.position.y = -1.35;
+    g.add(lr);
+
+    // Status LED
+    var sl = new THREE.Mesh(new THREE.SphereGeometry(0.085, 8, 8), ledM);
+    sl.position.set(0, -1.52, 0.92);
+    g.add(sl);
+
+    // Highlight streak
+    var hs = new THREE.Mesh(new THREE.BoxGeometry(0.07, 2.2, 0.04), mat(WHITE, {metal:0, rough:0.3}));
+    hs.position.set(0.96, 0, 0.38);
+    hs.rotation.y = 0.4;
+    var hsM = mat(WHITE, {metal:0, rough:0.3});
+    hsM.transparent = true;
+    hsM.opacity = 0.07;
+    hs.material = hsM;
+    g.add(hs);
+
+    g.position.y = -0.12;
+  }
+
+  // 10. Wireless Headphones ───────────────────────────────────────────────────
+  function buildHeadphones(g) {
+    var plastic = mat(0x0A1830, { metal: 0.1,  rough: 0.44 });
+    var cush    = mat(0x0D1E32, { metal: 0.0,  rough: 0.93 });
+    var accent  = mat(GOLD,    { emissive: GOLD, emissiveInt: 0.32, metal: 0.22, rough: 0.28 });
+    var led     = mat(MINT,    { emissive: MINT, emissiveInt: 1.0 });
+
+    // Headband arc
+    var band = new THREE.Mesh(new THREE.TorusGeometry(1.55, 0.14, 18, 68, Math.PI), plastic);
+    band.rotation.z = -Math.PI / 2;
+    band.position.y = 0.65;
+    band.castShadow = true;
+    g.add(band);
+
+    // Headband padding
+    var pad = new THREE.Mesh(new THREE.TorusGeometry(1.55, 0.09, 10, 68, Math.PI * 0.68), cush);
+    pad.rotation.z = -Math.PI / 2;
+    pad.rotation.y = Math.PI * 0.16;
+    pad.position.y = 0.65;
+    g.add(pad);
+
+    // Size sliders
+    [[-1.52, -0.28], [1.52, -0.28]].forEach(function(p) {
+      var sl = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.58, 0.36), plastic);
+      sl.position.set(p[0], p[1], 0);
+      g.add(sl);
+    });
+
+    // Left cup
+    var lc = new THREE.Mesh(new THREE.CylinderGeometry(0.72, 0.72, 0.52, 44), plastic);
+    lc.rotation.x = Math.PI / 2;
+    lc.position.set(-1.52, -0.9, 0);
+    lc.castShadow = true;
+    g.add(lc);
+
+    var lk = new THREE.Mesh(new THREE.TorusGeometry(0.57, 0.22, 12, 44), cush);
+    lk.rotation.x = Math.PI / 2;
+    lk.position.set(-1.57, -0.9, 0);
+    g.add(lk);
+
+    // Left cup inner driver disc
+    var ld = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.38, 0.08, 36), mat(0x0a1420, {metal:0.15, rough:0.7}));
+    ld.rotation.x = Math.PI / 2;
+    ld.position.set(-1.57, -0.9, 0);
+    g.add(ld);
+
+    // Left ANC button
+    var anc = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.09, 18), accent);
+    anc.rotation.x = Math.PI / 2;
+    anc.position.set(-1.52, -1.52, 0.72);
+    g.add(anc);
+
+    // Right cup
+    var rc = new THREE.Mesh(new THREE.CylinderGeometry(0.72, 0.72, 0.52, 44), plastic);
+    rc.rotation.x = Math.PI / 2;
+    rc.position.set(1.52, -0.9, 0);
+    rc.castShadow = true;
+    g.add(rc);
+
+    var rk = new THREE.Mesh(new THREE.TorusGeometry(0.57, 0.22, 12, 44), cush);
+    rk.rotation.x = Math.PI / 2;
+    rk.position.set(1.57, -0.9, 0);
+    g.add(rk);
+
+    var rd = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.38, 0.08, 36), mat(0x0a1420, {metal:0.15, rough:0.7}));
+    rd.rotation.x = Math.PI / 2;
+    rd.position.set(1.57, -0.9, 0);
+    g.add(rd);
+
+    // Right BT LED
+    var btl = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 8), led);
+    btl.position.set(1.52, -1.52, 0.72);
+    g.add(btl);
+
+    g.position.y = 0.4;
+    g.rotation.x = 0.12;
+  }
+
+  // 11. Power Bank ────────────────────────────────────────────────────────────
+  function buildPowerBank(g) {
+    var alu  = mat(0x8899BB, { metal: 0.76, rough: 0.2 });
+    var dark = mat(DARK,    { metal: 0.4,  rough: 0.5 });
+    var port = mat(0x080818, { metal: 0.5,  rough: 0.4 });
+    var gld  = mat(GOLD,    { emissive: GOLD, emissiveInt: 0.88 });
+    var dim  = mat(0x1A2438, { metal: 0.1,  rough: 0.7 });
+    var btn  = mat(BLUE,    { emissive: 0x0033CC, emissiveInt: 0.3, metal: 0.1, rough: 0.4 });
+
+    // Main body
+    var body = new THREE.Mesh(new THREE.BoxGeometry(3.75, 1.15, 1.04), alu);
+    body.castShadow = true;
+    g.add(body);
+
+    // Edge chamfer lines
+    [0.6, -0.6].forEach(function(y) {
+      var s = new THREE.Mesh(new THREE.BoxGeometry(3.75, 0.07, 1.06), dark);
+      s.position.y = y;
+      g.add(s);
+    });
+
+    // 4 LED indicators
+    for (var i = 0; i < 4; i++) {
+      var lm = i < 3 ? gld : dim;
+      var d = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.07, 20), lm);
+      d.rotation.x = Math.PI / 2;
+      d.position.set(-0.92 + i * 0.62, 0.14, 0.54);
+      g.add(d);
+    }
+
+    // USB-C ports x2
+    [-0.84, -0.22].forEach(function(x) {
+      var p = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.19, 0.11), port);
+      p.position.set(x, -0.3, 0.54);
+      g.add(p);
+    });
+
+    // USB-A port
+    var ua = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.23, 0.11), port);
+    ua.position.set(0.58, -0.29, 0.54);
+    g.add(ua);
+
+    // Power button on end face
+    var pbtn = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.11, 20), btn);
+    pbtn.rotation.z = Math.PI / 2;
+    pbtn.position.set(1.95, 0.12, 0);
+    g.add(pbtn);
+
+    g.position.y = 0;
+    g.rotation.x = 0.24;
+    g.rotation.y = 0.28;
+  }
+
+  // 12. GaN Charger + Cable ───────────────────────────────────────────────────
+  function buildGanCharger(g) {
+    var body  = mat(0x181828, { metal: 0.16, rough: 0.42 });
+    var blue  = mat(BLUE,    { metal: 0.1,  rough: 0.4 });
+    var prong = mat(0xD0D0D8, { metal: 0.88, rough: 0.14 });
+    var port  = mat(0x060814, { metal: 0.5,  rough: 0.4 });
+    var cable = mat(0x1E2E52, { metal: 0.1,  rough: 0.7 });
+    var conn  = mat(SILVER,  { metal: 0.78, rough: 0.18 });
+    var led   = mat(MINT,    { emissive: MINT, emissiveInt: 1.0 });
+
+    // Charger body
+    var charger = new THREE.Mesh(new THREE.BoxGeometry(1.55, 1.55, 1.05), body);
+    charger.castShadow = true;
+    g.add(charger);
+
+    // Blue accent badge face
+    var badge = new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.52, 0.07), blue);
+    badge.position.set(0, 0.12, 0.56);
+    g.add(badge);
+
+    // Status LED
+    var sl = new THREE.Mesh(new THREE.SphereGeometry(0.075, 8, 8), led);
+    sl.position.set(0.62, -0.42, 0.55);
+    g.add(sl);
+
+    // US prongs (folded, on back)
+    [-0.3, 0.3].forEach(function(x) {
+      var p = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.64, 0.09), prong);
+      p.position.set(x, 0.22, -0.57);
+      g.add(p);
+    });
+
+    // USB-C output port on bottom
+    var op = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.22, 0.11), port);
+    op.rotation.x = Math.PI / 2;
+    op.position.set(0, -0.85, 0.2);
+    g.add(op);
+
+    // Braided cable (tube geometry along curve)
+    var curvePts = [];
+    for (var i = 0; i <= 24; i++) {
+      var t = i / 24;
+      curvePts.push(new THREE.Vector3(
+        Math.sin(t * Math.PI * 1.6) * 0.45,
+        -0.9 - t * 2.1,
+        t * 0.65
+      ));
+    }
+    var curve = new THREE.CatmullRomCurve3(curvePts);
+    var tubeGeo = new THREE.TubeGeometry(curve, 32, 0.065, 8, false);
+    var cableMesh = new THREE.Mesh(tubeGeo, cable);
+    g.add(cableMesh);
+
+    // USB-C connector at cable end
+    var ep = curvePts[24];
+    var connMesh = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.24, 0.72), conn);
+    connMesh.position.set(ep.x, ep.y - 0.32, ep.z);
+    g.add(connMesh);
+
+    // Connector inner slot
+    var slot = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.14, 0.68), port);
+    slot.position.set(ep.x, ep.y - 0.32, ep.z);
+    g.add(slot);
+
+    g.position.y = 0.85;
+    g.rotation.x = 0.14;
+    g.rotation.y = -0.32;
+  }
+
+  // ── BUILDERS MAP ───────────────────────────────────────────────────────────
+  var BUILDERS = {
+    'hair-dryer':        buildHairDryer,
+    'massage-device':    buildMassageGun,
+    'beauty-instrument': buildBeautyInstrument,
+    'blender':           buildBlender,
+    'table-lamp':        buildTableLamp,
+    'chandelier':        buildChandelier,
+    'smart-lighting':    buildSmartLighting,
+    'wall-lamp':         buildWallSconce,
+    'smart-speaker':     buildSmartSpeaker,
+    'headphones':        buildHeadphones,
+    'power-bank':        buildPowerBank,
+    'cables-charger':    buildGanCharger
+  };
+
+  // ── CATALOG: real product photos from Unsplash CDN ────────────────────────
+  function initCardImages() {
+    var CDN = 'https://images.unsplash.com/';
+    var PHOTOS = {
+      'hair-dryer':        CDN + 'photo-1620331309205-b5a4669ac526',
+      'massage-device':    CDN + 'photo-1755255020813-1cdb6a4bd9b0',
+      'beauty-instrument': CDN + 'photo-1578747763484-51b21a33e4fa',
+      'blender':           CDN + 'photo-1654064754916-e3edeb09c042',
+      'table-lamp':        CDN + 'photo-1533090161767-e6ffed986c88',
+      'chandelier':        CDN + 'photo-1538516789679-55272c1dc220',
+      'smart-lighting':    CDN + 'photo-1544891480-a763b1c6105f',
+      'wall-lamp':         CDN + 'photo-1766955863395-405e2eb6b870',
+      'smart-speaker':     CDN + 'photo-1518671678551-911467efe539',
+      'headphones':        CDN + 'photo-1505740420928-5e560c06d30e',
+      'power-bank':        CDN + 'photo-1525858907241-d230b66fb9fa',
+      'cables-charger':    CDN + 'photo-1517320069935-381614f8c1e5'
+    };
+    document.querySelectorAll('.prod-card[data-pid]').forEach(function(card) {
+      var pid = card.dataset.pid;
+      var base = PHOTOS[pid];
+      if (!base) return;
+      var vis = card.querySelector('.pc-vis');
+      if (!vis) return;
+      var icon = vis.querySelector('.pc-icon');
+      if (icon) icon.style.display = 'none';
+      var bg = vis.querySelector('.pc-vis-bg');
+      if (bg) bg.style.display = 'none';
+      vis.style.position = 'relative';
+      var img = document.createElement('img');
+      img.src = base + '?auto=format&fit=crop&w=280&h=200&q=82';
+      img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;';
+      img.loading = 'lazy';
+      img.alt = '';
+      vis.insertBefore(img, vis.firstChild);
+    });
+  }
+
+  // ── MODAL: override pdBuildModel with PBR builders + drag-to-rotate ────────
+  function installModalOverride() {
+    window.pdBuildModel = function(pid) {
+      if (window._pdAnim) { cancelAnimationFrame(window._pdAnim); window._pdAnim = null; }
+      if (window._pdRen) { window._pdRen.forceContextLoss(); window._pdRen.dispose(); window._pdRen = null; }
+      var builder = BUILDERS[pid];
+      if (!window.THREE) return;
+      var GLB_PATHS = { 'smart-speaker': '../../models/bose_smart_speaker.glb', 'hair-dryer': '../../models/hairdryer__hair__dryer.glb', 'table-lamp': '../../models/table_lamp.glb' };
+      if (!builder && !(GLB_PATHS[pid] && THREE.GLTFLoader)) return;
+      var canvas = document.getElementById('pdm-canvas');
+      var viz = canvas.parentElement;
+      var W = viz.offsetWidth || 420, H = viz.offsetHeight || 360;
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+      renderer.setSize(W, H); renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.2;
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      window._pdRen = renderer;
+      var scene = new THREE.Scene(); scene.background = new THREE.Color(0x07101E);
+      var cam = new THREE.PerspectiveCamera(36, W / H, 0.1, 100);
+      cam.position.set(0, 1.1, 7); cam.lookAt(0, 0, 0);
+      var key = new THREE.DirectionalLight(0xffffff, 3.2);
+      key.position.set(5, 8, 6); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); scene.add(key);
+      var fill = new THREE.DirectionalLight(0x8899ff, 1.1); fill.position.set(-5, 2, 4); scene.add(fill);
+      var rim = new THREE.DirectionalLight(0xE8A820, 0.9); rim.position.set(0, -4, -6); scene.add(rim);
+      scene.add(new THREE.AmbientLight(0x1a1a2e, 2.5));
+      var plane = new THREE.Mesh(new THREE.PlaneGeometry(20, 20),
+        new THREE.MeshStandardMaterial({ color: new THREE.Color(0x060e1a), roughness: 1 }));
+      plane.rotation.x = -Math.PI / 2; plane.position.y = -2.4; plane.receiveShadow = true; scene.add(plane);
+      var group = new THREE.Group(); scene.add(group);
+      if (GLB_PATHS[pid] && window.THREE && THREE.GLTFLoader) {
+        var gltfLoader = new THREE.GLTFLoader();
+        gltfLoader.load(GLB_PATHS[pid], function(gltf) {
+          var model = gltf.scene;
+          var box3 = new THREE.Box3().setFromObject(model);
+          var size3 = box3.getSize(new THREE.Vector3());
+          var s = 4 / Math.max(size3.x, size3.y, size3.z);
+          model.scale.setScalar(s);
+          model.updateMatrixWorld(true);
+          box3.setFromObject(model);
+          var c3 = box3.getCenter(new THREE.Vector3());
+          model.position.set(-c3.x, -box3.min.y - 2.4, -c3.z);
+          model.traverse(function(child) {
+            if (child.isMesh) { child.castShadow = true; child.receiveShadow = true; }
+          });
+          group.add(model);
+        }, undefined, function() { if (builder) builder(group); });
+      } else if (builder) {
+        builder(group);
+      }
+      var drag = false, lx = 0, ly = 0, ry = 0.42, rx = 0, vy = 0, vx = 0;
+      var onDown = function(e) { drag = true; lx = e.clientX||(e.touches&&e.touches[0].clientX)||lx; ly = e.clientY||(e.touches&&e.touches[0].clientY)||ly; vy = vx = 0; };
+      var onUp = function() { drag = false; };
+      var onMove = function(e) {
+        if (!drag) return;
+        var cx = e.clientX||(e.touches&&e.touches[0].clientX)||lx;
+        var cy = e.clientY||(e.touches&&e.touches[0].clientY)||ly;
+        vy = (cx - lx) * 0.016; vx = (cy - ly) * 0.009; lx = cx; ly = cy;
+      };
+      canvas.addEventListener('mousedown', onDown);
+      window.addEventListener('mouseup', onUp);
+      window.addEventListener('mousemove', onMove);
+      canvas.addEventListener('touchstart', onDown, { passive: true });
+      window.addEventListener('touchend', onUp);
+      window.addEventListener('touchmove', onMove, { passive: true });
+      function loop() {
+        window._pdAnim = requestAnimationFrame(loop);
+        if (!drag) { ry += 0.009; vy *= 0.88; vx *= 0.88; }
+        rx += vx; ry += vy;
+        group.rotation.y = ry;
+        group.rotation.x = Math.max(-0.85, Math.min(0.85, rx));
+        renderer.render(scene, cam);
+      }
+      loop();
+    };
+  }
+
+  // ── 3D SHOWROOM: live rotating models, dot navigation ─────────────────────
+  function initShowroom() {
+    var stage = document.querySelector('.sr-stage');
+    if (!stage || !window.THREE) return;
+
+    // Hide the floating SVG display
+    var prodDisplay = stage.querySelector('.sr-prod-display');
+    if (prodDisplay) prodDisplay.style.display = 'none';
+
+    // Canvas fills the full stage
+    var canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2;border-radius:inherit;';
+    stage.appendChild(canvas);
+    var W = stage.offsetWidth || 540;
+    var H = stage.offsetHeight || 405;
+
+    var PRODS = [
+      {
+        loadFbx: true, glbPath: '../../models/bose_smart_speaker.glb', builder: buildSmartSpeaker,
+        tagZh: '消费电子 · 展示产品', tagEn: 'Consumer Electronics · Featured',
+        nameZh: '智能音箱', nameEn: 'Smart Speaker',
+        spec: '360° · BT 5.3 · OEM/ODM',
+        matZh: '材质：ABS外壳 · 纤维编织 · 铝合金底座',
+        matEn: 'Material: ABS · fabric weave · aluminum base'
+      },
+      {
+        loadFbx: true, glbPath: '../../models/hairdryer__hair__dryer.glb', builder: buildHairDryer,
+        tagZh: '小家电 · 展示产品', tagEn: 'Small Appliance · Featured',
+        nameZh: '电吹风', nameEn: 'Hair Dryer',
+        spec: '1800–2200W · Ionic · OEM/ODM',
+        matZh: '材质：ABS外壳 · 专业电机 · 多档温控',
+        matEn: 'Material: ABS · pro motor · multi-speed'
+      },
+      {
+        loadFbx: true, glbPath: '../../models/table_lamp.glb', builder: buildTableLamp,
+        tagZh: '艺术灯具 · 展示产品', tagEn: 'Art Lighting · Featured',
+        nameZh: '装饰台灯', nameEn: 'Decorative Table Lamp',
+        spec: 'E27 · LED · OEM/ODM',
+        matZh: '材质：大理石/金属底座 · E27灯口',
+        matEn: 'Material: marble / metal base · E27 socket'
+      }
+    ];
+
+    var currentIdx = 0;
+    var drag = false, lx = 0, ly = 0, ry = 0, rx = 0, vy = 0, vx = 0;
+    var srGroup = null;
+
+    // Build renderer + scene once
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+    renderer.setSize(W, H, false);
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.2;
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    var scene = new THREE.Scene(); scene.background = new THREE.Color(0x07101E);
+    var isMobile = W < 520;
+    var cam = new THREE.PerspectiveCamera(isMobile ? 50 : 46, W / H, 0.1, 100);
+    cam.position.set(0, isMobile ? 1.2 : 0.8, isMobile ? 8 : 9);
+    cam.lookAt(0, isMobile ? -1.6 : -0.3, 0);
+    var key = new THREE.DirectionalLight(0xffffff, 3.2); key.position.set(5, 8, 6); key.castShadow = true; key.shadow.mapSize.set(256, 256); scene.add(key);
+    var fill = new THREE.DirectionalLight(0x8899ff, 1.1); fill.position.set(-5, 2, 4); scene.add(fill);
+    var rim = new THREE.DirectionalLight(0xE8A820, 0.9); rim.position.set(0, -4, -6); scene.add(rim);
+    scene.add(new THREE.AmbientLight(0x1a1a2e, 2.5));
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(14, 14), new THREE.MeshStandardMaterial({ color: new THREE.Color(0x060e1a), roughness: 1 }));
+    plane.rotation.x = -Math.PI / 2; plane.position.y = -2.4; plane.receiveShadow = true; scene.add(plane);
+
+    // Drag
+    canvas.addEventListener('mousedown', function(e) { drag = true; lx = e.clientX; ly = e.clientY; vy = vx = 0; });
+    window.addEventListener('mouseup', function() { drag = false; });
+    canvas.addEventListener('mousemove', function(e) { if (!drag) return; vy = (e.clientX - lx) * 0.016; vx = (e.clientY - ly) * 0.009; lx = e.clientX; ly = e.clientY; });
+    canvas.addEventListener('touchstart', function(e) { drag = true; lx = e.touches[0].clientX; ly = e.touches[0].clientY; vy = vx = 0; }, { passive: true });
+    window.addEventListener('touchend', function() { drag = false; });
+    canvas.addEventListener('touchmove', function(e) { if (!drag) return; vy = (e.touches[0].clientX - lx) * 0.016; vx = (e.touches[0].clientY - ly) * 0.009; lx = e.touches[0].clientX; ly = e.touches[0].clientY; }, { passive: true });
+
+    function makeShowroomScene(idx) {
+      // Swap group only — renderer/scene/cam/lights stay
+      if (srGroup) scene.remove(srGroup);
+      srGroup = new THREE.Group(); ry = 0; rx = 0; vy = 0; vx = 0;
+      scene.add(srGroup);
+      var p = PRODS[idx];
+      if (p.loadFbx && p.glbPath && window.THREE && THREE.GLTFLoader) {
+        var loader = new THREE.GLTFLoader();
+        var _srGroup = srGroup;
+        loader.load(p.glbPath, function(gltf) {
+          var model = gltf.scene;
+          var box = new THREE.Box3().setFromObject(model);
+          var size = box.getSize(new THREE.Vector3());
+          var scale = 4.5 / Math.max(size.x, size.y, size.z);
+          model.scale.setScalar(scale);
+          model.updateMatrixWorld(true);
+          box.setFromObject(model);
+          var center = box.getCenter(new THREE.Vector3());
+          model.position.set(-center.x, -box.min.y - 2.4, -center.z);
+          model.traverse(function(child) {
+            if (child.isMesh) { child.castShadow = true; child.receiveShadow = true; }
+          });
+          if (_srGroup && _srGroup.parent === scene) { _srGroup.add(model); }
+        }, undefined, function() { if (p.builder) p.builder(srGroup); });
+      } else if (p.builder) {
+        p.builder(srGroup);
+      } else {
+        buildSmartSpeaker(srGroup);
+      }
+    }
+
+    function loop() {
+      requestAnimationFrame(loop);
+      if (!drag) { ry += 0.009; vy *= 0.88; vx *= 0.88; }
+      rx += vx; ry += vy;
+      if (srGroup) { srGroup.rotation.y = ry; srGroup.rotation.x = Math.max(-0.6, Math.min(0.6, rx)); }
+      renderer.render(scene, cam);
+    }
+    loop();
+
+    window.addEventListener('resize', function() {
+      var W2 = stage.offsetWidth || 390;
+      var H2 = stage.offsetHeight || 292;
+      renderer.setSize(W2, H2, false);
+      cam.aspect = W2 / H2;
+      cam.updateProjectionMatrix();
+    });
+
+    function updateLabel(idx) {
+      var p = PRODS[idx];
+      var label = document.querySelector('.sr-label');
+      if (!label) return;
+      var tZh = label.querySelector('.sr-label-tag.zh-only'), tEn = label.querySelector('.sr-label-tag.en-only');
+      var nZh = label.querySelector('.sr-label-cn.zh-only'), nEn = label.querySelector('.sr-label-cn.en-only');
+      var spec = label.querySelector('.sr-label-en');
+      var mZh = label.querySelector('.sr-label-spec.zh-only'), mEn = label.querySelector('.sr-label-spec.en-only');
+      if (tZh) tZh.textContent = p.tagZh;
+      if (tEn) tEn.textContent = p.tagEn;
+      if (nZh) nZh.textContent = p.nameZh;
+      if (nEn) nEn.textContent = p.nameEn;
+      if (spec) spec.textContent = p.spec;
+      if (mZh) mZh.textContent = p.matZh;
+      if (mEn) mEn.textContent = p.matEn;
+    }
+
+    var dots = document.querySelectorAll('.sr-dot');
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() {
+        if (i === currentIdx) return;
+        currentIdx = i;
+        dots.forEach(function(d, j) { d.classList.toggle('on', j === i); });
+        updateLabel(i);
+        makeShowroomScene(i);
+      });
+    });
+
+    makeShowroomScene(0);
+    updateLabel(0);
+  }
+
+  function loadScript(src, cb) {
+    var s = document.createElement('script');
+    s.src = src; s.onload = cb; s.onerror = cb;
+    document.head.appendChild(s);
+  }
+
+  function init() {
+    installModalOverride();
+    initCardImages();
+    // Load GLTFLoader (no deps needed for GLB), then init showroom
+    loadScript('https://unpkg.com/three@0.134.0/examples/js/loaders/GLTFLoader.js', function() {
+      initShowroom();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    requestAnimationFrame(init);
+  }
+})();
 </script>
 </body>
 </html>

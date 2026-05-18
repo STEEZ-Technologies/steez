@@ -1,0 +1,674 @@
+- main [ref=e2]:
+  - generic [ref=e5]:
+    - link "DOMESTIC GOODS ATLAS 家居用品图鉴" [ref=e6] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e7]: DOMESTIC GOODS ATLAS
+      - generic [ref=e8]: 家居用品图鉴
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - button "EN" [ref=e11] [cursor=pointer]
+        - button "中文" [ref=e12] [cursor=pointer]
+      - button "Toggle theme" [ref=e13] [cursor=pointer]:
+        - img [ref=e14]
+  - generic [ref=e18]:
+    - paragraph [ref=e19]: Premium B2B Catalogue · Global Export Ready
+    - heading "Premium Domestic Goods Catalogue for Global Buyers" [level=1] [ref=e20]
+    - paragraph [ref=e21]: Helping importers, wholesalers, hotels, retailers, and distributors explore premium domestic goods — fully available in English and Chinese.
+    - generic [ref=e22]:
+      - link "Explore Catalogue" [ref=e23] [cursor=pointer]:
+        - /url: "#catalogue"
+      - link "View 3D Showcase" [ref=e24] [cursor=pointer]:
+        - /url: "#showcase"
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]: 5+
+        - generic [ref=e28]: Product Categories
+      - generic [ref=e29]:
+        - generic [ref=e30]: 300+
+        - generic [ref=e31]: Product Options
+      - generic [ref=e32]:
+        - generic [ref=e33]: OEM/ODM
+        - generic [ref=e34]: Support
+      - generic [ref=e35]:
+        - generic [ref=e36]: 150+
+        - generic [ref=e37]: Export Markets
+    - img [ref=e39]
+  - generic [ref=e42]:
+    - generic [ref=e43]:
+      - paragraph [ref=e44]: Product Universe
+      - heading "Our Product Universe" [level=2] [ref=e45]
+      - paragraph [ref=e46]: Five curated categories of premium domestic goods for global trade
+    - generic [ref=e47]:
+      - generic [ref=e48] [cursor=pointer]:
+        - generic [ref=e49]:
+          - img "Cooking Utensils" [ref=e50]
+          - generic [ref=e53]: 5 products
+        - generic [ref=e54]:
+          - heading "Cooking Utensils" [level=3] [ref=e55]
+          - paragraph [ref=e56]: 厨房用具
+          - paragraph [ref=e57]: Premium pans, knives, cups, kettles, and cooking tools for professional and home kitchens worldwide.
+          - generic [ref=e58]:
+            - generic [ref=e59]: Pans
+            - generic [ref=e60]: Knives
+            - generic [ref=e61]: Cups
+            - generic [ref=e62]: Kettles
+            - generic [ref=e63]: Tableware
+      - generic [ref=e64] [cursor=pointer]:
+        - generic [ref=e65]:
+          - img "Domestic Ceramics" [ref=e66]
+          - generic [ref=e69]: 5 products
+        - generic [ref=e70]:
+          - heading "Domestic Ceramics" [level=3] [ref=e71]
+          - paragraph [ref=e72]: 日用陶瓷
+          - paragraph [ref=e73]: Fine porcelain tableware, bone china, color glaze, and hotel ceramics crafted to international standards.
+          - generic [ref=e74]:
+            - generic [ref=e75]: White Porcelain
+            - generic [ref=e76]: Bone China
+            - generic [ref=e77]: Color Glaze
+            - generic [ref=e78]: Hotel Grade
+      - generic [ref=e79] [cursor=pointer]:
+        - generic [ref=e80]:
+          - img "Domestic Glass Products" [ref=e81]
+          - generic [ref=e84]: 4 products
+        - generic [ref=e85]:
+          - heading "Domestic Glass Products" [level=3] [ref=e86]
+          - paragraph [ref=e87]: 日用玻璃制品
+          - paragraph [ref=e88]: Crystal-clear glass utensils, storage jars, and decorative ornaments for home and commercial use.
+          - generic [ref=e89]:
+            - generic [ref=e90]: Glassware
+            - generic [ref=e91]: Storage
+            - generic [ref=e92]: Decorative
+            - generic [ref=e93]: Crystal Clear
+      - generic [ref=e94] [cursor=pointer]:
+        - generic [ref=e95]:
+          - img "Bathroom Supplies" [ref=e96]
+          - generic [ref=e99]: 4 products
+        - generic [ref=e100]:
+          - heading "Bathroom Supplies" [level=3] [ref=e101]
+          - paragraph [ref=e102]: 浴室用品
+          - paragraph [ref=e103]: Mirrors, scented bath sets, paper goods, and disposable amenities for hotels and residential buyers.
+          - generic [ref=e104]:
+            - generic [ref=e105]: Mirrors
+            - generic [ref=e106]: Bath Sets
+            - generic [ref=e107]: Paper Goods
+            - generic [ref=e108]: Disposables
+      - generic [ref=e109] [cursor=pointer]:
+        - generic [ref=e110]:
+          - img "Home Decoration" [ref=e111]
+          - generic [ref=e114]: 2 products
+        - generic [ref=e115]:
+          - heading "Home Decoration" [level=3] [ref=e116]
+          - paragraph [ref=e117]: 家居装饰
+          - paragraph [ref=e118]: Curated home ornaments and decorative art prints blending Eastern craftsmanship with global aesthetics.
+          - generic [ref=e119]:
+            - generic [ref=e120]: Ornaments
+            - generic [ref=e121]: Wall Art
+            - generic [ref=e122]: Ceramic
+            - generic [ref=e123]: Handcrafted
+  - generic [ref=e125]:
+    - generic [ref=e126]:
+      - paragraph [ref=e127]: Full Collection
+      - heading "Complete Product Catalogue" [level=2] [ref=e128]
+      - paragraph [ref=e129]: Browse our complete range of export-ready domestic goods
+    - generic [ref=e130]:
+      - button "All Products" [ref=e131] [cursor=pointer]
+      - button "Cooking Utensils" [ref=e132] [cursor=pointer]
+      - button "Ceramics" [ref=e133] [cursor=pointer]
+      - button "Glass Products" [ref=e134] [cursor=pointer]
+      - button "Bathroom Supplies" [ref=e135] [cursor=pointer]
+      - button "Home Decoration" [ref=e136] [cursor=pointer]
+    - generic [ref=e137]:
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - img "Non-Stick Frying Pan" [ref=e141]
+          - generic [ref=e142]: Cooking
+          - generic [ref=e143]: Customizable
+        - generic [ref=e144]:
+          - heading "Non-Stick Frying Pan" [level=3] [ref=e145]
+          - paragraph [ref=e146]: 不粘煎锅
+          - paragraph [ref=e147]: Granite-coated non-stick frying pan with heat-resistant handle. Safe for all stovetops including induction.
+          - generic [ref=e148]:
+            - generic [ref=e149]: "MOQ: 500"
+            - generic [ref=e150]: Aluminum + Granite Coating
+          - generic [ref=e151]:
+            - button "Add to Inquiry" [ref=e152] [cursor=pointer]:
+              - img [ref=e153]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e156] [cursor=pointer]:
+              - img [ref=e157]
+              - text: View 3D
+      - generic [ref=e161]:
+        - generic [ref=e162]:
+          - img "Stainless Steel Kettle" [ref=e163]
+          - generic [ref=e164]: Cooking
+          - generic [ref=e165]: Customizable
+        - generic [ref=e166]:
+          - heading "Stainless Steel Kettle" [level=3] [ref=e167]
+          - paragraph [ref=e168]: 不锈钢水壶
+          - paragraph [ref=e169]: Premium 304 stainless steel kettle, 1.8L capacity. Ergonomic grip, whistle function, anti-drip spout.
+          - generic [ref=e170]:
+            - generic [ref=e171]: "MOQ: 300"
+            - generic [ref=e172]: 304 Stainless Steel
+          - generic [ref=e173]:
+            - button "Add to Inquiry" [ref=e174] [cursor=pointer]:
+              - img [ref=e175]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e178] [cursor=pointer]:
+              - img [ref=e179]
+              - text: View 3D
+      - generic [ref=e183]:
+        - generic [ref=e184]:
+          - img "Kitchen Knife Set" [ref=e185]
+          - generic [ref=e186]: Cooking
+          - generic [ref=e187]: Customizable
+        - generic [ref=e188]:
+          - heading "Kitchen Knife Set" [level=3] [ref=e189]
+          - paragraph [ref=e190]: 厨房刀具套装
+          - paragraph [ref=e191]: 5-piece professional kitchen knife set with high-carbon stainless steel blades and pakkawood handles.
+          - generic [ref=e192]:
+            - generic [ref=e193]: "MOQ: 200"
+            - generic [ref=e194]: High-Carbon Stainless Steel
+          - generic [ref=e195]:
+            - button "Add to Inquiry" [ref=e196] [cursor=pointer]:
+              - img [ref=e197]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e200] [cursor=pointer]:
+              - img [ref=e201]
+              - text: View 3D
+      - generic [ref=e205]:
+        - generic [ref=e206]:
+          - img "Ceramic Mug" [ref=e207]
+          - generic [ref=e208]: Cooking
+          - generic [ref=e209]: Customizable
+        - generic [ref=e210]:
+          - heading "Ceramic Mug" [level=3] [ref=e211]
+          - paragraph [ref=e212]: 陶瓷杯
+          - paragraph [ref=e213]: 11oz ceramic mug with food-safe glaze. Microwave and dishwasher safe. Suitable for coffee, tea, hot drinks.
+          - generic [ref=e214]:
+            - generic [ref=e215]: "MOQ: 1 000"
+            - generic [ref=e216]: Premium Ceramic
+          - generic [ref=e217]:
+            - button "Add to Inquiry" [ref=e218] [cursor=pointer]:
+              - img [ref=e219]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e222] [cursor=pointer]:
+              - img [ref=e223]
+              - text: View 3D
+      - generic [ref=e227]:
+        - generic [ref=e228]:
+          - img "Stainless Steel Cooking Spoon Set" [ref=e229]
+          - generic [ref=e230]: Cooking
+        - generic [ref=e231]:
+          - heading "Stainless Steel Cooking Spoon Set" [level=3] [ref=e232]
+          - paragraph [ref=e233]: 不锈钢汤勺套装
+          - paragraph [ref=e234]: Set of 6 premium 201 stainless steel cooking spoons. Heat-resistant, rust-proof, dishwasher-safe.
+          - generic [ref=e235]:
+            - generic [ref=e236]: "MOQ: 500"
+            - generic [ref=e237]: 201 Stainless Steel
+          - generic [ref=e238]:
+            - button "Add to Inquiry" [ref=e239] [cursor=pointer]:
+              - img [ref=e240]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e243] [cursor=pointer]:
+              - img [ref=e244]
+              - text: View 3D
+      - generic [ref=e248]:
+        - generic [ref=e249]:
+          - img "White Porcelain Dinner Set" [ref=e250]
+          - generic [ref=e251]: Ceramics
+          - generic [ref=e252]: Customizable
+        - generic [ref=e253]:
+          - heading "White Porcelain Dinner Set" [level=3] [ref=e254]
+          - paragraph [ref=e255]: 白瓷餐具套装
+          - paragraph [ref=e256]: 16-piece white porcelain dinner set. Elegant, chip-resistant, microwave-safe. Hotel and retail grade.
+          - generic [ref=e257]:
+            - generic [ref=e258]: "MOQ: 100"
+            - generic [ref=e259]: High-Fire White Porcelain
+          - generic [ref=e260]:
+            - button "Add to Inquiry" [ref=e261] [cursor=pointer]:
+              - img [ref=e262]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e265] [cursor=pointer]:
+              - img [ref=e266]
+              - text: View 3D
+      - generic [ref=e270]:
+        - generic [ref=e271]:
+          - img "Bone China Tea Cup" [ref=e272]
+          - generic [ref=e273]: Ceramics
+          - generic [ref=e274]: Customizable
+        - generic [ref=e275]:
+          - heading "Bone China Tea Cup" [level=3] [ref=e276]
+          - paragraph [ref=e277]: 骨瓷茶杯
+          - paragraph [ref=e278]: Fine bone china tea cup with translucent body and delicate floral motif. Premium grade, gift-ready.
+          - generic [ref=e279]:
+            - generic [ref=e280]: "MOQ: 500"
+            - generic [ref=e281]: Fine Bone China
+          - generic [ref=e282]:
+            - button "Add to Inquiry" [ref=e283] [cursor=pointer]:
+              - img [ref=e284]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e287] [cursor=pointer]:
+              - img [ref=e288]
+              - text: View 3D
+      - generic [ref=e292]:
+        - generic [ref=e293]:
+          - img "Color Glaze Bowl" [ref=e294]
+          - generic [ref=e295]: Ceramics
+          - generic [ref=e296]: Customizable
+        - generic [ref=e297]:
+          - heading "Color Glaze Bowl" [level=3] [ref=e298]
+          - paragraph [ref=e299]: 色釉碗
+          - paragraph [ref=e300]: Artisan color glaze rice bowl with rich gradient finish. Hand-dipped, unique per piece, food safe.
+          - generic [ref=e301]:
+            - generic [ref=e302]: "MOQ: 300"
+            - generic [ref=e303]: Stoneware Ceramic
+          - generic [ref=e304]:
+            - button "Add to Inquiry" [ref=e305] [cursor=pointer]:
+              - img [ref=e306]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e309] [cursor=pointer]:
+              - img [ref=e310]
+              - text: View 3D
+      - generic [ref=e314]:
+        - generic [ref=e315]:
+          - img "Red Glaze Decorative Plate" [ref=e316]
+          - generic [ref=e317]: Ceramics
+          - generic [ref=e318]: Customizable
+        - generic [ref=e319]:
+          - heading "Red Glaze Decorative Plate" [level=3] [ref=e320]
+          - paragraph [ref=e321]: 红釉装饰盘
+          - paragraph [ref=e322]: Collector-grade red glaze decorative plate. High-fire kiln technique, vibrant oxblood red finish.
+          - generic [ref=e323]:
+            - generic [ref=e324]: "MOQ: 200"
+            - generic [ref=e325]: High-Fire Porcelain
+          - generic [ref=e326]:
+            - button "Add to Inquiry" [ref=e327] [cursor=pointer]:
+              - img [ref=e328]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e331] [cursor=pointer]:
+              - img [ref=e332]
+              - text: View 3D
+      - generic [ref=e336]:
+        - generic [ref=e337]:
+          - img "Hotel Ceramic Tableware" [ref=e338]
+          - generic [ref=e339]: Ceramics
+          - generic [ref=e340]: Customizable
+        - generic [ref=e341]:
+          - heading "Hotel Ceramic Tableware" [level=3] [ref=e342]
+          - paragraph [ref=e343]: 酒店陶瓷餐具
+          - paragraph [ref=e344]: Vitrified hotel-grade ceramic tableware set. Chip-resistant, stackable, commercial-use certified.
+          - generic [ref=e345]:
+            - generic [ref=e346]: "MOQ: 500"
+            - generic [ref=e347]: Vitrified Ceramic
+          - generic [ref=e348]:
+            - button "Add to Inquiry" [ref=e349] [cursor=pointer]:
+              - img [ref=e350]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e353] [cursor=pointer]:
+              - img [ref=e354]
+              - text: View 3D
+      - generic [ref=e358]:
+        - generic [ref=e359]:
+          - img "Clear Glass Cup Set" [ref=e360]
+          - generic [ref=e361]: Glass
+        - generic [ref=e362]:
+          - heading "Clear Glass Cup Set" [level=3] [ref=e363]
+          - paragraph [ref=e364]: 透明玻璃杯套装
+          - paragraph [ref=e365]: Set of 6 lead-free crystal-clear glass cups. Perfect for water, juice, and cocktails. Bar and home grade.
+          - generic [ref=e366]:
+            - generic [ref=e367]: "MOQ: 500"
+            - generic [ref=e368]: Lead-free Glass
+          - generic [ref=e369]:
+            - button "Add to Inquiry" [ref=e370] [cursor=pointer]:
+              - img [ref=e371]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e374] [cursor=pointer]:
+              - img [ref=e375]
+              - text: View 3D
+      - generic [ref=e379]:
+        - generic [ref=e380]:
+          - img "Glass Storage Jar" [ref=e381]
+          - generic [ref=e382]: Glass
+          - generic [ref=e383]: Customizable
+        - generic [ref=e384]:
+          - heading "Glass Storage Jar" [level=3] [ref=e385]
+          - paragraph [ref=e386]: 玻璃储物罐
+          - paragraph [ref=e387]: Airtight glass storage jar with bamboo lid. Food-safe, BPA-free. Available in 500ml, 1L, and 1.5L.
+          - generic [ref=e388]:
+            - generic [ref=e389]: "MOQ: 300"
+            - generic [ref=e390]: Borosilicate Glass + Bamboo
+          - generic [ref=e391]:
+            - button "Add to Inquiry" [ref=e392] [cursor=pointer]:
+              - img [ref=e393]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e396] [cursor=pointer]:
+              - img [ref=e397]
+              - text: View 3D
+      - generic [ref=e401]:
+        - generic [ref=e402]:
+          - img "Glass Fruit Bowl" [ref=e403]
+          - generic [ref=e404]: Glass
+        - generic [ref=e405]:
+          - heading "Glass Fruit Bowl" [level=3] [ref=e406]
+          - paragraph [ref=e407]: 玻璃果盘
+          - paragraph [ref=e408]: Large decorative glass fruit bowl with frosted rim detail. Modern design, ideal table centrepiece.
+          - generic [ref=e409]:
+            - generic [ref=e410]: "MOQ: 200"
+            - generic [ref=e411]: Float Glass
+          - generic [ref=e412]:
+            - button "Add to Inquiry" [ref=e413] [cursor=pointer]:
+              - img [ref=e414]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e417] [cursor=pointer]:
+              - img [ref=e418]
+              - text: View 3D
+      - generic [ref=e422]:
+        - generic [ref=e423]:
+          - img "Decorative Glass Vase" [ref=e424]
+          - generic [ref=e425]: Glass
+          - generic [ref=e426]: Customizable
+        - generic [ref=e427]:
+          - heading "Decorative Glass Vase" [level=3] [ref=e428]
+          - paragraph [ref=e429]: 玻璃花瓶
+          - paragraph [ref=e430]: Hand-blown glass vase with gradient color. Each piece unique. Height 30cm. Interior and hospitality use.
+          - generic [ref=e431]:
+            - generic [ref=e432]: "MOQ: 200"
+            - generic [ref=e433]: Hand-blown Glass
+          - generic [ref=e434]:
+            - button "Add to Inquiry" [ref=e435] [cursor=pointer]:
+              - img [ref=e436]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e439] [cursor=pointer]:
+              - img [ref=e440]
+              - text: View 3D
+      - generic [ref=e444]:
+        - generic [ref=e445]:
+          - img "Wall Bathroom Mirror" [ref=e446]
+          - generic [ref=e447]: Bathroom
+          - generic [ref=e448]: Customizable
+        - generic [ref=e449]:
+          - heading "Wall Bathroom Mirror" [level=3] [ref=e450]
+          - paragraph [ref=e451]: 浴室镜
+          - paragraph [ref=e452]: HD silver wall bathroom mirror with solid walnut frame. 60×80cm, moisture-resistant, hotel-fitout grade.
+          - generic [ref=e453]:
+            - generic [ref=e454]: "MOQ: 100"
+            - generic [ref=e455]: HD Silver Mirror + Solid Wood
+          - generic [ref=e456]:
+            - button "Add to Inquiry" [ref=e457] [cursor=pointer]:
+              - img [ref=e458]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e461] [cursor=pointer]:
+              - img [ref=e462]
+              - text: View 3D
+      - generic [ref=e466]:
+        - generic [ref=e467]:
+          - img "Scented Bath Set" [ref=e468]
+          - generic [ref=e469]: Bathroom
+          - generic [ref=e470]: Customizable
+        - generic [ref=e471]:
+          - heading "Scented Bath Set" [level=3] [ref=e472]
+          - paragraph [ref=e473]: 香氛沐浴套装
+          - paragraph [ref=e474]: "5-piece luxury scented bath set: shower gel, shampoo, conditioner, body lotion, and soap bar."
+          - generic [ref=e475]:
+            - generic [ref=e476]: "MOQ: 500"
+            - generic [ref=e477]: Natural Botanical Formula
+          - generic [ref=e478]:
+            - button "Add to Inquiry" [ref=e479] [cursor=pointer]:
+              - img [ref=e480]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e483] [cursor=pointer]:
+              - img [ref=e484]
+              - text: View 3D
+      - generic [ref=e488]:
+        - generic [ref=e489]:
+          - img "Paper Towel Pack" [ref=e490]
+          - generic [ref=e491]: Bathroom
+          - generic [ref=e492]: Customizable
+        - generic [ref=e493]:
+          - heading "Paper Towel Pack" [level=3] [ref=e494]
+          - paragraph [ref=e495]: 纸巾套装
+          - paragraph [ref=e496]: Premium 3-ply facial tissue and paper towel combination pack. Soft, strong, individually wrapped.
+          - generic [ref=e497]:
+            - generic [ref=e498]: "MOQ: 5 000"
+            - generic [ref=e499]: Virgin Wood Pulp
+          - generic [ref=e500]:
+            - button "Add to Inquiry" [ref=e501] [cursor=pointer]:
+              - img [ref=e502]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e505] [cursor=pointer]:
+              - img [ref=e506]
+              - text: View 3D
+      - generic [ref=e510]:
+        - generic [ref=e511]:
+          - img "Disposable Bathroom Amenities" [ref=e512]
+          - generic [ref=e513]: Bathroom
+          - generic [ref=e514]: Customizable
+        - generic [ref=e515]:
+          - heading "Disposable Bathroom Amenities" [level=3] [ref=e516]
+          - paragraph [ref=e517]: 一次性浴室用品
+          - paragraph [ref=e518]: "Hotel-grade disposable bathroom amenity kit: toothbrush, comb, slipper, soap. Per-room packaging."
+          - generic [ref=e519]:
+            - generic [ref=e520]: "MOQ: 1 000"
+            - generic [ref=e521]: Mixed / Hotel-grade
+          - generic [ref=e522]:
+            - button "Add to Inquiry" [ref=e523] [cursor=pointer]:
+              - img [ref=e524]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e527] [cursor=pointer]:
+              - img [ref=e528]
+              - text: View 3D
+      - generic [ref=e532]:
+        - generic [ref=e533]:
+          - img "Ceramic Home Ornament" [ref=e534]
+          - generic [ref=e535]: Home Decor
+          - generic [ref=e536]: Customizable
+        - generic [ref=e537]:
+          - heading "Ceramic Home Ornament" [level=3] [ref=e538]
+          - paragraph [ref=e539]: 陶瓷家居摆件
+          - paragraph [ref=e540]: Handcrafted ceramic ornament set — rabbit, mushroom, and cloud forms. Matte finish, gift-ready packaging.
+          - generic [ref=e541]:
+            - generic [ref=e542]: "MOQ: 200"
+            - generic [ref=e543]: High-Fire Ceramic
+          - generic [ref=e544]:
+            - button "Add to Inquiry" [ref=e545] [cursor=pointer]:
+              - img [ref=e546]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e549] [cursor=pointer]:
+              - img [ref=e550]
+              - text: View 3D
+      - generic [ref=e554]:
+        - generic [ref=e555]:
+          - img "Decorative Wall Painting" [ref=e556]
+          - generic [ref=e557]: Home Decor
+          - generic [ref=e558]: Customizable
+        - generic [ref=e559]:
+          - heading "Decorative Wall Painting" [level=3] [ref=e560]
+          - paragraph [ref=e561]: 装饰画
+          - paragraph [ref=e562]: Abstract silk-screen print on heavyweight 300gsm art paper. Ready-to-frame. 50×70cm limited edition.
+          - generic [ref=e563]:
+            - generic [ref=e564]: "MOQ: 300"
+            - generic [ref=e565]: Art Paper + Silk Screen
+          - generic [ref=e566]:
+            - button "Add to Inquiry" [ref=e567] [cursor=pointer]:
+              - img [ref=e568]
+              - text: Add to Inquiry
+            - button "View 3D" [ref=e571] [cursor=pointer]:
+              - img [ref=e572]
+              - text: View 3D
+  - generic [ref=e576]:
+    - generic [ref=e577]:
+      - paragraph [ref=e578]: 3D Interactive
+      - heading "Explore Domestic Goods in 3D" [level=2] [ref=e579]
+      - paragraph [ref=e580]: Interactive 3D previews — rotate, zoom, and explore each product from every angle
+    - generic [ref=e581]:
+      - generic [ref=e584]: Loading 3D model…
+      - generic [ref=e585]:
+        - generic [ref=e586]:
+          - button "Ceramic Bowl" [ref=e587] [cursor=pointer]
+          - button "Glass Cup" [ref=e588] [cursor=pointer]
+          - button "Stainless Steel Kettle" [ref=e589] [cursor=pointer]
+          - button "Bathroom Mirror" [ref=e590] [cursor=pointer]
+          - button "Decorative Vase" [ref=e591] [cursor=pointer]
+        - generic [ref=e592]:
+          - heading "Ceramic Bowl" [level=3] [ref=e593]
+          - paragraph [ref=e594]: Handcrafted ceramic bowl with traditional glaze technique. Perfect for upscale table settings and hotel F&B programs.
+          - generic [ref=e595]:
+            - paragraph [ref=e596]: Materials
+            - generic [ref=e597]:
+              - generic [ref=e598]: Ceramic
+              - generic [ref=e599]: Food-safe Glaze
+              - generic [ref=e600]: Lead-free
+          - generic [ref=e601]:
+            - paragraph [ref=e602]: Customization Options
+            - generic [ref=e603]:
+              - generic [ref=e604]: Custom color
+              - generic [ref=e605]: Logo engraving
+              - generic [ref=e606]: Bulk packaging
+          - generic [ref=e607]:
+            - button "Request Sample" [ref=e608] [cursor=pointer]
+            - button "Get OEM Quote" [ref=e609] [cursor=pointer]
+  - generic [ref=e611]:
+    - generic [ref=e612]:
+      - paragraph [ref=e613]: OEM / ODM
+      - heading "OEM / ODM Customization Services" [level=2] [ref=e614]
+      - paragraph [ref=e615]: End-to-end manufacturing customization for global brands, hotel groups, and retail chains
+    - generic [ref=e616]:
+      - generic [ref=e617]:
+        - img [ref=e619]
+        - heading "Logo & Packaging Customization" [level=3] [ref=e623]
+        - paragraph [ref=e624]: Full branding solutions including custom packaging design, private labels, and complete brand identity programs.
+      - generic [ref=e625]:
+        - img [ref=e627]
+        - heading "Material & Finish Selection" [level=3] [ref=e631]
+        - paragraph [ref=e632]: Choose from premium materials and surface finishes — matte, gloss, anodized, electroplated — for your target market.
+      - generic [ref=e633]:
+        - img [ref=e635]
+        - heading "Shape & Mold Development" [level=3] [ref=e638]
+        - paragraph [ref=e639]: Custom shape design and mold fabrication for exclusive product lines. From sketch to production-ready mold.
+      - generic [ref=e640]:
+        - img [ref=e642]
+        - heading "Hotel & Retail Supply Programs" [level=3] [ref=e646]
+        - paragraph [ref=e647]: Specialized bulk supply programs for hospitality chains and retail networks, with flexible MOQ tiers.
+      - generic [ref=e648]:
+        - img [ref=e650]
+        - heading "Quality Inspection" [level=3] [ref=e653]
+        - paragraph [ref=e654]: Rigorous multi-stage quality control with international standard certification — ISO, SGS, BSCI available.
+      - generic [ref=e655]:
+        - img [ref=e657]
+        - heading "Export Documentation" [level=3] [ref=e660]
+        - paragraph [ref=e661]: Complete export documentation support including customs declarations, compliance certificates, and freight coordination.
+    - generic [ref=e662]:
+      - heading "Our Process" [level=3] [ref=e663]
+      - generic [ref=e664]:
+        - generic [ref=e665]:
+          - generic [ref=e666]: "1"
+          - paragraph [ref=e667]: Product Requirement
+        - generic [ref=e668]:
+          - generic [ref=e669]: "2"
+          - paragraph [ref=e670]: Sample Development
+        - generic [ref=e671]:
+          - generic [ref=e672]: "3"
+          - paragraph [ref=e673]: Quotation & Confirmation
+        - generic [ref=e674]:
+          - generic [ref=e675]: "4"
+          - paragraph [ref=e676]: Mass Production
+        - generic [ref=e677]:
+          - generic [ref=e678]: "5"
+          - paragraph [ref=e679]: Quality Inspection
+        - generic [ref=e680]:
+          - generic [ref=e681]: "6"
+          - paragraph [ref=e682]: Export Delivery
+  - generic [ref=e684]:
+    - generic [ref=e685]:
+      - paragraph [ref=e686]: Inquiry
+      - heading "Get Your Custom Sourcing Plan" [level=2] [ref=e687]
+      - paragraph [ref=e688]: Tell us what you need and our sourcing team will create a tailored plan within 24 hours
+    - generic [ref=e689]:
+      - generic [ref=e690]:
+        - generic [ref=e691]:
+          - generic [ref=e692]: Name
+          - textbox "Your full name" [ref=e693]
+        - generic [ref=e694]:
+          - generic [ref=e695]: Company
+          - textbox "Your company name" [ref=e696]
+        - generic [ref=e697]:
+          - generic [ref=e698]: Email
+          - textbox "your@email.com" [ref=e699]
+        - generic [ref=e700]:
+          - generic [ref=e701]: WhatsApp / WeChat
+          - textbox "+1 234 567 8900" [ref=e702]
+        - generic [ref=e703]:
+          - generic [ref=e704]: Product Category
+          - combobox [ref=e705]:
+            - option "Select a category" [selected]
+            - option "Cooking Utensils"
+            - option "Ceramics"
+            - option "Glass Products"
+            - option "Bathroom Supplies"
+            - option "Home Decoration"
+        - generic [ref=e706]:
+          - generic [ref=e707]: Estimated Quantity
+          - textbox "e.g. 1,000 units" [ref=e708]
+        - generic [ref=e709]:
+          - generic [ref=e710]: Destination Country
+          - textbox "e.g. United States" [ref=e711]
+        - generic [ref=e712]:
+          - generic [ref=e713]: Requirements
+          - textbox "Describe your sourcing requirements, product specs, packaging preferences..." [ref=e714]
+      - button "Submit Inquiry" [ref=e715] [cursor=pointer]
+  - generic [ref=e717]:
+    - generic [ref=e718]:
+      - generic [ref=e719]:
+        - heading "DOMESTIC GOODS ATLAS" [level=3] [ref=e720]
+        - paragraph [ref=e722]: Premium domestic goods from China, crafted for the world.
+      - generic [ref=e723]:
+        - heading "Categories" [level=4] [ref=e724]
+        - list [ref=e725]:
+          - listitem [ref=e726]:
+            - link "Cooking Utensils" [ref=e727] [cursor=pointer]:
+              - /url: "#catalogue"
+          - listitem [ref=e728]:
+            - link "Ceramics" [ref=e729] [cursor=pointer]:
+              - /url: "#catalogue"
+          - listitem [ref=e730]:
+            - link "Glass Products" [ref=e731] [cursor=pointer]:
+              - /url: "#catalogue"
+          - listitem [ref=e732]:
+            - link "Bathroom Supplies" [ref=e733] [cursor=pointer]:
+              - /url: "#catalogue"
+          - listitem [ref=e734]:
+            - link "Home Decoration" [ref=e735] [cursor=pointer]:
+              - /url: "#catalogue"
+      - generic [ref=e736]:
+        - heading "Services" [level=4] [ref=e737]
+        - list [ref=e738]:
+          - listitem [ref=e739]:
+            - link "OEM/ODM Services" [ref=e740] [cursor=pointer]:
+              - /url: "#oem"
+          - listitem [ref=e741]:
+            - link "Product Sourcing" [ref=e742] [cursor=pointer]:
+              - /url: "#oem"
+          - listitem [ref=e743]:
+            - link "Quality Inspection" [ref=e744] [cursor=pointer]:
+              - /url: "#oem"
+          - listitem [ref=e745]:
+            - link "Export Documentation" [ref=e746] [cursor=pointer]:
+              - /url: "#oem"
+          - listitem [ref=e747]:
+            - link "Sample Program" [ref=e748] [cursor=pointer]:
+              - /url: "#oem"
+      - generic [ref=e749]:
+        - heading "Contact" [level=4] [ref=e750]
+        - generic [ref=e751]:
+          - generic [ref=e752]:
+            - img [ref=e753]
+            - generic [ref=e756]: atlas@steez.digital
+          - generic [ref=e757]:
+            - img [ref=e758]
+            - generic [ref=e760]: +86 138 0000 0000
+          - generic [ref=e761]:
+            - img [ref=e762]
+            - generic [ref=e765]: Shenzhen, Guangdong, China
+    - generic [ref=e766]:
+      - paragraph [ref=e767]: © 2024 Domestic Goods Atlas. All rights reserved.
+      - paragraph [ref=e768]: Made by steez.digital

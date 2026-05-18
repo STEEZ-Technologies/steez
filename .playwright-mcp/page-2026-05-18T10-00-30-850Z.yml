@@ -1,0 +1,586 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "TECH ATLAS 电子电器全球数字展厅" [ref=e4] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e5]: TECH ATLAS
+        - generic [ref=e7]: 电子电器全球数字展厅
+      - generic [ref=e8]:
+        - link "首页" [ref=e9] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e10]: 首页
+        - link "产品目录" [ref=e11] [cursor=pointer]:
+          - /url: "#catalogue"
+          - generic [ref=e12]: 产品目录
+        - link "3D 展厅" [ref=e13] [cursor=pointer]:
+          - /url: "#showroom"
+          - generic [ref=e14]: 3D 展厅
+        - link "行业分类" [ref=e15] [cursor=pointer]:
+          - /url: "#categories"
+          - generic [ref=e16]: 行业分类
+        - link "OEM / ODM" [ref=e17] [cursor=pointer]:
+          - /url: "#oem"
+        - link "联系我们" [ref=e18] [cursor=pointer]:
+          - /url: "#inquiry"
+          - generic [ref=e19]: 联系我们
+      - generic [ref=e20]:
+        - button "中文" [ref=e21] [cursor=pointer]
+        - button "EN" [ref=e22] [cursor=pointer]
+        - button "◑" [ref=e23] [cursor=pointer]
+        - button "获取采购方案" [ref=e24] [cursor=pointer]
+  - generic:
+    - link "首页":
+      - /url: "#"
+      - generic: 首页
+    - link "产品目录":
+      - /url: "#catalogue"
+      - generic: 产品目录
+    - link "3D 展厅":
+      - /url: "#showroom"
+      - generic: 3D 展厅
+    - link "行业分类":
+      - /url: "#categories"
+      - generic: 行业分类
+    - link "OEM / ODM":
+      - /url: "#oem"
+    - link "联系我们":
+      - /url: "#inquiry"
+      - generic: 联系我们
+    - button "获取采购方案"
+  - generic [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e30]: 五、电子电器 · 全球数字展厅
+        - heading "TECH ATLAS" [level=1] [ref=e31]:
+          - text: TECH
+          - text: ATLAS
+        - paragraph [ref=e32]: 电子电器全球数字展厅
+        - paragraph [ref=e33]: 覆盖小家电、理美容仪器、按摩仪器、艺术灯具及电子消费品，支持 OEM / ODM 定制与全球批量采购。
+        - generic [ref=e34]:
+          - button "浏览产品目录" [ref=e35] [cursor=pointer]:
+            - generic [ref=e36]: 浏览产品目录
+            - img [ref=e37]
+          - button "进入3D展厅" [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]: 进入3D展厅
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e45]: 电吹风
+          - generic [ref=e46]: Hair Dryer
+          - generic [ref=e47]: 小家电
+        - generic [ref=e48]:
+          - generic [ref=e51]: 智能音箱
+          - generic [ref=e52]: Smart Speaker
+          - generic [ref=e53]: 电子消费品
+        - generic [ref=e54]:
+          - generic [ref=e57]: 艺术台灯
+          - generic [ref=e58]: Art Table Lamp
+          - generic [ref=e59]: 艺术灯具
+        - generic [ref=e60]:
+          - generic [ref=e63]: 无线耳机
+          - generic [ref=e64]: Wireless Headphones
+          - generic [ref=e65]: 电子消费品
+        - generic [ref=e66]:
+          - generic [ref=e69]: 移动电源
+          - generic [ref=e70]: Power Bank
+          - generic [ref=e71]: 电子消费品
+    - generic [ref=e73]:
+      - generic [ref=e74]:
+        - generic [ref=e76]: 3+
+        - generic [ref=e77]: 产品大类
+        - generic [ref=e78]: PRODUCT CATEGORIES
+      - generic [ref=e79]:
+        - generic [ref=e80]: 300+
+        - generic [ref=e81]: 产品类型
+        - generic [ref=e82]: PRODUCT TYPES
+      - generic [ref=e83]:
+        - generic [ref=e84]: OEM/ODM
+        - generic [ref=e85]: 定制服务
+        - generic [ref=e86]: CUSTOMIZATION READY
+      - generic [ref=e87]:
+        - generic [ref=e88]: 全球
+        - generic [ref=e89]: 出口支持
+        - generic [ref=e90]: GLOBAL EXPORT SUPPORT
+  - generic [ref=e92]:
+    - generic [ref=e93]:
+      - generic [ref=e94]: 行业分类 · 五、电子电器
+      - heading "产品分类" [level=2] [ref=e95]
+      - paragraph [ref=e96]: 三大产品类别，覆盖全球采购需求
+    - generic [ref=e97]:
+      - generic [ref=e98]:
+        - img [ref=e102]
+        - generic [ref=e113]:
+          - generic [ref=e114]: "5.1"
+          - generic [ref=e115]: 小家电 · 美容仪器
+          - generic [ref=e116]: Small Appliances & Beauty Instruments
+          - paragraph [ref=e117]: 涵盖各类小家电、理美容仪器及按摩仪器，满足家庭及个人护理采购需求。
+          - generic [ref=e118]:
+            - generic [ref=e119]: 小家电
+            - generic [ref=e120]: 理美容仪器
+            - generic [ref=e121]: 按摩仪器
+          - link "查看产品" [ref=e122] [cursor=pointer]:
+            - /url: "#catalogue"
+            - generic [ref=e123]: 查看产品
+            - img [ref=e124]
+      - generic [ref=e126]:
+        - img [ref=e130]
+        - generic [ref=e146]:
+          - generic [ref=e147]: "5.2"
+          - generic [ref=e148]: 艺术灯具
+          - generic [ref=e149]: Art Lighting
+          - paragraph [ref=e150]: 包括装饰灯、艺术灯具及智能灯光，适用于家居、酒店及商业空间采购。
+          - generic [ref=e151]:
+            - generic [ref=e152]: 装饰灯
+            - generic [ref=e153]: 艺术灯具
+            - generic [ref=e154]: 智能灯光
+          - link "查看产品" [ref=e155] [cursor=pointer]:
+            - /url: "#catalogue"
+            - generic [ref=e156]: 查看产品
+            - img [ref=e157]
+      - generic [ref=e159]:
+        - img [ref=e163]
+        - generic [ref=e179]:
+          - generic [ref=e180]: "5.3"
+          - generic [ref=e181]: 电子消费品
+          - generic [ref=e182]: Consumer Electronics & Accessories
+          - paragraph [ref=e183]: 涵盖电子消费品、信息产品及各类电子配件，适合零售、批发及品牌采购。
+          - generic [ref=e184]:
+            - generic [ref=e185]: 电子消费品
+            - generic [ref=e186]: 信息产品
+            - generic [ref=e187]: 电子配件
+          - link "查看产品" [ref=e188] [cursor=pointer]:
+            - /url: "#catalogue"
+            - generic [ref=e189]: 查看产品
+            - img [ref=e190]
+  - generic [ref=e193]:
+    - generic [ref=e194]:
+      - generic [ref=e195]: 产品目录
+      - heading "精选产品" [level=2] [ref=e196]
+      - paragraph [ref=e197]: 300+ 精选SKU，全系列支持OEM/ODM
+    - generic [ref=e198]:
+      - button "全部" [ref=e199] [cursor=pointer]
+      - button "小家电 / 美容仪器" [ref=e200] [cursor=pointer]
+      - button "艺术灯具" [ref=e201] [cursor=pointer]
+      - button "电子消费品" [ref=e202] [cursor=pointer]
+    - generic [ref=e203]:
+      - generic [ref=e204] [cursor=pointer]:
+        - generic [ref=e208]: OEM/ODM
+        - generic [ref=e209]:
+          - generic [ref=e210]: 小家电
+          - generic [ref=e211]: 电吹风
+          - generic [ref=e212]: Hair Dryer
+          - list [ref=e213]:
+            - listitem [ref=e214]: · 1800–2200W 专业功率
+            - text: ·
+            - listitem [ref=e215]: · 负离子护发 · 多档温控
+            - text: ·
+            - listitem [ref=e216]: · 支持定制色彩与Logo
+            - text: ·
+          - generic [ref=e217]:
+            - button "加入询盘" [ref=e218]
+            - button "详情" [ref=e219]
+      - generic [ref=e220] [cursor=pointer]:
+        - generic [ref=e223]:
+          - generic [ref=e224]: OEM/ODM
+          - generic [ref=e225]: 热门
+        - generic [ref=e226]:
+          - generic [ref=e227]: 按摩仪器
+          - generic [ref=e228]: 按摩仪
+          - generic [ref=e229]: Massage Device
+          - list [ref=e230]:
+            - listitem [ref=e231]: · 6档变速 · 3200转/分
+            - text: ·
+            - listitem [ref=e232]: · 超静音电机设计
+            - text: ·
+            - listitem [ref=e233]: · 支持附件更换与品牌定制
+            - text: ·
+          - generic [ref=e234]:
+            - button "加入询盘" [ref=e235]
+            - button "详情" [ref=e236]
+      - generic [ref=e237] [cursor=pointer]:
+        - generic [ref=e240]:
+          - generic [ref=e241]: OEM/ODM
+          - generic [ref=e242]: 新品
+        - generic [ref=e243]:
+          - generic [ref=e244]: 理美容仪器
+          - generic [ref=e245]: 美容仪
+          - generic [ref=e246]: Beauty Instrument
+          - list [ref=e247]:
+            - listitem [ref=e248]: · 射频+EMS多模式
+            - text: ·
+            - listitem [ref=e249]: · IPX6防水 · 玫瑰金配色
+            - text: ·
+            - listitem [ref=e250]: · 高端礼盒定制包装
+            - text: ·
+          - generic [ref=e251]:
+            - button "加入询盘" [ref=e252]
+            - button "详情" [ref=e253]
+      - generic [ref=e254] [cursor=pointer]:
+        - generic [ref=e258]: OEM/ODM
+        - generic [ref=e259]:
+          - generic [ref=e260]: 小家电
+          - generic [ref=e261]: 多功能料理机
+          - generic [ref=e262]: Multi-function Blender
+          - list [ref=e263]:
+            - listitem [ref=e264]: · 1200W高速电机
+            - text: ·
+            - listitem [ref=e265]: · 食品级PC杯体
+            - text: ·
+            - listitem [ref=e266]: · 多档调速 · BPA Free
+            - text: ·
+          - generic [ref=e267]:
+            - button "加入询盘" [ref=e268]
+            - button "详情" [ref=e269]
+      - generic [ref=e270] [cursor=pointer]:
+        - generic [ref=e274]: OEM/ODM
+        - generic [ref=e275]:
+          - generic [ref=e276]: 艺术灯具
+          - generic [ref=e277]: 装饰台灯
+          - generic [ref=e278]: Decorative Table Lamp
+          - list [ref=e279]:
+            - listitem [ref=e280]: · E27 · LED兼容
+            - text: ·
+            - listitem [ref=e281]: · 大理石 / 金属底座可选
+            - text: ·
+            - listitem [ref=e282]: · 家居 · 酒店工程款
+            - text: ·
+          - generic [ref=e283]:
+            - button "加入询盘" [ref=e284]
+            - button "详情" [ref=e285]
+      - generic [ref=e286] [cursor=pointer]:
+        - generic [ref=e289]:
+          - generic [ref=e290]: OEM/ODM
+          - generic [ref=e291]: 热门
+        - generic [ref=e292]:
+          - generic [ref=e293]: 艺术灯具
+          - generic [ref=e294]: 艺术吊灯
+          - generic [ref=e295]: Artistic Chandelier
+          - list [ref=e296]:
+            - listitem [ref=e297]: · 北欧 / 现代 / 奢华风格
+            - text: ·
+            - listitem [ref=e298]: · 金属 · 水晶 · 玻璃可选
+            - text: ·
+            - listitem [ref=e299]: · 酒店工程定制
+            - text: ·
+          - generic [ref=e300]:
+            - button "加入询盘" [ref=e301]
+            - button "详情" [ref=e302]
+      - generic [ref=e303] [cursor=pointer]:
+        - generic [ref=e306]:
+          - generic [ref=e307]: OEM/ODM
+          - generic [ref=e308]: 新品
+        - generic [ref=e309]:
+          - generic [ref=e310]: 智能灯光
+          - generic [ref=e311]: 智能灯光套装
+          - generic [ref=e312]: Smart Lighting Set
+          - list [ref=e313]:
+            - listitem [ref=e314]: · RGB+CCT全彩调光
+            - text: ·
+            - listitem [ref=e315]: · WiFi/蓝牙 · APP控制
+            - text: ·
+            - listitem [ref=e316]: · Matter · HomeKit · Alexa兼容
+            - text: ·
+          - generic [ref=e317]:
+            - button "加入询盘" [ref=e318]
+            - button "详情" [ref=e319]
+      - generic [ref=e320] [cursor=pointer]:
+        - generic [ref=e324]: OEM/ODM
+        - generic [ref=e325]:
+          - generic [ref=e326]: 艺术灯具
+          - generic [ref=e327]: 壁灯
+          - generic [ref=e328]: Wall Lamp
+          - list [ref=e329]:
+            - listitem [ref=e330]: · 工业风 / 北欧简约风格
+            - text: ·
+            - listitem [ref=e331]: · 黑色 · 金色 · 铜色可选
+            - text: ·
+            - listitem [ref=e332]: · IP44防护等级
+            - text: ·
+          - generic [ref=e333]:
+            - button "加入询盘" [ref=e334]
+            - button "详情" [ref=e335]
+      - generic [ref=e336] [cursor=pointer]:
+        - generic [ref=e340]: OEM/ODM
+        - generic [ref=e341]:
+          - generic [ref=e342]: 电子消费品
+          - generic [ref=e343]: 智能音箱
+          - generic [ref=e344]: Smart Speaker
+          - list [ref=e345]:
+            - listitem [ref=e346]: · 360° 环绕音场
+            - text: ·
+            - listitem [ref=e347]: · WiFi · 蓝牙5.0
+            - text: ·
+            - listitem [ref=e348]: · 语音助手集成 · OEM可定制
+            - text: ·
+          - generic [ref=e349]:
+            - button "加入询盘" [ref=e350]
+            - button "详情" [ref=e351]
+      - generic [ref=e352] [cursor=pointer]:
+        - generic [ref=e355]:
+          - generic [ref=e356]: OEM/ODM
+          - generic [ref=e357]: 热门
+        - generic [ref=e358]:
+          - generic [ref=e359]: 电子消费品
+          - generic [ref=e360]: 无线耳机
+          - generic [ref=e361]: Wireless Headphones
+          - list [ref=e362]:
+            - listitem [ref=e363]: · ANC主动降噪
+            - text: ·
+            - listitem [ref=e364]: · 蓝牙5.3 · 40h续航
+            - text: ·
+            - listitem [ref=e365]: · 折叠设计 · 定制颜色
+            - text: ·
+          - generic [ref=e366]:
+            - button "加入询盘" [ref=e367]
+            - button "详情" [ref=e368]
+      - generic [ref=e369] [cursor=pointer]:
+        - generic [ref=e373]: OEM/ODM
+        - generic [ref=e374]:
+          - generic [ref=e375]: 电子消费品
+          - generic [ref=e376]: 移动电源
+          - generic [ref=e377]: Power Bank
+          - list [ref=e378]:
+            - listitem [ref=e379]: · 65W PD快充 · 20000mAh
+            - text: ·
+            - listitem [ref=e380]: · USB-C × 2 + USB-A × 1
+            - text: ·
+            - listitem [ref=e381]: · 航空铝合金外壳 · 定制Logo
+            - text: ·
+          - generic [ref=e382]:
+            - button "加入询盘" [ref=e383]
+            - button "详情" [ref=e384]
+      - generic [ref=e385] [cursor=pointer]:
+        - generic [ref=e388]:
+          - generic [ref=e389]: OEM/ODM
+          - generic [ref=e390]: 新品
+        - generic [ref=e391]:
+          - generic [ref=e392]: 电子配件
+          - generic [ref=e393]: 数据线与充电设备
+          - generic [ref=e394]: Cables & Charging Devices
+          - list [ref=e395]:
+            - listitem [ref=e396]: · GaN 65W充电器
+            - text: ·
+            - listitem [ref=e397]: · 编织 USB-C · MagSafe兼容
+            - text: ·
+            - listitem [ref=e398]: · 全系支持定制包装
+            - text: ·
+          - generic [ref=e399]:
+            - button "加入询盘" [ref=e400]
+            - button "详情" [ref=e401]
+  - generic [ref=e404]:
+    - generic [ref=e406]:
+      - img [ref=e413]
+      - generic [ref=e424]:
+        - generic [ref=e425]: 展示产品 · 智能音箱
+        - generic [ref=e426]:
+          - generic [ref=e427]: 智能音箱 Pro
+          - generic [ref=e428]: 360° · BT 5.3
+        - generic [ref=e429]: 材质：ABS外壳 · 纤维编织 · 铝合金底座
+    - generic [ref=e434]:
+      - generic [ref=e435]: 沉浸式 · 3D 数字展厅
+      - heading "DIGITAL SHOWROOM" [level=2] [ref=e436]:
+        - text: DIGITAL
+        - text: SHOWROOM
+      - paragraph [ref=e437]: 沉浸式3D数字展厅
+      - paragraph [ref=e438]: 通过可视化3D模型与产品图片同步展示，让采购商直观了解产品设计与功能细节，无需亲临展会即可完成初步选品。
+      - list [ref=e439]:
+        - listitem [ref=e440]: 可视化3D模型 · 拖拽旋转与缩放
+        - listitem [ref=e441]: 材质 · 尺寸 · 功能参数同步展示
+        - listitem [ref=e442]: 支持定制款式预览
+        - listitem [ref=e443]: OEM/ODM 配置实时模拟
+      - button "申请展厅演示" [ref=e444] [cursor=pointer]:
+        - generic [ref=e445]: 申请展厅演示
+        - img [ref=e446]
+  - generic [ref=e449]:
+    - generic [ref=e450]:
+      - generic [ref=e451]:
+        - generic [ref=e452]: 定制服务
+        - heading "OEM / ODM" [level=2] [ref=e453]
+        - paragraph [ref=e454]: 全链路定制服务，从研发到出口
+      - button "获取定制方案" [ref=e456] [cursor=pointer]:
+        - generic [ref=e457]: 获取定制方案
+    - paragraph [ref=e458]: 我们为全球客户提供电子电器产品开发、来样定制、品牌贴牌、包装设计及批量采购支持。
+    - generic [ref=e459]:
+      - generic [ref=e460]:
+        - img [ref=e462]
+        - generic [ref=e465]: 来样定制
+        - generic [ref=e466]: Sample-based Customization
+        - paragraph [ref=e467]: 提供样品，我们按规格还原生产，并可改良工艺与外观设计，满足不同市场需求。
+      - generic [ref=e468]:
+        - img [ref=e470]
+        - generic [ref=e474]: 品牌贴牌
+        - generic [ref=e475]: Private Label
+        - paragraph [ref=e476]: 为您的品牌定制Logo、颜色和包装，完整品牌化交付，最小起订量灵活协商。
+      - generic [ref=e477]:
+        - img [ref=e479]
+        - generic [ref=e484]: 包装设计
+        - generic [ref=e485]: Packaging Design
+        - paragraph [ref=e486]: 从天地盖礼盒到彩箱包装，提供完整包装设计与打样服务，符合目标市场规范。
+      - generic [ref=e487]:
+        - img [ref=e489]
+        - generic [ref=e493]: 批量采购
+        - generic [ref=e494]: Bulk Sourcing
+        - paragraph [ref=e495]: 大批量采购享有优惠价格，支持混合SKU订单，提供专属采购顾问跟进服务。
+      - generic [ref=e496]:
+        - img [ref=e498]
+        - generic [ref=e501]: 出口支持
+        - generic [ref=e502]: Export Support
+        - paragraph [ref=e503]: 提供CE、FCC、RoHS等国际认证支持，报关文件协助，多种国际运输方案可选。
+      - generic [ref=e504]:
+        - img [ref=e506]
+        - generic [ref=e513]: 产品组合开发
+        - generic [ref=e514]: Collection Development
+        - paragraph [ref=e515]: 根据您的目标市场与价格区间，为您量身开发完整产品系列，覆盖多个品类。
+  - generic [ref=e518]:
+    - generic [ref=e519]:
+      - generic [ref=e520]:
+        - text: ●
+        - generic [ref=e521]: 24小时响应
+      - heading "GET YOUR SOURCING PLAN" [level=2] [ref=e522]:
+        - text: GET YOUR
+        - text: SOURCING
+        - text: PLAN
+      - paragraph [ref=e523]: 获取专属采购方案
+      - paragraph [ref=e524]: 填写采购需求，我们的专属采购团队将在24小时内与您联系，为您提供定制化电子电器采购方案。
+      - list [ref=e525]:
+        - listitem [ref=e526]:
+          - generic [ref=e527]: ✓
+          - generic [ref=e528]: 免费样品评估与报价
+        - listitem [ref=e529]:
+          - generic [ref=e530]: ✓
+          - generic [ref=e531]: OEM/ODM 全程服务支持
+        - listitem [ref=e532]:
+          - generic [ref=e533]: ✓
+          - generic [ref=e534]: CE / FCC / RoHS 认证协助
+        - listitem [ref=e535]:
+          - generic [ref=e536]: ✓
+          - generic [ref=e537]: 全球出口与报关文件支持
+        - listitem [ref=e538]:
+          - generic [ref=e539]: ✓
+          - generic [ref=e540]: 专属采购顾问 1v1 服务
+    - generic [ref=e542]:
+      - generic [ref=e543]:
+        - generic [ref=e544]:
+          - generic [ref=e545]: 姓名
+          - textbox "Your Name / 您的姓名" [ref=e546]
+        - generic [ref=e547]:
+          - generic [ref=e548]: 公司名称
+          - textbox "Company Name / 公司名称" [ref=e549]
+      - generic [ref=e550]:
+        - generic [ref=e551]:
+          - generic [ref=e552]: 邮箱
+          - textbox "email@company.com" [ref=e553]
+        - generic [ref=e554]:
+          - generic [ref=e555]: WhatsApp / WeChat
+          - textbox "+1 234 567 8901" [ref=e556]
+      - generic [ref=e557]:
+        - generic [ref=e558]:
+          - generic [ref=e559]: 国家
+          - textbox "Country / 国家" [ref=e560]
+        - generic [ref=e561]:
+          - generic [ref=e562]: 感兴趣品类
+          - combobox [ref=e563] [cursor=pointer]:
+            - option "— 请选择 / Select —" [selected]
+            - option "小家电 / Small Appliances & Beauty"
+            - option "艺术灯具 / Art Lighting"
+            - option "电子消费品 / Consumer Electronics"
+            - option "全部品类 / All Categories"
+      - generic [ref=e564]:
+        - generic [ref=e565]: 预计采购数量
+        - textbox "e.g. 500 pcs / 500件" [ref=e566]
+      - generic [ref=e567]:
+        - generic [ref=e568]: 采购需求
+        - textbox "请描述您的产品需求、规格要求或OEM/ODM意向 / Please describe your product requirements, specs, or OEM/ODM intent" [ref=e569]
+      - button "提交询盘" [ref=e570] [cursor=pointer]
+      - paragraph [ref=e571]: 我们将在24小时内联系您。
+  - contentinfo [ref=e572]:
+    - generic [ref=e573]:
+      - generic [ref=e574]:
+        - generic [ref=e575]:
+          - generic [ref=e576]: TECH ATLAS
+          - generic [ref=e577]: 电子电器全球数字展厅
+          - paragraph [ref=e578]: 为全球采购商打造高品质电子电器数字展厅，覆盖小家电、理美容仪器、按摩仪器、艺术灯具及电子消费品。
+          - generic [ref=e579]:
+            - generic [ref=e580]: 5.1 小家电
+            - generic [ref=e581]: 5.1 美容仪器
+            - generic [ref=e582]: 5.2 艺术灯具
+            - generic [ref=e583]: 5.3 电子消费品
+            - generic [ref=e584]: OEM/ODM
+          - paragraph [ref=e585]:
+            - text: 数字展厅由
+            - link "steez.digital" [ref=e586] [cursor=pointer]:
+              - /url: https://steez.digital
+        - generic [ref=e587]:
+          - generic [ref=e588]: 产品类别
+          - list [ref=e589]:
+            - listitem [ref=e590]:
+              - link "小家电 / 美容仪器 5.1" [ref=e591] [cursor=pointer]:
+                - /url: "#categories"
+                - text: 小家电 / 美容仪器
+                - generic [ref=e592]: "5.1"
+            - listitem [ref=e593]:
+              - link "艺术灯具 5.2" [ref=e594] [cursor=pointer]:
+                - /url: "#categories"
+                - text: 艺术灯具
+                - generic [ref=e595]: "5.2"
+            - listitem [ref=e596]:
+              - link "电子消费品 5.3" [ref=e597] [cursor=pointer]:
+                - /url: "#categories"
+                - text: 电子消费品
+                - generic [ref=e598]: "5.3"
+            - listitem [ref=e599]:
+              - link "全部产品" [ref=e600] [cursor=pointer]:
+                - /url: "#catalogue"
+        - generic [ref=e601]:
+          - generic [ref=e602]: OEM / ODM
+          - list [ref=e603]:
+            - listitem [ref=e604]:
+              - link "来样定制" [ref=e605] [cursor=pointer]:
+                - /url: "#oem"
+            - listitem [ref=e606]:
+              - link "品牌贴牌" [ref=e607] [cursor=pointer]:
+                - /url: "#oem"
+            - listitem [ref=e608]:
+              - link "包装设计" [ref=e609] [cursor=pointer]:
+                - /url: "#oem"
+            - listitem [ref=e610]:
+              - link "批量采购" [ref=e611] [cursor=pointer]:
+                - /url: "#oem"
+            - listitem [ref=e612]:
+              - link "出口支持" [ref=e613] [cursor=pointer]:
+                - /url: "#oem"
+        - generic [ref=e614]:
+          - generic [ref=e615]: 联系我们
+          - list [ref=e616]:
+            - listitem [ref=e617]:
+              - link "提交询盘" [ref=e618] [cursor=pointer]:
+                - /url: "#inquiry"
+            - listitem [ref=e619]:
+              - link "3D展厅演示" [ref=e620] [cursor=pointer]:
+                - /url: "#showroom"
+            - listitem [ref=e621]:
+              - link "WhatsApp" [ref=e622] [cursor=pointer]:
+                - /url: "#inquiry"
+            - listitem [ref=e623]:
+              - link "WeChat" [ref=e624] [cursor=pointer]:
+                - /url: "#inquiry"
+            - listitem [ref=e625]:
+              - link "Email" [ref=e626] [cursor=pointer]:
+                - /url: "#inquiry"
+      - generic [ref=e627]:
+        - generic [ref=e628]: © 2026 TECH ATLAS · 电子电器全球数字展厅 · 版权所有
+        - generic [ref=e629]: 五、电子电器 / Electronic Appliances & Electrical Products
+  - dialog:
+    - generic:
+      - button "Close": ✕
+      - generic:
+        - generic:
+          - generic: 拖动旋转
+        - generic:
+          - generic: 产品规格
+          - list
+          - generic: 材料 / 工艺
+          - generic:
+            - generic: MOQ
+          - generic:
+            - button "加入询盘 →":
+              - generic: 加入询盘 →

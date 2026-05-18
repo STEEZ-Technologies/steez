@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer/Footer";
 import HeroGeometric from "@/components/ui/hero-geometric";
 import PricingSection from "@/components/pricing/PricingSection";
 import { Services } from "@/components/services/Services";
+import { Portfolio } from "@/components/portfolio/Portfolio";
 import { Nav } from "@/components/hero/Nav";
 
 export default function Home() {
@@ -47,6 +48,7 @@ export default function Home() {
         />
 
         <Services />
+        <Portfolio />
         <Analytics />
         <PricingSection />
         <Contact />

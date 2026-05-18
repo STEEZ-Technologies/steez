@@ -1,0 +1,1 @@
+[    1271ms] [WARNING] THREE.FBXLoader: %s map is not supported in three.js, skipping texture. ShininessExponent @ https://unpkg.com/three@0.134.0/examples/js/loaders/FBXLoader.js:617
