@@ -68,7 +68,7 @@ export default function ProductCollection() {
               className={`text-sm font-sans font-medium px-5 py-2.5 rounded-full transition-all duration-200 ${
                 activeFilter === f.key
                   ? "bg-espresso text-cream shadow-md"
-                  : "bg-white text-espresso/55 hover:text-espresso border border-espresso/12 hover:border-espresso/30"
+                  : "bg-cream-dark text-espresso/55 hover:text-espresso border border-espresso/12 hover:border-espresso/30"
               }`}
             >
               {f.label}

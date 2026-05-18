@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,13 +11,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: "#FAF7F0",
-        espresso: "#2C1A0E",
-        "espresso-light": "#3D2A1A",
-        bronze: "#B8860B",
-        "bronze-light": "#C9A052",
-        "warm-brown": "#8B5E3C",
-        "cream-dark": "#F0EBE0",
+        cream:           "rgb(var(--color-cream) / <alpha-value>)",
+        espresso:        "rgb(var(--color-espresso) / <alpha-value>)",
+        "espresso-light":"rgb(var(--color-espresso-light) / <alpha-value>)",
+        bronze:          "rgb(var(--color-bronze) / <alpha-value>)",
+        "bronze-light":  "rgb(var(--color-bronze-light) / <alpha-value>)",
+        "warm-brown":    "rgb(var(--color-warm-brown) / <alpha-value>)",
+        "cream-dark":    "rgb(var(--color-cream-dark) / <alpha-value>)",
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],

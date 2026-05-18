@@ -1,13 +1,13 @@
 "use client";
-import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useTheme } from "@/hooks/useTheme";
 import type { Lang } from "@/lib/translations";
 
 export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
   const { scrollY } = useScroll();
   const bgOpacity = useTransform(scrollY, [0, 80], [0, 1]);
 
@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <motion.div
-        className="absolute inset-0 bg-cream/95 backdrop-blur-md border-b border-espresso/10"
+        className="absolute inset-0 bg-cream/95 backdrop-blur-md border-b border-espresso/10 transition-colors duration-300"
         style={{ opacity: bgOpacity }}
       />
 
@@ -77,44 +77,17 @@ export default function Navbar() {
             {t.nav.cta}
           </a>
 
-          {/* Hamburger */}
+          {/* Theme Toggle */}
           <button
-            className="lg:hidden p-1.5 text-espresso"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            onClick={toggleTheme}
+            className="p-1.5 rounded-full border border-espresso/30 text-espresso hover:bg-espresso/10 transition-colors duration-200"
+            aria-label="Toggle theme"
           >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          className="lg:hidden bg-cream/98 backdrop-blur-md border-b border-espresso/10 px-6 pb-6 pt-2"
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="block py-3 text-sm font-sans text-espresso/70 hover:text-espresso border-b border-espresso/8 last:border-0 transition-colors"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#inquiry"
-            className="mt-5 block text-center bg-bronze text-white text-sm font-sans font-semibold px-4 py-3 rounded-full"
-            onClick={() => setMenuOpen(false)}
-          >
-            {t.nav.cta}
-          </a>
-        </motion.div>
-      )}
     </header>
   );
 }

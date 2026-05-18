@@ -42,7 +42,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <>
       <motion.div
         whileHover={{ y: -6, transition: { duration: 0.28 } }}
-        className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
+        className="group bg-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
       >
         {/* Image */}
         <div className="relative h-52 overflow-hidden bg-cream-dark shrink-0">
@@ -69,7 +69,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {/* Customizable badge */}
           {product.customizable && (
             <div className="absolute top-3 right-3">
-              <span className="text-[11px] font-sans font-semibold text-bronze bg-white/90 rounded-full px-2.5 py-1 shadow-sm">
+              <span className="text-[11px] font-sans font-semibold text-bronze bg-cream/90 rounded-full px-2.5 py-1 shadow-sm">
                 {t.products.customizable}
               </span>
             </div>

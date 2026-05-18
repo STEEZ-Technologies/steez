@@ -3,19 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --cream: #FAF7F0;
-  --espresso: #2C1A0E;
-  --espresso-light: #3D2A1A;
-  --bronze: #B8860B;
-  --bronze-light: #C9A052;
-  --warm-brown: #8B5E3C;
-  --cream-dark: #F0EBE0;
+  --color-cream:           250 247 240;
+  --color-espresso:         44  26  14;
+  --color-espresso-light:   61  42  26;
+  --color-bronze:          184 134  11;
+  --color-bronze-light:    201 160  82;
+  --color-warm-brown:      139  94  60;
+  --color-cream-dark:      240 235 224;
+}
+
+.dark {
+  --color-cream:            26  14   6;
+  --color-espresso:        245 239 230;
+  --color-espresso-light:  232 221 208;
+  --color-cream-dark:       44  26  14;
+  --color-warm-brown:      196 154 114;
 }
 
 @layer base {
   body {
-    background-color: var(--cream);
-    color: var(--espresso);
+    background-color: rgb(var(--color-cream));
+    color: rgb(var(--color-espresso));
+    transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-tap-highlight-color: transparent;
   }
 

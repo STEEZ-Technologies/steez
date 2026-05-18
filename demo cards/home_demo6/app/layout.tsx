@@ -1,6 +1,7 @@
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const serif = Playfair_Display({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export default function RootLayout({
         className={`${serif.variable} ${sans.variable} font-sans bg-cream text-espresso min-h-screen`}
         suppressHydrationWarning
       >
-        <LanguageProvider>{children}</LanguageProvider>
+        <ThemeProvider><LanguageProvider>{children}</LanguageProvider></ThemeProvider>
       </body>
     </html>
   );

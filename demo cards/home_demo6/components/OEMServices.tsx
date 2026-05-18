@@ -53,7 +53,7 @@ export default function OEMServices() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
                 whileHover={{ y: -5, transition: { duration: 0.25 } }}
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="bg-cream rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="w-11 h-11 bg-bronze/10 rounded-xl flex items-center justify-center mb-5">
                   <Icon size={20} className="text-bronze" />

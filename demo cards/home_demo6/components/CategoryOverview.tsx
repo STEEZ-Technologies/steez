@@ -49,7 +49,7 @@ export default function CategoryOverview() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.09 }}
               whileHover={{ y: -8, transition: { duration: 0.28 } }}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="group bg-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer"
             >
               {/* Image */}
               <div className="relative h-52 overflow-hidden">

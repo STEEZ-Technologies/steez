@@ -75,7 +75,7 @@ export default function InquiryForm() {
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
           onSubmit={handleSubmit}
-          className="bg-white rounded-3xl p-8 md:p-12 shadow-sm"
+          className="bg-cream rounded-3xl p-8 md:p-12 shadow-sm"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
             {/* Name */}
@@ -181,7 +181,7 @@ export default function InquiryForm() {
               exit={{ scale: 0.88, opacity: 0 }}
               transition={{ type: "spring", stiffness: 320, damping: 28 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl p-12 max-w-sm w-full text-center shadow-2xl"
+              className="bg-cream rounded-3xl p-12 max-w-sm w-full text-center shadow-2xl"
             >
               <div className="w-16 h-16 bg-bronze/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={30} className="text-bronze" />

@@ -126,7 +126,7 @@ export default function Hero() {
           {t.hero.stats.map((stat, i) => (
             <div
               key={i}
-              className="bg-white/70 backdrop-blur-sm border border-espresso/10 rounded-2xl py-5 px-4 text-center shadow-sm"
+              className="bg-cream/70 backdrop-blur-sm border border-espresso/10 rounded-2xl py-5 px-4 text-center shadow-sm"
             >
               <div className="font-serif text-2xl md:text-3xl font-bold text-bronze leading-none mb-1.5">
                 {stat.value}
