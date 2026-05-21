@@ -41,7 +41,7 @@ export const PLANS: PLAN[] = [
     desc: "For serious exporters. Card, forms, four languages, and quarterly analytics.",
     monthlyPrice: 1280,
     annuallyPrice: 12800,
-    badge: "Most Chosen",
+    badge: "Most Popular",
     buttonText: "Get Standard",
     features: [
       "1 card + 5 digital forms",
@@ -84,7 +84,7 @@ export default function PricingSection() {
         borderTop: "1px solid var(--hairline)",
         borderTopLeftRadius: "var(--radius-cards)",
         borderTopRightRadius: "var(--radius-cards)",
-        padding: "var(--space-120) clamp(20px, 4vw, 40px)",
+        padding: "clamp(48px, 6vw, 80px) clamp(20px, 4vw, 40px)",
         position: "relative",
         zIndex: 6,
         transition: "background 0.4s ease, color 0.4s ease",
@@ -92,7 +92,7 @@ export default function PricingSection() {
     >
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "clamp(48px, 6vw, 80px)" }}>
+        <div style={{ textAlign: "center", marginBottom: "clamp(32px, 4vw, 56px)" }}>
           <div
             style={{
               fontWeight: 600,
@@ -219,7 +219,7 @@ export default function PricingSection() {
         {/* Trust strip */}
         <div
           style={{
-            marginTop: "var(--space-64)",
+            marginTop: "clamp(28px, 3.5vw, 48px)",
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
             gap: "var(--space-24)",
@@ -320,7 +320,13 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
         background: isFeatured ? "rgba(224,169,58,0.07)" : "var(--card-bg)",
         overflow: "visible",
         marginTop: plan.badge ? 14 : 0,
+        zIndex: isFeatured ? 2 : 1,
+        boxShadow: isFeatured
+          ? "0 40px 80px -20px rgba(224, 169, 58, 0.35), 0 20px 40px -25px rgba(0, 0, 0, 0.45)"
+          : "none",
         transition: "background 0.4s ease, border-color 0.4s ease",
+        scale: isFeatured ? 1.04 : 1,
+        translateY: isFeatured ? -16 : 0,
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",

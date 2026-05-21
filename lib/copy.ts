@@ -19,9 +19,9 @@ export const COPY = {
     items: [
       {
         n: "01",
-        en: "Smart Business Cards",
-        cn: "智能名片",
-        body: "Premium tactile cards in light or dark forest-green finish. Each carries an embedded QR that activates your full digital storefront in under three seconds. Designed in Hangzhou, printed on heavyweight uncoated stock, debossed wordmark.",
+        en: "Personal Digital Business Cards",
+        cn: "个人数字名片",
+        body: "Premium tactile cards in light or dark forest-green finish. Each carries an embedded QR that activates your full personal digital storefront in under three seconds. Designed in Hangzhou, printed on heavyweight uncoated stock, debossed wordmark.",
       },
       {
         n: "02",

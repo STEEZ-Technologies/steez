@@ -5,34 +5,23 @@ import { FadeIn } from "@/components/shared/FadeIn";
 import { motion, AnimatePresence } from "motion/react";
 import { Send } from "lucide-react";
 
-const INTERESTS = [
-  "Digital Business Cards",
-  "Digital Forms",
-  "Digital Catalogues",
-  "Full Package",
-  "Other",
-];
-
 const FIELD_STYLE: React.CSSProperties = {
   width: "100%",
-  background: "var(--bg)",
-  border: "1px solid var(--hairline)",
+  background: "rgba(4, 52, 44, 0.04)",
+  border: "1px solid rgba(4, 52, 44, 0.14)",
   borderRadius: "var(--radius-inputs)",
-  padding: "clamp(10px, 1.4vw, 14px) clamp(12px, 1.6vw, 16px)",
+  padding: "clamp(12px, 1.5vw, 16px) clamp(14px, 1.8vw, 18px)",
   color: "inherit",
-  fontSize: "clamp(0.85rem, 1.1vw, 0.95rem)",
+  fontSize: "clamp(0.9rem, 1.15vw, 1rem)",
   outline: "none",
   fontFamily: "inherit",
   boxSizing: "border-box",
-  transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+  transition: "border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease",
 };
 
 interface FormState {
   name: string;
-  company: string;
   email: string;
-  wechat: string;
-  interest: string;
   message: string;
 }
 
@@ -41,10 +30,7 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState<FormState>({
     name: "",
-    company: "",
     email: "",
-    wechat: "",
-    interest: "",
     message: "",
   });
 
@@ -101,7 +87,7 @@ export function Contact() {
         borderTop: "1px solid var(--hairline)",
         borderTopLeftRadius: "var(--radius-cards)",
         borderTopRightRadius: "var(--radius-cards)",
-        padding: "var(--space-120) clamp(20px, 4vw, 40px)",
+        padding: "clamp(48px, 6vw, 80px) clamp(20px, 4vw, 40px)",
         position: "relative",
         zIndex: 7,
         transition: "background 0.4s ease, color 0.4s ease",
@@ -110,7 +96,7 @@ export function Contact() {
       <FadeIn
         delay={0}
         y={30}
-        style={{ textAlign: "center", marginBottom: "clamp(48px, 6vw, 80px)" }}
+        style={{ textAlign: "center", marginBottom: "clamp(32px, 4vw, 56px)" }}
       >
         <div
           style={{
@@ -313,66 +299,34 @@ export function Contact() {
                   key="form"
                   exit={{ opacity: 0, scale: 0.95 }}
                   onSubmit={handleSubmit}
-                  style={{ display: "flex", flexDirection: "column", gap: 16 }}
+                  style={{ display: "flex", flexDirection: "column", gap: 18 }}
                 >
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                    <FormField 
-                      name="name" 
-                      placeholder="Name" 
-                      value={form.name} 
-                      onChange={handleChange} 
-                      onBlur={() => handleBlur("name")}
-                      error={touched.name ? errors.name : undefined}
-                      required 
-                    />
-                    <FormField 
-                      name="company" 
-                      placeholder="Company" 
-                      value={form.company} 
-                      onChange={handleChange} 
-                      onBlur={() => handleBlur("company")}
-                    />
-                  </div>
-                  <FormField 
-                    name="email" 
-                    type="email" 
-                    placeholder="Email" 
-                    value={form.email} 
-                    onChange={handleChange} 
+                  <FormField
+                    name="name"
+                    placeholder="Name"
+                    value={form.name}
+                    onChange={handleChange}
+                    onBlur={() => handleBlur("name")}
+                    error={touched.name ? errors.name : undefined}
+                    required
+                  />
+                  <FormField
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    value={form.email}
+                    onChange={handleChange}
                     onBlur={() => handleBlur("email")}
                     error={touched.email ? errors.email : undefined}
-                    required 
+                    required
                   />
-                  <FormField 
-                    name="wechat" 
-                    placeholder="WeChat ID" 
-                    value={form.wechat} 
-                    onChange={handleChange} 
-                    onBlur={() => handleBlur("wechat")}
-                  />
-                  
-                  <div style={{ position: "relative" }}>
-                    <select 
-                      name="interest" 
-                      value={form.interest} 
-                      onChange={handleChange} 
-                      style={{ ...FIELD_STYLE, appearance: "none" }}
-                    >
-                      <option value="" disabled>Interest</option>
-                      {INTERESTS.map((opt) => (
-                        <option key={opt} value={opt} style={{ background: "var(--bg)", color: "#04342C" }}>{opt}</option>
-                      ))}
-                    </select>
-                    <div style={{ position: "absolute", right: 16, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", opacity: 0.5, fontSize: "0.8rem" }}>▼</div>
-                  </div>
-
-                  <FormField 
-                    name="message" 
+                  <FormField
+                    name="message"
                     as="textarea"
-                    placeholder="Message" 
-                    rows={4} 
-                    value={form.message} 
-                    onChange={handleChange} 
+                    placeholder="Tell us about your business — products, target markets, what you need."
+                    rows={6}
+                    value={form.message}
+                    onChange={handleChange}
                     onBlur={() => handleBlur("message")}
                     error={touched.message ? errors.message : undefined}
                   />
@@ -412,7 +366,7 @@ export function Contact() {
         y={30}
         style={{
           maxWidth: 1100,
-          margin: "clamp(48px, 6vw, 80px) auto 0",
+          margin: "clamp(32px, 4vw, 56px) auto 0",
         }}
       >
         <div
@@ -491,24 +445,24 @@ export function Contact() {
   );
 }
 
-function FormField({ 
-  error, 
-  as = "input", 
-  ...props 
-}: { 
-  error?: string; 
-  as?: "input" | "textarea" 
-} & React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>) {
+function FormField({
+  error,
+  as = "input",
+  ...props
+}: {
+  error?: string;
+  as?: "input" | "textarea";
+} & React.InputHTMLAttributes<HTMLInputElement> & React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
   const Tag = as as any;
   
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 4, width: "100%" }}>
       <motion.div
-        animate={{ 
-          borderColor: error ? "#EF4444" : "var(--hairline)",
-          boxShadow: error ? "0 0 0 1px #EF4444" : "0 0 0 0px transparent" 
+        animate={{
+          borderColor: error ? "#EF4444" : "rgba(4, 52, 44, 0.14)",
+          boxShadow: error ? "0 0 0 1px #EF4444" : "0 0 0 0px transparent"
         }}
-        style={{ borderRadius: "var(--radius-inputs)", overflow: "hidden" }}
+        style={{ borderRadius: "var(--radius-inputs)", overflow: "hidden", border: "1px solid transparent" }}
       >
         <Tag
           {...props}

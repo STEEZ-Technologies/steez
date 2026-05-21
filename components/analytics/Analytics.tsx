@@ -62,7 +62,7 @@ export function Analytics() {
         borderTop: "1px solid var(--hairline)",
         borderTopLeftRadius: "var(--radius-cards)",
         borderTopRightRadius: "var(--radius-cards)",
-        padding: "var(--space-120) clamp(20px, 4vw, 40px)",
+        padding: "clamp(48px, 6vw, 80px) clamp(20px, 4vw, 40px)",
         position: "relative",
         zIndex: 4,
         transition: "background 0.4s ease, color 0.4s ease",
@@ -95,17 +95,16 @@ export function Analytics() {
             style={{
               fontFamily: "var(--font-stack-sans), sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(2.5rem, 6vw, 5rem)",
-              lineHeight: 1,
+              fontSize: "clamp(2.2rem, 4.6vw, 3.8rem)",
+              lineHeight: 1.02,
               letterSpacing: "-0.03em",
               color: "inherit",
               textTransform: "uppercase",
               margin: 0,
+              whiteSpace: "nowrap",
             }}
           >
-            Buyer
-            <br />
-            Intelligence
+            Buyer Intelligence
           </h2>
           <p
             style={{
@@ -203,6 +202,54 @@ export function Analytics() {
               transition: "background 0.4s ease",
             }}
           >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                paddingBottom: "clamp(12px, 1.4vw, 18px)",
+                borderBottom: "1px solid var(--hairline)",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "clamp(0.65rem, 0.9vw, 0.78rem)",
+                  fontWeight: 600,
+                  letterSpacing: "0.16em",
+                  textTransform: "uppercase",
+                  color: "inherit",
+                  opacity: 0.55,
+                }}
+              >
+                STEEZ Dashboard · Aurora Home
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <motion.span
+                  animate={{ opacity: [0.4, 1, 0.4] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: "50%",
+                    background: "#1D9E75",
+                    boxShadow: "0 0 0 4px rgba(29,158,117,0.18)",
+                    display: "inline-block",
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: "clamp(0.62rem, 0.85vw, 0.74rem)",
+                    fontWeight: 700,
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    color: "#1D9E75",
+                  }}
+                >
+                  Live
+                </span>
+              </div>
+            </div>
+
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
               {METRICS.map((m) => (
                 <div
