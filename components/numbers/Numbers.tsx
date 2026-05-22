@@ -3,22 +3,27 @@
 import { useRef } from "react";
 import NumberFlow from "@number-flow/react";
 import { motion, useInView } from "motion/react";
-
-const STATS = [
-  { value: 1247, accent: "+", label: "Buyer scans activated" },
-  { value: 38, accent: "", label: "Countries reached" },
-  { value: 90, accent: "", label: "Days to first results" },
-  { value: 3, accent: "", label: "Core product lines" },
-];
+import { useI18n } from "@/lib/i18n/useI18n";
 
 export function Numbers() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
+  const { dict } = useI18n();
+
+  const STATS = [
+    { value: 1247, accent: "+", label: dict.numbers.scans },
+    { value: 38, accent: "", label: dict.numbers.countries },
+    { value: 90, accent: "", label: dict.numbers.days },
+    { value: 3, accent: "", label: dict.numbers.lines },
+  ];
 
   return (
     <div
       style={{
         width: "100%",
+        maxWidth: 1200,
+        marginLeft: "auto",
+        marginRight: "auto",
         background: "transparent",
         borderTop: "1px solid var(--hairline)",
         borderBottom: "1px solid var(--hairline)",
@@ -27,11 +32,11 @@ export function Numbers() {
     >
       <div
         ref={ref}
-        className="grid grid-cols-2 md:grid-cols-4 max-w-[1200px] w-full mx-auto py-2"
+        className="grid grid-cols-2 md:grid-cols-4 w-full py-2"
       >
         {STATS.map((s, i) => (
           <motion.div
-            key={s.label}
+            key={i}
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}

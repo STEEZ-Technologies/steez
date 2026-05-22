@@ -18,7 +18,9 @@
       "mcp__playwright__browser_console_messages",
       "Bash(git stash *)",
       "Bash(xargs -I{} ps -p {} -o pid,command)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   },
   "enabledMcpjsonServers": [

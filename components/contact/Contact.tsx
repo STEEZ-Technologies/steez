@@ -5,6 +5,7 @@ import { FadeIn } from "@/components/shared/FadeIn";
 import { motion, AnimatePresence } from "motion/react";
 import { Send } from "lucide-react";
 import { useIsMobile } from "@/lib/useIsMobile";
+import { useI18n } from "@/lib/i18n/useI18n";
 
 const FIELD_STYLE: React.CSSProperties = {
   width: "100%",
@@ -28,6 +29,7 @@ interface FormState {
 
 export function Contact() {
   const isMobile = useIsMobile();
+  const { dict } = useI18n();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState<FormState>({
@@ -40,15 +42,15 @@ export function Contact() {
 
   const errors = useMemo(() => {
     const e: Partial<Record<keyof FormState, string>> = {};
-    if (!form.name.trim()) e.name = "Name is required";
+    if (!form.name.trim()) e.name = dict.contactBlock.form.errName;
     if (!form.email.trim()) {
-      e.email = "Email is required";
+      e.email = dict.contactBlock.form.errEmail;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      e.email = "Invalid email address";
+      e.email = dict.contactBlock.form.errEmailInvalid;
     }
-    if (!form.message.trim()) e.message = "Please leave a short message";
+    if (!form.message.trim()) e.message = dict.contactBlock.form.errMessage;
     return e;
-  }, [form]);
+  }, [form, dict]);
 
   function handleChange(
     e: React.ChangeEvent<
@@ -110,7 +112,7 @@ export function Contact() {
             marginBottom: "clamp(12px, 1.5vw, 20px)",
           }}
         >
-          06 — Contact
+          {dict.sections.contact.eyebrow}
         </div>
         <h2
           style={{
@@ -124,7 +126,7 @@ export function Contact() {
             margin: 0,
           }}
         >
-          Let&apos;s Talk
+          {dict.sections.contact.title}
         </h2>
       </FadeIn>
 
@@ -152,12 +154,12 @@ export function Contact() {
             }}
           >
             {[
-              { label: "Phone", value: "+86 755 8888 0000" },
-              { label: "Email", value: "hello@steez.cn" },
-              { label: "HQ", value: "Hangzhou, Zhejiang" },
-              { label: "Hours", value: "Mon–Sat 09:00–19:00 CST" },
-            ].map((row) => (
-              <div key={row.label}>
+              { label: dict.contactBlock.info.phone, value: dict.contactBlock.values.phone },
+              { label: dict.contactBlock.info.email, value: dict.contactBlock.values.email },
+              { label: dict.contactBlock.info.hq, value: dict.contactBlock.values.hq },
+              { label: dict.contactBlock.info.hours, value: dict.contactBlock.values.hours },
+            ].map((row, i) => (
+              <div key={i}>
                 <div
                   style={{
                     fontSize: "clamp(0.62rem, 0.85vw, 0.72rem)",
@@ -281,7 +283,7 @@ export function Contact() {
                       color: "inherit",
                     }}
                   >
-                    Message sent
+                    {dict.contactBlock.form.sentTitle}
                   </motion.div>
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
@@ -293,7 +295,7 @@ export function Contact() {
                       opacity: 0.5,
                     }}
                   >
-                    We&apos;ll be in touch within 24 hours.
+                    {dict.contactBlock.form.sentSub}
                   </motion.div>
                 </motion.div>
               ) : (
@@ -305,7 +307,7 @@ export function Contact() {
                 >
                   <FormField
                     name="name"
-                    placeholder="Name"
+                    placeholder={dict.contactBlock.form.name}
                     value={form.name}
                     onChange={handleChange}
                     onBlur={() => handleBlur("name")}
@@ -315,7 +317,7 @@ export function Contact() {
                   <FormField
                     name="email"
                     type="email"
-                    placeholder="Email"
+                    placeholder={dict.contactBlock.form.email}
                     value={form.email}
                     onChange={handleChange}
                     onBlur={() => handleBlur("email")}
@@ -325,7 +327,7 @@ export function Contact() {
                   <FormField
                     name="message"
                     as="textarea"
-                    placeholder="Tell us about your business — products, target markets, what you need."
+                    placeholder={dict.contactBlock.form.message}
                     rows={6}
                     value={form.message}
                     onChange={handleChange}
@@ -354,7 +356,7 @@ export function Contact() {
                       transition: "background 0.3s ease, color 0.4s ease",
                     }}
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? dict.contactBlock.form.sending : dict.contactBlock.form.send}
                   </motion.button>
                 </motion.form>
               )}
@@ -378,24 +380,12 @@ export function Contact() {
           }}
         >
           {[
-            {
-              k: "Response",
-              v: "Within 24 hrs",
-              d: "Every inquiry routed to a real account manager — no auto-replies, no bots.",
-            },
-            {
-              k: "Onboarding",
-              v: "7 days avg.",
-              d: "From signed brief to first scannable card in your buyer's hands.",
-            },
-            {
-              k: "Languages",
-              v: "EN · 中 · РУ · العربية",
-              d: "Native localization on every plan — copy reviewed by in-region editors.",
-            },
-          ].map((b) => (
+            dict.contactBlock.trust.response,
+            dict.contactBlock.trust.onboarding,
+            dict.contactBlock.trust.languages,
+          ].map((b, i) => (
             <div
-              key={b.k}
+              key={i}
               style={{
                 background: "var(--card-bg, #FFFFFF)",
                 border: "1px solid var(--hairline)",

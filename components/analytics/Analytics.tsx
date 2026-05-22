@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useScroll, useTransform, motion, useSpring } from "motion/react";
 import { useIsMobile } from "@/lib/useIsMobile";
+import { useI18n } from "@/lib/i18n/useI18n";
 
 const BAR_DATA = [
   { month: "Jan", value: 52 },
@@ -13,29 +14,34 @@ const BAR_DATA = [
   { month: "Jun", value: 100 },
 ];
 
-const METRICS = [
-  { label: "Total Scans", value: "1,247" },
-  { label: "Countries", value: "38" },
-  { label: "Avg. Session", value: "3m 42s" },
-];
+const METRIC_VALUES = ["1,247", "38", "3m 42s"];
 
-const REGIONS = [
-  { label: "Middle East", pct: 38 },
-  { label: "Russia", pct: 24 },
-  { label: "Europe", pct: 18 },
-  { label: "North America", pct: 12 },
-  { label: "South America", pct: 8 },
-];
-
-const FEATURES = [
-  { title: "Real-time scans", desc: "See every QR open within seconds, with device & locale fingerprinting." },
-  { title: "Heat-map regions", desc: "Drill into city-level demand and spot emerging buyer hubs early." },
-  { title: "Funnel exports", desc: "Push scan → form → reply data straight to your CRM via webhook." },
-];
+const REGION_PCTS = [38, 24, 18, 12, 8];
 
 export function Analytics() {
   const containerRef = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
+  const { dict } = useI18n();
+
+  const METRICS = [
+    { label: dict.analyticsBlock.metrics.totalScans, value: METRIC_VALUES[0] },
+    { label: dict.analyticsBlock.metrics.countries, value: METRIC_VALUES[1] },
+    { label: dict.analyticsBlock.metrics.avgSession, value: METRIC_VALUES[2] },
+  ];
+
+  const REGIONS = [
+    { label: dict.analyticsBlock.regions.me, pct: REGION_PCTS[0] },
+    { label: dict.analyticsBlock.regions.ru, pct: REGION_PCTS[1] },
+    { label: dict.analyticsBlock.regions.eu, pct: REGION_PCTS[2] },
+    { label: dict.analyticsBlock.regions.na, pct: REGION_PCTS[3] },
+    { label: dict.analyticsBlock.regions.sa, pct: REGION_PCTS[4] },
+  ];
+
+  const FEATURES = [
+    { title: dict.analyticsBlock.features.realtime.title, desc: dict.analyticsBlock.features.realtime.desc },
+    { title: dict.analyticsBlock.features.heatmap.title, desc: dict.analyticsBlock.features.heatmap.desc },
+    { title: dict.analyticsBlock.features.funnel.title, desc: dict.analyticsBlock.features.funnel.desc },
+  ];
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -91,7 +97,7 @@ export function Analytics() {
               marginBottom: "clamp(16px, 2vw, 24px)",
             }}
           >
-            03 — Data &amp; Analytics
+            {dict.sections.analytics.eyebrow}
           </div>
           <h2
             style={{
@@ -106,7 +112,7 @@ export function Analytics() {
               whiteSpace: isMobile ? "normal" : "nowrap",
             }}
           >
-            Buyer Intelligence
+            {dict.sections.analytics.title}
           </h2>
           <p
             style={{
@@ -119,10 +125,7 @@ export function Analytics() {
               maxWidth: 480,
             }}
           >
-            Every scan, dwell-time, and region tracked. Your STEEZ dashboard
-            shows exactly who opened your card, how long they spent, and where
-            in the world they are — so you know which markets are heating up
-            before your competitors do.
+            {dict.sections.analytics.body}
           </p>
 
           <div
@@ -136,7 +139,7 @@ export function Analytics() {
           >
             {FEATURES.map((f, i) => (
               <motion.div
-                key={f.title}
+                key={i}
                 style={{
                   display: "flex",
                   gap: 14,
@@ -253,9 +256,9 @@ export function Analytics() {
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
-              {METRICS.map((m) => (
+              {METRICS.map((m, i) => (
                 <div
-                  key={m.label}
+                  key={i}
                   style={{
                     background: "var(--icon-bg, rgba(250,249,245,0.07))",
                     border: "1px solid var(--hairline)",
@@ -355,8 +358,8 @@ export function Analytics() {
                 Buyers by Region
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                {REGIONS.map((r) => (
-                  <div key={r.label} style={{ display: "flex", alignItems: "center", gap: isMobile ? 8 : 10 }}>
+                {REGIONS.map((r, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: isMobile ? 8 : 10 }}>
                     <div
                       style={{
                         width: isMobile ? 88 : 110,
@@ -389,7 +392,7 @@ export function Analytics() {
                     <div
                       style={{
                         width: 34,
-                        textAlign: "right",
+                        textAlign: "end",
                         fontSize: "clamp(0.68rem, 0.9vw, 0.78rem)",
                         color: "inherit",
                         opacity: 0.5,

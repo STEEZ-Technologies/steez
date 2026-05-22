@@ -7,9 +7,17 @@ import { COPY } from "@/lib/copy";
 import { NavLabel } from "@/components/shared/NavLabel";
 import { STEEZWordmark } from "@/components/shared/STEEZWordmark";
 import { AnimatedThemeToggler } from "@/components/shared/AnimatedThemeToggler";
+import { LangSwitcher } from "@/components/shared/LangSwitcher";
 import { cn } from "@/lib/cn";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { useHaptic } from "@/lib/useHaptic";
+import { useI18n } from "@/lib/i18n/useI18n";
+
+const NAV_KEY_BY_HREF: Record<string, "pricing" | "cards" | "contact"> = {
+  "#pricing": "pricing",
+  "#services": "cards",
+  "#contact": "contact",
+};
 
 const SPRING = { type: "spring" as const, stiffness: 260, damping: 30 };
 
@@ -18,7 +26,9 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const isMobile = useIsMobile();
+  const { dict, lang } = useI18n();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 50);
@@ -36,7 +46,7 @@ export function Nav() {
     };
   }, [isOpen]);
 
-  const collapsed = scrolled && !hovered && !isOpen;
+  const collapsed = scrolled && !hovered && !isOpen && !langOpen;
   const expanded = !collapsed;
   const mobileHidden = isMobile && scrolled && !isOpen;
 
@@ -56,7 +66,6 @@ export function Nav() {
         )}
       >
         <motion.nav
-          layout
           transition={SPRING}
           onHoverStart={() => setHovered(true)}
           onHoverEnd={() => setHovered(false)}
@@ -95,21 +104,34 @@ export function Nav() {
                 animate={{ opacity: 1, width: "auto" }}
                 exit={{ opacity: 0, width: 0 }}
                 transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                className="hidden md:flex items-center gap-6 sm:gap-12 overflow-hidden"
+                style={{ overflowX: "hidden", overflowY: "visible" }}
+                className="hidden md:flex items-center gap-6 sm:gap-12"
               >
                 <ul className="list-none flex items-center gap-6 p-0 text-[13px] font-medium uppercase tracking-widest sm:gap-10 whitespace-nowrap">
-                  {COPY.nav.map((l) => (
-                    <li key={l.en} className="flex">
-                      <a
-                        href={l.href}
-                        className="rounded-sm transition-opacity duration-200 hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint"
-                      >
-                        <NavLabel en={l.en} cn={l.cn} />
-                      </a>
-                    </li>
-                  ))}
+                  {COPY.nav.map((l) => {
+                    const k = NAV_KEY_BY_HREF[l.href];
+                    const primary = k ? dict.nav[k] : l.en;
+                    const secondary = lang === "en" ? l.cn : null;
+                    return (
+                      <li key={l.href} className="flex">
+                        <a
+                          href={l.href}
+                          className="rounded-sm transition-opacity duration-200 hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint"
+                        >
+                          {secondary ? (
+                            <NavLabel en={primary} cn={secondary} />
+                          ) : (
+                            <span style={{ textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                              {primary}
+                            </span>
+                          )}
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 flex items-center gap-3">
+                  <LangSwitcher variant="compact" onOpenChange={setLangOpen} />
                   <AnimatedThemeToggler />
                 </div>
               </motion.div>
@@ -155,24 +177,31 @@ export function Nav() {
             className="fixed inset-0 z-[90] flex flex-col items-center justify-center bg-[var(--bg)]/95 backdrop-blur-lg px-6"
           >
             <ul className="list-none flex flex-col items-center gap-8 p-0 text-xl font-medium uppercase tracking-widest w-full">
-              {COPY.nav.map((l) => (
-                <motion.li
-                  key={l.en}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="flex w-full justify-center"
-                >
-                  <a
-                    href={l.href}
-                    onClick={() => setIsOpen(false)}
-                    className="flex flex-col items-center gap-1 rounded-sm py-2 transition-opacity duration-200 hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint"
+              {COPY.nav.map((l) => {
+                const k = NAV_KEY_BY_HREF[l.href];
+                const primary = k ? dict.nav[k] : l.en;
+                const secondary = lang === "en" ? l.cn : null;
+                return (
+                  <motion.li
+                    key={l.href}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="flex w-full justify-center"
                   >
-                    <span className="text-2xl">{l.en}</span>
-                    <span className="cn-text text-sm opacity-50" lang="zh">{l.cn}</span>
-                  </a>
-                </motion.li>
-              ))}
+                    <a
+                      href={l.href}
+                      onClick={() => setIsOpen(false)}
+                      className="flex flex-col items-center gap-1 rounded-sm py-2 transition-opacity duration-200 hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint"
+                    >
+                      <span className="text-2xl">{primary}</span>
+                      {secondary && (
+                        <span className="cn-text text-sm opacity-50" lang="zh">{secondary}</span>
+                      )}
+                    </a>
+                  </motion.li>
+                );
+              })}
               <motion.li
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -180,6 +209,14 @@ export function Nav() {
                   className="mt-4"
               >
                   <AnimatedThemeToggler />
+              </motion.li>
+              <motion.li
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25 }}
+                  className="mt-2 w-full flex justify-center"
+              >
+                  <LangSwitcher variant="stacked" />
               </motion.li>
             </ul>
           </motion.div>
@@ -190,14 +227,15 @@ export function Nav() {
 }
 
 const DOCK_ITEMS = [
-  { href: "#top", label: "Top", icon: Home },
-  { href: "#services", label: "Services", icon: LayoutGrid },
-  { href: "#pricing", label: "Pricing", icon: Tag },
-  { href: "#contact", label: "Contact", icon: Mail },
+  { href: "#top", key: "top" as const, icon: Home },
+  { href: "#services", key: "services" as const, icon: LayoutGrid },
+  { href: "#pricing", key: "pricing" as const, icon: Tag },
+  { href: "#contact", key: "contact" as const, icon: Mail },
 ];
 
 function BottomDock({ onAnyTap }: { onAnyTap: () => void }) {
   const haptic = useHaptic();
+  const { dict } = useI18n();
   const [active, setActive] = useState<string>("#top");
 
   useEffect(() => {
@@ -242,11 +280,12 @@ function BottomDock({ onAnyTap }: { onAnyTap: () => void }) {
       {DOCK_ITEMS.map((d) => {
         const Icon = d.icon;
         const isActive = active === d.href;
+        const label = dict.nav[d.key];
         return (
           <a
             key={d.href}
             href={d.href}
-            aria-label={d.label}
+            aria-label={label}
             aria-current={isActive ? "page" : undefined}
             onClick={() => {
               haptic(6);

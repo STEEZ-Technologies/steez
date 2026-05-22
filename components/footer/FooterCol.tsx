@@ -7,7 +7,7 @@ import { useIsMobile } from "@/lib/useIsMobile";
 
 type FooterColProps = {
   titleEn: string;
-  titleCn: string;
+  titleCn?: string;
   children: ReactNode;
   collapsible?: boolean;
 };
@@ -19,10 +19,15 @@ export function FooterCol({ titleEn, titleCn, children, collapsible = false }: F
 
   const title = (
     <>
-      {titleEn} ·{" "}
-      <span className="cn-text" lang="zh">
-        {titleCn}
-      </span>
+      {titleEn}
+      {titleCn && (
+        <>
+          {" "}·{" "}
+          <span className="cn-text" lang="zh">
+            {titleCn}
+          </span>
+        </>
+      )}
     </>
   );
 

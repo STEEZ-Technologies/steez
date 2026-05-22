@@ -44,23 +44,23 @@ export function BrowserMockup() {
                 "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
             }}
           >
-            steez.cn/aurora-home
+            steez.cn/showroom
           </div>
         </div>
 
         <iframe
-          srcDoc={AURORA_HOME_HTML}
+          srcDoc={SKELETON_MICROSITE_HTML}
           scrolling="no"
           style={{
             width: "100%",
             height: "calc(100% - 38px)",
             border: "none",
-            background: "#0B0F0E",
+            background: "#04342C",
             display: "block",
             pointerEvents: "none",
             overflow: "hidden",
           }}
-          title="Aurora Home Microsite Preview"
+          title="Microsite Showcase"
         />
       </div>
 
@@ -82,69 +82,83 @@ export function BrowserMockup() {
   );
 }
 
-const AURORA_HOME_HTML = `<!DOCTYPE html>
+const SKELETON_MICROSITE_HTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   :root {
-    --bg: #0B0F0E;
-    --fg: #FAF9F5;
-    --muted: rgba(250,249,245,0.55);
-    --gold: #E0A93A;
+    --bg: #04342C;
     --mint: #1D9E75;
-    --bdr: rgba(250,249,245,0.08);
+    --gold: #E0A93A;
+    --ivory: #FAF9F5;
+    --skeleton: rgba(250, 249, 245, 0.08);
   }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  .pulse { animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--fg); overflow: hidden; }
-  body { padding: 18px 22px; }
-  body::-webkit-scrollbar { display: none; }
-  nav { display: flex; justify-content: space-between; align-items: center; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding-bottom: 14px; border-bottom: 1px solid var(--bdr); }
-  nav .links { display: flex; gap: 14px; color: var(--muted); }
-  nav .lang { color: var(--gold); font-weight: 600; }
-  .brand { font-weight: 800; letter-spacing: 0.08em; }
-  .hero { padding: 22px 0 18px; }
-  .eyebrow { color: var(--gold); font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
-  h1 { font-size: 28px; font-weight: 800; line-height: 1.04; letter-spacing: -0.02em; margin: 0; text-transform: uppercase; }
-  h1 .accent { color: var(--gold); }
-  .lede { font-size: 11px; line-height: 1.55; color: var(--muted); margin-top: 8px; max-width: 80%; }
-  .ctas { display: flex; gap: 8px; margin-top: 12px; }
-  .btn { font-size: 10px; padding: 7px 12px; border-radius: 999px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
-  .btn.primary { background: var(--gold); color: #1A1A1A; }
-  .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--bdr); }
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--bdr); }
-  .stat { }
-  .stat .n { font-size: 16px; font-weight: 800; letter-spacing: -0.01em; }
-  .stat .n .plus { color: var(--gold); }
-  .stat .l { font-size: 8px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 2px; }
-  .caps { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 12px; }
-  .cap { font-size: 9px; padding: 6px 8px; background: rgba(250,249,245,0.03); border: 1px solid var(--bdr); border-radius: 6px; display: flex; align-items: center; gap: 6px; }
-  .cap .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--mint); }
+  html, body { margin: 0; padding: 0; background: var(--bg); overflow: hidden; height: 100vh; color: var(--ivory); font-family: system-ui, -apple-system, sans-serif; }
+  body { padding: 24px 32px; }
+  
+  nav { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid rgba(250,249,245,0.1); margin-bottom: 32px; }
+  .logo-skel { width: 100px; height: 16px; border-radius: 4px; background: var(--ivory); }
+  .nav-links { display: flex; gap: 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(250,249,245,0.6); font-weight: 500; }
+  .nav-lang { color: var(--gold); font-weight: 700; }
+  
+  .hero { display: flex; flex-direction: column; gap: 16px; }
+  .eyebrow { font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.8; }
+  .h1-line-1 { width: 320px; height: 36px; border-radius: 8px; background: var(--ivory); }
+  .h1-line-2 { width: 240px; height: 36px; border-radius: 8px; background: var(--mint); }
+  
+  .lede { width: 80%; height: 12px; border-radius: 6px; background: var(--skeleton); margin-top: 12px; }
+  .lede-2 { width: 60%; height: 12px; border-radius: 6px; background: var(--skeleton); }
+  
+  .ctas { display: flex; gap: 12px; margin-top: 24px; }
+  .btn-1 { width: 140px; height: 40px; border-radius: 20px; background: var(--gold); color: #1A1A1A; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+  .btn-2 { width: 120px; height: 40px; border-radius: 20px; background: transparent; border: 1px solid rgba(250,249,245,0.2); color: var(--ivory); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+  
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(250,249,245,0.1); }
+  .stat-val { width: 60px; height: 24px; border-radius: 6px; background: var(--ivory); margin-bottom: 8px; }
+  .stat-lbl { font-size: 9px; color: rgba(250,249,245,0.5); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
 </style>
 </head>
 <body>
   <nav>
-    <span class="brand">AURORA · 极光</span>
-    <span class="links"><span>Profile</span><span>Capabilities</span><span>Contact</span></span>
-    <span class="lang">EN / 中</span>
+    <div class="logo-skel pulse"></div>
+    <div class="nav-links">
+      <div>Profile</div>
+      <div>Products</div>
+      <div>Contact</div>
+      <div class="nav-lang">EN / 中</div>
+    </div>
   </nav>
   <div class="hero">
-    <div class="eyebrow">Hangzhou · Since 2014</div>
-    <h1>Home Goods,<br/><span class="accent">Built To Export.</span></h1>
-    <p class="lede">ISO-certified manufacturer of premium kitchenware. Trusted by buyers in 38 countries.</p>
+    <div class="eyebrow">Export Manufacturing</div>
+    <div class="h1-line-1 pulse"></div>
+    <div class="h1-line-2 pulse"></div>
+    <div class="lede pulse"></div>
+    <div class="lede-2 pulse"></div>
     <div class="ctas">
-      <span class="btn primary">Request Quote</span>
-      <span class="btn ghost">Catalogue</span>
+      <div class="btn-1">Request Quote</div>
+      <div class="btn-2">Catalogue</div>
     </div>
     <div class="stats">
-      <div class="stat"><div class="n">12<span class="plus">k</span></div><div class="l">SKUs</div></div>
-      <div class="stat"><div class="n">38<span class="plus">+</span></div><div class="l">Countries</div></div>
-      <div class="stat"><div class="n">10<span class="plus">y</span></div><div class="l">Experience</div></div>
-    </div>
-    <div class="caps">
-      <div class="cap"><span class="dot"></span>OEM / ODM</div>
-      <div class="cap"><span class="dot"></span>BSCI Audited</div>
+      <div class="stat">
+        <div class="stat-val pulse"></div>
+        <div class="stat-lbl">SKUs</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val pulse" style="background: var(--mint)"></div>
+        <div class="stat-lbl">Countries</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val pulse" style="background: var(--gold)"></div>
+        <div class="stat-lbl">Experience</div>
+      </div>
     </div>
   </div>
 </body>

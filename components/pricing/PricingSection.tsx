@@ -4,6 +4,7 @@ import { CheckIcon, ChevronDown } from "lucide-react";
 import { useState, useRef } from "react";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { useHaptic } from "@/lib/useHaptic";
+import { useI18n } from "@/lib/i18n/useI18n";
 
 type Plan = "monthly" | "annually";
 
@@ -77,6 +78,7 @@ export const PLANS: PLAN[] = [
 export default function PricingSection() {
   const [billPlan, setBillPlan] = useState<Plan>("monthly");
   const isMobile = useIsMobile();
+  const { dict } = useI18n();
 
   const orderedPlans = isMobile
     ? [
@@ -113,7 +115,7 @@ export default function PricingSection() {
               marginBottom: "clamp(12px, 1.5vw, 20px)",
             }}
           >
-            05 — Packages
+            {dict.sections.pricing.eyebrow}
           </div>
           <h2
             style={{
@@ -127,7 +129,7 @@ export default function PricingSection() {
               margin: 0,
             }}
           >
-            Pricing
+            {dict.sections.pricing.title}
           </h2>
           <p
             style={{
@@ -139,7 +141,7 @@ export default function PricingSection() {
               marginTop: "clamp(16px, 2vw, 24px)",
             }}
           >
-            One platform. Three plans. Built for Chinese exporters going global.
+            {dict.sections.pricing.sub}
           </p>
 
           {/* Toggle */}
@@ -165,7 +167,7 @@ export default function PricingSection() {
                 transition: "opacity 0.2s" 
               }}
             >
-              Monthly
+              {dict.pricingBlock.monthly}
             </button>
             <div
               onClick={() => setBillPlan((p) => (p === "monthly" ? "annually" : "monthly"))}
@@ -207,7 +209,7 @@ export default function PricingSection() {
                 transition: "opacity 0.2s" 
               }}
             >
-              Annually
+              {dict.pricingBlock.annually}
             </button>
           </div>
         </div>
@@ -284,7 +286,16 @@ function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; is
   const isFeatured = plan.id === "standard";
   const cardRef = useRef<HTMLDivElement>(null);
   const haptic = useHaptic();
+  const { dict } = useI18n();
   const [featuresOpen, setFeaturesOpen] = useState(isFeatured);
+
+  const planKey = plan.id as "basic" | "standard" | "premium";
+  const t = dict.pricingBlock.plans[planKey];
+  const planTitle = t.title;
+  const planDesc = t.desc;
+  const planButton = t.button;
+  const planFeatures = t.features;
+  const planBadge = "badge" in t ? t.badge : undefined;
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -327,7 +338,7 @@ function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; is
         border: isFeatured ? "1px solid #E0A93A" : "1px solid var(--hairline)",
         background: isFeatured ? "rgba(224,169,58,0.07)" : "var(--card-bg)",
         overflow: "visible",
-        marginTop: plan.badge && !isMobile ? 14 : isMobile && plan.badge ? 10 : 0,
+        marginTop: planBadge && !isMobile ? 14 : isMobile && planBadge ? 10 : 0,
         zIndex: isFeatured ? 2 : 1,
         boxShadow: isFeatured
           ? "0 40px 80px -20px rgba(224, 169, 58, 0.35), 0 20px 40px -25px rgba(0, 0, 0, 0.45)"
@@ -358,7 +369,7 @@ function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; is
       )}
 
       {/* Badge */}
-      {plan.badge && (
+      {planBadge && (
         <div
           style={{
             position: "absolute",
@@ -376,7 +387,7 @@ function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; is
             whiteSpace: "nowrap",
           }}
         >
-          {plan.badge}
+          {planBadge}
         </div>
       )}
 
@@ -393,7 +404,7 @@ function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; is
             marginBottom: 8,
           }}
         >
-          {plan.title}
+          {planTitle}
         </div>
         <div style={{ fontWeight: 900, lineHeight: 1, color: "inherit" }}>
           <NumberFlow
@@ -439,7 +450,7 @@ function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; is
             marginTop: "clamp(12px, 1.5vw, 16px)",
           }}
         >
-          {plan.desc}
+          {planDesc}
         </p>
       </div>
 
@@ -464,7 +475,7 @@ function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; is
           onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.opacity = "0.8"; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; }}
         >
-          {plan.buttonText}
+          {planButton}
         </a>
       </div>
 
@@ -499,7 +510,7 @@ function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; is
               fontFamily: "inherit",
             }}
           >
-            <span>{featuresOpen ? "Hide" : "Show"} features ({plan.features.length})</span>
+            <span>{featuresOpen ? "Hide" : "Show"} features ({planFeatures.length})</span>
             <motion.span animate={{ rotate: featuresOpen ? 180 : 0 }} transition={{ duration: 0.2 }} style={{ display: "inline-flex" }}>
               <ChevronDown size={16} />
             </motion.span>
@@ -511,7 +522,7 @@ function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; is
             style={{ overflow: "hidden" }}
           >
             <div style={{ display: "flex", flexDirection: "column", gap: 12, paddingTop: 14 }}>
-              {plan.features.map((feature) => (
+              {planFeatures.map((feature) => (
                 <div key={feature} style={{ display: "flex", alignItems: "center", gap: 10 }}>
                   <CheckIcon style={{ color: "#1D9E75", flexShrink: 0, width: 16, height: 16 }} />
                   <span style={{ fontSize: "0.88rem", color: "inherit", opacity: 0.8 }}>{feature}</span>
@@ -531,7 +542,7 @@ function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; is
             transform: "translateZ(20px)",
           }}
         >
-          {plan.features.map((feature) => (
+          {planFeatures.map((feature) => (
             <div key={feature} style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <CheckIcon style={{ color: "#1D9E75", flexShrink: 0, width: 16, height: 16 }} />
               <span style={{ fontSize: "clamp(0.8rem, 1.05vw, 0.9rem)", color: "inherit", opacity: 0.8 }}>

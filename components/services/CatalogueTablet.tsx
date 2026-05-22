@@ -31,19 +31,19 @@ export function CatalogueTablet() {
         />
 
         <iframe
-          srcDoc={CATALOGUE_HTML}
+          srcDoc={SKELETON_CATALOGUE_HTML}
           scrolling="no"
           style={{
             width: "100%",
             height: "100%",
             border: "none",
-            background: "#0B0F0E",
+            background: "#04342C",
             display: "block",
             borderRadius: 14,
             pointerEvents: "none",
             overflow: "hidden",
           }}
-          title="Catalogue Preview"
+          title="Catalogue Showcase"
         />
       </div>
 
@@ -65,70 +65,109 @@ export function CatalogueTablet() {
   );
 }
 
-const CATALOGUE_HTML = `<!DOCTYPE html>
+const SKELETON_CATALOGUE_HTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   :root {
-    --bg: #0B0F0E;
-    --fg: #FAF9F5;
-    --muted: rgba(250,249,245,0.55);
-    --gold: #E0A93A;
+    --bg: #04342C;
     --mint: #1D9E75;
-    --bdr: rgba(250,249,245,0.08);
+    --gold: #E0A93A;
+    --ivory: #FAF9F5;
+    --skeleton: rgba(250, 249, 245, 0.08);
   }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  .pulse { animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--fg); overflow: hidden; }
-  body { padding: 16px 20px; }
-  body::-webkit-scrollbar { display: none; }
-  header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--bdr); }
-  .crumbs { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
-  .crumbs span.cur { color: var(--gold); }
-  .actions { display: flex; gap: 6px; }
-  .pill { font-size: 8px; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--bdr); color: var(--fg); letter-spacing: 0.1em; text-transform: uppercase; }
-  .pill.ar { background: var(--mint); color: #0B0F0E; border-color: var(--mint); font-weight: 700; }
-  h2 { font-size: 18px; font-weight: 800; margin: 14px 0 4px; letter-spacing: -0.01em; text-transform: uppercase; }
-  .sub { font-size: 9px; color: var(--muted); margin-bottom: 12px; }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .card { background: rgba(250,249,245,0.03); border: 1px solid var(--bdr); border-radius: 8px; padding: 8px; position: relative; }
-  .ph { width: 100%; aspect-ratio: 4/3; border-radius: 6px; background: linear-gradient(135deg, rgba(224,169,58,0.18), rgba(29,158,117,0.12)); margin-bottom: 6px; display: flex; align-items: center; justify-content: center; font-size: 8px; color: var(--muted); letter-spacing: 0.15em; }
-  .name { font-size: 10px; font-weight: 600; }
-  .meta { font-size: 8px; color: var(--muted); margin-top: 2px; letter-spacing: 0.05em; }
-  .badge { position: absolute; top: 6px; right: 6px; font-size: 7px; background: var(--mint); color: #0B0F0E; padding: 2px 5px; border-radius: 4px; font-weight: 800; letter-spacing: 0.08em; }
-  .filterbar { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
-  .chip { font-size: 8px; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--bdr); color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
-  .chip.on { background: var(--gold); color: #1A1A1A; border-color: var(--gold); font-weight: 700; }
+  html, body { margin: 0; padding: 0; background: var(--bg); overflow: hidden; height: 100vh; color: var(--ivory); font-family: system-ui, -apple-system, sans-serif; }
+  body { padding: 24px; }
+
+  header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid rgba(250,249,245,0.1); }
+  .crumbs { display: flex; gap: 8px; font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(250,249,245,0.4); }
+  .crumb.active { color: var(--gold); font-weight: 700; opacity: 0.8; }
+  .actions { display: flex; gap: 8px; }
+  .action-pill { padding: 4px 10px; border-radius: 20px; background: var(--skeleton); font-size: 8px; text-transform: uppercase; font-weight: 700; }
+  .action-pill.mint { background: var(--mint); color: var(--bg); }
+
+  .title { width: 180px; height: 24px; border-radius: 6px; background: var(--ivory); margin-top: 24px; margin-bottom: 8px; }
+  .sub-title { width: 240px; height: 8px; border-radius: 4px; background: var(--skeleton); margin-bottom: 24px; }
+
+  .filterbar { display: flex; gap: 8px; margin-bottom: 24px; }
+  .chip { padding: 6px 12px; border-radius: 20px; background: var(--skeleton); border: 1px solid rgba(250,249,245,0.1); font-size: 9px; text-transform: uppercase; font-weight: 600; color: rgba(250,249,245,0.6); }
+  .chip.active { background: var(--gold); color: #1A1A1A; border-color: var(--gold); }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .card { padding: 10px; border-radius: 10px; background: var(--skeleton); border: 1px solid rgba(250,249,245,0.05); position: relative; }
+  .ph { width: 100%; aspect-ratio: 4/3; border-radius: 6px; background: rgba(250,249,245,0.05); margin-bottom: 10px; }
+  .line-1 { width: 70%; height: 8px; border-radius: 4px; background: var(--ivory); opacity: 0.8; margin-bottom: 6px; }
+  .line-2 { width: 40%; height: 6px; border-radius: 3px; background: var(--skeleton); }
+  .badge { position: absolute; top: 6px; right: 6px; font-size: 7px; background: var(--mint); color: var(--bg); padding: 2px 5px; border-radius: 4px; font-weight: 800; }
 </style>
 </head>
 <body>
   <header>
-    <div class="crumbs">Aurora <span>·</span> Catalogue <span>·</span> <span class="cur">Kitchenware</span></div>
+    <div class="crumbs">
+      <div>Factory</div>
+      <div>·</div>
+      <div>Catalogue</div>
+      <div>·</div>
+      <div class="crumb active">Showroom</div>
+    </div>
     <div class="actions">
-      <span class="pill">EN / 中</span>
-      <span class="pill ar">3D / AR</span>
+      <div class="action-pill">EN / 中</div>
+      <div class="action-pill mint">3D / AR</div>
     </div>
   </header>
 
-  <h2>Kitchenware Line</h2>
-  <div class="sub">128 SKUs · MOQ from 500 units · Air / Sea / Rail</div>
+  <div class="title pulse"></div>
+  <div class="sub-title pulse"></div>
 
   <div class="filterbar">
-    <span class="chip on">All</span>
-    <span class="chip">Cast Iron</span>
-    <span class="chip">Ceramic</span>
-    <span class="chip">Stainless</span>
-    <span class="chip">Bamboo</span>
+    <div class="chip active">All</div>
+    <div class="chip">Cast Iron</div>
+    <div class="chip">Ceramic</div>
+    <div class="chip">Stainless</div>
   </div>
 
-  <div class="grid" style="margin-top: 10px;">
-    <div class="card"><span class="badge">3D</span><div class="ph">CAST IRON · 26CM</div><div class="name">Skillet Pro 26</div><div class="meta">MOQ 500 · ¥38</div></div>
-    <div class="card"><div class="ph">CERAMIC · 4PC</div><div class="name">Bowl Set Mint</div><div class="meta">MOQ 1k · ¥22</div></div>
-    <div class="card"><span class="badge">AR</span><div class="ph">BAMBOO · BOARD</div><div class="name">Slate Board L</div><div class="meta">MOQ 800 · ¥14</div></div>
-    <div class="card"><div class="ph">STEEL · 3PC</div><div class="name">Chef Knife Set</div><div class="meta">MOQ 500 · ¥56</div></div>
-    <div class="card"><span class="badge">3D</span><div class="ph">CERAMIC · MUG</div><div class="name">Heritage Mug</div><div class="meta">MOQ 1k · ¥9</div></div>
-    <div class="card"><div class="ph">IRON · 30CM</div><div class="name">Dutch Oven</div><div class="meta">MOQ 300 · ¥72</div></div>
+  <div class="grid">
+    <div class="card">
+      <div class="badge">3D</div>
+      <div class="ph pulse"></div>
+      <div class="line-1 pulse"></div>
+      <div class="line-2 pulse"></div>
+    </div>
+    <div class="card">
+      <div class="ph pulse" style="background: rgba(29, 158, 117, 0.1)"></div>
+      <div class="line-1 pulse"></div>
+      <div class="line-2 pulse"></div>
+    </div>
+    <div class="card">
+      <div class="badge">AR</div>
+      <div class="ph pulse" style="background: rgba(224, 169, 58, 0.1)"></div>
+      <div class="line-1 pulse"></div>
+      <div class="line-2 pulse"></div>
+    </div>
+    <div class="card">
+      <div class="ph pulse"></div>
+      <div class="line-1 pulse"></div>
+      <div class="line-2 pulse"></div>
+    </div>
+    <div class="card">
+      <div class="badge">3D</div>
+      <div class="ph pulse"></div>
+      <div class="line-1 pulse"></div>
+      <div class="line-2 pulse"></div>
+    </div>
+    <div class="card">
+      <div class="ph pulse"></div>
+      <div class="line-1 pulse"></div>
+      <div class="line-2 pulse"></div>
+    </div>
   </div>
 </body>
 </html>`;

@@ -10,10 +10,12 @@ import PricingSection from "@/components/pricing/PricingSection";
 import { Services } from "@/components/services/Services";
 import { Portfolio } from "@/components/portfolio/Portfolio";
 import { Nav } from "@/components/hero/Nav";
+import { useI18n } from "@/lib/i18n/useI18n";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { resolvedTheme } = useTheme();
+  const { dict } = useI18n();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -40,8 +42,8 @@ export default function Home() {
       <div className="wrapper">
         <HeroGeometric
           title1="STEEZ"
-          title2="DIGITAL"
-          description="the digital bridge between chinese makers and the buyers searching for them"
+          title2={dict.hero.title2}
+          description={dict.hero.description}
           color1="#019d86"
           color2={color2}
           speed={1}

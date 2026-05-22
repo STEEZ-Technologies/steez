@@ -15,7 +15,7 @@
   --color-charcoal-deep: #1A1A1A;
   --color-off-white: #FAF9F5;
 
-  --font-sans: var(--font-inter), var(--font-noto-sc), system-ui, sans-serif;
+  --font-sans: var(--font-stack-text), var(--font-noto-sc), system-ui, sans-serif;
   --font-cn: var(--font-noto-sc), var(--font-inter), sans-serif;
 
   /* --- Awesomic structural tokens (STEEZ palette mapped) --- */
@@ -222,7 +222,7 @@ html,
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-inter), var(--font-noto-sc), system-ui, sans-serif;
+  font-family: var(--font-stack-text), var(--font-noto-sc), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background 0.4s ease, color 0.4s ease;
@@ -343,4 +343,20 @@ body {
   body {
     padding-bottom: calc(72px + env(safe-area-inset-bottom, 0));
   }
+}
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+
+/* Arabic font override — Noto Kufi Arabic when html lang="ar" */
+html[lang="ar"] {
+  --font-stack-sans: var(--font-noto-kufi);
+  --font-inter: var(--font-noto-kufi);
+  --font-sans: var(--font-noto-kufi);
+  --font-noto-sc: var(--font-noto-kufi);
+}
+html[lang="ar"],
+html[lang="ar"] body,
+html[lang="ar"] *:not(.cn-text):not([lang="zh"]) {
+  font-family: var(--font-noto-kufi), system-ui, -apple-system, "Segoe UI", sans-serif !important;
 }

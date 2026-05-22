@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_SC, Geist, Stack_Sans_Notch } from "next/font/google";
+import { Inter, Noto_Sans_SC, Noto_Kufi_Arabic, Geist, Stack_Sans_Notch, Stack_Sans_Text } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Lenis } from "@/components/shared/Lenis";
+import { I18nProvider } from "@/lib/i18n/I18nProvider";
+import { Preloader } from "@/components/preloader/Preloader";
+import { PreloaderProvider } from "@/components/preloader/PreloaderContext";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -11,6 +14,13 @@ const stackSansNotch = Stack_Sans_Notch({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700"],
   variable: "--font-stack-sans",
+  display: "swap",
+});
+
+const stackSansText = Stack_Sans_Text({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-stack-text",
   display: "swap",
 });
 
@@ -25,6 +35,13 @@ const notoSansSC = Noto_Sans_SC({
   subsets: ["latin"],
   weight: ["300", "400", "600", "700", "900"],
   variable: "--font-noto-sc",
+  display: "swap",
+});
+
+const notoKufiArabic = Noto_Kufi_Arabic({
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-noto-kufi",
   display: "swap",
 });
 
@@ -47,12 +64,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(stackSansNotch.variable, inter.variable, notoSansSC.variable, geist.variable, "font-sans")}
+      className={cn(stackSansNotch.variable, stackSansText.variable, inter.variable, notoSansSC.variable, notoKufiArabic.variable, geist.variable, "font-sans")}
       suppressHydrationWarning
     >
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Lenis>{children}</Lenis>
+          <I18nProvider>
+            <PreloaderProvider>
+              <Preloader />
+              <Lenis>{children}</Lenis>
+            </PreloaderProvider>
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>
