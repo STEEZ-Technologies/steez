@@ -1,0 +1,108 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "INWIN" [ref=e3] [cursor=pointer]:
+      - /url: "#hero"
+    - list [ref=e4]:
+      - listitem [ref=e5]:
+        - link "About" [ref=e6] [cursor=pointer]:
+          - /url: "#company"
+      - listitem [ref=e7]:
+        - link "Products" [ref=e8] [cursor=pointer]:
+          - /url: "#categories"
+      - listitem [ref=e9]:
+        - link "Contact" [ref=e10] [cursor=pointer]:
+          - /url: "#footer"
+  - generic [ref=e11]:
+    - generic: ⚔
+    - generic: 🗡
+    - generic: ⚔
+    - generic [ref=e12]:
+      - generic [ref=e13]: Est. 1979 · Hangzhou, China
+      - generic [ref=e14]: INWIN
+      - generic [ref=e15]: Master Craftsman of Professional Kitchenware
+      - generic [ref=e16]: Knives · Utensils · Cookware · Since 1979
+      - generic [ref=e18]: Scroll to explore
+  - generic [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]: Our Story
+      - generic [ref=e23]:
+        - text: Forged
+        - text: in Tradition
+    - paragraph [ref=e25]: "\"Since 1979, INWIN has devoted itself to the mastery of professional kitchenware. From a single workshop in Hangzhou to a 100,000m² manufacturing complex, every blade we forge carries the precision of forty-five years of unbroken craft.\""
+    - generic [ref=e26]: WHERE PRECISION MEETS ARTISTRY
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e29]: 0m²
+        - generic [ref=e30]: Factory Footprint
+      - generic [ref=e31]:
+        - generic [ref=e32]: 0+
+        - generic [ref=e33]: Employees
+      - generic [ref=e34]:
+        - generic [ref=e35]: 0 YRS
+        - generic [ref=e36]: Experience
+      - generic [ref=e37]:
+        - generic [ref=e38]: 0+
+        - generic [ref=e39]: Countries
+    - generic [ref=e40]:
+      - generic [ref=e41]: TESCO
+      - generic [ref=e42]: IKEA
+      - generic [ref=e43]: Target
+      - generic [ref=e44]: Auchan
+  - generic [ref=e47]:
+    - text: The Knife You Choose
+    - emphasis [ref=e48]: Speaks of Who You Are
+  - generic [ref=e49]:
+    - generic [ref=e50]:
+      - generic [ref=e51]: Product Lines
+      - generic [ref=e52]:
+        - text: Our
+        - text: Collections
+    - generic [ref=e53]:
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e57]:
+          - generic [ref=e58]: "01"
+          - generic [ref=e59]: MTS Artistry Series
+          - generic [ref=e60]: Powder Steel · Anodized Aluminum + G10
+        - generic [ref=e61]: →
+      - generic [ref=e62] [cursor=pointer]:
+        - generic [ref=e65]:
+          - generic [ref=e66]: "02"
+          - generic [ref=e67]: V-Form Series
+          - generic [ref=e68]: Patented Design · Black Powder Steel · G10
+        - generic [ref=e69]: →
+      - generic [ref=e70] [cursor=pointer]:
+        - generic [ref=e73]:
+          - generic [ref=e74]: "03"
+          - generic [ref=e75]: Damascus Steel Series
+          - generic [ref=e76]: 1000-Layer Damascus · Resin Composite Handle
+        - generic [ref=e77]: →
+      - generic [ref=e78] [cursor=pointer]:
+        - generic [ref=e81]:
+          - generic [ref=e82]: "04"
+          - generic [ref=e83]: Dragon Series
+          - generic [ref=e84]: Red Dot Award Winner · Modular Handle
+        - generic [ref=e85]: →
+      - generic [ref=e86] [cursor=pointer]:
+        - generic [ref=e89]:
+          - generic [ref=e90]: "05"
+          - generic [ref=e91]: Natural Elegance Set
+          - generic [ref=e92]: 7-Piece · Wood Fiber Handle · Acacia Block
+        - generic [ref=e93]: →
+      - generic [ref=e94] [cursor=pointer]:
+        - generic [ref=e97]:
+          - generic [ref=e98]: "06"
+          - generic [ref=e99]: Cutting Boards & Cookware
+          - generic [ref=e100]: Innovative Boards · Stainless Woks
+        - generic [ref=e101]: →
+  - generic [ref=e103]:
+    - text: Beneath the Edge Lies
+    - text: the Secret of
+    - emphasis [ref=e104]: a Thousand Layers
+  - contentinfo [ref=e105]:
+    - generic [ref=e106]: This catalogue is powered by
+    - generic [ref=e107]: STEEZ.
+    - generic [ref=e108]: steez.digital
+    - generic [ref=e109]: Digital catalogues & business cards for modern brands
+    - generic [ref=e111]:
+      - text: © 2024 INWIN Professional Kitchenware · All Rights Reserved
+      - text: Demo catalogue produced by STEEZ Digital

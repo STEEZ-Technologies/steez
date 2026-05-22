@@ -4,7 +4,24 @@
       "WebFetch(domain:www.pexels.com)",
       "WebFetch(domain:images.pexels.com)",
       "Bash(npx next *)",
+<<<<<<< HEAD
       "mcp__playwright__browser_take_screenshot"
+=======
+      "Bash(npx shadcn@latest view \"https://magicui.design/r/iphone-15-pro\")",
+      "Bash(npx tsc *)",
+      "Bash(curl -sf http://localhost:3030/ -o /tmp/dev-out.html)",
+      "Bash(curl *)",
+      "Bash(kill 33071)",
+      "Read(//private/tmp/claude-501/-Users-yxngsterx-Projects-steez/**)",
+      "Read(//private/tmp/**)",
+      "Bash(npm run *)",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_console_messages",
+      "Bash(git stash *)",
+      "Bash(xargs -I{} ps -p {} -o pid,command)",
+      "Bash(git add *)"
+>>>>>>> e4982599ca9479eebe67c0141d5049554db8b245
     ]
   },
   "enabledMcpjsonServers": [

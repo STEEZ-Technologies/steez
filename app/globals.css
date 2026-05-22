@@ -35,8 +35,8 @@
   --leading-heading-lg: 1.25;
   --text-display-sm: clamp(2.4rem, 5vw, 3.6rem);
   --leading-display-sm: 1.12;
-  --text-display: clamp(2.6rem, 6vw, 4rem);
-  --leading-display: 1;
+  --text-display: clamp(2.2rem, 6vw, 4rem);
+  --leading-display: 1.02;
 
   /* Spacing — Awesomic 4–120px scale; small values fixed, large fluid */
   --space-4: 4px;
@@ -147,8 +147,8 @@
   --leading-heading-lg: 1.25;
   --text-display-sm: clamp(2.4rem, 5vw, 3.6rem);
   --leading-display-sm: 1.12;
-  --text-display: clamp(2.6rem, 6vw, 4rem);
-  --leading-display: 1;
+  --text-display: clamp(2.2rem, 6vw, 4rem);
+  --leading-display: 1.02;
 
   --space-4: 4px;
   --space-8: 8px;
@@ -328,4 +328,19 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(15, 110, 86, 0.45);
+}
+
+/* Mobile safe-area helpers */
+.mobile-safe-bottom {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+.mobile-safe-bottom-inset {
+  bottom: env(safe-area-inset-bottom, 0);
+}
+
+@media (max-width: 767px) {
+  /* Reserve space for bottom dock + CTA bar so last content isn't hidden */
+  body {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0));
+  }
 }

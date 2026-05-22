@@ -370,13 +370,10 @@ export default function HeroGeometric({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
+                className="hidden md:flex flex-col items-center gap-6"
                 style={{
                     position: "relative",
                     zIndex: 10,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: 6,
                     marginBottom: "clamp(16px, 2vw, 24px)",
                     color: "var(--fg)",
                 }}

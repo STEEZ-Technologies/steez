@@ -1,0 +1,307 @@
+- generic [active] [ref=e1]:
+  - complementary [ref=e2]:
+    - link "INWIN" [ref=e3] [cursor=pointer]:
+      - /url: "#hero"
+    - generic [ref=e4]: Est. 1979 · Hangzhou
+    - navigation [ref=e5]:
+      - link "About" [ref=e6] [cursor=pointer]:
+        - /url: "#company"
+      - link "Products" [ref=e7] [cursor=pointer]:
+        - /url: "#categories"
+      - link "Contact" [ref=e8] [cursor=pointer]:
+        - /url: "#footer"
+    - generic [ref=e10]: Collections
+    - generic [ref=e11]:
+      - button "01 MTS Artistry Series Powder Steel · Anodized Aluminum + G10" [ref=e12] [cursor=pointer]:
+        - generic [ref=e13]: "01"
+        - generic [ref=e14]:
+          - generic [ref=e15]: MTS Artistry Series
+          - generic [ref=e16]: Powder Steel · Anodized Aluminum + G10
+      - button "02 V-Form Series Patented Design · Black Powder Steel · G10" [ref=e17] [cursor=pointer]:
+        - generic [ref=e18]: "02"
+        - generic [ref=e19]:
+          - generic [ref=e20]: V-Form Series
+          - generic [ref=e21]: Patented Design · Black Powder Steel · G10
+      - button "03 Damascus Steel Series 1000-Layer Damascus · Resin Composite Handle" [ref=e22] [cursor=pointer]:
+        - generic [ref=e23]: "03"
+        - generic [ref=e24]:
+          - generic [ref=e25]: Damascus Steel Series
+          - generic [ref=e26]: 1000-Layer Damascus · Resin Composite Handle
+      - button "04 Dragon Series Red Dot Award Winner · Modular Handle" [ref=e27] [cursor=pointer]:
+        - generic [ref=e28]: "04"
+        - generic [ref=e29]:
+          - generic [ref=e30]: Dragon Series
+          - generic [ref=e31]: Red Dot Award Winner · Modular Handle
+      - button "05 Natural Elegance Set 7-Piece · Wood Fiber Handle · Acacia Block" [ref=e32] [cursor=pointer]:
+        - generic [ref=e33]: "05"
+        - generic [ref=e34]:
+          - generic [ref=e35]: Natural Elegance Set
+          - generic [ref=e36]: 7-Piece · Wood Fiber Handle · Acacia Block
+      - button "06 Cutting Boards & Cookware Innovative Boards · Stainless Woks" [ref=e37] [cursor=pointer]:
+        - generic [ref=e38]: "06"
+        - generic [ref=e39]:
+          - generic [ref=e40]: Cutting Boards & Cookware
+          - generic [ref=e41]: Innovative Boards · Stainless Woks
+    - generic [ref=e42]:
+      - button "LIGHT" [ref=e43] [cursor=pointer]
+      - button "中文" [ref=e44] [cursor=pointer]
+  - navigation [ref=e45]:
+    - link "INWIN" [ref=e46] [cursor=pointer]:
+      - /url: "#hero"
+    - list [ref=e47]:
+      - listitem [ref=e48]:
+        - link "About" [ref=e49] [cursor=pointer]:
+          - /url: "#company"
+      - listitem [ref=e50]:
+        - link "Products" [ref=e51] [cursor=pointer]:
+          - /url: "#categories"
+      - listitem [ref=e52]:
+        - link "Contact" [ref=e53] [cursor=pointer]:
+          - /url: "#footer"
+  - generic [ref=e54]:
+    - generic: ⚔
+    - generic: 🗡
+    - generic: ⚔
+    - generic [ref=e55]:
+      - generic [ref=e56]: Est. 1979 · Hangzhou, China
+      - generic [ref=e57]: INWIN
+      - generic [ref=e58]: Master Craftsman of Professional Kitchenware
+      - generic [ref=e59]: Knives · Utensils · Cookware · Since 1979
+      - generic [ref=e61]: Scroll to explore
+  - generic [ref=e63]:
+    - generic [ref=e64]:
+      - generic [ref=e65]: Our Story
+      - generic [ref=e67]:
+        - text: Forged
+        - text: in Tradition
+    - paragraph [ref=e69]: "\"Since 1979, INWIN has devoted itself to the mastery of professional kitchenware. From a single workshop in Hangzhou to a 100,000m² manufacturing complex, every blade we forge carries the precision of forty-five years of unbroken craft.\""
+    - generic [ref=e70]: WHERE PRECISION MEETS ARTISTRY
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e73]: 0m²
+        - generic [ref=e74]: Factory Footprint
+      - generic [ref=e75]:
+        - generic [ref=e76]: 0+
+        - generic [ref=e77]: Employees
+      - generic [ref=e78]:
+        - generic [ref=e79]: 0 YRS
+        - generic [ref=e80]: Experience
+      - generic [ref=e81]:
+        - generic [ref=e82]: 0+
+        - generic [ref=e83]: Countries
+    - generic [ref=e84]:
+      - generic [ref=e85]: TESCO
+      - generic [ref=e86]: IKEA
+      - generic [ref=e87]: Target
+      - generic [ref=e88]: Auchan
+  - generic [ref=e92]:
+    - text: The Knife You Choose
+    - emphasis [ref=e93]: Speaks of Who You Are
+  - generic [ref=e94]:
+    - generic [ref=e95]:
+      - generic [ref=e96]: Product Lines
+      - generic [ref=e98]:
+        - text: Our
+        - text: Collections
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - generic [ref=e102]: MTS Artistry Series
+          - generic [ref=e103]: Powder Steel · Anodized Aluminum + G10
+        - generic [ref=e105]:
+          - generic [ref=e106] [cursor=pointer]:
+            - img "Chef's Knife 8" [ref=e108]
+            - generic [ref=e109]:
+              - generic [ref=e110]: Chef's Knife 8"
+              - generic [ref=e111]: Powder Steel · Anodized Aluminum + G10
+              - generic [ref=e112]: Precision honed to perfection
+          - generic [ref=e113] [cursor=pointer]:
+            - img "Utility Knife 5" [ref=e115]
+            - generic [ref=e116]:
+              - generic [ref=e117]: Utility Knife 5"
+              - generic [ref=e118]: Powder Steel · Anodized Aluminum + G10
+              - generic [ref=e119]: Precision honed to perfection
+          - generic [ref=e120] [cursor=pointer]:
+            - img "Paring Knife 3.5" [ref=e122]
+            - generic [ref=e123]:
+              - generic [ref=e124]: Paring Knife 3.5"
+              - generic [ref=e125]: Powder Steel · Anodized Aluminum + G10
+              - generic [ref=e126]: Precision honed to perfection
+          - generic [ref=e127] [cursor=pointer]:
+            - img "Magnetic Knife Stand" [ref=e129]
+            - generic [ref=e130]:
+              - generic [ref=e131]: Magnetic Knife Stand
+              - generic [ref=e132]: N/A · Anodized Aluminum
+              - generic [ref=e133]: Collector's stand — a showcase for every blade
+      - generic [ref=e134]:
+        - generic [ref=e135]:
+          - generic [ref=e136]: V-Form Series
+          - generic [ref=e137]: Patented Design · Black Powder Steel · G10
+        - generic [ref=e139]:
+          - generic [ref=e140] [cursor=pointer]:
+            - img "Chef's Knife 8" [ref=e142]
+            - generic [ref=e143]:
+              - generic [ref=e144]: Chef's Knife 8"
+              - generic [ref=e145]: Black Powder Steel · G10 Ergonomic
+              - generic [ref=e146]: Patented V-shaped line meets commanding grip — a silky smooth cutting edge
+          - generic [ref=e147] [cursor=pointer]:
+            - img "Carving Knife 8" [ref=e149]
+            - generic [ref=e150]:
+              - generic [ref=e151]: Carving Knife 8"
+              - generic [ref=e152]: Black Powder Steel · G10 Ergonomic
+              - generic [ref=e153]: Patented V-shaped line meets commanding grip
+          - generic [ref=e154] [cursor=pointer]:
+            - img "Bread Knife 6" [ref=e156]
+            - generic [ref=e157]:
+              - generic [ref=e158]: Bread Knife 6"
+              - generic [ref=e159]: Black Powder Steel · G10 Ergonomic
+              - generic [ref=e160]: Serrated precision, effortless slice
+          - generic [ref=e161] [cursor=pointer]:
+            - img "Utility Knife 5" [ref=e163]
+            - generic [ref=e164]:
+              - generic [ref=e165]: Utility Knife 5"
+              - generic [ref=e166]: Black Powder Steel · G10 Ergonomic
+              - generic [ref=e167]: Patented V-shaped line meets commanding grip
+          - generic [ref=e168] [cursor=pointer]:
+            - img "Paring Knife 3.5" [ref=e170]
+            - generic [ref=e171]:
+              - generic [ref=e172]: Paring Knife 3.5"
+              - generic [ref=e173]: Black Powder Steel · G10 Ergonomic
+              - generic [ref=e174]: Control refined to the millimeter
+          - generic [ref=e175] [cursor=pointer]:
+            - img "Cleaver" [ref=e177]
+            - generic [ref=e178]:
+              - generic [ref=e179]: Cleaver
+              - generic [ref=e180]: Black Powder Steel · G10 Ergonomic
+              - generic [ref=e181]: Power and precision, unified
+      - generic [ref=e182]:
+        - generic [ref=e183]:
+          - generic [ref=e184]: Damascus Steel Series
+          - generic [ref=e185]: 1000-Layer Damascus · Resin Composite Handle
+        - generic [ref=e187]:
+          - generic [ref=e188] [cursor=pointer]:
+            - img "Chef's Knife 8" [ref=e190]
+            - generic [ref=e191]:
+              - generic [ref=e192]: Chef's Knife 8"
+              - generic [ref=e193]: Damascus Steel — 1000 layers · Resin Composite
+              - generic [ref=e194]: Beneath the edge lies the secret of a thousand layers
+          - generic [ref=e195] [cursor=pointer]:
+            - img "Santoku Knife 5" [ref=e197]
+            - generic [ref=e198]:
+              - generic [ref=e199]: Santoku Knife 5"
+              - generic [ref=e200]: Damascus Steel — 1000 layers · Resin Composite
+              - generic [ref=e201]: Beneath the edge lies the secret of a thousand layers
+          - generic [ref=e202] [cursor=pointer]:
+            - img "Paring Knife 3.5" [ref=e204]
+            - generic [ref=e205]:
+              - generic [ref=e206]: Paring Knife 3.5"
+              - generic [ref=e207]: Damascus Steel — 1000 layers · Resin Composite
+              - generic [ref=e208]: Ancient craft, modern edge
+      - generic [ref=e209]:
+        - generic [ref=e210]:
+          - generic [ref=e211]: Dragon Series
+          - generic [ref=e212]: Red Dot Award Winner · Modular Handle
+        - generic [ref=e214]:
+          - generic [ref=e215] [cursor=pointer]:
+            - img "Chef's Knife" [ref=e217]
+            - generic [ref=e218]:
+              - generic [ref=e219]: Chef's Knife
+              - generic [ref=e220]: Premium Stainless · Interchangeable Modular
+              - generic [ref=e221]: 🏆 Red Dot Award
+              - generic [ref=e222]: Reddot Award — Cutting Taste · Design Excellence Redefined
+          - generic [ref=e223] [cursor=pointer]:
+            - img "Nakiri Knife" [ref=e225]
+            - generic [ref=e226]:
+              - generic [ref=e227]: Nakiri Knife
+              - generic [ref=e228]: Premium Stainless + Dragon Engraved · Interchangeable Modular
+              - generic [ref=e229]: 🏆 Red Dot Award
+              - generic [ref=e230]: Reddot Award — Cutting Taste · Design Excellence Redefined
+          - generic [ref=e231] [cursor=pointer]:
+            - img "Santoku Knife" [ref=e233]
+            - generic [ref=e234]:
+              - generic [ref=e235]: Santoku Knife
+              - generic [ref=e236]: Premium Stainless · Interchangeable Modular
+              - generic [ref=e237]: 🏆 Red Dot Award
+              - generic [ref=e238]: Reddot Award — Cutting Taste · Design Excellence Redefined
+          - generic [ref=e239] [cursor=pointer]:
+            - img "Detachable Gift Box" [ref=e241]
+            - generic [ref=e242]:
+              - generic [ref=e243]: Detachable Gift Box
+              - generic [ref=e244]: Presentation Set · Full Dragon Series
+              - generic [ref=e245]: A gift worthy of the craftsman
+      - generic [ref=e246]:
+        - generic [ref=e247]:
+          - generic [ref=e248]: Natural Elegance Set
+          - generic [ref=e249]: 7-Piece · Wood Fiber Handle · Acacia Block
+        - generic [ref=e251]:
+          - generic [ref=e252] [cursor=pointer]:
+            - img "7-Piece Full Set" [ref=e254]
+            - generic [ref=e255]:
+              - generic [ref=e256]: 7-Piece Full Set
+              - generic [ref=e257]: High-Carbon Stainless · Natural Wood Fiber
+              - generic [ref=e258]: Cutting Taste — Natural Elegance & Superior Grip
+          - generic [ref=e259] [cursor=pointer]:
+            - img "Santoku 5" [ref=e261]
+            - generic [ref=e262]:
+              - generic [ref=e263]: Santoku 5"
+              - generic [ref=e264]: High-Carbon Stainless · Natural Wood Fiber
+              - generic [ref=e265]: Lightweight. Balanced. Natural.
+          - generic [ref=e266] [cursor=pointer]:
+            - img "Santoku 6" [ref=e268]
+            - generic [ref=e269]:
+              - generic [ref=e270]: Santoku 6"
+              - generic [ref=e271]: High-Carbon Stainless · Natural Wood Fiber
+              - generic [ref=e272]: Lightweight. Balanced. Natural.
+          - generic [ref=e273] [cursor=pointer]:
+            - img "Chef Knife" [ref=e275]
+            - generic [ref=e276]:
+              - generic [ref=e277]: Chef Knife
+              - generic [ref=e278]: High-Carbon Stainless · Natural Wood Fiber
+              - generic [ref=e279]: The workhorse of natural craft
+      - generic [ref=e280]:
+        - generic [ref=e281]:
+          - generic [ref=e282]: Cutting Boards & Cookware
+          - generic [ref=e283]: Innovative Boards · Stainless Woks
+        - generic [ref=e285]:
+          - generic [ref=e286] [cursor=pointer]:
+            - img "Flip Magnetic Board" [ref=e288]
+            - generic [ref=e289]:
+              - generic [ref=e290]: Flip Magnetic Board
+              - generic [ref=e291]: iPad-style Magnetic Folding · Black
+              - generic [ref=e292]: Innovative Pod Style — redefines the traditional cutting board
+          - generic [ref=e293] [cursor=pointer]:
+            - img "Black Walnut Board" [ref=e295]
+            - generic [ref=e296]:
+              - generic [ref=e297]: Black Walnut Board
+              - generic [ref=e298]: North American Black Walnut · Natural
+              - generic [ref=e299]: Natural Luxury. Ages Beautifully.
+          - generic [ref=e300] [cursor=pointer]:
+            - img "Micro-Pressure Wok" [ref=e302]
+            - generic [ref=e303]:
+              - generic [ref=e304]: Micro-Pressure Wok
+              - generic [ref=e305]: 3-Layer Stainless + Lid · All-stove compatible
+              - generic [ref=e306]: Master Your Kitchen
+          - generic [ref=e307] [cursor=pointer]:
+            - img "3-Layer Cookware Set" [ref=e309]
+            - generic [ref=e310]:
+              - generic [ref=e311]: 3-Layer Cookware Set
+              - generic [ref=e312]: 18/10 Stainless + Aluminum Core · Induction + Dishwasher safe
+              - generic [ref=e313]: Professional grade, home kitchen ready
+          - generic [ref=e314] [cursor=pointer]:
+            - img "Kitchen Utensil Set" [ref=e316]
+            - generic [ref=e317]:
+              - generic [ref=e318]: Kitchen Utensil Set
+              - generic [ref=e319]: Steel + Wood Handles · Pasta Server, Spatula, Ladle, Slotted Spoon
+              - generic [ref=e320]: Complete your kitchen
+  - generic [ref=e323]:
+    - text: Beneath the Edge Lies
+    - text: the Secret of
+    - emphasis [ref=e324]: a Thousand Layers
+  - contentinfo [ref=e325]:
+    - generic [ref=e326]: This catalogue is powered by
+    - generic [ref=e327]: STEEZ.
+    - generic [ref=e328]: steez.digital
+    - generic [ref=e329]: Digital catalogues & business cards for modern brands
+    - generic [ref=e332]:
+      - text: © 2024 INWIN Professional Kitchenware · All Rights Reserved
+      - text: Demo catalogue produced by STEEZ Digital

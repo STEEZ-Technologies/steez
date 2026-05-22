@@ -1,0 +1,35 @@
+[    3393ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3426ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3445ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3459ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3481ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3504ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3529ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3553ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3587ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3643ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3662ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3680ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3694ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3710ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3725ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3742ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3763ms] [WARNING] WARNING: Too many active WebGL contexts. Oldest context will be lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3779ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3780ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3780ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3780ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3780ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3780ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3780ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3780ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3780ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3781ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3781ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3781ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3782ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3782ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3782ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3782ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3784ms] [LOG] THREE.WebGLRenderer: Context Lost. @ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js:5
+[    3793ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8766/favicon.ico:0

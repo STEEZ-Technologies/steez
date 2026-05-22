@@ -1,22 +1,29 @@
 "use client";
 
-import { useRef } from "react";
-import { useScroll, useTransform, motion, useSpring } from "motion/react";
-import { RevealCardContainer, IdentityCardBody } from "@/components/ui/reveal-card";
+import { useRef, useState } from "react";
+import { useScroll, useTransform, motion, useSpring, AnimatePresence } from "motion/react";
+import { InteractivePhone } from "./InteractivePhone";
+import { BrowserMockup } from "./BrowserMockup";
+import { CatalogueTablet } from "./CatalogueTablet";
+import { useIsMobile } from "@/lib/useIsMobile";
+import { useHaptic } from "@/lib/useHaptic";
 
 const AGENCY_SERVICES = [
   {
-    title: "Digital Business Cards",
+    eyebrow: "01 · Cards",
+    title: "Digital Cards",
     about:
       "Scannable QR-linked profile pages with factory photos, map location, contact info, WeChat & QQ links, service list, about section, and a country-reach infographic. Bilingual EN · 中 · РУ · العربية. Dark / light mode. Share links built in.",
   },
   {
-    title: "Digital Company Profiles",
+    eyebrow: "02 · Profiles",
+    title: "Company Profiles",
     about:
       "Standalone microsites that present your factory, services, production capabilities, location and credentials in one polished page — branded as a profile, not a brochure. Buyers land on a site that closes the deal for you.",
   },
   {
-    title: "Digital Catalogues",
+    eyebrow: "03 · Catalogues",
+    title: "Product Catalogues",
     about:
       "Interactive product catalogues replacing static PDFs. Optional 3D / AR product views on request, so buyers in Berlin, Riyadh or São Paulo can rotate, scale and inspect your products before they reach out.",
   },
@@ -24,38 +31,26 @@ const AGENCY_SERVICES = [
 
 export function Services() {
   const containerRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  // High-performance physics: Responsive but with "expensive" weight
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 120,
     damping: 40,
     restDelta: 0.001
   });
 
-  // INFINITE GROWTH LOGIC: 
-  // 1. Starts at 40% scale.
-  // 2. Expands to 94% (the "sweet spot") at 0.4 scroll.
-  // 3. Continues a "micro-growth" to 96% through the middle to avoid hitting a "wall".
-  // 4. Subtle shrink back to 92% as it exits.
-  const scale = useTransform(smoothProgress, 
-    [0, 0.4, 0.7, 1], 
-    [0.4, 0.94, 0.96, 0.92]
-  );
-
-  // Unfurl the border radius more aggressively at the start
-  const borderRadius = useTransform(
-    smoothProgress,
-    [0, 0.35],
-    ["160px", "var(--radius-largeelements)"]
-  );
-
-  // Content Parallax: Moves the inner content slightly slower than the scroll
-  const contentY = useTransform(smoothProgress, [0, 1], [50, -50]);
+  const animatedScale = useTransform(smoothProgress, [0, 0.4, 0.7, 1], [0.4, 0.94, 0.96, 0.92]);
+  const animatedBorderRadius = useTransform(smoothProgress, [0, 0.35], ["160px", "var(--radius-largeelements)"]);
+  const contentY = useTransform(smoothProgress, [0, 1], [20, -20]);
+  
+  // Use static values on mobile to avoid heavy layout repaints
+  const scale = isMobile ? 1 : animatedScale;
+  const borderRadius = isMobile ? "var(--radius-largeelements)" : animatedBorderRadius;
   
   return (
     <motion.section
@@ -68,9 +63,9 @@ export function Services() {
         borderRadius,
         scale,
         transformOrigin: "center center",
-        marginTop: "var(--space-80)",
-        marginBottom: "var(--space-80)",
-        padding: "var(--space-120) clamp(20px, 4vw, 40px)",
+        marginTop: isMobile ? "var(--space-16)" : "var(--space-32)",
+        marginBottom: isMobile ? "var(--space-16)" : "var(--space-32)",
+        padding: "clamp(40px, 5vw, 72px) clamp(20px, 4vw, 40px)",
         position: "relative",
         zIndex: 30,
         transition: "background 0.4s ease, color 0.4s ease",
@@ -78,14 +73,14 @@ export function Services() {
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        maxWidth: "1800px", // Prevent it from getting too wide on ultra-wide screens
-        margin: "var(--space-80) auto",
+        maxWidth: "1800px",
+        margin: "0 auto",
         overflow: "hidden",
         perspective: "1200px"
       }}
     >
-      <motion.div style={{ y: contentY, width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <header style={{ textAlign: "center", marginBottom: "clamp(48px, 6vw, 80px)", width: "100%" }}>
+      <motion.div style={{ y: isMobile ? 0 : contentY, width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <header style={{ textAlign: "center", marginBottom: "clamp(24px, 3vw, 40px)", width: "100%" }}>
         <motion.div
           style={{
             fontWeight: 600,
@@ -116,97 +111,255 @@ export function Services() {
         >
           What We Build
         </motion.h2>
+        <motion.p
+          style={{
+            marginTop: "clamp(16px, 1.6vw, 24px)",
+            maxWidth: "640px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            fontWeight: 300,
+            fontSize: "clamp(1rem, 1.3vw, 1.15rem)",
+            lineHeight: 1.55,
+            color: "inherit",
+            opacity: useTransform(smoothProgress, [0.08, 0.18], [0, 0.75]),
+            y: useTransform(smoothProgress, [0.08, 0.18], [24, 0]),
+          }}
+        >
+          Three products. One stack. Built for Chinese exporters going global.
+        </motion.p>
       </header>
 
-      <div className="w-full max-w-7xl flex flex-col gap-24 lg:gap-32">
-        {AGENCY_SERVICES.map((service, i) => {
-          const isReversed = i % 2 === 1;
-          // Calculate individual trigger points for each item based on its index
-          const start = 0.15 + i * 0.15;
-          const end = start + 0.25;
-          
-          return (
-            <div
+      {isMobile ? (
+        <MobileServiceTabs services={AGENCY_SERVICES} />
+      ) : (
+        <div className="w-full max-w-7xl flex flex-col gap-12 lg:gap-16">
+          {AGENCY_SERVICES.map((service, i) => (
+            <DesktopServiceRow
               key={service.title}
-              className={`flex w-full flex-col items-center justify-between gap-12 lg:gap-24 ${
-                isReversed ? "lg:flex-row-reverse" : "lg:flex-row"
-              }`}
-            >
-              {/* Text Block */}
-              <div className={`flex w-full lg:w-1/2 lg:flex-1 ${isReversed ? "lg:justify-start" : "lg:justify-end"}`}>
-                <motion.div 
-                  style={{ 
-                    maxWidth: "540px",
-                    opacity: useTransform(smoothProgress, [start, start + 0.15], [0, 1]),
-                    x: useTransform(smoothProgress, [start, start + 0.2], [isReversed ? 60 : -60, 0]),
-                  }}
-                  className="w-full text-center lg:text-left"
-                >
-                  <h3
-                    style={{
-                      fontWeight: 800,
-                      fontSize: "clamp(2rem, 4vw, 3.5rem)",
-                      lineHeight: 1.1,
-                      letterSpacing: "-0.02em",
-                      marginBottom: "1.5rem",
-                      color: "inherit",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {service.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontWeight: 300,
-                      fontSize: "clamp(1rem, 1.5vw, 1.25rem)",
-                      lineHeight: 1.6,
-                      color: "inherit",
-                      opacity: 0.8,
-                      margin: 0,
-                    }}
-                  >
-                    {service.about}
-                  </p>
-                </motion.div>
-              </div>
-
-              {/* Figure Block (Visual Card) */}
-              <div className={`flex w-full lg:w-1/2 lg:flex-1 ${isReversed ? "lg:justify-end" : "lg:justify-start"}`}>
-                <motion.div 
-                   style={{ 
-                     width: '100%', 
-                     maxWidth: '480px',
-                     opacity: useTransform(smoothProgress, [start + 0.05, start + 0.2], [0, 1]),
-                     x: useTransform(smoothProgress, [start + 0.05, start + 0.25], [isReversed ? -80 : 80, 0]),
-                     scale: useTransform(smoothProgress, [start + 0.05, start + 0.25], [0.85, 1]),
-                     rotateY: useTransform(smoothProgress, [start + 0.05, start + 0.25], [isReversed ? 15 : -15, 0]),
-                   }}
-                >
-                  <RevealCardContainer
-                    base={
-                      <IdentityCardBody
-                        fullName={service.title}
-                        about={service.about}
-                        scheme="plain"
-                        displayAvatar={false}
-                      />
-                    }
-                    overlay={
-                      <IdentityCardBody
-                        fullName={service.title}
-                        about={service.about}
-                        scheme="accented"
-                        displayAvatar={false}
-                      />
-                    }
-                  />
-                </motion.div>
-              </div>
-            </div>
-          );
-        })}
+              service={service}
+              index={i}
+              smoothProgress={smoothProgress}
+            />
+          ))}
         </div>
+      )}
         </motion.div>
         </motion.section>
         );
         }
+
+type Service = (typeof AGENCY_SERVICES)[number];
+
+function DesktopServiceRow({
+  service,
+  index: i,
+  smoothProgress,
+}: {
+  service: Service;
+  index: number;
+  smoothProgress: ReturnType<typeof useSpring>;
+}) {
+  const start = 0.15 + i * 0.15;
+  const textX = useTransform(smoothProgress, [start, start + 0.2], [-60, 0]);
+  const figureX = useTransform(smoothProgress, [start + 0.05, start + 0.25], [60, 0]);
+  const textOpacity = useTransform(smoothProgress, [start, start + 0.15], [0, 1]);
+  const figureOpacity = useTransform(smoothProgress, [start + 0.05, start + 0.2], [0, 1]);
+  const figureScale = useTransform(smoothProgress, [start + 0.05, start + 0.25], [0.92, 1]);
+
+  return (
+    <div className="flex w-full flex-col items-center justify-between gap-12 lg:flex-row lg:gap-24">
+      <div className="flex w-full lg:w-1/2 lg:flex-1 lg:justify-end">
+        <motion.div
+          style={{ maxWidth: "460px", opacity: textOpacity, x: textX }}
+          className="w-full text-center lg:text-left"
+        >
+          <div
+            style={{
+              fontWeight: 600,
+              fontSize: "clamp(0.7rem, 0.95vw, 0.82rem)",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#E0A93A",
+              marginBottom: "clamp(12px, 1.4vw, 18px)",
+            }}
+          >
+            {service.eyebrow}
+          </div>
+          <h3
+            style={{
+              fontWeight: 800,
+              fontSize: "clamp(2rem, 3.4vw, 3rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              marginBottom: "1.25rem",
+              color: "inherit",
+              textTransform: "uppercase",
+            }}
+          >
+            {service.title}
+          </h3>
+          <p
+            style={{
+              fontWeight: 300,
+              fontSize: "clamp(0.95rem, 1.25vw, 1.1rem)",
+              lineHeight: 1.6,
+              color: "inherit",
+              opacity: 0.75,
+              margin: 0,
+            }}
+          >
+            {service.about}
+          </p>
+        </motion.div>
+      </div>
+      <div className="flex w-full lg:w-1/2 lg:flex-1 justify-center">
+        <motion.div
+          style={{
+            width: "100%",
+            maxWidth: i === 0 ? "340px" : "560px",
+            opacity: figureOpacity,
+            x: figureX,
+            scale: figureScale,
+          }}
+        >
+          {i === 0 && <InteractivePhone />}
+          {i === 1 && <BrowserMockup />}
+          {i === 2 && <CatalogueTablet />}
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+function MobileServiceTabs({ services }: { services: Service[] }) {
+  const [active, setActive] = useState(0);
+  const haptic = useHaptic();
+  const current = services[active];
+
+  return (
+    <div style={{ width: "100%", maxWidth: 520, margin: "0 auto" }}>
+      <div
+        role="tablist"
+        aria-label="Services"
+        style={{
+          display: "flex",
+          gap: 6,
+          padding: 4,
+          background: "rgba(250,249,245,0.05)",
+          border: "1px solid var(--section-hairline)",
+          borderRadius: 999,
+          marginBottom: "clamp(24px, 4vw, 36px)",
+        }}
+      >
+        {services.map((s, i) => {
+          const isActive = i === active;
+          return (
+            <button
+              key={s.title}
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => {
+                if (i !== active) haptic(8);
+                setActive(i);
+              }}
+              style={{
+                flex: 1,
+                minHeight: 40,
+                border: "none",
+                cursor: "pointer",
+                borderRadius: 999,
+                background: isActive ? "#E0A93A" : "transparent",
+                color: isActive ? "#1A1A1A" : "inherit",
+                fontWeight: 700,
+                fontSize: "0.72rem",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                transition: "background 0.2s ease, color 0.2s ease",
+                opacity: isActive ? 1 : 0.7,
+              }}
+            >
+              {s.title.split(" ").slice(-1)[0]}
+            </button>
+          );
+        })}
+      </div>
+
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "clamp(20px, 3vw, 28px)",
+          minHeight: 280,
+        }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              width: "100%",
+              maxWidth: active === 0 ? 280 : 480,
+            }}
+          >
+            {active === 0 && <InteractivePhone />}
+            {active === 1 && <BrowserMockup />}
+            {active === 2 && <CatalogueTablet />}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current.title}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.22 }}
+          style={{ textAlign: "center", padding: "0 8px" }}
+        >
+          <div
+            style={{
+              fontWeight: 600,
+              fontSize: "0.72rem",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#E0A93A",
+              marginBottom: 10,
+            }}
+          >
+            {current.eyebrow}
+          </div>
+          <h3
+            style={{
+              fontWeight: 800,
+              fontSize: "clamp(1.8rem, 6vw, 2.4rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              marginBottom: "0.9rem",
+              color: "inherit",
+              textTransform: "uppercase",
+            }}
+          >
+            {current.title}
+          </h3>
+          <p
+            style={{
+              fontWeight: 300,
+              fontSize: "0.95rem",
+              lineHeight: 1.6,
+              color: "inherit",
+              opacity: 0.75,
+              margin: 0,
+            }}
+          >
+            {current.about}
+          </p>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}

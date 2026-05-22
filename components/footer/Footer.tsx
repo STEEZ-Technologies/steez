@@ -69,6 +69,7 @@ export function Footer() {
         <FooterCol
           titleEn={COPY.footer.locations.heading.en}
           titleCn={COPY.footer.locations.heading.cn}
+          collapsible
         >
           {COPY.footer.locations.items.map((it) => (
             <li key={it.en} style={ITEM_STYLE}>
@@ -83,6 +84,7 @@ export function Footer() {
         <FooterCol
           titleEn={COPY.footer.contact.heading.en}
           titleCn={COPY.footer.contact.heading.cn}
+          collapsible
         >
           {COPY.footer.contact.items.map((it) => (
             <li key={it} style={ITEM_STYLE}>
@@ -94,6 +96,7 @@ export function Footer() {
         <FooterCol
           titleEn={COPY.footer.index.heading.en}
           titleCn={COPY.footer.index.heading.cn}
+          collapsible
         >
           {COPY.footer.index.items.map((it) => (
             <li key={it.href} style={ITEM_STYLE}>

@@ -1,0 +1,51 @@
+[    1800ms] [ERROR] Access to fetch at 'https://steez-models.oss-cn-hongkong.aliyuncs.com/bose_smart_speaker.glb' from origin 'http://localhost:10340' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://localhost:10340/:0
+[    1801ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://steez-models.oss-cn-hongkong.aliyuncs.com/bose_smart_speaker.glb:0
+[    1802ms] [ERROR] TypeError: Failed to fetch
+    at lc.load (https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:6:480353)
+    at GLTFLoader.load (https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:111:11)
+    at http://localhost:10340/:2251:14
+    at Array.forEach (<anonymous>)
+    at initHeroModels (http://localhost:10340/:2235:9)
+    at http://localhost:10340/:2269:1 @ https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:96
+[    1810ms] [ERROR] Access to fetch at 'https://steez-models.oss-cn-hongkong.aliyuncs.com/dyson_supersonic.glb' from origin 'http://localhost:10340' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://localhost:10340/:0
+[    1810ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://steez-models.oss-cn-hongkong.aliyuncs.com/dyson_supersonic.glb:0
+[    1810ms] [ERROR] TypeError: Failed to fetch
+    at lc.load (https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:6:480353)
+    at GLTFLoader.load (https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:111:11)
+    at http://localhost:10340/:2251:14
+    at Array.forEach (<anonymous>)
+    at initHeroModels (http://localhost:10340/:2235:9)
+    at http://localhost:10340/:2269:1 @ https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:96
+[    1903ms] [ERROR] Access to fetch at 'https://steez-models.oss-cn-hongkong.aliyuncs.com/headphones_airpods_pro.glb' from origin 'http://localhost:10340' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://localhost:10340/:0
+[    1904ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://steez-models.oss-cn-hongkong.aliyuncs.com/headphones_airpods_pro.glb:0
+[    1904ms] [ERROR] TypeError: Failed to fetch
+    at lc.load (https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:6:480353)
+    at GLTFLoader.load (https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:111:11)
+    at http://localhost:10340/:2251:14
+    at Array.forEach (<anonymous>)
+    at initHeroModels (http://localhost:10340/:2235:9)
+    at http://localhost:10340/:2269:1 @ https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:96
+[    2319ms] [ERROR] Access to fetch at 'https://steez-models.oss-cn-hongkong.aliyuncs.com/powerbank_alike_xiaomi_67w_power_bank_20000.glb' from origin 'http://localhost:10340' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://localhost:10340/:0
+[    2319ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://steez-models.oss-cn-hongkong.aliyuncs.com/powerbank_alike_xiaomi_67w_power_bank_20000.glb:0
+[    2319ms] [ERROR] TypeError: Failed to fetch
+    at lc.load (https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:6:480353)
+    at GLTFLoader.load (https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:111:11)
+    at http://localhost:10340/:2251:14
+    at Array.forEach (<anonymous>)
+    at initHeroModels (http://localhost:10340/:2235:9)
+    at http://localhost:10340/:2269:1 @ https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:96
+[    2482ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:10340/favicon.ico:0
+[   12530ms] [ERROR] Access to fetch at 'https://steez-models.oss-cn-hongkong.aliyuncs.com/massage_gun.glb' from origin 'http://localhost:10340' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://localhost:10340/:0
+[   12531ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://steez-models.oss-cn-hongkong.aliyuncs.com/massage_gun.glb:0
+[   12531ms] [ERROR] TypeError: Failed to fetch
+    at lc.load (https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:6:480353)
+    at GLTFLoader.load (https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:111:11)
+    at pdBuildModel (http://localhost:10340/:2045:12)
+    at http://localhost:10340/:1990:18 @ https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:96
+[   48680ms] [ERROR] Access to fetch at 'https://steez-models.oss-cn-hongkong.aliyuncs.com/headphones_airpods_pro.glb' from origin 'http://localhost:10340' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://localhost:10340/:0
+[   48680ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://steez-models.oss-cn-hongkong.aliyuncs.com/headphones_airpods_pro.glb:0
+[   48680ms] [ERROR] TypeError: Failed to fetch
+    at lc.load (https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js:6:480353)
+    at GLTFLoader.load (https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:111:11)
+    at pdBuildModel (http://localhost:10340/:2045:12)
+    at http://localhost:10340/:1990:18 @ https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js:96

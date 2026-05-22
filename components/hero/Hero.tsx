@@ -1,13 +1,15 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useScroll, useTransform, motion, useSpring } from "motion/react";
 import { FadeIn } from "@/components/shared/FadeIn";
 import { COPY } from "@/lib/copy";
 import { Numbers } from "@/components/numbers/Numbers";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -34,7 +36,7 @@ export function Hero() {
       ref={containerRef}
       id="top"
       style={{
-        minHeight: "100vh",
+        minHeight: "100dvh",
         display: "flex",
         flexDirection: "column",
         position: "relative",
@@ -101,12 +103,14 @@ export function Hero() {
               fontWeight: 900,
               letterSpacing: "-0.04em",
               lineHeight: "var(--leading-display)",
-              whiteSpace: "nowrap",
+              whiteSpace: isMobile ? "normal" : "nowrap",
               width: "100%",
               textAlign: "center",
               margin: 0,
               textTransform: "uppercase",
               color: "inherit",
+              maxWidth: isMobile ? "16ch" : undefined,
+              marginInline: isMobile ? "auto" : undefined,
             }}
           >
             {COPY.hero.title}
@@ -193,7 +197,7 @@ export function Hero() {
           </div>
         </FadeIn>
 
-        <motion.div
+        {!isMobile && <motion.div
           style={{
             position: "absolute",
             bottom: "clamp(20px, 3vw, 40px)",
@@ -238,22 +242,107 @@ export function Hero() {
               }}
             />
           </div>
-          <span style={{ 
-            fontSize: "0.65rem", 
-            fontWeight: 600, 
-            textTransform: "uppercase", 
+          <span style={{
+            fontSize: "0.65rem",
+            fontWeight: 600,
+            textTransform: "uppercase",
             letterSpacing: "0.15em",
             opacity: 0.4
           }}>
             Scroll
           </span>
-        </motion.div>
+        </motion.div>}
       </motion.div>
+
+      {isMobile && <MobileCTA />}
 
       <div style={{ position: "relative", zIndex: 3 }}>
         <Numbers />
       </div>
     </section>
+  );
+}
+
+function MobileCTA() {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    const hero = document.getElementById("top");
+    if (!hero) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setHidden(entry.intersectionRatio < 0.3),
+      { threshold: [0, 0.3, 0.6] }
+    );
+    io.observe(hero);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <motion.div
+      initial={false}
+      animate={{ y: hidden ? 120 : 0, opacity: hidden ? 0 : 1 }}
+      transition={{ type: "spring", stiffness: 260, damping: 28 }}
+      style={{
+        position: "fixed",
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 95,
+        padding: "10px 14px max(14px, env(safe-area-inset-bottom))",
+        background: "color-mix(in srgb, var(--bg) 88%, transparent)",
+        backdropFilter: "blur(14px)",
+        WebkitBackdropFilter: "blur(14px)",
+        borderTop: "1px solid var(--hairline)",
+        display: "flex",
+        gap: 10,
+        pointerEvents: hidden ? "none" : "auto",
+      }}
+    >
+      <a
+        href="#contact"
+        style={{
+          flex: 1,
+          textAlign: "center",
+          padding: "14px 18px",
+          background: "#E0A93A",
+          color: "#1A1A1A",
+          fontWeight: 700,
+          fontSize: "0.88rem",
+          textTransform: "uppercase",
+          letterSpacing: "0.1em",
+          borderRadius: 999,
+          textDecoration: "none",
+          minHeight: 44,
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        Talk to us
+      </a>
+      <a
+        href="#contact"
+        aria-label="WeChat"
+        style={{
+          width: 52,
+          minWidth: 52,
+          height: 52,
+          borderRadius: 999,
+          background: "var(--card-bg)",
+          border: "1px solid var(--hairline-strong)",
+          color: "inherit",
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontWeight: 700,
+          fontSize: "0.7rem",
+          letterSpacing: "0.06em",
+          textDecoration: "none",
+        }}
+      >
+        <span className="cn-text" lang="zh">微信</span>
+      </a>
+    </motion.div>
   );
 }
 

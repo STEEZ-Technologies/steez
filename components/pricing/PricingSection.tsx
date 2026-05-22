@@ -1,7 +1,9 @@
 import NumberFlow from "@number-flow/react";
 import { AnimatePresence, motion, useMotionValue, useTransform, useSpring } from "motion/react";
-import { CheckIcon } from "lucide-react";
+import { CheckIcon, ChevronDown } from "lucide-react";
 import { useState, useRef } from "react";
+import { useIsMobile } from "@/lib/useIsMobile";
+import { useHaptic } from "@/lib/useHaptic";
 
 type Plan = "monthly" | "annually";
 
@@ -41,7 +43,7 @@ export const PLANS: PLAN[] = [
     desc: "For serious exporters. Card, forms, four languages, and quarterly analytics.",
     monthlyPrice: 1280,
     annuallyPrice: 12800,
-    badge: "Most Chosen",
+    badge: "Most Popular",
     buttonText: "Get Standard",
     features: [
       "1 card + 5 digital forms",
@@ -74,6 +76,14 @@ export const PLANS: PLAN[] = [
 
 export default function PricingSection() {
   const [billPlan, setBillPlan] = useState<Plan>("monthly");
+  const isMobile = useIsMobile();
+
+  const orderedPlans = isMobile
+    ? [
+        PLANS.find((p) => p.id === "standard")!,
+        ...PLANS.filter((p) => p.id !== "standard"),
+      ]
+    : PLANS;
 
   return (
     <section
@@ -84,7 +94,7 @@ export default function PricingSection() {
         borderTop: "1px solid var(--hairline)",
         borderTopLeftRadius: "var(--radius-cards)",
         borderTopRightRadius: "var(--radius-cards)",
-        padding: "var(--space-120) clamp(20px, 4vw, 40px)",
+        padding: "clamp(48px, 6vw, 80px) clamp(20px, 4vw, 40px)",
         position: "relative",
         zIndex: 6,
         transition: "background 0.4s ease, color 0.4s ease",
@@ -92,7 +102,7 @@ export default function PricingSection() {
     >
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "clamp(48px, 6vw, 80px)" }}>
+        <div style={{ textAlign: "center", marginBottom: "clamp(32px, 4vw, 56px)" }}>
           <div
             style={{
               fontWeight: 600,
@@ -206,27 +216,23 @@ export default function PricingSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "clamp(16px, 2vw, 24px)",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gap: isMobile ? "clamp(28px, 4vw, 36px)" : "clamp(16px, 2vw, 24px)",
             alignItems: "stretch",
           }}
         >
-          {PLANS.map((plan) => (
-            <PlanCard key={plan.id} plan={plan} billPlan={billPlan} />
+          {orderedPlans.map((plan) => (
+            <PlanCard key={plan.id} plan={plan} billPlan={billPlan} isMobile={isMobile} />
           ))}
         </div>
 
         {/* Trust strip */}
         <div
+          className="grid grid-cols-2 lg:grid-cols-4 rounded-[var(--radius-smallercards)] border border-[var(--hairline)] bg-[var(--card-bg)]"
           style={{
-            marginTop: "var(--space-64)",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
+            marginTop: "clamp(28px, 3.5vw, 48px)",
             gap: "var(--space-24)",
             padding: "var(--space-32)",
-            borderRadius: "var(--radius-smallercards)",
-            border: "1px solid var(--hairline)",
-            background: "var(--card-bg)",
           }}
         >
           {[
@@ -237,12 +243,11 @@ export default function PricingSection() {
           ].map((t, i) => (
             <div
               key={t.k}
+              className={i !== 0 ? "lg:border-l lg:border-[var(--hairline)] lg:pl-5" : ""}
               style={{
                 display: "flex",
                 flexDirection: "column",
                 gap: 6,
-                paddingLeft: i === 0 ? 0 : "clamp(12px, 1.5vw, 20px)",
-                borderLeft: i === 0 ? "none" : "1px solid var(--hairline)",
               }}
             >
               <div
@@ -275,10 +280,12 @@ export default function PricingSection() {
   );
 }
 
-function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
+function PlanCard({ plan, billPlan, isMobile }: { plan: PLAN; billPlan: Plan; isMobile: boolean }) {
   const isFeatured = plan.id === "standard";
   const cardRef = useRef<HTMLDivElement>(null);
-  
+  const haptic = useHaptic();
+  const [featuresOpen, setFeaturesOpen] = useState(isFeatured);
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -286,16 +293,17 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
   const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-10, 10]), { stiffness: 100, damping: 20 });
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (isMobile) return;
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    
+
     const xPct = (mouseX / width) - 0.5;
     const yPct = (mouseY / height) - 0.5;
-    
+
     x.set(xPct);
     y.set(yPct);
   }
@@ -319,10 +327,16 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
         border: isFeatured ? "1px solid #E0A93A" : "1px solid var(--hairline)",
         background: isFeatured ? "rgba(224,169,58,0.07)" : "var(--card-bg)",
         overflow: "visible",
-        marginTop: plan.badge ? 14 : 0,
+        marginTop: plan.badge && !isMobile ? 14 : isMobile && plan.badge ? 10 : 0,
+        zIndex: isFeatured ? 2 : 1,
+        boxShadow: isFeatured
+          ? "0 40px 80px -20px rgba(224, 169, 58, 0.35), 0 20px 40px -25px rgba(0, 0, 0, 0.45)"
+          : "none",
         transition: "background 0.4s ease, border-color 0.4s ease",
-        rotateX,
-        rotateY,
+        scale: isMobile ? 1 : (isFeatured ? 1.04 : 1),
+        translateY: isMobile ? 0 : (isFeatured ? -16 : 0),
+        rotateX: isMobile ? 0 : rotateX,
+        rotateY: isMobile ? 0 : rotateY,
         transformStyle: "preserve-3d",
       }}
     >
@@ -458,27 +472,75 @@ function PlanCard({ plan, billPlan }: { plan: PLAN; billPlan: Plan }) {
       <div style={{ height: 1, background: "var(--hairline)", margin: "0 var(--space-36)" }} />
 
       {/* Features */}
-      <div
-        style={{
-          padding: "var(--space-28) var(--space-36)",
-          display: "flex",
-          flexDirection: "column",
-          gap: "clamp(10px, 1.2vw, 14px)",
-          flex: 1,
-          transform: "translateZ(20px)"
-        }}
-      >
-        {plan.features.map((feature) => (
-          <div key={feature} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <CheckIcon
-              style={{ color: "#1D9E75", flexShrink: 0, width: 16, height: 16 }}
-            />
-            <span style={{ fontSize: "clamp(0.8rem, 1.05vw, 0.9rem)", color: "inherit", opacity: 0.8 }}>
-              {feature}
-            </span>
-          </div>
-        ))}
-      </div>
+      {isMobile ? (
+        <div style={{ padding: "0 var(--space-36) var(--space-28)", transform: "translateZ(20px)" }}>
+          <button
+            onClick={() => {
+              haptic(6);
+              setFeaturesOpen((v) => !v);
+            }}
+            aria-expanded={featuresOpen}
+            style={{
+              width: "100%",
+              minHeight: 44,
+              border: "1px solid var(--hairline)",
+              background: "transparent",
+              borderRadius: "var(--radius-buttons)",
+              padding: "10px 14px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              color: "inherit",
+              cursor: "pointer",
+              fontWeight: 600,
+              fontSize: "0.82rem",
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+              fontFamily: "inherit",
+            }}
+          >
+            <span>{featuresOpen ? "Hide" : "Show"} features ({plan.features.length})</span>
+            <motion.span animate={{ rotate: featuresOpen ? 180 : 0 }} transition={{ duration: 0.2 }} style={{ display: "inline-flex" }}>
+              <ChevronDown size={16} />
+            </motion.span>
+          </button>
+          <motion.div
+            initial={false}
+            animate={{ height: featuresOpen ? "auto" : 0, opacity: featuresOpen ? 1 : 0 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            style={{ overflow: "hidden" }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: 12, paddingTop: 14 }}>
+              {plan.features.map((feature) => (
+                <div key={feature} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <CheckIcon style={{ color: "#1D9E75", flexShrink: 0, width: 16, height: 16 }} />
+                  <span style={{ fontSize: "0.88rem", color: "inherit", opacity: 0.8 }}>{feature}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      ) : (
+        <div
+          style={{
+            padding: "var(--space-28) var(--space-36)",
+            display: "flex",
+            flexDirection: "column",
+            gap: "clamp(10px, 1.2vw, 14px)",
+            flex: 1,
+            transform: "translateZ(20px)",
+          }}
+        >
+          {plan.features.map((feature) => (
+            <div key={feature} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <CheckIcon style={{ color: "#1D9E75", flexShrink: 0, width: 16, height: 16 }} />
+              <span style={{ fontSize: "clamp(0.8rem, 1.05vw, 0.9rem)", color: "inherit", opacity: 0.8 }}>
+                {feature}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
     </motion.div>
   );
 }
