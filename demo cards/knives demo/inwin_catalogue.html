@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0d0d0d">
+<title>INWIN — Master Craftsman of Professional Kitchenware</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0d;
+  --bg2:#111111;
+  --bg3:#1a1a1a;
+  --red:#c0392b;
+  --red2:#e74c3c;
+  --white:#ffffff;
+  --gray:#aaaaaa;
+  --gold:#d4a844;
+  --font-h:'Oswald',sans-serif;
+  --font-s:'Playfair Display',serif;
+  --font-b:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--font-b);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--red)}
+
+/* ── NAV ── */
+#nav{
+  position:fixed;top:0;left:0;width:100%;z-index:900;
+  background:rgba(13,13,13,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(192,57,43,0.3);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(16px,4vw,48px);height:56px;
+}
+.nav-logo{
+  font-family:var(--font-h);font-weight:700;font-size:22px;
+  letter-spacing:0.12em;color:var(--white);text-decoration:none;
+}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:clamp(12px,2vw,28px);list-style:none}
+.nav-links a{
+  font-family:var(--font-h);font-size:12px;letter-spacing:0.14em;
+  color:var(--gray);text-decoration:none;text-transform:uppercase;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--white)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.nav-hamburger span{width:22px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s}
+@media(max-width:680px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:fixed;
+    top:56px;left:0;width:100%;background:rgba(13,13,13,0.98);
+    padding:20px;gap:16px;border-bottom:1px solid var(--red);
+  }
+}
+
+/* ── RED RULE ── */
+.red-rule{width:100%;height:1px;background:var(--red);opacity:0.5;margin:0}
+.red-rule-sm{width:60px;height:2px;background:var(--red);margin:16px auto}
+
+/* ── HERO ── */
+#hero{
+  position:relative;height:100vh;min-height:600px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;background:#000;padding-top:56px;
+}
+#hero-canvas{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;opacity:0.35;
+}
+.hero-content{
+  position:relative;z-index:2;text-align:center;
+  padding:0 clamp(16px,5vw,80px);
+}
+.hero-eyebrow{
+  font-family:var(--font-h);font-size:clamp(10px,1.2vw,13px);
+  letter-spacing:0.4em;color:var(--red);text-transform:uppercase;
+  opacity:0;animation:fadeUp 0.8s 0.2s forwards;
+  margin-bottom:24px;
+}
+.hero-logo{
+  font-family:var(--font-h);font-weight:700;
+  font-size:clamp(64px,14vw,160px);letter-spacing:0.05em;
+  color:var(--white);line-height:0.85;
+  opacity:0;animation:fadeUp 0.9s 0.5s forwards;
+  text-shadow:0 0 80px rgba(192,57,43,0.3);
+}
+.hero-logo span{color:var(--red)}
+.hero-tagline{
+  font-family:var(--font-h);font-weight:600;
+  font-size:clamp(13px,2.2vw,24px);letter-spacing:0.3em;
+  color:var(--white);text-transform:uppercase;
+  opacity:0;animation:fadeUp 0.8s 0.9s forwards;
+  margin-top:20px;
+}
+.hero-sub{
+  font-family:var(--font-h);font-size:clamp(10px,1.3vw,14px);
+  letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;
+  opacity:0;animation:fadeUp 0.8s 1.2s forwards;
+  margin-top:14px;
+}
+.hero-divider{
+  width:1px;height:clamp(40px,6vh,70px);background:var(--red);
+  margin:28px auto 0;opacity:0;animation:fadeIn 0.8s 1.5s forwards;
+}
+.hero-scroll{
+  font-family:var(--font-h);font-size:10px;letter-spacing:0.3em;
+  color:var(--gray);text-transform:uppercase;
+  opacity:0;animation:fadeIn 0.8s 1.8s forwards;
+  margin-top:10px;
+}
+/* knife silhouettes */
+.knife-float{
+  position:absolute;opacity:0.06;pointer-events:none;
+  font-size:clamp(100px,20vw,240px);
+  animation:knifeDrift 8s ease-in-out infinite;
+}
+.knife-float:nth-child(1){top:15%;left:5%;transform:rotate(-35deg);animation-delay:0s}
+.knife-float:nth-child(2){top:55%;right:3%;transform:rotate(20deg);animation-delay:3s}
+.knife-float:nth-child(3){bottom:10%;left:20%;transform:rotate(-55deg);animation-delay:5s;font-size:clamp(60px,10vw,120px)}
+
+/* ── SECTION BASE ── */
+.section{padding:clamp(60px,8vh,120px) clamp(16px,5vw,80px)}
+.section-tag{
+  font-family:var(--font-h);font-size:clamp(10px,1.1vw,12px);
+  letter-spacing:0.4em;color:var(--red);text-transform:uppercase;
+  margin-bottom:16px;
+}
+.section-headline{
+  font-family:var(--font-h);font-weight:700;
+  font-size:clamp(28px,5vw,72px);letter-spacing:0.04em;
+  line-height:0.95;text-transform:uppercase;color:var(--white);
+  margin-bottom:20px;
+}
+.section-drama{
+  font-family:var(--font-h);font-weight:600;
+  font-size:clamp(16px,3vw,40px);letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--white);
+  opacity:0.85;text-align:center;
+  margin:40px 0;line-height:1.2;
+}
+.section-body{
+  font-family:var(--font-b);font-size:clamp(13px,1.4vw,15px);
+  line-height:1.75;color:var(--gray);max-width:640px;
+}
+
+/* ── COMPANY ── */
+#company{background:var(--bg2);text-align:center}
+.stats-row{
+  display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,60px);
+  justify-content:center;margin:48px 0;
+}
+.stat-item{text-align:center}
+.stat-num{
+  font-family:var(--font-h);font-weight:700;
+  font-size:clamp(36px,6vw,80px);color:var(--white);
+  letter-spacing:0.02em;line-height:1;
+}
+.stat-num span{color:var(--red)}
+.stat-label{
+  font-family:var(--font-h);font-size:11px;
+  letter-spacing:0.3em;color:var(--gray);text-transform:uppercase;
+  margin-top:6px;
+}
+.partners-row{
+  display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,48px);
+  justify-content:center;align-items:center;margin-top:48px;
+}
+.partner-tag{
+  font-family:var(--font-h);font-weight:600;
+  font-size:clamp(16px,2.5vw,28px);letter-spacing:0.1em;
+  color:rgba(255,255,255,0.25);text-transform:uppercase;
+  border:1px solid rgba(255,255,255,0.1);
+  padding:10px 22px;border-radius:2px;
+  transition:color 0.3s,border-color 0.3s;
+}
+.partner-tag:hover{color:rgba(255,255,255,0.7);border-color:var(--red)}
+.brand-story{
+  font-family:var(--font-s);font-style:italic;
+  font-size:clamp(14px,1.8vw,20px);color:var(--gray);
+  line-height:1.8;max-width:700px;margin:0 auto;
+}
+
+/* ── PRODUCT CATEGORIES ── */
+#categories{background:var(--bg)}
+.categories-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(clamp(240px,30vw,360px),1fr));
+  gap:2px;margin-top:40px;
+}
+.cat-card{
+  position:relative;overflow:hidden;cursor:pointer;
+  background:var(--bg3);aspect-ratio:4/3;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:24px;
+  transition:transform 0.35s cubic-bezier(.22,1,.36,1);
+}
+.cat-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);
+  z-index:1;
+}
+.cat-card::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(192,57,43,0);
+  transition:background 0.35s;z-index:1;
+}
+.cat-card:hover::after{background:rgba(192,57,43,0.12)}
+.cat-card:hover{transform:scale(1.01)}
+.cat-card-visual{
+  position:absolute;inset:0;z-index:0;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.cat-card canvas{
+  position:absolute;inset:0;width:100%!important;height:100%!important;
+}
+.cat-info{position:relative;z-index:2}
+.cat-num{
+  font-family:var(--font-h);font-size:11px;letter-spacing:0.4em;
+  color:var(--red);text-transform:uppercase;margin-bottom:6px;
+}
+.cat-name{
+  font-family:var(--font-h);font-weight:700;
+  font-size:clamp(18px,2.5vw,28px);letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--white);
+}
+.cat-desc{
+  font-family:var(--font-b);font-size:12px;color:var(--gray);
+  margin-top:4px;
+}
+.cat-arrow{
+  position:absolute;bottom:24px;right:24px;z-index:2;
+  width:36px;height:36px;border:1px solid rgba(255,255,255,0.3);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--white);
+  transition:background 0.2s,border-color 0.2s;
+}
+.cat-card:hover .cat-arrow{background:var(--red);border-color:var(--red)}
+
+/* ── PRODUCT GALLERY ── */
+.product-gallery-section{
+  background:var(--bg2);padding:clamp(40px,6vh,80px) 0;
+  display:none;
+}
+.product-gallery-section.active{display:block}
+.gallery-header{
+  padding:0 clamp(16px,5vw,80px);
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:32px;flex-wrap:wrap;gap:16px;
+}
+.gallery-close{
+  font-family:var(--font-h);font-size:12px;letter-spacing:0.2em;
+  color:var(--red);cursor:pointer;text-transform:uppercase;
+  border:1px solid var(--red);padding:8px 18px;
+  transition:background 0.2s,color 0.2s;
+}
+.gallery-close:hover{background:var(--red);color:var(--white)}
+.product-scroll-wrap{
+  overflow-x:auto;padding:0 clamp(16px,5vw,80px);
+  scrollbar-width:thin;scrollbar-color:var(--red) var(--bg);
+}
+.product-scroll{
+  display:flex;gap:16px;width:max-content;
+  padding-bottom:16px;
+}
+.prod-card{
+  width:clamp(200px,28vw,280px);flex-shrink:0;
+  background:var(--bg3);border:1px solid rgba(255,255,255,0.06);
+  cursor:pointer;overflow:hidden;
+  transition:border-color 0.3s,transform 0.3s;
+}
+.prod-card:hover{border-color:var(--red);transform:translateY(-4px)}
+.prod-canvas-wrap{
+  width:100%;height:160px;position:relative;background:#111;
+  display:flex;align-items:center;justify-content:center;
+}
+.prod-canvas-wrap canvas{display:block}
+.prod-info{padding:16px}
+.prod-name{
+  font-family:var(--font-s);font-weight:600;
+  font-size:clamp(14px,1.6vw,17px);color:var(--white);
+  margin-bottom:4px;
+}
+.prod-spec{font-family:var(--font-b);font-size:11px;color:var(--gray);line-height:1.5}
+.prod-quote{
+  font-family:var(--font-s);font-style:italic;
+  font-size:12px;color:var(--red);margin-top:8px;line-height:1.4;
+}
+
+/* ── MODAL ── */
+#modal{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,0.95);
+  display:none;opacity:0;transition:opacity 0.3s;
+  overflow-y:auto;
+}
+#modal.open{display:flex;align-items:center;justify-content:center}
+#modal.visible{opacity:1}
+.modal-inner{
+  display:flex;flex-direction:row;
+  width:min(95vw,1000px);max-height:90vh;
+  background:var(--bg2);border:1px solid rgba(255,255,255,0.08);
+  position:relative;overflow:hidden;
+  animation:modalUp 0.4s cubic-bezier(.22,1,.36,1);
+}
+.modal-3d{
+  flex:0 0 clamp(200px,45%,480px);
+  background:#0a0a0a;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:400px;
+  position:relative;
+}
+.modal-3d canvas{display:block;width:100%!important;height:100%!important;cursor:grab}
+.modal-3d canvas:active{cursor:grabbing}
+.modal-drag-hint{
+  position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-b);font-size:10px;letter-spacing:0.2em;
+  color:rgba(255,255,255,0.25);text-transform:uppercase;white-space:nowrap;
+}
+.modal-info{
+  flex:1;padding:clamp(24px,3vw,44px);overflow-y:auto;
+}
+.modal-close{
+  position:absolute;top:16px;right:16px;z-index:10;
+  width:40px;height:40px;border:1px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:var(--white);cursor:pointer;
+  transition:background 0.2s,border-color 0.2s;background:rgba(0,0,0,0.5);
+}
+.modal-close:hover{background:var(--red);border-color:var(--red)}
+.modal-series{
+  font-family:var(--font-h);font-size:11px;letter-spacing:0.4em;
+  color:var(--red);text-transform:uppercase;margin-bottom:10px;
+}
+.modal-name{
+  font-family:var(--font-s);font-weight:700;
+  font-size:clamp(22px,3vw,36px);color:var(--white);
+  line-height:1.15;margin-bottom:8px;
+}
+.modal-tagline{
+  font-family:var(--font-s);font-style:italic;
+  font-size:clamp(13px,1.4vw,15px);color:var(--red);
+  line-height:1.5;margin-bottom:24px;
+  padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.modal-specs{margin-bottom:24px}
+.spec-row{
+  display:flex;gap:12px;padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  align-items:flex-start;
+}
+.spec-key{
+  font-family:var(--font-h);font-size:10px;letter-spacing:0.2em;
+  color:var(--gray);text-transform:uppercase;min-width:90px;padding-top:2px;
+}
+.spec-val{
+  font-family:var(--font-b);font-size:13px;color:var(--white);
+  line-height:1.5;flex:1;
+}
+.swatches-label{
+  font-family:var(--font-h);font-size:10px;letter-spacing:0.2em;
+  color:var(--gray);text-transform:uppercase;margin-bottom:10px;
+}
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.swatch{
+  width:32px;height:32px;border-radius:50%;cursor:pointer;
+  border:2px solid transparent;transition:border-color 0.2s,transform 0.2s;
+  flex-shrink:0;
+}
+.swatch:hover,.swatch.active{border-color:var(--white);transform:scale(1.15)}
+
+@media(max-width:640px){
+  .modal-inner{flex-direction:column;max-height:none;width:95vw;margin:10px}
+  .modal-3d{min-height:280px;flex:none}
+}
+
+/* ── DRAMA SECTIONS ── */
+.drama-section{
+  background:var(--bg);
+  padding:clamp(48px,7vh,100px) clamp(16px,5vw,80px);
+  text-align:center;
+  border-top:1px solid rgba(192,57,43,0.25);
+  border-bottom:1px solid rgba(192,57,43,0.25);
+}
+.drama-quote{
+  font-family:var(--font-h);font-weight:600;
+  font-size:clamp(18px,4vw,52px);
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--white);line-height:1.15;
+  opacity:0.9;
+}
+.drama-quote em{color:var(--red);font-style:normal}
+
+/* ── FOOTER ── */
+#footer{
+  background:#000;
+  padding:clamp(48px,7vh,100px) clamp(16px,5vw,80px);
+  text-align:center;
+  border-top:2px solid var(--red);
+}
+.footer-powered{
+  font-family:var(--font-h);font-size:11px;letter-spacing:0.3em;
+  color:var(--gray);text-transform:uppercase;margin-bottom:16px;
+}
+.footer-steez{
+  font-family:'Helvetica Neue',Arial,sans-serif;font-weight:900;
+  font-size:clamp(36px,6vw,72px);letter-spacing:0.02em;
+  color:var(--white);margin-bottom:8px;
+}
+.footer-steez span{color:var(--red)}
+.footer-url{
+  font-family:var(--font-h);font-size:14px;letter-spacing:0.2em;
+  color:var(--gray);margin-bottom:20px;
+}
+.footer-tagline{
+  font-family:var(--font-b);font-size:13px;color:rgba(255,255,255,0.3);
+  max-width:400px;margin:0 auto;line-height:1.6;
+}
+.footer-inwin{
+  margin-top:40px;padding-top:24px;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.footer-copy{
+  font-family:var(--font-b);font-size:11px;color:rgba(255,255,255,0.2);
+}
+
+/* ── SCROLL ANIM ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(.16,1,.3,1),transform 0.7s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:0.1s}
+.reveal.d2{transition-delay:0.2s}
+.reveal.d3{transition-delay:0.3s}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:none}
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes knifeDrift{
+  0%,100%{transform:rotate(-35deg) translateY(0)}
+  50%{transform:rotate(-35deg) translateY(-20px)}
+}
+@keyframes modalUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:none}
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,0.4)}
+  50%{box-shadow:0 0 0 8px rgba(192,57,43,0)}
+}
+
+/* ── AWARD BADGE ── */
+.award-badge{
+  display:inline-block;
+  border:1px solid var(--gold);
+  padding:4px 10px;
+  font-family:var(--font-h);font-size:10px;
+  letter-spacing:0.3em;color:var(--gold);
+  text-transform:uppercase;margin-top:8px;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero">IN<span>WIN</span></a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#company" onclick="closeNav()">About</a></li>
+    <li><a href="#categories" onclick="closeNav()">Products</a></li>
+    <li><a href="#footer" onclick="closeNav()">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <!-- floating silhouettes -->
+  <div class="knife-float">⚔</div>
+  <div class="knife-float">🗡</div>
+  <div class="knife-float">⚔</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Est. 1979 · Hangzhou, China</div>
+    <div class="hero-logo">IN<span>WIN</span></div>
+    <div class="hero-tagline">Master Craftsman of Professional Kitchenware</div>
+    <div class="hero-sub">Knives · Utensils · Cookware · Since 1979</div>
+    <div class="hero-divider"></div>
+    <div class="hero-scroll">Scroll to explore</div>
+  </div>
+</section>
+
+<div class="red-rule"></div>
+
+<!-- COMPANY -->
+<section id="company" class="section">
+  <div class="reveal">
+    <div class="section-tag">Our Story</div>
+    <div class="section-headline">Forged<br>in Tradition</div>
+  </div>
+  <div class="red-rule-sm"></div>
+  <p class="brand-story reveal d1">
+    "Since 1979, INWIN has devoted itself to the mastery of professional kitchenware. From a single workshop in Hangzhou to a 100,000m² manufacturing complex, every blade we forge carries the precision of forty-five years of unbroken craft."
+  </p>
+  <div class="section-drama reveal d2">WHERE PRECISION MEETS ARTISTRY</div>
+  <div class="stats-row">
+    <div class="stat-item reveal d1">
+      <div class="stat-num" data-target="100000">0<span>m²</span></div>
+      <div class="stat-label">Factory Footprint</div>
+    </div>
+    <div class="stat-item reveal d2">
+      <div class="stat-num" data-target="1000">0<span>+</span></div>
+      <div class="stat-label">Employees</div>
+    </div>
+    <div class="stat-item reveal d3">
+      <div class="stat-num" data-target="45">0<span> YRS</span></div>
+      <div class="stat-label">Experience</div>
+    </div>
+    <div class="stat-item reveal d1">
+      <div class="stat-num" data-target="50">0<span>+</span></div>
+      <div class="stat-label">Countries</div>
+    </div>
+  </div>
+  <div class="partners-row reveal">
+    <div class="partner-tag">TESCO</div>
+    <div class="partner-tag">IKEA</div>
+    <div class="partner-tag">Target</div>
+    <div class="partner-tag">Auchan</div>
+  </div>
+</section>
+
+<div class="red-rule"></div>
+
+<!-- DRAMA 1 -->
+<div class="drama-section reveal">
+  <div class="drama-quote">The Knife You Choose<br><em>Speaks of Who You Are</em></div>
+</div>
+
+<!-- CATEGORIES -->
+<section id="categories" class="section">
+  <div class="reveal">
+    <div class="section-tag">Product Lines</div>
+    <div class="section-headline">Our<br>Collections</div>
+  </div>
+  <div class="categories-grid" id="catGrid">
+    <!-- filled by JS -->
+  </div>
+</section>
+
+<!-- GALLERY SECTIONS (one per category) -->
+<div id="galleries"></div>
+
+<!-- DRAMA 2 -->
+<div class="drama-section reveal">
+  <div class="drama-quote">Beneath the Edge Lies<br>the Secret of <em>a Thousand Layers</em></div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-powered reveal">This catalogue is powered by</div>
+  <div class="footer-steez reveal d1">STEEZ<span>.</span></div>
+  <div class="footer-url reveal d1">steez.digital</div>
+  <div class="footer-tagline reveal d2">Digital catalogues &amp; business cards for modern brands</div>
+  <div class="footer-inwin reveal d3">
+    <div class="footer-copy">© 2024 INWIN Professional Kitchenware · All Rights Reserved<br>Demo catalogue produced by STEEZ Digital</div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div id="modal" role="dialog" aria-modal="true">
+  <div class="modal-inner" id="modalInner">
+    <div class="modal-3d" id="modal3d">
+      <canvas id="modalCanvas"></canvas>
+      <div class="modal-drag-hint">Drag to rotate</div>
+    </div>
+    <div class="modal-info" id="modalInfo"></div>
+    <div class="modal-close" id="modalClose" onclick="closeModal()" aria-label="Close">✕</div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════ */
+const HANDLE_COLORS = {
+  Wood:    0x8B6343,
+  White:   0xEEEEEE,
+  Blue:    0x1a4a7a,
+  Black:   0x1a1a1a,
+  Teal:    0x1a6a6a,
+  Red:     0x8B1a1a,
+  Green:   0x1a5a2a,
+  Pink:    0xc06080,
+  Natural: 0xA0785A,
+};
+
+const CATEGORIES = [
+  {
+    id:'mts', name:'MTS Artistry Series', desc:'Powder Steel · Anodized Aluminum + G10',
+    bladeColor:0xCCCCCC, handleColor:0x1a1a1a,
+    products:[
+      {name:"Chef's Knife 8\"",series:"MTS Artistry",blade:"Powder Steel",handle:"Anodized Aluminum + G10",tagline:"Precision honed to perfection",colors:['Wood','White','Blue','Black'],award:null},
+      {name:"Utility Knife 5\"",series:"MTS Artistry",blade:"Powder Steel",handle:"Anodized Aluminum + G10",tagline:"Precision honed to perfection",colors:['Wood','White','Blue','Black'],award:null},
+      {name:"Paring Knife 3.5\"",series:"MTS Artistry",blade:"Powder Steel",handle:"Anodized Aluminum + G10",tagline:"Precision honed to perfection",colors:['Wood','White','Blue','Black'],award:null},
+      {name:"Magnetic Knife Stand",series:"MTS Artistry",blade:"N/A",handle:"Anodized Aluminum",tagline:"Collector's stand — a showcase for every blade",colors:['Black','Blue','Teal'],award:null,isStand:true},
+    ]
+  },
+  {
+    id:'vform', name:'V-Form Series', desc:'Patented Design · Black Powder Steel · G10',
+    bladeColor:0x222222, handleColor:0x111111,
+    products:[
+      {name:"Chef's Knife 8\"",series:"V-Form Patented",blade:"Black Powder Steel",handle:"G10 Ergonomic",tagline:"Patented V-shaped line meets commanding grip — a silky smooth cutting edge",colors:['Black'],award:null},
+      {name:"Carving Knife 8\"",series:"V-Form Patented",blade:"Black Powder Steel",handle:"G10 Ergonomic",tagline:"Patented V-shaped line meets commanding grip",colors:['Black'],award:null},
+      {name:"Bread Knife 6\"",series:"V-Form Patented",blade:"Black Powder Steel",handle:"G10 Ergonomic",tagline:"Serrated precision, effortless slice",colors:['Black'],award:null},
+      {name:"Utility Knife 5\"",series:"V-Form Patented",blade:"Black Powder Steel",handle:"G10 Ergonomic",tagline:"Patented V-shaped line meets commanding grip",colors:['Black'],award:null},
+      {name:"Paring Knife 3.5\"",series:"V-Form Patented",blade:"Black Powder Steel",handle:"G10 Ergonomic",tagline:"Control refined to the millimeter",colors:['Black'],award:null},
+      {name:"Cleaver",series:"V-Form Patented",blade:"Black Powder Steel",handle:"G10 Ergonomic",tagline:"Power and precision, unified",colors:['Black'],award:null},
+    ]
+  },
+  {
+    id:'damascus', name:'Damascus Steel Series', desc:'1000-Layer Damascus · Resin Composite Handle',
+    bladeColor:0xAA8855, handleColor:0x1a4a7a,
+    products:[
+      {name:"Chef's Knife 8\"",series:"Damascus Steel",blade:"Damascus Steel — 1000 layers",handle:"Resin Composite",tagline:"Beneath the edge lies the secret of a thousand layers",colors:['Blue','Red','Green','Pink'],award:null},
+      {name:"Santoku Knife 5\"",series:"Damascus Steel",blade:"Damascus Steel — 1000 layers",handle:"Resin Composite",tagline:"Beneath the edge lies the secret of a thousand layers",colors:['Blue','Red','Green','Pink'],award:null},
+      {name:"Paring Knife 3.5\"",series:"Damascus Steel",blade:"Damascus Steel — 1000 layers",handle:"Resin Composite",tagline:"Ancient craft, modern edge",colors:['Blue','Red','Green','Pink'],award:null},
+    ]
+  },
+  {
+    id:'dragon', name:'Dragon Series', desc:'Red Dot Award Winner · Modular Handle',
+    bladeColor:0xBBBBBB, handleColor:0x333333,
+    products:[
+      {name:"Chef's Knife",series:"Dragon Series",blade:"Premium Stainless",handle:"Interchangeable Modular",tagline:"Reddot Award — Cutting Taste · Design Excellence Redefined",colors:['Black'],award:"Red Dot Award"},
+      {name:"Nakiri Knife",series:"Dragon Series",blade:"Premium Stainless + Dragon Engraved",handle:"Interchangeable Modular",tagline:"Reddot Award — Cutting Taste · Design Excellence Redefined",colors:['Black'],award:"Red Dot Award"},
+      {name:"Santoku Knife",series:"Dragon Series",blade:"Premium Stainless",handle:"Interchangeable Modular",tagline:"Reddot Award — Cutting Taste · Design Excellence Redefined",colors:['Black'],award:"Red Dot Award"},
+      {name:"Detachable Gift Box",series:"Dragon Series",blade:"Presentation Set",handle:"Full Dragon Series",tagline:"A gift worthy of the craftsman",colors:[],award:null,isAccessory:true},
+    ]
+  },
+  {
+    id:'natural', name:'Natural Elegance Set', desc:'7-Piece · Wood Fiber Handle · Acacia Block',
+    bladeColor:0xCCCCCC, handleColor:0x8B6343,
+    products:[
+      {name:"7-Piece Full Set",series:"Natural Elegance",blade:"High-Carbon Stainless",handle:"Natural Wood Fiber",tagline:"Cutting Taste — Natural Elegance & Superior Grip",colors:['Natural'],award:null},
+      {name:"Santoku 5\"",series:"Natural Elegance",blade:"High-Carbon Stainless",handle:"Natural Wood Fiber",tagline:"Lightweight. Balanced. Natural.",colors:['Natural'],award:null},
+      {name:"Santoku 6\"",series:"Natural Elegance",blade:"High-Carbon Stainless",handle:"Natural Wood Fiber",tagline:"Lightweight. Balanced. Natural.",colors:['Natural'],award:null},
+      {name:"Chef Knife",series:"Natural Elegance",blade:"High-Carbon Stainless",handle:"Natural Wood Fiber",tagline:"The workhorse of natural craft",colors:['Natural'],award:null},
+    ]
+  },
+  {
+    id:'boards', name:'Cutting Boards & Cookware', desc:'Innovative Boards · Stainless Woks',
+    bladeColor:0x333333, handleColor:0x222222,
+    products:[
+      {name:"Flip Magnetic Board",series:"Cutting Boards",blade:"iPad-style Magnetic Folding",handle:"Black",tagline:"Innovative Pod Style — redefines the traditional cutting board",colors:['Black'],award:null,isBoard:true},
+      {name:"Black Walnut Board",series:"Cutting Boards",blade:"North American Black Walnut",handle:"Natural",tagline:"Natural Luxury. Ages Beautifully.",colors:['Natural'],award:null,isBoard:true},
+      {name:"Micro-Pressure Wok",series:"Cookware",blade:"3-Layer Stainless + Lid",handle:"All-stove compatible",tagline:"Master Your Kitchen",colors:['Black'],award:null,isCook:true},
+      {name:"3-Layer Cookware Set",series:"Cookware",blade:"18/10 Stainless + Aluminum Core",handle:"Induction + Dishwasher safe",tagline:"Professional grade, home kitchen ready",colors:['Black'],award:null,isCook:true},
+      {name:"Kitchen Utensil Set",series:"Cookware",blade:"Steel + Wood Handles",handle:"Pasta Server, Spatula, Ladle, Slotted Spoon",tagline:"Complete your kitchen",colors:['Black','Natural'],award:null,isCook:true},
+    ]
+  }
+];
+
+const SWATCH_HEX = {
+  Wood:'#8B6343', White:'#EEEEEE', Blue:'#1a4a8a', Black:'#2a2a2a',
+  Teal:'#1a6a7a', Red:'#8B2020', Green:'#1a5a3a', Pink:'#c06080', Natural:'#A0785A'
+};
+
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
+function closeNav(){document.getElementById('navLinks').classList.remove('open')}
+
+/* ═══════════════════════════════════════════
+   HERO THREE.JS — floating knives
+═══════════════════════════════════════════ */
+(function heroScene(){
+  const canvas = document.getElementById('hero-canvas');
+  const renderer = new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60,canvas.offsetWidth/canvas.offsetHeight,0.1,100);
+  camera.position.z = 8;
+
+  const light = new THREE.DirectionalLight(0xffffff,1.2);
+  light.position.set(5,5,5);
+  scene.add(light);
+  scene.add(new THREE.AmbientLight(0x334455,0.8));
+
+  function makeKnife(bladeCol,handleCol,scale=1){
+    const g = new THREE.Group();
+    // blade
+    const bGeo = new THREE.BoxGeometry(2.5,0.06,0.4);
+    const verts = bGeo.attributes.position;
+    for(let i=0;i<verts.count;i++){
+      const x=verts.getX(i),z=verts.getZ(i);
+      if(x>0.8){verts.setX(i,x+(1-(x-0.8)));verts.setZ(i,z*(1-((x-0.8)/1.2)))}
+    }
+    verts.needsUpdate=true;bGeo.computeVertexNormals();
+    const blade = new THREE.Mesh(bGeo,new THREE.MeshStandardMaterial({color:bladeCol,metalness:0.95,roughness:0.08}));
+    blade.position.x=1.2;
+    g.add(blade);
+    // guard
+    const guard = new THREE.Mesh(
+      new THREE.BoxGeometry(0.08,0.4,0.5),
+      new THREE.MeshStandardMaterial({color:0x888888,metalness:0.8,roughness:0.2})
+    );
+    guard.position.x=-0.04;g.add(guard);
+    // handle
+    const handle = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.09,0.13,1.4,12),
+      new THREE.MeshStandardMaterial({color:handleCol,metalness:0.2,roughness:0.6})
+    );
+    handle.rotation.z=Math.PI/2;handle.position.x=-0.77;
+    g.add(handle);
+    g.scale.setScalar(scale);
+    return g;
+  }
+
+  const knives = [];
+  const positions = [[-3,1.5,-2,0.6],[3,-1.2,-3,0.45],[0,2.8,-4,0.35],[-4,-2.5,-2,0.5],[4,2,-5,0.4]];
+  positions.forEach(([x,y,z,s])=>{
+    const k=makeKnife(0xBBBBBB,0x333333,s);
+    k.position.set(x,y,z);k.rotation.z=Math.random()*Math.PI*2;
+    k.userData.rotSpeed=(Math.random()-0.5)*0.005;
+    k.userData.floatSpeed=0.3+Math.random()*0.4;
+    k.userData.floatAmp=0.15+Math.random()*0.2;
+    k.userData.floatOffset=Math.random()*Math.PI*2;
+    scene.add(k);knives.push(k);
+  });
+
+  function resize(){
+    const w=canvas.offsetWidth,h=canvas.offsetHeight;
+    renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  let t=0;
+  function animate(){
+    requestAnimationFrame(animate);t+=0.016;
+    knives.forEach(k=>{
+      k.rotation.y+=k.userData.rotSpeed;
+      k.position.y+=Math.sin(t*k.userData.floatSpeed+k.userData.floatOffset)*k.userData.floatAmp*0.01;
+    });
+    renderer.render(scene,camera);
+  }
+  animate();
+})();
+
+/* ═══════════════════════════════════════════
+   BUILD CATEGORY CARDS
+═══════════════════════════════════════════ */
+function buildCategories(){
+  const grid = document.getElementById('catGrid');
+  CATEGORIES.forEach((cat,i)=>{
+    const card = document.createElement('div');
+    card.className='cat-card reveal';
+    card.style.transitionDelay=(i*0.08)+'s';
+    card.innerHTML=`
+      <div class="cat-card-visual"><canvas id="catCanvas_${cat.id}" width="320" height="240"></canvas></div>
+      <div class="cat-info">
+        <div class="cat-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="cat-name">${cat.name}</div>
+        <div class="cat-desc">${cat.desc}</div>
+      </div>
+      <div class="cat-arrow">→</div>
+    `;
+    card.addEventListener('click',()=>openGallery(cat.id));
+    card.addEventListener('touchend',e=>{e.preventDefault();openGallery(cat.id)});
+    grid.appendChild(card);
+    // mini 3D scene per card
+    setTimeout(()=>makeCatScene(cat,`catCanvas_${cat.id}`),100+i*60);
+  });
+}
+
+function makeCatScene(cat,canvasId){
+  const canvas=document.getElementById(canvasId);
+  if(!canvas)return;
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(50,canvas.width/canvas.height,0.1,100);
+  camera.position.set(0,0.5,4.5);
+
+  const light=new THREE.DirectionalLight(0xffffff,1.4);light.position.set(3,4,5);scene.add(light);
+  const rLight=new THREE.PointLight(0xc0392b,0.8,10);rLight.position.set(-3,0,2);scene.add(rLight);
+  scene.add(new THREE.AmbientLight(0x222222,1));
+
+  const knife=makeKnife3D(cat.bladeColor,cat.handleColor,1.2);
+  scene.add(knife);
+
+  let hover=false;
+  canvas.addEventListener('mouseenter',()=>hover=true);
+  canvas.addEventListener('mouseleave',()=>hover=false);
+
+  function resize(){
+    const w=canvas.offsetWidth,h=canvas.offsetHeight;
+    renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();
+  }
+  resize();
+
+  function animate(){
+    requestAnimationFrame(animate);
+    knife.rotation.y+=hover?0.012:0.004;
+    knife.rotation.x=Math.sin(Date.now()*0.0005)*0.08;
+    renderer.render(scene,camera);
+  }
+  animate();
+}
+
+function makeKnife3D(bladeCol,handleCol,scale=1){
+  const g=new THREE.Group();
+  const bMat=new THREE.MeshStandardMaterial({color:bladeCol,metalness:0.95,roughness:0.08,envMapIntensity:1});
+  const bGeo=new THREE.BoxGeometry(3,0.07,0.35);
+  const verts=bGeo.attributes.position;
+  for(let i=0;i<verts.count;i++){
+    const x=verts.getX(i);
+    if(x>0.5){const t=(x-0.5)/1;verts.setZ(i,verts.getZ(i)*(1-t));verts.setY(i,verts.getY(i)*(1-t*0.3));}
+  }
+  verts.needsUpdate=true;bGeo.computeVertexNormals();
+  const blade=new THREE.Mesh(bGeo,bMat);blade.position.x=1.4;g.add(blade);
+
+  const guard=new THREE.Mesh(
+    new THREE.BoxGeometry(0.1,0.45,0.42),
+    new THREE.MeshStandardMaterial({color:0x888888,metalness:0.85,roughness:0.15})
+  );
+  guard.position.x=-0.05;g.add(guard);
+
+  const hMat=new THREE.MeshStandardMaterial({color:handleCol,metalness:0.2,roughness:0.65});
+  const handle=new THREE.Mesh(new THREE.CylinderGeometry(0.1,0.14,1.5,16),hMat);
+  handle.rotation.z=Math.PI/2;handle.position.x=-0.82;g.add(handle);
+
+  const cap=new THREE.Mesh(
+    new THREE.SphereGeometry(0.1,8,8,0,Math.PI),
+    new THREE.MeshStandardMaterial({color:0x555555,metalness:0.9,roughness:0.2})
+  );
+  cap.position.x=-1.58;cap.rotation.z=-Math.PI/2;g.add(cap);
+
+  g.scale.setScalar(scale);
+  return g;
+}
+
+/* ═══════════════════════════════════════════
+   GALLERIES
+═══════════════════════════════════════════ */
+function buildGalleries(){
+  const container=document.getElementById('galleries');
+  CATEGORIES.forEach(cat=>{
+    const sec=document.createElement('div');
+    sec.className='product-gallery-section';
+    sec.id='gallery_'+cat.id;
+    sec.innerHTML=`
+      <div class="gallery-header">
+        <div>
+          <div class="section-tag">${cat.name}</div>
+          <div class="section-headline" style="font-size:clamp(22px,3.5vw,40px)">${cat.name}</div>
+        </div>
+        <div class="gallery-close" onclick="closeGallery('${cat.id}')">✕ Close</div>
+      </div>
+      <div class="product-scroll-wrap">
+        <div class="product-scroll" id="prodScroll_${cat.id}"></div>
+      </div>
+    `;
+    container.appendChild(sec);
+
+    // build product cards
+    cat.products.forEach((prod,pi)=>{
+      const canvasId=`prod_${cat.id}_${pi}`;
+      const card=document.createElement('div');
+      card.className='prod-card';
+      card.innerHTML=`
+        <div class="prod-canvas-wrap">
+          <canvas id="${canvasId}" width="280" height="160"></canvas>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">${prod.name}</div>
+          <div class="prod-spec">${prod.blade}${prod.handle&&prod.handle!=='N/A'?' · '+prod.handle:''}</div>
+          ${prod.award?`<span class="award-badge">🏆 ${prod.award}</span>`:''}
+          <div class="prod-quote">${prod.tagline}</div>
+        </div>
+      `;
+      card.addEventListener('click',()=>openModal(cat,prod,canvasId));
+      card.addEventListener('touchend',e=>{e.preventDefault();openModal(cat,prod,canvasId)});
+      document.getElementById('prodScroll_'+cat.id)?.appendChild(card);
+      setTimeout(()=>makeProdScene(prod,cat,canvasId),200+pi*80);
+    });
+
+    // touch swipe
+    const wrap=sec.querySelector('.product-scroll-wrap');
+    let ts=null;
+    wrap.addEventListener('touchstart',e=>{ts=e.touches[0].clientX},{ passive:true });
+    wrap.addEventListener('touchmove',e=>{
+      if(ts!==null){wrap.scrollLeft-=e.touches[0].clientX-ts;ts=e.touches[0].clientX;}
+    },{ passive:true });
+  });
+}
+
+function makeProdScene(prod,cat,canvasId){
+  const canvas=document.getElementById(canvasId);
+  if(!canvas)return;
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(55,280/160,0.1,50);
+  camera.position.set(0,0.3,3.8);
+
+  const light=new THREE.DirectionalLight(0xffffff,1.3);light.position.set(3,3,4);scene.add(light);
+  scene.add(new THREE.AmbientLight(0x222233,1.2));
+
+  const handleCol=prod.colors&&prod.colors.length?HANDLE_COLORS[prod.colors[0]]||0x333333:cat.handleColor;
+  const knife=makeKnife3D(cat.bladeColor,handleCol,0.75);
+  if(prod.isStand||prod.isBoard||prod.isCook){
+    knife.children.forEach(c=>c.visible=false);
+    // simple box stand/board/pot
+    const geo=prod.isCook?new THREE.CylinderGeometry(0.5,0.45,0.4,32):new THREE.BoxGeometry(1.2,0.8,0.08);
+    const mesh=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:0x222222,metalness:0.7,roughness:0.3}));
+    scene.add(mesh);
+  } else {
+    scene.add(knife);
+  }
+
+  function animate(){
+    requestAnimationFrame(animate);
+    if(scene.children.length>2){scene.children[2].rotation.y+=0.008;}
+    renderer.render(scene,camera);
+  }
+  animate();
+}
+
+function openGallery(catId){
+  document.querySelectorAll('.product-gallery-section').forEach(s=>s.classList.remove('active'));
+  const sec=document.getElementById('gallery_'+catId);
+  if(sec){
+    sec.classList.add('active');
+    setTimeout(()=>sec.scrollIntoView({behavior:'smooth',block:'start'}),50);
+  }
+}
+
+function closeGallery(catId){
+  const sec=document.getElementById('gallery_'+catId);
+  if(sec)sec.classList.remove('active');
+  document.getElementById('categories').scrollIntoView({behavior:'smooth'});
+}
+
+/* ═══════════════════════════════════════════
+   MODAL + 3D
+═══════════════════════════════════════════ */
+let modalRenderer=null, modalScene=null, modalCamera=null, modalKnife=null;
+let modalDragging=false, modalLastX=0, modalLastY=0;
+let modalRotY=0, modalRotX=0;
+let modalAnimId=null;
+
+function openModal(cat,prod,fromCanvasId){
+  const modal=document.getElementById('modal');
+  modal.style.display='flex';
+  setTimeout(()=>modal.classList.add('visible'),10);
+  document.body.style.overflow='hidden';
+  buildModalInfo(cat,prod);
+  buildModal3D(cat,prod);
+}
+
+function buildModalInfo(cat,prod){
+  const initColor=prod.colors&&prod.colors.length?prod.colors[0]:'Black';
+  const swatchHtml=prod.colors&&prod.colors.length?`
+    <div class="swatches-label">Handle Color</div>
+    <div class="swatches">
+      ${prod.colors.map((c,i)=>`
+        <div class="swatch${i===0?' active':''}" title="${c}"
+          style="background:${SWATCH_HEX[c]||'#333'}"
+          onclick="changeHandleColor('${c}',this)"
+          ontouchend="event.preventDefault();changeHandleColor('${c}',this)">
+        </div>`).join('')}
+    </div>
+  `:'';
+
+  document.getElementById('modalInfo').innerHTML=`
+    <div class="modal-series">${prod.series}</div>
+    <div class="modal-name">${prod.name}</div>
+    <div class="modal-tagline">${prod.tagline}</div>
+    ${prod.award?`<span class="award-badge" style="margin-bottom:20px;display:inline-block">🏆 ${prod.award}</span>`:''}
+    <div class="modal-specs">
+      <div class="spec-row"><div class="spec-key">Blade</div><div class="spec-val">${prod.blade}</div></div>
+      <div class="spec-row"><div class="spec-key">Handle</div><div class="spec-val">${prod.handle}</div></div>
+      ${prod.colors&&prod.colors.length?`<div class="spec-row"><div class="spec-key">Colors</div><div class="spec-val">${prod.colors.join(', ')}</div></div>`:''}
+    </div>
+    ${swatchHtml}
+  `;
+}
+
+function changeHandleColor(colorName, swatchEl){
+  document.querySelectorAll('#modalInfo .swatch').forEach(s=>s.classList.remove('active'));
+  swatchEl.classList.add('active');
+  const col=HANDLE_COLORS[colorName]||0x333333;
+  if(modalKnife){
+    modalKnife.traverse(child=>{
+      if(child.isMesh&&child.geometry.type==='CylinderGeometry'){
+        child.material.color.setHex(col);
+      }
+    });
+  }
+}
+
+function buildModal3D(cat,prod){
+  // cleanup previous
+  if(modalAnimId){cancelAnimationFrame(modalAnimId);modalAnimId=null;}
+  if(modalRenderer){modalRenderer.dispose();modalRenderer=null;}
+
+  const canvas=document.getElementById('modalCanvas');
+  const container=document.getElementById('modal3d');
+  const w=container.offsetWidth||320;
+  const h=container.offsetHeight||360;
+
+  modalRenderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  modalRenderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  modalRenderer.setSize(w,h);
+
+  modalScene=new THREE.Scene();
+  modalCamera=new THREE.PerspectiveCamera(50,w/h,0.1,100);
+  modalCamera.position.set(0,0,5.5);
+
+  const mainLight=new THREE.DirectionalLight(0xffffff,1.5);mainLight.position.set(5,5,5);modalScene.add(mainLight);
+  const rimLight=new THREE.DirectionalLight(0x8888cc,0.4);rimLight.position.set(-5,2,-3);modalScene.add(rimLight);
+  const redLight=new THREE.PointLight(0xc0392b,0.6,15);redLight.position.set(-3,-1,3);modalScene.add(redLight);
+  modalScene.add(new THREE.AmbientLight(0x334455,0.8));
+
+  const handleCol=prod.colors&&prod.colors.length?HANDLE_COLORS[prod.colors[0]]||cat.handleColor:cat.handleColor;
+  modalKnife=makeKnife3D(cat.bladeColor,handleCol,1.3);
+  modalRotY=0.4;modalRotX=0.1;
+  modalKnife.rotation.y=modalRotY;
+  modalKnife.rotation.x=modalRotX;
+  modalScene.add(modalKnife);
+
+  function animate(){
+    modalAnimId=requestAnimationFrame(animate);
+    if(!modalDragging){
+      modalRotY+=0.005;
+      modalKnife.rotation.y=modalRotY;
+    }
+    modalRenderer.render(modalScene,modalCamera);
+  }
+  animate();
+
+  // resize observer
+  const ro=new ResizeObserver(()=>{
+    const nw=container.offsetWidth,nh=container.offsetHeight;
+    if(nw&&nh){modalRenderer.setSize(nw,nh);modalCamera.aspect=nw/nh;modalCamera.updateProjectionMatrix();}
+  });
+  ro.observe(container);
+}
+
+// drag rotate
+const modalCanvasEl=document.getElementById('modalCanvas');
+modalCanvasEl.addEventListener('mousedown',e=>{modalDragging=true;modalLastX=e.clientX;modalLastY=e.clientY;});
+window.addEventListener('mousemove',e=>{
+  if(!modalDragging||!modalKnife)return;
+  const dx=e.clientX-modalLastX,dy=e.clientY-modalLastY;
+  modalRotY+=dx*0.008;modalRotX+=dy*0.008;
+  modalRotX=Math.max(-0.8,Math.min(0.8,modalRotX));
+  modalKnife.rotation.y=modalRotY;modalKnife.rotation.x=modalRotX;
+  modalLastX=e.clientX;modalLastY=e.clientY;
+});
+window.addEventListener('mouseup',()=>{modalDragging=false;});
+
+// touch rotate
+modalCanvasEl.addEventListener('touchstart',e=>{
+  e.preventDefault();modalDragging=true;
+  modalLastX=e.touches[0].clientX;modalLastY=e.touches[0].clientY;
+},{passive:false});
+modalCanvasEl.addEventListener('touchmove',e=>{
+  e.preventDefault();if(!modalDragging||!modalKnife)return;
+  const dx=e.touches[0].clientX-modalLastX,dy=e.touches[0].clientY-modalLastY;
+  modalRotY+=dx*0.008;modalRotX+=dy*0.008;
+  modalRotX=Math.max(-0.8,Math.min(0.8,modalRotX));
+  modalKnife.rotation.y=modalRotY;modalKnife.rotation.x=modalRotX;
+  modalLastX=e.touches[0].clientX;modalLastY=e.touches[0].clientY;
+},{passive:false});
+modalCanvasEl.addEventListener('touchend',()=>{modalDragging=false;});
+
+function closeModal(){
+  const modal=document.getElementById('modal');
+  modal.classList.remove('visible');
+  setTimeout(()=>{
+    modal.style.display='none';
+    document.body.style.overflow='';
+    if(modalAnimId){cancelAnimationFrame(modalAnimId);modalAnimId=null;}
+    if(modalRenderer){modalRenderer.dispose();modalRenderer=null;}
+    modalKnife=null;
+  },300);
+}
+document.getElementById('modal').addEventListener('click',e=>{
+  if(e.target===document.getElementById('modal'))closeModal();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ═══════════════════════════════════════════
+   STAT COUNTERS
+═══════════════════════════════════════════ */
+function animateCounter(el){
+  const target=parseInt(el.dataset.target)||0;
+  const span=el.querySelector('span');
+  const suffix=span?span.textContent:'';
+  let current=0;
+  const step=Math.ceil(target/60);
+  const iv=setInterval(()=>{
+    current=Math.min(current+step,target);
+    el.textContent=current.toLocaleString();
+    if(span){el.appendChild(span);}
+    if(current>=target)clearInterval(iv);
+  },16);
+}
+
+/* ═══════════════════════════════════════════
+   INTERSECTION OBSERVER
+═══════════════════════════════════════════ */
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      const counter=e.target.querySelector('[data-target]');
+      if(counter)animateCounter(counter);
+      const counters=e.target.querySelectorAll('[data-target]');
+      counters.forEach(c=>animateCounter(c));
+      revealObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+
+/* ═══════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════ */
+buildCategories();
+buildGalleries();
+
+// observe all reveal elements after DOM built
+setTimeout(()=>{
+  document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+},100);
+
+// also observe stat nums directly
+document.querySelectorAll('[data-target]').forEach(el=>{
+  const statObs=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){animateCounter(entries[0].target);statObs.disconnect();}
+  },{threshold:0.5});
+  statObs.observe(el);
+});
+</script>
+</body>
+</html>
