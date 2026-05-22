@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useScroll, useTransform, motion, useSpring } from "motion/react";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 const BAR_DATA = [
   { month: "Jan", value: 52 },
@@ -34,7 +35,8 @@ const FEATURES = [
 
 export function Analytics() {
   const containerRef = useRef<HTMLElement>(null);
-  
+  const isMobile = useIsMobile();
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
@@ -73,7 +75,7 @@ export function Analytics() {
           maxWidth: 1280,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
           gap: "clamp(40px, 6vw, 80px)",
           alignItems: "center",
         }}
@@ -101,7 +103,7 @@ export function Analytics() {
               color: "inherit",
               textTransform: "uppercase",
               margin: 0,
-              whiteSpace: "nowrap",
+              whiteSpace: isMobile ? "normal" : "nowrap",
             }}
           >
             Buyer Intelligence
@@ -195,10 +197,10 @@ export function Analytics() {
               background: "var(--card-bg, rgba(250,249,245,0.05))",
               border: "1px solid var(--hairline)",
               borderRadius: "var(--radius-cards)",
-              padding: "var(--space-32)",
+              padding: isMobile ? "var(--space-20)" : "var(--space-32)",
               display: "flex",
               flexDirection: "column",
-              gap: "var(--space-28)",
+              gap: isMobile ? "var(--space-20)" : "var(--space-28)",
               transition: "background 0.4s ease",
             }}
           >
@@ -301,7 +303,7 @@ export function Analytics() {
               >
                 Buyer Scans by Month
               </div>
-              <div style={{ display: "flex", alignItems: "flex-end", gap: 8, height: 80 }}>
+              <div style={{ display: "flex", alignItems: "flex-end", gap: isMobile ? 6 : 8, height: isMobile ? 72 : 80 }}>
                 {BAR_DATA.map((d) => (
                   <div
                     key={d.month}
@@ -354,11 +356,11 @@ export function Analytics() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {REGIONS.map((r) => (
-                  <div key={r.label} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <div key={r.label} style={{ display: "flex", alignItems: "center", gap: isMobile ? 8 : 10 }}>
                     <div
                       style={{
-                        width: 110,
-                        fontSize: "clamp(0.7rem, 0.95vw, 0.82rem)",
+                        width: isMobile ? 88 : 110,
+                        fontSize: isMobile ? "0.72rem" : "clamp(0.7rem, 0.95vw, 0.82rem)",
                         color: "inherit",
                         opacity: 0.65,
                         flexShrink: 0,

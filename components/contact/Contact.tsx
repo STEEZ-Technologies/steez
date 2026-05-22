@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { FadeIn } from "@/components/shared/FadeIn";
 import { motion, AnimatePresence } from "motion/react";
 import { Send } from "lucide-react";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 const FIELD_STYLE: React.CSSProperties = {
   width: "100%",
@@ -26,6 +27,7 @@ interface FormState {
 }
 
 export function Contact() {
+  const isMobile = useIsMobile();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState<FormState>({
@@ -131,12 +133,12 @@ export function Contact() {
           maxWidth: 1100,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "1fr 1.5fr",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1.5fr",
           gap: "clamp(24px, 4vw, 56px)",
           alignItems: "start",
         }}
       >
-        <FadeIn delay={0.1} x={-30} y={0}>
+        <FadeIn delay={0.1} x={-30} y={0} style={{ order: isMobile ? 2 : 1 }}>
           <div
             style={{
               background: "var(--card-bg, #FFFFFF)",
@@ -215,7 +217,7 @@ export function Contact() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.2} x={30} y={0} style={{ minWidth: 0 }}>
+        <FadeIn delay={0.2} x={30} y={0} style={{ minWidth: 0, order: isMobile ? 1 : 2 }}>
           <div
             style={{
               background: "var(--card-bg, #FFFFFF)",
@@ -223,7 +225,7 @@ export function Contact() {
               borderRadius: "var(--radius-cards)",
               padding: "var(--card-padding)",
               transition: "background 0.4s ease",
-              minHeight: 480,
+              minHeight: isMobile ? "auto" : 480,
               display: "flex",
               flexDirection: "column"
             }}
@@ -370,9 +372,8 @@ export function Contact() {
         }}
       >
         <div
+          className="grid grid-cols-1 lg:grid-cols-3"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
             gap: "clamp(16px, 2vw, 24px)",
           }}
         >

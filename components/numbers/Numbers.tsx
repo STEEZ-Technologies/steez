@@ -21,17 +21,13 @@ export function Numbers() {
         width: "100%",
         background: "transparent",
         borderTop: "1px solid var(--hairline)",
+        borderBottom: "1px solid var(--hairline)",
         transition: "border-color 0.4s ease",
       }}
     >
       <div
         ref={ref}
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          maxWidth: 1200,
-          margin: "0 auto",
-        }}
+        className="grid grid-cols-2 md:grid-cols-4 max-w-[1200px] w-full mx-auto py-2"
       >
         {STATS.map((s, i) => (
           <motion.div
@@ -39,15 +35,9 @@ export function Numbers() {
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center text-center gap-1 border-r-0 md:border-r border-[var(--hairline)] last:border-r-0 py-2 md:py-0 px-2"
             style={{
               padding: "clamp(12px, 2vw, 24px) clamp(10px, 1.5vw, 20px)",
-              borderRight:
-                i < STATS.length - 1 ? "1px solid var(--hairline)" : undefined,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              textAlign: "center",
-              gap: 2,
             }}
           >
             <div
