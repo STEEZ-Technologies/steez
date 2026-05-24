@@ -421,7 +421,7 @@ section{padding:80px 0}
 .factory-svg{width:100%;height:100%}
 
 /* ─── MTS ARTISTRY SHOWCASE ─── */
-#mts-artistry{background:var(--black);padding:100px 0;position:relative;overflow:hidden}
+#mts-artistry{background:var(--black);padding:68px 0;position:relative;overflow:hidden}
 #mts-artistry::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 65% 60% at 28% 50%,rgba(192,57,43,0.06) 0%,transparent 70%)}
 .mts-inner{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,60px);display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center}
 @media(max-width:900px){.mts-inner{grid-template-columns:1fr;gap:48px}}
@@ -495,6 +495,85 @@ section{padding:80px 0}
 .mts-mat-val{font-family:var(--font-h);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--white)}
 @keyframes mvFade{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:translateX(0)}}
 .mts-mat-val.mv-anim{animation:mvFade .3s ease}
+
+/* ─── PRODUCT SLIDESHOW ─── */
+#prd-show{background:var(--black2);padding:68px 0 56px;position:relative}
+.psh-hdr{max-width:1200px;margin:0 auto 56px;padding:0 clamp(16px,4vw,60px)}
+.psh-wrap{position:relative}
+.psh-viewport{overflow:hidden;margin:0 68px}
+@media(max-width:640px){.psh-viewport{margin:0 42px}}
+.psh-track{display:flex;transition:transform .65s cubic-bezier(.4,0,.2,1);will-change:transform}
+.psh-slide{min-width:100%;padding:0 clamp(16px,4vw,60px);display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center}
+@media(max-width:900px){.psh-slide{grid-template-columns:1fr;gap:40px}}
+.psh-svg-wrap{border-radius:12px;background:rgba(255,255,255,.016);border:1px solid rgba(255,255,255,.05);padding:28px 20px 28px 14px;position:relative;overflow:hidden}
+.psh-svg-wrap::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 55% 50%,rgba(192,57,43,.04) 0%,transparent 65%)}
+.cy-glow::before{background:radial-gradient(ellipse at 55% 50%,rgba(30,100,255,.06) 0%,transparent 65%) !important}
+.psh-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:var(--white);cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s,transform .2s;backdrop-filter:blur(6px);padding:0}
+.psh-btn:hover{background:var(--red);border-color:var(--red);transform:translateY(-50%) scale(1.06)}
+.psh-btn:active{transform:translateY(-50%) scale(.93)}
+.psh-prev{left:10px}.psh-next{right:10px}
+@media(max-width:640px){.psh-btn{width:36px;height:36px}.psh-prev{left:4px}.psh-next{right:4px}}
+.psh-dots{display:flex;justify-content:center;gap:10px;margin-top:36px}
+.psh-dot{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.2);cursor:pointer;transition:all .3s;border:none;padding:0}
+.psh-dot.active{background:var(--red);width:24px}
+.sl-ctrl{display:flex;flex-direction:column}
+.sl-series{font-family:var(--font-h);font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.sl-series::before{content:'';width:24px;height:1px;background:var(--red)}
+.sl-title{font-family:var(--font-h);font-size:clamp(24px,3.5vw,46px);font-weight:700;text-transform:uppercase;letter-spacing:.04em;line-height:1.05;color:var(--white);margin-bottom:8px}
+.sl-title em{color:var(--red);font-style:normal}
+.sl-tag{font-family:var(--font-s);font-size:14px;font-style:italic;color:var(--white3);margin-bottom:12px;line-height:1.5}
+.sl-desc{font-family:var(--font-b);font-size:14px;line-height:1.8;color:var(--white3);margin-bottom:26px}
+.pk-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.pk-lbl{font-family:var(--font-h);font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--white3)}
+.pk-cur{font-family:var(--font-h);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--white)}
+@keyframes pkIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.pk-cur.pa{animation:pkIn .3s ease}
+.pk-swatches{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.pk-sw{display:flex;align-items:center;gap:12px;cursor:pointer;background:none;border:1px solid rgba(255,255,255,.07);padding:9px 12px;border-radius:8px;text-align:left;transition:border-color .25s,background .25s;position:relative;overflow:hidden}
+.pk-sw:hover{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.03)}
+.pk-sw.active{border-color:rgba(192,57,43,.6);background:rgba(192,57,43,.06)}
+.pk-smp{width:66px;height:20px;border-radius:2px;flex-shrink:0;border:1px solid rgba(255,255,255,.1);box-shadow:0 2px 6px rgba(0,0,0,.4);position:relative;overflow:hidden}
+.pk-smp::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.14) 0%,transparent 50%,rgba(0,0,0,.12) 100%)}
+.pk-info{flex:1}
+.pk-name{font-family:var(--font-h);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--white);display:block;margin-bottom:1px}
+.pk-sub{font-family:var(--font-b);font-size:10px;color:var(--white3);display:block}
+.pk-chk{width:17px;height:17px;border-radius:50%;border:1.5px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .25s,background .25s}
+.pk-sw.active .pk-chk{border-color:var(--red);background:var(--red)}
+.pk-chk svg{opacity:0;transition:opacity .2s}
+.pk-sw.active .pk-chk svg{opacity:1}
+.pk-ripple{position:absolute;border-radius:50%;background:rgba(192,57,43,.25);transform:scale(0);pointer-events:none}
+.pk-ripple.r-go{animation:rippleOut .5s ease forwards}
+/* V-Form blade finishes */
+.vf-svg.ff-matte    .vf-blade{fill:url(#vf-matte)}
+.vf-svg.ff-gunmetal .vf-blade{fill:url(#vf-gunmetal)}
+.vf-svg.ff-mirror   .vf-blade{fill:url(#vf-mirror)}
+@keyframes bSwitch{0%{filter:brightness(1)}35%{filter:brightness(2.2) saturate(.25)}100%{filter:brightness(1) saturate(1)}}
+.vf-blade.ba,.cy-blade.ba{animation:bSwitch .52s ease}
+/* Classic Collection handle materials */
+.cc-handle{transition:fill .55s cubic-bezier(.4,0,.2,1)}
+.cc-svg.hm-steel .cc-handle{fill:#b0b8c4}
+.cc-svg.hm-wood  .cc-handle{fill:#7a4525}
+.cc-svg.hm-alum  .cc-handle{fill:#1a4896}
+.cc-svg.hm-abs   .cc-handle{fill:#1e2228}
+.cc-handle.ha{animation:hFlash .6s ease}
+/* Cyber blade types */
+.cy-svg.bs-ps  .cy-blade{fill:url(#cy-ps)}
+.cy-svg.bs-dam .cy-blade{fill:url(#cy-dam)}
+.cy-svg.bs-ss  .cy-blade{fill:url(#cy-ss)}
+/* Slideshow — MTS handle colors */
+.mts-sl-svg.shc-black .mts-sl-handle{fill:#1c1c1e}
+.mts-sl-svg.shc-blue  .mts-sl-handle{fill:#1a4896}
+.mts-sl-svg.shc-white .mts-sl-handle{fill:#bebdba}
+.mts-sl-svg.shc-wood  .mts-sl-handle{fill:#7a4525}
+.mts-sl-handle{transition:fill .58s cubic-bezier(.4,0,.2,1)}
+.mts-sl-handle.ha{animation:hFlash .6s ease}
+/* Slideshow — Damascus handle colors */
+.dam-sl-svg.dhc-blue  .dam-sl-handle{fill:#1a3590}
+.dam-sl-svg.dhc-red   .dam-sl-handle{fill:#8b1a1a}
+.dam-sl-svg.dhc-green .dam-sl-handle{fill:#1a6b2a}
+.dam-sl-svg.dhc-white .dam-sl-handle{fill:#f5f0e8}
+.dam-sl-handle{transition:fill .55s cubic-bezier(.4,0,.2,1)}
+.dam-sl-handle.ha{animation:hFlash .6s ease}
 </style>
 </head>
 <body>
@@ -904,6 +983,542 @@ section{padding:80px 0}
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ─── PRODUCT SLIDESHOW ─── -->
+<section id="prd-show">
+  <div class="psh-hdr">
+    <p class="section-label reveal">The Collection</p>
+    <h2 class="section-title reveal">Every Series,<br><em>Crafted to Perfection</em></h2>
+  </div>
+  <div class="psh-wrap">
+    <button class="psh-btn psh-prev" id="pshPrev" aria-label="Previous">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="psh-viewport">
+      <div class="psh-track" id="pshTrack">
+
+        <!-- ══════════════════════════════════════════════ -->
+        <!-- SLIDE 1 · V-FORM                              -->
+        <!-- ══════════════════════════════════════════════ -->
+        <div class="psh-slide" id="vf-slide">
+          <div class="psh-svg-wrap">
+            <svg class="vf-svg ff-matte" viewBox="0 0 555 400" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="vf-matte" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#2c2f35"/>
+                  <stop offset="30%"  stop-color="#1a1d22"/>
+                  <stop offset="70%"  stop-color="#14161a"/>
+                  <stop offset="100%" stop-color="#0c0e11"/>
+                </linearGradient>
+                <linearGradient id="vf-gunmetal" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#3c4048"/>
+                  <stop offset="28%"  stop-color="#2a2e36"/>
+                  <stop offset="65%"  stop-color="#1e2228"/>
+                  <stop offset="100%" stop-color="#14161a"/>
+                </linearGradient>
+                <linearGradient id="vf-mirror" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#484c58"/>
+                  <stop offset="20%"  stop-color="#0e1014"/>
+                  <stop offset="42%"  stop-color="#3a3e48"/>
+                  <stop offset="62%"  stop-color="#0c1014"/>
+                  <stop offset="82%"  stop-color="#2c3038"/>
+                  <stop offset="100%" stop-color="#1a1d22"/>
+                </linearGradient>
+                <linearGradient id="vf-bol" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#1e2025"/>
+                  <stop offset="50%"  stop-color="#131518"/>
+                  <stop offset="100%" stop-color="#0c0e10"/>
+                </linearGradient>
+              </defs>
+              <!-- Chef 8" -->
+              <g filter="url(#ks)">
+                <path class="vf-blade" d="M 18,72 L 294,62 L 294,88 Q 154,91 18,72 Z" fill="url(#vf-matte)"/>
+                <line x1="26" y1="67" x2="280" y2="63" stroke="rgba(255,255,255,0.09)" stroke-width="0.9" stroke-linecap="round"/>
+                <rect x="292" y="56" width="22" height="38" rx="1.5" fill="url(#vf-bol)"/>
+                <path d="M 314,64 L 321,75 L 314,86 Z" fill="#c0392b" opacity="0.75" pointer-events="none"/>
+                <rect x="314" y="61" width="140" height="28" rx="2.5" fill="#131416"/>
+                <rect x="314" y="61" width="140" height="28" rx="2.5" fill="url(#bg-sheen)" pointer-events="none"/>
+                <rect x="452" y="62" width="5" height="26" rx="2" fill="url(#vf-bol)"/>
+                <circle cx="344" cy="75" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="344" cy="75" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <circle cx="381" cy="75" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="381" cy="75" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <circle cx="418" cy="75" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="418" cy="75" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <text x="466" y="79" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(192,57,43,0.5)">CHEF 8"</text>
+              </g>
+              <!-- Carving 8" -->
+              <g filter="url(#ks)">
+                <path class="vf-blade" d="M 28,162 L 294,153 L 294,177 Q 162,180 28,162 Z" fill="url(#vf-matte)"/>
+                <line x1="36" y1="157" x2="280" y2="154" stroke="rgba(255,255,255,0.09)" stroke-width="0.9" stroke-linecap="round"/>
+                <rect x="292" y="148" width="22" height="34" rx="1.5" fill="url(#vf-bol)"/>
+                <path d="M 314,154 L 321,165 L 314,176 Z" fill="#c0392b" opacity="0.75" pointer-events="none"/>
+                <rect x="314" y="151" width="140" height="28" rx="2.5" fill="#131416"/>
+                <rect x="314" y="151" width="140" height="28" rx="2.5" fill="url(#bg-sheen)" pointer-events="none"/>
+                <rect x="452" y="152" width="5" height="26" rx="2" fill="url(#vf-bol)"/>
+                <circle cx="344" cy="165" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="344" cy="165" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <circle cx="381" cy="165" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="381" cy="165" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <circle cx="418" cy="165" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="418" cy="165" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <text x="466" y="169" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(192,57,43,0.5)">CARVING 8"</text>
+              </g>
+              <!-- Utility 5" -->
+              <g filter="url(#ks)">
+                <path class="vf-blade" d="M 118,252 L 294,244 L 294,267 Q 204,270 118,252 Z" fill="url(#vf-matte)"/>
+                <line x1="126" y1="248" x2="280" y2="245" stroke="rgba(255,255,255,0.09)" stroke-width="0.9" stroke-linecap="round"/>
+                <rect x="292" y="239" width="22" height="32" rx="1.5" fill="url(#vf-bol)"/>
+                <path d="M 314,244 L 321,255 L 314,266 Z" fill="#c0392b" opacity="0.75" pointer-events="none"/>
+                <rect x="314" y="241" width="140" height="28" rx="2.5" fill="#131416"/>
+                <rect x="314" y="241" width="140" height="28" rx="2.5" fill="url(#bg-sheen)" pointer-events="none"/>
+                <rect x="452" y="242" width="5" height="26" rx="2" fill="url(#vf-bol)"/>
+                <circle cx="344" cy="255" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="344" cy="255" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <circle cx="381" cy="255" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="381" cy="255" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <circle cx="418" cy="255" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="418" cy="255" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <text x="466" y="259" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(192,57,43,0.5)">UTILITY 5"</text>
+              </g>
+              <!-- Paring 3.5" -->
+              <g filter="url(#ks)">
+                <path class="vf-blade" d="M 196,343 L 294,336 L 294,355 Q 244,357 196,343 Z" fill="url(#vf-matte)"/>
+                <line x1="204" y1="339" x2="280" y2="337" stroke="rgba(255,255,255,0.09)" stroke-width="0.9" stroke-linecap="round"/>
+                <rect x="292" y="331" width="22" height="28" rx="1.5" fill="url(#vf-bol)"/>
+                <path d="M 314,334 L 321,345 L 314,356 Z" fill="#c0392b" opacity="0.75" pointer-events="none"/>
+                <rect x="314" y="331" width="140" height="28" rx="2.5" fill="#131416"/>
+                <rect x="314" y="331" width="140" height="28" rx="2.5" fill="url(#bg-sheen)" pointer-events="none"/>
+                <rect x="452" y="332" width="5" height="26" rx="2" fill="url(#vf-bol)"/>
+                <circle cx="344" cy="345" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="344" cy="345" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <circle cx="381" cy="345" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="381" cy="345" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <circle cx="418" cy="345" r="4.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                <circle cx="418" cy="345" r="1.8" fill="rgba(255,255,255,0.22)"/>
+                <text x="466" y="349" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(192,57,43,0.5)">PARING 3.5"</text>
+              </g>
+            </svg>
+          </div>
+          <div class="sl-ctrl">
+            <p class="sl-series">02 · V-Form</p>
+            <h3 class="sl-title">PATENTED<br>V-<em>FORM</em></h3>
+            <p class="sl-tag">Redefining the Art of the Blade</p>
+            <p class="sl-desc">Patented V-shaped design meets a commanding G10 handle. Adapts a V-shaped line at a specific angle, offering a comfortable grip and a silky smooth cutting edge. Black Powder Steel — sharp today, sharp always.</p>
+            <div class="pk-hdr">
+              <span class="pk-lbl">Blade Finish</span>
+              <span class="pk-cur" id="vfCur">Matte Black</span>
+            </div>
+            <div class="pk-swatches">
+              <button class="pk-sw active" data-name="Matte Black" data-svgclass="ff-matte">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#2c2f35,#0c0e11)"></div>
+                <div class="pk-info"><span class="pk-name">Matte Black</span><span class="pk-sub">Black Powder Steel · Matte Finish</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="Gunmetal" data-svgclass="ff-gunmetal">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#3c4048,#14161a)"></div>
+                <div class="pk-info"><span class="pk-name">Gunmetal</span><span class="pk-sub">Black Powder Steel · Gunmetal Finish</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="Black Mirror" data-svgclass="ff-mirror">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#484c58,#0e1015 25%,#383c48 50%,#0c1014 75%)"></div>
+                <div class="pk-info"><span class="pk-name">Black Mirror</span><span class="pk-sub">Black Powder Steel · Mirror Polish</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+                <!-- ══════════════════════════════════════════════ -->
+        <!-- SLIDE 2 · MTS ARTISTRY                        -->
+        <!-- ══════════════════════════════════════════════ -->
+        <div class="psh-slide" id="mts-slide">
+          <div class="psh-svg-wrap">
+            <svg class="mts-sl-svg shc-black" viewBox="0 0 555 400" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="sl-blade" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#d8dde4"/>
+                  <stop offset="22%"  stop-color="#b2bbc6"/>
+                  <stop offset="55%"  stop-color="#838c96"/>
+                  <stop offset="100%" stop-color="#5a6268"/>
+                </linearGradient>
+                <linearGradient id="sl-bol" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#363a40"/>
+                  <stop offset="50%"  stop-color="#22262b"/>
+                  <stop offset="100%" stop-color="#181b1f"/>
+                </linearGradient>
+                <linearGradient id="sl-sheen" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="rgba(255,255,255,0.13)"/>
+                  <stop offset="50%"  stop-color="rgba(255,255,255,0)"/>
+                  <stop offset="100%" stop-color="rgba(0,0,0,0.14)"/>
+                </linearGradient>
+              </defs>
+              <!-- Chef 8" -->
+              <g filter="url(#ks)">
+                <path d="M 18,72 L 294,62 L 294,88 Q 154,91 18,72 Z" fill="url(#sl-blade)"/>
+                <line x1="26" y1="67" x2="280" y2="63" stroke="rgba(255,255,255,0.52)" stroke-width="1.3" stroke-linecap="round"/>
+                <rect x="292" y="56" width="22" height="38" rx="1.5" fill="url(#sl-bol)"/>
+                <line x1="293" y1="57" x2="293" y2="93" stroke="rgba(180,192,202,0.28)" stroke-width="0.8"/>
+                <rect class="mts-sl-handle" x="314" y="61" width="140" height="28" rx="2.5" fill="#1c1c1e"/>
+                <rect x="314" y="61" width="140" height="28" rx="2.5" fill="url(#sl-sheen)" pointer-events="none"/>
+                <rect x="452" y="62" width="5" height="26" rx="2" fill="url(#sl-bol)"/>
+                <circle cx="344" cy="75" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="344" cy="75" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <circle cx="381" cy="75" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="381" cy="75" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <circle cx="418" cy="75" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="418" cy="75" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <text x="466" y="79" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(240,237,232,0.32)">CHEF 8"</text>
+              </g>
+              <!-- Carving 8" -->
+              <g filter="url(#ks)">
+                <path d="M 28,162 L 294,153 L 294,177 Q 162,180 28,162 Z" fill="url(#sl-blade)"/>
+                <line x1="36" y1="157" x2="280" y2="154" stroke="rgba(255,255,255,0.52)" stroke-width="1.3" stroke-linecap="round"/>
+                <rect x="292" y="148" width="22" height="34" rx="1.5" fill="url(#sl-bol)"/>
+                <line x1="293" y1="149" x2="293" y2="181" stroke="rgba(180,192,202,0.28)" stroke-width="0.8"/>
+                <rect class="mts-sl-handle" x="314" y="151" width="140" height="28" rx="2.5" fill="#1c1c1e"/>
+                <rect x="314" y="151" width="140" height="28" rx="2.5" fill="url(#sl-sheen)" pointer-events="none"/>
+                <rect x="452" y="152" width="5" height="26" rx="2" fill="url(#sl-bol)"/>
+                <circle cx="344" cy="165" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="344" cy="165" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <circle cx="381" cy="165" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="381" cy="165" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <circle cx="418" cy="165" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="418" cy="165" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <text x="466" y="169" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(240,237,232,0.32)">CARVING 8"</text>
+              </g>
+              <!-- Utility 5" -->
+              <g filter="url(#ks)">
+                <path d="M 118,252 L 294,244 L 294,267 Q 204,270 118,252 Z" fill="url(#sl-blade)"/>
+                <line x1="126" y1="248" x2="280" y2="245" stroke="rgba(255,255,255,0.52)" stroke-width="1.3" stroke-linecap="round"/>
+                <rect x="292" y="239" width="22" height="32" rx="1.5" fill="url(#sl-bol)"/>
+                <line x1="293" y1="240" x2="293" y2="270" stroke="rgba(180,192,202,0.28)" stroke-width="0.8"/>
+                <rect class="mts-sl-handle" x="314" y="241" width="140" height="28" rx="2.5" fill="#1c1c1e"/>
+                <rect x="314" y="241" width="140" height="28" rx="2.5" fill="url(#sl-sheen)" pointer-events="none"/>
+                <rect x="452" y="242" width="5" height="26" rx="2" fill="url(#sl-bol)"/>
+                <circle cx="344" cy="255" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="344" cy="255" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <circle cx="381" cy="255" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="381" cy="255" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <circle cx="418" cy="255" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="418" cy="255" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <text x="466" y="259" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(240,237,232,0.32)">UTILITY 5"</text>
+              </g>
+              <!-- Paring 3.5" -->
+              <g filter="url(#ks)">
+                <path d="M 196,343 L 294,336 L 294,355 Q 244,357 196,343 Z" fill="url(#sl-blade)"/>
+                <line x1="204" y1="339" x2="280" y2="337" stroke="rgba(255,255,255,0.52)" stroke-width="1.3" stroke-linecap="round"/>
+                <rect x="292" y="331" width="22" height="28" rx="1.5" fill="url(#sl-bol)"/>
+                <line x1="293" y1="332" x2="293" y2="358" stroke="rgba(180,192,202,0.28)" stroke-width="0.8"/>
+                <rect class="mts-sl-handle" x="314" y="331" width="140" height="28" rx="2.5" fill="#1c1c1e"/>
+                <rect x="314" y="331" width="140" height="28" rx="2.5" fill="url(#sl-sheen)" pointer-events="none"/>
+                <rect x="452" y="332" width="5" height="26" rx="2" fill="url(#sl-bol)"/>
+                <circle cx="344" cy="345" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="344" cy="345" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <circle cx="381" cy="345" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="381" cy="345" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <circle cx="418" cy="345" r="4.8" fill="rgba(155,162,170,0.18)" stroke="rgba(40,44,50,0.65)" stroke-width="0.9"/>
+                <circle cx="418" cy="345" r="1.9" fill="rgba(200,206,212,0.58)"/>
+                <text x="466" y="349" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(240,237,232,0.32)">PARING 3.5"</text>
+              </g>
+            </svg>
+          </div>
+          <div class="sl-ctrl">
+            <p class="sl-series">02 · MTS Artistry</p>
+            <h3 class="sl-title">SIGNATURE<br><em>COLORS</em></h3>
+            <p class="sl-tag">Powder Steel · G10 · Anodized Aluminum</p>
+            <p class="sl-desc">Premium powder steel blades honed to surgical sharpness, paired with anodized G10 handles in four signature colors. Each set includes a bespoke magnetic stand — a collector's piece for the serious chef.</p>
+            <div class="pk-hdr">
+              <span class="pk-lbl">Handle Color</span>
+              <span class="pk-cur" id="mtsCur">Black</span>
+            </div>
+            <div class="pk-swatches">
+              <button class="pk-sw active" data-name="Black" data-svgclass="shc-black">
+                <div class="pk-smp" style="background:#1c1c1e"></div>
+                <div class="pk-info"><span class="pk-name">Black</span><span class="pk-sub">G10 Composite · Anodized Aluminum</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="Cobalt Blue" data-svgclass="shc-blue">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#2260b0,#1a4896)"></div>
+                <div class="pk-info"><span class="pk-name">Cobalt Blue</span><span class="pk-sub">G10 Composite · Cobalt Anodized</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="Pearl White" data-svgclass="shc-white">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#d0ceca,#bebdba)"></div>
+                <div class="pk-info"><span class="pk-name">Pearl White</span><span class="pk-sub">G10 Composite · Pearl Anodized</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="Walnut Wood" data-svgclass="shc-wood">
+                <div class="pk-smp" style="background:linear-gradient(90deg,#6b3a1e,#8b5230,#7a4525)"></div>
+                <div class="pk-info"><span class="pk-name">Walnut Wood</span><span class="pk-sub">Premium Walnut · Natural Grain</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════ -->
+        <!-- SLIDE 3 · CLASSIC COLLECTION                  -->
+        <!-- ══════════════════════════════════════════════ -->
+        <div class="psh-slide" id="cc-slide">
+          <div class="psh-svg-wrap">
+            <svg class="cc-svg hm-steel" viewBox="0 0 555 400" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="cc-blade-g" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#e2e7ec"/>
+                  <stop offset="18%"  stop-color="#c4ccd5"/>
+                  <stop offset="55%"  stop-color="#9098a8"/>
+                  <stop offset="100%" stop-color="#68727e"/>
+                </linearGradient>
+                <linearGradient id="cc-bol-g" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#b8c0ca"/>
+                  <stop offset="50%"  stop-color="#8890a0"/>
+                  <stop offset="100%" stop-color="#606878"/>
+                </linearGradient>
+                <linearGradient id="cc-sheen-g" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="rgba(255,255,255,0.28)"/>
+                  <stop offset="50%"  stop-color="rgba(255,255,255,0.06)"/>
+                  <stop offset="100%" stop-color="rgba(0,0,0,0.08)"/>
+                </linearGradient>
+              </defs>
+              <!-- Chef 8" -->
+              <g filter="url(#ks)">
+                <path d="M 18,72 L 294,62 L 294,88 Q 154,91 18,72 Z" fill="url(#cc-blade-g)"/>
+                <line x1="26" y1="67" x2="280" y2="63" stroke="rgba(255,255,255,0.65)" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="26" y1="72" x2="270" y2="69" stroke="rgba(255,255,255,0.2)" stroke-width="0.6" stroke-linecap="round"/>
+                <rect x="292" y="56" width="24" height="38" rx="3" fill="url(#cc-bol-g)"/>
+                <rect class="cc-handle" x="316" y="59" width="138" height="32" rx="14" fill="#b0b8c4"/>
+                <rect x="316" y="59" width="138" height="32" rx="14" fill="url(#cc-sheen-g)" pointer-events="none"/>
+                <rect x="452" y="60" width="6" height="30" rx="3" fill="url(#cc-bol-g)"/>
+                <text x="466" y="79" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(240,237,232,0.32)">CHEF 8"</text>
+              </g>
+              <!-- Carving 8" -->
+              <g filter="url(#ks)">
+                <path d="M 28,162 L 294,153 L 294,177 Q 162,180 28,162 Z" fill="url(#cc-blade-g)"/>
+                <line x1="36" y1="157" x2="280" y2="154" stroke="rgba(255,255,255,0.65)" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="36" y1="162" x2="270" y2="159" stroke="rgba(255,255,255,0.2)" stroke-width="0.6" stroke-linecap="round"/>
+                <rect x="292" y="148" width="24" height="36" rx="3" fill="url(#cc-bol-g)"/>
+                <rect class="cc-handle" x="316" y="149" width="138" height="32" rx="14" fill="#b0b8c4"/>
+                <rect x="316" y="149" width="138" height="32" rx="14" fill="url(#cc-sheen-g)" pointer-events="none"/>
+                <rect x="452" y="150" width="6" height="30" rx="3" fill="url(#cc-bol-g)"/>
+                <text x="466" y="169" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(240,237,232,0.32)">BREAD 8"</text>
+              </g>
+              <!-- Utility 5" -->
+              <g filter="url(#ks)">
+                <path d="M 118,252 L 294,244 L 294,267 Q 204,270 118,252 Z" fill="url(#cc-blade-g)"/>
+                <line x1="126" y1="248" x2="280" y2="245" stroke="rgba(255,255,255,0.65)" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="126" y1="252" x2="270" y2="250" stroke="rgba(255,255,255,0.2)" stroke-width="0.6" stroke-linecap="round"/>
+                <rect x="292" y="239" width="24" height="34" rx="3" fill="url(#cc-bol-g)"/>
+                <rect class="cc-handle" x="316" y="239" width="138" height="32" rx="14" fill="#b0b8c4"/>
+                <rect x="316" y="239" width="138" height="32" rx="14" fill="url(#cc-sheen-g)" pointer-events="none"/>
+                <rect x="452" y="240" width="6" height="30" rx="3" fill="url(#cc-bol-g)"/>
+                <text x="466" y="259" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(240,237,232,0.32)">SANTOKU 5"</text>
+              </g>
+              <!-- Paring 3.5" -->
+              <g filter="url(#ks)">
+                <path d="M 196,343 L 294,336 L 294,355 Q 244,357 196,343 Z" fill="url(#cc-blade-g)"/>
+                <line x1="204" y1="339" x2="280" y2="337" stroke="rgba(255,255,255,0.65)" stroke-width="1.2" stroke-linecap="round"/>
+                <rect x="292" y="331" width="24" height="30" rx="3" fill="url(#cc-bol-g)"/>
+                <rect class="cc-handle" x="316" y="329" width="138" height="32" rx="14" fill="#b0b8c4"/>
+                <rect x="316" y="329" width="138" height="32" rx="14" fill="url(#cc-sheen-g)" pointer-events="none"/>
+                <rect x="452" y="330" width="6" height="30" rx="3" fill="url(#cc-bol-g)"/>
+                <text x="466" y="349" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(240,237,232,0.32)">PARING 3.5"</text>
+              </g>
+            </svg>
+          </div>
+          <div class="sl-ctrl">
+            <p class="sl-series">03 · Classic Collection</p>
+            <h3 class="sl-title">TIMELESS<br><em>CRAFT</em></h3>
+            <p class="sl-tag">Premium 18/10 Stainless · Full Bolster</p>
+            <p class="sl-desc">The kitchen workhorse — premium 18/10 stainless blades with full-length bolster for perfect balance. Four handle materials, from polished steel to warm North American walnut. ISO9001 · LFGB · FDA certified.</p>
+            <div class="pk-hdr">
+              <span class="pk-lbl">Handle Material</span>
+              <span class="pk-cur" id="ccCur">Polished Steel</span>
+            </div>
+            <div class="pk-swatches">
+              <button class="pk-sw active" data-name="Polished Steel" data-svgclass="hm-steel">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#c8d0da,#8898a8)"></div>
+                <div class="pk-info"><span class="pk-name">Polished Steel</span><span class="pk-sub">18/10 Stainless · Mirror Finish</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="Walnut Wood" data-svgclass="hm-wood">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#8b5e30,#6b3a1e)"></div>
+                <div class="pk-info"><span class="pk-name">Walnut Wood</span><span class="pk-sub">N. American Black Walnut · Natural</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="Blue Aluminum" data-svgclass="hm-alum">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#2258aa,#1a4896)"></div>
+                <div class="pk-info"><span class="pk-name">Blue Aluminum</span><span class="pk-sub">Anodized Aircraft Aluminum</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="ABS Black" data-svgclass="hm-abs">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#2a2e36,#1e2228)"></div>
+                <div class="pk-info"><span class="pk-name">ABS Black</span><span class="pk-sub">Ergonomic ABS Composite</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════ -->
+        <!-- SLIDE 4 · DAMASCUS                            -->
+        <!-- ══════════════════════════════════════════════ -->
+        <div class="psh-slide" id="dam-slide">
+          <div class="psh-svg-wrap">
+            <svg class="dam-sl-svg dhc-blue" viewBox="0 0 555 400" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="dam-wave" x="0" y="0" width="18" height="8" patternUnits="userSpaceOnUse">
+                  <path d="M0,4 Q4.5,0 9,4 Q13.5,8 18,4" stroke="rgba(140,130,160,0.3)" stroke-width="0.7" fill="none"/>
+                </pattern>
+                <linearGradient id="dam-base" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#d0d5de"/>
+                  <stop offset="20%"  stop-color="#b0b8c5"/>
+                  <stop offset="55%"  stop-color="#7a8494"/>
+                  <stop offset="100%" stop-color="#525e6a"/>
+                </linearGradient>
+                <linearGradient id="dam-bol" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#2a2e38"/>
+                  <stop offset="50%"  stop-color="#1a1e26"/>
+                  <stop offset="100%" stop-color="#0e1018"/>
+                </linearGradient>
+                <linearGradient id="dam-sheen" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="rgba(255,255,255,0.18)"/>
+                  <stop offset="50%"  stop-color="rgba(255,255,255,0)"/>
+                  <stop offset="100%" stop-color="rgba(0,0,0,0.1)"/>
+                </linearGradient>
+              </defs>
+              <!-- Chef 8" -->
+              <g filter="url(#ks)">
+                <path d="M 18,72 L 294,62 L 294,88 Q 154,91 18,72 Z" fill="url(#dam-base)"/>
+                <path d="M 18,72 L 294,62 L 294,88 Q 154,91 18,72 Z" fill="url(#dam-wave)"/>
+                <line x1="26" y1="67" x2="280" y2="63" stroke="rgba(255,255,255,0.45)" stroke-width="1.1" stroke-linecap="round"/>
+                <rect x="292" y="56" width="22" height="38" rx="1.5" fill="url(#dam-bol)"/>
+                <rect class="dam-sl-handle" x="314" y="60" width="140" height="30" rx="6" fill="#1a3590"/>
+                <rect x="314" y="60" width="140" height="30" rx="6" fill="url(#dam-sheen)" pointer-events="none"/>
+                <rect x="452" y="61" width="5" height="28" rx="2" fill="url(#dam-bol)"/>
+                <circle cx="344" cy="75" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="344" cy="75" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <circle cx="381" cy="75" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="381" cy="75" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <circle cx="418" cy="75" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="418" cy="75" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <text x="466" y="79" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(212,160,23,0.45)">CHEF 8"</text>
+              </g>
+              <!-- Santoku 5" -->
+              <g filter="url(#ks)">
+                <path d="M 28,162 L 294,153 L 294,177 Q 162,180 28,162 Z" fill="url(#dam-base)"/>
+                <path d="M 28,162 L 294,153 L 294,177 Q 162,180 28,162 Z" fill="url(#dam-wave)"/>
+                <line x1="36" y1="157" x2="280" y2="154" stroke="rgba(255,255,255,0.45)" stroke-width="1.1" stroke-linecap="round"/>
+                <rect x="292" y="148" width="22" height="34" rx="1.5" fill="url(#dam-bol)"/>
+                <rect class="dam-sl-handle" x="314" y="150" width="140" height="30" rx="6" fill="#1a3590"/>
+                <rect x="314" y="150" width="140" height="30" rx="6" fill="url(#dam-sheen)" pointer-events="none"/>
+                <rect x="452" y="151" width="5" height="28" rx="2" fill="url(#dam-bol)"/>
+                <circle cx="344" cy="165" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="344" cy="165" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <circle cx="381" cy="165" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="381" cy="165" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <circle cx="418" cy="165" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="418" cy="165" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <text x="466" y="169" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(212,160,23,0.45)">SANTOKU 5"</text>
+              </g>
+              <!-- Paring 3.5" -->
+              <g filter="url(#ks)">
+                <path d="M 118,252 L 294,244 L 294,267 Q 204,270 118,252 Z" fill="url(#dam-base)"/>
+                <path d="M 118,252 L 294,244 L 294,267 Q 204,270 118,252 Z" fill="url(#dam-wave)"/>
+                <line x1="126" y1="248" x2="280" y2="245" stroke="rgba(255,255,255,0.45)" stroke-width="1.1" stroke-linecap="round"/>
+                <rect x="292" y="239" width="22" height="32" rx="1.5" fill="url(#dam-bol)"/>
+                <rect class="dam-sl-handle" x="314" y="240" width="140" height="30" rx="6" fill="#1a3590"/>
+                <rect x="314" y="240" width="140" height="30" rx="6" fill="url(#dam-sheen)" pointer-events="none"/>
+                <rect x="452" y="241" width="5" height="28" rx="2" fill="url(#dam-bol)"/>
+                <circle cx="344" cy="255" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="344" cy="255" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <circle cx="381" cy="255" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="381" cy="255" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <circle cx="418" cy="255" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="418" cy="255" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <text x="466" y="259" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(212,160,23,0.45)">PARING 3.5"</text>
+              </g>
+              <!-- Nakiri 6.5" -->
+              <g filter="url(#ks)">
+                <path d="M 196,343 L 294,336 L 294,355 Q 244,357 196,343 Z" fill="url(#dam-base)"/>
+                <path d="M 196,343 L 294,336 L 294,355 Q 244,357 196,343 Z" fill="url(#dam-wave)"/>
+                <line x1="204" y1="339" x2="280" y2="337" stroke="rgba(255,255,255,0.45)" stroke-width="1.1" stroke-linecap="round"/>
+                <rect x="292" y="331" width="22" height="28" rx="1.5" fill="url(#dam-bol)"/>
+                <rect class="dam-sl-handle" x="314" y="330" width="140" height="30" rx="6" fill="#1a3590"/>
+                <rect x="314" y="330" width="140" height="30" rx="6" fill="url(#dam-sheen)" pointer-events="none"/>
+                <rect x="452" y="331" width="5" height="28" rx="2" fill="url(#dam-bol)"/>
+                <circle cx="344" cy="345" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="344" cy="345" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <circle cx="381" cy="345" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="381" cy="345" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <circle cx="418" cy="345" r="4.5" fill="rgba(212,160,23,0.32)" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+                <circle cx="418" cy="345" r="1.8" fill="rgba(212,160,23,0.8)"/>
+                <text x="466" y="349" font-family="'Oswald',sans-serif" font-size="9" letter-spacing="2" fill="rgba(212,160,23,0.45)">NAKIRI 6.5"</text>
+              </g>
+            </svg>
+          </div>
+          <div class="sl-ctrl">
+            <p class="sl-series">04 · Damascus</p>
+            <h3 class="sl-title">A THOUSAND<br><em>LAYERS</em></h3>
+            <p class="sl-tag">Damascus Steel · Resin Composite</p>
+            <p class="sl-desc">Beneath the edge, a thousand layers of folded Damascus steel reveal a flowing waterfall pattern unique to every blade. Gold-pin rivets, four vivid resin composite handle colors — art that lives in your kitchen.</p>
+            <div class="pk-hdr">
+              <span class="pk-lbl">Handle Color</span>
+              <span class="pk-cur" id="damCur">Ocean Blue</span>
+            </div>
+            <div class="pk-swatches">
+              <button class="pk-sw active" data-name="Ocean Blue" data-svgclass="dhc-blue">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#2258aa,#1a3590)"></div>
+                <div class="pk-info"><span class="pk-name">Ocean Blue</span><span class="pk-sub">Resin Composite · Deep Blue</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="Crimson Red" data-svgclass="dhc-red">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#b02020,#8b1a1a)"></div>
+                <div class="pk-info"><span class="pk-name">Crimson Red</span><span class="pk-sub">Resin Composite · Deep Red</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="Forest Green" data-svgclass="dhc-green">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#206e28,#1a6b2a)"></div>
+                <div class="pk-info"><span class="pk-name">Forest Green</span><span class="pk-sub">Resin Composite · Forest Green</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+              <button class="pk-sw" data-name="Pearl White" data-svgclass="dhc-white">
+                <div class="pk-smp" style="background:linear-gradient(to bottom,#f5f0e8,#e0dbd0)"></div>
+                <div class="pk-info"><span class="pk-name">Pearl White</span><span class="pk-sub">Resin Composite · Ivory Pearl</span></div>
+                <div class="pk-chk"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,8 8.5,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="pk-ripple"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <button class="psh-btn psh-next" id="pshNext" aria-label="Next">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+  <div class="psh-dots" id="pshDots">
+    <button class="psh-dot active"></button>
+    <button class="psh-dot"></button>
+    <button class="psh-dot"></button>
+    <button class="psh-dot"></button>
   </div>
 </section>
 
@@ -1936,6 +2551,93 @@ window.addEventListener('resize', () => {
       animText(finEl, this.dataset.fin);
     });
   });
+})();
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PRODUCT SLIDESHOW
+// ─────────────────────────────────────────────────────────────────────────────
+(function(){
+  const track  = document.getElementById('pshTrack');
+  const dots   = document.querySelectorAll('.psh-dot');
+  const slides = track.querySelectorAll('.psh-slide');
+  const total  = slides.length;
+  let cur = 0;
+
+  function goTo(n) {
+    cur = ((n % total) + total) % total;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  document.getElementById('pshPrev').addEventListener('click', () => goTo(cur - 1));
+  document.getElementById('pshNext').addEventListener('click', () => goTo(cur + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+  // swipe support
+  let tX = 0;
+  const vp = document.querySelector('.psh-viewport');
+  vp.addEventListener('touchstart', e => { tX = e.touches[0].clientX; }, {passive:true});
+  vp.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - tX;
+    if (Math.abs(dx) > 40) goTo(cur + (dx < 0 ? 1 : -1));
+  });
+
+  // keyboard
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo(cur - 1);
+    if (e.key === 'ArrowRight') goTo(cur + 1);
+  });
+
+  // ── per-slide picker ──────────────────────────────────────────────────────
+  function initPicker(slideId, svgSel, classes, animSel, animCls, curId) {
+    const slide   = document.getElementById(slideId);
+    if (!slide) return;
+    const svgRoot = slide.querySelector(svgSel);
+    const curEl   = document.getElementById(curId);
+    const sws     = slide.querySelectorAll('.pk-sw');
+
+    sws.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (this.classList.contains('active')) return;
+
+        // ripple
+        const rip  = this.querySelector('.pk-ripple');
+        const rect = this.getBoundingClientRect();
+        const sz   = Math.max(rect.width, rect.height);
+        rip.style.cssText = `width:${sz}px;height:${sz}px;left:${e.clientX-rect.left-sz/2}px;top:${e.clientY-rect.top-sz/2}px`;
+        rip.classList.remove('r-go');
+        void rip.offsetWidth;
+        rip.classList.add('r-go');
+
+        // swap active
+        sws.forEach(s => s.classList.remove('active'));
+        this.classList.add('active');
+
+        // swap SVG class
+        svgRoot.classList.remove(...classes);
+        svgRoot.classList.add(this.dataset.svgclass);
+
+        // flash animated elements
+        svgRoot.querySelectorAll(animSel).forEach(el => {
+          el.classList.remove(animCls);
+          void el.offsetWidth;
+          el.classList.add(animCls);
+          setTimeout(() => el.classList.remove(animCls), 620);
+        });
+
+        // update label
+        curEl.classList.remove('pa');
+        void curEl.offsetWidth;
+        curEl.textContent = this.dataset.name;
+        curEl.classList.add('pa');
+      });
+    });
+  }
+
+  initPicker('vf-slide',  '.vf-svg',     ['ff-matte','ff-gunmetal','ff-mirror'],              '.vf-blade',       'ba', 'vfCur');
+  initPicker('mts-slide', '.mts-sl-svg', ['shc-black','shc-blue','shc-white','shc-wood'],    '.mts-sl-handle',  'ha', 'mtsCur');
+  initPicker('cc-slide',  '.cc-svg',     ['hm-steel','hm-wood','hm-alum','hm-abs'],           '.cc-handle',      'ha', 'ccCur');
+  initPicker('dam-slide', '.dam-sl-svg', ['dhc-blue','dhc-red','dhc-green','dhc-white'],      '.dam-sl-handle',  'ha', 'damCur');
 })();
 </script>
 </body>
