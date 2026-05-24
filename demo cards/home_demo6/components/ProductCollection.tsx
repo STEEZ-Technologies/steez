@@ -1,6 +1,5 @@
 "use client";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef, useCallback } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
@@ -11,6 +10,8 @@ type FilterKey = "all" | Product["category"];
 export default function ProductCollection() {
   const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
+  const [activeIdx, setActiveIdx] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const filters: { key: FilterKey; label: string }[] = [
     { key: "all", label: t.products.filters.all },
@@ -26,73 +27,142 @@ export default function ProductCollection() {
       ? products
       : products.filter((p) => p.category === activeFilter);
 
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setActiveIdx(Math.round(el.scrollTop / el.clientHeight));
+  }, []);
+
+  const scrollTo = useCallback((i: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTo({ top: i * el.clientHeight, behavior: "smooth" });
+    setActiveIdx(i);
+  }, []);
+
+  const changeFilter = (key: FilterKey) => {
+    setActiveFilter(key);
+    setActiveIdx(0);
+    requestAnimationFrame(() => {
+      scrollRef.current?.scrollTo({ top: 0, behavior: "instant" });
+    });
+  };
+
   return (
-    <section className="py-28 px-6 bg-cream" id="products">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xs font-sans font-semibold tracking-[0.32em] uppercase text-bronze mb-4"
+    <section
+      id="products"
+      style={{ position: "relative", height: "100vh", overflow: "hidden" }}
+    >
+      {/* Full-viewport scroll-snap container */}
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        style={{
+          position: "absolute",
+          inset: 0,
+          overflowY: "scroll",
+          scrollSnapType: "y mandatory",
+        }}
+      >
+        {filtered.map((product, i) => (
+          <div
+            key={product.id}
+            style={{
+              height: "100vh",
+              width: "100%",
+              scrollSnapAlign: "start",
+              scrollSnapStop: "always",
+            }}
           >
-            {t.products.sectionEyebrow}
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl font-black text-espresso mb-4"
-          >
-            {t.products.sectionTitle}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-sm font-sans text-espresso/55 max-w-md mx-auto"
-          >
-            {t.products.sectionSubtitle}
-          </motion.p>
-        </div>
+            <ProductCard product={product} index={i} total={filtered.length} />
+          </div>
+        ))}
+      </div>
 
-        {/* Filter tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {filters.map((f) => (
-            <button
-              key={f.key}
-              onClick={() => setActiveFilter(f.key)}
-              className={`text-sm font-sans font-medium px-5 py-2.5 rounded-full transition-all duration-200 ${
-                activeFilter === f.key
-                  ? "bg-espresso text-cream shadow-md"
-                  : "bg-cream-dark text-espresso/55 hover:text-espresso border border-espresso/12 hover:border-espresso/30"
-              }`}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Product Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+      {/* Filter overlay — top bar */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 20,
+          padding: "16px 24px",
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: 8,
+          background: "rgba(245,242,235,0.82)",
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+          borderBottom: "1px solid rgba(26,20,7,0.08)",
+        }}
+      >
+        <span
+          style={{
+            fontSize: "0.65rem",
+            fontWeight: 700,
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
+            color: "rgba(26,20,7,0.35)",
+            marginRight: 8,
+            whiteSpace: "nowrap",
+          }}
         >
-          {filtered.map((product, i) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.04, duration: 0.4 }}
-              layout
-            >
-              <ProductCard product={product} />
-            </motion.div>
-          ))}
-        </motion.div>
+          {t.products.sectionEyebrow}
+        </span>
+        {filters.map((f) => (
+          <button
+            key={f.key}
+            onClick={() => changeFilter(f.key)}
+            style={{
+              fontSize: "0.75rem",
+              fontWeight: 500,
+              padding: "6px 16px",
+              borderRadius: 999,
+              border: activeFilter === f.key ? "none" : "1px solid rgba(26,20,7,0.12)",
+              background: activeFilter === f.key ? "#1a1407" : "transparent",
+              color: activeFilter === f.key ? "#f5f2eb" : "rgba(26,20,7,0.5)",
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Navigation dots — right */}
+      <div
+        style={{
+          position: "absolute",
+          right: 20,
+          top: "50%",
+          transform: "translateY(-50%)",
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+          zIndex: 20,
+        }}
+      >
+        {filtered.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => scrollTo(i)}
+            aria-label={`Go to product ${i + 1}`}
+            style={{
+              width: i === activeIdx ? 8 : 6,
+              height: i === activeIdx ? 8 : 6,
+              borderRadius: "50%",
+              background: i === activeIdx ? "#1a1407" : "rgba(26,20,7,0.22)",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.25s ease",
+              padding: 0,
+            }}
+          />
+        ))}
       </div>
     </section>
   );
