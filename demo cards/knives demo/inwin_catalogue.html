@@ -213,7 +213,7 @@ section{padding:80px 0}
 .craft-prod-card:hover .craft-prod-img-wrap img{transform:scale(1.05)}
 .craft-prod-info{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-top:1px solid rgba(240,237,232,0.07);background:#0d0d0d}
 .craft-prod-name{font-family:var(--font-h);font-size:12px;font-weight:600;letter-spacing:0.15em;color:var(--white);text-transform:uppercase}
-.craft-prod-btn{font-family:var(--font-h);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);border:1px solid rgba(240,237,232,0.25);padding:8px 18px;text-decoration:none;transition:border-color 0.25s,color 0.25s;white-space:nowrap}
+.craft-prod-btn{font-family:var(--font-h);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);border:1px solid rgba(240,237,232,0.25);padding:8px 18px;text-decoration:none;transition:border-color 0.25s,color 0.25s;white-space:nowrap;background:transparent;cursor:pointer}
 .craft-prod-btn:hover{border-color:var(--red);color:var(--red)}
 @media(max-width:700px){
   .craft-top{grid-template-columns:1fr;height:auto}
@@ -270,7 +270,7 @@ section{padding:80px 0}
   margin-top:24px;font-family:var(--font-h);font-size:11px;letter-spacing:0.25em;
   text-transform:uppercase;color:var(--white);
   opacity:0;transform:translateY(8px);
-  transition:opacity 0.4s 0.2s ease, transform 0.4s 0.2s ease;
+  transition:opacity 0.4s 0.2s ease,transform 0.4s 0.2s ease;
 }
 .c-card.active .c-card-cta{opacity:1;transform:translateY(0)}
 .c-card-cta::after{content:'→';color:var(--red)}
@@ -347,7 +347,8 @@ section{padding:80px 0}
 .product-canvas-preview{width:100%;height:100%}
 .product-card-body{padding:20px}
 .product-card-name{font-family:var(--font-h);font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
-.product-card-tagline{font-family:var(--font-s);font-size:13px;font-style:italic;color:var(--white3);margin-bottom:12px}
+.product-card-tagline{font-family:var(--font-s);font-size:13px;font-style:italic;color:var(--white3);margin-bottom:8px}
+.product-card-desc{font-family:var(--font-b);font-size:11px;color:rgba(200,196,190,0.5);line-height:1.6;margin-bottom:12px}
 .product-card-specs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
 .spec-chip{padding:4px 10px;background:rgba(255,255,255,0.06);border-radius:100px;font-size:10px;letter-spacing:0.1em;font-family:var(--font-h);color:var(--white3)}
 .product-card-colors{display:flex;gap:6px;margin-bottom:14px}
@@ -370,9 +371,9 @@ section{padding:80px 0}
 }
 #modal.open{background:rgba(0,0,0,0.85);pointer-events:all}
 .modal-box{
-  background:var(--black2);width:min(1000px,95vw);max-height:90vh;
+  background:var(--black2);width:min(1100px,96vw);max-height:92vh;
   border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);
-  display:grid;grid-template-columns:1fr 1fr;
+  display:grid;grid-template-columns:1.1fr 1fr;
   transform:translateY(60px) scale(0.95);opacity:0;
   transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease;
   box-shadow:0 40px 120px rgba(0,0,0,0.8);
@@ -404,7 +405,14 @@ section{padding:80px 0}
 .modal-close:hover{background:var(--red)}
 .modal-series{font-family:var(--font-h);font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
 .modal-name{font-family:var(--font-h);font-size:clamp(20px,3vw,28px);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px}
-.modal-tagline{font-family:var(--font-s);font-size:15px;font-style:italic;color:var(--white3);margin-bottom:20px;line-height:1.5}
+.modal-tagline{font-family:var(--font-s);font-size:15px;font-style:italic;color:var(--white3);margin-bottom:14px;line-height:1.5}
+.modal-desc{font-family:var(--font-b);font-size:13px;line-height:1.75;color:rgba(200,196,190,0.65);margin-bottom:18px}
+.modal-highlights{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.modal-highlight{
+  padding:5px 12px;border:1px solid rgba(255,255,255,0.1);border-radius:100px;
+  font-family:var(--font-h);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--white2);background:rgba(255,255,255,0.04);
+}
 .modal-rule{width:40px;height:1px;background:var(--red);margin-bottom:20px}
 .modal-specs-title{font-family:var(--font-h);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--white3);margin-bottom:12px}
 .modal-spec-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:13px}
@@ -484,9 +492,141 @@ section{padding:80px 0}
 .footer-tagline{font-family:var(--font-s);font-style:italic;font-size:14px;color:var(--white3);max-width:400px}
 .footer-inwin{font-family:var(--font-h);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-top:20px}
 
+/* ─── HERITAGE CARDS ─── */
+#heritage{
+  background:#0d0d0d;
+  border-top:1px solid rgba(240,237,232,0.06);
+  padding:100px 0;
+}
+.heritage-inner{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,60px)}
+.heritage-head{margin-bottom:64px}
+.heritage-timeline{display:flex;flex-direction:column;gap:20px}
+.ht-row{display:flex;align-items:stretch;gap:0}
+.ht-conn{
+  flex:0 0 24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ht-conn::after{
+  content:'';display:block;width:100%;height:1px;
+  background:rgba(192,57,43,0.35);
+}
+.ht-row-break{
+  display:flex;align-items:center;justify-content:center;
+  height:24px;
+}
+.ht-row-break::after{
+  content:'';display:block;width:1px;height:100%;
+  background:rgba(192,57,43,0.35);
+}
+.ht-item{
+  flex:1;min-width:0;
+  position:relative;overflow:hidden;
+  background:var(--black2);
+  border:1px solid rgba(240,237,232,0.07);
+  border-radius:12px;
+  padding:24px 24px 22px;
+  cursor:default;
+  transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),
+             box-shadow 0.35s ease,
+             border-color 0.35s ease,
+             background 0.35s ease;
+}
+.ht-item::before{
+  content:'';position:absolute;inset:0;border-radius:12px;
+  background:linear-gradient(135deg,rgba(192,57,43,0.07) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.35s ease;pointer-events:none;
+}
+.ht-item:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 48px rgba(0,0,0,0.55),0 0 0 1px rgba(192,57,43,0.25);
+  border-color:rgba(192,57,43,0.3);
+  background:var(--black3);
+}
+.ht-item:hover::before{opacity:1}
+.ht-item.is-today:hover{
+  box-shadow:0 20px 48px rgba(0,0,0,0.55),0 0 0 1px rgba(212,160,23,0.3);
+  border-color:rgba(212,160,23,0.35);
+}
+.ht-item.is-today::before{
+  background:linear-gradient(135deg,rgba(212,160,23,0.08) 0%,transparent 60%);
+}
+.ht-accent-line{
+  position:absolute;top:0;left:0;width:3px;height:0;border-radius:0 0 2px 2px;
+  background:var(--red);transition:height 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.ht-item:hover .ht-accent-line{height:100%}
+.ht-item.is-today .ht-accent-line{background:var(--gold)}
+.ht-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--red);box-shadow:0 0 0 3px rgba(192,57,43,0.15);
+  margin-bottom:14px;
+  transition:box-shadow 0.3s ease,transform 0.3s ease;
+}
+.ht-item:hover .ht-dot{box-shadow:0 0 0 5px rgba(192,57,43,0.2);transform:scale(1.25)}
+.ht-item.is-today .ht-dot{background:var(--gold);box-shadow:0 0 0 3px rgba(212,160,23,0.15)}
+.ht-item.is-today:hover .ht-dot{box-shadow:0 0 0 5px rgba(212,160,23,0.25)}
+.ht-num{
+  position:absolute;top:14px;right:18px;
+  font-family:var(--font-h);font-size:44px;font-weight:700;
+  color:rgba(240,237,232,0.04);letter-spacing:-0.03em;line-height:1;
+  pointer-events:none;user-select:none;transition:color 0.35s ease;
+}
+.ht-item:hover .ht-num{color:rgba(192,57,43,0.08)}
+.ht-item.is-today .ht-num{color:rgba(212,160,23,0.04)}
+.ht-item.is-today:hover .ht-num{color:rgba(212,160,23,0.1)}
+.ht-year{
+  font-family:var(--font-h);font-size:10px;font-weight:600;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--red);margin-bottom:8px;transition:letter-spacing 0.3s ease;
+}
+.ht-item:hover .ht-year{letter-spacing:0.36em}
+.ht-item.is-today .ht-year{color:var(--gold)}
+.ht-shop-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.ht-shop-btn{
+  font-family:var(--font-h);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;
+  padding:5px 12px;border:1px solid rgba(192,57,43,0.35);border-radius:4px;
+  color:rgba(240,237,232,0.6);background:transparent;cursor:pointer;
+  transition:border-color 0.25s,color 0.25s,background 0.25s;
+}
+.ht-shop-btn:hover{border-color:var(--red);color:var(--white);background:rgba(192,57,43,0.12)}
+.ht-title{
+  font-family:var(--font-h);font-size:clamp(15px,1.6vw,19px);
+  font-weight:700;text-transform:uppercase;letter-spacing:0.06em;
+  color:var(--white);margin-bottom:10px;line-height:1.1;
+}
+.ht-body{
+  font-family:var(--font-b);font-size:12px;
+  line-height:1.75;color:rgba(200,196,190,0.6);
+}
+@media(max-width:768px){
+  .ht-row{flex-direction:column}
+  .ht-conn{flex:0 0 20px}
+  .ht-conn::after{width:1px;height:100%}
+  .ht-row-break{height:20px}
+}
+
 /* ─── FACTORY SVG ART ─── */
 .factory-svg{width:100%;height:100%}
 
+
+/* ─── SERIES SPEC TABLE ─── */
+.c-spec-table{
+  width:100%;max-width:520px;margin:18px 0 20px;
+  border:1px solid rgba(240,237,232,0.08);border-radius:6px;overflow:hidden;
+  background:rgba(255,255,255,0.03);
+}
+.c-spec-row{display:flex;border-bottom:1px solid rgba(240,237,232,0.07)}
+.c-spec-row:last-child{border-bottom:none}
+.c-spec-key{
+  padding:7px 12px;width:38%;flex-shrink:0;
+  font-family:var(--font-h);font-size:10px;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--white3);
+  border-right:1px solid rgba(240,237,232,0.07);
+}
+.c-spec-val{
+  padding:7px 12px;
+  font-family:var(--font-h);font-size:10px;font-weight:500;
+  letter-spacing:0.06em;text-transform:uppercase;color:var(--white);
+}
 
 /* ─── MTS ARTISTRY SHOWCASE ─── */
 #mts-artistry{background:var(--black);padding:68px 0;position:relative;overflow:hidden}
@@ -567,9 +707,9 @@ section{padding:80px 0}
 /* ─── KNIFE CONFIGURATOR ─── */
 #knife-configurator{display:grid;grid-template-columns:55fr 45fr;min-height:80vh;background:var(--black);overflow:hidden}
 @media(max-width:900px){#knife-configurator{grid-template-columns:1fr;min-height:auto}}
-.knc-svg-side{display:flex;align-items:center;justify-content:center;padding:48px clamp(20px,4vw,56px);background:var(--black2);position:relative;overflow:hidden}
+.knc-svg-side{display:flex;align-items:center;justify-content:center;padding:0;background:var(--black2);position:relative;overflow:hidden}
 .knc-svg-side::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 40% 50%,rgba(192,57,43,.06) 0%,transparent 70%);pointer-events:none}
-.knc-svg-wrap{width:100%;max-width:560px;position:relative;border-radius:12px;background:rgba(255,255,255,.018);border:1px solid rgba(255,255,255,.05);padding:32px 24px;overflow:hidden}
+.knc-svg-wrap{width:100%;height:100%;position:relative;display:flex;align-items:center;padding:clamp(24px,4vw,48px)}
 .knc-svg-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(192,57,43,.04) 0%,transparent 65%);pointer-events:none}
 .knc-svg-root{width:100%;height:auto;display:block}
 /* handle color classes */
@@ -797,6 +937,55 @@ section{padding:80px 0}
   body{padding-top:56px}
 }
 body{padding-top:68px}
+
+/* ─── COMMUNITY ─── */
+#community{background:var(--black);border-top:1px solid rgba(240,237,232,0.08);padding:100px 0}
+.community-head{margin-bottom:48px}
+.community-sub{font-family:var(--font-b);font-size:14px;color:var(--white3);margin-top:14px;line-height:1.6}
+.community-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:4px;
+}
+@media(max-width:900px){.community-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.community-grid{grid-template-columns:repeat(2,1fr)}}
+.cm-cell{
+  position:relative;aspect-ratio:1;overflow:hidden;
+  background:var(--black3);cursor:pointer;
+}
+.cm-cell img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 0.5s ease;
+}
+.cm-cell:hover img{transform:scale(1.06)}
+.cm-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,0);
+  transition:background 0.3s ease;
+  display:flex;align-items:flex-end;padding:12px;
+}
+.cm-cell:hover .cm-overlay{background:rgba(0,0,0,0.5)}
+.cm-handle{
+  font-family:var(--font-h);font-size:11px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--white);
+  opacity:0;transform:translateY(6px);
+  transition:opacity 0.3s ease,transform 0.3s ease;
+}
+.cm-cell:hover .cm-handle{opacity:1;transform:translateY(0)}
+.community-cta{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;margin-top:36px;flex-wrap:wrap;
+}
+.cm-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border:1px solid rgba(240,237,232,0.2);
+  background:transparent;color:var(--white);cursor:pointer;
+  font-family:var(--font-h);font-size:11px;letter-spacing:0.2em;
+  text-transform:uppercase;text-decoration:none;border-radius:4px;
+  transition:border-color 0.25s ease,color 0.25s ease;
+}
+.cm-btn svg{flex-shrink:0;transition:color 0.25s ease}
+.cm-btn:hover{border-color:var(--red);color:var(--red)}
 </style>
 </head>
 <body>
@@ -811,9 +1000,10 @@ body{padding-top:68px}
     <!-- Nav -->
     <ul class="hdr-nav">
       <li><a href="#company" data-i18n="nav4">About Us</a></li>
+      <li><a href="#heritage">Our Story</a></li>
       <li><a href="#collections" data-i18n="nav1">Collections</a></li>
       <li><a href="#knife-configurator" data-i18n="nav2">Configurator</a></li>
-      <li><a href="#showroom" data-i18n="nav3">Knife Finder</a></li>
+      <li><a href="#community">Community</a></li>
     </ul>
     <!-- Icons -->
     <div class="hdr-icons">
@@ -862,7 +1052,6 @@ body{padding-top:68px}
   <div class="hero-lines"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <div class="hero-rule"></div>
     <h1 class="hero-tagline" id="i-hero-title">Master Craftsman<br>of Professional<br>Kitchenware</h1>
     <p class="hero-sub" id="i-hero-sub">Knives &nbsp;·&nbsp; Utensils &nbsp;·&nbsp; Cookware &nbsp;·&nbsp; Since 1979</p>
   </div>
@@ -1043,7 +1232,7 @@ body{padding-top:68px}
       </div>
       <div class="craft-prod-info">
         <span class="craft-prod-name" id="i-craft-prod1-name">V-FORM CHEF'S 8"</span>
-        <a href="#collections" class="craft-prod-btn" id="i-craft-prod1-btn">Shop V-Form</a>
+        <button class="craft-prod-btn" id="i-craft-prod1-btn" onclick="openCategory(1)">Shop V-Form</button>
       </div>
     </div>
     <div class="craft-prod-card">
@@ -1052,8 +1241,81 @@ body{padding-top:68px}
       </div>
       <div class="craft-prod-info">
         <span class="craft-prod-name" id="i-craft-prod2-name">DRAGON NAKIRI 6.5"</span>
-        <a href="#collections" class="craft-prod-btn" id="i-craft-prod2-btn">Shop Dragon</a>
+        <button class="craft-prod-btn" id="i-craft-prod2-btn" onclick="openCategory(3)">Shop Dragon</button>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HERITAGE SECTION ─── -->
+<section id="heritage">
+  <div class="heritage-inner">
+    <div class="heritage-head">
+      <p class="section-label reveal" id="i-her-label">Our Story</p>
+      <h2 class="section-title reveal" id="i-her-title">45 Years of<br><em>Unbroken Edge</em></h2>
+    </div>
+    <div class="heritage-timeline">
+
+      <!-- Row 1: cards 1–3 -->
+      <div class="ht-row">
+        <div class="ht-item reveal" data-delay="0">
+          <div class="ht-accent-line"></div>
+          <span class="ht-num">01</span>
+          <div class="ht-dot"></div>
+          <p class="ht-year" id="i-her-y1">1979 — Founded</p>
+          <h3 class="ht-title" id="i-her-t1">The Beginning</h3>
+          <p class="ht-body" id="i-her-b1">InWin is established in Yangjiang, China with a single factory and a singular mission: to bring professional-grade cutlery to the world market at an honest price.</p>
+        </div>
+        <div class="ht-conn" aria-hidden="true"></div>
+        <div class="ht-item reveal" data-delay="100">
+          <div class="ht-accent-line"></div>
+          <span class="ht-num">02</span>
+          <div class="ht-dot"></div>
+          <p class="ht-year" id="i-her-y2">1986 — First Export</p>
+          <h3 class="ht-title" id="i-her-t2">Going Global</h3>
+          <p class="ht-body" id="i-her-b2">The first international shipment leaves for Europe, marking InWin's entry into the global market.</p>
+        </div>
+        <div class="ht-conn" aria-hidden="true"></div>
+        <div class="ht-item reveal" data-delay="200">
+          <div class="ht-accent-line"></div>
+          <span class="ht-num">03</span>
+          <div class="ht-dot"></div>
+          <p class="ht-year" id="i-her-y3">2008 — Retail Expansion</p>
+          <h3 class="ht-title" id="i-her-t3">Reaching the Shelf</h3>
+          <p class="ht-body" id="i-her-b3">InWin products reach the shelves of major global retailers including TESCO, IKEA, Target, and Auchan across 40 countries.</p>
+        </div>
+      </div>
+
+      <!-- Row 2: cards 4–6 -->
+      <div class="ht-row">
+        <div class="ht-item reveal" data-delay="300">
+          <div class="ht-accent-line"></div>
+          <span class="ht-num">04</span>
+          <div class="ht-dot"></div>
+          <p class="ht-year" id="i-her-y4">2019 — Red Dot Award</p>
+          <h3 class="ht-title" id="i-her-t4">Design Recognition</h3>
+          <p class="ht-body" id="i-her-b4">The V-Form series receives the Red Dot Award for design excellence — the first of several international recognitions.</p>
+        </div>
+        <div class="ht-conn" aria-hidden="true"></div>
+        <div class="ht-item reveal" data-delay="400">
+          <div class="ht-accent-line"></div>
+          <span class="ht-num">05</span>
+          <div class="ht-dot"></div>
+          <p class="ht-year" id="i-her-y5">2021 — Damascus Series Launch</p>
+          <h3 class="ht-title" id="i-her-t5">The Art Series</h3>
+          <p class="ht-body" id="i-her-b5">The Damascus and Dragon series debut, bringing VG-10 Japanese steel and 67-layer Damascus craftsmanship to the InWin range.</p>
+        </div>
+        <div class="ht-conn" aria-hidden="true"></div>
+        <div class="ht-item is-today reveal" data-delay="500">
+          <div class="ht-accent-line"></div>
+          <span class="ht-num">06</span>
+          <div class="ht-dot"></div>
+          <p class="ht-year" id="i-her-y6">Today — 45 Years. 80+ Countries. 6 Series.</p>
+          <h3 class="ht-title" id="i-her-t6">Still Forging Forward</h3>
+          <p class="ht-body" id="i-her-b6">From a single factory to a global footprint — every blade still made with the same discipline as the first.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1211,6 +1473,61 @@ body{padding-top:68px}
   </div>
 </section>
 
+<!-- ─── COMMUNITY ─── -->
+<section id="community">
+  <div class="container">
+    <div class="community-head reveal">
+      <p class="section-label">Community</p>
+      <h2 class="section-title">#InWin <em>Kitchen</em></h2>
+      <p class="community-sub">Real knives. Real kitchens. Tag @inwin to be featured.</p>
+    </div>
+    <div class="community-grid reveal">
+      <div class="cm-cell">
+        <img src="catalogue_pics/v-form.png" alt="@chef.tokyo" loading="lazy">
+        <div class="cm-overlay"><span class="cm-handle">@chef.tokyo</span></div>
+      </div>
+      <div class="cm-cell">
+        <img src="catalogue_pics/dragon.png" alt="@knifenerds" loading="lazy">
+        <div class="cm-overlay"><span class="cm-handle">@knifenerds</span></div>
+      </div>
+      <div class="cm-cell">
+        <img src="catalogue_pics/header.png" alt="@pro.kitchen" loading="lazy">
+        <div class="cm-overlay"><span class="cm-handle">@pro.kitchen</span></div>
+      </div>
+      <div class="cm-cell">
+        <img src="catalogue_pics/v-form.png" alt="@blade.life" loading="lazy">
+        <div class="cm-overlay"><span class="cm-handle">@blade.life</span></div>
+      </div>
+      <div class="cm-cell">
+        <img src="catalogue_pics/dragon.png" alt="@homechef.hk" loading="lazy">
+        <div class="cm-overlay"><span class="cm-handle">@homechef.hk</span></div>
+      </div>
+      <div class="cm-cell">
+        <img src="catalogue_pics/header.png" alt="@inwin.official" loading="lazy">
+        <div class="cm-overlay"><span class="cm-handle">@inwin.official</span></div>
+      </div>
+      <div class="cm-cell">
+        <img src="catalogue_pics/v-form.png" alt="@cook.studio" loading="lazy">
+        <div class="cm-overlay"><span class="cm-handle">@cook.studio</span></div>
+      </div>
+      <div class="cm-cell">
+        <img src="catalogue_pics/dragon.png" alt="@edge.japan" loading="lazy">
+        <div class="cm-overlay"><span class="cm-handle">@edge.japan</span></div>
+      </div>
+    </div>
+    <div class="community-cta">
+      <a class="cm-btn" href="#" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Follow on Instagram
+      </a>
+      <a class="cm-btn" href="#" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.2 8.2 0 004.79 1.53V7.03a4.85 4.85 0 01-1.02-.34z"/></svg>
+        Follow on TikTok
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ─── CONTACT US ─── -->
 <section id="contact-us">
   <div class="cu-inner">
@@ -1341,7 +1658,21 @@ var _T = {
     'craft-prod1-name':'V-FORM CHEF\'S 8"',
     'craft-prod1-btn':'Shop V-Form',
     'craft-prod2-name':'DRAGON NAKIRI 6.5"',
-    'craft-prod2-btn':'Shop Dragon'
+    'craft-prod2-btn':'Shop Dragon',
+    'her-label':'Our Story',
+    'her-title':'45 Years of<br><em>Unbroken Edge</em>',
+    'her-y1':'1979 — Founded','her-t1':'The Beginning',
+    'her-b1':'InWin is established in Yangjiang, China with a single factory and a singular mission: to bring professional-grade cutlery to the world market at an honest price.',
+    'her-y2':'1986 — First Export','her-t2':'Going Global',
+    'her-b2':"The first international shipment leaves for Europe, marking InWin's entry into the global market.",
+    'her-y3':'2008 — Retail Expansion','her-t3':'Reaching the Shelf',
+    'her-b3':'InWin products reach the shelves of major global retailers including TESCO, IKEA, Target, and Auchan across 40 countries.',
+    'her-y4':'2019 — Red Dot Award','her-t4':'Design Recognition',
+    'her-b4':'The V-Form series receives the Red Dot Award for design excellence — the first of several international recognitions.',
+    'her-y5':'2021 — Damascus Series Launch','her-t5':'The Art Series',
+    'her-b5':'The Damascus and Dragon series debut, bringing VG-10 Japanese steel and 67-layer Damascus craftsmanship to the InWin range.',
+    'her-y6':'Today — 45 Years. 80+ Countries. 6 Series.','her-t6':'Still Forging Forward',
+    'her-b6':'From a single factory to a global footprint — every blade still made with the same discipline as the first.'
   },
   zh:{
     nav1:'系列产品', nav2:'配置器', nav3:'刀具查询', nav4:'关于我们',
@@ -1389,7 +1720,21 @@ var _T = {
     'craft-prod1-name':'V-FORM 主厨刀 8"',
     'craft-prod1-btn':'购买 V-Form',
     'craft-prod2-name':'DRAGON 切菜刀 6.5"',
-    'craft-prod2-btn':'购买 Dragon'
+    'craft-prod2-btn':'购买 Dragon',
+    'her-label':'我们的故事',
+    'her-title':'45年<br><em>刃不折锋</em>',
+    'her-y1':'1979 — 创立','her-t1':'起点',
+    'her-b1':'刃威于中国阳江创立，初有一间工厂，矢志一心：以实惠的价格将专业级刀具带向世界市场。',
+    'her-y2':'1986 — 首次出口','her-t2':'走向世界',
+    'her-b2':'首批国际货物发往欧洲，标志着刃威正式进入全球市场。',
+    'her-y3':'2008 — 零售扩张','her-t3':'走进卖场',
+    'her-b3':'刃威产品进驻全球主要零售商货架，包括乐购、宜家、塔吉特与欧尚，遍及40个国家。',
+    'her-y4':'2019 — 红点设计奖','her-t4':'设计荣誉',
+    'her-b4':'V-Form系列荣获红点设计奖卓越奖项——这是刃威获得的首个国际设计大奖。',
+    'her-y5':'2021 — 大马士革系列发布','her-t5':'艺术系列',
+    'her-b5':'大马士革与龙系列正式面世，将VG-10日本钢及67层大马士革锻造工艺引入刃威产品线。',
+    'her-y6':'至今 — 45年。80+国家。6大系列。','her-t6':'匠心延续',
+    'her-b6':'从一间工厂到全球版图——每一把刀仍以与第一把相同的匠心铸就。'
   }
 };
 
@@ -1417,7 +1762,14 @@ var _ID_MAP = [
   ['i-craft-body','craft-body'],
   ['i-craft-award-title','craft-award-title'],['i-craft-award-sub','craft-award-sub'],
   ['i-craft-prod1-name','craft-prod1-name'],['i-craft-prod1-btn','craft-prod1-btn'],
-  ['i-craft-prod2-name','craft-prod2-name'],['i-craft-prod2-btn','craft-prod2-btn']
+  ['i-craft-prod2-name','craft-prod2-name'],['i-craft-prod2-btn','craft-prod2-btn'],
+  ['i-her-label','her-label'],['i-her-title','her-title'],
+  ['i-her-y1','her-y1'],['i-her-t1','her-t1'],['i-her-b1','her-b1'],
+  ['i-her-y2','her-y2'],['i-her-t2','her-t2'],['i-her-b2','her-b2'],
+  ['i-her-y3','her-y3'],['i-her-t3','her-t3'],['i-her-b3','her-b3'],
+  ['i-her-y4','her-y4'],['i-her-t4','her-t4'],['i-her-b4','her-b4'],
+  ['i-her-y5','her-y5'],['i-her-t5','her-t5'],['i-her-b5','her-b5'],
+  ['i-her-y6','her-y6'],['i-her-t6','her-t6'],['i-her-b6','her-b6']
 ];
 
 function applyLang(lang){
@@ -1485,6 +1837,7 @@ function toggleLang(){
 const CATEGORIES = [
   {
     id:'mts', name:'COLORED KNIVES', num:'01',
+    specs:{steel:'German 1.4116',hardness:'58 HRC',edge:'15° per side',handle:'Full tang Pakkawood'},
     photo:'catalogue_pics/colored_knives.png',
     tagline:'Where Precision Meets Artistry',
     desc:'Anodized aluminum and G10 handles in four signature colors. Forged from premium powder steel, honed to perfection. Paired with its bespoke magnetic stand.',
@@ -1499,6 +1852,7 @@ const CATEGORIES = [
   },
   {
     id:'vform', name:'V-FORM', num:'02',
+    specs:{steel:'German 1.4116',hardness:'58 HRC',edge:'15° per side',handle:'G10 composite'},
     photo:'catalogue_pics/v-form.png',
     tagline:'Patented · Redefining the Art of the Blade',
     desc:'Patented V-shaped design meets a commanding G10 handle. Black powder steel, silky smooth cutting edge. Powder Steel · Timeless Stainless · Sharp today, sharp always.',
@@ -1515,6 +1869,7 @@ const CATEGORIES = [
   },
   {
     id:'damascus', name:'DAMASCUS', num:'03',
+    specs:{steel:'VG-10 core / Damascus',hardness:'60 HRC',edge:'12° per side',handle:'Multi-colour resin'},
     photo:'catalogue_pics/damascus.png',
     tagline:'Beneath the Edge · A Thousand Layers',
     desc:'Damascus steel with resin composite handles. Each blade holds the secret of a thousand layers — available in blue, green, red, white and abalone. Art worth lingering over.',
@@ -1528,6 +1883,7 @@ const CATEGORIES = [
   },
   {
     id:'dragon', name:'DRAGON', num:'04',
+    specs:{steel:'VG-10 core / Damascus',hardness:'60 HRC',edge:'12° per side',handle:'Rosewood / Resin'},
     photo:'catalogue_pics/dragon.png',
     tagline:'Red Dot Award · Design Excellence Redefined',
     desc:'Winner of the prestigious Red Dot Award. Interchangeable modular handles, dragon-engraved stainless blade. An art piece for your kitchen — detachable gift box included.',
@@ -1796,7 +2152,7 @@ const counterObs = new IntersectionObserver((entries) => {
     if (!e.isIntersecting) return;
     const el = e.target;
     const target = parseInt(el.dataset.target);
-    const duration = 2000;
+    const duration = 1400;
     const start = Date.now();
     const tick = () => {
       const p = Math.min(1, (Date.now()-start)/duration);
@@ -1838,6 +2194,12 @@ function buildCarousel() {
         <div class="c-card-num">${cat.num} / ${String(CATEGORIES.length).padStart(2,'0')}</div>
         <div class="c-card-name">${tl(cat,'name',zh)}</div>
         <div class="c-card-tag">${tl(cat,'tagline',zh)}</div>
+        ${cat.specs ? `<div class="c-spec-table">
+          <div class="c-spec-row"><span class="c-spec-key">Steel</span><span class="c-spec-val">${cat.specs.steel}</span></div>
+          <div class="c-spec-row"><span class="c-spec-key">Hardness</span><span class="c-spec-val">${cat.specs.hardness}</span></div>
+          <div class="c-spec-row"><span class="c-spec-key">Edge angle</span><span class="c-spec-val">${cat.specs.edge}</span></div>
+          <div class="c-spec-row"><span class="c-spec-key">Handle</span><span class="c-spec-val">${cat.specs.handle}</span></div>
+        </div>` : ''}
         <div class="c-card-cta">${tl({cta:'View Collection'},'cta',zh)}</div>
       </div>
     `;
@@ -2127,7 +2489,7 @@ function openCategory(index) {
     const zhProd = zhProds[prod.id] || {};
     const prodName = (_lang === 'zh' && zhProd.name) ? zhProd.name : prod.name;
     const prodTagline = (_lang === 'zh' && zhProd.tagline) ? zhProd.tagline : prod.tagline;
-    const btnLabel = _lang === 'zh' ? '查看3D模型' : 'View 3D Model';
+    const btnLabel = _lang === 'zh' ? '详情' : 'Details';
 
     const colorDotsHtml = prod.colors.map((c,ci) =>
       `<div class="color-dot" style="background:${c}" data-color="${c}" data-prod="${prod.id}" data-ci="${ci}" title="${c}"></div>`
@@ -2145,24 +2507,19 @@ function openCategory(index) {
       <div class="product-card-body">
         <div class="product-card-name">${prodName}</div>
         <div class="product-card-tagline">${prodTagline}</div>
+        <div class="product-card-desc">${prod.blade !== 'N/A' ? prod.blade : ''} ${prod.blade !== 'N/A' && prod.handle ? '· ' : ''}${prod.handle || ''}</div>
         <div class="product-card-specs">${specsHtml}</div>
         ${prod.colors.length > 1 ? `<div class="product-card-colors">${colorDotsHtml}</div>` : ''}
-        <button class="product-card-btn" data-prod='${JSON.stringify(prod)}' data-cat='${JSON.stringify({name:cat.name,gradient:cat.gradient,accent:cat.accent,award:cat.award||false})}'>${btnLabel}</button>
+        <button class="product-card-btn">${btnLabel}</button>
       </div>
     `;
     grid.appendChild(card);
 
+    const catInfo = {name:cat.name,gradient:cat.gradient,accent:cat.accent,award:cat.award||false};
+    card.querySelector('.product-card-btn').addEventListener('click', () => openModal(prod, catInfo));
+
     // Render mini preview
     setTimeout(() => renderPreview(prod, `preview-${prod.id}`, cat.accent), i * 100 + 100);
-  });
-
-  // Bind buttons
-  grid.querySelectorAll('.product-card-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const prod = JSON.parse(btn.dataset.prod);
-      const cat = JSON.parse(btn.dataset.cat);
-      openModal(prod, cat);
-    });
   });
 
 }
@@ -2459,7 +2816,7 @@ function openModal(product, catInfo) {
   if (modalRenderer) { modalRenderer.dispose(); modalRenderer = null; }
 
   // Info panel
-  const awardBadge = catInfo.award ? `<div class="modal-award">🏆 Red Dot Award Winner</div>` : '';
+  const awardBadge = catInfo.award ? `<div class="modal-award">&#127942; Red Dot Award Winner</div>` : '';
   const specsHtml = [
     product.blade !== 'N/A' ? ['Blade', product.blade] : null,
     ['Handle', product.handle],
@@ -2473,10 +2830,27 @@ function openModal(product, catInfo) {
     `<div class="m-swatch${i===0?' active':''}" style="background:${c}" data-color="${c}" data-idx="${i}"></div>`
   ).join('');
 
+  // Build description from product data
+  const descParts = [];
+  if (product.blade !== 'N/A') descParts.push(`${product.blade} blade`);
+  if (product.handle) descParts.push(`${product.handle} handle`);
+  const prodDesc = descParts.length
+    ? `Precision-engineered ${descParts.join(' with ')}. ${product.length} blade · ${product.weight}.`
+    : `${product.tagline}. ${product.length} · ${product.weight}.`;
+
+  // Highlight chips
+  const highlights = [
+    product.length,
+    product.weight,
+    product.blade !== 'N/A' ? product.blade.split(' ').slice(0,2).join(' ') : null,
+  ].filter(Boolean).map(h => `<span class="modal-highlight">${h}</span>`).join('');
+
   info.innerHTML = `
     <div class="modal-series">${catInfo.name}</div>
     <div class="modal-name">${product.name}</div>
     <div class="modal-tagline">${product.tagline}</div>
+    <div class="modal-desc">${prodDesc}</div>
+    <div class="modal-highlights">${highlights}</div>
     <div class="modal-rule"></div>
     <div class="modal-specs-title">Specifications</div>
     ${specsHtml}
