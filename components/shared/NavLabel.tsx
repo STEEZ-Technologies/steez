@@ -14,7 +14,7 @@ export function NavLabel({ en, cn }: NavLabelProps) {
       <span
         className="cn-text"
         lang="zh"
-        style={{ fontSize: "0.78em", opacity: 0.85 }}
+        style={{ fontSize: "0.78em", fontWeight: 300, opacity: 0.6 }}
       >
         {cn}
       </span>

@@ -6,10 +6,12 @@ import { FadeIn } from "@/components/shared/FadeIn";
 import { COPY } from "@/lib/copy";
 import { Numbers } from "@/components/numbers/Numbers";
 import { useIsMobile } from "@/lib/useIsMobile";
+import { useI18n } from "@/lib/i18n/useI18n";
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
+  const { dict } = useI18n();
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -131,7 +133,7 @@ export function Hero() {
               margin: "var(--space-12) auto 0",
             }}
           >
-            {COPY.hero.tagline}
+            {dict.hero.tagline}
           </p>
         </FadeIn>
 
@@ -265,6 +267,7 @@ export function Hero() {
 
 function MobileCTA() {
   const [hidden, setHidden] = useState(false);
+  const { dict, lang } = useI18n();
 
   useEffect(() => {
     const hero = document.getElementById("top");
@@ -318,11 +321,11 @@ function MobileCTA() {
           justifyContent: "center",
         }}
       >
-        Talk to us
+        {dict.hero.talkToUs}
       </a>
       <a
         href="#contact"
-        aria-label="WeChat"
+        aria-label={dict.hero.wechat}
         style={{
           width: 52,
           minWidth: 52,
@@ -340,7 +343,11 @@ function MobileCTA() {
           textDecoration: "none",
         }}
       >
-        <span className="cn-text" lang="zh">微信</span>
+        {lang === "zh" ? (
+          <span className="cn-text" lang="zh">微信</span>
+        ) : (
+          <span style={{ textTransform: "uppercase" }}>{dict.hero.wechat}</span>
+        )}
       </a>
     </motion.div>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type HTMLMotionProps } from "motion/react";
-import type { ElementType, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useIsMobile } from "@/lib/useIsMobile";
 
 type FadeInProps = {
@@ -22,7 +22,8 @@ export function FadeIn({
   children,
   ...rest
 }: FadeInProps) {
-  const Tag = (motion[as] ?? motion.div) as ElementType;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Tag = (motion[as] ?? motion.div) as any;
   const isMobile = useIsMobile();
 
   const finalDuration = isMobile ? Math.min(duration, 0.25) : duration;

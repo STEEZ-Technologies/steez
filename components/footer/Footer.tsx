@@ -1,5 +1,8 @@
+"use client";
+
 import { COPY } from "@/lib/copy";
 import { FooterCol } from "./FooterCol";
+import { useI18n } from "@/lib/i18n/useI18n";
 
 const ITEM_STYLE = { fontSize: "0.95rem", fontWeight: 400 } as const;
 const LINK_STYLE = {
@@ -8,7 +11,16 @@ const LINK_STYLE = {
   opacity: 0.85,
 } as const;
 
+const NAV_KEY_BY_HREF: Record<string, "pricing" | "cards" | "contact"> = {
+  "#pricing": "pricing",
+  "#services": "cards",
+  "#contact": "contact",
+};
+
 export function Footer() {
+  const { dict, lang } = useI18n();
+  const isEn = lang === "en";
+
   return (
     <footer
       style={{
@@ -62,28 +74,36 @@ export function Footer() {
               maxWidth: 280,
             }}
           >
-            {COPY.footer.brandTagline}
+            {dict.footer.brandTagline}
           </p>
         </div>
 
         <FooterCol
-          titleEn={COPY.footer.locations.heading.en}
-          titleCn={COPY.footer.locations.heading.cn}
+          titleEn={dict.footer.locations}
+          titleCn={isEn ? COPY.footer.locations.heading.cn : undefined}
           collapsible
         >
-          {COPY.footer.locations.items.map((it) => (
-            <li key={it.en} style={ITEM_STYLE}>
-              {it.en} ·{" "}
-              <span className="cn-text" lang="zh">
-                {it.cn}
-              </span>
-            </li>
-          ))}
+          {(["hangzhou", "yiwu", "foshan", "guangzhou"] as const).map((k, i) => {
+            const cnItem = COPY.footer.locations.items[i];
+            return (
+              <li key={k} style={ITEM_STYLE}>
+                {dict.footer.locationItems[k]}
+                {isEn && cnItem && (
+                  <>
+                    {" "}·{" "}
+                    <span className="cn-text" lang="zh">
+                      {cnItem.cn}
+                    </span>
+                  </>
+                )}
+              </li>
+            );
+          })}
         </FooterCol>
 
         <FooterCol
-          titleEn={COPY.footer.contact.heading.en}
-          titleCn={COPY.footer.contact.heading.cn}
+          titleEn={dict.footer.reachUs}
+          titleCn={isEn ? COPY.footer.contact.heading.cn : undefined}
           collapsible
         >
           {COPY.footer.contact.items.map((it) => (
@@ -94,20 +114,29 @@ export function Footer() {
         </FooterCol>
 
         <FooterCol
-          titleEn={COPY.footer.index.heading.en}
-          titleCn={COPY.footer.index.heading.cn}
+          titleEn={dict.footer.index}
+          titleCn={isEn ? COPY.footer.index.heading.cn : undefined}
           collapsible
         >
-          {COPY.footer.index.items.map((it) => (
-            <li key={it.href} style={ITEM_STYLE}>
-              <a href={it.href} style={LINK_STYLE}>
-                {it.en} ·{" "}
-                <span className="cn-text" lang="zh">
-                  {it.cn}
-                </span>
-              </a>
-            </li>
-          ))}
+          {COPY.footer.index.items.map((it) => {
+            const k = NAV_KEY_BY_HREF[it.href];
+            const primary = k ? dict.nav[k] : it.en;
+            return (
+              <li key={it.href} style={ITEM_STYLE}>
+                <a href={it.href} style={LINK_STYLE}>
+                  {primary}
+                  {isEn && (
+                    <>
+                      {" "}·{" "}
+                      <span className="cn-text" lang="zh">
+                        {it.cn}
+                      </span>
+                    </>
+                  )}
+                </a>
+              </li>
+            );
+          })}
         </FooterCol>
       </div>
 
@@ -124,9 +153,9 @@ export function Footer() {
           gap: 12,
         }}
       >
-        <span>{COPY.footer.bottomLeft}</span>
+        <span>{dict.footer.bottomLeft}</span>
         <span style={{ letterSpacing: "0.2em" }}>
-          {COPY.footer.bottomRight}
+          {dict.footer.bottomRight}
         </span>
       </div>
     </footer>

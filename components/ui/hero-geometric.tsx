@@ -8,7 +8,8 @@ import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import { Numbers } from "@/components/numbers/Numbers";
-import { TextAnimate } from "@/components/ui/text-animate";
+import { usePreloader } from "@/components/preloader/PreloaderContext";
+import { useI18n } from "@/lib/i18n/useI18n";
 
 /* eslint-disable @typescript-eslint/no-namespace */
 declare module "react" {
@@ -217,6 +218,8 @@ export default function HeroGeometric({
     speed = 1,
     className,
 }: HeroGeometricProps) {
+    const { done } = usePreloader();
+    const { dict } = useI18n();
     return (
         <div
             className={cn("relative w-full min-h-screen flex flex-col items-center", className)}
@@ -252,129 +255,123 @@ export default function HeroGeometric({
                 </Canvas>
             </div>
 
-            {/* Content — centered in 100vh hero */}
-            {(title1 || title2 || description) && (
-                <div className="relative z-10 w-full flex-1 flex flex-col items-center justify-center pt-8 pb-8 md:pt-20 md:pb-20">
-                    <div className="w-full max-w-[1200px] px-6 flex flex-col items-center">
-                        {/* Headline */}
-                        <div className="flex flex-col items-center text-center gap-0 -space-y-6 md:-space-y-10 mb-8 md:mb-12">
-                            {title1 && (
-                                <div className="overflow-hidden">
-                                    <motion.h1
-                                        initial={{ y: "100%", opacity: 0 }}
-                                        animate={{ y: "0%", opacity: 1 }}
-                                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                                        className="text-[18cqi] md:text-[14cqi] lg:text-[11cqi] leading-[0.9] tracking-tighter font-bold"
-                                        style={{
-                                            color: "var(--fg)",
-                                            fontFamily: "var(--font-stack-sans), sans-serif",
-                                        }}
-                                    >
-                                        {title1}
-                                    </motion.h1>
-                                </div>
-                            )}
-                            {title2 && (
-                                <TextAnimate
-                                    as="h1"
-                                    animation="blurInUp"
-                                    by="character"
-                                    once
-                                    delay={0.35}
-                                    className="text-[8cqi] md:text-[5cqi] lg:text-[3.5cqi] leading-[1] tracking-[0.05em] font-light"
+            {/* Content — left-aligned group: headline, CTA, chips */}
+            {description && (
+                <div className="relative z-10 w-full flex-1 flex flex-col items-center justify-end pt-24 pb-4 md:pt-40 md:pb-8">
+                    <div
+                        className="w-full px-6 flex flex-col items-start"
+                        style={{
+                            maxWidth: "min(75%, 1280px)",
+                            gap: "clamp(20px, 2.5vw, 32px)",
+                        }}
+                    >
+                        <motion.p
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={done ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+                            transition={{ duration: 0.9, delay: done ? 0.05 : 0, ease: [0.16, 1, 0.3, 1] }}
+                            className="font-bold"
+                            style={{
+                                color: "var(--fg)",
+                                fontSize: "clamp(2.4rem, 7.5vw, 6rem)",
+                                lineHeight: 1.05,
+                                letterSpacing: "-0.025em",
+                                textAlign: "start",
+                                margin: 0,
+                                fontFamily: "var(--font-stack-sans), sans-serif",
+                            }}
+                        >
+                            {description}
+                        </motion.p>
+                        <motion.a
+                            href="#contact"
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={done ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+                            transition={{ duration: 0.7, delay: done ? 0.25 : 0, ease: [0.16, 1, 0.3, 1] }}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: 10,
+                                padding: "clamp(14px, 1.6vw, 20px) clamp(28px, 3vw, 44px)",
+                                background: "#E0A93A",
+                                color: "#1A1A1A",
+                                borderRadius: 8,
+                                fontWeight: 800,
+                                fontSize: "clamp(1rem, 1.3vw, 1.25rem)",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.12em",
+                                textDecoration: "none",
+                                fontFamily: "var(--font-stack-sans), sans-serif",
+                                minHeight: 52,
+                                boxShadow: "0 18px 40px -18px rgba(224,169,58,0.55)",
+                            }}
+                        >
+                            {dict.hero.getQuote}
+                        </motion.a>
+
+                        {/* Feature pills — under CTA, same left-aligned group */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={done ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+                            transition={{ duration: 0.7, delay: done ? 0.4 : 0, ease: "easeOut" }}
+                            style={{
+                                display: "flex",
+                                gap: 10,
+                                flexWrap: "wrap",
+                                justifyContent: "flex-start",
+                            }}
+                        >
+                            {[
+                                { en: "Digital cards", cn: "数字名片" },
+                                { en: "Company profiles", cn: "公司主页" },
+                                { en: "AR catalogues", cn: "AR 目录" },
+                                { en: "Buyer analytics", cn: "实时分析" },
+                            ].map((chip) => (
+                                <span
+                                    key={chip.en}
                                     style={{
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        gap: 8,
+                                        padding: "7px 13px",
+                                        borderRadius: 999,
+                                        border: "1px solid var(--hairline)",
+                                        background: "transparent",
+                                        backdropFilter: "blur(4px)",
+                                        WebkitBackdropFilter: "blur(4px)",
+                                        fontSize: "clamp(0.56rem, 0.76vw, 0.66rem)",
+                                        fontWeight: 500,
                                         color: "var(--fg)",
-                                        opacity: 0.85,
-                                        fontFamily: "var(--font-stack-sans), sans-serif",
+                                        letterSpacing: "0.04em",
                                     }}
                                 >
-                                    {title2}
-                                </TextAnimate>
-                            )}
-                        </div>
-
-                        {/* Description (below title) */}
-                        {description && (
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                                className="text-lg md:text-[1.35rem] leading-relaxed font-normal"
-                                style={{
-                                    color: "var(--fg)",
-                                    opacity: 0.7,
-                                    maxWidth: 480,
-                                    textAlign: "center",
-                                    margin: 0,
-                                    marginTop: "clamp(8px, 1.5vw, 16px)",
-                                    padding: "0 clamp(16px, 4vw, 32px)",
-                                }}
-                            >
-                                {description}
-                            </motion.p>
-                        )}
+                                    <span>{chip.en}</span>
+                                    <span
+                                        className="cn-text"
+                                        lang="zh"
+                                        style={{ fontWeight: 300, opacity: 0.6 }}
+                                    >
+                                        {chip.cn}
+                                    </span>
+                                </span>
+                            ))}
+                        </motion.div>
                     </div>
                 </div>
             )}
 
-            {/* Feature chips (above scroll hint) */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-                style={{
-                    position: "relative",
-                    zIndex: 10,
-                    display: "flex",
-                    gap: 12,
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                    marginBottom: "clamp(16px, 2vw, 24px)",
-                    padding: "0 clamp(16px, 4vw, 32px)",
-                }}
-            >
-                {[
-                    { en: "Digital cards", cn: "数字名片" },
-                    { en: "Company profiles", cn: "公司主页" },
-                    { en: "AR catalogues", cn: "AR 目录" },
-                    { en: "Buyer analytics", cn: "实时分析" },
-                ].map((chip) => (
-                    <span
-                        key={chip.en}
-                        style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 8,
-                            padding: "8px 14px",
-                            borderRadius: 999,
-                            border: "1px solid var(--hairline)",
-                            background: "transparent",
-                            backdropFilter: "blur(4px)",
-                            WebkitBackdropFilter: "blur(4px)",
-                            fontSize: "clamp(0.7rem, 0.95vw, 0.82rem)",
-                            fontWeight: 500,
-                            color: "var(--fg)",
-                            letterSpacing: "0.04em",
-                        }}
-                    >
-                        <span>{chip.en}</span>
-                        <span className="cn-text" lang="zh" style={{ opacity: 0.45 }}>
-                            {chip.cn}
-                        </span>
-                    </span>
-                ))}
-            </motion.div>
-
-            {/* Scroll hint */}
+            {/* Scroll hint — centered globally, sits just above stats */}
             <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                className="hidden md:flex flex-col items-center gap-6"
+                animate={{ opacity: done ? 1 : 0 }}
+                transition={{ duration: 0.8, delay: done ? 0.6 : 0 }}
+                className="hidden md:flex flex-col items-center gap-3"
                 style={{
                     position: "relative",
                     zIndex: 10,
-                    marginBottom: "clamp(16px, 2vw, 24px)",
+                    marginTop: "clamp(32px, 5vw, 64px)",
+                    marginBottom: "clamp(24px, 3vw, 40px)",
                     color: "var(--fg)",
                 }}
             >
@@ -407,8 +404,14 @@ export default function HeroGeometric({
                 </motion.div>
             </motion.div>
 
-            {/* Stats strip pinned to hero bottom */}
-            <div className="relative z-10 w-full">
+            {/* Stats strip — equal vertical padding above and below */}
+            <div
+                className="relative z-10 w-full"
+                style={{
+                    paddingTop: "clamp(20px, 3vw, 40px)",
+                    paddingBottom: "clamp(20px, 3vw, 40px)",
+                }}
+            >
                 <Numbers />
             </div>
         </div>
