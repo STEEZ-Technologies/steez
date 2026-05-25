@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { Analytics } from "@/components/analytics/Analytics";
+import { BoothSection } from "@/components/booth/BoothSection";
 import { Contact } from "@/components/contact/Contact";
 import { Footer } from "@/components/footer/Footer";
 import HeroGeometric from "@/components/ui/hero-geometric";
@@ -51,7 +51,7 @@ export default function Home() {
 
         <Services />
         <Portfolio />
-        <Analytics />
+        <BoothSection />
         <PricingSection />
         <Contact />
       </div>

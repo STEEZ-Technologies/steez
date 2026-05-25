@@ -35,6 +35,11 @@ export const zh: Dict = {
       sub: "实时扫描、地区、产品。轻量级 CRM 内置。",
       body: "追踪每一次扫描、停留时间和地区。STEEZ 仪表板精准显示谁打开了您的名片,停留多久,身处何地——让您清楚知道哪些市场正在升温,哪些值得加倍投入。",
     },
+    booth: {
+      eyebrow: "03 — 展位展示",
+      title: "您的二维码,处处可见",
+      sub: "两种方式,让 STEEZ 在每场展会都触手可及。",
+    },
     pricing: {
       eyebrow: "05 — 套餐",
       title: "定价",
@@ -94,6 +99,19 @@ export const zh: Dict = {
         desc: "通过 webhook 将扫描 → 表单 → 回复数据直接推送到您的 CRM。",
       },
     },
+  },
+  boothProducts: {
+    lanyard: {
+      name: "胸卡挂绳",
+      scanTo: "数字名片",
+      body: "由您的展位团队佩戴。每位员工都成为可扫描的接触点——访客拿起手机扫一扫,即可进入对应员工的数字名片,当场开启对话。",
+    },
+    stand: {
+      name: "桌面展架",
+      scanTo: "产品目录",
+      body: "放置在展位桌面。扫描二维码即可打开完整的互动产品目录,支持 3D / AR 查看——无需安装应用,以买家的语言即扫即看。",
+    },
+    scanLabel: "扫码进入",
   },
   pricingBlock: {
     monthly: "按月",
@@ -167,6 +185,12 @@ export const zh: Dict = {
       errEmail: "请填写邮箱",
       errEmailInvalid: "邮箱格式不正确",
       errMessage: "请留下简短的留言",
+    },
+    wechat: {
+      title: "微信添加我们",
+      sub: "打开微信,扫一扫,几秒内即可与我们的团队开启对话。",
+      handle: "STEEZ-CN",
+      scanLabel: "使用微信扫一扫",
     },
     trust: {
       response: {

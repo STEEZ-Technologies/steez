@@ -58,7 +58,8 @@ export function Services() {
         alignItems: "center",
         width: "100%",
         maxWidth: "1800px",
-        margin: "0 auto",
+        marginLeft: "auto",
+        marginRight: "auto",
         overflow: "hidden",
         perspective: "1200px"
       }}
@@ -126,8 +127,8 @@ function ServiceTabs({ isMobile }: { isMobile: boolean }) {
   const items = SERVICE_KEYS.map((k) => dict.servicesItems[k]);
   const current = items[active];
 
-  const mockupMax = active === 0 ? (isMobile ? 280 : 360) : isMobile ? 480 : 560;
-  const PANEL_HEIGHT = isMobile ? 360 : 560;
+  const mockupMax = active === 0 ? (isMobile ? 200 : 360) : isMobile ? 320 : 560;
+  const PANEL_HEIGHT = 560;
 
   return (
     <div style={{ width: "100%", maxWidth: 1200, margin: "0 auto" }}>
@@ -181,17 +182,17 @@ function ServiceTabs({ isMobile }: { isMobile: boolean }) {
         })}
       </div>
 
-      {/* Active panel — fixed height to prevent reflow on tab swap */}
+      {/* Active panel — fixed height on desktop, auto on mobile */}
       <div
         style={{
           display: "grid",
           gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 1fr) minmax(0, 1fr)",
-          gap: isMobile ? "clamp(20px, 4vw, 32px)" : "clamp(32px, 3.5vw, 56px)",
+          gap: isMobile ? "clamp(24px, 5vw, 40px)" : "clamp(32px, 3.5vw, 56px)",
           alignItems: "center",
           height: isMobile ? "auto" : PANEL_HEIGHT,
-          minHeight: PANEL_HEIGHT,
-          paddingTop: isMobile ? "clamp(16px, 3vw, 24px)" : "clamp(24px, 3vw, 48px)",
-          paddingBottom: isMobile ? "clamp(16px, 3vw, 24px)" : "clamp(24px, 3vw, 48px)",
+          minHeight: isMobile ? "auto" : PANEL_HEIGHT,
+          paddingTop: isMobile ? "clamp(8px, 2vw, 16px)" : "clamp(24px, 3vw, 48px)",
+          paddingBottom: isMobile ? "clamp(8px, 2vw, 16px)" : "clamp(24px, 3vw, 48px)",
         }}
       >
         {/* Mockup — fixed-height container, mockup scales-to-fit */}
@@ -200,18 +201,20 @@ function ServiceTabs({ isMobile }: { isMobile: boolean }) {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: PANEL_HEIGHT,
+            height: isMobile ? "auto" : PANEL_HEIGHT,
+            minHeight: isMobile ? "auto" : PANEL_HEIGHT,
             position: "relative",
-            order: isMobile ? 0 : active % 2 === 0 ? 0 : 1,
+            order: isMobile ? 0 : 1,
+            width: "100%",
           }}
         >
           <AnimatePresence mode="wait">
             <motion.div
               key={`mockup-${active}`}
-              initial={{ opacity: 0, y: 16, scale: 0.92, filter: "blur(6px)" }}
-              animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, y: -16, scale: 0.92, filter: "blur(6px)" }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, y: 16, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -16, scale: 0.94 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 width: "100%",
                 maxWidth: mockupMax,
@@ -232,28 +235,20 @@ function ServiceTabs({ isMobile }: { isMobile: boolean }) {
         <div
           style={{
             height: isMobile ? "auto" : PANEL_HEIGHT,
-            minHeight: isMobile ? 220 : PANEL_HEIGHT,
+            minHeight: isMobile ? "auto" : PANEL_HEIGHT,
             position: "relative",
             display: "flex",
             alignItems: "center",
-            order: isMobile ? 1 : active % 2 === 0 ? 1 : 0,
+            order: isMobile ? 1 : 0,
           }}
         >
           <AnimatePresence mode="wait">
             <motion.div
               key={`copy-${active}`}
-              initial={{
-                opacity: 0,
-                x: isMobile ? 0 : active % 2 === 0 ? 32 : -32,
-                y: isMobile ? 12 : 0,
-              }}
+              initial={{ opacity: 0, x: isMobile ? 0 : -24, y: isMobile ? 12 : 0 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
-              exit={{
-                opacity: 0,
-                x: isMobile ? 0 : active % 2 === 0 ? -32 : 32,
-                y: isMobile ? -12 : 0,
-              }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, x: isMobile ? 0 : 24, y: isMobile ? -12 : 0 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 textAlign: isMobile ? "center" : "start",
                 padding: isMobile ? "0 8px" : 0,

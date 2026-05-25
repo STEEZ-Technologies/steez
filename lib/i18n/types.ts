@@ -37,9 +37,15 @@ export type Dict = {
   sections: {
     services: { eyebrow: string; title: string; sub: string };
     analytics: { eyebrow: string; title: string; sub: string; body: string };
+    booth: { eyebrow: string; title: string; sub: string };
     pricing: { eyebrow: string; title: string; sub: string };
     contact: { eyebrow: string; title: string; sub: string };
     numbers: { eyebrow: string; title: string };
+  };
+  boothProducts: {
+    lanyard: { name: string; scanTo: string; body: string };
+    stand: { name: string; scanTo: string; body: string };
+    scanLabel: string;
   };
   servicesItems: {
     cards: { eyebrow: string; title: string; about: string };
@@ -80,6 +86,12 @@ export type Dict = {
       errEmail: string;
       errEmailInvalid: string;
       errMessage: string;
+    };
+    wechat: {
+      title: string;
+      sub: string;
+      handle: string;
+      scanLabel: string;
     };
     trust: {
       response: { k: string; v: string; d: string };

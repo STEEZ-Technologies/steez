@@ -35,6 +35,11 @@ export const en: Dict = {
       sub: "Real-time scans, regions, products. Lightweight CRM built in.",
       body: "Every scan, dwell-time, and region tracked. Your STEEZ dashboard shows exactly who opened your card, how long they spent, and where in the world they are — so you know which markets are heating up and which to double down on.",
     },
+    booth: {
+      eyebrow: "03 — Booth Display",
+      title: "Your QR, Everywhere They Look",
+      sub: "Two ways to put STEEZ in your buyers' hands at every trade show.",
+    },
     pricing: {
       eyebrow: "05 — Packages",
       title: "Pricing",
@@ -94,6 +99,19 @@ export const en: Dict = {
         desc: "Push scan → form → reply data straight to your CRM via webhook.",
       },
     },
+  },
+  boothProducts: {
+    lanyard: {
+      name: "Lanyards",
+      scanTo: "Digital Business Card",
+      body: "Worn by your booth team. Every staff member becomes a scannable touchpoint — visitors point their phone, land on that team member's digital card, and start a conversation on the spot.",
+    },
+    stand: {
+      name: "Table Stands",
+      scanTo: "Product Catalogue",
+      body: "Sits on your booth tables. Scan the QR to open your full interactive catalogue with 3D / AR product views — no app install, instant access, in the buyer's language.",
+    },
+    scanLabel: "Scan to",
   },
   pricingBlock: {
     monthly: "Monthly",
@@ -167,6 +185,12 @@ export const en: Dict = {
       errEmail: "Email is required",
       errEmailInvalid: "Invalid email address",
       errMessage: "Please leave a short message",
+    },
+    wechat: {
+      title: "Add us on WeChat",
+      sub: "Open WeChat, scan the code, and start a conversation with our team in seconds.",
+      handle: "STEEZ-CN",
+      scanLabel: "Scan with WeChat",
     },
     trust: {
       response: {
