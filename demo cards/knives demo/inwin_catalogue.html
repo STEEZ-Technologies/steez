@@ -52,10 +52,28 @@ body{font-family:var(--font-b);background:var(--black);color:var(--white);overfl
 /* ─── HERO ─── */
 #hero{
   min-height:100vh;
-  background:var(--black) url('catalogue_pics/header.png') center center / cover no-repeat;
+  background:var(--black);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   position:relative;overflow:hidden;
   padding:20px;
+}
+.hero-slides{position:absolute;inset:0;z-index:0}
+.hero-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center center;background-repeat:no-repeat;
+  opacity:0;
+  animation:heroSlide 24s ease-in-out infinite;
+}
+.hero-slide:nth-child(1){animation-delay:0s}
+.hero-slide:nth-child(2){animation-delay:6s}
+.hero-slide:nth-child(3){animation-delay:12s}
+.hero-slide:nth-child(4){animation-delay:18s}
+@keyframes heroSlide{
+  0%{opacity:0}
+  4%{opacity:1}
+  21%{opacity:1}
+  25%{opacity:0}
+  100%{opacity:0}
 }
 #hero::before{
   content:'';position:absolute;inset:0;
@@ -173,34 +191,37 @@ section{padding:80px 0}
 .cert{padding:5px 10px;border:1px solid #ddd;border-radius:3px;font-family:var(--font-b);font-size:10px;color:#666;letter-spacing:0.1em}
 
 /* ─── OUR CRAFT ─── */
-#our-craft{background:#141414}
-.craft-top{display:grid;grid-template-columns:1fr 1fr;height:300px;overflow:hidden;border-bottom:1px solid rgba(240,237,232,0.07)}
-.craft-img-col{overflow:hidden;background:#0d0d0d;border-right:1px solid rgba(240,237,232,0.07)}
-.craft-photo{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
-.craft-text-col{overflow:hidden;padding:32px 40px;display:flex;flex-direction:column;justify-content:center;gap:12px;background:#141414}
-.craft-label{font-family:var(--font-h);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--white3)}
-.craft-heading{font-family:var(--font-s);font-size:clamp(20px,2.4vw,30px);font-weight:600;line-height:1.12;color:var(--white);font-style:italic}
-.craft-body{font-family:var(--font-b);font-size:12px;line-height:1.65;color:rgba(200,196,190,0.7);max-width:340px}
-.craft-award{display:flex;align-items:center;gap:12px;margin-top:2px}
+#our-craft{background:#141414;padding:0}
+.craft-top{display:grid;grid-template-columns:55% 45%;height:440px;overflow:hidden;border-bottom:1px solid rgba(240,237,232,0.07)}
+.craft-img-col{overflow:hidden;background:#0d0d0d;border-right:1px solid rgba(240,237,232,0.07);position:relative}
+.craft-photo{width:100%;height:100%;display:block;object-fit:cover;object-position:center 65%}
+.craft-text-col{overflow:hidden;padding:44px 48px;display:flex;flex-direction:column;justify-content:center;gap:16px;background:#141414}
+.craft-label{font-family:var(--font-h);font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--white3);display:flex;align-items:center;gap:12px}
+.craft-label::before{content:'';width:30px;height:1px;background:var(--white3);flex-shrink:0}
+.craft-heading{font-family:var(--font-s);font-size:clamp(28px,3.2vw,46px);font-weight:600;line-height:1.1;color:var(--white);font-style:italic}
+.craft-body{font-family:var(--font-b);font-size:13px;line-height:1.75;color:rgba(200,196,190,0.65);max-width:340px}
+.craft-award{display:flex;align-items:center;gap:14px;margin-top:4px}
 .craft-award-dot{flex-shrink:0}
-.craft-award-text{display:flex;flex-direction:column;gap:1px}
-.craft-award-title{font-family:var(--font-s);font-size:12px;font-style:italic;color:var(--white)}
-.craft-award-sub{font-family:var(--font-b);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white3)}
-.craft-products{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(240,237,232,0.07)}
-.craft-prod-card{overflow:hidden;background:#0f0f0f}
-.craft-prod-card:first-child{border-right:1px solid rgba(240,237,232,0.07)}
-.craft-prod-img-wrap{height:190px;overflow:hidden}
-.craft-prod-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease}
-.craft-prod-card:hover .craft-prod-img-wrap img{transform:scale(1.04)}
-.craft-prod-info{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-top:1px solid rgba(240,237,232,0.07)}
-.craft-prod-name{font-family:var(--font-h);font-size:12px;font-weight:600;letter-spacing:0.1em;color:var(--white)}
-.craft-prod-btn{font-family:var(--font-h);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);border:1px solid rgba(240,237,232,0.25);padding:5px 12px;text-decoration:none;transition:border-color 0.2s,color 0.2s}
+.craft-award-text{display:flex;flex-direction:column;gap:3px}
+.craft-award-title{font-family:var(--font-s);font-size:13px;font-style:italic;color:var(--white)}
+.craft-award-sub{font-family:var(--font-b);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--white3)}
+.craft-products{display:grid;grid-template-columns:1fr 1fr;margin-top:32px;gap:16px;padding:0 clamp(20px,4vw,56px) 48px;background:#141414}
+.craft-prod-card{overflow:hidden;background:#0d0d0d;position:relative;border-radius:8px;border:1px solid rgba(240,237,232,0.06)}
+.craft-prod-img-wrap{height:clamp(160px,18vw,230px);overflow:hidden;position:relative}
+.craft-prod-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s ease}
+.craft-prod-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.45) 0%,transparent 40%);pointer-events:none}
+.craft-prod-card:hover .craft-prod-img-wrap img{transform:scale(1.05)}
+.craft-prod-info{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-top:1px solid rgba(240,237,232,0.07);background:#0d0d0d}
+.craft-prod-name{font-family:var(--font-h);font-size:12px;font-weight:600;letter-spacing:0.15em;color:var(--white);text-transform:uppercase}
+.craft-prod-btn{font-family:var(--font-h);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);border:1px solid rgba(240,237,232,0.25);padding:8px 18px;text-decoration:none;transition:border-color 0.25s,color 0.25s;white-space:nowrap}
 .craft-prod-btn:hover{border-color:var(--red);color:var(--red)}
 @media(max-width:700px){
   .craft-top{grid-template-columns:1fr;height:auto}
-  .craft-img-col{height:220px;border-right:none;border-bottom:1px solid rgba(240,237,232,0.07)}
+  .craft-img-col{height:300px;border-right:none;border-bottom:1px solid rgba(240,237,232,0.07)}
+  .craft-text-col{padding:32px 24px}
   .craft-products{grid-template-columns:1fr}
   .craft-prod-card:first-child{border-right:none;border-bottom:1px solid rgba(240,237,232,0.07)}
+  .craft-prod-img-wrap{height:220px}
 }
 
 /* ─── CATALOGUE NAV SECTION ─── */
@@ -831,6 +852,12 @@ body{padding-top:68px}
 
 <!-- ─── HERO ─── -->
 <section id="hero">
+  <div class="hero-slides">
+    <div class="hero-slide" style="background-image:url('catalogue_pics/header.png')"></div>
+    <div class="hero-slide" style="background-image:url('catalogue_pics/cook_header.png')"></div>
+    <div class="hero-slide" style="background-image:url('catalogue_pics/pot_header.png')"></div>
+    <div class="hero-slide" style="background-image:url('catalogue_pics/scissors_header.png')"></div>
+  </div>
   <div class="hero-grain"></div>
   <div class="hero-lines"></div>
   <div class="hero-glow"></div>
@@ -987,12 +1014,12 @@ body{padding-top:68px}
 <section id="our-craft">
   <div class="craft-top">
     <div class="craft-img-col">
-      <img src="catalogue_pics/guy.jpg" alt="Master Bladesmith" class="craft-photo">
+      <img src="catalogue_pics/Delta Series, 2-Piece Prep Set.jpg" alt="Master Bladesmith" class="craft-photo">
     </div>
     <div class="craft-text-col">
-      <p class="craft-label">Our Craft</p>
-      <h2 class="craft-heading">A Legacy of<br><em>Precision</em></h2>
-      <p class="craft-body">An artisanal master bladesmith, a legacy of premium mastery — blades forged with discipline, art and centuries of emotional heritage passed through every edge.</p>
+      <p class="craft-label" id="i-craft-label">Our Craft</p>
+      <h2 class="craft-heading" id="i-craft-heading">A Legacy of<br><em>Precision</em></h2>
+      <p class="craft-body" id="i-craft-body">An artisanal master bladesmith, a legacy of premium mastery — blades forged with discipline, art and centuries of emotional heritage passed through every edge.</p>
       <div class="craft-award">
         <div class="craft-award-dot">
           <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" width="52" height="52">
@@ -1003,8 +1030,8 @@ body{padding-top:68px}
           </svg>
         </div>
         <div class="craft-award-text">
-          <span class="craft-award-title">red dot award</span>
-          <span class="craft-award-sub">design excellence</span>
+          <span class="craft-award-title" id="i-craft-award-title">red dot award</span>
+          <span class="craft-award-sub" id="i-craft-award-sub">design excellence</span>
         </div>
       </div>
     </div>
@@ -1015,8 +1042,8 @@ body{padding-top:68px}
         <img src="catalogue_pics/v-form.png" alt="V-Form Chef's 8&quot;">
       </div>
       <div class="craft-prod-info">
-        <span class="craft-prod-name">V-FORM CHEF'S 8"</span>
-        <a href="#collections" class="craft-prod-btn">Shop V-Form</a>
+        <span class="craft-prod-name" id="i-craft-prod1-name">V-FORM CHEF'S 8"</span>
+        <a href="#collections" class="craft-prod-btn" id="i-craft-prod1-btn">Shop V-Form</a>
       </div>
     </div>
     <div class="craft-prod-card">
@@ -1024,8 +1051,8 @@ body{padding-top:68px}
         <img src="catalogue_pics/dragon.png" alt="Dragon Nakiri 6.5&quot;">
       </div>
       <div class="craft-prod-info">
-        <span class="craft-prod-name">DRAGON NAKIRI 6.5"</span>
-        <a href="#collections" class="craft-prod-btn">Shop Dragon</a>
+        <span class="craft-prod-name" id="i-craft-prod2-name">DRAGON NAKIRI 6.5"</span>
+        <a href="#collections" class="craft-prod-btn" id="i-craft-prod2-btn">Shop Dragon</a>
       </div>
     </div>
   </div>
@@ -1305,7 +1332,16 @@ var _T = {
     'cu-title':'CONTACT <em>US</em>',
     'cu-desc':'Scan the WeChat QR code to connect with our team directly, or reach us through WhatsApp, Email, or QQ.',
     'wechat-lbl':'WeChat — Scan to Connect',
-    wa:'WhatsApp', email:'Email', qq:'QQ'
+    wa:'WhatsApp', email:'Email', qq:'QQ',
+    'craft-label':'Our Craft',
+    'craft-heading':'A Legacy of<br><em>Precision</em>',
+    'craft-body':'An artisanal master bladesmith, a legacy of premium mastery — blades forged with discipline, art and centuries of emotional heritage passed through every edge.',
+    'craft-award-title':'red dot award',
+    'craft-award-sub':'design excellence',
+    'craft-prod1-name':'V-FORM CHEF\'S 8"',
+    'craft-prod1-btn':'Shop V-Form',
+    'craft-prod2-name':'DRAGON NAKIRI 6.5"',
+    'craft-prod2-btn':'Shop Dragon'
   },
   zh:{
     nav1:'系列产品', nav2:'配置器', nav3:'刀具查询', nav4:'关于我们',
@@ -1344,7 +1380,16 @@ var _T = {
     'cu-title':'联系 <em>我们</em>',
     'cu-desc':'扫描微信二维码直接与我们的团队联系，或通过WhatsApp、电子邮件及QQ与我们沟通。',
     'wechat-lbl':'微信 — 扫码联系',
-    wa:'WhatsApp', email:'电子邮件', qq:'QQ'
+    wa:'WhatsApp', email:'电子邮件', qq:'QQ',
+    'craft-label':'我们的工艺',
+    'craft-heading':'精工传承<br><em>匠心之刃</em>',
+    'craft-body':'工匠级刀具大师，卓越品质的传承——每一把刀具都融入了匠人的专注、艺术与数百年的情感沉淀。',
+    'craft-award-title':'红点奖',
+    'craft-award-sub':'卓越设计奖',
+    'craft-prod1-name':'V-FORM 主厨刀 8"',
+    'craft-prod1-btn':'购买 V-Form',
+    'craft-prod2-name':'DRAGON 切菜刀 6.5"',
+    'craft-prod2-btn':'购买 Dragon'
   }
 };
 
@@ -1367,7 +1412,12 @@ var _ID_MAP = [
   ['i-showcase-q','showcase-q'],['i-showcase-attr','showcase-attr'],
   ['i-cu-label','cu-label'],['i-cu-title','cu-title'],
   ['i-cu-desc','cu-desc'],['i-wechat-lbl','wechat-lbl'],
-  ['i-footer-tag','footer-tag'],['i-footer-inwin','footer-inwin']
+  ['i-footer-tag','footer-tag'],['i-footer-inwin','footer-inwin'],
+  ['i-craft-label','craft-label'],['i-craft-heading','craft-heading'],
+  ['i-craft-body','craft-body'],
+  ['i-craft-award-title','craft-award-title'],['i-craft-award-sub','craft-award-sub'],
+  ['i-craft-prod1-name','craft-prod1-name'],['i-craft-prod1-btn','craft-prod1-btn'],
+  ['i-craft-prod2-name','craft-prod2-name'],['i-craft-prod2-btn','craft-prod2-btn']
 ];
 
 function applyLang(lang){
