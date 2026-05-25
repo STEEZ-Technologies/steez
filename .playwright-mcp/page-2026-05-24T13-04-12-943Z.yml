@@ -1,0 +1,374 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "inWin" [ref=e4] [cursor=pointer]:
+        - /url: "#hero"
+        - img "inWin" [ref=e5]
+      - list [ref=e6]:
+        - listitem [ref=e7]:
+          - link "Collections" [ref=e8] [cursor=pointer]:
+            - /url: "#knife-configurator"
+        - listitem [ref=e9]:
+          - link "The Atelier" [ref=e10] [cursor=pointer]:
+            - /url: "#mts-artistry"
+        - listitem [ref=e11]:
+          - link "Knife Finder" [ref=e12] [cursor=pointer]:
+            - /url: "#showroom"
+        - listitem [ref=e13]:
+          - link "Journal" [ref=e14] [cursor=pointer]:
+            - /url: "#company"
+      - generic [ref=e15]:
+        - button "Search" [ref=e16] [cursor=pointer]:
+          - img [ref=e17]
+        - button "Contact Us" [ref=e20] [cursor=pointer]:
+          - img [ref=e21]
+        - button "Cart" [ref=e23] [cursor=pointer]:
+          - img [ref=e24]
+  - generic [ref=e28]:
+    - img [ref=e29]:
+      - generic [ref=e30]: in
+      - generic [ref=e31]: W
+      - generic [ref=e34]: in
+    - generic [ref=e35]: — Since 1979 —
+    - generic [ref=e37]: Digital Catalogue · steez.digital
+  - generic [ref=e38]:
+    - generic [ref=e39]:
+      - heading "Master Craftsman of Professional Kitchenware" [level=1] [ref=e41]:
+        - text: Master Craftsman
+        - text: of Professional
+        - text: Kitchenware
+      - paragraph [ref=e42]: Knives · Utensils · Cookware · Since 1979
+    - generic [ref=e44] [cursor=pointer]: Scroll
+  - generic [ref=e47]:
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - paragraph [ref=e50]: Company Profile
+        - heading "Master Craftsman of Professional Kitchenware" [level=2] [ref=e51]:
+          - text: Master Craftsman
+          - text: of Professional
+          - emphasis [ref=e52]: Kitchenware
+        - paragraph [ref=e53]:
+          - strong [ref=e54]: INWIN was established in 1979
+          - text: ", located in the hardware base of Yangjiang city. It is a private high-tech enterprise specializing in the professional manufacture of stainless steel knives, scissors, cutlery, and precision casting — for both export and domestic markets."
+        - paragraph [ref=e55]:
+          - text: "Guangdong INWIN Industrial Group Co., Ltd. operates multiple production bases: knives & scissors, precision casting, and kitchenware. Over"
+          - strong [ref=e56]: 100,000 m²
+          - text: of standard workshops, more than
+          - strong [ref=e57]: 1,000 employees
+          - text: .
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - generic [ref=e61]: "0"
+            - generic [ref=e62]: m²
+            - generic [ref=e63]: Standard Workshops
+          - generic [ref=e65]:
+            - generic [ref=e66]: 0+
+            - generic [ref=e67]: Employees
+        - generic [ref=e68]:
+          - generic [ref=e69]: Knives
+          - generic [ref=e70]: Scissors
+          - generic [ref=e71]: Cookware
+          - generic [ref=e72]: Kitchen Utensil
+          - generic [ref=e73]: Cutlery
+          - generic [ref=e74]: Cutting Board
+        - paragraph [ref=e75]: Certificate & Partners
+        - generic [ref=e76]:
+          - generic [ref=e77]: TESCO
+          - generic [ref=e78]: ⊙ Target
+          - generic [ref=e79]: Auchan
+          - generic [ref=e80]: 3M
+          - generic [ref=e81]: WMF
+          - generic [ref=e82]: IKEA
+          - generic [ref=e83]: KitchenAid
+        - generic [ref=e84]:
+          - generic [ref=e85]: ISO9001
+          - generic [ref=e86]: ISO14001
+          - generic [ref=e87]: BSCI
+          - generic [ref=e88]: SGS
+          - generic [ref=e89]: FDA
+          - generic [ref=e90]: LFGB
+        - generic [ref=e91]:
+          - paragraph [ref=e92]:
+            - text: "\"China Knife,"
+            - text: Towards The World."
+          - paragraph [ref=e93]: — INWIN Group, Yangdong China
+    - generic [ref=e94]:
+      - generic [ref=e95]:
+        - img [ref=e97]:
+          - generic [ref=e119]: YANGDONG KNIFE AND SCISSORS MANUFACTURING FACTORY
+        - paragraph [ref=e120]: Yangdong Knife and Scissors Manufacturing Factory
+      - generic [ref=e121]:
+        - img [ref=e123]:
+          - generic [ref=e145]: BAISHA KITCHENWARE MANUFACTURING FACTORY
+        - paragraph [ref=e146]: Baisha Kitchenware Manufacturing Factory
+  - generic [ref=e147]:
+    - img [ref=e150]:
+      - generic [ref=e158]: CHEF 8"
+      - generic [ref=e166]: CARVING 8"
+      - generic [ref=e174]: UTILITY 5"
+      - generic [ref=e182]: PARING 3.5"
+    - generic [ref=e184]:
+      - paragraph [ref=e185]: Configure Your Blade
+      - heading "CHOOSE YOUR HANDLE" [level=2] [ref=e186]:
+        - text: CHOOSE YOUR
+        - emphasis [ref=e187]: HANDLE
+      - paragraph [ref=e188]: Six signature handle colors — G10, anodized aluminum, and natural walnut. Select a color to see it applied across the full set.
+      - generic [ref=e189]:
+        - generic [ref=e190]: Handle Color
+        - generic [ref=e191]: MATTE BLACK
+      - generic [ref=e192]:
+        - button "Matte Black G10 Composite" [ref=e193] [cursor=pointer]:
+          - generic [ref=e200]:
+            - generic [ref=e201]: Matte Black
+            - generic [ref=e202]: G10 Composite
+          - img [ref=e204]
+        - button "Cobalt Blue Anodized Aluminum" [ref=e206] [cursor=pointer]:
+          - generic [ref=e213]:
+            - generic [ref=e214]: Cobalt Blue
+            - generic [ref=e215]: Anodized Aluminum
+          - img [ref=e217]
+        - button "Crimson Red G10 Composite" [ref=e219] [cursor=pointer]:
+          - generic [ref=e226]:
+            - generic [ref=e227]: Crimson Red
+            - generic [ref=e228]: G10 Composite
+          - img [ref=e230]
+        - button "Pearl White Anodized Aluminum" [ref=e232] [cursor=pointer]:
+          - generic [ref=e239]:
+            - generic [ref=e240]: Pearl White
+            - generic [ref=e241]: Anodized Aluminum
+          - img [ref=e243]
+        - button "Natural Wood Walnut · Natural Grain" [ref=e245] [cursor=pointer]:
+          - generic [ref=e252]:
+            - generic [ref=e253]: Natural Wood
+            - generic [ref=e254]: Walnut · Natural Grain
+          - img [ref=e256]
+        - button "Forest Green G10 Composite" [ref=e258] [cursor=pointer]:
+          - generic [ref=e265]:
+            - generic [ref=e266]: Forest Green
+            - generic [ref=e267]: G10 Composite
+          - img [ref=e269]
+      - generic [ref=e271]:
+        - generic [ref=e272]:
+          - generic [ref=e273]: Handle
+          - generic [ref=e274]: G10 Composite
+        - generic [ref=e275]:
+          - generic [ref=e276]: Finish
+          - generic [ref=e277]: Powder Coat
+        - generic [ref=e278]:
+          - generic [ref=e279]: Steel
+          - generic [ref=e280]: Powder Steel
+        - generic [ref=e281]:
+          - generic [ref=e282]: Available
+          - generic [ref=e283]: 4 colors
+  - generic [ref=e286]:
+    - paragraph [ref=e287]: Browse the Collection
+    - heading "Explore Every Series" [level=2] [ref=e288]:
+      - text: Explore
+      - emphasis [ref=e289]: Every Series
+    - paragraph [ref=e290]: Six distinct product lines, each crafted with a singular philosophy. Select a category to discover the full range.
+  - generic [ref=e292]:
+    - generic [ref=e294]:
+      - generic [ref=e295] [cursor=pointer]:
+        - img "COLORED KNIVES" [ref=e297]
+        - generic [ref=e299]:
+          - generic [ref=e300]: 01 / 08
+          - generic [ref=e301]: COLORED KNIVES
+          - generic [ref=e302]: Where Precision Meets Artistry
+          - generic [ref=e303]: View Collection →
+      - generic [ref=e304] [cursor=pointer]:
+        - img "V-FORM" [ref=e306]
+        - generic [ref=e308]:
+          - generic [ref=e309]: 02 / 08
+          - generic [ref=e310]: V-FORM
+          - generic [ref=e311]: Patented · Redefining the Art of the Blade
+          - generic [ref=e312]: View Collection →
+      - generic [ref=e313] [cursor=pointer]:
+        - img "DAMASCUS" [ref=e315]
+        - generic [ref=e317]:
+          - generic [ref=e318]: 03 / 08
+          - generic [ref=e319]: DAMASCUS
+          - generic [ref=e320]: Beneath the Edge · A Thousand Layers
+          - generic [ref=e321]: View Collection →
+      - generic [ref=e322] [cursor=pointer]:
+        - img "DRAGON" [ref=e324]
+        - generic [ref=e326]:
+          - generic [ref=e327]: 04 / 08
+          - generic [ref=e328]: DRAGON
+          - generic [ref=e329]: Red Dot Award · Design Excellence Redefined
+          - generic [ref=e330]: View Collection →
+      - generic [ref=e331] [cursor=pointer]:
+        - img "CUTTING BOARD" [ref=e333]
+        - generic [ref=e335]:
+          - generic [ref=e336]: 05 / 08
+          - generic [ref=e337]: CUTTING BOARD
+          - generic [ref=e338]: Natural Luxury · Ages Beautifully
+          - generic [ref=e339]: View Collection →
+      - generic [ref=e340] [cursor=pointer]:
+        - img "POTS" [ref=e342]
+        - generic [ref=e344]:
+          - generic [ref=e345]: 06 / 08
+          - generic [ref=e346]: POTS
+          - generic [ref=e347]: Master Your Kitchen
+          - generic [ref=e348]: View Collection →
+      - generic [ref=e349] [cursor=pointer]:
+        - img "SCISSORS" [ref=e351]
+        - generic [ref=e353]:
+          - generic [ref=e354]: 07 / 08
+          - generic [ref=e355]: SCISSORS
+          - generic [ref=e356]: Precision Cutting · Professional Grade
+          - generic [ref=e357]: View Collection →
+      - generic [ref=e358] [cursor=pointer]:
+        - img "STREAMLINE" [ref=e360]
+        - generic [ref=e362]:
+          - generic [ref=e363]: 08 / 08
+          - generic [ref=e364]: STREAMLINE
+          - generic [ref=e365]: Clean Lines · Uncompromising Edge
+          - generic [ref=e366]: View Collection →
+    - generic [ref=e367]:
+      - button "Previous" [ref=e368] [cursor=pointer]: ←
+      - button "Next" [ref=e378] [cursor=pointer]: →
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - img
+          - text: Drag to rotate
+        - button "✕"
+  - generic [ref=e379]:
+    - generic [ref=e380]:
+      - paragraph [ref=e381]: Best of INWIN
+      - heading "The Art of the Blade" [level=2] [ref=e382]:
+        - text: The Art of
+        - emphasis [ref=e383]: the Blade
+    - generic [ref=e385]:
+      - generic [ref=e386] [cursor=pointer]:
+        - img [ref=e388]
+        - generic [ref=e393]:
+          - generic [ref=e394]: MTS ARTISTRY
+          - generic [ref=e395]: Chef's Knife 8"
+          - generic [ref=e396]: Powder Steel · G10
+      - generic [ref=e397] [cursor=pointer]:
+        - img [ref=e399]
+        - generic [ref=e404]:
+          - generic [ref=e405]: V-FORM
+          - generic [ref=e406]: Patented V-Form
+          - generic [ref=e407]: Black Powder Steel
+      - generic [ref=e408] [cursor=pointer]:
+        - img [ref=e410]
+        - generic [ref=e415]:
+          - generic [ref=e416]: DAMASCUS
+          - generic [ref=e417]: A Thousand Layers
+          - generic [ref=e418]: Damascus Steel
+      - generic [ref=e419] [cursor=pointer]:
+        - img [ref=e421]
+        - generic [ref=e426]:
+          - generic [ref=e427]: DRAGON
+          - generic [ref=e428]: Red Dot Award
+          - generic [ref=e429]: Dragon-Engraved Blade
+      - generic [ref=e430] [cursor=pointer]:
+        - img [ref=e432]
+        - generic [ref=e437]:
+          - generic [ref=e438]: NATURAL ELEGANCE
+          - generic [ref=e439]: 7-Piece Set
+          - generic [ref=e440]: Wood Fiber + Acacia Block
+      - generic [ref=e441] [cursor=pointer]:
+        - img [ref=e443]
+        - generic [ref=e449]:
+          - generic [ref=e450]: COOKWARE
+          - generic [ref=e451]: Pressure Wok
+          - generic [ref=e452]: All Stoves Compatible
+      - generic [ref=e453] [cursor=pointer]:
+        - img [ref=e455]
+        - generic [ref=e460]:
+          - generic [ref=e461]: MTS ARTISTRY
+          - generic [ref=e462]: Magnetic Stand
+          - generic [ref=e463]: Anodized Aluminum
+      - generic [ref=e464] [cursor=pointer]:
+        - img [ref=e466]
+        - generic [ref=e471]:
+          - generic [ref=e472]: DAMASCUS
+          - generic [ref=e473]: Santoku Knife
+          - generic [ref=e474]: Resin Composite Handle
+      - generic [ref=e475] [cursor=pointer]:
+        - img [ref=e477]
+        - generic [ref=e482]:
+          - generic [ref=e483]: MTS ARTISTRY
+          - generic [ref=e484]: Chef's Knife 8"
+          - generic [ref=e485]: Powder Steel · G10
+      - generic [ref=e486] [cursor=pointer]:
+        - img [ref=e488]
+        - generic [ref=e493]:
+          - generic [ref=e494]: V-FORM
+          - generic [ref=e495]: Patented V-Form
+          - generic [ref=e496]: Black Powder Steel
+      - generic [ref=e497] [cursor=pointer]:
+        - img [ref=e499]
+        - generic [ref=e504]:
+          - generic [ref=e505]: DAMASCUS
+          - generic [ref=e506]: A Thousand Layers
+          - generic [ref=e507]: Damascus Steel
+      - generic [ref=e508] [cursor=pointer]:
+        - img [ref=e510]
+        - generic [ref=e515]:
+          - generic [ref=e516]: DRAGON
+          - generic [ref=e517]: Red Dot Award
+          - generic [ref=e518]: Dragon-Engraved Blade
+      - generic [ref=e519] [cursor=pointer]:
+        - img [ref=e521]
+        - generic [ref=e526]:
+          - generic [ref=e527]: NATURAL ELEGANCE
+          - generic [ref=e528]: 7-Piece Set
+          - generic [ref=e529]: Wood Fiber + Acacia Block
+      - generic [ref=e530] [cursor=pointer]:
+        - img [ref=e532]
+        - generic [ref=e538]:
+          - generic [ref=e539]: COOKWARE
+          - generic [ref=e540]: Pressure Wok
+          - generic [ref=e541]: All Stoves Compatible
+      - generic [ref=e542] [cursor=pointer]:
+        - img [ref=e544]
+        - generic [ref=e549]:
+          - generic [ref=e550]: MTS ARTISTRY
+          - generic [ref=e551]: Magnetic Stand
+          - generic [ref=e552]: Anodized Aluminum
+      - generic [ref=e553] [cursor=pointer]:
+        - img [ref=e555]
+        - generic [ref=e560]:
+          - generic [ref=e561]: DAMASCUS
+          - generic [ref=e562]: Santoku Knife
+          - generic [ref=e563]: Resin Composite Handle
+    - generic [ref=e564]:
+      - paragraph [ref=e565]: "\"A knife is not merely a tool — it is a declaration of how you cook, who you are, and what you believe a kitchen can become.\""
+      - paragraph [ref=e566]: — INWIN · Master Craftsman Since 1979
+  - contentinfo [ref=e567]:
+    - paragraph [ref=e568]: This catalogue is powered by
+    - generic [ref=e569]: STEEZ
+    - link "steez.digital" [ref=e570] [cursor=pointer]:
+      - /url: https://steez.digital
+    - paragraph [ref=e571]: Digital catalogues & business cards for modern brands.
+    - paragraph [ref=e572]: © INWIN Industrial Group Co., Ltd. · Since 1979 · Yangdong, Guangdong, China
+  - generic [ref=e574]:
+    - generic [ref=e575]: Get In Touch
+    - heading "CONTACT US" [level=2] [ref=e576]:
+      - text: CONTACT
+      - emphasis [ref=e577]: US
+    - paragraph [ref=e578]: Scan the WeChat QR code to connect with our team directly, or reach us through WhatsApp, Email, or QQ.
+    - generic [ref=e579]:
+      - img [ref=e581]
+      - generic [ref=e617]:
+        - img [ref=e618]
+        - text: WeChat — Scan to Connect
+    - generic [ref=e620]:
+      - link "WhatsApp" [ref=e621] [cursor=pointer]:
+        - /url: https://wa.me/
+        - img [ref=e622]
+        - generic [ref=e625]: WhatsApp
+      - link "Email" [ref=e626] [cursor=pointer]:
+        - /url: mailto:contact@inwin.com
+        - img [ref=e627]
+        - generic [ref=e630]: Email
+      - link "QQ" [ref=e631] [cursor=pointer]:
+        - /url: https://qq.com
+        - img [ref=e632]
+        - generic [ref=e638]: QQ

@@ -1,0 +1,4 @@
+[     408ms] TypeError: Cannot read properties of null (reading 'querySelectorAll')
+    at http://localhost:3725/demo%20cards/knives%20demo/inwin_catalogue:2015:24
+    at http://localhost:3725/demo%20cards/knives%20demo/inwin_catalogue:2094:3
+[     743ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3725/favicon.ico:0

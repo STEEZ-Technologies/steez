@@ -1,0 +1,3 @@
+[     127ms] TypeError: Cannot read properties of null (reading 'querySelectorAll')
+    at http://localhost:3725/demo%20cards/knives%20demo/inwin_catalogue:2241:24
+    at http://localhost:3725/demo%20cards/knives%20demo/inwin_catalogue:2327:3
