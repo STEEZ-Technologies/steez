@@ -16,6 +16,12 @@ export const ru: Dict = {
     getQuote: "Получить расчёт",
     talkToUs: "Напишите нам",
     wechat: "WeChat",
+    chips: {
+      cards: "Цифровые карты",
+      profiles: "Профили компаний",
+      catalogues: "Каталоги продукции",
+      booth: "Стенд",
+    },
   },
   numbers: {
     scans: "Активированных сканов",
@@ -170,7 +176,7 @@ export const ru: Dict = {
     values: {
       phone: "+86 755 8888 0000",
       email: "hello@steez.digital",
-      hq: "Ханчжоу, Чжэцзян",
+      hq: "Комн. 1005-01, Западная башня, центр Чжаньчэн, район Шанчэн, Ханчжоу, Чжэцзян",
       hours: "Пн–Сб 09:00–19:00 CST",
     },
     form: {

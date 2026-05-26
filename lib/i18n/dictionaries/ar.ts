@@ -16,6 +16,12 @@ export const ar: Dict = {
     getQuote: "اطلب عرض سعر",
     talkToUs: "تحدث معنا",
     wechat: "ويتشات",
+    chips: {
+      cards: "بطاقات رقمية",
+      profiles: "ملفات الشركة",
+      catalogues: "كتالوجات المنتجات",
+      booth: "عرض الجناح",
+    },
   },
   numbers: {
     scans: "عمليات مسح المشترين",
@@ -170,7 +176,7 @@ export const ar: Dict = {
     values: {
       phone: "+86 755 8888 0000",
       email: "hello@steez.digital",
-      hq: "هانغتشو، تشجيانغ",
+      hq: "غرفة ١٠٠٥-٠١، البرج الغربي، مركز زانتشنغ، منطقة شانغتشنغ، هانغتشو، تشجيانغ",
       hours: "الإثنين–السبت ٠٩:٠٠–١٩:٠٠ بتوقيت بكين",
     },
     form: {

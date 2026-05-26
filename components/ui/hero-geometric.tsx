@@ -323,21 +323,17 @@ export default function HeroGeometric({
                             initial={{ opacity: 0, y: 16 }}
                             animate={done ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                             transition={{ duration: 0.7, delay: done ? 0.4 : 0, ease: "easeOut" }}
+                            className="hidden md:flex"
                             style={{
-                                display: "flex",
+                                display: isMobile ? "none" : "flex",
                                 gap: 10,
                                 flexWrap: "wrap",
                                 justifyContent: "flex-start",
                             }}
                         >
-                            {[
-                                { en: "Digital cards", cn: "数字名片" },
-                                { en: "Company profiles", cn: "公司主页" },
-                                { en: "AR catalogues", cn: "AR 目录" },
-                                { en: "Buyer analytics", cn: "实时分析" },
-                            ].map((chip) => (
+                            {(["cards", "profiles", "catalogues", "booth"] as const).map((key) => (
                                 <span
-                                    key={chip.en}
+                                    key={key}
                                     style={{
                                         display: "inline-flex",
                                         alignItems: "center",
@@ -354,14 +350,7 @@ export default function HeroGeometric({
                                         letterSpacing: "0.04em",
                                     }}
                                 >
-                                    <span>{chip.en}</span>
-                                    <span
-                                        className="cn-text"
-                                        lang="zh"
-                                        style={{ fontWeight: 300, opacity: 0.6 }}
-                                    >
-                                        {chip.cn}
-                                    </span>
+                                    {dict.hero.chips[key]}
                                 </span>
                             ))}
                         </motion.div>

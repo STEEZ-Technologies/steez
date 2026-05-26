@@ -27,6 +27,12 @@ export type Dict = {
     getQuote: string;
     talkToUs: string;
     wechat: string;
+    chips: {
+      cards: string;
+      profiles: string;
+      catalogues: string;
+      booth: string;
+    };
   };
   numbers: {
     scans: string;

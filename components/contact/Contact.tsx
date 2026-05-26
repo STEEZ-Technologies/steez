@@ -112,37 +112,6 @@ export function Contact() {
               </div>
             ))}
 
-            <div
-              style={{
-                borderTop: "1px solid var(--hairline)",
-                paddingTop: "clamp(16px, 2vw, 24px)",
-                display: "flex",
-                gap: 12,
-              }}
-            >
-              {["WeChat"].map((platform) => (
-                <button
-                  key={platform}
-                  style={{
-                    flex: 1,
-                    background: "transparent",
-                    border: "1px solid var(--hairline-strong)",
-                    borderRadius: "var(--radius-buttons)",
-                    padding: "clamp(8px, 1.2vw, 12px) 0",
-                    color: "inherit",
-                    fontWeight: 600,
-                    fontSize: "clamp(0.75rem, 1vw, 0.88rem)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.1em",
-                    cursor: "pointer",
-                    fontFamily: "inherit",
-                    transition: "background 0.2s ease, border-color 0.4s ease, color 0.4s ease",
-                  }}
-                >
-                  {platform}
-                </button>
-              ))}
-            </div>
           </div>
         </FadeIn>
 

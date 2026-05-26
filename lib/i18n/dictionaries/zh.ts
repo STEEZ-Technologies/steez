@@ -16,6 +16,12 @@ export const zh: Dict = {
     getQuote: "获取报价",
     talkToUs: "联系我们",
     wechat: "微信",
+    chips: {
+      cards: "数字名片",
+      profiles: "公司主页",
+      catalogues: "产品目录",
+      booth: "展位展示",
+    },
   },
   numbers: {
     scans: "买家扫描激活量",
@@ -170,7 +176,7 @@ export const zh: Dict = {
     values: {
       phone: "+86 755 8888 0000",
       email: "hello@steez.digital",
-      hq: "浙江杭州",
+      hq: "浙江省杭州市上城区赞成中心西楼1005室-01",
       hours: "周一至周六 09:00–19:00 北京时间",
     },
     form: {

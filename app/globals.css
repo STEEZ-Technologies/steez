@@ -220,12 +220,19 @@
 
 html,
 body {
-  background: var(--bg);
   color: var(--fg);
   font-family: var(--font-stack-text), var(--font-noto-sc), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background 0.4s ease, color 0.4s ease;
+}
+
+html {
+  background: var(--footer-bg, #1A1A1A);
+}
+
+body {
+  background: var(--bg);
 }
 
 html {
