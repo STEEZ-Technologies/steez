@@ -1,6 +1,6 @@
-type STEEZWordmarkProps = { size?: number };
+type STEEZWordmarkProps = { size?: number; color?: string };
 
-export function STEEZWordmark({ size = 28 }: STEEZWordmarkProps) {
+export function STEEZWordmark({ size = 28, color = "var(--fg)" }: STEEZWordmarkProps) {
   return (
     <span
       style={{
@@ -9,7 +9,7 @@ export function STEEZWordmark({ size = 28 }: STEEZWordmarkProps) {
         fontFamily: "var(--font-stack-sans), sans-serif",
         fontWeight: 900,
         fontSize: size,
-        color: "var(--fg)",
+        color,
         letterSpacing: "-0.04em",
         textTransform: "uppercase",
         lineHeight: 1,

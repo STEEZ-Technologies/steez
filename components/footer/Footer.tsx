@@ -3,23 +3,13 @@
 import { COPY } from "@/lib/copy";
 import { FooterCol } from "./FooterCol";
 import { useI18n } from "@/lib/i18n/useI18n";
+import { STEEZWordmark } from "@/components/shared/STEEZWordmark";
 
 const ITEM_STYLE = { fontSize: "0.95rem", fontWeight: 400 } as const;
-const LINK_STYLE = {
-  color: "inherit",
-  textDecoration: "none",
-  opacity: 0.85,
-} as const;
-
-const NAV_KEY_BY_HREF: Record<string, "pricing" | "cards" | "contact"> = {
-  "#pricing": "pricing",
-  "#services": "cards",
-  "#contact": "contact",
-};
 
 export function Footer() {
   const { dict, lang } = useI18n();
-  const isEn = lang === "en";
+  const isZh = lang === "zh";
 
   return (
     <footer
@@ -43,27 +33,22 @@ export function Footer() {
         }}
       >
         <div>
-          <div
-            style={{
-              fontWeight: 900,
-              fontSize: 22,
-              letterSpacing: "0.14em",
-            }}
-          >
-            STEEZ
-          </div>
-          <div
-            className="cn-text"
-            lang="zh"
-            style={{
-              fontWeight: 700,
-              color: "#E0A93A",
-              letterSpacing: "0.18em",
-              marginTop: 4,
-            }}
-          >
-            思智
-          </div>
+          <STEEZWordmark size={28} color="var(--footer-fg, #FAF9F5)" />
+          {isZh && (
+            <div
+              className="cn-text"
+              lang="zh"
+              style={{
+                fontWeight: 700,
+                color: "#E0A93A",
+                letterSpacing: "0.18em",
+                marginTop: 6,
+                fontSize: 14,
+              }}
+            >
+              思智
+            </div>
+          )}
           <p
             style={{
               fontWeight: 300,
@@ -78,66 +63,50 @@ export function Footer() {
           </p>
         </div>
 
-        <FooterCol
-          titleEn={dict.footer.locations}
-          titleCn={isEn ? COPY.footer.locations.heading.cn : undefined}
-          collapsible
-        >
-          {(["hangzhou", "yiwu", "foshan", "guangzhou"] as const).map((k, i) => {
-            const cnItem = COPY.footer.locations.items[i];
-            return (
-              <li key={k} style={ITEM_STYLE}>
-                {dict.footer.locationItems[k]}
-                {isEn && cnItem && (
-                  <>
-                    {" "}·{" "}
-                    <span className="cn-text" lang="zh">
-                      {cnItem.cn}
-                    </span>
-                  </>
-                )}
-              </li>
-            );
-          })}
+        <FooterCol titleEn={dict.footer.locations} collapsible>
+          <li style={ITEM_STYLE}>{dict.footer.locationItems.hangzhou}</li>
         </FooterCol>
 
-        <FooterCol
-          titleEn={dict.footer.reachUs}
-          titleCn={isEn ? COPY.footer.contact.heading.cn : undefined}
-          collapsible
-        >
+        <FooterCol titleEn={dict.footer.reachUs} collapsible>
           {COPY.footer.contact.items.map((it) => (
             <li key={it} style={ITEM_STYLE}>
               {it}
             </li>
           ))}
         </FooterCol>
+      </div>
 
-        <FooterCol
-          titleEn={dict.footer.index}
-          titleCn={isEn ? COPY.footer.index.heading.cn : undefined}
-          collapsible
-        >
-          {COPY.footer.index.items.map((it) => {
-            const k = NAV_KEY_BY_HREF[it.href];
-            const primary = k ? dict.nav[k] : it.en;
-            return (
-              <li key={it.href} style={ITEM_STYLE}>
-                <a href={it.href} style={LINK_STYLE}>
-                  {primary}
-                  {isEn && (
-                    <>
-                      {" "}·{" "}
-                      <span className="cn-text" lang="zh">
-                        {it.cn}
-                      </span>
-                    </>
-                  )}
-                </a>
-              </li>
-            );
-          })}
-        </FooterCol>
+      {/* Legal links */}
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "16px 28px",
+          borderTop: "1px solid rgba(250,249,245,0.12)",
+          paddingTop: 24,
+          marginBottom: 18,
+          fontSize: "0.78rem",
+          letterSpacing: "0.08em",
+        }}
+      >
+        {[
+          { href: "/privacy", label: "Privacy" },
+          { href: "/terms", label: "Terms" },
+          { href: "/cookies", label: "Cookies" },
+          { href: "/refund", label: "Refund" },
+        ].map((l) => (
+          <a
+            key={l.href}
+            href={l.href}
+            style={{ color: "inherit", textDecoration: "none", opacity: 0.65 }}
+          >
+            {l.label}
+          </a>
+        ))}
+        <span style={{ flex: 1 }} />
+        <span style={{ opacity: 0.45, fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", fontSize: "0.7rem" }}>
+          浙ICP备 XXXXXXXX 号 · 统一社会信用代码 XXXXXXXXXXXXXXXXXX
+        </span>
       </div>
 
       <div
@@ -145,8 +114,6 @@ export function Footer() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          borderTop: "1px solid rgba(250,249,245,0.12)",
-          paddingTop: 24,
           fontSize: "0.78rem",
           opacity: 0.5,
           flexWrap: "wrap",

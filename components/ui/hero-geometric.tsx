@@ -2,7 +2,7 @@
 
 /* eslint-disable react/no-unknown-property */
 import { useRef, useMemo, useEffect } from "react";
-import { Canvas, useThree, ThreeElements } from "@react-three/fiber";
+import { Canvas, useThree, useFrame, ThreeElements } from "@react-three/fiber";
 import * as THREE from "three";
 import { motion } from "motion/react";
 
@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { Numbers } from "@/components/numbers/Numbers";
 import { usePreloader } from "@/components/preloader/PreloaderContext";
 import { useI18n } from "@/lib/i18n/useI18n";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 /* eslint-disable @typescript-eslint/no-namespace */
 declare module "react" {
@@ -143,9 +144,6 @@ const GradientPlane = ({
     speed?: number
 }) => {
     const meshRef = useRef<THREE.Mesh>(null);
-    const gl = useThree((s) => s.gl);
-    const scene = useThree((s) => s.scene);
-    const camera = useThree((s) => s.camera);
     const size = useThree((s) => s.size);
     const uniforms = useMemo(
         () => ({
@@ -154,7 +152,9 @@ const GradientPlane = ({
             uColor1: { value: new THREE.Color(color1) },
             uColor2: { value: new THREE.Color(color2) },
         }),
-        [color1, color2]
+        // intentionally only create once; live color updates handled in useFrame
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        []
     );
 
     useEffect(() => {
@@ -162,25 +162,16 @@ const GradientPlane = ({
     }, [size, uniforms]);
 
     useEffect(() => {
-        let raf = 0;
-        const t0 = performance.now();
-        const tick = () => {
-            const t = (performance.now() - t0) / 1000;
-            const mat = meshRef.current?.material as THREE.ShaderMaterial | undefined;
-            if (mat?.uniforms) {
-                mat.uniforms.uTime.value = t * speed;
-                mat.uniforms.uColor1.value.set(color1);
-                mat.uniforms.uColor2.value.set(color2);
-                mat.uniformsNeedUpdate = true;
-            }
-            if (gl && scene && camera) {
-                gl.render(scene, camera);
-            }
-            raf = requestAnimationFrame(tick);
-        };
-        raf = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(raf);
-    }, [gl, scene, camera, speed, color1, color2]);
+        uniforms.uColor1.value.set(color1);
+        uniforms.uColor2.value.set(color2);
+    }, [color1, color2, uniforms]);
+
+    useFrame(({ clock }) => {
+        const mat = meshRef.current?.material as THREE.ShaderMaterial | undefined;
+        if (mat?.uniforms) {
+            mat.uniforms.uTime.value = clock.getElapsedTime() * speed;
+        }
+    });
 
     return (
         <mesh ref={meshRef} scale={[2, 2, 1]}>
@@ -220,8 +211,10 @@ export default function HeroGeometric({
 }: HeroGeometricProps) {
     const { done } = usePreloader();
     const { dict } = useI18n();
+    const isMobile = useIsMobile();
     return (
         <div
+            id="top"
             className={cn("relative w-full min-h-screen flex flex-col items-center", className)}
             style={{
                 containerType: "size",
@@ -244,14 +237,16 @@ export default function HeroGeometric({
             >
                 <Canvas
                     camera={{ position: [0, 0, 1] }}
-                    dpr={[1, 1]}
+                    dpr={isMobile ? [0.6, 1] : [1, 1]}
                     frameloop="always"
                     gl={{
                         antialias: false,
                         alpha: true,
+                        powerPreference: "high-performance",
                     }}
+                    performance={{ min: 0.3 }}
                 >
-                    <GradientPlane color1={color1} color2={color2} speed={speed} />
+                    <GradientPlane color1={color1} color2={color2} speed={isMobile ? speed * 0.6 : speed} />
                 </Canvas>
             </div>
 
@@ -269,18 +264,31 @@ export default function HeroGeometric({
                             initial={{ opacity: 0, y: 24 }}
                             animate={done ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
                             transition={{ duration: 0.9, delay: done ? 0.05 : 0, ease: [0.16, 1, 0.3, 1] }}
-                            className="font-bold"
                             style={{
                                 color: "var(--fg)",
-                                fontSize: "clamp(2.4rem, 7.5vw, 6rem)",
-                                lineHeight: 1.05,
-                                letterSpacing: "-0.025em",
+                                fontSize: "clamp(3rem, min(9vw, 11vh), 7.5rem)",
+                                lineHeight: 1.04,
+                                letterSpacing: "-0.03em",
                                 textAlign: "start",
                                 margin: 0,
                                 fontFamily: "var(--font-stack-sans), sans-serif",
+                                textWrap: "balance",
+                                fontWeight: 700,
                             }}
                         >
-                            {description}
+                            {(() => {
+                                const m = description?.match(/^(.*?)(\s*[—–-]+\s*)(.*)$/);
+                                if (!m) return description;
+                                const [, head, dash, tail] = m;
+                                return (
+                                    <>
+                                        {head}
+                                        <span style={{ fontWeight: 300, opacity: 0.85 }}>
+                                            {dash}{tail}
+                                        </span>
+                                    </>
+                                );
+                            })()}
                         </motion.p>
                         <motion.a
                             href="#contact"

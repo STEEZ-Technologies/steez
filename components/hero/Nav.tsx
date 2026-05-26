@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
-import { Menu, X, Home, LayoutGrid, Tag, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { COPY } from "@/lib/copy";
 import { NavLabel } from "@/components/shared/NavLabel";
 import { STEEZWordmark } from "@/components/shared/STEEZWordmark";
@@ -10,7 +10,6 @@ import { AnimatedThemeToggler } from "@/components/shared/AnimatedThemeToggler";
 import { LangSwitcher } from "@/components/shared/LangSwitcher";
 import { cn } from "@/lib/cn";
 import { useIsMobile } from "@/lib/useIsMobile";
-import { useHaptic } from "@/lib/useHaptic";
 import { useI18n } from "@/lib/i18n/useI18n";
 
 const NAV_KEY_BY_HREF: Record<string, "pricing" | "cards" | "contact"> = {
@@ -19,7 +18,8 @@ const NAV_KEY_BY_HREF: Record<string, "pricing" | "cards" | "contact"> = {
   "#contact": "contact",
 };
 
-const SPRING = { type: "spring" as const, stiffness: 260, damping: 30 };
+const SPRING = { type: "spring" as const, stiffness: 180, damping: 26, mass: 0.9 };
+const SOFT_EASE = [0.22, 1, 0.36, 1] as const;
 
 export function Nav() {
   const { scrollY } = useScroll();
@@ -27,11 +27,24 @@ export function Nav() {
   const [hovered, setHovered] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [mobileScrollHidden, setMobileScrollHidden] = useState(false);
+  const lastScrollRef = useRef(0);
   const isMobile = useIsMobile();
-  const { dict, lang } = useI18n();
+  const { dict } = useI18n();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 50);
+    const prev = lastScrollRef.current;
+    const delta = latest - prev;
+    if (Math.abs(delta) < 6) return;
+    if (latest < 30) {
+      setMobileScrollHidden(false);
+    } else if (delta > 0) {
+      setMobileScrollHidden(true);
+    } else {
+      setMobileScrollHidden(false);
+    }
+    lastScrollRef.current = latest;
   });
 
   // Prevent scroll when mobile menu is open
@@ -46,9 +59,9 @@ export function Nav() {
     };
   }, [isOpen]);
 
-  const collapsed = scrolled && !hovered && !isOpen && !langOpen;
+  const collapsed = !isMobile && scrolled && !hovered && !isOpen && !langOpen;
   const expanded = !collapsed;
-  const mobileHidden = isMobile && scrolled && !isOpen;
+  const mobileHidden = isMobile && mobileScrollHidden && !isOpen;
 
   return (
     <>
@@ -62,26 +75,42 @@ export function Nav() {
         style={{ pointerEvents: mobileHidden ? "none" : "auto" }}
         className={cn(
           "fixed inset-x-0 z-[100] flex h-auto justify-center",
-          scrolled ? "top-6 px-6 md:px-10" : "top-0 px-0"
+          isMobile
+            ? isOpen
+              ? "top-0 px-0"
+              : scrolled
+              ? "top-3 px-12"
+              : "top-0 px-0"
+            : scrolled
+            ? "top-6 px-6 md:px-10"
+            : "top-0 px-0"
         )}
       >
         <motion.nav
+          layout
           transition={SPRING}
           onHoverStart={() => setHovered(true)}
           onHoverEnd={() => setHovered(false)}
           onFocus={() => setHovered(true)}
           onBlur={() => setHovered(false)}
           style={{
-            paddingLeft: collapsed ? "1.25rem" : "2rem",
-            paddingRight: collapsed ? "1.25rem" : "2rem",
-            borderRadius: "var(--radius-navigation)",
+            paddingLeft: isMobile ? "1.75rem" : collapsed ? "1.25rem" : "2rem",
+            paddingRight: isMobile ? "1.75rem" : collapsed ? "1.25rem" : "2rem",
+            borderRadius: isMobile && isOpen ? 0 : isMobile ? (scrolled ? 999 : 0) : "var(--radius-navigation)",
+            transition: isMobile
+              ? "none"
+              : "padding 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.4s ease, background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease",
+            willChange: "transform, padding, border-radius",
           }}
           className={cn(
-            "flex h-auto min-h-[56px] items-center transition-colors duration-300",
+            "flex h-auto min-h-[56px] items-center",
+            isMobile && !scrolled && !isOpen && "w-full justify-between py-3 min-h-[60px]",
+            isMobile && scrolled && !isOpen && "w-auto justify-between gap-3 bg-[var(--bg)] border border-[var(--hairline)] py-2 min-h-[52px] shadow-xl",
+            isMobile && isOpen && "w-full justify-between py-3 min-h-[60px] bg-transparent border-transparent shadow-none",
             collapsed && "w-auto border border-[var(--hairline)] bg-[var(--bg)]/80 py-2 shadow-xl backdrop-blur-md justify-center",
-            expanded && scrolled && "max-w-4xl w-full justify-between border border-[var(--hairline)] bg-[var(--bg)]/80 py-3 shadow-xl backdrop-blur-md min-h-[72px]",
-            expanded && !scrolled && "max-w-7xl w-full justify-between border border-transparent bg-transparent py-6 shadow-none min-h-[72px]",
-            isOpen && "border-transparent bg-transparent shadow-none backdrop-blur-none" // Clear background when menu is open
+            expanded && !isMobile && scrolled && "w-full max-w-[min(90%,1440px)] justify-between border border-[var(--hairline)] bg-[var(--bg)]/80 py-3 shadow-xl backdrop-blur-md min-h-[72px]",
+            expanded && !isMobile && !scrolled && "w-full max-w-[min(90%,1440px)] justify-between border border-transparent bg-transparent py-6 shadow-none min-h-[72px]",
+            !isMobile && isOpen && "border-transparent bg-transparent shadow-none backdrop-blur-none"
           )}
         >
           <motion.div layout="position" className="flex-shrink-0 z-[110]">
@@ -103,7 +132,10 @@ export function Nav() {
                 initial={{ opacity: 0, width: 0 }}
                 animate={{ opacity: 1, width: "auto" }}
                 exit={{ opacity: 0, width: 0 }}
-                transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                  width: { duration: 0.45, ease: SOFT_EASE },
+                  opacity: { duration: 0.3, ease: SOFT_EASE, delay: 0.05 },
+                }}
                 style={{ overflowX: "hidden", overflowY: "visible" }}
                 className="hidden md:flex items-center gap-6 sm:gap-12"
               >
@@ -111,7 +143,7 @@ export function Nav() {
                   {COPY.nav.map((l) => {
                     const k = NAV_KEY_BY_HREF[l.href];
                     const primary = k ? dict.nav[k] : l.en;
-                    const secondary = lang === "en" ? l.cn : null;
+                    const secondary = null;
                     return (
                       <li key={l.href} className="flex">
                         <a
@@ -163,9 +195,6 @@ export function Nav() {
         </motion.nav>
       </motion.header>
 
-      {/* Mobile Bottom Dock */}
-      {isMobile && <BottomDock onAnyTap={() => setIsOpen(false)} />}
-
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
@@ -180,7 +209,7 @@ export function Nav() {
               {COPY.nav.map((l) => {
                 const k = NAV_KEY_BY_HREF[l.href];
                 const primary = k ? dict.nav[k] : l.en;
-                const secondary = lang === "en" ? l.cn : null;
+                const secondary = null;
                 return (
                   <motion.li
                     key={l.href}
@@ -226,89 +255,3 @@ export function Nav() {
   );
 }
 
-const DOCK_ITEMS = [
-  { href: "#top", key: "top" as const, icon: Home },
-  { href: "#services", key: "services" as const, icon: LayoutGrid },
-  { href: "#pricing", key: "pricing" as const, icon: Tag },
-  { href: "#contact", key: "contact" as const, icon: Mail },
-];
-
-function BottomDock({ onAnyTap }: { onAnyTap: () => void }) {
-  const haptic = useHaptic();
-  const { dict } = useI18n();
-  const [active, setActive] = useState<string>("#top");
-
-  useEffect(() => {
-    const sections = DOCK_ITEMS.map((d) => document.querySelector(d.href)).filter(Boolean) as Element[];
-    if (!sections.length) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) {
-          const id = "#" + visible.target.id;
-          if (DOCK_ITEMS.some((d) => d.href === id)) setActive(id);
-        }
-      },
-      { rootMargin: "-40% 0px -40% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
-    );
-    sections.forEach((s) => io.observe(s));
-    return () => io.disconnect();
-  }, []);
-
-  return (
-    <nav
-      aria-label="Section navigation"
-      style={{
-        position: "fixed",
-        left: "50%",
-        transform: "translateX(-50%)",
-        bottom: "max(10px, env(safe-area-inset-bottom))",
-        zIndex: 99,
-        display: "flex",
-        gap: 4,
-        padding: 6,
-        background: "color-mix(in srgb, var(--bg) 88%, transparent)",
-        backdropFilter: "blur(14px)",
-        WebkitBackdropFilter: "blur(14px)",
-        border: "1px solid var(--hairline-strong)",
-        borderRadius: 999,
-        boxShadow: "0 18px 40px -18px rgba(0,0,0,0.4)",
-      }}
-    >
-      {DOCK_ITEMS.map((d) => {
-        const Icon = d.icon;
-        const isActive = active === d.href;
-        const label = dict.nav[d.key];
-        return (
-          <a
-            key={d.href}
-            href={d.href}
-            aria-label={label}
-            aria-current={isActive ? "page" : undefined}
-            onClick={() => {
-              haptic(6);
-              onAnyTap();
-            }}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 6,
-              width: 56,
-              height: 44,
-              borderRadius: 999,
-              background: isActive ? "#E0A93A" : "transparent",
-              color: isActive ? "#1A1A1A" : "var(--fg)",
-              textDecoration: "none",
-              transition: "background 0.2s ease, color 0.2s ease",
-            }}
-          >
-            <Icon size={18} strokeWidth={isActive ? 2.4 : 1.8} />
-          </a>
-        );
-      })}
-    </nav>
-  );
-}

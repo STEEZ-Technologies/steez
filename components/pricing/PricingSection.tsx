@@ -230,11 +230,9 @@ export default function PricingSection() {
 
         {/* Trust strip */}
         <div
-          className="grid grid-cols-2 lg:grid-cols-4 rounded-[var(--radius-smallercards)] border border-[var(--hairline)] bg-[var(--card-bg)]"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-x-0 gap-y-6 lg:gap-0 rounded-[var(--radius-smallercards)] border border-[var(--hairline)] bg-[var(--card-bg)] overflow-hidden"
           style={{
             marginTop: "clamp(28px, 3.5vw, 48px)",
-            gap: "var(--space-24)",
-            padding: "var(--space-32)",
           }}
         >
           {[
@@ -245,11 +243,13 @@ export default function PricingSection() {
           ].map((t, i) => (
             <div
               key={t.k}
-              className={i !== 0 ? "lg:border-l lg:border-[var(--hairline)] lg:pl-5" : ""}
+              className={i !== 0 ? "lg:border-l lg:border-[var(--hairline)]" : ""}
               style={{
                 display: "flex",
                 flexDirection: "column",
+                justifyContent: "center",
                 gap: 6,
+                padding: "var(--space-32) var(--space-24)",
               }}
             >
               <div

@@ -34,9 +34,9 @@ export function BoothSection() {
       ref={containerRef}
       id="booth"
       style={{
-        background: "var(--section-bg)",
-        color: "var(--section-fg)",
-        borderTop: "1px solid var(--section-hairline)",
+        background: "var(--bg)",
+        color: "var(--fg)",
+        borderTop: "1px solid var(--hairline)",
         borderTopLeftRadius: "var(--radius-cards)",
         borderTopRightRadius: "var(--radius-cards)",
         padding: "clamp(80px, 8vw, 140px) clamp(20px, 4vw, 40px)",
@@ -150,8 +150,8 @@ function BoothCard({
   return (
     <motion.div
       style={{
-        background: "var(--section-card-bg)",
-        border: "1px solid var(--section-hairline)",
+        background: "var(--card-bg)",
+        border: "1px solid var(--hairline)",
         borderRadius: "var(--radius-cards)",
         padding: "clamp(28px, 3vw, 48px)",
         display: "flex",

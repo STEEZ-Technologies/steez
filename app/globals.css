@@ -338,12 +338,6 @@ body {
   bottom: env(safe-area-inset-bottom, 0);
 }
 
-@media (max-width: 767px) {
-  /* Reserve space for bottom dock + CTA bar so last content isn't hidden */
-  body {
-    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0));
-  }
-}
 
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }

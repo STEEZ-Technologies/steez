@@ -127,7 +127,7 @@ function ServiceTabs({ isMobile }: { isMobile: boolean }) {
   const items = SERVICE_KEYS.map((k) => dict.servicesItems[k]);
   const current = items[active];
 
-  const mockupMax = active === 0 ? (isMobile ? 200 : 360) : isMobile ? 320 : 560;
+  const mockupMax = active === 0 ? (isMobile ? 220 : 360) : isMobile ? 340 : 560;
   const PANEL_HEIGHT = 560;
 
   return (
@@ -187,12 +187,12 @@ function ServiceTabs({ isMobile }: { isMobile: boolean }) {
         style={{
           display: "grid",
           gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 1fr) minmax(0, 1fr)",
-          gap: isMobile ? "clamp(24px, 5vw, 40px)" : "clamp(32px, 3.5vw, 56px)",
+          gap: isMobile ? "clamp(36px, 8vw, 56px)" : "clamp(32px, 3.5vw, 56px)",
           alignItems: "center",
           height: isMobile ? "auto" : PANEL_HEIGHT,
           minHeight: isMobile ? "auto" : PANEL_HEIGHT,
-          paddingTop: isMobile ? "clamp(8px, 2vw, 16px)" : "clamp(24px, 3vw, 48px)",
-          paddingBottom: isMobile ? "clamp(8px, 2vw, 16px)" : "clamp(24px, 3vw, 48px)",
+          paddingTop: isMobile ? "clamp(24px, 5vw, 36px)" : "clamp(24px, 3vw, 48px)",
+          paddingBottom: isMobile ? "clamp(24px, 5vw, 36px)" : "clamp(24px, 3vw, 48px)",
         }}
       >
         {/* Mockup — fixed-height container, mockup scales-to-fit */}
@@ -222,6 +222,8 @@ function ServiceTabs({ isMobile }: { isMobile: boolean }) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                pointerEvents: "none",
+                touchAction: "pan-y",
               }}
             >
               {active === 0 && <InteractivePhone />}

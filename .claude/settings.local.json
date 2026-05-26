@@ -20,7 +20,12 @@
       "Bash(xargs -I{} ps -p {} -o pid,command)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(NODE_OPTIONS=\"--max-old-space-size=8192\" npm run *)",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs kill -9)",
+      "Bash(NODE_OPTIONS=\"--max-old-space-size=12288\" npm run dev)",
+      "Bash(npx ngrok *)"
     ]
   },
   "enabledMcpjsonServers": [

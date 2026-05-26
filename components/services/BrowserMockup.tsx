@@ -44,12 +44,12 @@ export function BrowserMockup() {
                 "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
             }}
           >
-            steez.cn/showroom
+            steez.digital/jiangsu-aquatech
           </div>
         </div>
 
         <iframe
-          srcDoc={SKELETON_MICROSITE_HTML}
+          srcDoc={SITE_HTML}
           scrolling="no"
           style={{
             width: "100%",
@@ -60,7 +60,7 @@ export function BrowserMockup() {
             pointerEvents: "none",
             overflow: "hidden",
           }}
-          title="Microsite Showcase"
+          title="Company Profile Showcase"
         />
       </div>
 
@@ -82,83 +82,129 @@ export function BrowserMockup() {
   );
 }
 
-const SKELETON_MICROSITE_HTML = `<!DOCTYPE html>
+const SITE_HTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@700;900&display=swap" rel="stylesheet" />
 <style>
   :root {
     --bg: #04342C;
+    --bg-2: #02261F;
     --mint: #1D9E75;
     --gold: #E0A93A;
     --ivory: #FAF9F5;
-    --skeleton: rgba(250, 249, 245, 0.08);
+    --hairline: rgba(250,249,245,0.08);
+    --hairline-strong: rgba(250,249,245,0.18);
+    --font-display: "Stack Sans Notch", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   }
-  @keyframes pulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.8; }
-  }
-  .pulse { animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); overflow: hidden; height: 100vh; color: var(--ivory); font-family: system-ui, -apple-system, sans-serif; }
-  body { padding: 24px 32px; }
-  
-  nav { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid rgba(250,249,245,0.1); margin-bottom: 32px; }
-  .logo-skel { width: 100px; height: 16px; border-radius: 4px; background: var(--ivory); }
-  .nav-links { display: flex; gap: 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(250,249,245,0.6); font-weight: 500; }
+  html, body { margin: 0; padding: 0; background: var(--bg); overflow: hidden; height: 100vh; color: var(--ivory); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif; }
+  body { padding: 18px 28px 22px; display: flex; flex-direction: column; gap: 14px; }
+  body > * { flex-shrink: 0; }
+
+  nav { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--hairline); }
+  nav > * { flex-shrink: 0; }
+  .brand { font-family: var(--font-display); font-size: 14px; font-weight: 900; letter-spacing: -0.04em; text-transform: uppercase; }
+  .brand .cn { color: var(--gold); margin-left: 6px; font-weight: 700; letter-spacing: 0; }
+  .nav-links { display: flex; gap: 18px; flex-wrap: nowrap; font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(250,249,245,0.55); font-weight: 600; white-space: nowrap; }
+  .nav-links > * { flex-shrink: 0; white-space: nowrap; }
+  .nav-links .active { color: var(--ivory); }
   .nav-lang { color: var(--gold); font-weight: 700; }
-  
-  .hero { display: flex; flex-direction: column; gap: 16px; }
-  .eyebrow { font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.8; }
-  .h1-line-1 { width: 320px; height: 36px; border-radius: 8px; background: var(--ivory); }
-  .h1-line-2 { width: 240px; height: 36px; border-radius: 8px; background: var(--mint); }
-  
-  .lede { width: 80%; height: 12px; border-radius: 6px; background: var(--skeleton); margin-top: 12px; }
-  .lede-2 { width: 60%; height: 12px; border-radius: 6px; background: var(--skeleton); }
-  
-  .ctas { display: flex; gap: 12px; margin-top: 24px; }
-  .btn-1 { width: 140px; height: 40px; border-radius: 20px; background: var(--gold); color: #1A1A1A; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
-  .btn-2 { width: 120px; height: 40px; border-radius: 20px; background: transparent; border: 1px solid rgba(250,249,245,0.2); color: var(--ivory); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
-  
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(250,249,245,0.1); }
-  .stat-val { width: 60px; height: 24px; border-radius: 6px; background: var(--ivory); margin-bottom: 8px; }
-  .stat-lbl { font-size: 9px; color: rgba(250,249,245,0.5); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+
+  .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: center; }
+
+  .hero-text { display: flex; flex-direction: column; gap: 10px; }
+  .eyebrow { font-size: 9px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.24em; opacity: 0.85; display: inline-flex; align-items: center; gap: 8px; }
+  .eyebrow::before { content: ""; width: 14px; height: 1px; background: var(--gold); opacity: 0.6; }
+  .h1 { font-size: 24px; line-height: 1.05; letter-spacing: -0.025em; font-weight: 800; text-transform: uppercase; }
+  .h1 .accent { color: var(--gold); font-weight: 800; }
+  .lede { font-size: 10px; line-height: 1.55; color: rgba(250,249,245,0.62); max-width: 240px; font-weight: 400; }
+  .ctas { display: flex; gap: 8px; margin-top: 4px; }
+  .btn-1 { padding: 8px 16px; border-radius: 999px; background: var(--gold); color: #1A1A1A; font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; }
+  .btn-2 { padding: 8px 16px; border-radius: 999px; background: transparent; border: 1px solid var(--hairline-strong); color: var(--ivory); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; }
+
+  /* Hero image card */
+  .hero-image { position: relative; aspect-ratio: 4/3.2; border-radius: 14px; overflow: hidden; background:
+    radial-gradient(circle at 20% 20%, rgba(224,169,58,0.18) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(29,158,117,0.22) 0%, transparent 60%),
+    linear-gradient(140deg, #043831, #02211C);
+    border: 1px solid var(--hairline);
+  }
+  .hero-image::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(250,249,245,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(250,249,245,0.04) 1px, transparent 1px);
+    background-size: 18px 18px;
+    opacity: 0.6;
+  }
+  .pump-badge { position: absolute; top: 10px; left: 10px; display: inline-flex; align-items: center; gap: 5px; padding: 4px 8px; border-radius: 999px; background: rgba(4,52,44,0.7); border: 1px solid var(--hairline-strong); backdrop-filter: blur(6px); font-size: 8px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+  .pump-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 6px var(--mint); }
+  .pump-tag { position: absolute; bottom: 10px; left: 10px; font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.55; }
+  .pump-shape { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60%; height: 60%; }
+  .pump-circle { position: absolute; inset: 0; border-radius: 50%; border: 1.5px dashed rgba(224,169,58,0.35); }
+  .pump-inner { position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle at 35% 35%, rgba(224,169,58,0.4), rgba(4,52,44,0.7) 70%); border: 1px solid rgba(224,169,58,0.4); }
+  .pump-hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; border-radius: 50%; background: var(--gold); }
+
+  /* Stats strip */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding-top: 12px; border-top: 1px solid var(--hairline); }
+  .stat { padding: 8px 10px; border-radius: 10px; background: rgba(250,249,245,0.03); border: 1px solid var(--hairline); }
+  .stat-val { font-size: 16px; font-weight: 800; line-height: 1; }
+  .stat-val .acc { color: var(--gold); }
+  .stat-lbl { margin-top: 4px; font-size: 8px; font-weight: 600; color: rgba(250,249,245,0.55); text-transform: uppercase; letter-spacing: 0.16em; }
 </style>
 </head>
 <body>
   <nav>
-    <div class="logo-skel pulse"></div>
+    <div class="brand">JIANGSU<span class="cn">江苏</span></div>
     <div class="nav-links">
-      <div>Profile</div>
+      <div class="active">Profile</div>
       <div>Products</div>
+      <div>Catalogue</div>
       <div>Contact</div>
-      <div class="nav-lang">EN / 中</div>
+      <div class="nav-lang">EN · 中</div>
     </div>
   </nav>
+
   <div class="hero">
-    <div class="eyebrow">Export Manufacturing</div>
-    <div class="h1-line-1 pulse"></div>
-    <div class="h1-line-2 pulse"></div>
-    <div class="lede pulse"></div>
-    <div class="lede-2 pulse"></div>
-    <div class="ctas">
-      <div class="btn-1">Request Quote</div>
-      <div class="btn-2">Catalogue</div>
+    <div class="hero-text">
+      <div class="eyebrow">Industrial Manufacturing</div>
+      <div class="h1">Centrifugal<br/><span class="accent">Pumps.</span> Industrial<br/>scale.</div>
+      <div class="lede">ISO 9001 hardware factory in Wuxi, exporting precision pumps to 38 countries since 2018.</div>
+      <div class="ctas">
+        <span class="btn-1">Request Quote</span>
+        <span class="btn-2">View Catalogue</span>
+      </div>
     </div>
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-val pulse"></div>
-        <div class="stat-lbl">SKUs</div>
+
+    <div class="hero-image">
+      <div class="pump-badge"><span class="dot"></span>Live · 2,000 m³/h</div>
+      <div class="pump-shape">
+        <div class="pump-circle"></div>
+        <div class="pump-inner"></div>
+        <div class="pump-hub"></div>
       </div>
-      <div class="stat">
-        <div class="stat-val pulse" style="background: var(--mint)"></div>
-        <div class="stat-lbl">Countries</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val pulse" style="background: var(--gold)"></div>
-        <div class="stat-lbl">Experience</div>
-      </div>
+      <div class="pump-tag">GX-2000 · Centrifugal</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-val">12<span class="acc">+</span></div>
+      <div class="stat-lbl">SKUs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">38<span class="acc">·</span></div>
+      <div class="stat-lbl">Countries</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">ISO<span class="acc"> 9001</span></div>
+      <div class="stat-lbl">Certified</div>
     </div>
   </div>
 </body>

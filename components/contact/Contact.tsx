@@ -13,8 +13,8 @@ export function Contact() {
     <section
       id="contact"
       style={{
-        background: "var(--bg-secondary, #FAF9F5)",
-        color: "var(--fg-secondary, #04342C)",
+        background: "var(--bg)",
+        color: "var(--fg)",
         borderTop: "1px solid var(--hairline)",
         borderTopLeftRadius: "var(--radius-cards)",
         borderTopRightRadius: "var(--radius-cards)",
@@ -120,7 +120,7 @@ export function Contact() {
                 gap: 12,
               }}
             >
-              {["WeChat", "QQ"].map((platform) => (
+              {["WeChat"].map((platform) => (
                 <button
                   key={platform}
                   style={{

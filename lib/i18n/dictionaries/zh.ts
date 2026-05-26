@@ -169,7 +169,7 @@ export const zh: Dict = {
     },
     values: {
       phone: "+86 755 8888 0000",
-      email: "hello@steez.cn",
+      email: "hello@steez.digital",
       hq: "浙江杭州",
       hours: "周一至周六 09:00–19:00 北京时间",
     },
