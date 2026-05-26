@@ -1,7 +1,8 @@
+"use client";
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Loader2 } from 'lucide-react';
-import { FaMap } from 'react-icons/fa6';
+import { X, Loader2, Map as FaMap } from 'lucide-react';
 
 interface ViewOnMapProps {
   locationName?: string;
