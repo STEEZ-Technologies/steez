@@ -6,6 +6,9 @@
 <title>COMAI · Smart Bathroom Systems — Product Catalog</title>
 <link rel="preload" as="image" href="pics/floor_mounted.png">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
@@ -205,6 +208,13 @@ ul { list-style:none }
   filter:drop-shadow(0 28px 56px rgba(0,0,0,.5)) drop-shadow(0 4px 18px rgba(0,0,0,.28));
   will-change:transform;
 }
+.hero-img-wrap > video {
+  display:block; position:relative; z-index:1;
+  width:100%; height:auto;
+  border-radius:4px;
+  filter:drop-shadow(0 28px 56px rgba(0,0,0,.5)) drop-shadow(0 4px 18px rgba(0,0,0,.28));
+  will-change:transform;
+}
 .hero-reflection {
   position:absolute; bottom:-10px; left:14%; right:14%; height:24px; z-index:0;
   background:radial-gradient(ellipse at 50% 100%, rgba(248,244,238,.1) 0%, transparent 65%);
@@ -262,8 +272,14 @@ ul { list-style:none }
 @media(max-width:768px) { .ds-inner{grid-template-columns:1fr} .ds-img{height:280px} .ds-content{border-left:none;border-top:1px solid var(--line);padding:36px 20px} }
 
 /* ── EXPERIENCE ─────────────────────────────────────────────── */
-#experience { background:var(--graphite); overflow:hidden }
-.exp-pin { display:grid; grid-template-columns:1fr 1fr; min-height:100svh }
+/* Section is 400vh tall; .exp-pin sticks at top for scroll-driven panel switching */
+#experience { background:var(--graphite); height:400vh }
+.exp-pin {
+  position:sticky; top:0;
+  height:100vh; height:100svh;
+  display:grid; grid-template-columns:1fr 1fr;
+  overflow:hidden;
+}
 .exp-left { padding:clamp(56px,8vw,104px) clamp(32px,5vw,72px); display:flex; flex-direction:column; justify-content:center; position:relative; z-index:2 }
 .exp-eyebrow { font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(184,161,116,.55); margin-bottom:40px; font-weight:400 }
 .exp-panels-wrap { position:relative; min-height:200px }
@@ -282,11 +298,15 @@ ul { list-style:none }
 .exp-img-slide::after { content:''; position:absolute; inset:0; background:linear-gradient(to right,rgba(21,21,21,.58) 0%,transparent 42%); pointer-events:none }
 .exp-num { position:absolute; bottom:28px; right:28px; font-size:56px; font-weight:300; color:rgba(255,255,255,.05); letter-spacing:-.05em; z-index:2; line-height:1; pointer-events:none }
 @media(max-width:768px) {
-  .exp-pin { grid-template-columns:1fr; min-height:auto }
-  .exp-right { height:56vw; min-height:220px; order:-1 }
-  .exp-img-frame { position:absolute; inset:0 }
-  .exp-left { padding:32px 20px 52px }
-  .exp-panel { position:relative; top:auto; left:auto; right:auto }
+  #experience { height:400svh }
+  .exp-pin {
+    grid-template-columns:1fr;
+    grid-template-rows:52vw auto;
+    height:auto;
+    min-height:0;
+  }
+  .exp-right { order:-1 }
+  .exp-left { padding:20px 20px 24px; justify-content:flex-start }
   .exp-panels-wrap { min-height:unset }
 }
 
@@ -314,7 +334,7 @@ ul { list-style:none }
 .fb { padding:7px 16px; border-radius:999px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; border:1px solid var(--line); color:var(--ash); transition:all .25s; cursor:pointer; background:transparent; font-family:var(--sans) }
 .fb.on,.fb:hover { border-color:var(--graphite); color:var(--graphite); background:var(--warm-white) }
 .prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
-.prod-card { background:var(--warm-white); border-radius:var(--r-md); overflow:hidden; border:1px solid var(--line); transition:all .35s var(--ease); cursor:pointer; box-shadow:var(--shadow-s); position:relative }
+.prod-card { background:var(--warm-white); border-radius:var(--r-md); overflow:hidden; border:1px solid var(--line); transition:all .35s var(--ease); cursor:pointer; box-shadow:var(--shadow-s); position:relative; display:flex; flex-direction:column }
 .prod-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-m); border-color:var(--stone-2) }
 .prod-card.flagship { border-color:var(--stone-2) }
 .flagship-mark { position:absolute; top:12px; left:12px; z-index:3; display:flex; align-items:center; gap:5px }
@@ -324,13 +344,13 @@ ul { list-style:none }
 .prod-img img { width:100%; height:100%; object-fit:contain; padding:20px; transition:transform .5s var(--ease) }
 .prod-card:hover .prod-img img { transform:scale(1.03) }
 .prod-img::after { content:''; position:absolute; bottom:0; right:0; width:60px; height:60px; background:radial-gradient(ellipse at bottom right,var(--warm-white) 20%,transparent 70%); pointer-events:none }
-.prod-body { padding:18px 20px 20px }
+.prod-body { padding:18px 20px 20px; display:flex; flex-direction:column; flex:1 }
 .prod-model { font-size:28px; font-weight:300; color:var(--graphite); line-height:1; letter-spacing:-.04em; margin-bottom:3px }
 .prod-cat { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ash-light); margin-bottom:9px }
 .prod-desc { font-size:12px; color:var(--ash); line-height:1.55; margin-bottom:12px }
 .prod-feats { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:14px }
 .pf { padding:3px 8px; background:var(--porcelain); border:1px solid var(--line); border-radius:999px; font-size:10px; color:var(--ash); white-space:nowrap }
-.prod-actions { display:flex; gap:7px }
+.prod-actions { display:flex; gap:7px; margin-top:auto; padding-top:4px }
 .prod-actions .btn { flex:1; font-size:11px; padding:9px 12px }
 @media(max-width:900px) { .prod-grid{grid-template-columns:repeat(2,1fr)} }
 @media(max-width:520px) { .prod-grid{grid-template-columns:1fr} .prod-actions .btn{padding:11px;font-size:12px} }
@@ -464,12 +484,15 @@ ul { list-style:none }
 .m-close:hover { background:var(--stone-2) }
 .m-body { padding:16px clamp(18px,4vw,44px) 32px }
 @media(min-width:768px) { .m-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start} }
-.m-img-main { width:100%; aspect-ratio:1; object-fit:contain; background:linear-gradient(180deg,var(--stone) 0%,var(--warm-white) 100%); border-radius:var(--r-sm); padding:20px; margin-bottom:9px }
+.m-viewer-wrap { position:relative; width:100%; aspect-ratio:1; margin-bottom:9px; border-radius:var(--r-sm); overflow:hidden; background:linear-gradient(180deg,var(--stone) 0%,var(--warm-white) 100%) }
+.m-viewer-wrap model-viewer { display:block !important; width:100%; height:100%; --poster-color:transparent; background:transparent }
+.m-img-main { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:20px; display:none }
 .m-gallery { display:flex; gap:7px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none; margin-bottom:8px }
 .m-gallery::-webkit-scrollbar { display:none }
 .m-thumb { width:60px; height:60px; border-radius:7px; overflow:hidden; flex-shrink:0; border:1px solid var(--line); cursor:pointer; transition:border-color .2s }
 .m-thumb.on { border-color:var(--champagne) }
 .m-thumb img { width:100%; height:100%; object-fit:contain; background:linear-gradient(180deg,var(--stone) 0%,var(--warm-white) 100%); padding:5px }
+.m-thumb-3d { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--graphite); color:var(--warm-white); font-size:10px; font-weight:700; letter-spacing:.08em }
 .m-model { font-size:clamp(40px,6vw,60px); font-weight:300; color:var(--graphite); line-height:.92; letter-spacing:-.04em }
 .m-cat { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ash-light); margin:6px 0 9px }
 .m-desc { font-size:13px; color:var(--ash); line-height:1.65; margin-bottom:16px }
@@ -592,18 +615,12 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
     <div class="hero-visual" id="heroVisual">
       <div class="hero-img-wrap" id="heroImgWrap">
         <div class="hero-porcelain-glow"></div>
-        <img src="pics/floor_mounted.png" id="heroImg" alt="COMAI S90 Flagship Intelligent Toilet" loading="eager">
+        <video id="heroImg" autoplay loop muted playsinline>
+          <source src="animation/toilet_hero.mov" type="video/quicktime">
+          <source src="animation/toilet_hero.mov" type="video/mp4">
+        </video>
         <div class="hero-img-edge"></div>
         <div class="hero-reflection"></div>
-        <div class="hero-label" id="heroLabel">
-          <div class="hl-model">S90</div>
-          <div class="hl-cat">Flagship Intelligent Toilet</div>
-          <div class="hl-features">
-            <div class="hl-feat"><span class="hl-dot"></span>Auto Open · Heated Seat</div>
-            <div class="hl-feat"><span class="hl-dot"></span>UV Sterilization</div>
-            <div class="hl-feat"><span class="hl-dot"></span>Auto Deodorization</div>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -666,7 +683,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
       <div class="exp-img-frame">
         <div class="exp-img-slide active" data-slide="0">
           <img src="pics/big_toilet.png" alt="Elevated Comfort" loading="lazy"
-               style="object-fit:cover;object-position:58% center;transform:scale(1.18)">
+               style="object-fit:cover;object-position:center 30%">
         </div>
         <div class="exp-img-slide" data-slide="1">
           <img src="pics/water_steam_detailed.png" alt="Personalized Hygiene" loading="lazy">
@@ -766,7 +783,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
           <div class="prod-model">W3</div><div class="prod-cat">Smart Toilet Seat</div>
           <div class="prod-desc">Entry-level smart seat with rear and front wash, five-level heated seat, and UV nozzle sterilization. Fits standard elongated and round bowls.</div>
           <div class="prod-feats"><span class="pf">Rear Wash</span><span class="pf">Front Wash</span><span class="pf">Heated Seat</span><span class="pf">UV Sterilization</span></div>
-          <div class="prod-actions"><button class="btn btn-ghost-l btn-sm" onclick="openDetail(\'W3\')" data-t="nav_products">Details</button><button class="btn btn-dark btn-sm" onclick="openViewer(\'W3\')" data-t="mob_3d">View in 3D</button></div>
+          <div class="prod-actions"><button class="btn btn-dark btn-sm" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-t="prod_btn_contact">Contact</button><button class="btn btn-ghost-l btn-sm" onclick="openDetail('W3')" data-t="prod_btn_details">Details</button></div>
         </div>
       </div>
       <div class="prod-card rv" data-cat="Smart Seats" data-model="W5" style="transition-delay:.05s">
@@ -775,7 +792,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
           <div class="prod-model">W5</div><div class="prod-cat">Smart Bidet System</div>
           <div class="prod-desc">Slim-profile bidet seat with tankless instant heating, self-cleaning stainless nozzle, night light, and intelligent ECO standby mode.</div>
           <div class="prod-feats"><span class="pf">Instant Heating</span><span class="pf">ECO Mode</span><span class="pf">Self-Cleaning</span><span class="pf">Night Light</span></div>
-          <div class="prod-actions"><button class="btn btn-ghost-l btn-sm" onclick="openDetail(\'W5\')" data-t="nav_products">Details</button><button class="btn btn-dark btn-sm" onclick="openViewer(\'W5\')" data-t="mob_3d">View in 3D</button></div>
+          <div class="prod-actions"><button class="btn btn-dark btn-sm" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-t="prod_btn_contact">Contact</button><button class="btn btn-ghost-l btn-sm" onclick="openDetail('W5')" data-t="prod_btn_details">Details</button></div>
         </div>
       </div>
       <div class="prod-card rv" data-cat="Wall-Mounted" data-model="I6" style="transition-delay:.10s">
@@ -784,7 +801,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
           <div class="prod-model">I6</div><div class="prod-cat">Wall-Mounted Intelligent Toilet</div>
           <div class="prod-desc">Rimless wall-hung intelligent toilet. Concealed cistern compatible. Integrated heated seat, dryer, and wireless remote. Rough-in 180–230mm adjustable.</div>
           <div class="prod-feats"><span class="pf">Dryer</span><span class="pf">Heated Seat</span><span class="pf">Remote Control</span><span class="pf">ECO Mode</span></div>
-          <div class="prod-actions"><button class="btn btn-ghost-l btn-sm" onclick="openDetail(\'I6\')" data-t="nav_products">Details</button><button class="btn btn-dark btn-sm" onclick="openViewer(\'I6\')" data-t="mob_3d">View in 3D</button></div>
+          <div class="prod-actions"><button class="btn btn-dark btn-sm" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-t="prod_btn_contact">Contact</button><button class="btn btn-ghost-l btn-sm" onclick="openDetail('I6')" data-t="prod_btn_details">Details</button></div>
         </div>
       </div>
       <div class="prod-card rv" data-cat="Wall-Mounted" data-model="I7" style="transition-delay:.0s">
@@ -793,7 +810,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
           <div class="prod-model">I7</div><div class="prod-cat">Wall-Mounted Intelligent Toilet</div>
           <div class="prod-desc">Premium wall-hung model with rear and front wash, self-cleaning nozzle, app control, and 6-level seat temperature. CE and RoHS certified.</div>
           <div class="prod-feats"><span class="pf">Rear Wash</span><span class="pf">Front Wash</span><span class="pf">Self-Cleaning</span><span class="pf">App Control</span></div>
-          <div class="prod-actions"><button class="btn btn-ghost-l btn-sm" onclick="openDetail(\'I7\')" data-t="nav_products">Details</button><button class="btn btn-dark btn-sm" onclick="openViewer(\'I7\')" data-t="mob_3d">View in 3D</button></div>
+          <div class="prod-actions"><button class="btn btn-dark btn-sm" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-t="prod_btn_contact">Contact</button><button class="btn btn-ghost-l btn-sm" onclick="openDetail('I7')" data-t="prod_btn_details">Details</button></div>
         </div>
       </div>
       <div class="prod-card flagship rv" data-cat="Floor-Mounted Flagship" data-model="S90" style="transition-delay:.05s">
@@ -803,7 +820,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
           <div class="prod-model">S90</div><div class="prod-cat">Floor-Mounted Intelligent Toilet</div>
           <div class="prod-desc">Flagship integrated floor-mount. Auto open/close lid, UV sterilization, auto deodorization, night light, and full remote + app control. Specified in hotel and premium residential projects.</div>
           <div class="prod-feats"><span class="pf">Auto Open/Close</span><span class="pf">UV Sterilization</span><span class="pf">Auto Deodorization</span><span class="pf">Night Light</span></div>
-          <div class="prod-actions"><button class="btn btn-ghost-l btn-sm" onclick="openDetail(\'S90\')" data-t="nav_products">Details</button><button class="btn btn-dark btn-sm" onclick="openViewer(\'S90\')" data-t="mob_3d">View in 3D</button></div>
+          <div class="prod-actions"><button class="btn btn-dark btn-sm" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-t="prod_btn_contact">Contact</button><button class="btn btn-ghost-l btn-sm" onclick="openDetail('S90')" data-t="prod_btn_details">Details</button></div>
         </div>
       </div>
       <div class="prod-card rv" data-cat="Floor-Mounted" data-model="P90" style="transition-delay:.10s">
@@ -812,7 +829,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
           <div class="prod-model">P90</div><div class="prod-cat">Floor-Mounted Intelligent Toilet</div>
           <div class="prod-desc">Mid-range integrated floor-mount with automatic lid, warm-air dryer, six-level heated seat, and intelligent ECO power management. High value-to-specification ratio.</div>
           <div class="prod-feats"><span class="pf">Auto Open/Close</span><span class="pf">Heated Seat</span><span class="pf">Dryer</span><span class="pf">ECO Mode</span></div>
-          <div class="prod-actions"><button class="btn btn-ghost-l btn-sm" onclick="openDetail(\'P90\')" data-t="nav_products">Details</button><button class="btn btn-dark btn-sm" onclick="openViewer(\'P90\')" data-t="mob_3d">View in 3D</button></div>
+          <div class="prod-actions"><button class="btn btn-dark btn-sm" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-t="prod_btn_contact">Contact</button><button class="btn btn-ghost-l btn-sm" onclick="openDetail('P90')" data-t="prod_btn_details">Details</button></div>
         </div>
       </div>
     </div>
@@ -823,29 +840,17 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
 <section id="viewer3d" class="sec">
   <div class="wrap">
     <div class="v3d-inner">
-      <div class="v3d-visual rv-l">
-        <img src="pics/floor_mounted.png" alt="S90 3D Preview" loading="lazy">
-        <div style="position:absolute;inset:0">
-          <div class="v3d-hs-item" style="top:19%;left:60%">
-            <div class="v3d-hs-dot"></div><span class="v3d-hs-lbl">Heated Seat</span>
-          </div>
-          <div class="v3d-hs-item" style="top:44%;left:52%">
-            <div class="v3d-hs-dot"></div><span class="v3d-hs-lbl">UV Sterilization</span>
-          </div>
-          <div class="v3d-hs-item" style="top:67%;left:45%">
-            <div class="v3d-hs-dot"></div><span class="v3d-hs-lbl">Auto Deodorization</span>
-          </div>
-        </div>
+      <div class="v3d-visual rv-l" style="background:transparent">
+        <canvas id="v3dCanvas" style="width:100%;height:100%;display:block;border-radius:var(--r-md)"></canvas>
       </div>
       <div class="rv-r">
         <span class="eyebrow" data-t="v3d_eyebrow">Interactive 3D</span>
         <h2 class="h2 h2-light mt-3" data-t="v3d_title">Explore the Details<br>in 3D</h2>
         <p class="v3d-desc" data-t="v3d_desc">Rotate, zoom, and inspect each model directly from the catalog. GLB model files load automatically when placed in the /models/ folder.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn btn-primary" onclick="openViewer('S90')" data-t="v3d_btn">Open S90 in 3D</button>
           <a href="#comparison" class="btn btn-ghost-d" data-t="hero_compare_link">Compare Models →</a>
         </div>
-        <p class="v3d-note" data-t="v3d_note">GLB files in /models/ folder enable full interactive rotation</p>
+        <p class="v3d-note" data-t="v3d_note">Drag to rotate · Scroll to zoom</p>
       </div>
     </div>
   </div>
@@ -903,31 +908,8 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
       <span class="eyebrow" data-t="con_eyebrow">Trade Enquiries</span>
       <h2 class="h2 h2-light mt-3" data-t="con_title">Let's Talk<br>Business</h2>
     </div>
-    <div class="contact-grid">
-      <div class="rv-l">
-        <form onsubmit="handleForm(event)">
-          <div class="fg-row">
-            <div class="fg"><label data-t="con_l_name">Name</label><input type="text" data-tp="con_p_name" placeholder="Your name" required></div>
-            <div class="fg"><label data-t="con_l_comp">Company</label><input type="text" data-tp="con_p_comp" placeholder="Company name"></div>
-          </div>
-          <div class="fg"><label data-t="con_l_email">Email</label><input type="email" data-tp="con_p_email" placeholder="your@email.com" required></div>
-          <div class="fg">
-            <label data-t="con_l_type">Inquiry Type</label>
-            <select>
-              <option value="" data-t="con_opt_0">Select product or service</option>
-              <option data-t="con_opt_1">Smart Toilet Seats (W3 / W5)</option>
-              <option data-t="con_opt_2">Wall-Mounted Toilets (I6 / I7)</option>
-              <option data-t="con_opt_3">Floor-Mounted Toilets (S90 / P90)</option>
-              <option data-t="con_opt_4">Project / Bulk Order</option>
-              <option data-t="con_opt_5">Technical Support</option>
-              <option data-t="con_opt_6">General Inquiry</option>
-            </select>
-          </div>
-          <div class="fg"><label data-t="con_l_msg">Message</label><textarea data-tp="con_p_msg" placeholder="Describe your project or inquiry..."></textarea></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;border-radius:8px" data-t="con_btn_send">Send Inquiry</button>
-        </form>
-      </div>
-      <div class="rv-r">
+    <div class="contact-grid" style="grid-template-columns:1fr;max-width:560px">
+      <div class="rv">
         <div class="wechat-card">
           <div class="wechat-card-title" data-t="con_wc_t">WeChat Business</div>
           <div class="wc-inner">
@@ -1037,6 +1019,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
 const T = {
   en: {
     nav_products: "Products", nav_3d: "3D Viewer", nav_compare: "Compare", nav_tech: "Technology", nav_contact: "Contact", nav_cta: "Contact Us",
+    prod_btn_details: "Details", prod_btn_contact: "Contact",
     mob_home: "Home", mob_products: "Products", mob_3d: "3D", mob_compare: "Compare", mob_contact: "Contact",
     hero_eyebrow: "Est. 2007 · Hangzhou · Smart Bathroom Technology", hero_brand_sys: "Smart Bathroom Systems",
     hero_sub: "Smart toilets, bidet seats, and precision hygiene technology for modern residential and hospitality bathrooms.",
@@ -1083,6 +1066,7 @@ const T = {
   },
   zh: {
     nav_products: "产品系列", nav_3d: "3D 展示", nav_compare: "产品对比", nav_tech: "核心技术", nav_contact: "联系我们", nav_cta: "联系我们",
+    prod_btn_details: "详情", prod_btn_contact: "联系我们",
     mob_home: "首页", mob_products: "产品", mob_3d: "3D", mob_compare: "对比", mob_contact: "联系",
     hero_eyebrow: "始于2007 · 杭州 · 智能卫浴科技", hero_brand_sys: "智能卫浴系统",
     hero_sub: "为现代家居与酒店提供智能马桶、智能便盖及精密卫浴科技。",
@@ -1131,12 +1115,12 @@ const T = {
 
 // ─── DATA ──────────────────────────────────────────────────────
 const P = {
-  W3:  { model:'W3',  cat:{en:'Smart Toilet Seat', zh:'智能便盖'},               img:'pics/smart_toilet_seat.png',  desc:{en:'Entry-level smart seat with rear and front wash, five-level heated seat, and UV nozzle sterilization. Fits standard elongated and round bowls.', zh:'入门级智能便盖，配备臀部与女性清洗、五档座圈加热及UV喷嘴杀菌。适配标准长圆形和圆形马桶。'},                      features:{en:['Rear Wash','Front Wash','Heated Seat','UV Sterilization','Night Light'], zh:['臀部清洗','女性清洗','座圈加热','UV紫外线杀菌','夜灯功能']},                  gallery:['pics/smart_toilet_seat.png','pics/smart_toilet_bidet.png','pics/smart_toilet_bidet2.png','pics/detailed_shot.png','pics/close-up.png'],       specs:{Category:{en:'Smart Toilet Seat',zh:'智能便盖'},Size:'490×380×155 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':{en:'Yes',zh:'是'},Dryer:'—','Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Side Panel',zh:'侧边面板'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
-  W5:  { model:'W5',  cat:{en:'Smart Bidet System', zh:'智能冲洗系统'},              img:'pics/smart_toilet_bidet.png', desc:{en:'Slim-profile bidet seat with tankless instant heating, self-cleaning stainless nozzle, night light, and intelligent ECO standby mode.', zh:'超薄智能便盖，配备无水箱即热技术、不锈钢自洁喷嘴、夜灯及智能节能待机模式。'},               features:{en:['Instant Heating','ECO Mode','Self-Cleaning Nozzle','Side Control','Night Light'], zh:['即热技术','节能模式','喷嘴自洁','侧边控制','夜灯功能']},         gallery:['pics/smart_toilet_bidet.png','pics/smart_toilet_bidet2.png','pics/smart_toilet_seat.png','pics/detailed_shot.png','pics/close-up.png'],      specs:{Category:{en:'Smart Bidet System',zh:'智能冲洗系统'},Size:'510×395×160 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Side Panel + Wireless',zh:'侧板 + 无线遥控'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
-  I6:  { model:'I6',  cat:{en:'Wall-Mounted Intelligent Toilet', zh:'壁挂式智能马桶'}, img:'pics/wall_mounted.png',       desc:{en:'Rimless wall-hung intelligent toilet. Concealed cistern compatible. Integrated heated seat, dryer, and wireless remote. Rough-in 180–230mm adjustable.', zh:'无边框壁挂式智能马桶，兼容隐蔽水箱。集成座圈加热、暖风烘干及无线遥控。粗排距180–230mm可调。'},                            features:{en:['Dryer','Heated Seat','Remote Control','ECO Mode','SPA Wash'], zh:['暖风烘干','座圈加热','无线遥控','节能模式','SPA按摩洗']},                             gallery:['pics/wall_mounted.png','pics/wall_mounted_seat.png','pics/bathroom1.png','pics/luxuty_hotel.png'],                                           specs:{Category:{en:'Wall-Mounted',zh:'壁挂式'},Size:'530×380×390 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Wireless',zh:'无线遥控'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':'—','3D Model':{en:'Ready',zh:'已就绪'}} },
-  I7:  { model:'I7',  cat:{en:'Wall-Mounted Intelligent Toilet', zh:'壁挂式智能马桶'}, img:'pics/wall_mounted_seat.png',  desc:{en:'Premium wall-hung model with rear and front wash, self-cleaning nozzle, app control, and 6-level seat temperature. CE and RoHS certified.', zh:'高端壁挂型号，配备臀部与女性清洗、自洁喷嘴、APP控制及6档座温。已通过CE和RoHS认证。'},                      features:{en:['Rear Wash','Front Wash','Self-Cleaning Nozzle','Remote Control','ECO Mode'], zh:['臀部清洗','女性清洗','喷嘴自洁','无线遥控','节能模式']},              gallery:['pics/wall_mounted_seat.png','pics/wall_mounted.png','pics/bathroom1.png','pics/luxuty_hotel.png'],                                           specs:{Category:{en:'Wall-Mounted',zh:'壁挂式'},Size:'550×385×395 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':{en:'Yes',zh:'是'},'Remote Control':{en:'Wireless + App',zh:'无线遥控 + APP'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
-  S90: { model:'S90', cat:{en:'Floor-Mounted Intelligent Toilet', zh:'落地式智能马桶'},img:'pics/floor_mounted.png',      desc:{en:'Flagship integrated floor-mount. Auto open/close lid, UV sterilization, auto deodorization, night light, and full remote + app control. Specified in hotel and premium residential projects.', zh:'旗舰级落地一体机。自动开闭盖、UV杀菌、自动除臭、夜灯，及完整遥控+APP控制。广泛指定用于酒店及高端住宅项目。'},        features:{en:['Auto Open / Close','UV Sterilization','Auto Deodorization','Night Light','Remote Control'], zh:['自动开闭','UV紫外线杀菌','自动除臭','夜灯功能','无线遥控']},gallery:['pics/floor_mounted.png','pics/toilet_closed.png','pics/close-up.png','pics/water_steam_detailed.png'],                                    specs:{Category:{en:'Floor-Mounted (Flagship)',zh:'落地式（旗舰款）'},Size:'720×390×460 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':{en:'Yes',zh:'是'},Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':{en:'Yes',zh:'是'},'Auto Deodorization':{en:'Yes',zh:'是'},'Remote Control':{en:'Wireless + App',zh:'无线遥控 + APP'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
-  P90: { model:'P90', cat:{en:'Floor-Mounted Intelligent Toilet', zh:'落地式智能马桶'},img:'pics/toilet_closed.png',      desc:{en:'Mid-range integrated floor-mount with automatic lid, warm-air dryer, six-level heated seat, and intelligent ECO power management. High value-to-specification ratio.', zh:'中档落地一体机，配备自动翻盖、暖风烘干、六档座圈加热及智能节能管理。配置性价比出色。'},         features:{en:['Auto Open / Close','Heated Seat','Dryer','ECO Mode','Knob Control'], zh:['自动开闭','座圈加热','暖风烘干','节能模式','旋钮控制']},                      gallery:['pics/toilet_closed.png','pics/floor_mounted.png','pics/close-up.png','pics/water_steam_detailed.png'],                                       specs:{Category:{en:'Floor-Mounted',zh:'落地式'},Size:'700×385×455 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':{en:'Yes',zh:'是'},'Auto Deodorization':'—','Remote Control':{en:'Knob Panel',zh:'旋钮面板'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':'—','3D Model':{en:'Ready',zh:'已就绪'}} }
+  W3:  { model:'W3',  glb:'models/numi_2.glb', cat:{en:'Smart Toilet Seat', zh:'智能便盖'},               img:'pics/smart_toilet_seat.png',  desc:{en:'Entry-level smart seat with rear and front wash, five-level heated seat, and UV nozzle sterilization. Fits standard elongated and round bowls.', zh:'入门级智能便盖，配备臀部与女性清洗、五档座圈加热及UV喷嘴杀菌。适配标准长圆形和圆形马桶。'},                      features:{en:['Rear Wash','Front Wash','Heated Seat','UV Sterilization','Night Light'], zh:['臀部清洗','女性清洗','座圈加热','UV紫外线杀菌','夜灯功能']},                  gallery:['pics/smart_toilet_seat.png','pics/smart_toilet_bidet.png','pics/smart_toilet_bidet2.png','pics/detailed_shot.png','pics/close-up.png'],       specs:{Category:{en:'Smart Toilet Seat',zh:'智能便盖'},Size:'490×380×155 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':{en:'Yes',zh:'是'},Dryer:'—','Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Side Panel',zh:'侧边面板'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
+  W5:  { model:'W5',  glb:'models/uploads-files-2298081-02.glb', cat:{en:'Smart Bidet System', zh:'智能冲洗系统'},              img:'pics/smart_toilet_bidet.png', desc:{en:'Slim-profile bidet seat with tankless instant heating, self-cleaning stainless nozzle, night light, and intelligent ECO standby mode.', zh:'超薄智能便盖，配备无水箱即热技术、不锈钢自洁喷嘴、夜灯及智能节能待机模式。'},               features:{en:['Instant Heating','ECO Mode','Self-Cleaning Nozzle','Side Control','Night Light'], zh:['即热技术','节能模式','喷嘴自洁','侧边控制','夜灯功能']},         gallery:['pics/smart_toilet_bidet.png','pics/smart_toilet_bidet2.png','pics/smart_toilet_seat.png','pics/detailed_shot.png','pics/close-up.png'],      specs:{Category:{en:'Smart Bidet System',zh:'智能冲洗系统'},Size:'510×395×160 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Side Panel + Wireless',zh:'侧板 + 无线遥控'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
+  I6:  { model:'I6',  glb:'models/uploads-files-3257004-closet1.glb', zoom:1.6, cat:{en:'Wall-Mounted Intelligent Toilet', zh:'壁挂式智能马桶'}, img:'pics/wall_mounted.png',       desc:{en:'Rimless wall-hung intelligent toilet. Concealed cistern compatible. Integrated heated seat, dryer, and wireless remote. Rough-in 180–230mm adjustable.', zh:'无边框壁挂式智能马桶，兼容隐蔽水箱。集成座圈加热、暖风烘干及无线遥控。粗排距180–230mm可调。'},                            features:{en:['Dryer','Heated Seat','Remote Control','ECO Mode','SPA Wash'], zh:['暖风烘干','座圈加热','无线遥控','节能模式','SPA按摩洗']},                             gallery:['pics/wall_mounted.png','pics/wall_mounted_seat.png','pics/bathroom1.png','pics/luxuty_hotel.png'],                                           specs:{Category:{en:'Wall-Mounted',zh:'壁挂式'},Size:'530×380×390 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Wireless',zh:'无线遥控'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':'—','3D Model':{en:'Ready',zh:'已就绪'}} },
+  I7:  { model:'I7',  glb:'models/numi_2.glb', cat:{en:'Wall-Mounted Intelligent Toilet', zh:'壁挂式智能马桶'}, img:'pics/wall_mounted_seat.png',  desc:{en:'Premium wall-hung model with rear and front wash, self-cleaning nozzle, app control, and 6-level seat temperature. CE and RoHS certified.', zh:'高端壁挂型号，配备臀部与女性清洗、自洁喷嘴、APP控制及6档座温。已通过CE和RoHS认证。'},                      features:{en:['Rear Wash','Front Wash','Self-Cleaning Nozzle','Remote Control','ECO Mode'], zh:['臀部清洗','女性清洗','喷嘴自洁','无线遥控','节能模式']},              gallery:['pics/wall_mounted_seat.png','pics/wall_mounted.png','pics/bathroom1.png','pics/luxuty_hotel.png'],                                           specs:{Category:{en:'Wall-Mounted',zh:'壁挂式'},Size:'550×385×395 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':{en:'Yes',zh:'是'},'Remote Control':{en:'Wireless + App',zh:'无线遥控 + APP'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
+  S90: { model:'S90', glb:'models/s90.glb', cat:{en:'Floor-Mounted Intelligent Toilet', zh:'落地式智能马桶'},img:'pics/floor_mounted.png',      desc:{en:'Flagship integrated floor-mount. Auto open/close lid, UV sterilization, auto deodorization, night light, and full remote + app control. Specified in hotel and premium residential projects.', zh:'旗舰级落地一体机。自动开闭盖、UV杀菌、自动除臭、夜灯，及完整遥控+APP控制。广泛指定用于酒店及高端住宅项目。'},        features:{en:['Auto Open / Close','UV Sterilization','Auto Deodorization','Night Light','Remote Control'], zh:['自动开闭','UV紫外线杀菌','自动除臭','夜灯功能','无线遥控']},gallery:['pics/floor_mounted.png','pics/toilet_closed.png','pics/close-up.png','pics/water_steam_detailed.png'],                                    specs:{Category:{en:'Floor-Mounted (Flagship)',zh:'落地式（旗舰款）'},Size:'720×390×460 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':{en:'Yes',zh:'是'},Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':{en:'Yes',zh:'是'},'Auto Deodorization':{en:'Yes',zh:'是'},'Remote Control':{en:'Wireless + App',zh:'无线遥控 + APP'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
+  P90: { model:'P90', glb:'models/uploads-files-3257004-closet1.glb', zoom:1.6, cat:{en:'Floor-Mounted Intelligent Toilet', zh:'落地式智能马桶'},img:'pics/toilet_closed.png',      desc:{en:'Mid-range integrated floor-mount with automatic lid, warm-air dryer, six-level heated seat, and intelligent ECO power management. High value-to-specification ratio.', zh:'中档落地一体机，配备自动翻盖、暖风烘干、六档座圈加热及智能节能管理。配置性价比出色。'},         features:{en:['Auto Open / Close','Heated Seat','Dryer','ECO Mode','Knob Control'], zh:['自动开闭','座圈加热','暖风烘干','节能模式','旋钮控制']},                      gallery:['pics/toilet_closed.png','pics/floor_mounted.png','pics/close-up.png','pics/water_steam_detailed.png'],                                       specs:{Category:{en:'Floor-Mounted',zh:'落地式'},Size:'700×385×455 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':{en:'Yes',zh:'是'},'Auto Deodorization':'—','Remote Control':{en:'Knob Panel',zh:'旋钮面板'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':'—','3D Model':{en:'Ready',zh:'已就绪'}} }
 };
 const SPEC_KEYS = {
   Category: {en:'Category', zh:'产品类别'},
@@ -1191,7 +1175,7 @@ function setLang(lang) {
 
   function showAll() {
     const els = ['#nav','#heroEyebrow','#heroBrandCn','#heroComai','#heroBrandSys',
-                 '#heroSub','#heroCtas','#heroLink','#heroBrandRow','#heroImgWrap','#heroLabel'];
+                 '#heroSub','#heroCtas','#heroLink','#heroBrandRow','#heroImgWrap'];
     els.forEach(sel => {
       const el = document.querySelector(sel);
       if (!el) return;
@@ -1218,7 +1202,7 @@ function setLang(lang) {
   gsap.set('#heroLink',      { opacity:0, y:10 });
   gsap.set('#heroBrandRow',  { opacity:0, y:10 });
   gsap.set('#heroImgWrap',   { opacity:0, y:44, scale:0.96, clipPath:'inset(14% 10% 10% 10% round 22px)' });
-  gsap.set('#heroLabel',     { opacity:0, y:22, scale:0.95 });
+
 
   const tl = gsap.timeline({ delay: 0.08 });
 
@@ -1235,12 +1219,9 @@ function setLang(lang) {
   tl.to('#heroBrandRow', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 1.58);
   tl.to('#heroImgWrap', { opacity: 1, y: 0, scale: 1, clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1.15, ease: 'power3.out' }, 0.9);
   tl.fromTo('#heroImg', { scale: 1.06, opacity: 0.7 }, { scale: 1.0, opacity: 1, duration: 0.72, ease: 'power2.out' }, 1.35);
-  tl.to('#heroLabel', { opacity: 1, y: 0, scale: 1, duration: 0.62, ease: 'power2.out' }, 1.58);
-
   tl.add(() => {
     gsap.to('#heroImgWrap', { y: -7, duration: 6.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
     gsap.to('#heroImg', { scale: 1.016, duration: 8, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-    gsap.to('#heroLabel', { y: -4, duration: 6.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
   }, '+=0.3');
 
   if (!isMobile) {
@@ -1318,6 +1299,61 @@ const ro = new IntersectionObserver(entries => {
 }, {threshold:.09});
 document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => ro.observe(el));
 
+/* Click anywhere on prod-card (except buttons) opens detail */
+document.querySelectorAll('.prod-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('button')) return;
+    const id = card.dataset.model;
+    if (id) openDetail(id);
+  });
+});
+
+/* ── Section 3D canvas (S90 auto-rotating) ── */
+(function() {
+  var canvas = document.getElementById('v3dCanvas');
+  if (!canvas || typeof THREE === 'undefined') return;
+  var wrap = canvas.parentElement;
+  var w = wrap.clientWidth || 400, h = wrap.clientHeight || 300;
+  canvas.width = w; canvas.height = h;
+  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(w, h, false);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
+  renderer.setClearColor(0x000000, 0);
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(38, w / h, 0.1, 200);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+  var key = new THREE.DirectionalLight(0xffffff, 2.0); key.position.set(3,5,3); scene.add(key);
+  var fill = new THREE.DirectionalLight(0xa0b0c0, 0.8); fill.position.set(-3,1,2); scene.add(fill);
+  var rim = new THREE.DirectionalLight(0xffffff, 0.5); rim.position.set(0,-2,-3); scene.add(rim);
+  var controls = null;
+  if (typeof THREE.OrbitControls === 'function') {
+    controls = new THREE.OrbitControls(camera, canvas);
+    controls.enablePan = false; controls.enableZoom = true;
+    controls.autoRotate = true; controls.autoRotateSpeed = 1.2;
+    controls.enableDamping = true; controls.dampingFactor = 0.1;
+  }
+  new THREE.GLTFLoader().load('models/s90.glb', function(gltf) {
+    var model = gltf.scene;
+    scene.add(model);
+    var box = new THREE.Box3().setFromObject(model);
+    var center = box.getCenter(new THREE.Vector3());
+    var size = box.getSize(new THREE.Vector3());
+    var maxDim = Math.max(size.x, size.y, size.z);
+    model.position.sub(center);
+    camera.position.set(0, maxDim * 0.1, maxDim * 2.4);
+    camera.lookAt(0, 0, 0);
+    if (controls) controls.target.set(0, 0, 0);
+    (function loop() {
+      requestAnimationFrame(loop);
+      if (controls) controls.update();
+      else model.rotation.y += 0.007;
+      renderer.render(scene, camera);
+    })();
+  });
+})();
+
 let expCurrent = 0;
 const expPanels = document.querySelectorAll('.exp-panel');
 const expSlides = document.querySelectorAll('.exp-img-slide');
@@ -1336,28 +1372,19 @@ function goExp(idx) {
   if(expNumEl) expNumEl.textContent = String(idx + 1).padStart(2,'0');
 }
 
-if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && window.innerWidth > 768) {
-  gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.create({
-    trigger: '#experience',
-    start: 'top top',
-    end: '+=300%',
-    pin: true,
-    pinSpacing: true,
-    onUpdate: (self) => {
-      const idx = Math.min(Math.floor(self.progress * 4), 3);
-      if (idx !== expCurrent) goExp(idx);
-    }
-  });
-} else {
+// Experience: CSS sticky handles pinning; scroll listener drives panel switching
+(function() {
   const expSection = document.getElementById('experience');
-  if (expSection && window.innerWidth <= 768) {
-    expPanels.forEach(p => { p.style.opacity = '1'; p.style.transform = 'none'; p.style.position = 'relative'; });
-    expSlides.forEach(s => { s.style.position = 'relative'; s.style.height = '56vw'; s.style.opacity = '1'; });
-    const expRight = document.getElementById('expRight');
-    if(expRight) expRight.style.height = 'auto';
-  }
-}
+  if (!expSection) return;
+  window.addEventListener('scroll', function() {
+    var top = expSection.getBoundingClientRect().top;
+    var total = expSection.offsetHeight - window.innerHeight;
+    if (total <= 0) return;
+    var progress = Math.max(0, Math.min(1, -top / total));
+    var idx = Math.min(Math.floor(progress * 4), 3);
+    if (idx !== expCurrent) goExp(idx);
+  }, { passive: true });
+})();
 
 function fp(cat, btn) {
   document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
@@ -1367,22 +1394,137 @@ function fp(cat, btn) {
   });
 }
 
+/* ── Modal 3D (Three.js canvas) ── */
+var _mRaf = null, _mRenderer = null, _mScene = null, _mCamera = null, _mGroup = null;
+
+function _mStop() {
+  if (_mRaf) { cancelAnimationFrame(_mRaf); _mRaf = null; }
+}
+function _mStart() { /* no-op — loop started inside _mLoad after model loads */ }
+function _mDispose() {
+  _mStop();
+  if (_mRenderer) { try { _mRenderer.dispose(); } catch(e){} _mRenderer = null; }
+  _mScene = null; _mCamera = null; _mGroup = null;
+}
+
+function mShow3d() {
+  document.querySelectorAll('.m-thumb').forEach(x => x.classList.remove('on'));
+  var t3d = document.getElementById('mThumb3d'); if(t3d) t3d.classList.add('on');
+  var canvas = document.getElementById('mCanvas');
+  var hero = document.getElementById('mHero');
+  if (canvas) canvas.style.display = 'block';
+  if (hero) hero.style.display = 'none';
+  _mStart();
+}
+
+function mShowImg(el, src) {
+  document.querySelectorAll('.m-thumb').forEach(x => x.classList.remove('on'));
+  el.classList.add('on');
+  _mStop();
+  var canvas = document.getElementById('mCanvas');
+  var hero = document.getElementById('mHero');
+  if (canvas) canvas.style.display = 'none';
+  if (hero) { hero.src = src; hero.style.display = 'block'; }
+}
+
+function _mLoad(glbPath, zoomOverride) {
+  var wrap = document.getElementById('mViewerWrap');
+  var canvas = document.getElementById('mCanvas');
+  if (!wrap || !canvas) return;
+  var w = wrap.clientWidth || 400;
+  var h = wrap.clientHeight || w;
+  canvas.width = w; canvas.height = h;
+  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(w, h, false);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
+  renderer.setClearColor(0x000000, 0); /* fully transparent clear */
+  var scene = new THREE.Scene();
+  scene.background = null; /* no background — let canvas gradient show through */
+  var aspect = w / (h || w);
+  var camera = new THREE.PerspectiveCamera(38, aspect, 0.1, 200);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.65));
+  var key = new THREE.DirectionalLight(0xffffff, 2.0); key.position.set(3,5,3); scene.add(key);
+  var fill = new THREE.DirectionalLight(0xa0b0c0, 0.8); fill.position.set(-3,1,2); scene.add(fill);
+  var rim = new THREE.DirectionalLight(0xffffff, 0.5); rim.position.set(0,-2,-3); scene.add(rim);
+  _mRenderer = renderer; _mScene = scene; _mCamera = camera;
+
+  /* OrbitControls for drag-to-rotate */
+  var controls = null;
+  if (typeof THREE.OrbitControls === 'function') {
+    controls = new THREE.OrbitControls(camera, canvas);
+    controls.enablePan = false;
+    controls.enableZoom = true;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1.5;
+    controls.dampingFactor = 0.1;
+    controls.enableDamping = true;
+  }
+
+  new THREE.GLTFLoader().load(glbPath,
+    function(gltf) {
+      var model = gltf.scene;
+      scene.add(model);
+      /* Compute bbox AFTER adding to scene so world transforms apply */
+      var box = new THREE.Box3().setFromObject(model);
+      var center = box.getCenter(new THREE.Vector3());
+      var size = box.getSize(new THREE.Vector3());
+      var maxDim = Math.max(size.x, size.y, size.z);
+      /* Center model */
+      model.position.sub(center);
+      /* Position camera to frame model */
+      var dist = maxDim * (zoomOverride || 2.5);
+      camera.position.set(0, maxDim * 0.1, dist);
+      camera.lookAt(0, 0, 0);
+      if (controls) controls.target.set(0, 0, 0);
+      _mGroup = model;
+      /* Animate loop */
+      (function loop() {
+        _mRaf = requestAnimationFrame(loop);
+        if (controls) controls.update();
+        else _mGroup.rotation.y += 0.007;
+        renderer.render(scene, camera);
+      })();
+    },
+    undefined,
+    function(err) {
+      console.warn('[modal 3D] load failed:', glbPath, err);
+      canvas.style.display = 'none';
+      var hero = document.getElementById('mHero');
+      if (hero) hero.style.display = 'block';
+      var t3d = document.getElementById('mThumb3d');
+      if (t3d) t3d.style.display = 'none';
+    }
+  );
+}
+
 function openDetail(id) {
   const p = P[id]; if(!p) return;
-  const thumbs = p.gallery.map((s,i) =>
-    `<div class="m-thumb${i===0?' on':''}" onclick="swImg(this,'${s}')"><img src="${s}" loading="lazy"></div>`
+
+  const has3d = !!p.glb;
+  const thumbs3d = has3d
+    ? `<div class="m-thumb on" id="mThumb3d" onclick="mShow3d()"><div class="m-thumb-3d">3D</div></div>`
+    : '';
+  const thumbsImg = p.gallery.map((s,i) =>
+    `<div class="m-thumb${!has3d && i===0?' on':''}" onclick="mShowImg(this,'${s}')"><img src="${s}" loading="lazy"></div>`
   ).join('');
   const feats = p.features[curLang].map(f => `<span class="m-feat">${f}</span>`).join('');
-  const specs = Object.entries(p.specs).map(([k,v]) => {
-    const label = SPEC_KEYS[k] ? SPEC_KEYS[k][curLang] : k;
-    const value = typeof v === 'object' ? v[curLang] : v;
-    return `<div class="spec"><span class="sk">${label}</span><span class="sv">${value}</span></div>`;
-  }).join('');
-  
+  const specs = Object.entries(p.specs)
+    .filter(([k]) => k !== '3D Model')
+    .map(([k,v]) => {
+      const label = SPEC_KEYS[k] ? SPEC_KEYS[k][curLang] : k;
+      const value = typeof v === 'object' ? v[curLang] : v;
+      return `<div class="spec"><span class="sk">${label}</span><span class="sv">${value}</span></div>`;
+    }).join('');
+
   document.getElementById('mGrid').innerHTML = `
     <div>
-      <img id="mHero" class="m-img-main" src="${p.img}" alt="${p.model}">
-      <div class="m-gallery">${thumbs}</div>
+      <div class="m-viewer-wrap" id="mViewerWrap">
+        ${has3d ? '<canvas id="mCanvas" style="display:block;width:100%;height:100%"></canvas>' : ''}
+        <img id="mHero" class="m-img-main" src="${p.img}" alt="${p.model}" style="${has3d?'display:none':'display:block'}">
+      </div>
+      <div class="m-gallery">${thumbs3d}${thumbsImg}</div>
     </div>
     <div>
       <div class="m-model">${p.model}</div>
@@ -1391,24 +1533,24 @@ function openDetail(id) {
       <div class="m-feats">${feats}</div>
       <div class="m-specs"><h5>${T[curLang].modal_specs}</h5>${specs}</div>
       <div class="m-actions">
-        <button class="btn btn-dark btn-sm" onclick="closeDetail();openViewer('${id}')">${T[curLang].modal_btn_3d}</button>
-        <button class="btn btn-ghost-l btn-sm" onclick="closeDetail();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">${T[curLang].modal_btn_con}</button>
+        <button class="btn btn-dark btn-sm" onclick="closeDetail();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">${T[curLang].modal_btn_con}</button>
       </div>
     </div>`;
+
   document.getElementById('mSticky').innerHTML =
-    `<button class="btn btn-dark btn-sm" onclick="closeDetail();openViewer('${id}')">${curLang==='en'?'Open 3D':'开启3D'}</button>
-     <button class="btn btn-ghost-l btn-sm" onclick="closeDetail();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">${curLang==='en'?'Contact':'联系我们'}</button>`;
+    `<button class="btn btn-dark btn-sm" onclick="closeDetail();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">${curLang==='en'?'Contact':'联系我们'}</button>`;
+
   const modal = document.getElementById('detail-modal'), sheet = document.getElementById('mSheet');
   modal.style.display = 'flex'; document.body.style.overflow = 'hidden';
-  requestAnimationFrame(() => requestAnimationFrame(() => sheet.classList.add('open')));
+  _mDispose();
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    sheet.classList.add('open');
+    if (has3d) { setTimeout(function(){ _mLoad(p.glb, p.zoom); }, 60); }
+  }));
 }
-function swImg(t, src) {
-  document.querySelectorAll('.m-thumb').forEach(x => x.classList.remove('on'));
-  t.classList.add('on');
-  const hero = document.getElementById('mHero');
-  if(hero) hero.src = src;
-}
+
 function closeDetail() {
+  _mDispose();
   const s = document.getElementById('mSheet');
   if(s) s.classList.remove('open');
   setTimeout(() => { document.getElementById('detail-modal').style.display='none'; document.body.style.overflow='' }, 430);

@@ -3019,22 +3019,18 @@ function renderPreview(product, canvasId, accentColor, glbPath) {
     }
 
     function loadGLB() {
-      fetch(glbPath)
-        .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.arrayBuffer(); })
-        .then(function(buf) {
-          new THREE.GLTFLoader().parse(buf, '', function(gltf) {
-            const model = gltf.scene;
-            const box = new THREE.Box3().setFromObject(model);
-            const center = box.getCenter(new THREE.Vector3());
-            const size = box.getSize(new THREE.Vector3());
-            const scale = 3.8 / Math.max(size.x, size.y, size.z);
-            model.scale.setScalar(scale);
-            model.position.sub(center.multiplyScalar(scale));
-            scene.add(model);
-            startAnim(model);
-          }, fallback);
-        })
-        .catch(fallback);
+      var loader = new THREE.GLTFLoader();
+      loader.load(glbPath, function(gltf) {
+        const model = gltf.scene;
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+        const scale = 3.8 / Math.max(size.x, size.y, size.z);
+        model.scale.setScalar(scale);
+        model.position.sub(center.multiplyScalar(scale));
+        scene.add(model);
+        startAnim(model);
+      }, undefined, fallback);
     }
 
     function fallback() {
@@ -3136,16 +3132,8 @@ function _startGLBModal(canvas, glbPath) {
   }
 
   function _doLoad() {
-    /* Use fetch + parse so path spaces/encoding are handled by the browser URL resolver */
-    fetch(glbPath)
-      .then(function(r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status + ': ' + glbPath);
-        return r.arrayBuffer();
-      })
-      .then(function(buf) {
-        new THREE.GLTFLoader().parse(buf, '', function(gltf) { _onLoaded(gltf.scene); }, _onError);
-      })
-      .catch(_onError);
+    var loader = new THREE.GLTFLoader();
+    loader.load(glbPath, function(gltf) { _onLoaded(gltf.scene); }, undefined, _onError);
   }
 
   /* Ensure GLTFLoader is available — load script dynamically if CDN tag missed */
