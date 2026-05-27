@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_SC, Noto_Kufi_Arabic, Geist, Stack_Sans_Notch, Stack_Sans_Text } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/next";
 import { Lenis } from "@/components/shared/Lenis";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
 import { Preloader } from "@/components/preloader/Preloader";
@@ -76,6 +77,7 @@ export default function RootLayout({
             </PreloaderProvider>
           </I18nProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
