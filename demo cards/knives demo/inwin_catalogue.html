@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -392,6 +393,22 @@ section{padding:80px 0}
   font-family:var(--font-h);font-size:9px;letter-spacing:0.25em;
   text-transform:uppercase;color:rgba(255,255,255,0.3);
   display:flex;align-items:center;gap:6px;white-space:nowrap;
+  transition:opacity 0.3s;
+}
+#modal-loading{
+  position:absolute;inset:0;display:none;flex-direction:column;
+  align-items:center;justify-content:center;gap:14px;pointer-events:none;
+}
+#modal-loading.active{display:flex}
+.modal-spinner{
+  width:32px;height:32px;border:2px solid rgba(255,255,255,0.1);
+  border-top-color:var(--red);border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.modal-loading-txt{
+  font-family:var(--font-h);font-size:9px;letter-spacing:0.25em;
+  text-transform:uppercase;color:rgba(255,255,255,0.35);
 }
 .modal-info{padding:36px;overflow-y:auto;max-height:400px}
 @media(max-width:700px){.modal-info{max-height:none;padding:24px}}
@@ -493,115 +510,166 @@ section{padding:80px 0}
 .footer-inwin{font-family:var(--font-h);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-top:20px}
 
 /* ─── HERITAGE CARDS ─── */
+/* ─── HERITAGE ─── */
 #heritage{
   background:#0d0d0d;
   border-top:1px solid rgba(240,237,232,0.06);
-  padding:100px 0;
+  padding:clamp(60px,8vw,120px) 0;
 }
-.heritage-inner{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,60px)}
-.heritage-head{margin-bottom:64px}
-.heritage-timeline{display:flex;flex-direction:column;gap:20px}
-.ht-row{display:flex;align-items:stretch;gap:0}
-.ht-conn{
-  flex:0 0 24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+.heritage-inner{max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,60px)}
+.heritage-head{margin-bottom:clamp(48px,6vw,80px)}
+.ht-timeline{
+  position:relative;
+  display:flex;flex-direction:column;gap:0;
 }
-.ht-conn::after{
-  content:'';display:block;width:100%;height:1px;
-  background:rgba(192,57,43,0.35);
+.ht-timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,rgba(192,57,43,0.35) 8%,rgba(192,57,43,0.35) 92%,transparent);
+  transform:translateX(-50%);pointer-events:none;
 }
-.ht-row-break{
+.ht-entry{
+  display:grid;grid-template-columns:1fr 72px 1fr;
+  align-items:center;gap:0;
+  padding:clamp(32px,4vw,56px) 0;
+  position:relative;
+}
+.ht-entry:not(:last-child)::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:rgba(240,237,232,0.05);
+}
+.ht-img-side{padding-right:clamp(16px,3vw,44px)}
+.ht-img-side--right{padding-right:0;padding-left:clamp(16px,3vw,44px)}
+.ht-img-wrap{
+  position:relative;border-radius:10px;overflow:hidden;
+  aspect-ratio:3/2;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  transform:translateZ(0);
+}
+.ht-img-wrap img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.ht-entry:hover .ht-img-wrap img{transform:scale(1.05)}
+.ht-img-overlay{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to right,rgba(0,0,0,0.35) 0%,transparent 55%);
+}
+.ht-img-side--right .ht-img-overlay{
+  background:linear-gradient(to left,rgba(0,0,0,0.35) 0%,transparent 55%);
+}
+.ht-img-num{
+  position:absolute;bottom:14px;left:18px;
+  font-family:var(--font-h);font-size:11px;font-weight:700;
+  letter-spacing:0.3em;color:rgba(240,237,232,0.45);
+  text-transform:uppercase;
+}
+.ht-img-side--right .ht-img-num{left:auto;right:18px}
+.ht-axis{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;height:100%;gap:0;position:relative;z-index:1;
+}
+.ht-dot-ring{
+  width:18px;height:18px;border-radius:50%;
+  border:1.5px solid var(--red);
+  background:#0d0d0d;
   display:flex;align-items:center;justify-content:center;
-  height:24px;
+  transition:transform 0.3s ease,box-shadow 0.3s ease;
+  flex-shrink:0;
 }
-.ht-row-break::after{
-  content:'';display:block;width:1px;height:100%;
-  background:rgba(192,57,43,0.35);
+.ht-entry:hover .ht-dot-ring{
+  transform:scale(1.35);
+  box-shadow:0 0 0 6px rgba(192,57,43,0.12),0 0 20px rgba(192,57,43,0.2);
 }
-.ht-item{
-  flex:1;min-width:0;
-  position:relative;overflow:hidden;
-  background:var(--black2);
-  border:1px solid rgba(240,237,232,0.07);
-  border-radius:12px;
-  padding:24px 24px 22px;
-  cursor:default;
-  transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),
-             box-shadow 0.35s ease,
-             border-color 0.35s ease,
-             background 0.35s ease;
+.ht-entry.is-today .ht-dot-ring{border-color:var(--gold)}
+.ht-entry.is-today:hover .ht-dot-ring{
+  box-shadow:0 0 0 6px rgba(212,160,23,0.12),0 0 20px rgba(212,160,23,0.2);
 }
-.ht-item::before{
-  content:'';position:absolute;inset:0;border-radius:12px;
-  background:linear-gradient(135deg,rgba(192,57,43,0.07) 0%,transparent 60%);
-  opacity:0;transition:opacity 0.35s ease;pointer-events:none;
+.ht-dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.ht-entry.is-today .ht-dot{background:var(--gold)}
+.ht-text-side{padding-left:clamp(16px,3vw,44px)}
+.ht-text-side--left{padding-left:0;padding-right:clamp(16px,3vw,44px);text-align:right}
+.ht-ghost-num{
+  font-family:var(--font-h);font-size:clamp(64px,8vw,110px);font-weight:900;
+  color:rgba(240,237,232,0.025);letter-spacing:-0.04em;line-height:1;
+  margin-bottom:-0.15em;pointer-events:none;user-select:none;
 }
-.ht-item:hover{
-  transform:translateY(-5px);
-  box-shadow:0 20px 48px rgba(0,0,0,0.55),0 0 0 1px rgba(192,57,43,0.25);
-  border-color:rgba(192,57,43,0.3);
-  background:var(--black3);
-}
-.ht-item:hover::before{opacity:1}
-.ht-item.is-today:hover{
-  box-shadow:0 20px 48px rgba(0,0,0,0.55),0 0 0 1px rgba(212,160,23,0.3);
-  border-color:rgba(212,160,23,0.35);
-}
-.ht-item.is-today::before{
-  background:linear-gradient(135deg,rgba(212,160,23,0.08) 0%,transparent 60%);
-}
-.ht-accent-line{
-  position:absolute;top:0;left:0;width:3px;height:0;border-radius:0 0 2px 2px;
-  background:var(--red);transition:height 0.4s cubic-bezier(0.22,1,0.36,1);
-}
-.ht-item:hover .ht-accent-line{height:100%}
-.ht-item.is-today .ht-accent-line{background:var(--gold)}
-.ht-dot{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--red);box-shadow:0 0 0 3px rgba(192,57,43,0.15);
-  margin-bottom:14px;
-  transition:box-shadow 0.3s ease,transform 0.3s ease;
-}
-.ht-item:hover .ht-dot{box-shadow:0 0 0 5px rgba(192,57,43,0.2);transform:scale(1.25)}
-.ht-item.is-today .ht-dot{background:var(--gold);box-shadow:0 0 0 3px rgba(212,160,23,0.15)}
-.ht-item.is-today:hover .ht-dot{box-shadow:0 0 0 5px rgba(212,160,23,0.25)}
-.ht-num{
-  position:absolute;top:14px;right:18px;
-  font-family:var(--font-h);font-size:44px;font-weight:700;
-  color:rgba(240,237,232,0.04);letter-spacing:-0.03em;line-height:1;
-  pointer-events:none;user-select:none;transition:color 0.35s ease;
-}
-.ht-item:hover .ht-num{color:rgba(192,57,43,0.08)}
-.ht-item.is-today .ht-num{color:rgba(212,160,23,0.04)}
-.ht-item.is-today:hover .ht-num{color:rgba(212,160,23,0.1)}
 .ht-year{
   font-family:var(--font-h);font-size:10px;font-weight:600;
   letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--red);margin-bottom:8px;transition:letter-spacing 0.3s ease;
+  color:var(--red);margin-bottom:10px;
 }
-.ht-item:hover .ht-year{letter-spacing:0.36em}
-.ht-item.is-today .ht-year{color:var(--gold)}
-.ht-shop-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.ht-shop-btn{
-  font-family:var(--font-h);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;
-  padding:5px 12px;border:1px solid rgba(192,57,43,0.35);border-radius:4px;
-  color:rgba(240,237,232,0.6);background:transparent;cursor:pointer;
-  transition:border-color 0.25s,color 0.25s,background 0.25s;
-}
-.ht-shop-btn:hover{border-color:var(--red);color:var(--white);background:rgba(192,57,43,0.12)}
+.ht-entry.is-today .ht-year{color:var(--gold)}
 .ht-title{
-  font-family:var(--font-h);font-size:clamp(15px,1.6vw,19px);
-  font-weight:700;text-transform:uppercase;letter-spacing:0.06em;
-  color:var(--white);margin-bottom:10px;line-height:1.1;
+  font-family:var(--font-h);font-size:clamp(17px,1.8vw,24px);
+  font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
+  color:var(--white);margin-bottom:12px;line-height:1.1;
 }
 .ht-body{
-  font-family:var(--font-b);font-size:12px;
-  line-height:1.75;color:rgba(200,196,190,0.6);
+  font-family:var(--font-b);font-size:clamp(12px,1.1vw,13.5px);
+  line-height:1.8;color:rgba(200,196,190,0.55);max-width:380px;
 }
-@media(max-width:768px){
-  .ht-row{flex-direction:column}
-  .ht-conn{flex:0 0 20px}
-  .ht-conn::after{width:1px;height:100%}
-  .ht-row-break{height:20px}
+.ht-text-side--left .ht-body{margin-left:auto}
+@media(max-width:820px){
+  .ht-timeline::before{left:20px}
+  .ht-entry{grid-template-columns:40px 1fr;grid-template-rows:auto auto}
+  .ht-img-side,.ht-img-side--right{
+    grid-column:2;grid-row:1;padding:0 0 16px 0;
+  }
+  .ht-axis{grid-column:1;grid-row:1/3;align-self:start;padding-top:6px}
+  .ht-text-side,.ht-text-side--left{
+    grid-column:2;grid-row:2;padding:0;text-align:left;
+  }
+  .ht-body{max-width:100%}
+  .ht-text-side--left .ht-body{margin-left:0}
+}
+
+/* ─── HERITAGE SCROLL ANIMATIONS ─── */
+.ht-timeline::before{
+  clip-path:inset(0 0 calc(100% * (1 - var(--ht-line,0))) 0);
+  transition:none;
+}
+/* children start hidden */
+.ht-img-side{
+  opacity:0;transform:translateX(-48px);
+  will-change:opacity,transform;
+  transition:opacity 1s cubic-bezier(0.16,1,0.3,1),transform 1s cubic-bezier(0.16,1,0.3,1);
+}
+.ht-img-side--right{
+  opacity:0;transform:translateX(48px);
+  will-change:opacity,transform;
+  transition:opacity 1s cubic-bezier(0.16,1,0.3,1),transform 1s cubic-bezier(0.16,1,0.3,1);
+}
+.ht-text-side{
+  opacity:0;transform:translateX(48px);
+  will-change:opacity,transform;
+  transition:opacity 1s 0.18s cubic-bezier(0.16,1,0.3,1),transform 1s 0.18s cubic-bezier(0.16,1,0.3,1);
+}
+.ht-text-side--left{
+  opacity:0;transform:translateX(-48px);
+  will-change:opacity,transform;
+  transition:opacity 1s 0.18s cubic-bezier(0.16,1,0.3,1),transform 1s 0.18s cubic-bezier(0.16,1,0.3,1);
+}
+.ht-axis{
+  opacity:0;transform:scale(0.15);
+  will-change:opacity,transform;
+  transition:opacity 0.5s 0.1s ease,transform 0.65s 0.1s cubic-bezier(0.34,1.56,0.64,1);
+}
+.ht-ghost-num{
+  transition:opacity 1.1s 0.28s cubic-bezier(0.16,1,0.3,1),transform 1.1s 0.28s cubic-bezier(0.16,1,0.3,1);
+}
+/* revealed state */
+.ht-entry.ht-visible .ht-img-side,
+.ht-entry.ht-visible .ht-img-side--right{opacity:1;transform:translateX(0)}
+.ht-entry.ht-visible .ht-text-side,
+.ht-entry.ht-visible .ht-text-side--left{opacity:1;transform:translateX(0)}
+.ht-entry.ht-visible .ht-axis{opacity:1;transform:scale(1)}
+@media(max-width:820px){
+  .ht-img-side,.ht-img-side--right{transform:translateY(28px)}
+  .ht-text-side,.ht-text-side--left{transform:translateY(20px)}
+  .ht-entry.ht-visible .ht-img-side,
+  .ht-entry.ht-visible .ht-img-side--right,
+  .ht-entry.ht-visible .ht-text-side,
+  .ht-entry.ht-visible .ht-text-side--left{transform:translateY(0)}
 }
 
 /* ─── FACTORY SVG ART ─── */
@@ -843,32 +911,34 @@ section{padding:80px 0}
 .dam-sl-handle.ha{animation:hFlash .6s ease}
 
 /* ─── CONTACT US ─── */
-#contact-us{background:var(--black2);padding:100px 0;border-top:1px solid rgba(240,237,232,0.08)}
-.cu-inner{max-width:560px;margin:0 auto;padding:0 clamp(16px,4vw,40px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:40px}
-.cu-label{font-family:var(--font-h);font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:12px}
-.cu-label::before,.cu-label::after{content:'';flex:1;height:1px;background:var(--red);opacity:0.5}
-.cu-title{font-family:var(--font-h);font-size:clamp(28px,5vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--white);line-height:1.05}
+#contact-us{background:var(--black2);padding:clamp(60px,8vw,100px) 0;border-top:1px solid rgba(240,237,232,0.08)}
+.cu-inner{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,56px)}
+.cu-head{margin-bottom:48px}
+.cu-label{font-family:var(--font-h);font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.cu-label::before{content:'';width:30px;height:1px;background:var(--red);flex-shrink:0}
+.cu-title{font-family:var(--font-h);font-size:clamp(28px,5vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--white);line-height:1.05}
 .cu-title em{color:var(--red);font-style:normal}
-.cu-desc{font-family:var(--font-b);font-size:14px;line-height:1.7;color:var(--white3);max-width:420px}
-/* QR block */
-.cu-qr-block{display:flex;flex-direction:column;align-items:center;gap:16px}
-.cu-qr-wrap{width:180px;height:180px;background:#fff;border-radius:12px;padding:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
-.cu-qr-wrap svg{width:100%;height:100%}
-.cu-qr-label{font-family:var(--font-h);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--white3)}
-.cu-qr-label span{display:inline-flex;align-items:center;gap:6px}
-.cu-qr-label svg{width:14px;height:14px;fill:#07c160;flex-shrink:0}
-/* Social icons row */
-.cu-socials{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:8px}
-.cu-social-btn{
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  text-decoration:none;cursor:pointer;
-  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
-  border-radius:12px;padding:18px 24px;min-width:90px;
-  transition:background 0.25s ease,border-color 0.25s ease,transform 0.2s ease;
-}
-.cu-social-btn:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.16);transform:translateY(-2px)}
-.cu-social-btn svg{width:26px;height:26px}
-.cu-social-btn span{font-family:var(--font-h);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--white3)}
+.cu-cols{display:grid;grid-template-columns:1fr auto;gap:clamp(32px,5vw,72px);align-items:start}
+.cu-col-left{flex:1}
+.cu-col-right{width:220px;flex-shrink:0}
+.cu-wc-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:24px;text-align:center}
+.cu-wc-card-title{font-family:var(--font-h);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--white3);margin-bottom:20px}
+.cu-wc-qr{width:172px;height:172px;background:white;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid rgba(255,255,255,0.08);margin:0 auto}
+.cu-wc-qr img{width:152px;height:152px;object-fit:contain}
+.cu-wc-qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px}
+.cu-wc-qr-ph span{font-size:9px;color:#888;text-align:center;letter-spacing:0.04em;line-height:1.4}
+.cu-wc-caption{font-family:var(--font-b);font-size:14px;font-weight:500;color:var(--white);letter-spacing:-0.01em;margin-bottom:4px}
+.cu-wc-sub{font-family:var(--font-b);font-size:11px;color:var(--white3);line-height:1.5}
+@media(max-width:640px){.cu-cols{grid-template-columns:1fr}.cu-col-right{width:100%}.cu-wc-qr{margin:0}}
+.cu-details{margin-bottom:16px}
+.cu-cd-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.cu-cd-row:last-child{border-bottom:none}
+.cu-cd-icon{width:26px;height:26px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cu-cd-icon svg{width:11px;height:11px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cu-cd-lbl{font-family:var(--font-h);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(240,237,232,0.35)}
+.cu-cd-val{font-family:var(--font-b);font-size:13px;color:var(--white)}
+.cu-map{border-radius:8px;overflow:hidden;height:190px;border:1px solid rgba(255,255,255,0.07);position:relative}
+.cu-map iframe{width:100%;height:100%;border:none;display:block;filter:grayscale(1) brightness(0.45) contrast(1.1)}
 
 /* ─── SITE HEADER / NAVBAR ─── */
 #site-header{
@@ -1000,10 +1070,10 @@ body{padding-top:68px}
     <!-- Nav -->
     <ul class="hdr-nav">
       <li><a href="#company" data-i18n="nav4">About Us</a></li>
-      <li><a href="#heritage">Our Story</a></li>
+      <li><a href="#heritage" data-i18n="her-label">Our Story</a></li>
       <li><a href="#collections" data-i18n="nav1">Collections</a></li>
       <li><a href="#knife-configurator" data-i18n="nav2">Configurator</a></li>
-      <li><a href="#community">Community</a></li>
+      <li><a href="#community" data-i18n="com-label">Community</a></li>
     </ul>
     <!-- Icons -->
     <div class="hdr-icons">
@@ -1199,6 +1269,139 @@ body{padding-top:68px}
   </div>
 </section>
 
+<!-- ─── HERITAGE SECTION ─── -->
+<section id="heritage">
+  <div class="heritage-inner">
+    <div class="heritage-head">
+      <p class="section-label reveal" id="i-her-label">Our Story</p>
+      <h2 class="section-title reveal" id="i-her-title">45 Years of<br><em>Unbroken Edge</em></h2>
+    </div>
+    <div class="ht-timeline">
+
+      <!-- 01 — image left -->
+      <div class="ht-entry">
+        <div class="ht-img-side">
+          <div class="ht-img-wrap">
+            <img src="heritage/heritage_1979%20(2).png" alt="INWIN 1979" loading="lazy">
+            <div class="ht-img-overlay"></div>
+            <span class="ht-img-num">01</span>
+          </div>
+        </div>
+        <div class="ht-axis">
+          <div class="ht-dot-ring"><div class="ht-dot"></div></div>
+        </div>
+        <div class="ht-text-side">
+          <div class="ht-ghost-num">1979</div>
+          <p class="ht-year" id="i-her-y1">1979 — Founded</p>
+          <h3 class="ht-title" id="i-her-t1">The Beginning</h3>
+          <p class="ht-body" id="i-her-b1">InWin is established in Yangjiang, China with a single factory and a singular mission: to bring professional-grade cutlery to the world market at an honest price.</p>
+        </div>
+      </div>
+
+      <!-- 02 — image right -->
+      <div class="ht-entry">
+        <div class="ht-text-side ht-text-side--left">
+          <div class="ht-ghost-num">1986</div>
+          <p class="ht-year" id="i-her-y2">1986 — First Export</p>
+          <h3 class="ht-title" id="i-her-t2">Going Global</h3>
+          <p class="ht-body" id="i-her-b2">The first international shipment leaves for Europe, marking InWin's entry into the global market.</p>
+        </div>
+        <div class="ht-axis">
+          <div class="ht-dot-ring"><div class="ht-dot"></div></div>
+        </div>
+        <div class="ht-img-side ht-img-side--right">
+          <div class="ht-img-wrap">
+            <img src="heritage/heritage_1986.png" alt="INWIN 1986" loading="lazy">
+            <div class="ht-img-overlay"></div>
+            <span class="ht-img-num">02</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 — image left -->
+      <div class="ht-entry">
+        <div class="ht-img-side">
+          <div class="ht-img-wrap">
+            <img src="heritage/heritage_2008.png" alt="INWIN 2008" loading="lazy">
+            <div class="ht-img-overlay"></div>
+            <span class="ht-img-num">03</span>
+          </div>
+        </div>
+        <div class="ht-axis">
+          <div class="ht-dot-ring"><div class="ht-dot"></div></div>
+        </div>
+        <div class="ht-text-side">
+          <div class="ht-ghost-num">2008</div>
+          <p class="ht-year" id="i-her-y3">2008 — Retail Expansion</p>
+          <h3 class="ht-title" id="i-her-t3">Reaching the Shelf</h3>
+          <p class="ht-body" id="i-her-b3">InWin products reach the shelves of major global retailers including TESCO, IKEA, Target, and Auchan across 40 countries.</p>
+        </div>
+      </div>
+
+      <!-- 04 — image right -->
+      <div class="ht-entry">
+        <div class="ht-text-side ht-text-side--left">
+          <div class="ht-ghost-num">2019</div>
+          <p class="ht-year" id="i-her-y4">2019 — Red Dot Award</p>
+          <h3 class="ht-title" id="i-her-t4">Design Recognition</h3>
+          <p class="ht-body" id="i-her-b4">The V-Form series receives the Red Dot Award for design excellence — the first of several international recognitions.</p>
+        </div>
+        <div class="ht-axis">
+          <div class="ht-dot-ring"><div class="ht-dot"></div></div>
+        </div>
+        <div class="ht-img-side ht-img-side--right">
+          <div class="ht-img-wrap">
+            <img src="heritage/heritage_2019%20(2).png" alt="INWIN 2019" loading="lazy">
+            <div class="ht-img-overlay"></div>
+            <span class="ht-img-num">04</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 — image left -->
+      <div class="ht-entry">
+        <div class="ht-img-side">
+          <div class="ht-img-wrap">
+            <img src="heritage/heritage_2021%20(2).png" alt="INWIN 2021" loading="lazy">
+            <div class="ht-img-overlay"></div>
+            <span class="ht-img-num">05</span>
+          </div>
+        </div>
+        <div class="ht-axis">
+          <div class="ht-dot-ring"><div class="ht-dot"></div></div>
+        </div>
+        <div class="ht-text-side">
+          <div class="ht-ghost-num">2021</div>
+          <p class="ht-year" id="i-her-y5">2021 — Damascus Series Launch</p>
+          <h3 class="ht-title" id="i-her-t5">The Art Series</h3>
+          <p class="ht-body" id="i-her-b5">The Damascus and Dragon series debut, bringing VG-10 Japanese steel and 67-layer Damascus craftsmanship to the InWin range.</p>
+        </div>
+      </div>
+
+      <!-- 06 — image right, gold accent -->
+      <div class="ht-entry is-today">
+        <div class="ht-text-side ht-text-side--left">
+          <div class="ht-ghost-num" style="color:rgba(212,160,23,0.06)">45</div>
+          <p class="ht-year" id="i-her-y6">Today — 45 Years. 80+ Countries. 6 Series.</p>
+          <h3 class="ht-title" id="i-her-t6">Still Forging Forward</h3>
+          <p class="ht-body" id="i-her-b6">From a single factory to a global footprint — every blade still made with the same discipline as the first.</p>
+        </div>
+        <div class="ht-axis">
+          <div class="ht-dot-ring"><div class="ht-dot"></div></div>
+        </div>
+        <div class="ht-img-side ht-img-side--right">
+          <div class="ht-img-wrap">
+            <img src="heritage/today_heritage.png" alt="INWIN Today" loading="lazy">
+            <div class="ht-img-overlay"></div>
+            <span class="ht-img-num">06</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ─── OUR CRAFT ─── -->
 <section id="our-craft">
   <div class="craft-top">
@@ -1243,79 +1446,6 @@ body{padding-top:68px}
         <span class="craft-prod-name" id="i-craft-prod2-name">DRAGON NAKIRI 6.5"</span>
         <button class="craft-prod-btn" id="i-craft-prod2-btn" onclick="openCategory(3)">Shop Dragon</button>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── HERITAGE SECTION ─── -->
-<section id="heritage">
-  <div class="heritage-inner">
-    <div class="heritage-head">
-      <p class="section-label reveal" id="i-her-label">Our Story</p>
-      <h2 class="section-title reveal" id="i-her-title">45 Years of<br><em>Unbroken Edge</em></h2>
-    </div>
-    <div class="heritage-timeline">
-
-      <!-- Row 1: cards 1–3 -->
-      <div class="ht-row">
-        <div class="ht-item reveal" data-delay="0">
-          <div class="ht-accent-line"></div>
-          <span class="ht-num">01</span>
-          <div class="ht-dot"></div>
-          <p class="ht-year" id="i-her-y1">1979 — Founded</p>
-          <h3 class="ht-title" id="i-her-t1">The Beginning</h3>
-          <p class="ht-body" id="i-her-b1">InWin is established in Yangjiang, China with a single factory and a singular mission: to bring professional-grade cutlery to the world market at an honest price.</p>
-        </div>
-        <div class="ht-conn" aria-hidden="true"></div>
-        <div class="ht-item reveal" data-delay="100">
-          <div class="ht-accent-line"></div>
-          <span class="ht-num">02</span>
-          <div class="ht-dot"></div>
-          <p class="ht-year" id="i-her-y2">1986 — First Export</p>
-          <h3 class="ht-title" id="i-her-t2">Going Global</h3>
-          <p class="ht-body" id="i-her-b2">The first international shipment leaves for Europe, marking InWin's entry into the global market.</p>
-        </div>
-        <div class="ht-conn" aria-hidden="true"></div>
-        <div class="ht-item reveal" data-delay="200">
-          <div class="ht-accent-line"></div>
-          <span class="ht-num">03</span>
-          <div class="ht-dot"></div>
-          <p class="ht-year" id="i-her-y3">2008 — Retail Expansion</p>
-          <h3 class="ht-title" id="i-her-t3">Reaching the Shelf</h3>
-          <p class="ht-body" id="i-her-b3">InWin products reach the shelves of major global retailers including TESCO, IKEA, Target, and Auchan across 40 countries.</p>
-        </div>
-      </div>
-
-      <!-- Row 2: cards 4–6 -->
-      <div class="ht-row">
-        <div class="ht-item reveal" data-delay="300">
-          <div class="ht-accent-line"></div>
-          <span class="ht-num">04</span>
-          <div class="ht-dot"></div>
-          <p class="ht-year" id="i-her-y4">2019 — Red Dot Award</p>
-          <h3 class="ht-title" id="i-her-t4">Design Recognition</h3>
-          <p class="ht-body" id="i-her-b4">The V-Form series receives the Red Dot Award for design excellence — the first of several international recognitions.</p>
-        </div>
-        <div class="ht-conn" aria-hidden="true"></div>
-        <div class="ht-item reveal" data-delay="400">
-          <div class="ht-accent-line"></div>
-          <span class="ht-num">05</span>
-          <div class="ht-dot"></div>
-          <p class="ht-year" id="i-her-y5">2021 — Damascus Series Launch</p>
-          <h3 class="ht-title" id="i-her-t5">The Art Series</h3>
-          <p class="ht-body" id="i-her-b5">The Damascus and Dragon series debut, bringing VG-10 Japanese steel and 67-layer Damascus craftsmanship to the InWin range.</p>
-        </div>
-        <div class="ht-conn" aria-hidden="true"></div>
-        <div class="ht-item is-today reveal" data-delay="500">
-          <div class="ht-accent-line"></div>
-          <span class="ht-num">06</span>
-          <div class="ht-dot"></div>
-          <p class="ht-year" id="i-her-y6">Today — 45 Years. 80+ Countries. 6 Series.</p>
-          <h3 class="ht-title" id="i-her-t6">Still Forging Forward</h3>
-          <p class="ht-body" id="i-her-b6">From a single factory to a global footprint — every blade still made with the same discipline as the first.</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1444,6 +1574,10 @@ body{padding-top:68px}
   <div class="modal-box">
     <div class="modal-3d" style="position:relative">
       <canvas id="modal-canvas"></canvas>
+      <div id="modal-loading">
+        <div class="modal-spinner"></div>
+        <span class="modal-loading-txt">Loading model…</span>
+      </div>
       <div class="modal-hint">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
         <span id="i-drag">Drag to rotate</span>
@@ -1459,8 +1593,8 @@ body{padding-top:68px}
 <!-- ─── SHOWCASE ─── -->
 <section id="showcase">
   <div class="showcase-intro">
-    <p class="section-label reveal" id="i-art-label">Best of INWIN</p>
-    <h2 class="section-title reveal" id="i-art-title">The Art of<br><em>the Blade</em></h2>
+    <p class="section-label reveal" id="i-art-label">Materials Showroom</p>
+    <h2 class="section-title reveal" id="i-art-title">Crafted from<br><em>the Best</em></h2>
   </div>
   <div class="showcase-marquee">
     <div class="marquee-track" id="marqueeTrack">
@@ -1468,7 +1602,7 @@ body{padding-top:68px}
     </div>
   </div>
   <div class="showcase-quote">
-    <p class="showcase-q-text reveal" id="i-showcase-q">"A knife is not merely a tool — it is a declaration of how you cook, who you are, and what you believe a kitchen can become."</p>
+    <p class="showcase-q-text reveal" id="i-showcase-q">"Every edge begins with a choice of steel. Every grip begins with a choice of material. At INWIN, neither decision is made with compromise."</p>
     <p class="showcase-q-attr reveal" id="i-showcase-attr">— INWIN · Master Craftsman Since 1979</p>
   </div>
 </section>
@@ -1477,9 +1611,9 @@ body{padding-top:68px}
 <section id="community">
   <div class="container">
     <div class="community-head reveal">
-      <p class="section-label">Community</p>
-      <h2 class="section-title">#InWin <em>Kitchen</em></h2>
-      <p class="community-sub">Real knives. Real kitchens. Tag @inwin to be featured.</p>
+      <p class="section-label" id="i-com-label">Community</p>
+      <h2 class="section-title" id="i-com-title">#InWin <em>Kitchen</em></h2>
+      <p class="community-sub" id="i-com-sub">Real knives. Real kitchens. Tag @inwin to be featured.</p>
     </div>
     <div class="community-grid reveal">
       <div class="cm-cell">
@@ -1517,12 +1651,14 @@ body{padding-top:68px}
     </div>
     <div class="community-cta">
       <a class="cm-btn" href="#" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        Follow on Instagram
+        <!-- Douyin -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.2 8.2 0 004.79 1.53V7.03a4.85 4.85 0 01-1.02-.34z"/></svg>
+        <span data-i18n="com-ig">Follow on Douyin</span>
       </a>
       <a class="cm-btn" href="#" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.2 8.2 0 004.79 1.53V7.03a4.85 4.85 0 01-1.02-.34z"/></svg>
-        Follow on TikTok
+        <!-- Xiaohongshu (小红书) -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14l-3-3-3 3V5h6v12z"/></svg>
+        <span data-i18n="com-tt">Follow on Xiaohongshu</span>
       </a>
     </div>
   </div>
@@ -1531,70 +1667,40 @@ body{padding-top:68px}
 <!-- ─── CONTACT US ─── -->
 <section id="contact-us">
   <div class="cu-inner">
-    <div class="cu-label" id="i-cu-label">Get In Touch</div>
-    <h2 class="cu-title" id="i-cu-title">CONTACT <em>US</em></h2>
-    <p class="cu-desc" id="i-cu-desc">Scan the WeChat QR code to connect with our team directly, or reach us through WhatsApp, Email, or QQ.</p>
-
-    <!-- WeChat QR -->
-    <div class="cu-qr-block reveal">
-      <div class="cu-qr-wrap">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="4" width="28" height="28" rx="3" fill="none" stroke="#111" stroke-width="3"/>
-          <rect x="10" y="10" width="16" height="16" rx="1" fill="#111"/>
-          <rect x="68" y="4" width="28" height="28" rx="3" fill="none" stroke="#111" stroke-width="3"/>
-          <rect x="74" y="10" width="16" height="16" rx="1" fill="#111"/>
-          <rect x="4" y="68" width="28" height="28" rx="3" fill="none" stroke="#111" stroke-width="3"/>
-          <rect x="10" y="74" width="16" height="16" rx="1" fill="#111"/>
-          <rect x="40" y="4" width="6" height="6" fill="#111"/><rect x="50" y="4" width="6" height="6" fill="#111"/>
-          <rect x="40" y="14" width="6" height="6" fill="#111"/><rect x="60" y="14" width="6" height="6" fill="#111"/>
-          <rect x="50" y="24" width="6" height="6" fill="#111"/><rect x="60" y="4" width="6" height="6" fill="#111"/>
-          <rect x="4" y="40" width="6" height="6" fill="#111"/><rect x="14" y="40" width="6" height="6" fill="#111"/>
-          <rect x="4" y="50" width="6" height="6" fill="#111"/><rect x="24" y="50" width="6" height="6" fill="#111"/>
-          <rect x="14" y="60" width="6" height="6" fill="#111"/><rect x="4" y="60" width="6" height="6" fill="#111"/>
-          <rect x="40" y="40" width="6" height="6" fill="#111"/><rect x="54" y="40" width="6" height="6" fill="#111"/>
-          <rect x="68" y="40" width="6" height="6" fill="#111"/><rect x="82" y="40" width="6" height="6" fill="#111"/>
-          <rect x="40" y="54" width="6" height="6" fill="#111"/><rect x="54" y="54" width="6" height="6" fill="#111"/>
-          <rect x="68" y="54" width="6" height="6" fill="#111"/><rect x="82" y="54" width="6" height="6" fill="#111"/>
-          <rect x="40" y="68" width="6" height="6" fill="#111"/><rect x="54" y="68" width="6" height="6" fill="#111"/>
-          <rect x="68" y="68" width="6" height="6" fill="#111"/><rect x="82" y="82" width="6" height="6" fill="#111"/>
-          <rect x="40" y="82" width="6" height="6" fill="#111"/><rect x="54" y="82" width="6" height="6" fill="#111"/>
-          <rect x="82" y="68" width="6" height="6" fill="#111"/><rect x="68" y="82" width="6" height="6" fill="#111"/>
-        </svg>
-      </div>
-      <div class="cu-qr-label">
-        <span>
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.5 14.25c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zm6.5 0c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zM12 2C6.48 2 2 6.03 2 11c0 2.76 1.3 5.23 3.35 6.93L4.5 21l3.5-1.75C9.27 19.73 10.61 20 12 20c5.52 0 10-4.03 10-9S17.52 2 12 2z"/></svg>
-          <span id="i-wechat-lbl">WeChat — Scan to Connect</span>
-        </span>
-      </div>
+    <div class="cu-head">
+      <p class="cu-label" id="i-cu-label">Trade Enquiries</p>
+      <h2 class="cu-title" id="i-cu-title">Let's Talk<br><em>Business</em></h2>
     </div>
-
-    <!-- Social links -->
-    <div class="cu-socials reveal">
-      <a class="cu-social-btn" href="https://wa.me/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 2C8.27 2 2 8.27 2 16c0 2.44.66 4.73 1.8 6.71L2 30l7.53-1.77A13.93 13.93 0 0016 30c7.73 0 14-6.27 14-14S23.73 2 16 2z" fill="#25D366"/>
-          <path d="M22.5 19.5c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.67-2.09-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.2 3.05c.15.2 2.08 3.17 5.04 4.45.7.3 1.25.48 1.67.62.7.22 1.34.19 1.84.12.56-.08 1.72-.7 1.97-1.38.24-.67.24-1.25.17-1.37-.07-.12-.27-.2-.57-.35z" fill="#fff"/>
-        </svg>
-        <span data-i18n="wa">WhatsApp</span>
-      </a>
-      <a class="cu-social-btn" href="mailto:contact@inwin.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#E0A93A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <path d="M2 7l10 7 10-7"/>
-        </svg>
-        <span data-i18n="email">Email</span>
-      </a>
-      <a class="cu-social-btn" href="https://qq.com" target="_blank" rel="noopener">
-        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 2C8.27 2 4 8 4 14c0 3.5 1.2 6.5 3 8.5-.4.8-.9 1.5-1.5 2-.5.4-.3 1.2.3 1.3 1.5.3 3-.4 4.2-1.3.9.3 1.9.5 3 .5h6c1.1 0 2.1-.2 3-.5 1.2.9 2.7 1.6 4.2 1.3.6-.1.8-.9.3-1.3-.6-.5-1.1-1.2-1.5-2 1.8-2 3-5 3-8.5C28 8 23.73 2 16 2z" fill="#12B7F5"/>
-          <ellipse cx="12" cy="15" rx="2" ry="2.5" fill="#fff"/>
-          <ellipse cx="20" cy="15" rx="2" ry="2.5" fill="#fff"/>
-          <ellipse cx="12" cy="15.5" rx="1" ry="1.2" fill="#333"/>
-          <ellipse cx="20" cy="15.5" rx="1" ry="1.2" fill="#333"/>
-        </svg>
-        <span data-i18n="qq">QQ</span>
-      </a>
+    <div class="cu-cols">
+      <!-- Left: details + map -->
+      <div class="cu-col-left">
+        <div class="cu-details">
+          <div class="cu-cd-row">
+            <div class="cu-cd-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.6 10.6a19.79 19.79 0 01-3.07-8.67A2 2 0 012.48 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.12 6.12l1.27-.82a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div><div class="cu-cd-lbl" id="i-con-d-p">Phone</div><div class="cu-cd-val">+86 662 333 8888</div></div>
+          </div>
+          <div class="cu-cd-row">
+            <div class="cu-cd-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="cu-cd-lbl" id="i-con-d-e">Email</div><div class="cu-cd-val">contact@inwin.com</div></div>
+          </div>
+          <div class="cu-cd-row">
+            <div class="cu-cd-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="cu-cd-lbl" id="i-con-d-l">Location</div><div class="cu-cd-val" id="i-con-d-loc">Yangdong, Guangdong, China</div></div>
+          </div>
+        </div>
+        <div class="cu-map">
+          <iframe src="https://maps.google.com/maps?q=Yangdong,Guangdong,China&t=&z=13&ie=UTF8&iwloc=&output=embed" title="INWIN — Yangdong" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <!-- Right: QR -->
+      <div class="cu-col-right">
+        <div class="cu-wc-card">
+          <div class="cu-wc-card-title" id="i-con-wc-t">WeChat Business</div>
+          <div class="cu-wc-qr" id="cuWcQr"></div>
+          <div class="cu-wc-caption" id="i-con-wc-s" style="margin-top:16px">Scan to Connect</div>
+          <div class="cu-wc-sub" id="i-con-wc-sub">The INWIN export team responds within 24 hours.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1609,6 +1715,24 @@ body{padding-top:68px}
 </footer>
 
 <script>
+/* THREE.js r128 missing roundRect polyfill */
+if (typeof THREE !== 'undefined' && THREE.Path && !THREE.Path.prototype.roundRect) {
+  THREE.Path.prototype.roundRect = function(x, y, w, h, r) {
+    var rx = Math.min(Math.abs(r), Math.abs(w) / 2);
+    var ry = Math.min(Math.abs(r), Math.abs(h) / 2);
+    this.moveTo(x + rx, y);
+    this.lineTo(x + w - rx, y);
+    this.quadraticCurveTo(x + w, y,         x + w, y + ry);
+    this.lineTo(x + w, y + h - ry);
+    this.quadraticCurveTo(x + w, y + h,     x + w - rx, y + h);
+    this.lineTo(x + rx, y + h);
+    this.quadraticCurveTo(x,     y + h,     x, y + h - ry);
+    this.lineTo(x,     y + ry);
+    this.quadraticCurveTo(x,     y,         x + rx, y);
+    return this;
+  };
+}
+
 /* ─── i18n ─── */
 var _lang = 'en';
 var _T = {
@@ -1633,7 +1757,7 @@ var _T = {
     'prod-title2':'Products',
     close:'Close',
     drag:'Drag to rotate',
-    'showcase-q':'"A knife is not merely a tool — it is a declaration of how you cook, who you are, and what you believe a kitchen can become."',
+    'showcase-q':'"Every edge begins with a choice of steel. Every grip begins with a choice of material. At INWIN, neither decision is made with compromise."',
     'showcase-attr':'— INWIN · Master Craftsman Since 1979',
     'footer-tag':'Digital catalogues &amp; business cards for modern brands.',
     'footer-inwin':'© INWIN Industrial Group Co., Ltd. · Since 1979 · Yangdong, Guangdong, China',
@@ -1643,13 +1767,17 @@ var _T = {
     'knc-clabel':'Handle Color',
     'prod-label':'Browse the Collection',
     'prod-title':'Explore<br><em>Every Series</em>',
-    'art-label':'Best of INWIN',
-    'art-title':'The Art of<br><em>the Blade</em>',
-    'cu-label':'Get In Touch',
-    'cu-title':'CONTACT <em>US</em>',
-    'cu-desc':'Scan the WeChat QR code to connect with our team directly, or reach us through WhatsApp, Email, or QQ.',
-    'wechat-lbl':'WeChat — Scan to Connect',
-    wa:'WhatsApp', email:'Email', qq:'QQ',
+    'art-label':'Materials Showroom',
+    'art-title':'Crafted from<br><em>the Best</em>',
+    'cu-label':'Trade Enquiries',
+    'cu-title':'Let\'s Talk<br><em>Business</em>',
+    'con-l-name':'Name','con-l-comp':'Company','con-l-email':'Email','con-l-type':'Inquiry Type','con-l-msg':'Message',
+    'con-opt-0':'Select product or service','con-opt-1':'V-Form Series','con-opt-2':'Dragon Series',
+    'con-opt-3':'MTS Series','con-opt-4':'Damascus Series','con-opt-5':'Bulk / OEM Order','con-opt-6':'General Inquiry',
+    'con-btn-send':'Send Inquiry','con-btn-sent':'Sent!',
+    'con-wc-t':'WeChat Business','con-wc-s':'Scan to Connect',
+    'con-wc-sub':'The INWIN export team responds within 24 hours. For urgent project pricing or sample requests, WeChat is the fastest route.',
+    'con-d-p':'Phone','con-d-e':'Email','con-d-l':'Location','con-d-loc':'Yangdong, Guangdong, China',
     'craft-label':'Our Craft',
     'craft-heading':'A Legacy of<br><em>Precision</em>',
     'craft-body':'An artisanal master bladesmith, a legacy of premium mastery — blades forged with discipline, art and centuries of emotional heritage passed through every edge.',
@@ -1672,7 +1800,12 @@ var _T = {
     'her-y5':'2021 — Damascus Series Launch','her-t5':'The Art Series',
     'her-b5':'The Damascus and Dragon series debut, bringing VG-10 Japanese steel and 67-layer Damascus craftsmanship to the InWin range.',
     'her-y6':'Today — 45 Years. 80+ Countries. 6 Series.','her-t6':'Still Forging Forward',
-    'her-b6':'From a single factory to a global footprint — every blade still made with the same discipline as the first.'
+    'her-b6':'From a single factory to a global footprint — every blade still made with the same discipline as the first.',
+    'com-label':'Community',
+    'com-title':'#InWin <em>Kitchen</em>',
+    'com-sub':'Real knives. Real kitchens. Tag @inwin to be featured.',
+    'com-ig':'Follow on Douyin',
+    'com-tt':'Follow on Xiaohongshu'
   },
   zh:{
     nav1:'系列产品', nav2:'配置器', nav3:'刀具查询', nav4:'关于我们',
@@ -1695,7 +1828,7 @@ var _T = {
     'prod-title2':'产品',
     close:'关闭',
     drag:'拖拽旋转',
-    'showcase-q':'"刀具不仅是工具——它是您烹饪方式、个人风格与厨房信仰的宣言。"',
+    'showcase-q':'"每一刃始于钢材的抉择，每一握始于材料的坚持。刃威，两者皆不妥协。"',
     'showcase-attr':'— 刃威 · 精工匠人 始于1979',
     'footer-tag':'为现代品牌提供数字目录与名片服务。',
     'footer-inwin':'© 广东刃威工业集团有限公司 · 始于1979 · 中国广东阳东',
@@ -1705,12 +1838,17 @@ var _T = {
     'knc-clabel':'刀柄颜色',
     'prod-label':'浏览系列',
     'prod-title':'探索<br><em>每个系列</em>',
-    'art-label':'INWIN精选',
-    'art-title':'刀刃的<br><em>艺术</em>',
-    'cu-label':'联系我们',
-    'cu-title':'联系 <em>我们</em>',
-    'cu-desc':'扫描微信二维码直接与我们的团队联系，或通过WhatsApp、电子邮件及QQ与我们沟通。',
-    'wechat-lbl':'微信 — 扫码联系',
+    'art-label':'材料展示厅',
+    'art-title':'选材<br><em>精益求精</em>',
+    'cu-label':'商业洽谈',
+    'cu-title':'洽谈<br><em>合作</em>',
+    'con-l-name':'姓名','con-l-comp':'公司','con-l-email':'电子邮件','con-l-type':'询价类型','con-l-msg':'留言',
+    'con-opt-0':'选择产品或服务','con-opt-1':'V-Form 系列','con-opt-2':'Dragon 系列',
+    'con-opt-3':'MTS 系列','con-opt-4':'Damascus 系列','con-opt-5':'批量 / OEM 订单','con-opt-6':'一般询价',
+    'con-btn-send':'发送询价','con-btn-sent':'已发送！',
+    'con-wc-t':'微信商务','con-wc-s':'扫码联系',
+    'con-wc-sub':'刃威出口团队将在24小时内回复。如有紧急项目报价或样品需求，微信是最快的联系方式。',
+    'con-d-p':'电话','con-d-e':'邮箱','con-d-l':'地址','con-d-loc':'中国广东省阳东县',
     wa:'WhatsApp', email:'电子邮件', qq:'QQ',
     'craft-label':'我们的工艺',
     'craft-heading':'精工传承<br><em>匠心之刃</em>',
@@ -1734,7 +1872,12 @@ var _T = {
     'her-y5':'2021 — 大马士革系列发布','her-t5':'艺术系列',
     'her-b5':'大马士革与龙系列正式面世，将VG-10日本钢及67层大马士革锻造工艺引入刃威产品线。',
     'her-y6':'至今 — 45年。80+国家。6大系列。','her-t6':'匠心延续',
-    'her-b6':'从一间工厂到全球版图——每一把刀仍以与第一把相同的匠心铸就。'
+    'her-b6':'从一间工厂到全球版图——每一把刀仍以与第一把相同的匠心铸就。',
+    'com-label':'社区',
+    'com-title':'#InWin <em>厨房</em>',
+    'com-sub':'真实刀具。真实厨房。标记 @inwin 即可被推荐。',
+    'com-ig':'关注抖音',
+    'com-tt':'关注小红书'
   }
 };
 
@@ -1756,7 +1899,11 @@ var _ID_MAP = [
   ['i-art-label','art-label'],['i-art-title','art-title'],
   ['i-showcase-q','showcase-q'],['i-showcase-attr','showcase-attr'],
   ['i-cu-label','cu-label'],['i-cu-title','cu-title'],
-  ['i-cu-desc','cu-desc'],['i-wechat-lbl','wechat-lbl'],
+  ['i-con-l-name','con-l-name'],['i-con-l-comp','con-l-comp'],['i-con-l-email','con-l-email'],
+  ['i-con-l-type','con-l-type'],['i-con-l-msg','con-l-msg'],
+  ['con-btn-send','con-btn-send'],
+  ['i-con-wc-t','con-wc-t'],['i-con-wc-s','con-wc-s'],['i-con-wc-sub','con-wc-sub'],
+  ['i-con-d-p','con-d-p'],['i-con-d-e','con-d-e'],['i-con-d-l','con-d-l'],['i-con-d-loc','con-d-loc'],
   ['i-footer-tag','footer-tag'],['i-footer-inwin','footer-inwin'],
   ['i-craft-label','craft-label'],['i-craft-heading','craft-heading'],
   ['i-craft-body','craft-body'],
@@ -1769,7 +1916,9 @@ var _ID_MAP = [
   ['i-her-y3','her-y3'],['i-her-t3','her-t3'],['i-her-b3','her-b3'],
   ['i-her-y4','her-y4'],['i-her-t4','her-t4'],['i-her-b4','her-b4'],
   ['i-her-y5','her-y5'],['i-her-t5','her-t5'],['i-her-b5','her-b5'],
-  ['i-her-y6','her-y6'],['i-her-t6','her-t6'],['i-her-b6','her-b6']
+  ['i-her-y6','her-y6'],['i-her-t6','her-t6'],['i-her-b6','her-b6'],
+  ['i-com-label','com-label'],['i-com-title','com-title'],['i-com-sub','com-sub'],
+  ['i-com-ig','com-ig'],['i-com-tt','com-tt']
 ];
 
 function applyLang(lang){
@@ -1816,6 +1965,11 @@ function applyLang(lang){
     chName.textContent = ((lang === 'zh' && zh) ? zh.name : chName.dataset.enName).toUpperCase();
   }
 
+  /* showcase marquee cards */
+  document.querySelectorAll('.marquee-card-label[data-en], .marquee-card-name[data-en], .marquee-card-sub[data-en]').forEach(function(el){
+    el.textContent = lang === 'zh' ? el.dataset.zh : el.dataset.en;
+  });
+
   /* specs panel */
   if (window._kncRefresh) window._kncRefresh();
 
@@ -1831,12 +1985,40 @@ function toggleLang(){
   applyLang(_lang);
 }
 
+function handleContactForm(e) {
+  e.preventDefault();
+  var btn = e.target.querySelector('.cu-submit');
+  var t = _T[_lang];
+  btn.textContent = t['con-btn-sent'];
+  btn.style.background = '#1D9E75';
+  btn.disabled = true;
+  setTimeout(function() {
+    btn.textContent = t['con-btn-send'];
+    btn.style.background = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 3500);
+}
+
+(function(){
+  var box = document.getElementById('cuWcQr');
+  if (!box) return;
+  var img = new Image();
+  img.onload = function() { box.appendChild(img); };
+  img.onerror = function() {
+    box.innerHTML = '<div class="cu-wc-qr-ph"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="3" y="3" width="14" height="14" rx="1" stroke="#B9A997" stroke-width="1.2"/><rect x="6" y="6" width="8" height="8" fill="#B9A997" opacity=".4"/><rect x="23" y="3" width="14" height="14" rx="1" stroke="#B9A997" stroke-width="1.2"/><rect x="26" y="6" width="8" height="8" fill="#B9A997" opacity=".4"/><rect x="3" y="23" width="14" height="14" rx="1" stroke="#B9A997" stroke-width="1.2"/><rect x="6" y="26" width="8" height="8" fill="#B9A997" opacity=".4"/><rect x="23" y="23" width="4" height="4" fill="#B9A997" opacity=".35"/><rect x="29" y="23" width="4" height="4" fill="#B9A997" opacity=".35"/><rect x="33" y="29" width="4" height="4" fill="#B9A997" opacity=".35"/><rect x="23" y="33" width="4" height="4" fill="#B9A997" opacity=".35"/><rect x="29" y="29" width="4" height="4" fill="#B9A997" opacity=".35"/></svg><span>WeChat QR</span><span style="color:#A7A29A">Add wechat_qr.png</span></div>';
+  };
+  img.src = 'wechat_qr.png';
+  img.alt = 'INWIN WeChat QR';
+  img.style.cssText = 'width:90px;height:90px;object-fit:contain';
+})();
+
 // ─────────────────────────────────────────────────────────────────────────────
 // PRODUCT DATA
 // ─────────────────────────────────────────────────────────────────────────────
 const CATEGORIES = [
   {
-    id:'mts', name:'COLORED KNIVES', num:'01',
+    id:'mts', name:'COLORED KNIVES', num:'01', glb:'3d models/kitchen_knife.glb',
     specs:{steel:'German 1.4116',hardness:'58 HRC',edge:'15° per side',handle:'Full tang Pakkawood'},
     photo:'catalogue_pics/colored_knives.png',
     tagline:'Where Precision Meets Artistry',
@@ -1851,7 +2033,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id:'vform', name:'V-FORM', num:'02',
+    id:'vform', name:'V-FORM', num:'02', glb:'3d models/kitchen_knife.glb',
     specs:{steel:'German 1.4116',hardness:'58 HRC',edge:'15° per side',handle:'G10 composite'},
     photo:'catalogue_pics/v-form.png',
     tagline:'Patented · Redefining the Art of the Blade',
@@ -1868,7 +2050,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id:'damascus', name:'DAMASCUS', num:'03',
+    id:'damascus', name:'DAMASCUS', num:'03', glb:'3d models/kitchen_knife.glb',
     specs:{steel:'VG-10 core / Damascus',hardness:'60 HRC',edge:'12° per side',handle:'Multi-colour resin'},
     photo:'catalogue_pics/damascus.png',
     tagline:'Beneath the Edge · A Thousand Layers',
@@ -1882,7 +2064,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id:'dragon', name:'DRAGON', num:'04',
+    id:'dragon', name:'DRAGON', num:'04', glb:'3d models/kitchen_knife.glb',
     specs:{steel:'VG-10 core / Damascus',hardness:'60 HRC',edge:'12° per side',handle:'Rosewood / Resin'},
     photo:'catalogue_pics/dragon.png',
     tagline:'Red Dot Award · Design Excellence Redefined',
@@ -1897,7 +2079,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id:'boards', name:'CUTTING BOARD', num:'05',
+    id:'boards', name:'CUTTING BOARD', num:'05', glb:'3d models/kitchen_knife.glb',
     photo:'catalogue_pics/cutting_board.png',
     tagline:'Natural Luxury · Ages Beautifully',
     desc:'From the innovative iPad-style magnetic flip board to premium North American Black Walnut. Function meets fine material, beautifully.',
@@ -1909,7 +2091,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id:'cookware', name:'POTS', num:'06',
+    id:'cookware', name:'POTS', num:'06', glb:'3d models/kitchen_knife.glb',
     photo:'catalogue_pics/pots.png',
     tagline:'Master Your Kitchen',
     desc:'From the Micro-Pressure Wok to 3-Layer Stainless cookware sets. Compatible with all stoves, induction-ready, dishwasher safe.',
@@ -1922,7 +2104,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id:'scissors', name:'SCISSORS', num:'07',
+    id:'scissors', name:'SCISSORS', num:'07', glb:'3d models/kitchen_knife.glb',
     photo:'catalogue_pics/scissors.png',
     tagline:'Precision Cutting · Professional Grade',
     desc:'Multi-purpose kitchen scissors engineered for professional use. From heavy-duty poultry shears to 5-blade herb scissors — forged stainless steel, ergonomic handles, dishwasher safe.',
@@ -1936,7 +2118,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id:'streamline', name:'STREAMLINE', num:'08',
+    id:'streamline', name:'STREAMLINE', num:'08', glb:'3d models/kitchen_knife.glb',
     photo:'catalogue_pics/streamline.png',
     tagline:'Clean Lines · Uncompromising Edge',
     desc:'A minimalist knife series defined by seamless silhouettes and a mirror-polished blade. Ergonomic full-tang construction, balanced for all-day professional use.',
@@ -1986,14 +2168,14 @@ function tl(obj, field, zhObj) {
 }
 
 const SHOWCASE_ITEMS = [
-  {series:'MTS ARTISTRY',name:"Chef's Knife 8\"",sub:'Powder Steel · G10',gradient:'linear-gradient(135deg,#0d1a2e,#1a3560)'},
-  {series:'V-FORM',name:'Patented V-Form',sub:'Black Powder Steel',gradient:'linear-gradient(135deg,#0a0505,#2a0d0d)'},
-  {series:'DAMASCUS',name:'A Thousand Layers',sub:'Damascus Steel',gradient:'linear-gradient(135deg,#0d0818,#1a0d2e)'},
-  {series:'DRAGON',name:'Red Dot Award',sub:'Dragon-Engraved Blade',gradient:'linear-gradient(135deg,#150800,#2d1200)'},
-  {series:'NATURAL ELEGANCE',name:'7-Piece Set',sub:'Wood Fiber + Acacia Block',gradient:'linear-gradient(135deg,#1a0e05,#3d2008)'},
-  {series:'COOKWARE',name:'Pressure Wok',sub:'All Stoves Compatible',gradient:'linear-gradient(135deg,#070d18,#0f1a2e)'},
-  {series:'MTS ARTISTRY',name:'Magnetic Stand',sub:'Anodized Aluminum',gradient:'linear-gradient(135deg,#111820,#1a3060)'},
-  {series:'DAMASCUS',name:'Santoku Knife',sub:'Resin Composite Handle',gradient:'linear-gradient(135deg,#12082a,#221048)'},
+  {series:'BLADE STEEL', seriesZh:'刀刃钢材', name:'German 1.4116',    nameZh:'德国1.4116钢',   sub:'58 HRC · Corrosion Resistant',     subZh:'58 HRC · 耐腐蚀',         gradient:'linear-gradient(135deg,#0d1a2e,#1c2e42)', type:'steel'},
+  {series:'BLADE STEEL', seriesZh:'刀刃钢材', name:'VG-10 Core',        nameZh:'VG-10核心钢',    sub:'Japanese Steel · 60+ HRC',         subZh:'日本钢材 · 60+ HRC',       gradient:'linear-gradient(135deg,#0d0818,#1a1035)', type:'steel'},
+  {series:'BLADE STEEL', seriesZh:'刀刃钢材', name:'Damascus 67-Layer', nameZh:'67层大马士革',   sub:'Pattern-Welded · Folded Steel',    subZh:'花纹锻造 · 折叠钢',        gradient:'linear-gradient(135deg,#0a0a14,#18182e)', type:'damascus'},
+  {series:'BLADE STEEL', seriesZh:'刀刃钢材', name:'Powder Steel',      nameZh:'粉末钢',         sub:'High-Performance Alloy',           subZh:'高性能合金',               gradient:'linear-gradient(135deg,#0a0d12,#141c28)', type:'steel'},
+  {series:'HANDLE',      seriesZh:'刀柄材料', name:'G10 Composite',     nameZh:'G10复合材料',    sub:'Lightweight · Chemical Resistant', subZh:'轻量化 · 耐化学腐蚀',      gradient:'linear-gradient(135deg,#1c1c1e,#2c2c32)', type:'g10'},
+  {series:'HANDLE',      seriesZh:'刀柄材料', name:'Anodized Aluminum', nameZh:'阳极氧化铝',     sub:'Aerospace Grade · 6061',           subZh:'航空级 · 6061铝合金',      gradient:'linear-gradient(135deg,#111820,#1a3060)', type:'aluminum'},
+  {series:'HANDLE',      seriesZh:'刀柄材料', name:'Natural Walnut',    nameZh:'天然胡桃木',     sub:'Oil Finish · Premium Grain',       subZh:'油面处理 · 优质纹理',      gradient:'linear-gradient(135deg,#1a0e05,#3d2008)', type:'wood'},
+  {series:'HANDLE',      seriesZh:'刀柄材料', name:'Pakkawood',         nameZh:'帕卡木',         sub:'Resin-Stabilized · Full Tang',     subZh:'树脂固化 · 全穿柄',        gradient:'linear-gradient(135deg,#0d1205,#1c2810)', type:'pakka'},
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -2473,6 +2655,12 @@ function openCategory(index) {
 
   title.textContent = tl(cat,'name',zh);
   label.textContent = tl(cat,'tagline',zh);
+
+  // Dispose preview WebGL contexts before clearing grid
+  grid.querySelectorAll('.product-canvas-preview').forEach(function(c) {
+    if (c._raf) cancelAnimationFrame(c._raf);
+    if (c._renderer) { c._renderer.dispose(); c._renderer = null; }
+  });
   grid.innerHTML = '';
   section.style.display = 'block';
   section.classList.remove('entering','leaving');
@@ -2515,17 +2703,23 @@ function openCategory(index) {
     `;
     grid.appendChild(card);
 
-    const catInfo = {name:cat.name,gradient:cat.gradient,accent:cat.accent,award:cat.award||false};
+    const catInfo = {name:cat.name,gradient:cat.gradient,accent:cat.accent,award:cat.award||false,glb:cat.glb||null};
     card.querySelector('.product-card-btn').addEventListener('click', () => openModal(prod, catInfo));
 
     // Render mini preview
-    setTimeout(() => renderPreview(prod, `preview-${prod.id}`, cat.accent), i * 100 + 100);
+    setTimeout(() => renderPreview(prod, `preview-${prod.id}`, cat.accent, cat.glb || null), i * 100 + 100);
   });
 
 }
 
 document.getElementById('productsClose').addEventListener('click', () => {
   const section = document.getElementById('products');
+  const grid = document.getElementById('productsGrid');
+  // Dispose preview WebGL contexts on close
+  grid.querySelectorAll('.product-canvas-preview').forEach(function(c) {
+    if (c._raf) cancelAnimationFrame(c._raf);
+    if (c._renderer) { c._renderer.dispose(); c._renderer = null; }
+  });
   section.classList.remove('entering');
   section.classList.add('leaving');
   setTimeout(() => {
@@ -2778,25 +2972,81 @@ function buildNonKnifeModel(product, handleColorHex, group) {
   return group;
 }
 
-function renderPreview(product, canvasId, accentColor) {
+function renderPreview(product, canvasId, accentColor, glbPath) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
   canvas.width = canvas.offsetWidth || 260;
   canvas.height = canvas.offsetHeight || 180;
 
-  const { renderer, scene, camera, group } = createKnifeScene(canvas, product, product.colors[0] || '#333');
+  if (glbPath) {
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(canvas.width, canvas.height);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.3;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(35, canvas.width / canvas.height, 0.1, 100);
+    camera.position.set(0, 0, 7);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+    const key = new THREE.DirectionalLight(0xffffff, 2.0); key.position.set(3, 4, 3); scene.add(key);
+    const fill = new THREE.DirectionalLight(0x8090b0, 0.6); fill.position.set(-3, 1, 2); scene.add(fill);
+    const rim = new THREE.DirectionalLight(0xffffff, 0.8); rim.position.set(0, -2, -4); scene.add(rim);
+    canvas._renderer = renderer;
 
-  let raf;
-  const animate = () => {
-    raf = requestAnimationFrame(animate);
-    group.rotation.y += 0.008;
-    renderer.render(scene, camera);
-  };
-  animate();
+    function startAnim(group) {
+      const animate = () => {
+        canvas._raf = requestAnimationFrame(animate);
+        group.rotation.y += 0.008;
+        renderer.render(scene, camera);
+      };
+      animate();
+    }
 
-  // Clean up when card is removed
-  canvas._raf = raf;
-  canvas._renderer = renderer;
+    function loadGLB() {
+      fetch(glbPath)
+        .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.arrayBuffer(); })
+        .then(function(buf) {
+          new THREE.GLTFLoader().parse(buf, '', function(gltf) {
+            const model = gltf.scene;
+            const box = new THREE.Box3().setFromObject(model);
+            const center = box.getCenter(new THREE.Vector3());
+            const size = box.getSize(new THREE.Vector3());
+            const scale = 3.8 / Math.max(size.x, size.y, size.z);
+            model.scale.setScalar(scale);
+            model.position.sub(center.multiplyScalar(scale));
+            scene.add(model);
+            startAnim(model);
+          }, fallback);
+        })
+        .catch(fallback);
+    }
+
+    function fallback() {
+      renderer.dispose();
+      const { renderer: r2, scene: s2, camera: c2, group: g2 } = createKnifeScene(canvas, product, product.colors[0] || '#333');
+      canvas._renderer = r2;
+      const animate = () => { canvas._raf = requestAnimationFrame(animate); g2.rotation.y += 0.008; r2.render(s2, c2); };
+      animate();
+    }
+
+    if (typeof THREE.GLTFLoader === 'function') { loadGLB(); }
+    else {
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';
+      s.onload = function() { typeof THREE.GLTFLoader === 'function' ? loadGLB() : fallback(); };
+      s.onerror = fallback;
+      document.head.appendChild(s);
+    }
+  } else {
+    const { renderer, scene, camera, group } = createKnifeScene(canvas, product, product.colors[0] || '#333');
+    canvas._renderer = renderer;
+    const animate = () => {
+      canvas._raf = requestAnimationFrame(animate);
+      group.rotation.y += 0.008;
+      renderer.render(scene, camera);
+    };
+    animate();
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -2805,6 +3055,97 @@ function renderPreview(product, canvasId, accentColor) {
 let modalRenderer = null, modalScene = null, modalCamera = null, modalGroup = null, modalRaf = null;
 let isDragging = false, lastX = 0, lastY = 0, currentProduct = null;
 
+function _startGLBModal(canvas, glbPath) {
+  const loadingEl = document.getElementById('modal-loading');
+  const hintEl    = document.querySelector('.modal-hint');
+  if (loadingEl) loadingEl.classList.add('active');
+  if (hintEl)    hintEl.style.opacity = '0';
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(canvas.width, canvas.height);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.4;
+  renderer.shadowMap.enabled = true;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(35, canvas.width / canvas.height, 0.1, 100);
+  camera.position.set(0, 0, 7);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+  const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(3, 4, 3); scene.add(key);
+  const fill = new THREE.DirectionalLight(0x8090b0, 0.7); fill.position.set(-3, 1, 2); scene.add(fill);
+  const rim = new THREE.DirectionalLight(0xffffff, 0.9); rim.position.set(0, -2, -4); scene.add(rim);
+  const top = new THREE.DirectionalLight(0xffd0a0, 0.4); top.position.set(0, 5, 1); scene.add(top);
+
+  modalRenderer = renderer;
+  modalScene = scene;
+  modalCamera = camera;
+
+  function _onLoaded(model) {
+    const box = new THREE.Box3().setFromObject(model);
+    const center = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const scale = 4.5 / maxDim;
+    model.scale.setScalar(scale);
+    model.position.sub(center.multiplyScalar(scale));
+    scene.add(model);
+    modalGroup = model;
+    if (loadingEl) loadingEl.classList.remove('active');
+    if (hintEl)    hintEl.style.opacity = '1';
+    const animate = () => {
+      modalRaf = requestAnimationFrame(animate);
+      if (!isDragging) modalGroup.rotation.y += 0.005;
+      renderer.render(scene, camera);
+    };
+    animate();
+  }
+
+  function _onError(err) {
+    console.warn('[GLB] load failed, falling back to procedural:', glbPath, err);
+    renderer.dispose();
+    if (loadingEl) loadingEl.classList.remove('active');
+    if (hintEl)    hintEl.style.opacity = '1';
+    if (!currentProduct) return;
+    const sc = createKnifeScene(canvas, currentProduct, currentProduct.colors[0] || '#333');
+    modalRenderer = sc.renderer; modalScene = sc.scene; modalCamera = sc.camera; modalGroup = sc.group;
+    const animate = () => {
+      modalRaf = requestAnimationFrame(animate);
+      if (!isDragging) modalGroup.rotation.y += 0.005;
+      modalRenderer.render(modalScene, modalCamera);
+    };
+    animate();
+  }
+
+  function _doLoad() {
+    /* Use fetch + parse so path spaces/encoding are handled by the browser URL resolver */
+    fetch(glbPath)
+      .then(function(r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status + ': ' + glbPath);
+        return r.arrayBuffer();
+      })
+      .then(function(buf) {
+        new THREE.GLTFLoader().parse(buf, '', function(gltf) { _onLoaded(gltf.scene); }, _onError);
+      })
+      .catch(_onError);
+  }
+
+  /* Ensure GLTFLoader is available — load script dynamically if CDN tag missed */
+  if (typeof THREE.GLTFLoader === 'function') {
+    _doLoad();
+  } else {
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';
+    s.onload = function() {
+      if (typeof THREE.GLTFLoader === 'function') { _doLoad(); }
+      else { _onError(new Error('GLTFLoader still not available after dynamic load')); }
+    };
+    s.onerror = function() { _onError(new Error('Failed to load GLTFLoader script')); };
+    document.head.appendChild(s);
+  }
+}
+
 function openModal(product, catInfo) {
   currentProduct = product;
   const modal = document.getElementById('modal');
@@ -2812,8 +3153,17 @@ function openModal(product, catInfo) {
   const canvas = document.getElementById('modal-canvas');
 
   // Stop any previous renderer
-  if (modalRaf) cancelAnimationFrame(modalRaf);
-  if (modalRenderer) { modalRenderer.dispose(); modalRenderer = null; }
+  if (modalRaf) { cancelAnimationFrame(modalRaf); modalRaf = null; }
+  if (modalRenderer) {
+    try {
+      const gl = modalRenderer.getContext();
+      const ext = gl && gl.getExtension('WEBGL_lose_context');
+      if (ext) ext.loseContext();
+    } catch(_) {}
+    modalRenderer.dispose();
+    modalRenderer = null;
+  }
+  modalScene = null; modalCamera = null; modalGroup = null;
 
   // Info panel
   const awardBadge = catInfo.award ? `<div class="modal-award">&#127942; Red Dot Award Winner</div>` : '';
@@ -2862,20 +3212,24 @@ function openModal(product, catInfo) {
   `;
 
   // Canvas sizing
-  const box = document.querySelector('.modal-3d');
-  canvas.width = box.clientWidth || 480;
-  canvas.height = box.clientHeight || 400;
+  const box3d = document.querySelector('.modal-3d');
+  canvas.width = box3d.clientWidth || 480;
+  canvas.height = box3d.clientHeight || 400;
 
-  // Init Three.js scene
-  const sc = createKnifeScene(canvas, product, product.colors[0] || '#333');
-  modalRenderer = sc.renderer; modalScene = sc.scene; modalCamera = sc.camera; modalGroup = sc.group;
-
-  const animate = () => {
-    modalRaf = requestAnimationFrame(animate);
-    if (!isDragging) modalGroup.rotation.y += 0.005;
-    modalRenderer.render(modalScene, modalCamera);
-  };
-  animate();
+  // Init Three.js scene — GLB if available, else procedural
+  const glbPath = product.glb || catInfo.glb;
+  if (glbPath) {
+    _startGLBModal(canvas, glbPath);
+  } else {
+    const sc = createKnifeScene(canvas, product, product.colors[0] || '#333');
+    modalRenderer = sc.renderer; modalScene = sc.scene; modalCamera = sc.camera; modalGroup = sc.group;
+    const animate = () => {
+      modalRaf = requestAnimationFrame(animate);
+      if (!isDragging) modalGroup.rotation.y += 0.005;
+      modalRenderer.render(modalScene, modalCamera);
+    };
+    animate();
+  }
 
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -2920,7 +3274,7 @@ window.addEventListener('touchmove', e => {
 function closeModal() {
   document.getElementById('modal').classList.remove('open');
   document.body.style.overflow = '';
-  if (modalRaf) cancelAnimationFrame(modalRaf);
+  if (modalRaf) { cancelAnimationFrame(modalRaf); modalRaf = null; }
 }
 document.getElementById('modalClose').addEventListener('click', closeModal);
 document.getElementById('modal').addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal(); });
@@ -2942,9 +3296,9 @@ function buildShowcase() {
       </div>
       <div class="marquee-card-overlay"></div>
       <div class="marquee-card-content">
-        <div class="marquee-card-label">${item.series}</div>
-        <div class="marquee-card-name">${item.name}</div>
-        <div class="marquee-card-sub">${item.sub}</div>
+        <div class="marquee-card-label" data-en="${item.series}" data-zh="${item.seriesZh}">${item.series}</div>
+        <div class="marquee-card-name"  data-en="${item.name}"   data-zh="${item.nameZh}">${item.name}</div>
+        <div class="marquee-card-sub"   data-en="${item.sub}"    data-zh="${item.subZh}">${item.sub}</div>
       </div>
     `;
     track.appendChild(card);
@@ -2952,36 +3306,112 @@ function buildShowcase() {
 }
 
 function buildShowcaseKnifeArt(item) {
-  if (item.series === 'COOKWARE') {
-    return `<svg width="120" height="200" viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="60" cy="130" rx="55" ry="22" fill="rgba(180,200,220,0.5)"/>
-      <path d="M 5,130 Q 20,165 60,170 Q 100,165 115,130" fill="rgba(180,200,220,0.45)"/>
-      <ellipse cx="60" cy="105" rx="55" ry="14" fill="rgba(190,210,225,0.6)"/>
-      <circle cx="60" cy="88" r="8" fill="rgba(200,50,30,0.8)"/>
+  const id = Math.random().toString(36).substr(2,5);
+  if (item.type === 'damascus') {
+    const waves = Array.from({length:18}, (_,i) => {
+      const y = 20 + i * 12;
+      const amp = 6 + (i % 3) * 3;
+      return `<path d="M0,${y} Q20,${y-amp} 40,${y} Q60,${y+amp} 80,${y} Q100,${y-amp} 120,${y} Q140,${y+amp} 160,${y}" fill="none" stroke="rgba(180,190,210,${0.12 + (i%4)*0.06})" stroke-width="${0.8 + (i%3)*0.4}"/>`;
+    }).join('');
+    return `<svg width="160" height="240" viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="240" fill="rgba(255,255,255,0.03)" rx="4"/>
+      ${waves}
+      <rect x="68" y="10" width="24" height="220" rx="2" fill="rgba(200,210,230,0.08)"/>
     </svg>`;
   }
-  if (item.series === 'CUTTING BOARDS' || item.series.includes('BOARD')) {
-    return `<svg width="160" height="200" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg">
-      <rect x="20" y="50" width="120" height="100" rx="8" fill="rgba(100,70,30,0.6)"/>
-      <line x1="20" y1="75" x2="140" y2="80" stroke="rgba(0,0,0,0.2)" stroke-width="2"/>
-      <line x1="20" y1="95" x2="140" y2="99" stroke="rgba(0,0,0,0.15)" stroke-width="1.5"/>
-      <line x1="20" y1="115" x2="140" y2="117" stroke="rgba(0,0,0,0.18)" stroke-width="2"/>
-      <line x1="20" y1="133" x2="140" y2="136" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+  if (item.type === 'wood' || item.type === 'pakka') {
+    const grains = Array.from({length:22}, (_,i) => {
+      const y = 8 + i * 10.5;
+      const ox = (i % 2) * 4 - 2;
+      const col = item.type === 'wood'
+        ? `rgba(${160+i*2},${100+i},${50+i*2},${0.25 + (i%4)*0.08})`
+        : `rgba(${80+i*4},${110+i*3},${60+i*2},${0.2 + (i%3)*0.1})`;
+      return `<path d="M${ox},${y} Q80,${y + (i%3-1)*3} ${160+ox},${y}" fill="none" stroke="${col}" stroke-width="${0.7+(i%3)*0.5}"/>`;
+    }).join('');
+    return `<svg width="160" height="240" viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
+      ${grains}
     </svg>`;
   }
-  return `<svg width="80" height="260" viewBox="0 0 80 260" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="sg_${Math.random().toString(36).substr(2,5)}" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="rgba(100,120,140,0.6)"/>
-        <stop offset="0.5" stop-color="rgba(220,230,240,0.9)"/>
-        <stop offset="1" stop-color="rgba(100,120,140,0.6)"/>
-      </linearGradient>
-    </defs>
-    <polygon points="36,10 44,10 48,170 32,170" fill="rgba(200,215,225,0.85)"/>
-    <rect x="30" y="170" width="20" height="75" rx="6" fill="rgba(30,30,30,0.7)"/>
-    <rect x="30" y="170" width="20" height="5" fill="rgba(192,57,43,0.5)"/>
+  if (item.type === 'aluminum') {
+    const lines = Array.from({length:40}, (_,i) => {
+      const y = i * 6;
+      return `<line x1="0" y1="${y}" x2="160" y2="${y}" stroke="rgba(180,210,255,${0.04 + (i%5)*0.02})" stroke-width="1"/>`;
+    }).join('');
+    return `<svg width="160" height="240" viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="al_${id}" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="rgba(100,140,200,0.1)"/>
+        <stop offset="0.4" stop-color="rgba(180,210,255,0.35)"/>
+        <stop offset="0.6" stop-color="rgba(180,210,255,0.35)"/>
+        <stop offset="1" stop-color="rgba(100,140,200,0.1)"/>
+      </linearGradient></defs>
+      ${lines}
+      <rect width="160" height="240" fill="url(#al_${id})"/>
+      <ellipse cx="80" cy="120" rx="55" ry="55" fill="none" stroke="rgba(180,210,255,0.12)" stroke-width="1"/>
+      <ellipse cx="80" cy="120" rx="35" ry="35" fill="none" stroke="rgba(180,210,255,0.08)" stroke-width="1"/>
+    </svg>`;
+  }
+  if (item.type === 'g10') {
+    const layers = Array.from({length:30}, (_,i) => {
+      const y = i * 8;
+      const dark = i % 2 === 0;
+      return `<rect x="0" y="${y}" width="160" height="8" fill="${dark ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.02)'}"/>`;
+    }).join('');
+    const vlines = Array.from({length:8}, (_,i) => {
+      const x = 20 + i * 18;
+      return `<line x1="${x}" y1="0" x2="${x}" y2="240" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;
+    }).join('');
+    return `<svg width="160" height="240" viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
+      ${layers}${vlines}
+      <rect x="60" y="0" width="40" height="240" fill="rgba(255,255,255,0.03)"/>
+    </svg>`;
+  }
+  /* default: polished steel */
+  const steelLines = Array.from({length:12}, (_,i) => {
+    const y = 10 + i * 19;
+    return `<line x1="0" y1="${y}" x2="160" y2="${y + 4}" stroke="rgba(200,220,240,${0.06 + (i%4)*0.04})" stroke-width="${1 + (i%3)*0.5}"/>`;
+  }).join('');
+  return `<svg width="160" height="240" viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="st_${id}" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="rgba(80,100,120,0.2)"/>
+      <stop offset="0.35" stop-color="rgba(200,220,240,0.5)"/>
+      <stop offset="0.65" stop-color="rgba(200,220,240,0.5)"/>
+      <stop offset="1" stop-color="rgba(80,100,120,0.2)"/>
+    </linearGradient></defs>
+    <rect width="160" height="240" fill="url(#st_${id})"/>
+    ${steelLines}
   </svg>`;
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// HERITAGE SCROLL ANIMATION
+// ─────────────────────────────────────────────────────────────────────────────
+(function() {
+  const timeline = document.querySelector('.ht-timeline');
+  if (!timeline) return;
+
+  // Draw the vertical line as user scrolls through the section
+  function updateLine() {
+    const rect = timeline.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const progress = Math.max(0, Math.min(1, (vh * 0.55 - rect.top) / rect.height));
+    timeline.style.setProperty('--ht-line', progress.toFixed(4));
+  }
+  window.addEventListener('scroll', updateLine, { passive: true });
+  updateLine();
+
+  // Slide in each entry when it enters the viewport
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('ht-visible');
+      } else {
+        e.target.classList.remove('ht-visible');
+      }
+    });
+  }, { threshold: 0.18 });
+
+  document.querySelectorAll('.ht-entry').forEach(el => obs.observe(el));
+})();
 
 // ─────────────────────────────────────────────────────────────────────────────
 // INIT
