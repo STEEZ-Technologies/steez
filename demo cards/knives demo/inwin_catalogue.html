@@ -382,7 +382,7 @@ section{padding:80px 0}
 #modal.open .modal-box{transform:translateY(0) scale(1);opacity:1}
 @media(max-width:700px){.modal-box{grid-template-columns:1fr;max-height:95vh;overflow-y:auto}}
 .modal-3d{
-  background:var(--black);position:relative;
+  background:radial-gradient(ellipse at 50% 40%, #2a3040 0%, #0d1018 100%);position:relative;
   height:400px;overflow:hidden;
 }
 @media(max-width:700px){.modal-3d{height:300px}}
@@ -391,7 +391,7 @@ section{padding:80px 0}
 .modal-hint{
   position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
   font-family:var(--font-h);font-size:9px;letter-spacing:0.25em;
-  text-transform:uppercase;color:rgba(255,255,255,0.3);
+  text-transform:uppercase;color:rgba(255,255,255,0.35);
   display:flex;align-items:center;gap:6px;white-space:nowrap;
   transition:opacity 0.3s;
 }
@@ -451,47 +451,55 @@ section{padding:80px 0}
   text-transform:uppercase;color:var(--gold);
 }
 
-/* ─── SHOWCASE / BEST PRODUCTS ─── */
-#showcase{
-  background:var(--black);padding:100px 0 0;overflow:hidden;
+/* ─── PRODUCT CATALOG ─── */
+#showcase{background:var(--black);padding:80px 0 100px}
+.pc-intro{max-width:700px;padding:0 clamp(16px,4vw,60px);margin-bottom:40px}
+.pc-filters{display:flex;flex-wrap:wrap;gap:8px;padding:0 clamp(16px,4vw,60px);margin-bottom:40px}
+.pc-filter{
+  padding:8px 18px;border:1px solid rgba(255,255,255,0.12);border-radius:100px;
+  background:transparent;color:rgba(240,237,232,0.5);cursor:pointer;
+  font-family:var(--font-h);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  transition:all 0.25s;
 }
-.showcase-intro{max-width:700px;padding:0 clamp(16px,4vw,60px);margin-bottom:64px}
-.showcase-marquee{
-  position:relative;width:100%;overflow:hidden;padding:20px 0;
+.pc-filter:hover{border-color:rgba(255,255,255,0.3);color:var(--white)}
+.pc-filter.active{background:var(--red);border-color:var(--red);color:var(--white)}
+.pc-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));
+  gap:16px;padding:0 clamp(16px,4vw,60px);
 }
-.marquee-track{
-  display:flex;gap:20px;width:max-content;
-  animation:marqueeScroll 40s linear infinite;
+.pc-card{
+  background:var(--black3);border-radius:12px;overflow:hidden;cursor:pointer;
+  border:1px solid rgba(255,255,255,0.06);
+  transition:transform 0.3s ease,box-shadow 0.3s ease,border-color 0.3s;
+  animation:cardIn 0.4s ease backwards;
 }
-.marquee-track:hover{animation-play-state:paused}
-@keyframes marqueeScroll{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
+.pc-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,0.5);border-color:rgba(192,57,43,0.3)}
+.pc-card-visual{height:160px;position:relative;overflow:hidden;background:var(--black2)}
+.pc-card-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease}
+.pc-card:hover .pc-card-visual img{transform:scale(1.06)}
+.pc-card-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.5) 0%,transparent 50%);pointer-events:none}
+.pc-cat-badge{
+  position:absolute;top:12px;left:12px;z-index:1;
+  padding:4px 10px;border-radius:100px;
+  font-family:var(--font-h);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;
+  background:rgba(0,0,0,0.65);border:1px solid rgba(255,255,255,0.15);
+  color:var(--white);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
 }
-.marquee-card{
-  flex-shrink:0;width:280px;height:360px;border-radius:14px;overflow:hidden;
-  position:relative;cursor:pointer;
-  transition:transform 0.3s ease, box-shadow 0.3s;
+.pc-card-body{padding:16px}
+.pc-card-name{font-family:var(--font-h);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px;color:var(--white)}
+.pc-card-tag{font-family:var(--font-s);font-size:12px;font-style:italic;color:var(--white3);margin-bottom:9px;line-height:1.4}
+.pc-card-specs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.pc-card-spec{padding:3px 8px;background:rgba(255,255,255,0.06);border-radius:100px;font-size:9px;letter-spacing:0.1em;font-family:var(--font-h);color:var(--white3)}
+.pc-card-colors{display:flex;gap:5px;margin-bottom:10px}
+.pc-card-color{width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.15)}
+.pc-card-btn{
+  width:100%;padding:9px;border:1px solid rgba(192,57,43,0.4);background:transparent;
+  color:var(--white);font-family:var(--font-h);font-size:10px;letter-spacing:0.2em;
+  text-transform:uppercase;cursor:pointer;border-radius:6px;
+  transition:background 0.3s,border-color 0.3s;
 }
-.marquee-card:hover{transform:scale(1.04);box-shadow:0 20px 50px rgba(0,0,0,0.6)}
-.marquee-card-bg{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
-.marquee-card:hover .marquee-card-bg{transform:scale(1.06)}
-.marquee-card-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
-}
-.marquee-card-content{position:absolute;bottom:0;left:0;right:0;padding:20px}
-.marquee-card-label{font-family:var(--font-h);font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
-.marquee-card-name{font-family:var(--font-h);font-size:18px;font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.15}
-.marquee-card-sub{font-family:var(--font-s);font-size:12px;font-style:italic;color:var(--white3);margin-top:4px}
-.showcase-quote{
-  padding:80px clamp(16px,4vw,60px) 100px;text-align:center;
-}
-.showcase-q-text{
-  font-family:var(--font-s);font-size:clamp(20px,3.5vw,36px);
-  font-style:italic;color:var(--white);line-height:1.5;max-width:700px;margin:0 auto 20px;
-}
-.showcase-q-attr{font-family:var(--font-h);font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--white3)}
+.pc-card-btn:hover{background:var(--red);border-color:var(--red)}
 
 /* ─── FOOTER ─── */
 #footer{
@@ -1073,6 +1081,7 @@ body{padding-top:68px}
       <li><a href="#heritage" data-i18n="her-label">Our Story</a></li>
       <li><a href="#collections" data-i18n="nav1">Collections</a></li>
       <li><a href="#knife-configurator" data-i18n="nav2">Configurator</a></li>
+      <li><a href="#showcase" data-i18n="nav-catalog">Catalog</a></li>
       <li><a href="#community" data-i18n="com-label">Community</a></li>
     </ul>
     <!-- Icons -->
@@ -1590,20 +1599,17 @@ body{padding-top:68px}
   </div>
 </div>
 
-<!-- ─── SHOWCASE ─── -->
+<!-- ─── PRODUCT CATALOG ─── -->
 <section id="showcase">
-  <div class="showcase-intro">
-    <p class="section-label reveal" id="i-art-label">Materials Showroom</p>
-    <h2 class="section-title reveal" id="i-art-title">Crafted from<br><em>the Best</em></h2>
+  <div class="pc-intro">
+    <p class="section-label reveal" id="i-art-label">Full Catalogue</p>
+    <h2 class="section-title reveal" id="i-art-title">Every Product,<br><em>Every Series</em></h2>
   </div>
-  <div class="showcase-marquee">
-    <div class="marquee-track" id="marqueeTrack">
-      <!-- injected by JS -->
-    </div>
+  <div class="pc-filters" id="pcFilters">
+    <!-- injected by JS -->
   </div>
-  <div class="showcase-quote">
-    <p class="showcase-q-text reveal" id="i-showcase-q">"Every edge begins with a choice of steel. Every grip begins with a choice of material. At INWIN, neither decision is made with compromise."</p>
-    <p class="showcase-q-attr reveal" id="i-showcase-attr">— INWIN · Master Craftsman Since 1979</p>
+  <div class="pc-grid" id="pcGrid">
+    <!-- injected by JS -->
   </div>
 </section>
 
@@ -1737,7 +1743,7 @@ if (typeof THREE !== 'undefined' && THREE.Path && !THREE.Path.prototype.roundRec
 var _lang = 'en';
 var _T = {
   en:{
-    nav1:'Collections', nav2:'Configurator', nav3:'Knife Finder', nav4:'About Us',
+    nav1:'Collections', nav2:'Configurator', nav3:'Knife Finder', nav4:'About Us', 'nav-catalog':'Catalog',
     'hero-title':'Master Craftsman<br>of Professional<br>Kitchenware',
     'hero-sub':'Knives &nbsp;·&nbsp; Utensils &nbsp;·&nbsp; Cookware &nbsp;·&nbsp; Since 1979',
     'co-label':'Company Profile',
@@ -1767,8 +1773,8 @@ var _T = {
     'knc-clabel':'Handle Color',
     'prod-label':'Browse the Collection',
     'prod-title':'Explore<br><em>Every Series</em>',
-    'art-label':'Materials Showroom',
-    'art-title':'Crafted from<br><em>the Best</em>',
+    'art-label':'Full Catalogue',
+    'art-title':'Every Product,<br><em>Every Series</em>',
     'cu-label':'Trade Enquiries',
     'cu-title':'Let\'s Talk<br><em>Business</em>',
     'con-l-name':'Name','con-l-comp':'Company','con-l-email':'Email','con-l-type':'Inquiry Type','con-l-msg':'Message',
@@ -1808,7 +1814,7 @@ var _T = {
     'com-tt':'Follow on Xiaohongshu'
   },
   zh:{
-    nav1:'系列产品', nav2:'配置器', nav3:'刀具查询', nav4:'关于我们',
+    nav1:'系列产品', nav2:'配置器', nav3:'刀具查询', nav4:'关于我们', 'nav-catalog':'产品目录',
     'hero-title':'专业厨具<br>精工匠人',
     'hero-sub':'刀具 · 餐具 · 炊具 · 始于1979年',
     'co-label':'公司简介',
@@ -1838,8 +1844,8 @@ var _T = {
     'knc-clabel':'刀柄颜色',
     'prod-label':'浏览系列',
     'prod-title':'探索<br><em>每个系列</em>',
-    'art-label':'材料展示厅',
-    'art-title':'选材<br><em>精益求精</em>',
+    'art-label':'完整目录',
+    'art-title':'每件产品<br><em>每个系列</em>',
     'cu-label':'商业洽谈',
     'cu-title':'洽谈<br><em>合作</em>',
     'con-l-name':'姓名','con-l-comp':'公司','con-l-email':'电子邮件','con-l-type':'询价类型','con-l-msg':'留言',
@@ -1965,10 +1971,14 @@ function applyLang(lang){
     chName.textContent = ((lang === 'zh' && zh) ? zh.name : chName.dataset.enName).toUpperCase();
   }
 
-  /* showcase marquee cards */
-  document.querySelectorAll('.marquee-card-label[data-en], .marquee-card-name[data-en], .marquee-card-sub[data-en]').forEach(function(el){
-    el.textContent = lang === 'zh' ? el.dataset.zh : el.dataset.en;
-  });
+  /* product catalog — rebuild on language change */
+  var filtersEl = document.getElementById('pcFilters');
+  var gridEl = document.getElementById('pcGrid');
+  if (filtersEl && gridEl) {
+    filtersEl.innerHTML = '';
+    gridEl.innerHTML = '';
+    buildShowcase();
+  }
 
   /* specs panel */
   if (window._kncRefresh) window._kncRefresh();
@@ -2026,7 +2036,7 @@ const CATEGORIES = [
     gradient:'linear-gradient(160deg,#0d1a2e 0%,#1a2d4a 40%,#0a1525 100%)',
     accent:'#4a9eff',
     products:[
-      {id:'mts1',name:"Chef's Knife 8\"",tagline:'The backbone of every kitchen',blade:'Powder Steel',handle:'G10 + Anodized Aluminum',length:'8 inch',weight:'220g',colors:['#1a1a1a','#f0f0f0','#2255aa','#5c3a28'],handleType:'flat',bladeType:'chef'},
+      {id:'mts1',name:"Chef's Knife 8\"",tagline:'The backbone of every kitchen',blade:'Powder Steel',handle:'G10 + Anodized Aluminum',length:'8 inch',weight:'220g',colors:['#1a1a1a','#f0f0f0','#2255aa','#5c3a28'],handleType:'flat',bladeType:'chef',glb:'3d models/kitchen_knife.glb'},
       {id:'mts2',name:"Utility Knife 5\"",tagline:'Precision for every task',blade:'Powder Steel',handle:'G10 + Anodized Aluminum',length:'5 inch',weight:'150g',colors:['#1a1a1a','#f0f0f0','#2255aa','#5c3a28'],handleType:'flat',bladeType:'utility'},
       {id:'mts3',name:"Paring Knife 3.5\"",tagline:'Detail work mastered',blade:'Powder Steel',handle:'G10 + Anodized Aluminum',length:'3.5 inch',weight:'90g',colors:['#1a1a1a','#f0f0f0','#2255aa','#5c3a28'],handleType:'flat',bladeType:'paring'},
       {id:'mts4',name:"Magnetic Stand",tagline:"A collector's showcase",blade:'N/A',handle:'Anodized Aluminum',length:'Universal',weight:'480g',colors:['#1a1a1a','#2255aa','#1a6a3a'],handleType:'stand',bladeType:'none'},
@@ -2041,7 +2051,7 @@ const CATEGORIES = [
     gradient:'linear-gradient(160deg,#0a0505 0%,#1c0808 40%,#2a0d0d 100%)',
     accent:'#c0392b',
     products:[
-      {id:'vf1',name:"Chef's Knife 8\"",tagline:'The future, within reach',blade:'Black Powder Steel',handle:'G10',length:'8 inch',weight:'240g',colors:['#111'],handleType:'g10black',bladeType:'chef'},
+      {id:'vf1',name:"Chef's Knife 8\"",tagline:'The future, within reach',blade:'Black Powder Steel',handle:'G10',length:'8 inch',weight:'240g',colors:['#111'],handleType:'g10black',bladeType:'chef',glb:'3d models/kitchen_knife.glb'},
       {id:'vf2',name:"Carving Knife 8\"",tagline:'Precision slicing mastered',blade:'Black Powder Steel',handle:'G10',length:'8 inch',weight:'210g',colors:['#111'],handleType:'g10black',bladeType:'carving'},
       {id:'vf3',name:"Bread Knife 6\"",tagline:'Serrated excellence',blade:'Black Powder Steel',handle:'G10',length:'6 inch',weight:'180g',colors:['#111'],handleType:'g10black',bladeType:'bread'},
       {id:'vf4',name:"Utility Knife 5\"",tagline:'Every task, perfected',blade:'Black Powder Steel',handle:'G10',length:'5 inch',weight:'160g',colors:['#111'],handleType:'g10black',bladeType:'utility'},
@@ -2050,7 +2060,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id:'damascus', name:'DAMASCUS', num:'03', glb:'3d models/kitchen_knife.glb',
+    id:'damascus', name:'DAMASCUS', num:'03', glb:'3d models/knife_damascus.glb',
     specs:{steel:'VG-10 core / Damascus',hardness:'60 HRC',edge:'12° per side',handle:'Multi-colour resin'},
     photo:'catalogue_pics/damascus.png',
     tagline:'Beneath the Edge · A Thousand Layers',
@@ -2058,9 +2068,9 @@ const CATEGORIES = [
     gradient:'linear-gradient(160deg,#0d0818 0%,#1a0d2e 40%,#0d0a18 100%)',
     accent:'#9b59b6',
     products:[
-      {id:'dam1',name:"Chef's Knife 8\"",tagline:'A thousand layers of mastery',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'8 inch',weight:'230g',colors:['#1a3590','#8b1a1a','#1a6b2a','#f5f0e8','#c4789a'],handleType:'resin',bladeType:'chef'},
-      {id:'dam2',name:"Santoku 5\"",tagline:'Japanese precision redefined',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'5 inch',weight:'170g',colors:['#1a3590','#8b1a1a','#1a6b2a','#f5f0e8'],handleType:'resin',bladeType:'santoku'},
-      {id:'dam3',name:"Paring Knife 3.5\"",tagline:'Miniature masterpiece',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'3.5 inch',weight:'95g',colors:['#1a3590','#8b1a1a','#f5f0e8'],handleType:'resin',bladeType:'paring'},
+      {id:'dam1',name:"Chef's Knife 8\"",tagline:'A thousand layers of mastery',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'8 inch',weight:'230g',colors:['#1a3590','#8b1a1a','#1a6b2a','#f5f0e8','#c4789a'],handleType:'resin',bladeType:'chef',glb:'3d models/knife_damascus.glb'},
+      {id:'dam2',name:"Santoku 5\"",tagline:'Japanese precision redefined',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'5 inch',weight:'170g',colors:['#1a3590','#8b1a1a','#1a6b2a','#f5f0e8'],handleType:'resin',bladeType:'santoku',glb:'3d models/knife_damascus.glb'},
+      {id:'dam3',name:"Paring Knife 3.5\"",tagline:'Miniature masterpiece',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'3.5 inch',weight:'95g',colors:['#1a3590','#8b1a1a','#f5f0e8'],handleType:'resin',bladeType:'paring',glb:'3d models/knife_damascus.glb'},
     ]
   },
   {
@@ -2073,48 +2083,48 @@ const CATEGORIES = [
     accent:'#d4a017',
     award:true,
     products:[
-      {id:'dr1',name:"Chef's Knife",tagline:'Red Dot Award Winner 2024',blade:'Premium Stainless + Dragon Engraving',handle:'Interchangeable Modular',length:'8 inch',weight:'260g',colors:['#888888','#1a1a1a','#8b6914'],handleType:'dragon',bladeType:'chef'},
+      {id:'dr1',name:"Chef's Knife",tagline:'Red Dot Award Winner 2024',blade:'Premium Stainless + Dragon Engraving',handle:'Interchangeable Modular',length:'8 inch',weight:'260g',colors:['#888888','#1a1a1a','#8b6914'],handleType:'dragon',bladeType:'chef',glb:'3d models/kitchen_knife.glb'},
       {id:'dr2',name:"Nakiri Knife",tagline:'Vegetable precision art',blade:'Premium Stainless + Dragon Engraving',handle:'Interchangeable Modular',length:'6.5 inch',weight:'230g',colors:['#888888','#1a1a1a'],handleType:'dragon',bladeType:'cleaver'},
       {id:'dr3',name:"Santoku Knife",tagline:'Three virtues, one blade',blade:'Premium Stainless + Dragon Engraving',handle:'Interchangeable Modular',length:'5 inch',weight:'190g',colors:['#888888','#1a1a1a'],handleType:'dragon',bladeType:'santoku'},
     ]
   },
   {
-    id:'boards', name:'CUTTING BOARD', num:'05', glb:'3d models/kitchen_knife.glb',
+    id:'boards', name:'CUTTING BOARD', num:'05', glb:'3d models/cutting_board.glb',
     photo:'catalogue_pics/cutting_board.png',
     tagline:'Natural Luxury · Ages Beautifully',
     desc:'From the innovative iPad-style magnetic flip board to premium North American Black Walnut. Function meets fine material, beautifully.',
     gradient:'linear-gradient(160deg,#180e04 0%,#3d2008 40%,#251408 100%)',
     accent:'#c4844a',
     products:[
-      {id:'bd1',name:"Flip Magnetic Board",tagline:'iPad-style. Kitchen-grade.',blade:'N/A',handle:'High-Density Polymer + Bamboo',length:'38 × 28 cm',weight:'1.2kg',colors:['#1a1a1a','#3d2a1a'],handleType:'board',bladeType:'none'},
-      {id:'bd2',name:"Black Walnut Board",tagline:'Natural luxury, ages beautifully.',blade:'N/A',handle:'North American Black Walnut',length:'45 × 32 cm',weight:'2.1kg',colors:['#3d2010','#5c3a1e'],handleType:'board',bladeType:'none'},
+      {id:'bd1',name:"Flip Magnetic Board",tagline:'iPad-style. Kitchen-grade.',blade:'N/A',handle:'High-Density Polymer + Bamboo',length:'38 × 28 cm',weight:'1.2kg',colors:['#1a1a1a','#3d2a1a'],handleType:'board',bladeType:'none',glb:'3d models/cutting_board.glb'},
+      {id:'bd2',name:"Black Walnut Board",tagline:'Natural luxury, ages beautifully.',blade:'N/A',handle:'North American Black Walnut',length:'45 × 32 cm',weight:'2.1kg',colors:['#3d2010','#5c3a1e'],handleType:'board',bladeType:'none',glb:'3d models/cutting_board.glb'},
     ]
   },
   {
-    id:'cookware', name:'POTS', num:'06', glb:'3d models/kitchen_knife.glb',
+    id:'cookware', name:'POTS', num:'06', glb:'3d models/stainless_steel_cooking_pot.glb',
     photo:'catalogue_pics/pots.png',
     tagline:'Master Your Kitchen',
     desc:'From the Micro-Pressure Wok to 3-Layer Stainless cookware sets. Compatible with all stoves, induction-ready, dishwasher safe.',
     gradient:'linear-gradient(160deg,#070d18 0%,#0f1a2e 40%,#0a1020 100%)',
     accent:'#64b5f6',
     products:[
-      {id:'cw1',name:"Micro-Pressure Wok",tagline:'Master every stir-fry',blade:'N/A',handle:'3-Layer Stainless + Tempered Glass Lid',length:'32 cm dia.',weight:'2.8kg',colors:['#888','#aaa'],handleType:'cookware',bladeType:'none'},
-      {id:'cw2',name:"3-Layer Stainless Set",tagline:'Induction ready. Dishwasher safe.',blade:'N/A',handle:'18/10 Stainless, Aluminum Core',length:'16/18/20/22 cm',weight:'5.2kg',colors:['#aaa','#ccc'],handleType:'cookware',bladeType:'none'},
-      {id:'cw3',name:"Kitchen Utensil Set",tagline:'Complete your kitchen',blade:'N/A',handle:'Steel + Rose Wood Handles',length:'Pasta Server, Spatula, Ladle, Slotted Spoon',weight:'600g',colors:['#aaa','#8b6233'],handleType:'cookware',bladeType:'none'},
+      {id:'cw1',name:"Micro-Pressure Wok",tagline:'Master every stir-fry',blade:'N/A',handle:'3-Layer Stainless + Tempered Glass Lid',length:'32 cm dia.',weight:'2.8kg',colors:['#888','#aaa'],handleType:'cookware',bladeType:'none',glb:'3d models/stainless_steel_cooking_pot.glb'},
+      {id:'cw2',name:"3-Layer Stainless Set",tagline:'Induction ready. Dishwasher safe.',blade:'N/A',handle:'18/10 Stainless, Aluminum Core',length:'16/18/20/22 cm',weight:'5.2kg',colors:['#aaa','#ccc'],handleType:'cookware',bladeType:'none',glb:'3d models/stainless_steel_cooking_pot.glb'},
+      {id:'cw3',name:"Kitchen Utensil Set",tagline:'Complete your kitchen',blade:'N/A',handle:'Steel + Rose Wood Handles',length:'Pasta Server, Spatula, Ladle, Slotted Spoon',weight:'600g',colors:['#aaa','#8b6233'],handleType:'cookware',bladeType:'none',glb:'3d models/stainless_steel_cooking_pot.glb'},
     ]
   },
   {
-    id:'scissors', name:'SCISSORS', num:'07', glb:'3d models/kitchen_knife.glb',
+    id:'scissors', name:'SCISSORS', num:'07', glb:'3d models/kitchen_scissors.glb',
     photo:'catalogue_pics/scissors.png',
     tagline:'Precision Cutting · Professional Grade',
     desc:'Multi-purpose kitchen scissors engineered for professional use. From heavy-duty poultry shears to 5-blade herb scissors — forged stainless steel, ergonomic handles, dishwasher safe.',
     gradient:'linear-gradient(160deg,#080d10 0%,#0d1c22 40%,#060e12 100%)',
     accent:'#4ecdc4',
     products:[
-      {id:'sc1',name:'Multi-Purpose Shears',tagline:'The essential kitchen tool',blade:'420 Stainless Steel',handle:'PP + TPR Ergonomic',length:'21 cm',weight:'180g',colors:['#1a1a1a','#c0392b','#1a4896'],handleType:'flat',bladeType:'utility'},
-      {id:'sc2',name:'Poultry Shears',tagline:'Heavy-duty precision cutting',blade:'420J2 Stainless Steel',handle:'PP Soft-Grip',length:'24 cm',weight:'260g',colors:['#1a1a1a','#2a2a2a'],handleType:'flat',bladeType:'cleaver'},
-      {id:'sc3',name:'Herb Scissors 5-Blade',tagline:'Five blades, one cut',blade:'420 Stainless Steel',handle:'PP + ABS',length:'19 cm',weight:'130g',colors:['#1a5c1a','#1a1a1a'],handleType:'flat',bladeType:'utility'},
-      {id:'sc4',name:'Seafood Scissors',tagline:'Shell to table, effortlessly',blade:'420 Stainless Steel',handle:'ABS + Non-slip Grip',length:'20 cm',weight:'150g',colors:['#1a4896','#1a1a1a'],handleType:'flat',bladeType:'paring'},
+      {id:'sc1',name:'Multi-Purpose Shears',tagline:'The essential kitchen tool',blade:'420 Stainless Steel',handle:'PP + TPR Ergonomic',length:'21 cm',weight:'180g',colors:['#1a1a1a','#c0392b','#1a4896'],handleType:'flat',bladeType:'utility',glb:'3d models/kitchen_scissors.glb'},
+      {id:'sc2',name:'Poultry Shears',tagline:'Heavy-duty precision cutting',blade:'420J2 Stainless Steel',handle:'PP Soft-Grip',length:'24 cm',weight:'260g',colors:['#1a1a1a','#2a2a2a'],handleType:'flat',bladeType:'cleaver',glb:'3d models/kitchen_scissors.glb'},
+      {id:'sc3',name:'Herb Scissors 5-Blade',tagline:'Five blades, one cut',blade:'420 Stainless Steel',handle:'PP + ABS',length:'19 cm',weight:'130g',colors:['#1a5c1a','#1a1a1a'],handleType:'flat',bladeType:'utility',glb:'3d models/kitchen_scissors.glb'},
+      {id:'sc4',name:'Seafood Scissors',tagline:'Shell to table, effortlessly',blade:'420 Stainless Steel',handle:'ABS + Non-slip Grip',length:'20 cm',weight:'150g',colors:['#1a4896','#1a1a1a'],handleType:'flat',bladeType:'paring',glb:'3d models/kitchen_scissors.glb'},
     ]
   },
   {
@@ -2125,7 +2135,7 @@ const CATEGORIES = [
     gradient:'linear-gradient(160deg,#0a0a0c 0%,#141418 40%,#0a0a0c 100%)',
     accent:'#e8e8f0',
     products:[
-      {id:'sl1',name:"Chef's Knife 8\"",tagline:'The purist choice',blade:'German 1.4116 Stainless',handle:'Full-Tang Polished Steel',length:'8 inch',weight:'235g',colors:['#d0d0d8','#1a1a1a'],handleType:'flat',bladeType:'chef'},
+      {id:'sl1',name:"Chef's Knife 8\"",tagline:'The purist choice',blade:'German 1.4116 Stainless',handle:'Full-Tang Polished Steel',length:'8 inch',weight:'235g',colors:['#d0d0d8','#1a1a1a'],handleType:'flat',bladeType:'chef',glb:'3d models/kitchen_knife.glb'},
       {id:'sl2',name:"Santoku 7\"",tagline:'Versatility, perfected',blade:'German 1.4116 Stainless',handle:'Full-Tang Polished Steel',length:'7 inch',weight:'195g',colors:['#d0d0d8','#1a1a1a'],handleType:'flat',bladeType:'santoku'},
       {id:'sl3',name:"Bread Knife 8\"",tagline:'Serrated precision',blade:'German 1.4116 Stainless',handle:'Full-Tang Polished Steel',length:'8 inch',weight:'210g',colors:['#d0d0d8'],handleType:'flat',bladeType:'bread'},
       {id:'sl4',name:"Paring Knife 3.5\"",tagline:'Control at every scale',blade:'German 1.4116 Stainless',handle:'Full-Tang Polished Steel',length:'3.5 inch',weight:'95g',colors:['#d0d0d8','#1a1a1a'],handleType:'flat',bladeType:'paring'},
@@ -2167,16 +2177,6 @@ function tl(obj, field, zhObj) {
   return (zhObj && zhObj[field]) || obj[field];
 }
 
-const SHOWCASE_ITEMS = [
-  {series:'BLADE STEEL', seriesZh:'刀刃钢材', name:'German 1.4116',    nameZh:'德国1.4116钢',   sub:'58 HRC · Corrosion Resistant',     subZh:'58 HRC · 耐腐蚀',         gradient:'linear-gradient(135deg,#0d1a2e,#1c2e42)', type:'steel'},
-  {series:'BLADE STEEL', seriesZh:'刀刃钢材', name:'VG-10 Core',        nameZh:'VG-10核心钢',    sub:'Japanese Steel · 60+ HRC',         subZh:'日本钢材 · 60+ HRC',       gradient:'linear-gradient(135deg,#0d0818,#1a1035)', type:'steel'},
-  {series:'BLADE STEEL', seriesZh:'刀刃钢材', name:'Damascus 67-Layer', nameZh:'67层大马士革',   sub:'Pattern-Welded · Folded Steel',    subZh:'花纹锻造 · 折叠钢',        gradient:'linear-gradient(135deg,#0a0a14,#18182e)', type:'damascus'},
-  {series:'BLADE STEEL', seriesZh:'刀刃钢材', name:'Powder Steel',      nameZh:'粉末钢',         sub:'High-Performance Alloy',           subZh:'高性能合金',               gradient:'linear-gradient(135deg,#0a0d12,#141c28)', type:'steel'},
-  {series:'HANDLE',      seriesZh:'刀柄材料', name:'G10 Composite',     nameZh:'G10复合材料',    sub:'Lightweight · Chemical Resistant', subZh:'轻量化 · 耐化学腐蚀',      gradient:'linear-gradient(135deg,#1c1c1e,#2c2c32)', type:'g10'},
-  {series:'HANDLE',      seriesZh:'刀柄材料', name:'Anodized Aluminum', nameZh:'阳极氧化铝',     sub:'Aerospace Grade · 6061',           subZh:'航空级 · 6061铝合金',      gradient:'linear-gradient(135deg,#111820,#1a3060)', type:'aluminum'},
-  {series:'HANDLE',      seriesZh:'刀柄材料', name:'Natural Walnut',    nameZh:'天然胡桃木',     sub:'Oil Finish · Premium Grain',       subZh:'油面处理 · 优质纹理',      gradient:'linear-gradient(135deg,#1a0e05,#3d2008)', type:'wood'},
-  {series:'HANDLE',      seriesZh:'刀柄材料', name:'Pakkawood',         nameZh:'帕卡木',         sub:'Resin-Stabilized · Full Tang',     subZh:'树脂固化 · 全穿柄',        gradient:'linear-gradient(135deg,#0d1205,#1c2810)', type:'pakka'},
-];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LOADER
@@ -2348,6 +2348,22 @@ const counterObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
 
+function openCatalogCategory(catId) {
+  const showcase = document.getElementById('showcase');
+  if (!showcase) return;
+  showcase.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // activate the matching filter button and apply filter
+  const filtersEl = document.getElementById('pcFilters');
+  const gridEl    = document.getElementById('pcGrid');
+  if (!filtersEl || !gridEl) return;
+  filtersEl.querySelectorAll('.pc-filter').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === catId);
+  });
+  gridEl.querySelectorAll('.pc-card').forEach(card => {
+    card.style.display = card.dataset.catId === catId ? '' : 'none';
+  });
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // CAROUSEL
 // ─────────────────────────────────────────────────────────────────────────────
@@ -2387,14 +2403,14 @@ function buildCarousel() {
     `;
     card.addEventListener('click', () => {
       if (i === carouselIndex) {
-        openCategory(i);
+        openCatalogCategory(cat.id);
       } else {
         setCarousel(i);
       }
     });
     card.querySelector('.c-card-cta').addEventListener('click', (e) => {
       e.stopPropagation();
-      openCategory(i);
+      openCatalogCategory(cat.id);
     });
     track.appendChild(card);
 
@@ -3065,18 +3081,19 @@ function _startGLBModal(canvas, glbPath) {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(canvas.width, canvas.height);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.4;
+  renderer.toneMappingExposure = 2.2;
   renderer.shadowMap.enabled = true;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(35, canvas.width / canvas.height, 0.1, 100);
   camera.position.set(0, 0, 7);
 
-  scene.add(new THREE.AmbientLight(0xffffff, 0.5));
-  const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(3, 4, 3); scene.add(key);
-  const fill = new THREE.DirectionalLight(0x8090b0, 0.7); fill.position.set(-3, 1, 2); scene.add(fill);
-  const rim = new THREE.DirectionalLight(0xffffff, 0.9); rim.position.set(0, -2, -4); scene.add(rim);
-  const top = new THREE.DirectionalLight(0xffd0a0, 0.4); top.position.set(0, 5, 1); scene.add(top);
+  scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+  const key = new THREE.DirectionalLight(0xffffff, 4.0); key.position.set(3, 4, 3); scene.add(key);
+  const fill = new THREE.DirectionalLight(0xa0b8d0, 1.4); fill.position.set(-3, 1, 2); scene.add(fill);
+  const rim = new THREE.DirectionalLight(0xffffff, 2.0); rim.position.set(0, -2, -4); scene.add(rim);
+  const top = new THREE.DirectionalLight(0xffeedd, 1.0); top.position.set(0, 5, 1); scene.add(top);
+  const back = new THREE.DirectionalLight(0x6080ff, 0.8); back.position.set(-2, 3, -5); scene.add(back);
 
   modalRenderer = renderer;
   modalScene = scene;
@@ -3155,12 +3172,7 @@ function openModal(product, catInfo) {
   // Stop any previous renderer
   if (modalRaf) { cancelAnimationFrame(modalRaf); modalRaf = null; }
   if (modalRenderer) {
-    try {
-      const gl = modalRenderer.getContext();
-      const ext = gl && gl.getExtension('WEBGL_lose_context');
-      if (ext) ext.loseContext();
-    } catch(_) {}
-    modalRenderer.dispose();
+    try { modalRenderer.dispose(); } catch(_) {}
     modalRenderer = null;
   }
   modalScene = null; modalCamera = null; modalGroup = null;
@@ -3240,6 +3252,7 @@ function openModal(product, catInfo) {
       info.querySelectorAll('.m-swatch').forEach(s => s.classList.remove('active'));
       sw.classList.add('active');
       const newColor = parseInt(sw.dataset.color.replace('#',''), 16);
+      if (!modalGroup) return;
       modalGroup.traverse(child => {
         if (child.isMesh && child.material && child.material.roughness > 0.3) {
           child.material.color.setHex(newColor);
@@ -3281,105 +3294,96 @@ document.getElementById('modal').addEventListener('click', e => { if (e.target =
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SHOWCASE MARQUEE
+// PRODUCT CATALOG
 // ─────────────────────────────────────────────────────────────────────────────
 function buildShowcase() {
-  const track = document.getElementById('marqueeTrack');
-  const allItems = [...SHOWCASE_ITEMS, ...SHOWCASE_ITEMS]; // duplicate for seamless loop
+  const filtersEl = document.getElementById('pcFilters');
+  const gridEl    = document.getElementById('pcGrid');
+  if (!filtersEl || !gridEl) return;
 
-  allItems.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'marquee-card';
-    card.innerHTML = `
-      <div class="marquee-card-bg" style="width:100%;height:100%;background:${item.gradient};display:flex;align-items:center;justify-content:center;">
-        ${buildShowcaseKnifeArt(item)}
-      </div>
-      <div class="marquee-card-overlay"></div>
-      <div class="marquee-card-content">
-        <div class="marquee-card-label" data-en="${item.series}" data-zh="${item.seriesZh}">${item.series}</div>
-        <div class="marquee-card-name"  data-en="${item.name}"   data-zh="${item.nameZh}">${item.name}</div>
-        <div class="marquee-card-sub"   data-en="${item.sub}"    data-zh="${item.subZh}">${item.sub}</div>
-      </div>
-    `;
-    track.appendChild(card);
+  // Filter tabs
+  const allBtn = document.createElement('button');
+  allBtn.className = 'pc-filter active';
+  allBtn.dataset.filter = 'all';
+  allBtn.textContent = _lang === 'zh' ? '全部' : 'All';
+  filtersEl.appendChild(allBtn);
+
+  CATEGORIES.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'pc-filter';
+    btn.dataset.filter = cat.id;
+    btn.textContent = tl(cat, 'name', ZH_CAT[cat.id]);
+    filtersEl.appendChild(btn);
   });
-}
 
-function buildShowcaseKnifeArt(item) {
-  const id = Math.random().toString(36).substr(2,5);
-  if (item.type === 'damascus') {
-    const waves = Array.from({length:18}, (_,i) => {
-      const y = 20 + i * 12;
-      const amp = 6 + (i % 3) * 3;
-      return `<path d="M0,${y} Q20,${y-amp} 40,${y} Q60,${y+amp} 80,${y} Q100,${y-amp} 120,${y} Q140,${y+amp} 160,${y}" fill="none" stroke="rgba(180,190,210,${0.12 + (i%4)*0.06})" stroke-width="${0.8 + (i%3)*0.4}"/>`;
-    }).join('');
-    return `<svg width="160" height="240" viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-      <rect width="160" height="240" fill="rgba(255,255,255,0.03)" rx="4"/>
-      ${waves}
-      <rect x="68" y="10" width="24" height="220" rx="2" fill="rgba(200,210,230,0.08)"/>
-    </svg>`;
-  }
-  if (item.type === 'wood' || item.type === 'pakka') {
-    const grains = Array.from({length:22}, (_,i) => {
-      const y = 8 + i * 10.5;
-      const ox = (i % 2) * 4 - 2;
-      const col = item.type === 'wood'
-        ? `rgba(${160+i*2},${100+i},${50+i*2},${0.25 + (i%4)*0.08})`
-        : `rgba(${80+i*4},${110+i*3},${60+i*2},${0.2 + (i%3)*0.1})`;
-      return `<path d="M${ox},${y} Q80,${y + (i%3-1)*3} ${160+ox},${y}" fill="none" stroke="${col}" stroke-width="${0.7+(i%3)*0.5}"/>`;
-    }).join('');
-    return `<svg width="160" height="240" viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-      ${grains}
-    </svg>`;
-  }
-  if (item.type === 'aluminum') {
-    const lines = Array.from({length:40}, (_,i) => {
-      const y = i * 6;
-      return `<line x1="0" y1="${y}" x2="160" y2="${y}" stroke="rgba(180,210,255,${0.04 + (i%5)*0.02})" stroke-width="1"/>`;
-    }).join('');
-    return `<svg width="160" height="240" viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-      <defs><linearGradient id="al_${id}" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="rgba(100,140,200,0.1)"/>
-        <stop offset="0.4" stop-color="rgba(180,210,255,0.35)"/>
-        <stop offset="0.6" stop-color="rgba(180,210,255,0.35)"/>
-        <stop offset="1" stop-color="rgba(100,140,200,0.1)"/>
-      </linearGradient></defs>
-      ${lines}
-      <rect width="160" height="240" fill="url(#al_${id})"/>
-      <ellipse cx="80" cy="120" rx="55" ry="55" fill="none" stroke="rgba(180,210,255,0.12)" stroke-width="1"/>
-      <ellipse cx="80" cy="120" rx="35" ry="35" fill="none" stroke="rgba(180,210,255,0.08)" stroke-width="1"/>
-    </svg>`;
-  }
-  if (item.type === 'g10') {
-    const layers = Array.from({length:30}, (_,i) => {
-      const y = i * 8;
-      const dark = i % 2 === 0;
-      return `<rect x="0" y="${y}" width="160" height="8" fill="${dark ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.02)'}"/>`;
-    }).join('');
-    const vlines = Array.from({length:8}, (_,i) => {
-      const x = 20 + i * 18;
-      return `<line x1="${x}" y1="0" x2="${x}" y2="240" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;
-    }).join('');
-    return `<svg width="160" height="240" viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-      ${layers}${vlines}
-      <rect x="60" y="0" width="40" height="240" fill="rgba(255,255,255,0.03)"/>
-    </svg>`;
-  }
-  /* default: polished steel */
-  const steelLines = Array.from({length:12}, (_,i) => {
-    const y = 10 + i * 19;
-    return `<line x1="0" y1="${y}" x2="160" y2="${y + 4}" stroke="rgba(200,220,240,${0.06 + (i%4)*0.04})" stroke-width="${1 + (i%3)*0.5}"/>`;
-  }).join('');
-  return `<svg width="160" height="240" viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="st_${id}" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="rgba(80,100,120,0.2)"/>
-      <stop offset="0.35" stop-color="rgba(200,220,240,0.5)"/>
-      <stop offset="0.65" stop-color="rgba(200,220,240,0.5)"/>
-      <stop offset="1" stop-color="rgba(80,100,120,0.2)"/>
-    </linearGradient></defs>
-    <rect width="160" height="240" fill="url(#st_${id})"/>
-    ${steelLines}
-  </svg>`;
+  filtersEl.addEventListener('click', e => {
+    const btn = e.target.closest('.pc-filter');
+    if (!btn) return;
+    filtersEl.querySelectorAll('.pc-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    gridEl.querySelectorAll('.pc-card').forEach((card, idx) => {
+      const show = filter === 'all' || card.dataset.catId === filter;
+      card.style.display = show ? '' : 'none';
+      if (show) card.style.animationDelay = '';
+    });
+  });
+
+  // Build all product cards
+  let globalIdx = 0;
+  CATEGORIES.forEach(cat => {
+    const zh = ZH_CAT[cat.id];
+    const zhProds = (zh && zh.products) || {};
+    cat.products.forEach(prod => {
+      const zhProd = zhProds[prod.id] || {};
+      const card = document.createElement('div');
+      card.className = 'pc-card';
+      card.dataset.catId = cat.id;
+      card.style.animationDelay = (globalIdx * 40) + 'ms';
+      globalIdx++;
+
+      const prodName    = (_lang === 'zh' && zhProd.name)    ? zhProd.name    : prod.name;
+      const prodTagline = (_lang === 'zh' && zhProd.tagline) ? zhProd.tagline : prod.tagline;
+      const catName     = tl(cat, 'name', zh);
+      const btnLabel    = _lang === 'zh' ? '查看详情' : 'View Details';
+
+      const specsHtml = [
+        prod.blade !== 'N/A' ? `<span class="pc-card-spec">${prod.blade.split(' ').slice(0,2).join(' ')}</span>` : '',
+        `<span class="pc-card-spec">${prod.length}</span>`,
+        `<span class="pc-card-spec">${prod.weight}</span>`,
+      ].filter(Boolean).join('');
+
+      const colorsHtml = prod.colors.length > 1
+        ? `<div class="pc-card-colors">${prod.colors.map(c => `<div class="pc-card-color" style="background:${c}"></div>`).join('')}</div>`
+        : '';
+
+      const accentColor = cat.accent || 'var(--white)';
+      const badgeBorder = cat.accent ? cat.accent + '55' : 'rgba(255,255,255,0.15)';
+
+      card.innerHTML = `
+        <div class="pc-card-visual">
+          ${cat.photo
+            ? `<img src="${cat.photo}" alt="${prodName}" loading="lazy">`
+            : `<div style="width:100%;height:100%;background:${cat.gradient}"></div>`
+          }
+          <div class="pc-cat-badge" style="color:${accentColor};border-color:${badgeBorder}">${catName}</div>
+        </div>
+        <div class="pc-card-body">
+          <div class="pc-card-name">${prodName}</div>
+          <div class="pc-card-tag">${prodTagline}</div>
+          <div class="pc-card-specs">${specsHtml}</div>
+          ${colorsHtml}
+          <button class="pc-card-btn">${btnLabel}</button>
+        </div>
+      `;
+
+      const catInfo = {name:cat.name, gradient:cat.gradient, accent:cat.accent, award:cat.award||false, glb:cat.glb||null};
+      card.querySelector('.pc-card-btn').addEventListener('click', e => { e.stopPropagation(); openModal(prod, catInfo); });
+      card.addEventListener('click', () => openModal(prod, catInfo));
+
+      gridEl.appendChild(card);
+    });
+  });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
