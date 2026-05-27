@@ -414,6 +414,25 @@ ul { list-style:none }
 #factory .h2 { color:var(--warm-white) }
 @media(max-width:768px) { .factory-grid{grid-template-columns:1fr} }
 
+/* ── CERTIFICATIONS ─────────────────────────────────────────── */
+.cert-sec { background:var(--soft-black); padding-bottom:clamp(44px,6vw,72px) }
+.cert-sec .eyebrow { color:rgba(184,161,116,.6) }
+.cert-sec .h2 { color:var(--warm-white) }
+.cert-hdr { margin-bottom:clamp(32px,4vw,52px) }
+.cert-track-wrap { overflow:hidden; width:100%; margin:0 0 32px; position:relative }
+.cert-track-wrap::before,.cert-track-wrap::after { content:''; position:absolute; top:0; bottom:0; width:80px; z-index:2; pointer-events:none }
+.cert-track-wrap::before { left:0; background:linear-gradient(90deg,var(--soft-black),transparent) }
+.cert-track-wrap::after  { right:0; background:linear-gradient(270deg,var(--soft-black),transparent) }
+.cert-track { display:flex; gap:16px; width:max-content; animation:certScroll 28s linear infinite }
+.cert-track:hover { animation-play-state:paused }
+.cert-badge { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:var(--r-sm); padding:24px 28px; min-width:140px; transition:background .2s }
+.cert-badge:hover { background:rgba(255,255,255,.08) }
+.cert-badge-icon { font-size:28px; line-height:1 }
+.cert-badge-name { font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--warm-white) }
+.cert-badge-sub { font-size:10px; color:var(--ash); letter-spacing:.04em; text-align:center }
+.cert-note { font-size:12px; color:var(--ash); letter-spacing:.04em; text-align:center; margin-top:8px }
+@keyframes certScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
 /* ── CONTACT ────────────────────────────────────────────────── */
 #contact { background:var(--graphite-2) }
 #contact .eyebrow { color:rgba(184,161,116,.6) }
@@ -446,6 +465,10 @@ ul { list-style:none }
 .map-wrap { border-radius:var(--r-sm); overflow:hidden; height:190px; border:1px solid rgba(255,255,255,.07); margin-top:16px; position:relative }
 .map-wrap iframe { width:100%; height:100%; border:none; display:block; filter:grayscale(1) brightness(.55) contrast(1.1) }
 .map-label { position:absolute; bottom:10px; left:10px; background:rgba(18,16,14,.88); border:1px solid rgba(184,161,116,.28); border-radius:999px; padding:5px 12px; font-size:10px; color:var(--champagne); letter-spacing:.1em; backdrop-filter:blur(8px) }
+.enq-form { display:flex; flex-direction:column }
+.enq-btn { width:100%; padding:14px 24px; background:var(--champagne); color:var(--soft-black); border:none; border-radius:8px; font-size:13px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:opacity .2s; margin-top:4px }
+.enq-btn:hover { opacity:.85 }
+.enq-btn:disabled { opacity:.5; cursor:not-allowed }
 @media(max-width:768px) { .contact-grid{grid-template-columns:1fr} .fg-row{grid-template-columns:1fr} }
 
 /* ── FOOTER ─────────────────────────────────────────────────── */
@@ -549,12 +572,11 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
          onerror="this.style.display='none'">
     <div class="nav-brand">
       <span class="nav-brand-name">COMAI</span>
-      <span class="nav-brand-cn">西马 · 科技到家</span>
     </div>
   </a>
   <ul class="nav-links">
     <li><a href="#products" data-t="nav_products">Products</a></li>
-    <li><a href="#viewer3d" data-t="nav_3d">3D Viewer</a></li>
+    <li><a href="#features" data-t="nav_tech">Technology</a></li>
     <li><a href="#comparison" data-t="nav_compare">Compare</a></li>
     <li><a href="#features" data-t="nav_tech">Technology</a></li>
     <li><a href="#contact" data-t="nav_contact">Contact</a></li>
@@ -575,8 +597,8 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
       <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span data-t="mob_home">Home</span></a></li>
     <li><a href="#products">
       <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span data-t="mob_products">Products</span></a></li>
-    <li><a href="#viewer3d">
-      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span data-t="mob_3d">3D</span></a></li>
+    <li><a href="#features">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span data-t="nav_tech">Technology</span></a></li>
     <li><a href="#comparison">
       <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span data-t="mob_compare">Compare</span></a></li>
     <li><a href="#contact">
@@ -605,10 +627,10 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
       </div>
       <button class="hero-link" id="heroLink" onclick="document.getElementById('comparison').scrollIntoView({behavior:'smooth'})" data-t="hero_compare_link">Compare Models →</button>
       <div class="hero-brand-row" id="heroBrandRow">
-        <span class="hbr-item" data-t="hero_stat_1">Established 2007</span><span class="hbr-div"></span>
-        <span class="hbr-item" data-t="hero_stat_2">6 Product Models</span><span class="hbr-div"></span>
-        <span class="hbr-item" data-t="hero_stat_3">3 System Categories</span><span class="hbr-div"></span>
-        <span class="hbr-item" data-t="hero_stat_4">3D Interactive</span>
+        <span class="hbr-item" data-t="hero_stat_1">Est. 2007</span><span class="hbr-div"></span>
+        <span class="hbr-item" data-t="hero_stat_2">40+ Markets</span><span class="hbr-div"></span>
+        <span class="hbr-item" data-t="hero_stat_3">2M+ Units</span><span class="hbr-div"></span>
+        <span class="hbr-item" data-t="hero_stat_4">ISO Certified</span>
       </div>
     </div>
 
@@ -846,11 +868,11 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
       <div class="rv-r">
         <span class="eyebrow" data-t="v3d_eyebrow">Interactive 3D</span>
         <h2 class="h2 h2-light mt-3" data-t="v3d_title">Explore the Details<br>in 3D</h2>
-        <p class="v3d-desc" data-t="v3d_desc">Rotate, zoom, and inspect each model directly from the catalog. GLB model files load automatically when placed in the /models/ folder.</p>
+        <p class="v3d-desc" data-t="v3d_desc">Every COMAI product is available as a full interactive 3D model. Rotate, zoom, and inspect geometry from any angle — straight from the catalogue.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <a href="#comparison" class="btn btn-ghost-d" data-t="hero_compare_link">Compare Models →</a>
         </div>
-        <p class="v3d-note" data-t="v3d_note">Drag to rotate · Scroll to zoom</p>
+        <p class="v3d-note" data-t="v3d_note">Drag to rotate · Scroll to zoom · Click thumbnails to switch views</p>
       </div>
     </div>
   </div>
@@ -901,6 +923,22 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
   </div>
 </section>
 
+<!-- ─── CERTIFICATIONS MARQUEE ────────────────────────────────── -->
+<section id="certifications" class="sec cert-sec">
+  <div class="wrap">
+    <div class="cert-hdr rv">
+      <span class="eyebrow" data-t="cert_eyebrow">Certifications &amp; Standards</span>
+      <h2 class="h2 h2-light mt-3" data-t="cert_title">Certified for<br>Every Market</h2>
+    </div>
+  </div>
+  <div class="cert-track-wrap" aria-hidden="true">
+    <div class="cert-track" id="certTrack"></div>
+  </div>
+  <div class="wrap">
+    <p class="cert-note" data-t="cert_note">All certification documents available on request. Samples ship within 14 days.</p>
+  </div>
+</section>
+
 <!-- ─── CONTACT ──────────────────────────────────────────────── -->
 <section id="contact" class="sec">
   <div class="wrap">
@@ -908,7 +946,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
       <span class="eyebrow" data-t="con_eyebrow">Trade Enquiries</span>
       <h2 class="h2 h2-light mt-3" data-t="con_title">Let's Talk<br>Business</h2>
     </div>
-    <div class="contact-grid" style="grid-template-columns:1fr;max-width:560px">
+    <div class="contact-grid">
       <div class="rv">
         <div class="wechat-card">
           <div class="wechat-card-title" data-t="con_wc_t">WeChat Business</div>
@@ -938,6 +976,41 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
           <iframe src="https://maps.google.com/maps?q=Hangzhou,Zhejiang,China&t=&z=13&ie=UTF8&iwloc=&output=embed" title="COMAI — Hangzhou" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <div class="map-label" data-t="con_d_loc">Hangzhou, Zhejiang, China</div>
         </div>
+      </div>
+      <div class="rv">
+        <form class="enq-form" id="enqForm" onsubmit="submitEnq(event)">
+          <div class="fg-row">
+            <div class="fg">
+              <label data-t="con_l_name">Name</label>
+              <input type="text" data-t-ph="con_p_name" placeholder="Your name" required>
+            </div>
+            <div class="fg">
+              <label data-t="con_l_comp">Company</label>
+              <input type="text" data-t-ph="con_p_comp" placeholder="Company name">
+            </div>
+          </div>
+          <div class="fg">
+            <label data-t="con_l_email">Email</label>
+            <input type="email" data-t-ph="con_p_email" placeholder="your@email.com" required>
+          </div>
+          <div class="fg">
+            <label data-t="con_l_type">Inquiry Type</label>
+            <select>
+              <option data-t="con_opt_0">Select product or service</option>
+              <option data-t="con_opt_1">Smart Toilet Seats (W3 / W5)</option>
+              <option data-t="con_opt_2">Wall-Mounted Toilets (I6 / I7)</option>
+              <option data-t="con_opt_3">Floor-Mounted Toilets (S90 / P90)</option>
+              <option data-t="con_opt_4">Project / Bulk Order</option>
+              <option data-t="con_opt_5">Technical Support</option>
+              <option data-t="con_opt_6">General Inquiry</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label data-t="con_l_msg">Message</label>
+            <textarea rows="5" data-t-ph="con_p_msg" placeholder="Describe your project or inquiry..."></textarea>
+          </div>
+          <button class="enq-btn" type="submit" id="enqBtn" data-t="con_btn_send">Send Inquiry</button>
+        </form>
       </div>
     </div>
   </div>
@@ -1018,7 +1091,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
 // ─── TRANSLATIONS ─────────────────────────────────────────────
 const T = {
   en: {
-    nav_products: "Products", nav_3d: "3D Viewer", nav_compare: "Compare", nav_tech: "Technology", nav_contact: "Contact", nav_cta: "Contact Us",
+    nav_products: "Products", nav_compare: "Compare", nav_tech: "Technology", nav_contact: "Contact", nav_cta: "Contact Us",
     prod_btn_details: "Details", prod_btn_contact: "Contact",
     mob_home: "Home", mob_products: "Products", mob_3d: "3D", mob_compare: "Compare", mob_contact: "Contact",
     hero_eyebrow: "Est. 2007 · Hangzhou · Smart Bathroom Technology", hero_brand_sys: "Smart Bathroom Systems",
@@ -1043,9 +1116,10 @@ const T = {
     prod_eyebrow: "Product Range", prod_title: "The Full Range",
     prod_f_all: "All", prod_f_seats: "Smart Seats", prod_f_wall: "Wall-Mounted", prod_f_floor: "Floor-Mounted", prod_f_flag: "Flagship",
     v3d_eyebrow: "Interactive 3D", v3d_title: "Explore the Details<br>in 3D",
-    v3d_desc: "Rotate, zoom, and inspect each model directly from the catalog. GLB model files load automatically when placed in the /models/ folder.",
-    v3d_btn: "Open S90 in 3D", v3d_note: "GLB files in /models/ folder enable full interactive rotation",
+    v3d_desc: "Every COMAI product is available as a full interactive 3D model. Rotate, zoom, and inspect geometry from any angle — straight from the catalogue.",
+    v3d_btn: "Open S90 in 3D", v3d_note: "Drag to rotate · Scroll to zoom · Click thumbnails to switch views",
     cmp_eyebrow: "Specifications", cmp_title: "Find the Right System", cmp_th_spec: "Specification",
+    cert_eyebrow: "Certifications & Standards", cert_title: "Certified for<br>Every Market", cert_note: "All certification documents available on request. Samples ship within 14 days.",
     fac_eyebrow: "Manufacturing", fac_title: "17 Years.<br>One Standard.",
     fac_quote: "We have been building smart toilet systems since 2007. In that time we have shipped over two million units, refined our production line through four factory generations, and earned certification in every major export market. We do not cut corners because our clients cannot afford for us to.",
     fac_t1: "100% Pre-Ship Testing", fac_d1: "Every single unit — not a sample, every unit — runs a full function test before it leaves Hangzhou.",
@@ -1065,7 +1139,7 @@ const T = {
     v_load: "Loading 3D Model", v_fall: "3D model preview — interactive model will load once the GLB file is added.", v_btn_ar: "Auto Rotate", v_btn_reset: "Reset View"
   },
   zh: {
-    nav_products: "产品系列", nav_3d: "3D 展示", nav_compare: "产品对比", nav_tech: "核心技术", nav_contact: "联系我们", nav_cta: "联系我们",
+    nav_products: "产品系列", nav_compare: "产品对比", nav_tech: "核心技术", nav_contact: "联系我们", nav_cta: "联系我们",
     prod_btn_details: "详情", prod_btn_contact: "联系我们",
     mob_home: "首页", mob_products: "产品", mob_3d: "3D", mob_compare: "对比", mob_contact: "联系",
     hero_eyebrow: "始于2007 · 杭州 · 智能卫浴科技", hero_brand_sys: "智能卫浴系统",
@@ -1090,9 +1164,10 @@ const T = {
     prod_eyebrow: "产品系列", prod_title: "完整产品系列",
     prod_f_all: "全部", prod_f_seats: "智能便盖", prod_f_wall: "壁挂式", prod_f_floor: "落地式", prod_f_flag: "旗舰款",
     v3d_eyebrow: "3D 交互展示", v3d_title: "在3D中探索<br>产品细节",
-    v3d_desc: "直接从目录中旋转、缩放和检查每个型号。将GLB模型文件放入/models/文件夹后即可自动加载。",
-    v3d_btn: "开启S90 3D体验", v3d_note: "在/models/文件夹中的GLB文件可启用完整的交互旋转",
+    v3d_desc: "每款西马产品均提供完整的交互式3D模型。直接从目录中任意角度旋转、缩放、检查产品结构。",
+    v3d_btn: "开启S90 3D体验", v3d_note: "拖动旋转 · 滚轮缩放 · 点击缩略图切换视角",
     cmp_eyebrow: "产品规格", cmp_title: "寻找适合您的系统", cmp_th_spec: "技术规格",
+    cert_eyebrow: "认证与标准", cert_title: "覆盖<br>全球市场", cert_note: "所有认证文件可按需提供。标准型号样品14天内发出。",
     fac_eyebrow: "制造实力", fac_title: "17年。<br>一个标准。",
     fac_quote: "自2007年起，我们专注于智能卫浴系统的研发与制造。迄今已累计出货逾200万台，历经四代工厂升级，并在主要出口市场取得相关认证。我们不走捷径，因为我们的客户承受不起这样的后果。",
     fac_t1: "100%出厂检测", fac_d1: "每一台产品——不是抽样，是每一台——在离开杭州前均需完成全功能测试。",
@@ -1649,6 +1724,30 @@ function handleForm(e) {
   btn.textContent = T[curLang].con_btn_sent; btn.style.background='var(--sage)'; btn.style.color='white'; btn.disabled=true;
   setTimeout(() => { btn.textContent = T[curLang].con_btn_send; btn.style.background=''; btn.style.color=''; btn.disabled=false; e.target.reset(); }, 3500);
 }
+function submitEnq(e) { handleForm(e); }
+
+// ── CERTIFICATIONS MARQUEE ────────────────────────────────────
+(function() {
+  var certs = [
+    { icon:'🇪🇺', name:'CE', sub:'European Conformity' },
+    { icon:'♻️', name:'RoHS', sub:'Hazardous Substance Restriction' },
+    { icon:'🏭', name:'ISO 9001', sub:'Quality Management System' },
+    { icon:'🌿', name:'ISO 14001', sub:'Environmental Management' },
+    { icon:'🇦🇺', name:'SAA', sub:'Australian Standards' },
+    { icon:'🇺🇸', name:'ETL', sub:'North American Electrical' },
+    { icon:'🔒', name:'IPX4', sub:'Splash-Proof Rated' },
+    { icon:'⚡', name:'EMC', sub:'Electromagnetic Compatibility' },
+    { icon:'🌍', name:'REACH', sub:'Chemical Safety EU' },
+    { icon:'📋', name:'SGS', sub:'Third-Party Inspection' },
+  ];
+  var track = document.getElementById('certTrack');
+  if (!track) return;
+  // Duplicate for seamless loop
+  var all = certs.concat(certs);
+  track.innerHTML = all.map(function(c) {
+    return '<div class="cert-badge"><div class="cert-badge-icon">'+c.icon+'</div><div class="cert-badge-name">'+c.name+'</div><div class="cert-badge-sub">'+c.sub+'</div></div>';
+  }).join('');
+})();
 
 const nls = document.querySelectorAll('#mobnav a');
 const nro = new IntersectionObserver(e => e.forEach(en => {
