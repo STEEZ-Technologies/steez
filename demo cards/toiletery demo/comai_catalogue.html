@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>COMAI · Smart Bathroom Systems — Product Catalog</title>
-<link rel="preload" as="image" href="pics/floor_mounted.png">
+<title id="pageTitle">Smart Bathroom Systems — Product Catalog</title>
+<link rel="preload" as="image" href="pics/hero_product.png">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -74,8 +74,8 @@ ul { list-style:none }
   font-size:13px; font-weight:400; letter-spacing:.02em;
   transition:all .25s var(--ease); cursor:pointer; white-space:nowrap; line-height:1;
 }
-.btn-primary   { background:var(--warm-white); color:var(--soft-black); border:1px solid rgba(255,255,255,.3) }
-.btn-primary:hover { background:var(--stone) }
+.btn-primary   { background:rgba(248,244,238,0.92); color:var(--graphite); border:none; }
+.btn-primary:hover { background:var(--warm-white); }
 .btn-outline   { background:transparent; color:var(--warm-white); border:1px solid rgba(255,255,255,.2) }
 .btn-outline:hover { border-color:rgba(255,255,255,.5) }
 .btn-dark      { background:var(--graphite); color:var(--warm-white); border:1px solid var(--line) }
@@ -137,19 +137,23 @@ ul { list-style:none }
 }
 .hero-bg-img {
   position:absolute; inset:0; pointer-events:none;
-  background-image:url('pics/luxuty_hotel.png');
-  background-size:cover; background-position:center 35%;
-  opacity:0; transform:scale(1.08); will-change:transform,opacity;
+  background-image: none;
+  opacity:0;
 }
 .hero-bg-overlay {
   position:absolute; inset:0; pointer-events:none;
   background:
-    linear-gradient(105deg, rgba(10,8,6,.94) 0%, rgba(10,8,6,.74) 48%, rgba(10,8,6,.40) 100%),
-    linear-gradient(to top, rgba(6,5,4,.75) 0%, transparent 40%);
+    radial-gradient(ellipse 70% 80% at 15% 50%, rgba(184,161,116,0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 85% 20%, rgba(120,150,140,0.03) 0%, transparent 55%),
+    linear-gradient(to top, rgba(6,5,4,0.9) 0%, transparent 35%);
 }
 .hero-bg-glow {
   position:absolute; top:0; right:0; width:56%; height:100%; pointer-events:none;
   background:radial-gradient(ellipse 68% 78% at 52% 36%, rgba(247,244,238,.042) 0%, transparent 58%);
+}
+.hero-noise {
+  position:absolute; inset:0; pointer-events:none; z-index:0; opacity:0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .hero-inner {
   max-width:1280px; margin:0 auto; width:100%;
@@ -158,45 +162,60 @@ ul { list-style:none }
   position:relative; z-index:2;
 }
 /* ── HERO TEXT — GSAP controls opacity; keep 0 to prevent flash ── */
-.hero-eyebrow { margin-bottom:24px; opacity:0 }
+.hero-eyebrow { margin-bottom:28px; opacity:0; letter-spacing:0.18em; font-size:10px; color:rgba(184,161,116,0.75); }
 .hero-brand { margin-bottom:20px }
 .hero-brand-cn {
-  font-size:clamp(12px,1.1vw,15px); font-weight:400;
-  color:rgba(184,161,116,.65); letter-spacing:.06em; margin-bottom:6px; opacity:0;
+  font-size:clamp(11px,0.9vw,13px); font-weight:300;
+  color:rgba(184,161,116,.45); letter-spacing:0.18em;
+  margin-bottom:10px; opacity:0; text-transform:uppercase;
 }
 .hero-comai {
-  font-weight:500; font-size:clamp(52px,7.5vw,104px);
-  line-height:.88; letter-spacing:.12em; color:var(--warm-white);
-  text-transform:uppercase; display:block; opacity:0; margin-bottom:10px;
+  font-weight:200;
+  font-size:clamp(52px,6.5vw,96px);
+  line-height:0.92;
+  letter-spacing:0.14em;
+  color:rgba(251,250,247,0.92);
+  text-transform:uppercase;
+  display:block;
+  opacity:0;
+  margin-bottom:20px;
+  font-feature-settings:'ss01','kern';
 }
 .hero-brand-sys {
-  font-size:clamp(13px,1.4vw,17px); font-weight:300;
-  color:rgba(251,250,247,.38); letter-spacing:.02em; opacity:0;
+  font-size:clamp(10px,0.85vw,11px); font-weight:400;
+  color:rgba(251,250,247,.3); letter-spacing:0.2em;
+  text-transform:uppercase; opacity:0; margin-bottom:32px;
 }
 .hero-sub {
-  font-size:clamp(12px,1.05vw,14px); color:rgba(251,250,247,.36);
-  line-height:1.72; max-width:370px; font-weight:400; opacity:0; margin-bottom:32px;
+  font-size:clamp(13px,1.1vw,15px); color:rgba(251,250,247,.65);
+  line-height:1.85; max-width:360px; font-weight:300; opacity:0; margin-bottom:36px;
 }
 .hero-ctas { display:flex; align-items:center; gap:10px; flex-wrap:wrap; opacity:0; margin-bottom:10px }
 .hero-link {
-  font-size:11px; color:rgba(251,250,247,.3); letter-spacing:.06em; text-transform:uppercase;
+  font-size:11px; color:rgba(251,250,247,.48); letter-spacing:.06em; text-transform:uppercase;
   transition:color .25s; cursor:pointer; background:none; border:none; padding:0;
   opacity:0; display:inline-block; margin-bottom:28px;
 }
-.hero-link:hover { color:rgba(251,250,247,.7) }
+.hero-link:hover { color:rgba(251,250,247,.82) }
 .hero-brand-row { display:flex; align-items:center; flex-wrap:wrap; opacity:0 }
-.hbr-item { font-size:10px; letter-spacing:.07em; color:rgba(251,250,247,.22); font-weight:400; padding-right:13px; white-space:nowrap }
+.hbr-item { font-size:10px; letter-spacing:.1em; color:rgba(251,250,247,.55); font-weight:400; padding-right:13px; white-space:nowrap; text-transform:uppercase; }
 .hbr-div { width:1px; height:10px; background:rgba(255,255,255,.1); margin-right:13px; flex-shrink:0; display:inline-block; vertical-align:middle }
 /* ── HERO VISUAL ────────────────────────────────────────────── */
-.hero-visual { position:relative; display:flex; align-items:center; justify-content:flex-end }
+.hero-visual { position:relative; display:flex; align-items:center; justify-content:center; padding-right:clamp(16px,4vw,60px) }
 .hero-img-wrap {
-  position:relative; width:100%; max-width:clamp(300px,48vw,600px); margin:0 0 0 auto;
+  position:relative; width:100%; max-width:clamp(260px,40vw,500px); margin:0 auto 0 auto;
   opacity:0; will-change:transform,opacity;
+  background:transparent;
 }
 /* Soft edge vignette — blends product into dark bg */
 .hero-img-edge {
   position:absolute; inset:0; pointer-events:none; z-index:3;
-  background:radial-gradient(ellipse 88% 86% at 50% 46%, transparent 50%, rgba(10,8,6,.55) 100%);
+  background:
+    radial-gradient(ellipse 78% 74% at 50% 48%, transparent 38%, rgba(10,8,6,.85) 100%),
+    linear-gradient(to right, rgba(10,8,6,0.45) 0%, transparent 25%),
+    linear-gradient(to left, rgba(10,8,6,0.35) 0%, transparent 20%),
+    linear-gradient(to top, rgba(10,8,6,0.5) 0%, transparent 18%),
+    linear-gradient(to bottom, rgba(10,8,6,0.4) 0%, transparent 18%);
 }
 .hero-porcelain-glow {
   position:absolute; inset:-10%;
@@ -205,43 +224,25 @@ ul { list-style:none }
 }
 .hero-img-wrap > img {
   width:100%; object-fit:contain; position:relative; z-index:1;
-  filter:drop-shadow(0 28px 56px rgba(0,0,0,.5)) drop-shadow(0 4px 18px rgba(0,0,0,.28));
+  filter:
+    drop-shadow(0 48px 96px rgba(0,0,0,.95))
+    drop-shadow(0 16px 40px rgba(0,0,0,.8))
+    drop-shadow(0 0px 2px rgba(0,0,0,1));
   will-change:transform;
+  mix-blend-mode: normal;
+  border-radius:0;
 }
 .hero-img-wrap > video {
-  display:block; position:relative; z-index:1;
-  width:100%; height:auto;
-  border-radius:4px;
-  filter:drop-shadow(0 28px 56px rgba(0,0,0,.5)) drop-shadow(0 4px 18px rgba(0,0,0,.28));
-  will-change:transform;
+  display:none;
 }
 .hero-reflection {
   position:absolute; bottom:-10px; left:14%; right:14%; height:24px; z-index:0;
   background:radial-gradient(ellipse at 50% 100%, rgba(248,244,238,.1) 0%, transparent 65%);
   filter:blur(10px); pointer-events:none;
 }
-/* ── S90 LABEL CARD ─────────────────────────────────────────── */
-.hero-label {
-  position:absolute; bottom:clamp(12px,2.2vw,28px); left:0; z-index:4;
-  background:rgba(14,14,13,.84);
-  border:1px solid rgba(191,167,120,.18);
-  border-radius:14px; padding:14px 18px 14px 20px;
-  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-  min-width:176px; opacity:0;
-  box-shadow:0 10px 40px rgba(0,0,0,.36), 0 2px 8px rgba(0,0,0,.22);
-}
-.hero-label::before {
-  content:''; position:absolute; left:0; top:14px; bottom:14px;
-  width:2px; background:rgba(184,161,116,.32); border-radius:0 2px 2px 0;
-}
-.hl-model { font-size:23px; font-weight:500; color:var(--warm-white); letter-spacing:.01em; line-height:1; margin-bottom:2px }
-.hl-cat { font-size:9px; letter-spacing:.13em; text-transform:uppercase; color:rgba(184,161,116,.58); margin-bottom:11px }
-.hl-features { display:flex; flex-direction:column; gap:4px }
-.hl-feat { display:flex; align-items:center; gap:6px; font-size:10px; color:rgba(251,250,247,.32); line-height:1.45 }
-.hl-dot { width:3px; height:3px; border-radius:50%; background:var(--champagne); flex-shrink:0; opacity:.55 }
 /* ── BUTTON HOVER REFINEMENTS ───────────────────────────────── */
 .btn-primary { transition:background .25s var(--ease), transform .22s var(--ease), box-shadow .22s var(--ease) }
-.btn-primary:hover { background:var(--stone); transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,0,0,.18) }
+.btn-primary:hover { background:var(--warm-white); transform:translateY(-2px); box-shadow:0 12px 32px rgba(0,0,0,0.25) }
 .btn-outline { transition:border-color .25s var(--ease), transform .22s var(--ease) }
 .btn-outline:hover { border-color:rgba(255,255,255,.44); transform:translateY(-1px) }
 @keyframes fu { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
@@ -251,7 +252,7 @@ ul { list-style:none }
   .hero-inner { grid-template-columns:1fr; gap:0 }
   .hero-visual { order:-1; justify-content:center; margin-bottom:24px }
   .hero-img-wrap { max-width:220px; margin:0 auto }
-  .hero-label,.hero-porcelain-glow,.hero-img-edge { display:none }
+  .hero-porcelain-glow,.hero-img-edge { display:none }
   .hero-comai { font-size:clamp(48px,13vw,72px); letter-spacing:.05em }
   .hero-ctas .btn { flex:1; min-width:110px; justify-content:center }
 }
@@ -437,7 +438,7 @@ ul { list-style:none }
 #contact { background:var(--graphite-2) }
 #contact .eyebrow { color:rgba(184,161,116,.6) }
 #contact .h2 { color:var(--warm-white) }
-.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,72px); align-items:start; margin-top:52px }
+.contact-grid { display:grid; grid-template-columns:1fr; gap:clamp(32px,5vw,72px); align-items:start; margin-top:52px; max-width:680px }
 .fg { margin-bottom:18px }
 .fg label { display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ash-light); margin-bottom:7px }
 .fg input,.fg select,.fg textarea { width:100%; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:12px 14px; font-size:13px; color:var(--warm-white); outline:none; transition:border-color .25s; -webkit-appearance:none }
@@ -503,8 +504,9 @@ ul { list-style:none }
 .m-sheet { position:relative; z-index:1; width:100%; max-height:94svh; background:var(--warm-white); border-radius:22px 22px 0 0; overflow-y:auto; transform:translateY(100%); transition:transform .42s var(--ease-o) }
 .m-sheet.open { transform:translateY(0) }
 .m-drag { width:32px; height:3px; background:var(--stone-2); border-radius:2px; margin:13px auto 0 }
-.m-close { position:absolute; top:16px; right:16px; width:30px; height:30px; background:var(--stone); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--ash); transition:background .2s }
-.m-close:hover { background:var(--stone-2) }
+.m-close { position:absolute; top:10px; right:14px; width:32px; height:32px; background:var(--graphite); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--warm-white); transition:background .2s; z-index:10 }
+.m-close:hover { background:var(--graphite-2) }
+.m-close svg { stroke:var(--warm-white) }
 .m-body { padding:16px clamp(18px,4vw,44px) 32px }
 @media(min-width:768px) { .m-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start} }
 .m-viewer-wrap { position:relative; width:100%; aspect-ratio:1; margin-bottom:9px; border-radius:var(--r-sm); overflow:hidden; background:linear-gradient(180deg,var(--stone) 0%,var(--warm-white) 100%) }
@@ -529,7 +531,7 @@ ul { list-style:none }
 .m-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:20px }
 .m-actions .btn { flex:1; min-width:100px; justify-content:center }
 .m-sticky { display:none; position:sticky; bottom:0; background:var(--warm-white); border-top:1px solid var(--line); padding:10px 18px max(10px,env(safe-area-inset-bottom)); gap:8px }
-@media(max-width:768px) { .m-sticky{display:flex} .m-sticky .btn{flex:1;font-size:11px} }
+@media(max-width:768px) { .m-sticky{display:none} }
 
 /* ── 3D VIEWER MODAL ────────────────────────────────────────── */
 #viewer-modal { position:fixed; inset:0; z-index:1000; display:none; flex-direction:column; background:var(--soft-black) }
@@ -559,26 +561,23 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
 
 <!-- LOADER -->
 <div id="loader">
-  <img class="ld-logo" src="pics/logo.png" alt="COMAI"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-  <div style="display:none;font-family:var(--sans);font-size:20px;font-weight:500;color:var(--warm-white);letter-spacing:.18em;text-transform:uppercase;opacity:.8">COMAI</div>
+  <div id="ldFallback" style="font-family:var(--sans);font-size:20px;font-weight:500;color:var(--warm-white);letter-spacing:.18em;text-transform:uppercase;opacity:.8"></div>
   <div class="ld-ring"></div>
 </div>
 
 <!-- NAV -->
 <nav id="nav" style="opacity:0">
   <a href="#hero" class="nav-logo">
-    <img class="nav-logo-img" src="pics/logo.png" alt="COMAI"
-         onerror="this.style.display='none'">
     <div class="nav-brand">
-      <span class="nav-brand-name">COMAI</span>
+      <span class="nav-brand-name" id="navBrandName"></span>
+      <span class="nav-brand-cn" id="navBrandCn"></span>
     </div>
   </a>
   <ul class="nav-links">
     <li><a href="#products" data-t="nav_products">Products</a></li>
     <li><a href="#features" data-t="nav_tech">Technology</a></li>
     <li><a href="#comparison" data-t="nav_compare">Compare</a></li>
-    <li><a href="#features" data-t="nav_tech">Technology</a></li>
+    <li><a href="#factory" data-t="nav_factory">Manufacturing</a></li>
     <li><a href="#contact" data-t="nav_contact">Contact</a></li>
   </ul>
   <div style="display:flex;align-items:center">
@@ -608,24 +607,25 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
 
 <!-- ─── HERO ─────────────────────────────────────────────────── -->
 <section id="hero">
+  <div class="hero-noise"></div>
   <div class="hero-bg-img" id="heroBgImg"></div>
   <div class="hero-bg-overlay" id="heroBgOverlay"></div>
   <div class="hero-bg-glow"></div>
   <div class="hero-inner">
 
-    <div id="heroLeft">
-      <span class="eyebrow hero-eyebrow label-light" id="heroEyebrow" data-t="hero_eyebrow">Est. 2007 · Hangzhou · Smart Bathroom Technology</span>
+    <div id="heroLeft" style="position:relative;padding-left:16px">
+      <div style="position:absolute;left:0;top:8%;bottom:8%;width:1px;background:linear-gradient(to bottom,transparent,rgba(184,161,116,0.22) 25%,rgba(184,161,116,0.22) 75%,transparent);pointer-events:none;opacity:0.7"></div>
+      <span class="eyebrow hero-eyebrow label-light" id="heroEyebrow" data-t="hero_eyebrow" style="display:none"></span>
       <div class="hero-brand">
-        <span class="hero-brand-cn" id="heroBrandCn" lang="zh">西马智能卫浴</span>
-        <span class="hero-comai" id="heroComai">COMAI</span>
+        <span class="hero-brand-cn" id="heroBrandCn" lang="zh" style="display:none"></span>
+        <span class="hero-comai" id="heroComai"></span>
         <span class="hero-brand-sys" id="heroBrandSys" data-t="hero_brand_sys">Smart Bathroom Systems</span>
       </div>
-      <p class="hero-sub" id="heroSub" data-t="hero_sub">Smart toilets, bidet seats, and precision hygiene technology for modern residential and hospitality bathrooms.</p>
+      <p class="hero-sub" id="heroSub" data-t="hero_sub">Specified by hotel developers and residential projects across 40+ markets. Manufactured in Hangzhou since 2007.</p>
       <div class="hero-ctas" id="heroCtas">
         <a href="#products" class="btn btn-primary" data-t="hero_btn_explore">Explore Products</a>
-        <button class="btn btn-outline" onclick="openViewer('S90')" data-t="hero_btn_3d">View S90 in 3D</button>
+        <a href="#comparison" class="btn btn-outline" data-t="hero_compare_link">Compare Models</a>
       </div>
-      <button class="hero-link" id="heroLink" onclick="document.getElementById('comparison').scrollIntoView({behavior:'smooth'})" data-t="hero_compare_link">Compare Models →</button>
       <div class="hero-brand-row" id="heroBrandRow">
         <span class="hbr-item" data-t="hero_stat_1">Est. 2007</span><span class="hbr-div"></span>
         <span class="hbr-item" data-t="hero_stat_2">40+ Markets</span><span class="hbr-div"></span>
@@ -637,10 +637,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
     <div class="hero-visual" id="heroVisual">
       <div class="hero-img-wrap" id="heroImgWrap">
         <div class="hero-porcelain-glow"></div>
-        <video id="heroImg" autoplay loop muted playsinline>
-          <source src="animation/toilet_hero.mov" type="video/quicktime">
-          <source src="animation/toilet_hero.mov" type="video/mp4">
-        </video>
+        <img id="heroImg" src="pics/hero_product.png" alt="Smart Toilet System" loading="eager">
         <div class="hero-img-edge"></div>
         <div class="hero-reflection"></div>
       </div>
@@ -653,7 +650,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
 <section id="design-story">
   <div class="ds-inner">
     <div class="ds-img rv-l">
-      <img src="pics/bathroom1.png" alt="COMAI — Intelligent Bathroom Design" loading="lazy">
+      <img src="pics/bathroom1.png" alt="Intelligent Bathroom Design" loading="lazy">
     </div>
     <div class="ds-content rv-r">
       <span class="eyebrow" data-t="ds_eyebrow">Est. 2007 · Hangzhou, China</span>
@@ -906,7 +903,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
     </div>
     <div class="factory-grid">
       <div class="factory-imgs rv-l">
-        <div class="fi fi-tall"><img src="pics/factory_production.png" alt="COMAI Factory" loading="lazy"></div>
+        <div class="fi fi-tall"><img src="pics/factory_production.png" alt="Factory Production" loading="lazy"></div>
         <div class="fi"><img src="pics/quality_testing.png" alt="Quality Testing" loading="lazy"></div>
         <div class="fi"><img src="pics/bathroom1.png" alt="Installation" loading="lazy"></div>
       </div>
@@ -961,11 +958,11 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
         <div class="contact-details">
           <div class="cd-row">
             <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.6 10.6a19.79 19.79 0 01-3.07-8.67A2 2 0 012.48 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.12 6.12l1.27-.82a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
-            <div><div class="cd-lbl" data-t="con_d_p">Phone</div><div class="cd-val">+86 178 2679 7553</div></div>
+            <div><div class="cd-lbl" data-t="con_d_p">Phone</div><div class="cd-val" data-brand="phone">+86 178 2679 7553</div></div>
           </div>
           <div class="cd-row">
             <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div><div class="cd-lbl" data-t="con_d_e">Email</div><div class="cd-val">comaiWM@cncoma.com</div></div>
+            <div><div class="cd-lbl" data-t="con_d_e">Email</div><div class="cd-val" data-brand="email">comaiWM@cncoma.com</div></div>
           </div>
           <div class="cd-row">
             <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -973,44 +970,9 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
           </div>
         </div>
         <div class="map-wrap">
-          <iframe src="https://maps.google.com/maps?q=Hangzhou,Zhejiang,China&t=&z=13&ie=UTF8&iwloc=&output=embed" title="COMAI — Hangzhou" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://maps.google.com/maps?q=Hangzhou,Zhejiang,China&t=&z=13&ie=UTF8&iwloc=&output=embed" title="Factory Location" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <div class="map-label" data-t="con_d_loc">Hangzhou, Zhejiang, China</div>
         </div>
-      </div>
-      <div class="rv">
-        <form class="enq-form" id="enqForm" onsubmit="submitEnq(event)">
-          <div class="fg-row">
-            <div class="fg">
-              <label data-t="con_l_name">Name</label>
-              <input type="text" data-t-ph="con_p_name" placeholder="Your name" required>
-            </div>
-            <div class="fg">
-              <label data-t="con_l_comp">Company</label>
-              <input type="text" data-t-ph="con_p_comp" placeholder="Company name">
-            </div>
-          </div>
-          <div class="fg">
-            <label data-t="con_l_email">Email</label>
-            <input type="email" data-t-ph="con_p_email" placeholder="your@email.com" required>
-          </div>
-          <div class="fg">
-            <label data-t="con_l_type">Inquiry Type</label>
-            <select>
-              <option data-t="con_opt_0">Select product or service</option>
-              <option data-t="con_opt_1">Smart Toilet Seats (W3 / W5)</option>
-              <option data-t="con_opt_2">Wall-Mounted Toilets (I6 / I7)</option>
-              <option data-t="con_opt_3">Floor-Mounted Toilets (S90 / P90)</option>
-              <option data-t="con_opt_4">Project / Bulk Order</option>
-              <option data-t="con_opt_5">Technical Support</option>
-              <option data-t="con_opt_6">General Inquiry</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label data-t="con_l_msg">Message</label>
-            <textarea rows="5" data-t-ph="con_p_msg" placeholder="Describe your project or inquiry..."></textarea>
-          </div>
-          <button class="enq-btn" type="submit" id="enqBtn" data-t="con_btn_send">Send Inquiry</button>
-        </form>
       </div>
     </div>
   </div>
@@ -1022,7 +984,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
     <div>
       <img class="footer-logo" src="pics/logo.png" alt="COMAI"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <div style="display:none;font-family:var(--sans);font-size:15px;font-weight:500;color:var(--warm-white);letter-spacing:.16em;text-transform:uppercase;opacity:.75;margin-bottom:10px">COMAI</div>
+      <div id="footerFallback" style="display:none;font-family:var(--sans);font-size:15px;font-weight:500;color:var(--warm-white);letter-spacing:.16em;text-transform:uppercase;opacity:.75;margin-bottom:10px"></div>
       <p class="footer-tagline" data-t="footer_tag">Precision-engineered smart toilet systems. Trusted by developers and hospitality groups across 40+ markets since 2007.</p>
     </div>
     <div class="footer-cols">
@@ -1041,7 +1003,7 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 COMAI Technology Co., Ltd. · Hangzhou, Zhejiang, China</span>
+    <span class="footer-copy" id="footerCopy"></span>
     <span class="footer-copy">EST. 2007 · Smart Bathroom Systems</span>
   </div>
 </footer>
@@ -1088,24 +1050,39 @@ model-viewer { width:100%; height:100%; background:var(--soft-black); --poster-c
 </div>
 
 <script>
+/* ── BRAND CONFIG — change these to white-label for any client ── */
+const BRAND = {
+  name:       'BRAND',           // display name in nav and hero
+  nameCN:     '品牌智能卫浴',      // Chinese brand name in hero
+  tagEN:      'Smart Bathroom Systems',
+  tagCN:      '智能卫浴系统',
+  city:       'China',
+  cityCN:     '中国',
+  year:       '2007',
+  email:      'contact@brand.com',
+  phone:      '+86 000 0000 0000',
+  copyright:  'Smart Bathroom Technology Co., Ltd.',
+};
+/* ────────────────────────────────────────────────────────────── */
+
 // ─── TRANSLATIONS ─────────────────────────────────────────────
 const T = {
   en: {
-    nav_products: "Products", nav_compare: "Compare", nav_tech: "Technology", nav_contact: "Contact", nav_cta: "Contact Us",
+    nav_products: "Products", nav_compare: "Compare", nav_tech: "Technology", nav_contact: "Contact", nav_cta: "Contact Us", nav_factory: "Manufacturing",
     prod_btn_details: "Details", prod_btn_contact: "Contact",
     mob_home: "Home", mob_products: "Products", mob_3d: "3D", mob_compare: "Compare", mob_contact: "Contact",
-    hero_eyebrow: "Est. 2007 · Hangzhou · Smart Bathroom Technology", hero_brand_sys: "Smart Bathroom Systems",
-    hero_sub: "Smart toilets, bidet seats, and precision hygiene technology for modern residential and hospitality bathrooms.",
+    hero_eyebrow: "Est. 2007 · Hangzhou · Smart Bathroom Technology", hero_brand_sys: "Smart Bathroom Systems · Hangzhou, China",
+    hero_sub: "Specified by hotel developers and residential projects across 40+ markets. Manufactured in Hangzhou since 2007.",
     hero_btn_explore: "Explore Products", hero_btn_3d: "View S90 in 3D", hero_compare_link: "Compare Models →",
     hero_stat_1: "Est. 2007", hero_stat_2: "40+ Markets", hero_stat_3: "2M+ Units", hero_stat_4: "ISO Certified",
     ds_eyebrow: "Est. 2007 · Hangzhou, China", ds_title: "Built for the<br>Spaces That<br>Matter Most",
-    ds_body: "From five-star hotels in Shanghai to residential towers in Dubai, COMAI products are specified by developers who demand reliability, hygiene, and a finish that matches the standard of the spaces they build.",
+    ds_body: "From five-star hotels to residential towers, our products are specified by developers who demand reliability, hygiene, and a finish that matches the standard of the spaces they build.",
     ds_btn: "View the Full Range", ds_stat_1_lbl: "Years Manufacturing", ds_stat_2_lbl: "Export Markets", ds_stat_3_lbl: "Units Shipped",
-    exp_eyebrow: "The COMAI Experience",
-    exp_t0: "The First 30<br>Seconds", exp_b0: "The seat is warm before you sit. The water is the right temperature before you ask. The lid opens as you approach. COMAI removes every moment of friction from the start of your day.",
+    exp_eyebrow: "The Experience",
+    exp_t0: "The First 30<br>Seconds", exp_b0: "The seat is warm before you sit. The water is the right temperature before you ask. The lid opens as you approach. Every moment of friction removed from the start of your day.",
     exp_t1: "Cleaner Than<br>You Expect", exp_b1: "A self-sterilizing stainless nozzle. UV light after every use. Electrolysed water that cleans at a molecular level. This is not a bidet — it is a hygiene system.",
-    exp_t2: "Nothing to<br>Touch", exp_b2: "Auto lid. Auto flush. Auto deodorize. The most hygienic bathroom experience is the one that requires the least contact. COMAI handles the rest.",
-    exp_t3: "Built for<br>Projects", exp_b3: "Specified in hotels, show apartments, and residential developments across 40+ markets. COMAI products are engineered for the volume, consistency, and after-sales support that project work demands.",
+    exp_t2: "Nothing to<br>Touch", exp_b2: "Auto lid. Auto flush. Auto deodorize. The most hygienic bathroom experience is the one that requires the least contact. The system handles the rest.",
+    exp_t3: "Built for<br>Projects", exp_b3: "Specified in hotels, show apartments, and residential developments across 40+ markets. Every product is engineered for the volume, consistency, and after-sales support that project work demands.",
     feat_eyebrow: "Technology", feat_title: "Built Into Every Model",
     feat_t1: "Automated Functionality", feat_d1: "Auto lid, auto flush, and touchless operation reduce contact and elevate the daily experience.",
     feat_t2: "Personalized Bidet", feat_d2: "Temperature, pressure, nozzle position, and spray mode — fully adjustable per user.",
@@ -1116,7 +1093,7 @@ const T = {
     prod_eyebrow: "Product Range", prod_title: "The Full Range",
     prod_f_all: "All", prod_f_seats: "Smart Seats", prod_f_wall: "Wall-Mounted", prod_f_floor: "Floor-Mounted", prod_f_flag: "Flagship",
     v3d_eyebrow: "Interactive 3D", v3d_title: "Explore the Details<br>in 3D",
-    v3d_desc: "Every COMAI product is available as a full interactive 3D model. Rotate, zoom, and inspect geometry from any angle — straight from the catalogue.",
+    v3d_desc: "Every product is available as a full interactive 3D model. Rotate, zoom, and inspect geometry from any angle — straight from the catalogue.",
     v3d_btn: "Open S90 in 3D", v3d_note: "Drag to rotate · Scroll to zoom · Click thumbnails to switch views",
     cmp_eyebrow: "Specifications", cmp_title: "Find the Right System", cmp_th_spec: "Specification",
     cert_eyebrow: "Certifications & Standards", cert_title: "Certified for<br>Every Market", cert_note: "All certification documents available on request. Samples ship within 14 days.",
@@ -1131,29 +1108,29 @@ const T = {
     con_p_name: "Your name", con_p_comp: "Company name", con_p_email: "your@email.com", con_p_msg: "Describe your project or inquiry...",
     con_opt_0: "Select product or service", con_opt_1: "Smart Toilet Seats (W3 / W5)", con_opt_2: "Wall-Mounted Toilets (I6 / I7)", con_opt_3: "Floor-Mounted Toilets (S90 / P90)", con_opt_4: "Project / Bulk Order", con_opt_5: "Technical Support", con_opt_6: "General Inquiry",
     con_btn_send: "Send Inquiry", con_btn_sent: "Inquiry Sent",
-    con_wc_t: "WeChat Business", con_wc_s: "Scan to Connect", con_wc_sub: "The COMAI export team responds within 24 hours. For urgent project pricing or sample requests, WeChat is the fastest route.",
+    con_wc_t: "WeChat Business", con_wc_s: "Scan to Connect", con_wc_sub: "Our export team responds within 24 hours. For urgent project pricing or sample requests, WeChat is the fastest route.",
     con_d_p: "Phone", con_d_e: "Email", con_d_l: "Location", con_d_loc: "Hangzhou, Zhejiang, China",
     footer_tag: "Precision-engineered smart toilet systems. Trusted by developers and hospitality groups across 40+ markets since 2007.",
     footer_c1: "Products", footer_c2: "Technology", footer_c3: "Contact",
-    modal_specs: "Technical Specifications", modal_btn_3d: "Open 3D Model", modal_btn_con: "Contact COMAI",
+    modal_specs: "Technical Specifications", modal_btn_3d: "Open 3D Model", modal_btn_con: "Contact Us",
     v_load: "Loading 3D Model", v_fall: "3D model preview — interactive model will load once the GLB file is added.", v_btn_ar: "Auto Rotate", v_btn_reset: "Reset View"
   },
   zh: {
-    nav_products: "产品系列", nav_compare: "产品对比", nav_tech: "核心技术", nav_contact: "联系我们", nav_cta: "联系我们",
+    nav_products: "产品系列", nav_compare: "产品对比", nav_tech: "核心技术", nav_contact: "联系我们", nav_cta: "联系我们", nav_factory: "制造实力",
     prod_btn_details: "详情", prod_btn_contact: "联系我们",
     mob_home: "首页", mob_products: "产品", mob_3d: "3D", mob_compare: "对比", mob_contact: "联系",
-    hero_eyebrow: "始于2007 · 杭州 · 智能卫浴科技", hero_brand_sys: "智能卫浴系统",
-    hero_sub: "为现代家居与酒店提供智能马桶、智能便盖及精密卫浴科技。",
+    hero_eyebrow: "始于2007 · 杭州 · 智能卫浴科技", hero_brand_sys: "智能卫浴系统 · 杭州，中国",
+    hero_sub: "产品已在逾40个市场的酒店开发商及住宅项目中获得指定采购。自2007年起于杭州生产制造。",
     hero_btn_explore: "探索产品", hero_btn_3d: "3D 体验 S90", hero_compare_link: "型号对比 →",
     hero_stat_1: "始于 2007", hero_stat_2: "40+出口市场", hero_stat_3: "逾200万台", hero_stat_4: "ISO认证",
     ds_eyebrow: "始于2007 · 杭州，中国", ds_title: "专为高标准<br>空间<br>而生",
-    ds_body: "从上海五星级酒店到迪拜高端住宅楼盘，西马产品被众多开发商指定采购，因为他们的项目只容纳最可靠、最卫生、最匹配空间品质的产品。",
+    ds_body: "从五星级酒店到高端住宅楼盘，我们的产品被众多开发商指定采购，因为他们的项目只容纳最可靠、最卫生、最匹配空间品质的产品。",
     ds_btn: "发现系列", ds_stat_1_lbl: "年制造经验", ds_stat_2_lbl: "出口市场", ds_stat_3_lbl: "出货量",
-    exp_eyebrow: "西马智能体验",
-    exp_t0: "前30<br>秒", exp_b0: "您坐下之前，座圈已经温热。水温在您开口之前已调好。盖子在您走近时自动开启。西马消除了每一天开始时的所有不适。",
+    exp_eyebrow: "智能卫浴体验",
+    exp_t0: "前30<br>秒", exp_b0: "您坐下之前，座圈已经温热。水温在您开口之前已调好。盖子在您走近时自动开启。每一天开始时的所有不适已被消除。",
     exp_t1: "比您想象<br>的更洁净", exp_b1: "自洁不锈钢喷嘴、每次使用后的UV杀菌、分子级电解水清洁。这不只是一个冲洗装置——这是一套卫生系统。",
-    exp_t2: "无需触碰<br>任何东西", exp_b2: "自动开盖、自动冲水、自动除臭。最卫生的如厕体验，是接触最少的那一种。西马负责其余的一切。",
-    exp_t3: "专为工程<br>项目而建", exp_b3: "在逾40个市场的酒店、样板间和住宅开发项目中有所指定。西马产品专为工程项目所需的出货量、一致性和售后支持而设计。",
+    exp_t2: "无需触碰<br>任何东西", exp_b2: "自动开盖、自动冲水、自动除臭。最卫生的如厕体验，是接触最少的那一种。系统负责其余的一切。",
+    exp_t3: "专为工程<br>项目而建", exp_b3: "在逾40个市场的酒店、样板间和住宅开发项目中有所指定。每款产品专为工程项目所需的出货量、一致性和售后支持而设计。",
     feat_eyebrow: "核心技术", feat_title: "每款产品的标准配置",
     feat_t1: "自动化功能", feat_d1: "自动开闭、自动冲水及非接触式操作，减少接触，提升日常体验。",
     feat_t2: "个性化清洗", feat_d2: "水温、水压、喷嘴位置及喷雾模式，完全根据用户需求调节。",
@@ -1164,7 +1141,7 @@ const T = {
     prod_eyebrow: "产品系列", prod_title: "完整产品系列",
     prod_f_all: "全部", prod_f_seats: "智能便盖", prod_f_wall: "壁挂式", prod_f_floor: "落地式", prod_f_flag: "旗舰款",
     v3d_eyebrow: "3D 交互展示", v3d_title: "在3D中探索<br>产品细节",
-    v3d_desc: "每款西马产品均提供完整的交互式3D模型。直接从目录中任意角度旋转、缩放、检查产品结构。",
+    v3d_desc: "每款产品均提供完整的交互式3D模型。直接从目录中任意角度旋转、缩放、检查产品结构。",
     v3d_btn: "开启S90 3D体验", v3d_note: "拖动旋转 · 滚轮缩放 · 点击缩略图切换视角",
     cmp_eyebrow: "产品规格", cmp_title: "寻找适合您的系统", cmp_th_spec: "技术规格",
     cert_eyebrow: "认证与标准", cert_title: "覆盖<br>全球市场", cert_note: "所有认证文件可按需提供。标准型号样品14天内发出。",
@@ -1179,23 +1156,23 @@ const T = {
     con_p_name: "您的姓名", con_p_comp: "公司名称", con_p_email: "your@email.com", con_p_msg: "描述您的项目或咨询内容...",
     con_opt_0: "选择产品或服务", con_opt_1: "智能便盖 (W3 / W5)", con_opt_2: "壁挂式马桶 (I6 / I7)", con_opt_3: "落地式马桶 (S90 / P90)", con_opt_4: "项目 / 大宗采购", con_opt_5: "技术支持", con_opt_6: "常规咨询",
     con_btn_send: "发送咨询", con_btn_sent: "咨询已发送",
-    con_wc_t: "微信商务", con_wc_s: "扫码联系", con_wc_sub: "西马出口团队24小时内回复。如需紧急项目报价或样品申请，微信是最快捷的联系方式。",
+    con_wc_t: "微信商务", con_wc_s: "扫码联系", con_wc_sub: "我们的出口团队24小时内回复。如需紧急项目报价或样品申请，微信是最快捷的联系方式。",
     con_d_p: "电话", con_d_e: "邮箱", con_d_l: "地址", con_d_loc: "中国 · 浙江 · 杭州",
     footer_tag: "精密制造的智能卫浴系统，自2007年起为逾40个市场的开发商与酒店集团所信赖。",
     footer_c1: "产品系列", footer_c2: "核心技术", footer_c3: "联系我们",
-    modal_specs: "技术规格", modal_btn_3d: "开启3D模型", modal_btn_con: "联系西马",
+    modal_specs: "技术规格", modal_btn_3d: "开启3D模型", modal_btn_con: "联系我们",
     v_load: "正在加载3D模型", v_fall: "3D模型预览 — 添加GLB文件后将加载交互模型。", v_btn_ar: "自动旋转", v_btn_reset: "重置视角"
   }
 };
 
 // ─── DATA ──────────────────────────────────────────────────────
 const P = {
-  W3:  { model:'W3',  glb:'models/numi_2.glb', cat:{en:'Smart Toilet Seat', zh:'智能便盖'},               img:'pics/smart_toilet_seat.png',  desc:{en:'Entry-level smart seat with rear and front wash, five-level heated seat, and UV nozzle sterilization. Fits standard elongated and round bowls.', zh:'入门级智能便盖，配备臀部与女性清洗、五档座圈加热及UV喷嘴杀菌。适配标准长圆形和圆形马桶。'},                      features:{en:['Rear Wash','Front Wash','Heated Seat','UV Sterilization','Night Light'], zh:['臀部清洗','女性清洗','座圈加热','UV紫外线杀菌','夜灯功能']},                  gallery:['pics/smart_toilet_seat.png','pics/smart_toilet_bidet.png','pics/smart_toilet_bidet2.png','pics/detailed_shot.png','pics/close-up.png'],       specs:{Category:{en:'Smart Toilet Seat',zh:'智能便盖'},Size:'490×380×155 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':{en:'Yes',zh:'是'},Dryer:'—','Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Side Panel',zh:'侧边面板'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
-  W5:  { model:'W5',  glb:'models/uploads-files-2298081-02.glb', cat:{en:'Smart Bidet System', zh:'智能冲洗系统'},              img:'pics/smart_toilet_bidet.png', desc:{en:'Slim-profile bidet seat with tankless instant heating, self-cleaning stainless nozzle, night light, and intelligent ECO standby mode.', zh:'超薄智能便盖，配备无水箱即热技术、不锈钢自洁喷嘴、夜灯及智能节能待机模式。'},               features:{en:['Instant Heating','ECO Mode','Self-Cleaning Nozzle','Side Control','Night Light'], zh:['即热技术','节能模式','喷嘴自洁','侧边控制','夜灯功能']},         gallery:['pics/smart_toilet_bidet.png','pics/smart_toilet_bidet2.png','pics/smart_toilet_seat.png','pics/detailed_shot.png','pics/close-up.png'],      specs:{Category:{en:'Smart Bidet System',zh:'智能冲洗系统'},Size:'510×395×160 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Side Panel + Wireless',zh:'侧板 + 无线遥控'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
-  I6:  { model:'I6',  glb:'models/uploads-files-3257004-closet1.glb', zoom:1.6, cat:{en:'Wall-Mounted Intelligent Toilet', zh:'壁挂式智能马桶'}, img:'pics/wall_mounted.png',       desc:{en:'Rimless wall-hung intelligent toilet. Concealed cistern compatible. Integrated heated seat, dryer, and wireless remote. Rough-in 180–230mm adjustable.', zh:'无边框壁挂式智能马桶，兼容隐蔽水箱。集成座圈加热、暖风烘干及无线遥控。粗排距180–230mm可调。'},                            features:{en:['Dryer','Heated Seat','Remote Control','ECO Mode','SPA Wash'], zh:['暖风烘干','座圈加热','无线遥控','节能模式','SPA按摩洗']},                             gallery:['pics/wall_mounted.png','pics/wall_mounted_seat.png','pics/bathroom1.png','pics/luxuty_hotel.png'],                                           specs:{Category:{en:'Wall-Mounted',zh:'壁挂式'},Size:'530×380×390 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Wireless',zh:'无线遥控'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':'—','3D Model':{en:'Ready',zh:'已就绪'}} },
-  I7:  { model:'I7',  glb:'models/numi_2.glb', cat:{en:'Wall-Mounted Intelligent Toilet', zh:'壁挂式智能马桶'}, img:'pics/wall_mounted_seat.png',  desc:{en:'Premium wall-hung model with rear and front wash, self-cleaning nozzle, app control, and 6-level seat temperature. CE and RoHS certified.', zh:'高端壁挂型号，配备臀部与女性清洗、自洁喷嘴、APP控制及6档座温。已通过CE和RoHS认证。'},                      features:{en:['Rear Wash','Front Wash','Self-Cleaning Nozzle','Remote Control','ECO Mode'], zh:['臀部清洗','女性清洗','喷嘴自洁','无线遥控','节能模式']},              gallery:['pics/wall_mounted_seat.png','pics/wall_mounted.png','pics/bathroom1.png','pics/luxuty_hotel.png'],                                           specs:{Category:{en:'Wall-Mounted',zh:'壁挂式'},Size:'550×385×395 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':{en:'Yes',zh:'是'},'Remote Control':{en:'Wireless + App',zh:'无线遥控 + APP'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
-  S90: { model:'S90', glb:'models/s90.glb', cat:{en:'Floor-Mounted Intelligent Toilet', zh:'落地式智能马桶'},img:'pics/floor_mounted.png',      desc:{en:'Flagship integrated floor-mount. Auto open/close lid, UV sterilization, auto deodorization, night light, and full remote + app control. Specified in hotel and premium residential projects.', zh:'旗舰级落地一体机。自动开闭盖、UV杀菌、自动除臭、夜灯，及完整遥控+APP控制。广泛指定用于酒店及高端住宅项目。'},        features:{en:['Auto Open / Close','UV Sterilization','Auto Deodorization','Night Light','Remote Control'], zh:['自动开闭','UV紫外线杀菌','自动除臭','夜灯功能','无线遥控']},gallery:['pics/floor_mounted.png','pics/toilet_closed.png','pics/close-up.png','pics/water_steam_detailed.png'],                                    specs:{Category:{en:'Floor-Mounted (Flagship)',zh:'落地式（旗舰款）'},Size:'720×390×460 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':{en:'Yes',zh:'是'},Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':{en:'Yes',zh:'是'},'Auto Deodorization':{en:'Yes',zh:'是'},'Remote Control':{en:'Wireless + App',zh:'无线遥控 + APP'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
-  P90: { model:'P90', glb:'models/uploads-files-3257004-closet1.glb', zoom:1.6, cat:{en:'Floor-Mounted Intelligent Toilet', zh:'落地式智能马桶'},img:'pics/toilet_closed.png',      desc:{en:'Mid-range integrated floor-mount with automatic lid, warm-air dryer, six-level heated seat, and intelligent ECO power management. High value-to-specification ratio.', zh:'中档落地一体机，配备自动翻盖、暖风烘干、六档座圈加热及智能节能管理。配置性价比出色。'},         features:{en:['Auto Open / Close','Heated Seat','Dryer','ECO Mode','Knob Control'], zh:['自动开闭','座圈加热','暖风烘干','节能模式','旋钮控制']},                      gallery:['pics/toilet_closed.png','pics/floor_mounted.png','pics/close-up.png','pics/water_steam_detailed.png'],                                       specs:{Category:{en:'Floor-Mounted',zh:'落地式'},Size:'700×385×455 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':{en:'Yes',zh:'是'},'Auto Deodorization':'—','Remote Control':{en:'Knob Panel',zh:'旋钮面板'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':'—','3D Model':{en:'Ready',zh:'已就绪'}} }
+  W3:  { model:'W3',  glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/numi_2.glb', cat:{en:'Smart Toilet Seat', zh:'智能便盖'},               img:'pics/smart_toilet_seat.png',  desc:{en:'Entry-level smart seat with rear and front wash, five-level heated seat, and UV nozzle sterilization. Fits standard elongated and round bowls.', zh:'入门级智能便盖，配备臀部与女性清洗、五档座圈加热及UV喷嘴杀菌。适配标准长圆形和圆形马桶。'},                      features:{en:['Rear Wash','Front Wash','Heated Seat','UV Sterilization','Night Light'], zh:['臀部清洗','女性清洗','座圈加热','UV紫外线杀菌','夜灯功能']},                  gallery:['pics/smart_toilet_seat.png','pics/smart_toilet_bidet.png','pics/smart_toilet_bidet2.png','pics/detailed_shot.png','pics/close-up.png'],       specs:{Category:{en:'Smart Toilet Seat',zh:'智能便盖'},Size:'490×380×155 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':{en:'Yes',zh:'是'},Dryer:'—','Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Side Panel',zh:'侧边面板'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
+  W5:  { model:'W5',  glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/uploads-files-2298081-02.glb', cat:{en:'Smart Bidet System', zh:'智能冲洗系统'},              img:'pics/smart_toilet_bidet.png', desc:{en:'Slim-profile bidet seat with tankless instant heating, self-cleaning stainless nozzle, night light, and intelligent ECO standby mode.', zh:'超薄智能便盖，配备无水箱即热技术、不锈钢自洁喷嘴、夜灯及智能节能待机模式。'},               features:{en:['Instant Heating','ECO Mode','Self-Cleaning Nozzle','Side Control','Night Light'], zh:['即热技术','节能模式','喷嘴自洁','侧边控制','夜灯功能']},         gallery:['pics/smart_toilet_bidet.png','pics/smart_toilet_bidet2.png','pics/smart_toilet_seat.png','pics/detailed_shot.png','pics/close-up.png'],      specs:{Category:{en:'Smart Bidet System',zh:'智能冲洗系统'},Size:'510×395×160 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Side Panel + Wireless',zh:'侧板 + 无线遥控'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
+  I6:  { model:'I6',  glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/uploads-files-3257004-closet1.glb', zoom:1.6, cat:{en:'Wall-Mounted Intelligent Toilet', zh:'壁挂式智能马桶'}, img:'pics/wall_mounted.png',       desc:{en:'Rimless wall-hung intelligent toilet. Concealed cistern compatible. Integrated heated seat, dryer, and wireless remote. Rough-in 180–230mm adjustable.', zh:'无边框壁挂式智能马桶，兼容隐蔽水箱。集成座圈加热、暖风烘干及无线遥控。粗排距180–230mm可调。'},                            features:{en:['Dryer','Heated Seat','Remote Control','ECO Mode','SPA Wash'], zh:['暖风烘干','座圈加热','无线遥控','节能模式','SPA按摩洗']},                             gallery:['pics/wall_mounted.png','pics/wall_mounted_seat.png','pics/bathroom1.png','pics/luxuty_hotel.png'],                                           specs:{Category:{en:'Wall-Mounted',zh:'壁挂式'},Size:'530×380×390 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':'—','Remote Control':{en:'Wireless',zh:'无线遥控'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':'—','3D Model':{en:'Ready',zh:'已就绪'}} },
+  I7:  { model:'I7',  glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/numi_2.glb', cat:{en:'Wall-Mounted Intelligent Toilet', zh:'壁挂式智能马桶'}, img:'pics/wall_mounted_seat.png',  desc:{en:'Premium wall-hung model with rear and front wash, self-cleaning nozzle, app control, and 6-level seat temperature. CE and RoHS certified.', zh:'高端壁挂型号，配备臀部与女性清洗、自洁喷嘴、APP控制及6档座温。已通过CE和RoHS认证。'},                      features:{en:['Rear Wash','Front Wash','Self-Cleaning Nozzle','Remote Control','ECO Mode'], zh:['臀部清洗','女性清洗','喷嘴自洁','无线遥控','节能模式']},              gallery:['pics/wall_mounted_seat.png','pics/wall_mounted.png','pics/bathroom1.png','pics/luxuty_hotel.png'],                                           specs:{Category:{en:'Wall-Mounted',zh:'壁挂式'},Size:'550×385×395 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':'—','Auto Deodorization':{en:'Yes',zh:'是'},'Remote Control':{en:'Wireless + App',zh:'无线遥控 + APP'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
+  S90: { model:'S90', glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/s90.glb', cat:{en:'Floor-Mounted Intelligent Toilet', zh:'落地式智能马桶'},img:'pics/floor_mounted.png',      desc:{en:'Flagship integrated floor-mount. Auto open/close lid, UV sterilization, auto deodorization, night light, and full remote + app control. Specified in hotel and premium residential projects.', zh:'旗舰级落地一体机。自动开闭盖、UV杀菌、自动除臭、夜灯，及完整遥控+APP控制。广泛指定用于酒店及高端住宅项目。'},        features:{en:['Auto Open / Close','UV Sterilization','Auto Deodorization','Night Light','Remote Control'], zh:['自动开闭','UV紫外线杀菌','自动除臭','夜灯功能','无线遥控']},gallery:['pics/floor_mounted.png','pics/toilet_closed.png','pics/close-up.png','pics/water_steam_detailed.png'],                                    specs:{Category:{en:'Floor-Mounted (Flagship)',zh:'落地式（旗舰款）'},Size:'720×390×460 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':{en:'Yes',zh:'是'},Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':{en:'Yes',zh:'是'},'Auto Deodorization':{en:'Yes',zh:'是'},'Remote Control':{en:'Wireless + App',zh:'无线遥控 + APP'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':{en:'Yes',zh:'是'},'3D Model':{en:'Ready',zh:'已就绪'}} },
+  P90: { model:'P90', glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/uploads-files-3257004-closet1.glb', zoom:1.6, cat:{en:'Floor-Mounted Intelligent Toilet', zh:'落地式智能马桶'},img:'pics/toilet_closed.png',      desc:{en:'Mid-range integrated floor-mount with automatic lid, warm-air dryer, six-level heated seat, and intelligent ECO power management. High value-to-specification ratio.', zh:'中档落地一体机，配备自动翻盖、暖风烘干、六档座圈加热及智能节能管理。配置性价比出色。'},         features:{en:['Auto Open / Close','Heated Seat','Dryer','ECO Mode','Knob Control'], zh:['自动开闭','座圈加热','暖风烘干','节能模式','旋钮控制']},                      gallery:['pics/toilet_closed.png','pics/floor_mounted.png','pics/close-up.png','pics/water_steam_detailed.png'],                                       specs:{Category:{en:'Floor-Mounted',zh:'落地式'},Size:'700×385×455 mm',Voltage:'220V / 50Hz','Heated Seat':{en:'Yes',zh:'是'},'UV Sterilization':'—',Dryer:{en:'Yes',zh:'是'},'Auto Open/Close':{en:'Yes',zh:'是'},'Auto Deodorization':'—','Remote Control':{en:'Knob Panel',zh:'旋钮面板'},'ECO Mode':{en:'Yes',zh:'是'},'Night Light':'—','3D Model':{en:'Ready',zh:'已就绪'}} }
 };
 const SPEC_KEYS = {
   Category: {en:'Category', zh:'产品类别'},
@@ -1266,7 +1243,7 @@ function setLang(lang) {
     return;
   }
 
-  gsap.set('#heroBgImg',     { opacity:0, scale:1.08 });
+  gsap.set('#heroBgImg',     { opacity:0 });
   gsap.set('#nav',           { opacity:0, y:-18 });
   gsap.set('#heroEyebrow',   { opacity:0, y:14 });
   gsap.set('#heroBrandCn',   { opacity:0, y:10 });
@@ -1276,13 +1253,12 @@ function setLang(lang) {
   gsap.set('#heroCtas',      { opacity:0, y:14 });
   gsap.set('#heroLink',      { opacity:0, y:10 });
   gsap.set('#heroBrandRow',  { opacity:0, y:10 });
-  gsap.set('#heroImgWrap',   { opacity:0, y:44, scale:0.96, clipPath:'inset(14% 10% 10% 10% round 22px)' });
+  gsap.set('#heroImgWrap',   { opacity:0, y:44, scale:0.96 });
 
 
   const tl = gsap.timeline({ delay: 0.08 });
 
-  tl.to('#heroBgImg', { opacity: 1, scale: 1, duration: 2.0, ease: 'power2.out' }, 0);
-  tl.to('#heroBgOverlay', { background: 'linear-gradient(105deg,rgba(10,8,6,.88) 0%,rgba(10,8,6,.66) 48%,rgba(10,8,6,.34) 100%),linear-gradient(to top,rgba(6,5,4,.68) 0%,transparent 40%)', duration: 1.8, ease: 'power1.inOut' }, 0.4);
+  /* overlay static — no bg photo to reveal */
   tl.to('#nav', { opacity: 1, y: 0, duration: 0.72, ease: 'power2.out' }, 0.3);
   tl.to('#heroEyebrow', { opacity: 1, y: 0, duration: 0.68, ease: 'power2.out' }, 0.5);
   tl.to('#heroBrandCn', { opacity: 1, y: 0, duration: 0.62, ease: 'power2.out' }, 0.65);
@@ -1292,7 +1268,7 @@ function setLang(lang) {
   tl.to('#heroCtas', { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 1.35);
   tl.to('#heroLink', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 1.5);
   tl.to('#heroBrandRow', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 1.58);
-  tl.to('#heroImgWrap', { opacity: 1, y: 0, scale: 1, clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1.15, ease: 'power3.out' }, 0.9);
+  tl.to('#heroImgWrap', { opacity: 1, y: 0, scale: 1, duration: 1.15, ease: 'power3.out' }, 0.9);
   tl.fromTo('#heroImg', { scale: 1.06, opacity: 0.7 }, { scale: 1.0, opacity: 1, duration: 0.72, ease: 'power2.out' }, 1.35);
   tl.add(() => {
     gsap.to('#heroImgWrap', { y: -7, duration: 6.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
@@ -1329,8 +1305,7 @@ window.addEventListener('scroll', () => {
   const hero = document.getElementById('hero');
   if (hero && sy < hero.offsetHeight) {
     const prog = sy / hero.offsetHeight;
-    const bg = document.getElementById('heroBgImg');
-    if (bg) gsap.set(bg, { yPercent: prog * 8 });
+    /* no bg parallax */
     const left = document.getElementById('heroLeft');
     if (left) gsap.set(left, { opacity: 1 - prog * 0.38 });
   }
@@ -1409,7 +1384,7 @@ document.querySelectorAll('.prod-card').forEach(card => {
     controls.autoRotate = true; controls.autoRotateSpeed = 1.2;
     controls.enableDamping = true; controls.dampingFactor = 0.1;
   }
-  new THREE.GLTFLoader().load('models/s90.glb', function(gltf) {
+  new THREE.GLTFLoader().load('https://steez-models.oss-cn-hongkong.aliyuncs.com/s90.glb', function(gltf) {
     var model = gltf.scene;
     scene.add(model);
     var box = new THREE.Box3().setFromObject(model);
@@ -1647,7 +1622,7 @@ function openViewer(id) {
   hotspots.style.display = 'none';
   modal.classList.add('open'); document.body.style.overflow = 'hidden';
   const mv = document.createElement('model-viewer');
-  mv.setAttribute('src', `/models/${id.toLowerCase()}.glb`);
+  mv.setAttribute('src', p.glb);
   mv.setAttribute('poster', p.img);
   mv.setAttribute('camera-controls','');
   mv.setAttribute('auto-rotate','');
@@ -1756,6 +1731,51 @@ const nro = new IntersectionObserver(e => e.forEach(en => {
 ['hero','products','viewer3d','comparison','contact'].forEach(id => { const el=document.getElementById(id); if(el) nro.observe(el); });
 
 document.addEventListener('keydown', e => { if(e.key==='Escape'){ closeDetail(); closeViewer(); } });
+
+/* ── Inject brand config into DOM ───────────────────────────── */
+function applyBrand() {
+  // Page title
+  document.getElementById('pageTitle').textContent =
+    BRAND.name + ' · ' + BRAND.tagEN + ' — Product Catalog';
+
+  // Loader fallback
+  const ldF = document.getElementById('ldFallback');
+  if (ldF) ldF.textContent = BRAND.name;
+
+  // Nav
+  const navN = document.getElementById('navBrandName');
+  if (navN) navN.textContent = BRAND.name;
+  const navCN = document.getElementById('navBrandCn');
+  if (navCN) navCN.textContent = BRAND.nameCN;
+
+  // Hero
+  const hCn = document.getElementById('heroBrandCn');
+  if (hCn) hCn.textContent = BRAND.nameCN;
+  const hMain = document.getElementById('heroComai');
+  if (hMain) hMain.textContent = BRAND.name;
+
+  // Footer fallback
+  const ftF = document.getElementById('footerFallback');
+  if (ftF) ftF.textContent = BRAND.name;
+
+  // Footer copyright
+  const ftC = document.getElementById('footerCopy');
+  if (ftC) ftC.textContent =
+    '© 2025 ' + BRAND.copyright + ' · ' + BRAND.city;
+
+  // Contact details
+  const emailEl = document.querySelector('.cd-val[data-brand="email"]');
+  if (emailEl) emailEl.textContent = BRAND.email;
+  const phoneEl = document.querySelector('.cd-val[data-brand="phone"]');
+  if (phoneEl) phoneEl.textContent = BRAND.phone;
+
+  // Iframe map label
+  const mapLabel = document.querySelector('.map-label');
+  if (mapLabel && mapLabel.dataset.t !== 'con_d_loc') {
+    mapLabel.textContent = BRAND.city;
+  }
+}
+document.addEventListener('DOMContentLoaded', applyBrand);
 </script>
 </body>
 </html>
