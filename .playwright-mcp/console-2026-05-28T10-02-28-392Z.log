@@ -1,0 +1,270 @@
+[   50379ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0
+[   50762ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_react-dom_0bruynb._.js:15305
+[   51001ms] Error: ./components/numbers/Numbers.tsx:4:1
+Module not found: Can't resolve '@number-flow/react'
+  2 |
+  3 | import { useRef } from "react";
+> 4 | import NumberFlow from "@number-flow/react";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { motion, useInView } from "motion/react";
+  6 | import { useI18n } from "@/lib/i18n/useI18n";
+  7 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/numbers/Numbers.tsx [Client Component Browser]
+    ./components/ui/hero-geometric.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/numbers/Numbers.tsx [Client Component SSR]
+    ./components/ui/hero-geometric.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (Error: ./components/numbers/Numbers.tsx:4:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at Object.getCompilationErrors (file://C:\Users\Admin\Documents\GitHub\steez\node_modules\next\dist\server\dev\hot-reloader-turbopack.js:1186:59)
+    at DevBundlerService.getCompilationError (file://C:\Users\Admin\Documents\GitHub\steez\node_modules\next\dist\server\lib\dev-bundler-service.js:44:55)
+    at DevServer.getCompilationError (file://C:\Users\Admin\Documents\GitHub\steez\node_modules\next\dist\server\dev\next-dev-server.js:720:42)
+    at DevServer.findPageComponents (file://C:\Users\Admin\Documents\GitHub\steez\node_modules\next\dist\server\dev\next-dev-server.js:690:43)
+    at async DevServer.renderErrorToResponseImpl (file://C:\Users\Admin\Documents\GitHub\steez\node_modules\next\dist\server\base-server.js:1753:26)
+[   50963ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[   51897ms] [ERROR] ./components/numbers/Numbers.tsx:4:1
+Module not found: Can't resolve '@number-flow/react'
+  2 |
+  3 | import { useRef } from "react";
+> 4 | import NumberFlow from "@number-flow/react";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { motion, useInView } from "motion/react";
+  6 | import { useI18n } from "@/lib/i18n/useI18n";
+  7 |
+
+Import traces:
+  Client Component Browser:
+    ./components/numbers/Numbers.tsx [Client Component Browser]
+    ./components/ui/hero-geometric.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/numbers/Numbers.tsx [Client Component SSR]
+    ./components/ui/hero-geometric.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[   51898ms] [ERROR] ./components/pricing/PricingSection.tsx:1:1
+Module not found: Can't resolve '@number-flow/react'
+> 1 | import NumberFlow from "@number-flow/react";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { AnimatePresence, motion, useMotionValue, useTransform, useSpring } from "motion/re...
+  3 | import { CheckIcon, ChevronDown } from "lucide-react";
+  4 | import { useState, useRef } from "react";
+
+Import traces:
+  Client Component Browser:
+    ./components/pricing/PricingSection.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/pricing/PricingSection.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[   51898ms] [ERROR] ./components/footer/FooterCol.tsx:5:1
+Module not found: Can't resolve 'lucide-react'
+  3 | import { useState, type ReactNode } from "react";
+  4 | import { motion, AnimatePresence } from "motion/react";
+> 5 | import { ChevronDown } from "lucide-react";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { useIsMobile } from "@/lib/useIsMobile";
+  7 |
+  8 | type FooterColProps = {
+
+Import traces:
+  Client Component Browser:
+    ./components/footer/FooterCol.tsx [Client Component Browser]
+    ./components/footer/Footer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/footer/FooterCol.tsx [Client Component SSR]
+    ./components/footer/Footer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[   51898ms] [ERROR] ./components/hero/Nav.tsx:5:1
+Module not found: Can't resolve 'lucide-react'
+  3 | import { useState, useEffect, useRef } from "react";
+  4 | import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
+> 5 | import { Menu, X } from "lucide-react";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { COPY } from "@/lib/copy";
+  7 | import { NavLabel } from "@/components/shared/NavLabel";
+  8 | import { STEEZWordmark } from "@/components/shared/STEEZWordmark";
+
+Import traces:
+  Client Component Browser:
+    ./components/hero/Nav.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/hero/Nav.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[   51899ms] [ERROR] ./components/pricing/PricingSection.tsx:3:1
+Module not found: Can't resolve 'lucide-react'
+  1 | import NumberFlow from "@number-flow/react";
+  2 | import { AnimatePresence, motion, useMotionValue, useTransform, useSpring } from "motion/re...
+> 3 | import { CheckIcon, ChevronDown } from "lucide-react";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useState, useRef } from "react";
+  5 | import { useIsMobile } from "@/lib/useIsMobile";
+  6 | import { useHaptic } from "@/lib/useHaptic";
+
+Import traces:
+  Client Component Browser:
+    ./components/pricing/PricingSection.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/pricing/PricingSection.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[   51899ms] [ERROR] ./components/shared/LangSwitcher.tsx:6:1
+Module not found: Can't resolve 'lucide-react'
+  4 | import { createPortal } from "react-dom";
+  5 | import { AnimatePresence, motion } from "motion/react";
+> 6 | import { Globe, Check } from "lucide-react";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 | import { useI18n } from "@/lib/i18n/useI18n";
+  8 | import { LANGS, LANG_META } from "@/lib/i18n/types";
+  9 | import { useHaptic } from "@/lib/useHaptic";
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/LangSwitcher.tsx [Client Component Browser]
+    ./components/hero/Nav.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/LangSwitcher.tsx [Client Component SSR]
+    ./components/hero/Nav.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[   51899ms] [ERROR] ./app/layout.tsx:3:1
+Module not found: Can't resolve 'next-themes'
+  1 | import type { Metadata } from "next";
+  2 | import { Inter, Noto_Sans_SC, Noto_Kufi_Arabic, Geist, Stack_Sans_Notch, Stack_Sans_Text } ...
+> 3 | import { ThemeProvider } from "next-themes";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { Lenis } from "@/components/shared/Lenis";
+  5 | import { I18nProvider } from "@/lib/i18n/I18nProvider";
+  6 | import { Preloader } from "@/components/preloader/Preloader";
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[   51899ms] [ERROR] ./app/page.tsx:4:1
+Module not found: Can't resolve 'next-themes'
+  2 |
+  3 | import { useEffect, useRef, useState } from "react";
+> 4 | import { useTheme } from "next-themes";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { BoothSection } from "@/components/booth/BoothSection";
+  6 | import { Contact } from "@/components/contact/Contact";
+  7 | import { Footer } from "@/components/footer/Footer";
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[   51900ms] [ERROR] ./components/shared/AnimatedThemeToggler.tsx:5:1
+Module not found: Can't resolve 'next-themes'
+  3 | import { useState, useEffect, useRef, useId } from "react";
+  4 | import { motion } from "motion/react";
+> 5 | import { useTheme } from "next-themes";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | /**
+  8 |  * Animated Theme Toggler — sun↔moon morph.
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/AnimatedThemeToggler.tsx [Client Component Browser]
+    ./components/hero/Nav.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/AnimatedThemeToggler.tsx [Client Component SSR]
+    ./components/hero/Nav.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[   51901ms] [ERROR] ./lib/utils.ts:2:1
+Module not found: Can't resolve 'tailwind-merge'
+  1 | import { clsx, type ClassValue } from "clsx"
+> 2 | import { twMerge } from "tailwind-merge"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export function cn(...inputs: ClassValue[]) {
+  5 |   return twMerge(clsx(inputs))
+
+Import traces:
+  #1 [Server Component]:
+    ./lib/utils.ts
+    ./app/layout.tsx
+
+  #2 [Client Component Browser]:
+    ./lib/utils.ts [Client Component Browser]
+    ./components/ui/hero-geometric.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  #3 [Client Component SSR]:
+    ./lib/utils.ts [Client Component SSR]
+    ./components/ui/hero-geometric.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+  #4 [Client Component Browser]:
+    ./lib/utils.ts [Client Component Browser]
+    ./components/ui/text-animate.tsx [Client Component Browser]
+    ./components/preloader/Preloader.tsx [Client Component Browser]
+    ./components/preloader/Preloader.tsx [Server Component]
+    ./app/layout.tsx [Server Component]
+
+  #5 [Client Component SSR]:
+    ./lib/utils.ts [Client Component SSR]
+    ./components/ui/text-animate.tsx [Client Component SSR]
+    ./components/preloader/Preloader.tsx [Client Component SSR]
+    ./components/preloader/Preloader.tsx [Server Component]
+    ./app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945

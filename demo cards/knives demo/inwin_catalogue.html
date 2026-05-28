@@ -36,8 +36,10 @@ body{font-family:var(--font-b);background:var(--black);color:var(--white);overfl
   position:fixed;inset:0;background:var(--black);z-index:9999;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;
   transition:opacity 0.8s ease,visibility 0.8s ease;
+  animation:loaderAutoHide 0.8s 5s ease forwards;
 }
-#loader.out{opacity:0;visibility:hidden;pointer-events:none}
+@keyframes loaderAutoHide{to{opacity:0;visibility:hidden;}}
+#loader.out{opacity:0;visibility:hidden;pointer-events:none;animation:none}
 .loader-logo-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px}
 .loader-svg{width:220px;height:90px}
 .loader-svg .logo-path{stroke-dasharray:800;stroke-dashoffset:800;animation:drawLogo 2s ease forwards}
@@ -1073,7 +1075,7 @@ body{padding-top:68px}
   <div class="hdr-inner">
     <!-- Logo -->
     <a class="hdr-logo" href="#hero" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'});return false;">
-      <img src="catalogue_pics/logo.png" alt="inWin" style="height:56px;width:auto;display:block;mix-blend-mode:screen;">
+      <img src="collections_pics/logo.png" alt="inWin" style="height:56px;width:auto;display:block;">
     </a>
     <!-- Nav -->
     <ul class="hdr-nav">
@@ -1082,7 +1084,7 @@ body{padding-top:68px}
       <li><a href="#collections" data-i18n="nav1">Collections</a></li>
       <li><a href="#knife-configurator" data-i18n="nav2">Configurator</a></li>
       <li><a href="#showcase" data-i18n="nav-catalog">Catalog</a></li>
-      <li><a href="#community" data-i18n="com-label">Community</a></li>
+      <li><a href="#contact-us" data-i18n="nav-contact">Contact Us</a></li>
     </ul>
     <!-- Icons -->
     <div class="hdr-icons">
@@ -1102,17 +1104,7 @@ body{padding-top:68px}
 <!-- ─── LOADER ─── -->
 <div id="loader">
   <div class="loader-logo-wrap">
-    <svg class="loader-svg" viewBox="0 0 240 90" xmlns="http://www.w3.org/2000/svg">
-      <!-- in -->
-      <text x="4" y="68" font-family="Georgia,serif" font-size="56" fill="none" stroke="white" stroke-width="1.5" class="logo-path">in</text>
-      <!-- W bold -->
-      <text x="80" y="68" font-family="Georgia,serif" font-size="66" font-weight="bold" fill="none" stroke="white" stroke-width="2" class="logo-path">W</text>
-      <!-- Feather quill through W -->
-      <path d="M 126 8 L 98 72" stroke="white" stroke-width="1.5" fill="none" class="logo-path2"/>
-      <path d="M 126 8 Q 138 18 132 30 Q 128 38 134 44 Q 126 35 120 42 Q 116 32 122 22 Q 118 14 126 8Z" fill="white" opacity="0.85" class="logo-path2"/>
-      <!-- in -->
-      <text x="162" y="68" font-family="Georgia,serif" font-size="56" fill="none" stroke="white" stroke-width="1.5" class="logo-path">in</text>
-    </svg>
+    <img src="collections_pics/logo.png" alt="inWin" style="height:90px;width:auto;display:block;opacity:0;animation:fadeIn 0.8s 0.3s ease forwards;">
     <div class="loader-since">— Since 1979 —</div>
     <div class="loader-line"></div>
     <div class="loader-tag">Digital Catalogue · steez.digital</div>
@@ -1122,10 +1114,10 @@ body{padding-top:68px}
 <!-- ─── HERO ─── -->
 <section id="hero">
   <div class="hero-slides">
-    <div class="hero-slide" style="background-image:url('catalogue_pics/header.png')"></div>
-    <div class="hero-slide" style="background-image:url('catalogue_pics/cook_header.png')"></div>
-    <div class="hero-slide" style="background-image:url('catalogue_pics/pot_header.png')"></div>
-    <div class="hero-slide" style="background-image:url('catalogue_pics/scissors_header.png')"></div>
+    <div class="hero-slide" style="background-image:url('https://steez-models.oss-cn-hongkong.aliyuncs.com/header.webp')"></div>
+    <div class="hero-slide" style="background-image:url('https://steez-models.oss-cn-hongkong.aliyuncs.com/cook_header.webp')"></div>
+    <div class="hero-slide" style="background-image:url('https://steez-models.oss-cn-hongkong.aliyuncs.com/pot_header.webp')"></div>
+    <div class="hero-slide" style="background-image:url('collections_pics/scissors_header.png')"></div>
   </div>
   <div class="hero-grain"></div>
   <div class="hero-lines"></div>
@@ -1291,7 +1283,7 @@ body{padding-top:68px}
       <div class="ht-entry">
         <div class="ht-img-side">
           <div class="ht-img-wrap">
-            <img src="heritage/heritage_1979%20(2).png" alt="INWIN 1979" loading="lazy">
+            <img src="https://steez-models.oss-cn-hongkong.aliyuncs.com/heritage_1979_2.webp" alt="INWIN 1979" loading="lazy">
             <div class="ht-img-overlay"></div>
             <span class="ht-img-num">01</span>
           </div>
@@ -1320,7 +1312,7 @@ body{padding-top:68px}
         </div>
         <div class="ht-img-side ht-img-side--right">
           <div class="ht-img-wrap">
-            <img src="heritage/heritage_1986.png" alt="INWIN 1986" loading="lazy">
+            <img src="https://steez-models.oss-cn-hongkong.aliyuncs.com/heritage_1986.webp" alt="INWIN 1986" loading="lazy">
             <div class="ht-img-overlay"></div>
             <span class="ht-img-num">02</span>
           </div>
@@ -1331,7 +1323,7 @@ body{padding-top:68px}
       <div class="ht-entry">
         <div class="ht-img-side">
           <div class="ht-img-wrap">
-            <img src="heritage/heritage_2008.png" alt="INWIN 2008" loading="lazy">
+            <img src="https://steez-models.oss-cn-hongkong.aliyuncs.com/heritage_2008.webp" alt="INWIN 2008" loading="lazy">
             <div class="ht-img-overlay"></div>
             <span class="ht-img-num">03</span>
           </div>
@@ -1360,7 +1352,7 @@ body{padding-top:68px}
         </div>
         <div class="ht-img-side ht-img-side--right">
           <div class="ht-img-wrap">
-            <img src="heritage/heritage_2019%20(2).png" alt="INWIN 2019" loading="lazy">
+            <img src="https://steez-models.oss-cn-hongkong.aliyuncs.com/heritage_2019_2.webp" alt="INWIN 2019" loading="lazy">
             <div class="ht-img-overlay"></div>
             <span class="ht-img-num">04</span>
           </div>
@@ -1371,7 +1363,7 @@ body{padding-top:68px}
       <div class="ht-entry">
         <div class="ht-img-side">
           <div class="ht-img-wrap">
-            <img src="heritage/heritage_2021%20(2).png" alt="INWIN 2021" loading="lazy">
+            <img src="https://steez-models.oss-cn-hongkong.aliyuncs.com/heritage_2021_2.webp" alt="INWIN 2021" loading="lazy">
             <div class="ht-img-overlay"></div>
             <span class="ht-img-num">05</span>
           </div>
@@ -1400,7 +1392,7 @@ body{padding-top:68px}
         </div>
         <div class="ht-img-side ht-img-side--right">
           <div class="ht-img-wrap">
-            <img src="heritage/today_heritage.png" alt="INWIN Today" loading="lazy">
+            <img src="https://steez-models.oss-cn-hongkong.aliyuncs.com/today_heritage.webp" alt="INWIN Today" loading="lazy">
             <div class="ht-img-overlay"></div>
             <span class="ht-img-num">06</span>
           </div>
@@ -1415,7 +1407,7 @@ body{padding-top:68px}
 <section id="our-craft">
   <div class="craft-top">
     <div class="craft-img-col">
-      <img src="catalogue_pics/Delta Series, 2-Piece Prep Set.jpg" alt="Master Bladesmith" class="craft-photo">
+      <img src="https://steez-models.oss-cn-hongkong.aliyuncs.com/Delta_Series_2-Piece_Prep_Set.webp" alt="Master Bladesmith" class="craft-photo">
     </div>
     <div class="craft-text-col">
       <p class="craft-label" id="i-craft-label">Our Craft</p>
@@ -1440,7 +1432,7 @@ body{padding-top:68px}
   <div class="craft-products">
     <div class="craft-prod-card">
       <div class="craft-prod-img-wrap">
-        <img src="catalogue_pics/v-form.png" alt="V-Form Chef's 8&quot;">
+        <img src="collections_pics/v-form.png" alt="V-Form Chef's 8&quot;">
       </div>
       <div class="craft-prod-info">
         <span class="craft-prod-name" id="i-craft-prod1-name">V-FORM CHEF'S 8"</span>
@@ -1449,7 +1441,7 @@ body{padding-top:68px}
     </div>
     <div class="craft-prod-card">
       <div class="craft-prod-img-wrap">
-        <img src="catalogue_pics/dragon.png" alt="Dragon Nakiri 6.5&quot;">
+        <img src="https://steez-models.oss-cn-hongkong.aliyuncs.com/dragon.webp" alt="Dragon Nakiri 6.5&quot;">
       </div>
       <div class="craft-prod-info">
         <span class="craft-prod-name" id="i-craft-prod2-name">DRAGON NAKIRI 6.5"</span>
@@ -1613,68 +1605,11 @@ body{padding-top:68px}
   </div>
 </section>
 
-<!-- ─── COMMUNITY ─── -->
-<section id="community">
-  <div class="container">
-    <div class="community-head reveal">
-      <p class="section-label" id="i-com-label">Community</p>
-      <h2 class="section-title" id="i-com-title">#InWin <em>Kitchen</em></h2>
-      <p class="community-sub" id="i-com-sub">Real knives. Real kitchens. Tag @inwin to be featured.</p>
-    </div>
-    <div class="community-grid reveal">
-      <div class="cm-cell">
-        <img src="catalogue_pics/v-form.png" alt="@chef.tokyo" loading="lazy">
-        <div class="cm-overlay"><span class="cm-handle">@chef.tokyo</span></div>
-      </div>
-      <div class="cm-cell">
-        <img src="catalogue_pics/dragon.png" alt="@knifenerds" loading="lazy">
-        <div class="cm-overlay"><span class="cm-handle">@knifenerds</span></div>
-      </div>
-      <div class="cm-cell">
-        <img src="catalogue_pics/header.png" alt="@pro.kitchen" loading="lazy">
-        <div class="cm-overlay"><span class="cm-handle">@pro.kitchen</span></div>
-      </div>
-      <div class="cm-cell">
-        <img src="catalogue_pics/v-form.png" alt="@blade.life" loading="lazy">
-        <div class="cm-overlay"><span class="cm-handle">@blade.life</span></div>
-      </div>
-      <div class="cm-cell">
-        <img src="catalogue_pics/dragon.png" alt="@homechef.hk" loading="lazy">
-        <div class="cm-overlay"><span class="cm-handle">@homechef.hk</span></div>
-      </div>
-      <div class="cm-cell">
-        <img src="catalogue_pics/header.png" alt="@inwin.official" loading="lazy">
-        <div class="cm-overlay"><span class="cm-handle">@inwin.official</span></div>
-      </div>
-      <div class="cm-cell">
-        <img src="catalogue_pics/v-form.png" alt="@cook.studio" loading="lazy">
-        <div class="cm-overlay"><span class="cm-handle">@cook.studio</span></div>
-      </div>
-      <div class="cm-cell">
-        <img src="catalogue_pics/dragon.png" alt="@edge.japan" loading="lazy">
-        <div class="cm-overlay"><span class="cm-handle">@edge.japan</span></div>
-      </div>
-    </div>
-    <div class="community-cta">
-      <a class="cm-btn" href="#" target="_blank" rel="noopener">
-        <!-- Douyin -->
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.2 8.2 0 004.79 1.53V7.03a4.85 4.85 0 01-1.02-.34z"/></svg>
-        <span data-i18n="com-ig">Follow on Douyin</span>
-      </a>
-      <a class="cm-btn" href="#" target="_blank" rel="noopener">
-        <!-- Xiaohongshu (小红书) -->
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14l-3-3-3 3V5h6v12z"/></svg>
-        <span data-i18n="com-tt">Follow on Xiaohongshu</span>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- ─── CONTACT US ─── -->
 <section id="contact-us">
   <div class="cu-inner">
     <div class="cu-head">
-      <p class="cu-label" id="i-cu-label">Trade Enquiries</p>
+      <p class="cu-label" id="i-cu-label">Contact Us</p>
       <h2 class="cu-title" id="i-cu-title">Let's Talk<br><em>Business</em></h2>
     </div>
     <div class="cu-cols">
@@ -1743,7 +1678,7 @@ if (typeof THREE !== 'undefined' && THREE.Path && !THREE.Path.prototype.roundRec
 var _lang = 'en';
 var _T = {
   en:{
-    nav1:'Collections', nav2:'Configurator', nav3:'Knife Finder', nav4:'About Us', 'nav-catalog':'Catalog',
+    nav1:'Collections', nav2:'Configurator', nav3:'Knife Finder', nav4:'About Us', 'nav-catalog':'Catalog', 'nav-contact':'Contact Us',
     'hero-title':'Master Craftsman<br>of Professional<br>Kitchenware',
     'hero-sub':'Knives &nbsp;·&nbsp; Utensils &nbsp;·&nbsp; Cookware &nbsp;·&nbsp; Since 1979',
     'co-label':'Company Profile',
@@ -1775,7 +1710,7 @@ var _T = {
     'prod-title':'Explore<br><em>Every Series</em>',
     'art-label':'Full Catalogue',
     'art-title':'Every Product,<br><em>Every Series</em>',
-    'cu-label':'Trade Enquiries',
+    'cu-label':'Contact Us',
     'cu-title':'Let\'s Talk<br><em>Business</em>',
     'con-l-name':'Name','con-l-comp':'Company','con-l-email':'Email','con-l-type':'Inquiry Type','con-l-msg':'Message',
     'con-opt-0':'Select product or service','con-opt-1':'V-Form Series','con-opt-2':'Dragon Series',
@@ -1814,7 +1749,7 @@ var _T = {
     'com-tt':'Follow on Xiaohongshu'
   },
   zh:{
-    nav1:'系列产品', nav2:'配置器', nav3:'刀具查询', nav4:'关于我们', 'nav-catalog':'产品目录',
+    nav1:'系列产品', nav2:'配置器', nav3:'刀具查询', nav4:'关于我们', 'nav-catalog':'产品目录', 'nav-contact':'联系我们',
     'hero-title':'专业厨具<br>精工匠人',
     'hero-sub':'刀具 · 餐具 · 炊具 · 始于1979年',
     'co-label':'公司简介',
@@ -1846,8 +1781,8 @@ var _T = {
     'prod-title':'探索<br><em>每个系列</em>',
     'art-label':'完整目录',
     'art-title':'每件产品<br><em>每个系列</em>',
-    'cu-label':'商业洽谈',
-    'cu-title':'洽谈<br><em>合作</em>',
+    'cu-label':'联系我们',
+    'cu-title':'联系<br><em>我们</em>',
     'con-l-name':'姓名','con-l-comp':'公司','con-l-email':'电子邮件','con-l-type':'询价类型','con-l-msg':'留言',
     'con-opt-0':'选择产品或服务','con-opt-1':'V-Form 系列','con-opt-2':'Dragon 系列',
     'con-opt-3':'MTS 系列','con-opt-4':'Damascus 系列','con-opt-5':'批量 / OEM 订单','con-opt-6':'一般询价',
@@ -2028,30 +1963,30 @@ function handleContactForm(e) {
 // ─────────────────────────────────────────────────────────────────────────────
 const CATEGORIES = [
   {
-    id:'mts', name:'COLORED KNIVES', num:'01', glb:'3d models/kitchen_knife.glb',
+    id:'mts', name:'COLORED KNIVES', num:'01', glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_knife.glb',
     specs:{steel:'German 1.4116',hardness:'58 HRC',edge:'15° per side',handle:'Full tang Pakkawood'},
-    photo:'catalogue_pics/colored_knives.png',
+    photo:'https://steez-models.oss-cn-hongkong.aliyuncs.com/colored_knives.webp',
     tagline:'Where Precision Meets Artistry',
     desc:'Anodized aluminum and G10 handles in four signature colors. Forged from premium powder steel, honed to perfection. Paired with its bespoke magnetic stand.',
     gradient:'linear-gradient(160deg,#0d1a2e 0%,#1a2d4a 40%,#0a1525 100%)',
     accent:'#4a9eff',
     products:[
-      {id:'mts1',name:"Chef's Knife 8\"",tagline:'The backbone of every kitchen',blade:'Powder Steel',handle:'G10 + Anodized Aluminum',length:'8 inch',weight:'220g',colors:['#1a1a1a','#f0f0f0','#2255aa','#5c3a28'],handleType:'flat',bladeType:'chef',glb:'3d models/kitchen_knife.glb'},
+      {id:'mts1',name:"Chef's Knife 8\"",tagline:'The backbone of every kitchen',blade:'Powder Steel',handle:'G10 + Anodized Aluminum',length:'8 inch',weight:'220g',colors:['#1a1a1a','#f0f0f0','#2255aa','#5c3a28'],handleType:'flat',bladeType:'chef',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_knife.glb'},
       {id:'mts2',name:"Utility Knife 5\"",tagline:'Precision for every task',blade:'Powder Steel',handle:'G10 + Anodized Aluminum',length:'5 inch',weight:'150g',colors:['#1a1a1a','#f0f0f0','#2255aa','#5c3a28'],handleType:'flat',bladeType:'utility'},
       {id:'mts3',name:"Paring Knife 3.5\"",tagline:'Detail work mastered',blade:'Powder Steel',handle:'G10 + Anodized Aluminum',length:'3.5 inch',weight:'90g',colors:['#1a1a1a','#f0f0f0','#2255aa','#5c3a28'],handleType:'flat',bladeType:'paring'},
       {id:'mts4',name:"Magnetic Stand",tagline:"A collector's showcase",blade:'N/A',handle:'Anodized Aluminum',length:'Universal',weight:'480g',colors:['#1a1a1a','#2255aa','#1a6a3a'],handleType:'stand',bladeType:'none'},
     ]
   },
   {
-    id:'vform', name:'V-FORM', num:'02', glb:'3d models/kitchen_knife.glb',
+    id:'vform', name:'V-FORM', num:'02', glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_knife.glb',
     specs:{steel:'German 1.4116',hardness:'58 HRC',edge:'15° per side',handle:'G10 composite'},
-    photo:'catalogue_pics/v-form.png',
+    photo:'collections_pics/v-form.png',
     tagline:'Patented · Redefining the Art of the Blade',
     desc:'Patented V-shaped design meets a commanding G10 handle. Black powder steel, silky smooth cutting edge. Powder Steel · Timeless Stainless · Sharp today, sharp always.',
     gradient:'linear-gradient(160deg,#0a0505 0%,#1c0808 40%,#2a0d0d 100%)',
     accent:'#c0392b',
     products:[
-      {id:'vf1',name:"Chef's Knife 8\"",tagline:'The future, within reach',blade:'Black Powder Steel',handle:'G10',length:'8 inch',weight:'240g',colors:['#111'],handleType:'g10black',bladeType:'chef',glb:'3d models/kitchen_knife.glb'},
+      {id:'vf1',name:"Chef's Knife 8\"",tagline:'The future, within reach',blade:'Black Powder Steel',handle:'G10',length:'8 inch',weight:'240g',colors:['#111'],handleType:'g10black',bladeType:'chef',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_knife.glb'},
       {id:'vf2',name:"Carving Knife 8\"",tagline:'Precision slicing mastered',blade:'Black Powder Steel',handle:'G10',length:'8 inch',weight:'210g',colors:['#111'],handleType:'g10black',bladeType:'carving'},
       {id:'vf3',name:"Bread Knife 6\"",tagline:'Serrated excellence',blade:'Black Powder Steel',handle:'G10',length:'6 inch',weight:'180g',colors:['#111'],handleType:'g10black',bladeType:'bread'},
       {id:'vf4',name:"Utility Knife 5\"",tagline:'Every task, perfected',blade:'Black Powder Steel',handle:'G10',length:'5 inch',weight:'160g',colors:['#111'],handleType:'g10black',bladeType:'utility'},
@@ -2060,82 +1995,82 @@ const CATEGORIES = [
     ]
   },
   {
-    id:'damascus', name:'DAMASCUS', num:'03', glb:'3d models/knife_damascus.glb',
+    id:'damascus', name:'DAMASCUS', num:'03', glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/knife_damascus.glb',
     specs:{steel:'VG-10 core / Damascus',hardness:'60 HRC',edge:'12° per side',handle:'Multi-colour resin'},
-    photo:'catalogue_pics/damascus.png',
+    photo:'https://steez-models.oss-cn-hongkong.aliyuncs.com/damascus.webp',
     tagline:'Beneath the Edge · A Thousand Layers',
     desc:'Damascus steel with resin composite handles. Each blade holds the secret of a thousand layers — available in blue, green, red, white and abalone. Art worth lingering over.',
     gradient:'linear-gradient(160deg,#0d0818 0%,#1a0d2e 40%,#0d0a18 100%)',
     accent:'#9b59b6',
     products:[
-      {id:'dam1',name:"Chef's Knife 8\"",tagline:'A thousand layers of mastery',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'8 inch',weight:'230g',colors:['#1a3590','#8b1a1a','#1a6b2a','#f5f0e8','#c4789a'],handleType:'resin',bladeType:'chef',glb:'3d models/knife_damascus.glb'},
-      {id:'dam2',name:"Santoku 5\"",tagline:'Japanese precision redefined',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'5 inch',weight:'170g',colors:['#1a3590','#8b1a1a','#1a6b2a','#f5f0e8'],handleType:'resin',bladeType:'santoku',glb:'3d models/knife_damascus.glb'},
-      {id:'dam3',name:"Paring Knife 3.5\"",tagline:'Miniature masterpiece',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'3.5 inch',weight:'95g',colors:['#1a3590','#8b1a1a','#f5f0e8'],handleType:'resin',bladeType:'paring',glb:'3d models/knife_damascus.glb'},
+      {id:'dam1',name:"Chef's Knife 8\"",tagline:'A thousand layers of mastery',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'8 inch',weight:'230g',colors:['#1a3590','#8b1a1a','#1a6b2a','#f5f0e8','#c4789a'],handleType:'resin',bladeType:'chef',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/knife_damascus.glb'},
+      {id:'dam2',name:"Santoku 5\"",tagline:'Japanese precision redefined',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'5 inch',weight:'170g',colors:['#1a3590','#8b1a1a','#1a6b2a','#f5f0e8'],handleType:'resin',bladeType:'santoku',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/knife_damascus.glb'},
+      {id:'dam3',name:"Paring Knife 3.5\"",tagline:'Miniature masterpiece',blade:'Damascus Steel (1000 layers)',handle:'Resin Composite',length:'3.5 inch',weight:'95g',colors:['#1a3590','#8b1a1a','#f5f0e8'],handleType:'resin',bladeType:'paring',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/knife_damascus.glb'},
     ]
   },
   {
-    id:'dragon', name:'DRAGON', num:'04', glb:'3d models/kitchen_knife.glb',
+    id:'dragon', name:'DRAGON', num:'04', glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_knife.glb',
     specs:{steel:'VG-10 core / Damascus',hardness:'60 HRC',edge:'12° per side',handle:'Rosewood / Resin'},
-    photo:'catalogue_pics/dragon.png',
+    photo:'https://steez-models.oss-cn-hongkong.aliyuncs.com/dragon.webp',
     tagline:'Red Dot Award · Design Excellence Redefined',
     desc:'Winner of the prestigious Red Dot Award. Interchangeable modular handles, dragon-engraved stainless blade. An art piece for your kitchen — detachable gift box included.',
     gradient:'linear-gradient(160deg,#150800 0%,#2d1200 40%,#1a0a00 100%)',
     accent:'#d4a017',
     award:true,
     products:[
-      {id:'dr1',name:"Chef's Knife",tagline:'Red Dot Award Winner 2024',blade:'Premium Stainless + Dragon Engraving',handle:'Interchangeable Modular',length:'8 inch',weight:'260g',colors:['#888888','#1a1a1a','#8b6914'],handleType:'dragon',bladeType:'chef',glb:'3d models/kitchen_knife.glb'},
+      {id:'dr1',name:"Chef's Knife",tagline:'Red Dot Award Winner 2024',blade:'Premium Stainless + Dragon Engraving',handle:'Interchangeable Modular',length:'8 inch',weight:'260g',colors:['#888888','#1a1a1a','#8b6914'],handleType:'dragon',bladeType:'chef',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_knife.glb'},
       {id:'dr2',name:"Nakiri Knife",tagline:'Vegetable precision art',blade:'Premium Stainless + Dragon Engraving',handle:'Interchangeable Modular',length:'6.5 inch',weight:'230g',colors:['#888888','#1a1a1a'],handleType:'dragon',bladeType:'cleaver'},
       {id:'dr3',name:"Santoku Knife",tagline:'Three virtues, one blade',blade:'Premium Stainless + Dragon Engraving',handle:'Interchangeable Modular',length:'5 inch',weight:'190g',colors:['#888888','#1a1a1a'],handleType:'dragon',bladeType:'santoku'},
     ]
   },
   {
-    id:'boards', name:'CUTTING BOARD', num:'05', glb:'3d models/cutting_board.glb',
-    photo:'catalogue_pics/cutting_board.png',
+    id:'boards', name:'CUTTING BOARD', num:'05', glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/cutting_board.glb',
+    photo:'https://steez-models.oss-cn-hongkong.aliyuncs.com/cutting_board.webp',
     tagline:'Natural Luxury · Ages Beautifully',
     desc:'From the innovative iPad-style magnetic flip board to premium North American Black Walnut. Function meets fine material, beautifully.',
     gradient:'linear-gradient(160deg,#180e04 0%,#3d2008 40%,#251408 100%)',
     accent:'#c4844a',
     products:[
-      {id:'bd1',name:"Flip Magnetic Board",tagline:'iPad-style. Kitchen-grade.',blade:'N/A',handle:'High-Density Polymer + Bamboo',length:'38 × 28 cm',weight:'1.2kg',colors:['#1a1a1a','#3d2a1a'],handleType:'board',bladeType:'none',glb:'3d models/cutting_board.glb'},
-      {id:'bd2',name:"Black Walnut Board",tagline:'Natural luxury, ages beautifully.',blade:'N/A',handle:'North American Black Walnut',length:'45 × 32 cm',weight:'2.1kg',colors:['#3d2010','#5c3a1e'],handleType:'board',bladeType:'none',glb:'3d models/cutting_board.glb'},
+      {id:'bd1',name:"Flip Magnetic Board",tagline:'iPad-style. Kitchen-grade.',blade:'N/A',handle:'High-Density Polymer + Bamboo',length:'38 × 28 cm',weight:'1.2kg',colors:['#1a1a1a','#3d2a1a'],handleType:'board',bladeType:'none',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/cutting_board.glb'},
+      {id:'bd2',name:"Black Walnut Board",tagline:'Natural luxury, ages beautifully.',blade:'N/A',handle:'North American Black Walnut',length:'45 × 32 cm',weight:'2.1kg',colors:['#3d2010','#5c3a1e'],handleType:'board',bladeType:'none',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/cutting_board.glb'},
     ]
   },
   {
-    id:'cookware', name:'POTS', num:'06', glb:'3d models/stainless_steel_cooking_pot.glb',
-    photo:'catalogue_pics/pots.png',
+    id:'cookware', name:'POTS', num:'06', glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/stainless_steel_cooking_pot.glb',
+    photo:'https://steez-models.oss-cn-hongkong.aliyuncs.com/pots.webp',
     tagline:'Master Your Kitchen',
     desc:'From the Micro-Pressure Wok to 3-Layer Stainless cookware sets. Compatible with all stoves, induction-ready, dishwasher safe.',
     gradient:'linear-gradient(160deg,#070d18 0%,#0f1a2e 40%,#0a1020 100%)',
     accent:'#64b5f6',
     products:[
-      {id:'cw1',name:"Micro-Pressure Wok",tagline:'Master every stir-fry',blade:'N/A',handle:'3-Layer Stainless + Tempered Glass Lid',length:'32 cm dia.',weight:'2.8kg',colors:['#888','#aaa'],handleType:'cookware',bladeType:'none',glb:'3d models/stainless_steel_cooking_pot.glb'},
-      {id:'cw2',name:"3-Layer Stainless Set",tagline:'Induction ready. Dishwasher safe.',blade:'N/A',handle:'18/10 Stainless, Aluminum Core',length:'16/18/20/22 cm',weight:'5.2kg',colors:['#aaa','#ccc'],handleType:'cookware',bladeType:'none',glb:'3d models/stainless_steel_cooking_pot.glb'},
-      {id:'cw3',name:"Kitchen Utensil Set",tagline:'Complete your kitchen',blade:'N/A',handle:'Steel + Rose Wood Handles',length:'Pasta Server, Spatula, Ladle, Slotted Spoon',weight:'600g',colors:['#aaa','#8b6233'],handleType:'cookware',bladeType:'none',glb:'3d models/stainless_steel_cooking_pot.glb'},
+      {id:'cw1',name:"Micro-Pressure Wok",tagline:'Master every stir-fry',blade:'N/A',handle:'3-Layer Stainless + Tempered Glass Lid',length:'32 cm dia.',weight:'2.8kg',colors:['#888','#aaa'],handleType:'cookware',bladeType:'none',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/stainless_steel_cooking_pot.glb'},
+      {id:'cw2',name:"3-Layer Stainless Set",tagline:'Induction ready. Dishwasher safe.',blade:'N/A',handle:'18/10 Stainless, Aluminum Core',length:'16/18/20/22 cm',weight:'5.2kg',colors:['#aaa','#ccc'],handleType:'cookware',bladeType:'none',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/stainless_steel_cooking_pot.glb'},
+      {id:'cw3',name:"Kitchen Utensil Set",tagline:'Complete your kitchen',blade:'N/A',handle:'Steel + Rose Wood Handles',length:'Pasta Server, Spatula, Ladle, Slotted Spoon',weight:'600g',colors:['#aaa','#8b6233'],handleType:'cookware',bladeType:'none',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/stainless_steel_cooking_pot.glb'},
     ]
   },
   {
-    id:'scissors', name:'SCISSORS', num:'07', glb:'3d models/kitchen_scissors.glb',
-    photo:'catalogue_pics/scissors.png',
+    id:'scissors', name:'SCISSORS', num:'07', glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_scissors.glb',
+    photo:'collections_pics/scissors.png',
     tagline:'Precision Cutting · Professional Grade',
     desc:'Multi-purpose kitchen scissors engineered for professional use. From heavy-duty poultry shears to 5-blade herb scissors — forged stainless steel, ergonomic handles, dishwasher safe.',
     gradient:'linear-gradient(160deg,#080d10 0%,#0d1c22 40%,#060e12 100%)',
     accent:'#4ecdc4',
     products:[
-      {id:'sc1',name:'Multi-Purpose Shears',tagline:'The essential kitchen tool',blade:'420 Stainless Steel',handle:'PP + TPR Ergonomic',length:'21 cm',weight:'180g',colors:['#1a1a1a','#c0392b','#1a4896'],handleType:'flat',bladeType:'utility',glb:'3d models/kitchen_scissors.glb'},
-      {id:'sc2',name:'Poultry Shears',tagline:'Heavy-duty precision cutting',blade:'420J2 Stainless Steel',handle:'PP Soft-Grip',length:'24 cm',weight:'260g',colors:['#1a1a1a','#2a2a2a'],handleType:'flat',bladeType:'cleaver',glb:'3d models/kitchen_scissors.glb'},
-      {id:'sc3',name:'Herb Scissors 5-Blade',tagline:'Five blades, one cut',blade:'420 Stainless Steel',handle:'PP + ABS',length:'19 cm',weight:'130g',colors:['#1a5c1a','#1a1a1a'],handleType:'flat',bladeType:'utility',glb:'3d models/kitchen_scissors.glb'},
-      {id:'sc4',name:'Seafood Scissors',tagline:'Shell to table, effortlessly',blade:'420 Stainless Steel',handle:'ABS + Non-slip Grip',length:'20 cm',weight:'150g',colors:['#1a4896','#1a1a1a'],handleType:'flat',bladeType:'paring',glb:'3d models/kitchen_scissors.glb'},
+      {id:'sc1',name:'Multi-Purpose Shears',tagline:'The essential kitchen tool',blade:'420 Stainless Steel',handle:'PP + TPR Ergonomic',length:'21 cm',weight:'180g',colors:['#1a1a1a','#c0392b','#1a4896'],handleType:'flat',bladeType:'utility',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_scissors.glb'},
+      {id:'sc2',name:'Poultry Shears',tagline:'Heavy-duty precision cutting',blade:'420J2 Stainless Steel',handle:'PP Soft-Grip',length:'24 cm',weight:'260g',colors:['#1a1a1a','#2a2a2a'],handleType:'flat',bladeType:'cleaver',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_scissors.glb'},
+      {id:'sc3',name:'Herb Scissors 5-Blade',tagline:'Five blades, one cut',blade:'420 Stainless Steel',handle:'PP + ABS',length:'19 cm',weight:'130g',colors:['#1a5c1a','#1a1a1a'],handleType:'flat',bladeType:'utility',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_scissors.glb'},
+      {id:'sc4',name:'Seafood Scissors',tagline:'Shell to table, effortlessly',blade:'420 Stainless Steel',handle:'ABS + Non-slip Grip',length:'20 cm',weight:'150g',colors:['#1a4896','#1a1a1a'],handleType:'flat',bladeType:'paring',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_scissors.glb'},
     ]
   },
   {
-    id:'streamline', name:'STREAMLINE', num:'08', glb:'3d models/kitchen_knife.glb',
-    photo:'catalogue_pics/streamline.png',
+    id:'streamline', name:'STREAMLINE', num:'08', glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_knife.glb',
+    photo:'collections_pics/streamline.png',
     tagline:'Clean Lines · Uncompromising Edge',
     desc:'A minimalist knife series defined by seamless silhouettes and a mirror-polished blade. Ergonomic full-tang construction, balanced for all-day professional use.',
     gradient:'linear-gradient(160deg,#0a0a0c 0%,#141418 40%,#0a0a0c 100%)',
     accent:'#e8e8f0',
     products:[
-      {id:'sl1',name:"Chef's Knife 8\"",tagline:'The purist choice',blade:'German 1.4116 Stainless',handle:'Full-Tang Polished Steel',length:'8 inch',weight:'235g',colors:['#d0d0d8','#1a1a1a'],handleType:'flat',bladeType:'chef',glb:'3d models/kitchen_knife.glb'},
+      {id:'sl1',name:"Chef's Knife 8\"",tagline:'The purist choice',blade:'German 1.4116 Stainless',handle:'Full-Tang Polished Steel',length:'8 inch',weight:'235g',colors:['#d0d0d8','#1a1a1a'],handleType:'flat',bladeType:'chef',glb:'https://steez-models.oss-cn-hongkong.aliyuncs.com/kitchen_knife.glb'},
       {id:'sl2',name:"Santoku 7\"",tagline:'Versatility, perfected',blade:'German 1.4116 Stainless',handle:'Full-Tang Polished Steel',length:'7 inch',weight:'195g',colors:['#d0d0d8','#1a1a1a'],handleType:'flat',bladeType:'santoku'},
       {id:'sl3',name:"Bread Knife 8\"",tagline:'Serrated precision',blade:'German 1.4116 Stainless',handle:'Full-Tang Polished Steel',length:'8 inch',weight:'210g',colors:['#d0d0d8'],handleType:'flat',bladeType:'bread'},
       {id:'sl4',name:"Paring Knife 3.5\"",tagline:'Control at every scale',blade:'German 1.4116 Stainless',handle:'Full-Tang Polished Steel',length:'3.5 inch',weight:'95g',colors:['#d0d0d8','#1a1a1a'],handleType:'flat',bladeType:'paring'},
@@ -2169,6 +2104,38 @@ var ZH_COLORS = {
   'c-white':{ name:'珍珠白',   mat:'阳极氧化铝', specsZh:{'刀柄':'阳极氧化铝','表面处理':'珍珠阳极','钢材':'优质不锈钢','可选':'4色'} },
   'c-wood': { name:'天然木',   mat:'胡桃木 · 天然纹理', specsZh:{'刀柄':'胡桃木','表面处理':'天然油处理','钢材':'大马士革钢','可选':'2木色'} },
   'c-green':{ name:'森林绿',   mat:'G10复合材料', specsZh:{'刀柄':'G10复合材料','表面处理':'森林绿喷涂','钢材':'粉末钢','可选':'4色'} }
+};
+
+var PRODUCT_PHOTOS = {
+  mts1:'https://steez-models.oss-cn-hongkong.aliyuncs.com/chiefs_knife.webp',
+  mts2:'https://steez-models.oss-cn-hongkong.aliyuncs.com/utility_knife.webp',
+  mts3:'https://steez-models.oss-cn-hongkong.aliyuncs.com/paring_knife.webp',
+  mts4:'https://steez-models.oss-cn-hongkong.aliyuncs.com/magnetic_stand.webp',
+  vf1:'https://steez-models.oss-cn-hongkong.aliyuncs.com/chiefs_vform.webp',
+  vf2:'https://steez-models.oss-cn-hongkong.aliyuncs.com/carving_vform.webp',
+  vf3:'https://steez-models.oss-cn-hongkong.aliyuncs.com/bread_vform.webp',
+  vf4:'https://steez-models.oss-cn-hongkong.aliyuncs.com/utility_vform.webp',
+  vf5:'https://steez-models.oss-cn-hongkong.aliyuncs.com/paring_vform.webp',
+  vf6:'https://steez-models.oss-cn-hongkong.aliyuncs.com/cleaver_vfrom.webp',
+  dam1:'https://steez-models.oss-cn-hongkong.aliyuncs.com/chiefs_damascus.webp',
+  dam2:'https://steez-models.oss-cn-hongkong.aliyuncs.com/santoku_damascus.webp',
+  dam3:'https://steez-models.oss-cn-hongkong.aliyuncs.com/paring_damascus.webp',
+  dr1:'https://steez-models.oss-cn-hongkong.aliyuncs.com/chiefs_dragon.webp',
+  dr2:'https://steez-models.oss-cn-hongkong.aliyuncs.com/nakiri_dragon.webp',
+  dr3:'https://steez-models.oss-cn-hongkong.aliyuncs.com/santoku_dragon.webp',
+  bd1:'https://steez-models.oss-cn-hongkong.aliyuncs.com/magnetic_cutting_board.webp',
+  bd2:'https://steez-models.oss-cn-hongkong.aliyuncs.com/wallnut_cutting_board.webp',
+  cw1:'https://steez-models.oss-cn-hongkong.aliyuncs.com/micro_pressure_wok.webp',
+  cw2:'https://steez-models.oss-cn-hongkong.aliyuncs.com/stainless_set_pots.webp',
+  cw3:'https://steez-models.oss-cn-hongkong.aliyuncs.com/utensils_set.webp',
+  sc1:'https://steez-models.oss-cn-hongkong.aliyuncs.com/multipurpose_scissors.webp',
+  sc2:'https://steez-models.oss-cn-hongkong.aliyuncs.com/poultry_scissors.webp',
+  sc3:'https://steez-models.oss-cn-hongkong.aliyuncs.com/herbs_scissors.webp',
+  sc4:'https://steez-models.oss-cn-hongkong.aliyuncs.com/seafood_scissors.webp',
+  sl1:'https://steez-models.oss-cn-hongkong.aliyuncs.com/chiefs_streamline.webp',
+  sl2:'https://steez-models.oss-cn-hongkong.aliyuncs.com/santoku_streamline.webp',
+  sl3:'https://steez-models.oss-cn-hongkong.aliyuncs.com/bread_streamline.webp',
+  sl4:'https://steez-models.oss-cn-hongkong.aliyuncs.com/paring_streamline.webp'
 };
 
 /* helper: pick en or zh field */
@@ -2306,8 +2273,8 @@ function _hideLoader() {
   _loaderGone = true;
   document.getElementById('loader').classList.add('out');
 }
-window.addEventListener('load', () => setTimeout(_hideLoader, 2800));
-setTimeout(_hideLoader, 5000);
+window.addEventListener('load', () => setTimeout(_hideLoader, 2000));
+setTimeout(_hideLoader, 6000);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SCROLL REVEAL
@@ -3019,18 +2986,22 @@ function renderPreview(product, canvasId, accentColor, glbPath) {
     }
 
     function loadGLB() {
-      var loader = new THREE.GLTFLoader();
-      loader.load(glbPath, function(gltf) {
-        const model = gltf.scene;
-        const box = new THREE.Box3().setFromObject(model);
-        const center = box.getCenter(new THREE.Vector3());
-        const size = box.getSize(new THREE.Vector3());
-        const scale = 3.8 / Math.max(size.x, size.y, size.z);
-        model.scale.setScalar(scale);
-        model.position.sub(center.multiplyScalar(scale));
-        scene.add(model);
-        startAnim(model);
-      }, undefined, fallback);
+      fetch(glbPath)
+        .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.arrayBuffer(); })
+        .then(function(buf) {
+          new THREE.GLTFLoader().parse(buf, '', function(gltf) {
+            const model = gltf.scene;
+            const box = new THREE.Box3().setFromObject(model);
+            const center = box.getCenter(new THREE.Vector3());
+            const size = box.getSize(new THREE.Vector3());
+            const scale = 3.8 / Math.max(size.x, size.y, size.z);
+            model.scale.setScalar(scale);
+            model.position.sub(center.multiplyScalar(scale));
+            scene.add(model);
+            startAnim(model);
+          }, fallback);
+        })
+        .catch(fallback);
     }
 
     function fallback() {
@@ -3132,8 +3103,16 @@ function _startGLBModal(canvas, glbPath) {
   }
 
   function _doLoad() {
-    var loader = new THREE.GLTFLoader();
-    loader.load(glbPath, function(gltf) { _onLoaded(gltf.scene); }, undefined, _onError);
+    /* Use fetch + parse so path spaces/encoding are handled by the browser URL resolver */
+    fetch(glbPath)
+      .then(function(r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status + ': ' + glbPath);
+        return r.arrayBuffer();
+      })
+      .then(function(buf) {
+        new THREE.GLTFLoader().parse(buf, '', function(gltf) { _onLoaded(gltf.scene); }, _onError);
+      })
+      .catch(_onError);
   }
 
   /* Ensure GLTFLoader is available — load script dynamically if CDN tag missed */
@@ -3151,6 +3130,34 @@ function _startGLBModal(canvas, glbPath) {
   }
 }
 
+
+var BLADE_ZH = {
+  'Powder Steel':'粉末钢',
+  'Black Powder Steel':'黑色粉末钢',
+  'Damascus Steel (1000 layers)':'大马士革钢（千层）',
+  'Premium Stainless + Dragon Engraving':'优质不锈钢 + 龙纹雕刻',
+  '420 Stainless Steel':'420不锈钢',
+  '420J2 Stainless Steel':'420J2不锈钢',
+  'German 1.4116 Stainless':'德国1.4116不锈钢'
+};
+var HANDLE_ZH = {
+  'G10 + Anodized Aluminum':'G10 + 阳极氧化铝',
+  'Anodized Aluminum':'阳极氧化铝',
+  'G10':'G10',
+  'Resin Composite':'树脂复合材料',
+  'Interchangeable Modular':'可换式模块化',
+  'High-Density Polymer + Bamboo':'高密度聚合物 + 竹',
+  'North American Black Walnut':'北美黑胡桃木',
+  '3-Layer Stainless + Tempered Glass Lid':'三层不锈钢 + 钢化玻璃盖',
+  '18/10 Stainless, Aluminum Core':'18/10不锈钢，铝芯',
+  'Steel + Rose Wood Handles':'不锈钢 + 玫瑰木柄',
+  'PP + TPR Ergonomic':'PP + TPR人体工程学',
+  'PP Soft-Grip':'PP软握',
+  'PP + ABS':'PP + ABS',
+  'ABS + Non-slip Grip':'ABS + 防滑手柄',
+  'Full-Tang Polished Steel':'全钢整体抛光',
+  'Full tang Pakkawood':'全钢 + 木柄'
+};
 function openModal(product, catInfo) {
   currentProduct = product;
   const modal = document.getElementById('modal');
@@ -3166,12 +3173,25 @@ function openModal(product, catInfo) {
   modalScene = null; modalCamera = null; modalGroup = null;
 
   // Info panel
-  const awardBadge = catInfo.award ? `<div class="modal-award">&#127942; Red Dot Award Winner</div>` : '';
+  const zh = _lang === 'zh';
+  const zhCat = zh && ZH_CAT[catInfo.id];
+  const zhProd = zh && zhCat && zhCat.products && zhCat.products[product.id];
+  const prodName    = zh && zhProd && zhProd.name    ? zhProd.name    : product.name;
+  const prodTagline = zh && zhProd && zhProd.tagline ? zhProd.tagline : product.tagline;
+  const catName     = zh && zhCat && zhCat.name      ? zhCat.name     : catInfo.name;
+  const SK = zh
+    ? {blade:'刀刃', handle:'刀柄', length:'长度', weight:'重量'}
+    : {blade:'Blade', handle:'Handle', length:'Length', weight:'Weight'};
+  const bladeVal  = zh ? (BLADE_ZH[product.blade]  || product.blade)  : product.blade;
+  const handleVal = zh ? (HANDLE_ZH[product.handle] || product.handle) : product.handle;
+
+  const awardBadge = catInfo.award
+    ? `<div class="modal-award">&#127942; ${zh ? '红点奖得主' : 'Red Dot Award Winner'}</div>` : '';
   const specsHtml = [
-    product.blade !== 'N/A' ? ['Blade', product.blade] : null,
-    ['Handle', product.handle],
-    ['Length', product.length],
-    ['Weight', product.weight],
+    product.blade !== 'N/A' ? [SK.blade, bladeVal] : null,
+    [SK.handle, handleVal],
+    [SK.length, product.length],
+    [SK.weight, product.weight],
   ].filter(Boolean).map(([k,v]) =>
     `<div class="modal-spec-row"><span class="modal-spec-key">${k}</span><span class="modal-spec-val">${v}</span></div>`
   ).join('');
@@ -3181,31 +3201,41 @@ function openModal(product, catInfo) {
   ).join('');
 
   // Build description from product data
-  const descParts = [];
-  if (product.blade !== 'N/A') descParts.push(`${product.blade} blade`);
-  if (product.handle) descParts.push(`${product.handle} handle`);
-  const prodDesc = descParts.length
-    ? `Precision-engineered ${descParts.join(' with ')}. ${product.length} blade · ${product.weight}.`
-    : `${product.tagline}. ${product.length} · ${product.weight}.`;
+  let prodDesc;
+  if (zh) {
+    const descParts = [];
+    if (product.blade !== 'N/A') descParts.push(bladeVal + '刀刃');
+    if (product.handle) descParts.push(handleVal + '刀柄');
+    prodDesc = descParts.length
+      ? `精准制造，${descParts.join('，搭配')}。${product.length} · ${product.weight}。`
+      : `${prodTagline}。${product.length} · ${product.weight}。`;
+  } else {
+    const descParts = [];
+    if (product.blade !== 'N/A') descParts.push(`${product.blade} blade`);
+    if (product.handle) descParts.push(`${product.handle} handle`);
+    prodDesc = descParts.length
+      ? `Precision-engineered ${descParts.join(' with ')}. ${product.length} blade · ${product.weight}.`
+      : `${prodTagline}. ${product.length} · ${product.weight}.`;
+  }
 
   // Highlight chips
   const highlights = [
     product.length,
     product.weight,
-    product.blade !== 'N/A' ? product.blade.split(' ').slice(0,2).join(' ') : null,
+    product.blade !== 'N/A' ? (zh ? BLADE_ZH[product.blade] || product.blade.split(' ').slice(0,2).join(' ') : product.blade.split(' ').slice(0,2).join(' ')) : null,
   ].filter(Boolean).map(h => `<span class="modal-highlight">${h}</span>`).join('');
 
   info.innerHTML = `
-    <div class="modal-series">${catInfo.name}</div>
-    <div class="modal-name">${product.name}</div>
-    <div class="modal-tagline">${product.tagline}</div>
+    <div class="modal-series">${catName}</div>
+    <div class="modal-name">${prodName}</div>
+    <div class="modal-tagline">${prodTagline}</div>
     <div class="modal-desc">${prodDesc}</div>
     <div class="modal-highlights">${highlights}</div>
     <div class="modal-rule"></div>
-    <div class="modal-specs-title">Specifications</div>
+    <div class="modal-specs-title">${zh ? '规格参数' : 'Specifications'}</div>
     ${specsHtml}
     ${product.colors.length > 1 ? `
-      <div class="modal-colors-title">Handle Colors</div>
+      <div class="modal-colors-title">${zh ? '颜色选项' : 'Handle Colors'}</div>
       <div class="modal-color-swatches">${swatchesHtml}</div>
     ` : ''}
     ${awardBadge}
@@ -3347,11 +3377,12 @@ function buildShowcase() {
 
       const accentColor = cat.accent || 'var(--white)';
       const badgeBorder = cat.accent ? cat.accent + '55' : 'rgba(255,255,255,0.15)';
+      const prodPhoto = PRODUCT_PHOTOS[prod.id] || cat.photo;
 
       card.innerHTML = `
         <div class="pc-card-visual">
-          ${cat.photo
-            ? `<img src="${cat.photo}" alt="${prodName}" loading="lazy">`
+          ${prodPhoto
+            ? `<img src="${prodPhoto}" alt="${prodName}" loading="lazy">`
             : `<div style="width:100%;height:100%;background:${cat.gradient}"></div>`
           }
           <div class="pc-cat-badge" style="color:${accentColor};border-color:${badgeBorder}">${catName}</div>
@@ -3365,7 +3396,7 @@ function buildShowcase() {
         </div>
       `;
 
-      const catInfo = {name:cat.name, gradient:cat.gradient, accent:cat.accent, award:cat.award||false, glb:cat.glb||null};
+      const catInfo = {id:cat.id, name:cat.name, gradient:cat.gradient, accent:cat.accent, award:cat.award||false, glb:cat.glb||null};
       card.querySelector('.pc-card-btn').addEventListener('click', e => { e.stopPropagation(); openModal(prod, catInfo); });
       card.addEventListener('click', () => openModal(prod, catInfo));
 
