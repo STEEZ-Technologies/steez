@@ -4,6 +4,8 @@ import { ClientThemeProvider } from "@/components/shared/ClientThemeProvider";
 import { Nav } from "@/components/hero/Nav";
 import { Footer } from "@/components/footer/Footer";
 
+export const dynamic = "force-dynamic";
+
 interface CataloguePageProps {
   params: Promise<{ slug: string }>;
 }
