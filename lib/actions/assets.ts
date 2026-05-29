@@ -63,7 +63,7 @@ export async function uploadAsset(formData: FormData, productId: string, orgId: 
         contentType: file.type,
         originalName: file.name,
         ossPath: path,
-        ossEtag: result.res.headers.etag,
+        ossEtag: (result.res.headers as Record<string, any>)['etag'],
       },
     }).returning();
 
