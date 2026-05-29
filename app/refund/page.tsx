@@ -19,7 +19,7 @@ export default function RefundPage() {
         },
         {
           heading: "How To Request",
-          body: "Email billing@steez.digital from the email on the account. Include your account ID and a brief reason (optional). We process refunds within 7 business days via the original payment method.",
+          body: "Email steez.workspace@gmail.com from the email on the account. Include your account ID and a brief reason (optional). We process refunds within 7 business days via the original payment method.",
         },
         {
           heading: "Cancellations After 30 Days",

@@ -31,7 +31,7 @@ export default function CookiesPage() {
         },
         {
           heading: "Contact",
-          body: "Questions about cookies: legal@steez.digital.",
+          body: "Questions about cookies: steez.workspace@gmail.com.",
         },
       ]}
     />

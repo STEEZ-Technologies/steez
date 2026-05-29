@@ -41,6 +41,22 @@ export function InteractivePhone() {
           }}
           title="Digital Card Showcase"
         />
+
+        {/* Dynamic Island */}
+        <div
+          style={{
+            position: "absolute",
+            top: "1.6%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "32%",
+            aspectRatio: "10 / 3.2",
+            background: "#000",
+            borderRadius: "999px",
+            zIndex: 2,
+            boxShadow: "inset 0 0 0 0.5px rgba(255,255,255,0.04)",
+          }}
+        />
       </div>
 
       <div
@@ -65,6 +81,7 @@ const CARD_HTML = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<base href="/" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@700;900&display=swap" rel="stylesheet" />
@@ -81,72 +98,80 @@ const CARD_HTML = `<!DOCTYPE html>
     --font-display: "Stack Sans Notch", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   }
   * { box-sizing: border-box; }
+  html { font-size: clamp(10px, 4.2vmin, 14px); }
   html, body { margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
     background: linear-gradient(180deg, #043831 0%, var(--bg) 50%, var(--bg-deep) 100%);
     color: var(--ivory);
-    padding: 18px 18px 24px;
+    padding: 2.4rem 1.3rem 1.7rem;
     height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 1rem;
   }
   body > * { flex-shrink: 0; }
 
   /* Status row */
-  .status { display: flex; justify-content: space-between; align-items: center; font-size: 10px; font-weight: 700; letter-spacing: 0.02em; opacity: 0.85; padding: 0 4px; }
-  .status .icons { display: flex; gap: 4px; align-items: center; }
-  .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--ivory); opacity: 0.7; }
+  .status { display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; opacity: 0.85; padding: 0 0.3rem; }
+  .status .icons { display: flex; gap: 0.3rem; align-items: center; }
+  .dot { width: 0.3rem; height: 0.3rem; border-radius: 50%; background: var(--ivory); opacity: 0.7; }
 
   /* Top bar */
   .topbar { display: flex; justify-content: space-between; align-items: center; }
-  .brand { font-family: var(--font-display); font-size: 13px; font-weight: 900; letter-spacing: -0.04em; text-transform: uppercase; }
-  .lang { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: rgba(250,249,245,0.06); border: 1px solid var(--hairline); font-size: 9px; font-weight: 600; letter-spacing: 0.1em; color: rgba(250,249,245,0.7); }
+  .brand { font-family: var(--font-display); font-size: 0.95rem; font-weight: 900; letter-spacing: -0.04em; text-transform: uppercase; }
+  .lang { display: inline-flex; align-items: center; gap: 0.43rem; padding: 0.36rem 0.72rem; border-radius: 999px; background: rgba(250,249,245,0.06); border: 1px solid var(--hairline); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; color: rgba(250,249,245,0.7); }
   .lang .cn { color: var(--gold); }
 
+  /* Pulsing Skeleton */
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  .pulse { animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  .avatar-wrap { position: relative; width: 5.4rem; height: 5.4rem; margin-bottom: 0.6rem; }
+  .avatar-circle { width: 100%; height: 100%; border-radius: 50%; background: var(--gold); opacity: 0.4; }
+  .avatar-ring { position: absolute; inset: -0.3rem; border-radius: 50%; border: 2px solid var(--mint); opacity: 0.6; }
+  .name-bar { width: 10rem; height: 1.55rem; border-radius: 0.3rem; background: var(--ivory); opacity: 0.95; margin-bottom: 0.6rem; }
+  .title-bar { width: 7.85rem; height: 0.72rem; border-radius: 0.22rem; background: var(--mint); margin-bottom: 0.43rem; }
+  .company-bar { width: 11.4rem; height: 0.72rem; border-radius: 0.22rem; background: var(--hairline-strong); opacity: 0.8; }
+
   /* Profile block */
-  .profile { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 2px; }
-  .avatar { position: relative; width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(135deg, var(--mint) 0%, var(--gold) 100%); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: var(--bg); box-shadow: 0 0 0 3px rgba(224,169,58,0.18); }
-  .verified { position: absolute; right: -2px; bottom: -2px; width: 20px; height: 20px; border-radius: 50%; background: var(--mint); border: 2px solid var(--bg); display: flex; align-items: center; justify-content: center; }
-  .verified svg { width: 10px; height: 10px; }
-  .name { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
-  .role { font-size: 10px; font-weight: 600; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.9; }
-  .company { font-size: 11px; font-weight: 500; opacity: 0.65; }
+  .profile { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; margin-top: 0.15rem; }
 
   /* Quick stats */
-  .stats { display: flex; gap: 6px; }
-  .stat { flex: 1; padding: 8px 6px; border-radius: 10px; background: rgba(250,249,245,0.04); border: 1px solid var(--hairline); text-align: center; }
-  .stat-num { font-size: 13px; font-weight: 800; color: var(--ivory); }
+  .stats { display: flex; gap: 0.43rem; }
+  .stat { flex: 1; padding: 0.6rem 0.43rem; border-radius: 0.72rem; background: rgba(250,249,245,0.04); border: 1px solid var(--hairline); text-align: center; }
+  .stat-num { font-size: 0.95rem; font-weight: 800; color: var(--ivory); }
   .stat-num .accent { color: var(--gold); }
-  .stat-lbl { font-size: 7px; font-weight: 600; color: rgba(250,249,245,0.55); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 2px; }
+  .stat-lbl { font-size: 0.5rem; font-weight: 600; color: rgba(250,249,245,0.55); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.15rem; }
 
   /* CTA primary */
-  .btn-primary { width: 100%; padding: 11px 0; border-radius: 12px; background: var(--mint); color: var(--bg); font-size: 12px; font-weight: 800; text-align: center; letter-spacing: 0.08em; text-transform: uppercase; box-shadow: 0 8px 20px -8px rgba(29,158,117,0.6); }
+  .btn-primary { width: 100%; padding: 0.8rem 0; border-radius: 0.85rem; background: var(--mint); color: var(--bg); font-size: 0.88rem; font-weight: 800; text-align: center; letter-spacing: 0.08em; text-transform: uppercase; box-shadow: 0 0.57rem 1.43rem -0.57rem rgba(29,158,117,0.6); }
 
   /* CTA grid */
-  .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .action { display: flex; align-items: center; justify-content: center; gap: 5px; padding: 9px 0; border-radius: 10px; background: rgba(250,249,245,0.04); border: 1px solid var(--hairline); font-size: 11px; font-weight: 600; color: var(--ivory); }
+  .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.43rem; }
+  .action { display: flex; align-items: center; justify-content: center; gap: 0.36rem; padding: 0.65rem 0; border-radius: 0.72rem; background: rgba(250,249,245,0.04); border: 1px solid var(--hairline); font-size: 0.8rem; font-weight: 600; color: var(--ivory); }
   .action.green { color: #5BD795; }
   .action.gold { color: var(--gold); }
-  .action svg { width: 12px; height: 12px; }
+  .action svg { width: 0.86rem; height: 0.86rem; }
 
   /* Section label */
-  .label { font-size: 8px; font-weight: 700; color: var(--gold); letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.85; margin-top: 2px; }
+  .label { font-size: 0.57rem; font-weight: 700; color: var(--gold); letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.85; margin-top: 0.15rem; }
 
   /* Skill chips */
-  .chips { display: flex; gap: 5px; flex-wrap: nowrap; }
-  .chip { padding: 4px 9px; border-radius: 999px; background: rgba(250,249,245,0.06); border: 1px solid var(--hairline); font-size: 9px; font-weight: 600; color: rgba(250,249,245,0.75); white-space: nowrap; }
+  .chips { display: flex; gap: 0.36rem; flex-wrap: nowrap; }
+  .chip { padding: 0.3rem 0.65rem; border-radius: 999px; background: rgba(250,249,245,0.06); border: 1px solid var(--hairline); font-size: 0.65rem; font-weight: 600; color: rgba(250,249,245,0.75); white-space: nowrap; }
   .chip.active { background: rgba(224,169,58,0.15); border-color: rgba(224,169,58,0.4); color: var(--gold); }
 
   /* Reach footer */
-  .reach { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--hairline); display: flex; align-items: center; justify-content: space-between; }
-  .reach-left { display: flex; flex-direction: column; gap: 2px; }
-  .reach-lbl { font-size: 7.5px; font-weight: 600; color: rgba(250,249,245,0.5); text-transform: uppercase; letter-spacing: 0.16em; }
-  .reach-val { font-size: 10px; font-weight: 700; }
-  .flags { display: flex; gap: 3px; align-items: center; }
-  .flag { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(250,249,245,0.15); }
+  .reach { margin-top: auto; padding-top: 0.6rem; border-top: 1px solid var(--hairline); display: flex; align-items: center; justify-content: space-between; }
+  .reach-left { display: flex; flex-direction: column; gap: 0.15rem; }
+  .reach-lbl { font-size: 0.54rem; font-weight: 600; color: rgba(250,249,245,0.5); text-transform: uppercase; letter-spacing: 0.16em; }
+  .reach-val { font-size: 0.72rem; font-weight: 700; }
+  .flags { display: flex; gap: 0.22rem; align-items: center; }
+  .flag { width: 0.86rem; height: 0.86rem; border-radius: 50%; border: 1px solid rgba(250,249,245,0.15); }
   .flag.cn { background: linear-gradient(135deg, #DE2910, #FFDE00); }
   .flag.sa { background: linear-gradient(135deg, #006C35, #FFFFFF 60%); }
   .flag.ru { background: linear-gradient(180deg, #FFFFFF 33%, #0039A6 33%, #0039A6 66%, #D52B1E 66%); }
@@ -155,29 +180,19 @@ const CARD_HTML = `<!DOCTYPE html>
 </style>
 </head>
 <body>
-  <div class="status">
-    <span>9:41</span>
-    <div class="icons">
-      <span style="font-weight: 700;">●●●●</span>
-      <span style="margin-left:6px; opacity: 0.6;">100%</span>
-    </div>
-  </div>
-
   <div class="topbar">
     <div class="brand">STEEZ</div>
     <div class="lang"><span>EN</span><span class="cn">中</span></div>
   </div>
 
   <div class="profile">
-    <div class="avatar">
-      W
-      <div class="verified">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#04342C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-      </div>
+    <div class="avatar-wrap">
+      <div class="avatar-circle pulse"></div>
+      <div class="avatar-ring"></div>
     </div>
-    <div class="name">WEI CHEN</div>
-    <div class="role">Sales Director</div>
-    <div class="company">Foshan Hardware Co. · 佛山五金</div>
+    <div class="name-bar pulse"></div>
+    <div class="title-bar pulse"></div>
+    <div class="company-bar pulse"></div>
   </div>
 
   <div class="stats">

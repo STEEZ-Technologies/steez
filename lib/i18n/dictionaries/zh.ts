@@ -49,7 +49,7 @@ export const zh: Dict = {
     pricing: {
       eyebrow: "05 — 套餐",
       title: "定价",
-      sub: "一个平台,三种方案。为走向全球的中国出口商而打造。",
+      sub: "一套全能包。灵活的增值服务。为走向全球的中国出口商而打造。",
     },
     contact: {
       eyebrow: "06 — 联系",
@@ -120,51 +120,31 @@ export const zh: Dict = {
     scanLabel: "扫码进入",
   },
   pricingBlock: {
-    monthly: "按月",
     annually: "按年",
-    perMonth: "/月",
-    plans: {
-      basic: {
-        title: "基础版",
-        desc: "快速上线。一张双语数字名片,带定制二维码。",
-        button: "立即开始",
-        features: [
-          "1 张数字名片",
-          "双语 EN + 中",
-          "深色/浅色主题",
-          "定制二维码",
-          "分享链接",
-          "社区支持",
-        ],
-      },
-      standard: {
-        title: "标准版",
-        desc: "面向认真出口的客户。名片、表单、四种语言和季度分析。",
-        button: "选择标准版",
-        badge: "最受欢迎",
-        features: [
-          "1 张名片 + 5 个数字表单",
-          "完整 4 语言支持",
-          "深色/浅色主题",
-          "季度分析",
-          "优先支持",
-          "定制二维码 + 分享链接",
-        ],
-      },
-      premium: {
-        title: "高级版",
-        desc: "完整 STEEZ。无限表单、3D/AR 目录、专属客户经理。",
-        button: "选择高级版",
-        features: [
-          "名片 + 无限表单",
-          "3D / AR 目录",
-          "全部 4 种语言",
-          "月度分析评审",
-          "访客地理追踪",
-          "专属客户经理",
-        ],
-      },
+    bundle: {
+      title: "出口必备全能包",
+      desc: "为您提供高级数字化展会展示所需的一切。",
+      price: "7,000",
+      button: "立即预订套餐",
+      features: [
+        "1 个数字产品目录",
+        "包含多达 30 个 2D 产品位",
+        "包含 10 个高保真 3D 产品位",
+        "5 张个人数字名片",
+        "基础二维码展示套装 (挂绳 + 展架)",
+        "包含 1 次免费修改",
+        "包含无限语言支持",
+        "技术支持 (周一至周五 9:00-17:00)",
+      ],
     },
+    addonsTitle: "可选增值服务",
+    addons: [
+      { name: "额外 2D 产品", price: "¥200", info: "每增加 15 个项目" },
+      { name: "额外 3D 产品", price: "¥200", info: "每增加 5 个项目" },
+      { name: "额外数字名片", price: "¥50", info: "每张额外名片" },
+      { name: "内容修改", price: "¥100", info: "每增加一次修改" },
+      { name: "专业版支持", price: "¥500", info: "24/7 全天候专属支持" },
+    ],
   },
   contactBlock: {
     info: {
@@ -174,8 +154,8 @@ export const zh: Dict = {
       hours: "营业时间",
     },
     values: {
-      phone: "+86 755 8888 0000",
-      email: "hello@steez.digital",
+      phone: "+86 19818401505",
+      email: "steez.workspace@gmail.com",
       hq: "浙江省杭州市上城区赞成中心西楼1005室-01",
       hours: "周一至周六 09:00–19:00 北京时间",
     },
