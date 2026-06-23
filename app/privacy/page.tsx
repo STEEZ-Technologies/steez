@@ -27,7 +27,7 @@ export default function PrivacyPage() {
         },
         {
           heading: "Your Rights",
-          body: "Depending on your jurisdiction, you have the right to access, correct, port, restrict, or delete your personal data, to withdraw consent, and to lodge a complaint with a supervisory authority. To exercise these rights contact legal@steez.digital. We respond within 30 days.",
+          body: "Depending on your jurisdiction, you have the right to access, correct, port, restrict, or delete your personal data, to withdraw consent, and to lodge a complaint with a supervisory authority. To exercise these rights contact steez.workspace@gmail.com. We respond within 30 days.",
         },
         {
           heading: "International Transfers",

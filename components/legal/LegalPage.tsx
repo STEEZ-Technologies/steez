@@ -131,7 +131,7 @@ export function LegalPage({ title, updated, intro, sections }: Props) {
           <div style={{ fontWeight: 700, marginBottom: 6, color: "#E0A93A", letterSpacing: "0.15em", textTransform: "uppercase", fontSize: "0.7rem" }}>
             Contact · Legal
           </div>
-          STEEZ Digital · Hangzhou, Zhejiang, China · legal@steez.digital
+          STEEZ Digital · Hangzhou, Zhejiang, China · steez.workspace@gmail.com
         </div>
       </article>
 

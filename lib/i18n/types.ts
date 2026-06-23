@@ -68,14 +68,20 @@ export type Dict = {
     };
   };
   pricingBlock: {
-    monthly: string;
     annually: string;
-    perMonth: string;
-    plans: {
-      basic: { title: string; desc: string; button: string; features: string[] };
-      standard: { title: string; desc: string; button: string; badge: string; features: string[] };
-      premium: { title: string; desc: string; button: string; features: string[] };
+    bundle: {
+      title: string;
+      desc: string;
+      price: string;
+      button: string;
+      features: string[];
     };
+    addonsTitle: string;
+    addons: {
+      name: string;
+      price: string;
+      info: string;
+    }[];
   };
   contactBlock: {
     info: { phone: string; email: string; hq: string; hours: string };

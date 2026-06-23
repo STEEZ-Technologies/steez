@@ -250,11 +250,11 @@ export default function HeroGeometric({
                 </Canvas>
             </div>
 
-            {/* Content — left-aligned group: headline, CTA, chips */}
+            {/* Content — centered and pushed up on mobile, bottom-left aligned on desktop */}
             {description && (
-                <div className="relative z-10 w-full flex-1 flex flex-col items-center justify-end pt-24 pb-4 md:pt-40 md:pb-8">
+                <div className={cn("relative z-10 w-full flex-1 flex flex-col items-center md:pt-40 md:pb-8", isMobile ? "justify-center pt-20 pb-36" : "justify-end pt-24 pb-4")}>
                     <div
-                        className="w-full px-6 flex flex-col items-start"
+                        className={cn("w-full px-6 flex flex-col", isMobile ? "items-center" : "items-start")}
                         style={{
                             maxWidth: "min(75%, 1280px)",
                             gap: "clamp(20px, 2.5vw, 32px)",
@@ -266,10 +266,10 @@ export default function HeroGeometric({
                             transition={{ duration: 0.9, delay: done ? 0.05 : 0, ease: [0.16, 1, 0.3, 1] }}
                             style={{
                                 color: "var(--fg)",
-                                fontSize: "clamp(3rem, min(9vw, 11vh), 7.5rem)",
+                                fontSize: "clamp(2.6rem, min(6.5vw, 8.5vh), 5.5rem)",
                                 lineHeight: 1.04,
                                 letterSpacing: "-0.03em",
-                                textAlign: "start",
+                                textAlign: isMobile ? "center" : "start",
                                 margin: 0,
                                 fontFamily: "var(--font-stack-sans), sans-serif",
                                 textWrap: "balance",
@@ -313,6 +313,7 @@ export default function HeroGeometric({
                                 fontFamily: "var(--font-stack-sans), sans-serif",
                                 minHeight: 52,
                                 boxShadow: "0 18px 40px -18px rgba(224,169,58,0.55)",
+                                marginTop: isMobile ? "clamp(60px, 15vw, 120px)" : "0",
                             }}
                         >
                             {dict.hero.getQuote}
@@ -363,12 +364,12 @@ export default function HeroGeometric({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: done ? 1 : 0 }}
                 transition={{ duration: 0.8, delay: done ? 0.6 : 0 }}
-                className="hidden md:flex flex-col items-center gap-3"
+                className="hidden md:flex flex-col items-center gap-2"
                 style={{
                     position: "relative",
                     zIndex: 10,
-                    marginTop: "clamp(32px, 5vw, 64px)",
-                    marginBottom: "clamp(24px, 3vw, 40px)",
+                    marginTop: "clamp(12px, 1.6vw, 22px)",
+                    marginBottom: "clamp(10px, 1.4vw, 18px)",
                     color: "var(--fg)",
                 }}
             >

@@ -49,7 +49,7 @@ export const en: Dict = {
     pricing: {
       eyebrow: "05 — Packages",
       title: "Pricing",
-      sub: "One platform. Three plans. Built for Chinese exporters going global.",
+      sub: "One premium bundle. Flexible add-ons. Built for Chinese exporters going global.",
     },
     contact: {
       eyebrow: "06 — Contact",
@@ -120,51 +120,31 @@ export const en: Dict = {
     scanLabel: "Scan to",
   },
   pricingBlock: {
-    monthly: "Monthly",
-    annually: "Annually",
-    perMonth: "/mo",
-    plans: {
-      basic: {
-        title: "Basic",
-        desc: "Get online fast. One digital business card, bilingual, with a custom QR code.",
-        button: "Get Started",
-        features: [
-          "1 digital business card",
-          "Bilingual EN + 中",
-          "Dark / light theme",
-          "Custom QR code",
-          "Share link",
-          "Community support",
-        ],
-      },
-      standard: {
-        title: "Standard",
-        desc: "For serious exporters. Card, forms, four languages, and quarterly analytics.",
-        button: "Get Standard",
-        badge: "Most Popular",
-        features: [
-          "1 card + 5 digital forms",
-          "Full 4-language support",
-          "Dark / light theme",
-          "Quarterly analytics",
-          "Priority support",
-          "Custom QR + share link",
-        ],
-      },
-      premium: {
-        title: "Premium",
-        desc: "The full STEEZ. Unlimited forms, 3D/AR catalogue, dedicated account manager.",
-        button: "Get Premium",
-        features: [
-          "Card + unlimited forms",
-          "3D / AR catalogue",
-          "All 4 languages",
-          "Monthly analytics review",
-          "Visitor geo-tracking",
-          "Dedicated account manager",
-        ],
-      },
+    annually: "Yearly",
+    bundle: {
+      title: "Export Essential Bundle",
+      desc: "Everything you need for a premium digital exhibition presence.",
+      price: "7,000",
+      button: "Secure This Bundle",
+      features: [
+        "1 Digital Product Catalog",
+        "30 2D product slots included",
+        "10 high-fidelity 3D product slots",
+        "5 Individual Business Cards",
+        "Base QR Display (Lanyards + Stand)",
+        "1 Free revision included",
+        "Unlimited languages included",
+        "Technical support (9-5, Mon-Fri)",
+      ],
     },
+    addonsTitle: "Custom Add-ons",
+    addons: [
+      { name: "Extra 2D Products", price: "¥200", info: "Per 15 additional items" },
+      { name: "Extra 3D Products", price: "¥200", info: "Per 5 additional items" },
+      { name: "Extra Digital Cards", price: "¥50", info: "Per additional card" },
+      { name: "Content Revisions", price: "¥100", info: "Per additional revision" },
+      { name: "Pro Support", price: "¥500", info: "24/7 dedicated support" },
+    ],
   },
   contactBlock: {
     info: {
@@ -174,8 +154,8 @@ export const en: Dict = {
       hours: "Hours",
     },
     values: {
-      phone: "+86 755 8888 0000",
-      email: "hello@steez.digital",
+      phone: "+86 19818401505",
+      email: "steez.workspace@gmail.com",
       hq: "Room 1005-01, West Tower, Zancheng Center, Shangcheng District, Hangzhou, Zhejiang",
       hours: "Mon–Sat 09:00–19:00 CST",
     },

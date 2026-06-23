@@ -3,7 +3,6 @@
 import { FadeIn } from "@/components/shared/FadeIn";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { useI18n } from "@/lib/i18n/useI18n";
-import { QrPattern } from "@/components/booth/QrPattern";
 
 export function Contact() {
   const isMobile = useIsMobile();
@@ -190,22 +189,22 @@ export function Contact() {
                 </h3>
               </div>
 
-              <div
-                style={{
-                  padding: "clamp(14px, 1.6vw, 22px)",
-                  background: "#FAF9F5",
-                  border: "1px solid var(--hairline)",
-                  borderRadius: "var(--radius-smallercards)",
-                  display: "inline-flex",
-                  boxShadow: "0 20px 40px -20px rgba(0,0,0,0.14)",
-                }}
-              >
-                <QrPattern
-                  size={isMobile ? 160 : 180}
-                  foreground="#04342C"
-                  background="#FAF9F5"
-                />
-              </div>
+            <div
+              style={{
+                padding: "clamp(18px, 2vw, 28px)",
+                background: "#FAF9F5",
+                border: "1px solid var(--hairline)",
+                borderRadius: "var(--radius-smallercards)",
+                display: "inline-flex",
+                boxShadow: "0 30px 60px -30px rgba(0,0,0,0.18)",
+              }}
+            >
+              <QrPattern
+                size={isMobile ? 200 : 240}
+                foreground="#04342C"
+                background="#FAF9F5"
+              />
+            </div>
 
               <div
                 style={{
