@@ -67,6 +67,7 @@ export function Contact() {
           alignItems: "start",
         }}
       >
+        {/* LEFT: Phone, Email, Location */}
         <FadeIn delay={0.1} x={-30} y={0} style={{ order: isMobile ? 2 : 1 }}>
           <div
             style={{
@@ -84,7 +85,6 @@ export function Contact() {
               { label: dict.contactBlock.info.phone, value: dict.contactBlock.values.phone },
               { label: dict.contactBlock.info.email, value: dict.contactBlock.values.email },
               { label: dict.contactBlock.info.hq, value: dict.contactBlock.values.hq },
-              { label: dict.contactBlock.info.hours, value: dict.contactBlock.values.hours },
             ].map((row, i) => (
               <div key={i}>
                 <div
@@ -105,122 +105,139 @@ export function Contact() {
                     color: "inherit",
                     opacity: 0.8,
                     fontWeight: 400,
+                    lineHeight: 1.5,
                   }}
                 >
                   {row.value}
                 </div>
               </div>
             ))}
-
           </div>
         </FadeIn>
 
+        {/* RIGHT: Map (square) + QR code */}
         <FadeIn delay={0.2} x={30} y={0} style={{ minWidth: 0, order: isMobile ? 1 : 2 }}>
           <div
             style={{
-              background: "var(--card-bg, #FFFFFF)",
-              border: "1px solid var(--hairline)",
-              borderRadius: "var(--radius-cards)",
-              padding: "var(--card-padding)",
-              transition: "background 0.4s ease",
-              minHeight: isMobile ? "auto" : 480,
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "clamp(18px, 2.4vw, 28px)",
-              textAlign: "center",
+              gap: "clamp(16px, 2vw, 24px)",
             }}
           >
-            <div>
+            {/* Map — square */}
+            <div
+              style={{
+                width: "100%",
+                aspectRatio: "1 / 1",
+                borderRadius: "var(--radius-cards)",
+                overflow: "hidden",
+                border: "1px solid var(--hairline)",
+                boxShadow: "0 20px 50px -20px rgba(0,0,0,0.12)",
+              }}
+            >
+              <iframe
+                src="https://maps.google.com/maps?q=Shangcheng+District+Hangzhou+Zhejiang+China&output=embed&z=15"
+                width="100%"
+                height="100%"
+                style={{ border: 0, display: "block" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="STEEZ office location"
+              />
+            </div>
+
+            {/* QR code */}
+            <div
+              style={{
+                background: "var(--card-bg, #FFFFFF)",
+                border: "1px solid var(--hairline)",
+                borderRadius: "var(--radius-cards)",
+                padding: "var(--card-padding)",
+                transition: "background 0.4s ease",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "clamp(12px, 1.6vw, 18px)",
+                textAlign: "center",
+              }}
+            >
+              <div>
+                <div
+                  style={{
+                    fontSize: "clamp(0.62rem, 0.85vw, 0.72rem)",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.22em",
+                    color: "#E0A93A",
+                    marginBottom: 6,
+                  }}
+                >
+                  {dict.contactBlock.wechat.scanLabel}
+                </div>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-stack-sans), sans-serif",
+                    fontWeight: 800,
+                    fontSize: "clamp(1.2rem, 1.8vw, 1.7rem)",
+                    lineHeight: 1.05,
+                    letterSpacing: "-0.02em",
+                    color: "inherit",
+                    margin: 0,
+                  }}
+                >
+                  {dict.contactBlock.wechat.title}
+                </h3>
+              </div>
+
               <div
                 style={{
-                  fontSize: "clamp(0.62rem, 0.85vw, 0.72rem)",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.22em",
-                  color: "#E0A93A",
-                  marginBottom: 10,
+                  padding: "clamp(14px, 1.6vw, 22px)",
+                  background: "#FAF9F5",
+                  border: "1px solid var(--hairline)",
+                  borderRadius: "var(--radius-smallercards)",
+                  display: "inline-flex",
+                  boxShadow: "0 20px 40px -20px rgba(0,0,0,0.14)",
                 }}
               >
-                {dict.contactBlock.wechat.scanLabel}
+                <QrPattern
+                  size={isMobile ? 160 : 180}
+                  foreground="#04342C"
+                  background="#FAF9F5"
+                />
               </div>
-              <h3
+
+              <div
                 style={{
-                  fontFamily: "var(--font-stack-sans), sans-serif",
-                  fontWeight: 800,
-                  fontSize: "clamp(1.6rem, 2.6vw, 2.4rem)",
-                  lineHeight: 1.05,
-                  letterSpacing: "-0.02em",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 10,
+                  padding: "8px 16px",
+                  borderRadius: 999,
+                  border: "1px solid var(--hairline)",
+                  background: "rgba(29,158,117,0.08)",
                   color: "inherit",
-                  margin: 0,
+                  fontFamily: "var(--font-stack-sans), sans-serif",
                 }}
               >
-                {dict.contactBlock.wechat.title}
-              </h3>
+                <span
+                  aria-hidden
+                  style={{
+                    width: 10,
+                    height: 10,
+                    borderRadius: 999,
+                    background: "#1D9E75",
+                    boxShadow: "0 0 0 4px rgba(29,158,117,0.18)",
+                  }}
+                />
+                <span style={{ fontWeight: 700, fontSize: "0.88rem", letterSpacing: "0.05em" }}>
+                  {dict.contactBlock.wechat.handle}
+                </span>
+                <span className="cn-text" lang="zh" style={{ fontWeight: 300, opacity: 0.6, fontSize: "0.8rem" }}>
+                  微信
+                </span>
+              </div>
             </div>
-
-            <div
-              style={{
-                padding: "clamp(18px, 2vw, 28px)",
-                background: "#FAF9F5",
-                border: "1px solid var(--hairline)",
-                borderRadius: "var(--radius-smallercards)",
-                display: "inline-flex",
-                boxShadow: "0 30px 60px -30px rgba(0,0,0,0.18)",
-              }}
-            >
-              <QrPattern
-                size={isMobile ? 200 : 240}
-                foreground="#04342C"
-                background="#FAF9F5"
-              />
-            </div>
-
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 10,
-                padding: "10px 18px",
-                borderRadius: 999,
-                border: "1px solid var(--hairline)",
-                background: "rgba(29,158,117,0.08)",
-                color: "inherit",
-                fontFamily: "var(--font-stack-sans), sans-serif",
-              }}
-            >
-              <span
-                aria-hidden
-                style={{
-                  width: 10,
-                  height: 10,
-                  borderRadius: 999,
-                  background: "#1D9E75",
-                  boxShadow: "0 0 0 4px rgba(29,158,117,0.18)",
-                }}
-              />
-              <span style={{ fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.05em" }}>
-                {dict.contactBlock.wechat.handle}
-              </span>
-              <span className="cn-text" lang="zh" style={{ fontWeight: 300, opacity: 0.6, fontSize: "0.85rem" }}>
-                微信
-              </span>
-            </div>
-
-            <p
-              style={{
-                fontWeight: 300,
-                fontSize: "clamp(0.88rem, 1.05vw, 1rem)",
-                lineHeight: 1.55,
-                color: "inherit",
-                opacity: 0.7,
-                margin: 0,
-                maxWidth: 360,
-              }}
-            >
-              {dict.contactBlock.wechat.sub}
-            </p>
           </div>
         </FadeIn>
       </div>
