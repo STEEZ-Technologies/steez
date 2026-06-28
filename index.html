@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ATREO — Premium Sanitaryware Catalogue</title>
+<link rel="preload" as="image" href="pictures hero/Gemini_Generated_Image_qznptqznptqznptq.webp" fetchpriority="high">
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url('fonts/cormorant-italic-300.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/cormorant-italic-400.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-display:swap;src:url('fonts/cormorant-italic-600.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/cormorant-300.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/cormorant-400.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/cormorant-500.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/cormorant-600.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/cormorant-700.ttf') format('truetype')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/jost-300.ttf') format('truetype')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/jost-400.ttf') format('truetype')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/jost-500.ttf') format('truetype')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/jost-600.ttf') format('truetype')}
+</style>
+<style>
+/* ── RESET & TOKENS ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#1a1614;
+  --black2:#f5f0e8;
+  --black3:#ece7dc;
+  --white:#ffffff;
+  --white2:#3d3228;
+  --white3:#7a6e62;
+  --accent:#c4934a;
+  --accent2:#d4ab72;
+  --font-h:'Cormorant Garamond',serif;
+  --font-b:'Jost',sans-serif;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --ease-o:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:#ffffff;color:var(--black);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+img{display:block;max-width:100%}
+ul{list-style:none}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:#ffffff}
+::-webkit-scrollbar-thumb{background:var(--accent)}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,72px)}
+.sec{padding:clamp(80px,10vw,140px) 0}
+
+/* ── SCROLL PROGRESS ── */
+#scrollProgress{
+  position:fixed;top:0;left:0;height:3px;width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  z-index:200;transition:width .1s linear;
+  box-shadow:0 0 8px rgba(196,147,74,.5);
+}
+
+/* ── TOP NAV ── */
+section{scroll-margin-top:72px}
+#topNav{
+  position:fixed;top:0;left:0;right:0;z-index:150;
+  background:rgba(23,20,16,.32);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(243,233,216,.08);
+  transition:background .35s,border-color .35s;
+}
+#topNav.scrolled{
+  background:rgba(18,15,11,.92);
+  border-bottom-color:rgba(243,233,216,.13);
+}
+.topnav-inner{
+  position:relative;width:100%;height:72px;
+}
+.topnav-logo{
+  position:absolute;left:clamp(20px,5vw,56px);top:50%;transform:translateY(-50%);
+  font-family:var(--font-h);font-weight:300;font-size:18px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--white);text-decoration:none;
+  text-shadow:0 2px 16px rgba(0,0,0,.45);
+}
+.topnav-links{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  display:flex;gap:clamp(10px,1.4vw,20px);align-items:center;
+}
+.topnav-links a{
+  font-family:var(--font-h);font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;
+  color:rgba(243,233,216,.7);text-decoration:none;position:relative;padding:8px 0;
+  transition:color .25s;white-space:nowrap;text-shadow:0 1px 10px rgba(0,0,0,.4);
+}
+.topnav-links a::after{
+  content:'';position:absolute;left:0;bottom:3px;width:0;height:1.5px;background:var(--accent);
+  transition:width .3s var(--ease-o);
+}
+.topnav-links a:hover{color:var(--white)}
+.topnav-links a.active{color:var(--white)}
+.topnav-links a.active::after{width:100%}
+@media(max-width:1200px){.topnav-links{display:none}}
+@media(max-width:768px){#topNav{display:none}}
+.topnav-lang{
+  position:absolute;right:clamp(20px,5vw,56px);top:50%;transform:translateY(-50%);
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:24px;border-radius:8px;
+  font-family:var(--font-b);font-size:9.5px;font-weight:500;letter-spacing:.1em;
+  cursor:pointer;border:1px solid rgba(255,255,255,.25);
+  color:rgba(243,233,216,.85);background:rgba(23,20,16,.2);
+  transition:color .25s,border-color .25s,background .25s;
+}
+.topnav-lang:hover{color:var(--white);border-color:rgba(255,255,255,.45)}
+.topnav-lang.zh-on{color:var(--accent);border-color:rgba(196,147,74,.5);background:rgba(196,147,74,.12)}
+
+/* Mobile lang toggle — floating, since #topNav hides under 768px */
+#mobLangBtn{
+  display:none;position:fixed;top:14px;right:14px;z-index:1095;
+  width:34px;height:26px;border-radius:8px;align-items:center;justify-content:center;
+  font-family:var(--font-b);font-size:9.5px;font-weight:500;letter-spacing:.1em;
+  cursor:pointer;border:1px solid rgba(255,255,255,.25);
+  color:rgba(243,233,216,.9);background:rgba(23,20,16,.55);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+#mobLangBtn.zh-on{color:var(--accent);border-color:rgba(196,147,74,.55);background:rgba(196,147,74,.18)}
+@media(max-width:768px){#mobLangBtn{display:flex}}
+
+/* ── LOADER ── */
+#loader{
+  position:fixed;inset:0;z-index:9999;
+  background:#ffffff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  transition:opacity .7s var(--ease),visibility .7s;
+}
+#loader.out{opacity:0;visibility:hidden;pointer-events:none}
+.ld-brand{font-family:var(--font-h);font-size:22px;font-weight:300;letter-spacing:.5em;text-transform:uppercase;color:var(--white);opacity:.8}
+.ld-sub{font-family:var(--font-b);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--white3);margin-top:-6px}
+.ld-ring{width:26px;height:26px;border:1px solid rgba(196,147,74,.18);border-top-color:var(--accent);border-radius:50%;animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── NAV ── */
+
+/* ── HERO ── */
+@keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroInFast{from{opacity:0}to{opacity:1}}
+/* Hero content */
+.hero-content{
+  position:absolute;z-index:2;left:clamp(20px,5vw,72px);bottom:clamp(112px,14vw,164px);
+  max-width:620px;
+  opacity:0;animation:heroInFast .8s .7s ease forwards;
+}
+.hero-eyebrow{
+  font-family:var(--font-h);font-style:italic;font-weight:300;
+  font-size:clamp(14px,1.4vw,18px);letter-spacing:.04em;color:var(--accent2);
+  margin-bottom:14px;text-shadow:0 2px 16px rgba(0,0,0,.5);
+}
+.hero-title{
+  font-family:var(--font-h);font-weight:600;
+  font-size:clamp(36px,6vw,76px);letter-spacing:-.02em;line-height:1.02;
+  color:var(--white);margin-bottom:20px;
+  text-shadow:0 4px 32px rgba(0,0,0,.45);
+}
+.hero-title em{font-style:italic;font-weight:300;color:rgba(243,233,216,.85)}
+.hero-sub{
+  font-family:var(--font-b);font-weight:300;font-size:clamp(13px,1.2vw,16px);
+  line-height:1.7;color:rgba(243,233,216,.82);max-width:480px;margin-bottom:32px;
+  text-shadow:0 2px 16px rgba(0,0,0,.5);
+}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.hero-cta-primary{
+  display:inline-block;padding:13px 28px;background:var(--accent);color:#171410;
+  font-family:var(--font-h);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  transition:background .25s,transform .25s;
+}
+.hero-cta-primary:hover{background:var(--accent2);transform:translateY(-2px)}
+.hero-cta-secondary{
+  display:inline-block;padding:13px 28px;border:1px solid rgba(243,233,216,.4);color:var(--white);
+  font-family:var(--font-h);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  transition:all .25s;
+}
+.hero-cta-secondary:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+@media(max-width:640px){
+  .hero-content{bottom:clamp(96px,18vw,134px);max-width:88%}
+  .hero-cta-row{flex-direction:column;align-items:flex-start;gap:10px}
+}
+/* ── HERO SLIDESHOW ── */
+#hero{
+  position:relative;width:100%;height:100svh;overflow:hidden;background:var(--black);
+}
+/* Slides */
+.hero-slides{position:absolute;inset:0}
+.hero-slide{
+  position:absolute;inset:0;opacity:0;
+  background-size:cover;background-position:center;
+  transition:opacity 1.1s cubic-bezier(.4,0,.2,1);
+  will-change:transform,opacity;
+}
+.hero-slide.active{opacity:1;animation:hKenBurns 7s ease-in-out forwards}
+.hero-slide.leaving{opacity:0;transition:opacity 1.1s cubic-bezier(.4,0,.2,1)}
+@keyframes hKenBurns{
+  0%  {transform:scale(1)   translateX(0)}
+  100%{transform:scale(1.07) translateX(-1%)}
+}
+/* Gradient overlays */
+.hero-overlay{
+  position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:
+    linear-gradient(to top, rgba(23,20,16,.72) 0%, rgba(23,20,16,.1) 40%, transparent 70%),
+    linear-gradient(to bottom, rgba(23,20,16,.45) 0%, transparent 22%);
+}
+/* Dot navigation */
+.hero-dots{
+  position:absolute;bottom:clamp(32px,5vw,52px);left:50%;transform:translateX(-50%);
+  display:flex;gap:8px;z-index:3;
+}
+.hero-dot{
+  width:6px;height:6px;border-radius:50%;border:none;padding:0;cursor:pointer;
+  background:rgba(243,233,216,.28);transition:background .3s,transform .3s;
+}
+.hero-dot.active{background:var(--accent);transform:scale(1.4)}
+/* Scroll indicator */
+.hero-scroll{
+  position:absolute;bottom:clamp(32px,5vw,60px);right:clamp(20px,5vw,72px);
+  display:flex;flex-direction:column;align-items:center;gap:7px;z-index:3;
+  font-family:var(--font-h);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,233,216,.62);
+  opacity:0;animation:heroInFast .6s 1.3s ease forwards;
+}
+.hero-scroll-line{width:1px;height:42px;background:linear-gradient(to bottom,transparent,var(--accent));animation:scrollPulse 2.2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:.85}}
+@media(max-width:768px){.hero-scroll{display:none}}
+
+/* ── MANIFESTO ── */
+#manifesto{background:var(--black);overflow:hidden;color:var(--white);position:relative}
+.mf-parallax-bg{
+  position:absolute;inset:0;
+  background:url('pictures hero/philosophy.webp') center/cover no-repeat;
+  background-attachment:fixed;
+  z-index:0;
+}
+/* iOS Safari doesn't support fixed bg-attachment — fall back to scroll */
+@supports (-webkit-touch-callout: none){
+  .mf-parallax-bg{ background-attachment:scroll; }
+}
+.mf-parallax-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to right, rgba(12,10,7,.55) 0%, rgba(12,10,7,.28) 52%, rgba(12,10,7,.48) 100%),
+    linear-gradient(to bottom, rgba(12,10,7,.25) 0%, transparent 30%, transparent 70%, rgba(12,10,7,.30) 100%);
+}
+.mf-inner{display:grid;grid-template-columns:1fr;min-height:clamp(480px,56vw,660px);position:relative;z-index:2;max-width:780px}
+.mf-left{
+  padding:clamp(52px,7vw,100px) clamp(32px,5vw,72px);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.mf-art-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.mf-eyebrow{
+  font-family:var(--font-h);font-style:italic;font-weight:300;
+  font-size:clamp(16px,1.6vw,22px);letter-spacing:.01em;color:var(--accent);
+  margin-bottom:18px;
+}
+.mf-title{
+  font-family:var(--font-h);font-weight:600;
+  font-size:clamp(34px,4.8vw,68px);letter-spacing:-.02em;line-height:.96;
+  color:var(--white);margin-bottom:24px;
+}
+.mf-title em{font-style:italic;font-weight:300;color:rgba(243,233,216,.75)}
+.mf-body{
+  font-family:var(--font-b);font-size:clamp(13px,1.15vw,15px);
+  color:rgba(243,233,216,.84);line-height:1.88;max-width:380px;margin-bottom:36px;font-weight:300;
+}
+.mf-stats{display:flex;gap:0;flex-wrap:wrap}
+.mf-stat{padding:18px 28px 18px 0;margin-right:28px;border-right:1px solid rgba(23,20,16,.1)}
+.mf-stat:last-child{border-right:none}
+.mf-stat-val{font-family:var(--font-h);font-size:clamp(28px,3.2vw,46px);font-weight:300;color:var(--white);letter-spacing:-.03em;line-height:1}
+.mf-stat-lbl{font-family:var(--font-b);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,233,216,.75);margin-top:6px}
+@media(max-width:768px){.mf-inner{grid-template-columns:1fr}}
+
+/* ── COMPANY PROFILE ── */
+#profile{background:var(--black2)}
+.pf-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center}
+.pf-eyebrow{
+  font-family:var(--font-h);font-style:italic;font-weight:300;
+  font-size:clamp(15px,1.5vw,20px);letter-spacing:.01em;color:var(--accent);
+  margin-bottom:16px;
+}
+.pf-title{
+  font-family:var(--font-h);font-weight:600;
+  font-size:clamp(34px,5.5vw,68px);letter-spacing:-.02em;line-height:.96;
+  color:var(--black);margin-bottom:20px;
+}
+.pf-title em{font-style:italic;font-weight:300;color:rgba(26,22,20,.65)}
+.pf-body{
+  font-family:var(--font-b);font-size:clamp(13px,1.1vw,15px);
+  color:rgba(26,22,20,.74);line-height:1.88;margin-bottom:28px;font-weight:300;max-width:440px;
+}
+.pf-certs{display:flex;flex-wrap:wrap;gap:8px}
+.pf-cert{
+  padding:7px 13px;border:1px solid rgba(26,22,20,.14);
+  font-family:var(--font-h);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(26,22,20,.6);
+}
+.pf-visual{
+  border:1px solid rgba(26,22,20,.1);background:var(--black3);
+  aspect-ratio:3/4;position:relative;overflow:hidden;border-radius:20px;
+}
+.pf-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pf-tag{
+  position:absolute;bottom:20px;left:20px;right:20px;
+  border-top:1px solid rgba(26,22,20,.09);padding-top:13px;
+  font-family:var(--font-h);font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(26,22,20,.62);
+}
+
+@media(max-width:768px){.pf-inner{grid-template-columns:1fr}.pf-visual{aspect-ratio:16/9;margin-top:32px}}
+
+/* ── COLLECTION SHOWCASE ── */
+#showcase{background:var(--black);overflow:hidden;position:relative;height:100svh;min-height:580px}
+.shw-wrap{position:relative;height:100%;overflow:hidden}
+.shw-track{display:flex;height:100%;transition:transform .85s cubic-bezier(.22,1,.36,1)}
+.shw-slide{
+  min-width:100%;height:100%;position:relative;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:0 clamp(40px,8vw,120px);
+  gap:clamp(32px,5vw,72px);
+}
+/* Per-slide accent backgrounds */
+.shw-slide[data-s="0"]{background:linear-gradient(135deg,#171410 0%,#1c1916 100%)}
+.shw-slide[data-s="1"]{background:linear-gradient(135deg,#1a1509 0%,#201a0e 100%)}
+.shw-slide[data-s="2"]{background:linear-gradient(135deg,#0d1414 0%,#111a1a 100%)}
+/* Ghost number */
+.shw-ghost{
+  position:absolute;right:clamp(32px,6vw,80px);bottom:-0.12em;
+  font-family:var(--font-h);font-weight:700;font-style:italic;
+  font-size:clamp(160px,22vw,280px);line-height:1;letter-spacing:-.04em;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.05);
+  pointer-events:none;user-select:none;
+}
+/* Left content */
+.shw-label{font-family:var(--font-h);font-style:italic;font-weight:300;font-size:clamp(14px,1.4vw,18px);color:var(--accent);margin-bottom:14px}
+.shw-name{
+  font-family:var(--font-h);font-weight:700;
+  font-size:clamp(52px,8vw,110px);letter-spacing:-.03em;line-height:.88;
+  color:var(--white);text-transform:uppercase;margin-bottom:20px;
+}
+.shw-name em{font-style:italic;font-weight:300;color:rgba(243,233,216,.70);display:block}
+.shw-desc{font-family:var(--font-b);font-size:clamp(13px,1.1vw,15px);color:rgba(243,233,216,.78);line-height:1.82;font-weight:300;max-width:420px;margin-bottom:32px}
+.shw-specs{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.07)}
+.shw-spec{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.shw-spec-k{font-family:var(--font-b);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,233,216,.67)}
+.shw-spec-v{font-family:var(--font-h);font-size:12px;letter-spacing:.04em;color:var(--white2)}
+/* Right visual */
+.shw-visual{
+  position:relative;height:clamp(320px,45vw,560px);
+  border-radius:20px;overflow:hidden;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+}
+.shw-visual svg{width:55%;height:55%;opacity:.55;transition:opacity .5s}
+.shw-slide:hover .shw-visual svg{opacity:.75}
+.shw-visual::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 55%, rgba(196,147,74,.08) 0%, transparent 70%);
+  z-index:1;pointer-events:none;
+}
+.shw-visual--video::before{background:linear-gradient(to top,rgba(23,20,16,.45) 0%,transparent 50%)}
+.shw-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;border-radius:20px;
+}
+/* Navigation */
+.shw-nav{
+  position:absolute;bottom:clamp(28px,4vw,48px);left:0;right:0;
+  display:flex;align-items:center;justify-content:center;gap:20px;z-index:4;
+}
+.shw-arrow{
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.14);background:rgba(23,20,16,.5);
+  backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:border-color .25s,background .25s;color:rgba(243,233,216,.82);
+}
+.shw-arrow:hover{border-color:var(--accent);background:rgba(196,147,74,.12);color:var(--white)}
+.shw-arrow svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.shw-dots{display:flex;gap:8px;align-items:center}
+.shw-dot{width:6px;height:6px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(243,233,216,.22);transition:background .3s,transform .3s,width .3s}
+.shw-dot.active{background:var(--accent);width:22px;border-radius:3px}
+/* Counter */
+.shw-counter{
+  position:absolute;top:clamp(28px,4vw,44px);right:clamp(40px,8vw,120px);
+  font-family:var(--font-h);font-style:italic;font-size:13px;font-weight:300;
+  color:rgba(243,233,216,.65);letter-spacing:.08em;
+}
+@media(max-width:768px){
+  .shw-slide{
+    grid-template-columns:1fr;
+    padding:clamp(60px,7vw,70px) clamp(20px,5vw,40px) clamp(68px,8vw,80px);
+    gap:10px;
+    align-items:start;
+    overflow:hidden;
+  }
+  .shw-desc{
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+    overflow:hidden;margin-bottom:12px;
+  }
+  .shw-visual{height:clamp(150px,24vw,190px)}
+  .shw-ghost{font-size:clamp(100px,28vw,160px)}
+}
+
+/* ── CATALOG ── */
+#catalog{background:#ffffff;border-top:1px solid rgba(26,22,20,.06)}
+.cat-hdr{margin-bottom:clamp(32px,4vw,52px)}
+.cat-eyebrow{font-family:var(--font-h);font-style:italic;font-weight:300;font-size:clamp(15px,1.5vw,20px);letter-spacing:.01em;color:var(--accent);margin-bottom:12px}
+.cat-title{font-family:var(--font-h);font-weight:600;font-size:clamp(32px,5vw,68px);letter-spacing:-.02em;color:var(--white);line-height:.94}
+.cat-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,44px)}
+.cat-filter{
+  padding:8px 20px;border:1px solid rgba(255,255,255,.12);
+  font-family:var(--font-h);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(243,233,216,.78);background:transparent;cursor:pointer;transition:all .25s;
+}
+.cat-filter:hover{border-color:rgba(255,255,255,.3);color:var(--white)}
+.cat-filter.active{background:var(--accent);border-color:var(--accent);color:var(--black)}
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:clamp(12px,1.4vw,18px);
+}
+@media(max-width:1100px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.cat-grid{grid-template-columns:1fr}}
+.cat-card{
+  background:var(--black2);display:flex;flex-direction:column;cursor:pointer;
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 0 0 0 rgba(196,147,74,0),0 4px 16px rgba(0,0,0,.2);
+  transform:translateY(0) scale(1);
+  transition:
+    background .32s var(--ease),
+    transform .55s cubic-bezier(.22,1,.36,1),
+    box-shadow .55s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+.cat-card:hover{
+  background:var(--black3);
+  transform:translateY(-8px) scale(1.07);
+  box-shadow:0 0 0 1.5px rgba(196,147,74,.55), 0 28px 64px rgba(0,0,0,.55);
+}
+.cat-card-visual{
+  height:200px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:14px 14px 0 0;
+  perspective:600px;
+  background:radial-gradient(ellipse 70% 60% at 50% 55%, rgba(196,147,74,.04) 0%, transparent 70%);
+  transition:background .5s;
+}
+.cat-card:hover .cat-card-visual{
+  background:radial-gradient(ellipse 80% 70% at 50% 55%, rgba(196,147,74,.13) 0%, transparent 65%);
+}
+.cat-card-visual svg{
+  width:62%;height:62%;opacity:.22;
+  transition:opacity .45s var(--ease), filter .45s;
+  filter:drop-shadow(0 0 0px rgba(196,147,74,0));
+}
+.cat-card:hover .cat-card-visual svg{
+  opacity:.6;
+  filter:drop-shadow(0 4px 14px rgba(196,147,74,.22));
+}
+.cat-card-visual::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,var(--black2) 0%,transparent 55%);
+  pointer-events:none;
+  transition:opacity .45s;
+}
+.cat-card:hover .cat-card-visual::after{opacity:.6}
+.cat-card-visual img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;border-radius:14px 14px 0 0;
+  opacity:.88;
+  transition:opacity .45s var(--ease),transform .55s cubic-bezier(.22,1,.36,1);
+}
+.cat-card:hover .cat-card-visual img{opacity:1;transform:scale(1.05)}
+.cat-card-visual img.cat-img-hover{opacity:0}
+.cat-card:hover .cat-card-visual img.cat-img-base{opacity:0}
+.cat-card:hover .cat-card-visual img.cat-img-hover{opacity:1}
+.cat-badge{
+  position:absolute;top:12px;left:12px;z-index:2;
+  font-family:var(--font-h);font-size:8px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent2);border:1px solid rgba(196,147,74,.3);
+  padding:3px 8px;background:rgba(30,25,18,.8);backdrop-filter:blur(8px);
+}
+.cat-card-body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1}
+.cat-card-coll{font-family:var(--font-h);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(196,147,74,.5);margin-bottom:4px}
+.cat-card-num{font-family:var(--font-b);font-size:9px;letter-spacing:.08em;color:rgba(243,233,216,.60);margin-bottom:6px}
+.cat-card-name{font-family:var(--font-h);font-size:15px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:3px;line-height:1.1}
+.cat-card-type{font-family:var(--font-b);font-size:10px;color:var(--white3);margin-bottom:10px;font-weight:300}
+.cat-card-desc{font-family:var(--font-b);font-size:11px;line-height:1.65;color:rgba(243,233,216,.68);margin-bottom:12px;font-weight:300;flex:1}
+.cat-card-specs{display:flex;flex-direction:column;gap:0;margin-bottom:12px;border-top:1px solid rgba(255,255,255,.06);padding-top:10px}
+.cat-spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.cat-spec-row:last-child{border-bottom:none}
+.cat-spec-k{font-family:var(--font-b);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--white3)}
+.cat-spec-v{font-family:var(--font-h);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--white2);text-align:right}
+.cat-card-finishes{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.cat-finish{
+  padding:3px 9px;border:1px solid rgba(255,255,255,.1);
+  font-family:var(--font-h);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(243,233,216,.74);
+}
+.cat-card-cta{
+  display:block;width:100%;font-family:var(--font-h);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--white2);
+  border:1px solid rgba(255,255,255,.12);padding:9px 0;
+  text-align:center;transition:all .22s;background:transparent;
+}
+.cat-card-cta:hover{border-color:var(--accent);color:var(--white);background:rgba(196,147,74,.08)}
+.cat-empty{
+  grid-column:1/-1;padding:60px 20px;text-align:center;
+  font-family:var(--font-h);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,233,216,.60);
+}
+
+/* ── MATERIALS ── */
+#materials{background:var(--black3);overflow:hidden}
+.mat-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center}
+.mat-eyebrow{
+  font-family:var(--font-h);font-style:italic;font-weight:300;
+  font-size:clamp(15px,1.5vw,20px);letter-spacing:.01em;color:var(--accent);
+  margin-bottom:16px;
+}
+.mat-title{
+  font-family:var(--font-h);font-weight:600;
+  font-size:clamp(30px,3.8vw,58px);letter-spacing:-.02em;line-height:.96;
+  color:var(--white);margin-bottom:20px;
+}
+.mat-title em{font-style:italic;font-weight:300;color:rgba(243,233,216,.80)}
+.mat-body{
+  font-family:var(--font-b);font-size:clamp(13px,1.1vw,15px);
+  color:rgba(243,233,216,.75);line-height:1.88;margin-bottom:32px;font-weight:300;max-width:380px;
+}
+.mat-items{display:flex;flex-direction:column;gap:0}
+.mat-item{
+  display:flex;align-items:flex-start;gap:0;
+  padding:20px 0;border-bottom:1px solid rgba(255,255,255,.05);
+}
+.mat-item:first-child{border-top:1px solid rgba(255,255,255,.05)}
+.mat-item:last-child{border-bottom:none}
+.mat-item-num{
+  font-family:var(--font-h);font-style:italic;font-size:clamp(28px,2.8vw,40px);font-weight:300;
+  color:rgba(196,147,74,.18);line-height:1;flex-shrink:0;width:56px;padding-top:2px;
+}
+.mat-item-title{font-family:var(--font-h);font-size:14px;font-weight:500;letter-spacing:.04em;color:var(--white2);margin-bottom:5px}
+.mat-item-desc{font-family:var(--font-b);font-size:12px;color:rgba(243,233,216,.70);line-height:1.7;font-weight:300}
+.mat-visual{border:1px solid rgba(255,255,255,.07);background:var(--black2);aspect-ratio:3/4;position:relative;overflow:hidden;border-radius:20px}
+.mat-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mat-tag{
+  position:absolute;bottom:20px;left:20px;right:20px;
+  border-top:1px solid rgba(255,255,255,.08);padding-top:13px;
+  font-family:var(--font-h);font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(243,233,216,.62);
+}
+@media(max-width:768px){.mat-inner{grid-template-columns:1fr}.mat-visual{aspect-ratio:16/9;margin-top:32px}}
+
+/* FLAGSHIP PIECES */
+.mat-flagship{margin-top:clamp(56px,7vw,90px)}
+.mat-flagship-title{font-family:var(--font-h);font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.01em;color:var(--black);margin:6px 0 24px}
+.mat-flagship-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.5vw,32px)}
+.mat-flagship-card{
+  display:block;background:#fff;border-radius:14px;overflow:hidden;
+  box-shadow:0 2px 14px rgba(26,22,20,.07);transition:box-shadow .3s,transform .3s;
+}
+.mat-flagship-card:hover{box-shadow:0 16px 40px rgba(26,22,20,.14);transform:translateY(-4px)}
+.mat-flagship-img{position:relative;height:220px;background:var(--black2)}
+.mat-flagship-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mat-flagship-badge{
+  position:absolute;top:12px;left:12px;
+  font-family:var(--font-h);font-size:8px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent2);border:1px solid rgba(196,147,74,.4);background:rgba(26,22,20,.82);
+  padding:4px 9px;
+}
+.mat-flagship-body{padding:18px 20px 22px}
+.mat-flagship-name{font-family:var(--font-h);font-size:17px;font-weight:600;color:var(--black);margin-bottom:6px}
+.mat-flagship-desc{font-family:var(--font-b);font-size:12px;line-height:1.65;color:rgba(26,22,20,.65);font-weight:300}
+@media(max-width:640px){.mat-flagship-grid{grid-template-columns:1fr}}
+
+/* ── CERT STRIP ── */
+#certifications{
+  background:var(--black2);padding:clamp(32px,4vw,48px) 0;
+  border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);
+}
+.cert-label{font-family:var(--font-b);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--white3);text-align:center;margin-bottom:22px}
+.cert-track-wrap{overflow:hidden;position:relative}
+.cert-track-wrap::before,.cert-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.cert-track-wrap::before{left:0;background:linear-gradient(90deg,var(--black2),transparent)}
+.cert-track-wrap::after{right:0;background:linear-gradient(270deg,var(--black2),transparent)}
+.cert-track{display:flex;gap:0;width:max-content;animation:certScroll 28s linear infinite}
+.cert-track:hover{animation-play-state:paused}
+.cert-item{display:flex;align-items:center;gap:0;padding:10px 28px;border-right:1px solid rgba(255,255,255,.07);white-space:nowrap}
+.cert-item-name{font-family:var(--font-h);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,233,216,.72)}
+@keyframes certScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── TRUSTED BY ── */
+#trusted{background:#ffffff;padding:clamp(36px,4.5vw,56px) 0;border-bottom:1px solid rgba(26,22,20,.06)}
+.tr-label{font-family:var(--font-b);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(26,22,20,.4);text-align:center;margin-bottom:24px}
+.tr-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(24px,4vw,56px)}
+.tr-logo{font-family:var(--font-h);font-size:clamp(13px,1.3vw,16px);font-weight:600;letter-spacing:.04em;color:rgba(26,22,20,.32);transition:color .25s}
+.tr-logo:hover{color:rgba(26,22,20,.7)}
+
+/* ── TESTIMONIALS ── */
+#testimonials{
+  background:var(--black);
+  position:relative;overflow:hidden;
+}
+#testimonials::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:url('pictures hero/Testimonials picture.webp') center/cover no-repeat;
+  opacity:.38;
+  transform:scale(1.03);
+}
+#testimonials .wrap{position:relative;z-index:1}
+.tm-eyebrow{font-family:var(--font-h);font-style:italic;font-weight:300;font-size:clamp(15px,1.5vw,20px);letter-spacing:.01em;color:var(--accent);margin-bottom:16px;text-align:center}
+.tm-title{font-family:var(--font-h);font-weight:600;font-size:clamp(32px,4.5vw,56px);letter-spacing:-.02em;line-height:1;color:var(--white);text-align:center;margin-bottom:clamp(40px,5vw,64px)}
+.tm-title em{font-style:italic;font-weight:300;color:rgba(243,233,216,.78)}
+.tm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.5vw,32px)}
+.tm-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:clamp(26px,3vw,34px) clamp(22px,2.5vw,28px)}
+.tm-quote-mark{font-family:var(--font-h);font-size:42px;color:var(--accent);line-height:1;margin-bottom:6px}
+.tm-quote{font-family:var(--font-b);font-size:13px;line-height:1.75;color:rgba(243,233,216,.78);font-weight:300;margin-bottom:22px}
+.tm-person-name{font-family:var(--font-h);font-size:14px;font-weight:600;color:var(--white);margin-bottom:3px}
+.tm-person-role{font-family:var(--font-b);font-size:11px;color:rgba(243,233,216,.5)}
+@media(max-width:900px){.tm-grid{grid-template-columns:1fr}}
+
+/* ── NEWS ── */
+#news{background:#ffffff}
+.nw-eyebrow{font-family:var(--font-h);font-style:italic;font-weight:300;font-size:clamp(15px,1.5vw,20px);letter-spacing:.01em;color:var(--accent);margin-bottom:16px}
+.nw-title{font-family:var(--font-h);font-weight:600;font-size:clamp(32px,4.5vw,56px);letter-spacing:-.02em;line-height:1;color:var(--black);margin-bottom:clamp(40px,5vw,64px)}
+.nw-title em{font-style:italic;font-weight:300;color:rgba(26,22,20,.6)}
+.nw-card{border-top:2px solid rgba(196,147,74,.3);padding:18px 0 20px}
+.nw-date{font-family:var(--font-b);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.nw-headline{font-family:var(--font-h);font-size:18px;font-weight:600;color:var(--black);margin-bottom:8px;line-height:1.25}
+.nw-snippet{font-family:var(--font-b);font-size:13px;line-height:1.65;color:rgba(26,22,20,.68);font-weight:400}
+/* 3-photo collage strip — centred */
+.nw-photo-strip{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 8px 36px rgba(26,22,20,.14);
+  margin:clamp(32px,4vw,52px) auto;
+  max-width:100%;
+}
+.nw-photo-col{aspect-ratio:4/3;overflow:hidden;position:relative}
+.nw-photo-col img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform .6s cubic-bezier(.22,1,.36,1);
+}
+.nw-photo-col:hover img{transform:scale(1.05)}
+.nw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.5vw,32px)}
+@media(max-width:900px){.nw-grid{grid-template-columns:1fr;gap:28px}}
+@media(max-width:480px){.nw-photo-strip{gap:2px;border-radius:10px}}
+
+/* ── FAQ ── */
+#faq{background:var(--black3)}
+.faq-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,6vw,80px)}
+.faq-eyebrow{font-family:var(--font-h);font-style:italic;font-weight:300;font-size:clamp(15px,1.5vw,20px);letter-spacing:.01em;color:var(--accent);margin-bottom:16px}
+.faq-title{font-family:var(--font-h);font-weight:600;font-size:clamp(32px,4.5vw,52px);letter-spacing:-.02em;line-height:1;color:var(--black)}
+.faq-title em{font-style:italic;font-weight:300;color:rgba(26,22,20,.6)}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid rgba(26,22,20,.1)}
+.faq-item:first-child{border-top:1px solid rgba(26,22,20,.1)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:18px 2px;background:none;border:none;cursor:pointer;text-align:left;
+  font-family:var(--font-h);font-size:15px;font-weight:500;color:var(--black);
+}
+.faq-plus{font-family:var(--font-b);font-size:18px;font-weight:300;color:var(--accent);flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:160px}
+.faq-a p{font-family:var(--font-b);font-size:13px;line-height:1.7;color:rgba(26,22,20,.65);font-weight:300;padding:0 2px 20px}
+@media(max-width:768px){.faq-inner{grid-template-columns:1fr}}
+
+/* ── CONTACT ── */
+#contact{background:var(--black2)}
+/* Section intro — contact */
+.ct-header-bar{
+  padding:0 0 clamp(32px,4vw,52px);
+  margin-bottom:clamp(36px,4.5vw,56px);
+  border-bottom:1px solid rgba(243,233,216,.07);
+}
+.ct-hb-num{display:none}
+.ct-hb-sep{display:none}
+.ct-hb-label{display:none}
+.ct-hb-line{display:none}
+.ct-hb-tag{
+  font-family:var(--font-h);font-style:italic;font-weight:300;
+  font-size:clamp(15px,1.5vw,20px);letter-spacing:.01em;
+  color:var(--accent);
+}
+/* Title */
+.ct-title{font-family:var(--font-h);font-weight:700;font-size:clamp(32px,5.5vw,72px);letter-spacing:.04em;text-transform:uppercase;color:var(--white);line-height:1.04;margin-bottom:20px}
+.ct-title em{color:var(--accent);font-style:normal}
+.ct-tagline{font-family:var(--font-b);font-weight:300;font-size:clamp(14px,1.4vw,18px);line-height:1.75;color:rgba(243,233,216,.78);max-width:440px;margin-bottom:32px}
+/* Two-col layout: left = details, right = phone (QR + social) */
+.contact-inner{display:grid;grid-template-columns:1fr auto;gap:clamp(28px,4vw,56px);align-items:start}
+/* Contact detail rows */
+.ct-details{margin-bottom:0}
+.ct-cd-row{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid rgba(243,233,216,.06)}
+.ct-cd-row:last-child{border-bottom:none}
+.ct-cd-icon{width:34px;height:34px;border:1px solid rgba(243,233,216,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ct-cd-icon svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ct-cd-lbl{font-family:var(--font-h);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(243,233,216,.70);margin-bottom:3px}
+.ct-cd-val{font-family:var(--font-b);font-size:18px;color:var(--white)}
+/* Social/phone block (right col) */
+.ct-soc-block{width:clamp(240px,24vw,300px);flex-shrink:0;display:flex;flex-direction:column;align-items:center}
+.ct-soc-block .ct-wc-title{margin-bottom:18px}
+.ct-wc-title{font-family:var(--font-h);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--white3);margin-bottom:24px}
+/* WeChat QR row inside phone */
+.iph-wc-qr{width:44px;height:44px;background:#fff;border-radius:9px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid rgba(23,25,27,.1);flex-shrink:0}
+.iph-wc-qr-ph{display:flex;align-items:center;justify-content:center}
+@media(max-width:700px){
+  .contact-inner{grid-template-columns:1fr}
+  .ct-soc-block{width:100%}
+  .ct-header-bar{flex-wrap:wrap}
+}
+
+/* ── FOOTER ── */
+#footer{
+  background:var(--black);border-top:1px solid rgba(255,255,255,.06);
+  padding:clamp(44px,6vw,72px) clamp(20px,5vw,72px) 28px;
+}
+.footer-top{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:22px}
+.footer-brand{font-family:var(--font-h);font-size:17px;font-weight:300;letter-spacing:.35em;text-transform:uppercase;color:var(--white);margin-bottom:8px;opacity:.75}
+.footer-tagline{font-family:var(--font-b);font-size:11px;color:var(--white3);line-height:1.65;max-width:210px;font-weight:300}
+.footer-cols{display:flex;gap:clamp(28px,4vw,56px);flex-wrap:wrap}
+.footer-col h5{font-family:var(--font-h);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(196,147,74,.45);margin-bottom:14px}
+.footer-col ul{display:flex;flex-direction:column;gap:8px}
+.footer-col li,.footer-col a{font-family:var(--font-b);font-size:11px;color:rgba(243,233,216,.62);transition:color .25s;font-weight:300}
+.footer-col a:hover{color:var(--white2)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-family:var(--font-b);font-size:10px;color:rgba(243,233,216,.58);letter-spacing:.04em}
+.footer-powered{font-family:var(--font-b);font-size:10px;color:rgba(243,233,216,.55);letter-spacing:.04em}
+@media(max-width:600px){.footer-top{grid-template-columns:1fr}}
+
+/* ── MOBILE NAV ── */
+#mob-nav{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:1090;
+  background:rgba(30,25,18,.97);
+  backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:10px;padding-bottom:10px;
+  padding-bottom:max(10px,env(safe-area-inset-bottom,10px));
+}
+.mob-nav-inner{display:flex;align-items:center;justify-content:space-around;max-width:520px;margin:0 auto;padding:0 8px}
+.mob-nav-item{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  text-decoration:none;cursor:pointer;
+  color:rgba(243,233,216,.72);
+  transition:all .3s ease;padding:4px 10px;
+  -webkit-tap-highlight-color:transparent;min-width:54px;
+}
+.mob-nav-item svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.mob-nav-item span{font-family:var(--font-h);font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;line-height:1;white-space:nowrap}
+.mob-nav-item.active{color:var(--white);background:rgba(47,51,55,.95);border-radius:12px;box-shadow:0 0 0 1.5px rgba(196,147,74,.65)}
+@media(max-width:768px){#mob-nav{display:block}body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}}
+
+/* ── SCROLL REVEAL ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .75s var(--ease-o),transform .75s var(--ease-o)}
+.rv-r{opacity:0;transform:translateX(22px);transition:opacity .8s var(--ease-o),transform .8s var(--ease-o)}
+.rv.on,.rv-r.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv,.rv-r{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important}}
+/* cat-card hover must override .rv.on{transform:none} declared above */
+.cat-card:hover{transform:translateY(-8px) scale(1.07)!important;}
+
+/* ── SOCIAL (phone mockup, used inside #contact) ── */
+.iphone-wrap{position:relative;display:inline-block}
+.iphone-glow{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:140%;height:80%;border-radius:50%;background:radial-gradient(ellipse,rgba(196,147,74,.22) 0%,transparent 70%);filter:blur(44px);pointer-events:none;z-index:0}
+@keyframes iphFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.iphone{
+  position:relative;z-index:1;
+  width:clamp(220px,22vw,272px);
+  aspect-ratio:9/19.5;
+  /* Space Black titanium — multi-stop directional gradient */
+  background:linear-gradient(165deg,
+    #636366 0%,#56565a 4%,#47474a 10%,
+    #3a3a3c 22%,#2e2e30 42%,
+    #242426 64%,#1a1a1c 82%,#111113 100%);
+  border-radius:clamp(40px,4.4vw,52px);
+  /* Outer ring — very dark, definition without white outline */
+  outline:1.5px solid rgba(0,0,0,.85);
+  outline-offset:-1px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:
+    /* Top chamfer — bright titanium catch-light */
+    inset 0 2.5px 0 rgba(255,255,255,.22),
+    /* Left edge soft highlight */
+    inset 2px 0 0 rgba(255,255,255,.07),
+    /* Right/bottom absorb light */
+    inset -2px 0 0 rgba(0,0,0,.3),
+    inset 0 -2.5px 0 rgba(0,0,0,.6),
+    /* Deep perspective shadow */
+    0 80px 160px -15px rgba(0,0,0,.95),
+    0 35px 70px -20px rgba(0,0,0,.72),
+    0 10px 28px rgba(0,0,0,.55),
+    /* Ground plane */
+    0 2px 6px rgba(0,0,0,.9);
+  animation:iphFloat 5.5s ease-in-out infinite}
+.iph-btn{position:absolute}
+/* Action button — small pill, top left */
+.iph-btn-sl{left:-4.5px;top:13.5%;width:4.5px;height:20px;border-radius:3px 0 0 3px;
+  background:linear-gradient(90deg,#56565a,#424244);
+  box-shadow:-1px 0 2px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.14)}
+/* Volume up */
+.iph-btn-vu{left:-4.5px;top:21.5%;width:4.5px;height:38px;border-radius:3px 0 0 3px;
+  background:linear-gradient(90deg,#56565a,#424244);
+  box-shadow:-1px 0 2px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.14)}
+/* Volume down */
+.iph-btn-vd{left:-4.5px;top:32%;width:4.5px;height:38px;border-radius:3px 0 0 3px;
+  background:linear-gradient(90deg,#56565a,#424244);
+  box-shadow:-1px 0 2px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.14)}
+/* Power */
+.iph-btn-pw{right:-4.5px;top:23%;width:4.5px;height:66px;border-radius:0 3px 3px 0;
+  background:linear-gradient(270deg,#56565a,#424244);
+  box-shadow:1px 0 2px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.14)}
+/* Screen — glass sits ~7px inside frame, subtle inset shadow shows depth */
+.iph-screen{position:absolute;inset:7px;border-radius:clamp(33px,3.7vw,45px);background:#ffffff;overflow:hidden;display:flex;flex-direction:column;
+  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.1),inset 0 1px 4px rgba(0,0,0,.06)}
+/* Dynamic Island — centered pill only */
+.iph-di{display:flex;justify-content:center;padding:14px 0 6px;flex-shrink:0}
+.iph-di-pill{width:34%;height:28px;background:#111;border-radius:999px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.04),inset 0 1px 2px rgba(0,0,0,.6)}
+/* Bottom hardware */
+.iph-bottom{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px}
+.iph-spk{width:42px;height:6px;
+  background-image:radial-gradient(circle,rgba(255,255,255,.22) 1.4px,transparent 1.4px);
+  background-size:5.5px 5.5px}
+.iph-usbc{width:22px;height:9px;border-radius:4px;
+  background:rgba(0,0,0,.3);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08)}
+.iph-content{flex:1;overflow-y:auto;padding:2px 12px 6px;display:flex;flex-direction:column;gap:7px;scrollbar-width:none}
+.iph-content::-webkit-scrollbar{display:none}
+.iph-profile{text-align:center;padding:8px 0 4px}
+.iph-avatar{width:40px;height:40px;border-radius:12px;background:linear-gradient(145deg,#3a3a3c,#1c1c1e);border:1.5px solid rgba(196,147,74,.4);margin:0 auto 7px;display:flex;align-items:center;justify-content:center}
+.iph-avatar span{font-family:var(--font-h);font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--white)}
+.iph-name{font-family:var(--font-h);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#171410}
+.iph-lbl{font-family:var(--font-b);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:rgba(23,25,27,.38);margin-top:2px}
+.iph-divider{height:1px;background:rgba(23,25,27,.08);margin:0 2px;flex-shrink:0}
+.iph-link{display:flex;align-items:center;gap:9px;padding:9px 11px;background:rgba(23,25,27,.04);border:1px solid rgba(23,25,27,.09);border-radius:12px;text-decoration:none;flex-shrink:0;transition:background .2s,border-color .2s}
+.iph-link:hover{background:rgba(23,25,27,.08);border-color:rgba(23,25,27,.16)}
+.iph-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.iph-icon svg{width:16px;height:16px;display:block}
+.iph-icon-ig{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)}
+.iph-icon-fb{background:linear-gradient(135deg,#2d88ff 0%,#0866ff 100%)}
+.iph-icon-xhs{background:linear-gradient(135deg,#ff5c6e 0%,#FF2442 100%)}
+.iph-icon-wc{background:linear-gradient(135deg,#2DC100 0%,#07C160 100%)}
+
+/* ── WECHAT QR MODAL ── */
+.wc-overlay{
+  position:fixed;inset:0;z-index:700;
+  background:rgba(0,0,0,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;
+}
+.wc-overlay.open{opacity:1;visibility:visible}
+.wc-box{
+  background:#fff;border-radius:24px;padding:32px 28px 28px;
+  text-align:center;position:relative;max-width:320px;width:100%;
+  transform:translateY(16px);transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+.wc-overlay.open .wc-box{transform:translateY(0)}
+.wc-close{
+  position:absolute;top:14px;right:16px;
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(0,0,0,.08);border:none;cursor:pointer;
+  font-size:16px;line-height:1;color:rgba(0,0,0,.55);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.wc-close:hover{background:rgba(0,0,0,.15)}
+.wc-logo{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:18px}
+.wc-logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#2DC100,#07C160);display:flex;align-items:center;justify-content:center}
+.wc-logo-name{font-family:var(--font-h);font-size:16px;font-weight:600;color:#1a1614}
+.wc-qr-img{width:220px;height:220px;object-fit:contain;border-radius:12px;display:block;margin:0 auto}
+.wc-sub{font-family:var(--font-b);font-size:12px;color:rgba(26,22,20,.55);margin-top:16px;line-height:1.6}
+.iph-link-text{flex:1;min-width:0}
+.iph-link-name{font-family:var(--font-h);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#171410;line-height:1.2}
+.iph-link-handle{font-family:var(--font-b);font-size:9px;color:rgba(23,25,27,.42);margin-top:1.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.iph-chevron{flex-shrink:0;opacity:.28}
+.iph-home{display:flex;justify-content:center;padding:5px 0 8px;flex-shrink:0}
+.iph-home-bar{width:88px;height:5px;background:rgba(23,25,27,.18);border-radius:999px}
+
+/* ── ABOUT SLIDER (profile + materials combined) ── */
+.ab-tabs{
+  display:flex;align-items:flex-end;
+  padding:0 clamp(20px,5vw,72px);
+  background:var(--black2);
+  border-bottom:1px solid rgba(26,22,20,.1);
+  position:relative;z-index:2;
+}
+.ab-tab{
+  padding:18px 28px 16px;
+  font-family:var(--font-h);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(26,22,20,.45);border-bottom:2px solid transparent;
+  transition:color .25s,border-color .25s;margin-bottom:-1px;white-space:nowrap;
+}
+.ab-tab:hover{color:var(--black)}
+.ab-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.ab-track{
+  display:flex;
+  width:100%;
+  transition:transform 1.1s cubic-bezier(0.76,0,0.24,1);
+  will-change:transform;
+  transform:translateZ(0);
+}
+.ab-slide{
+  min-width:100%;width:100%;flex-shrink:0;overflow:hidden;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  transition:opacity 1.1s ease;
+}
+.ab-slide.ab-inactive{opacity:0.6}
+.ab-slide.ab-active{opacity:1}
+.ab-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid rgba(26,22,20,.16);
+  background:rgba(245,240,232,.88);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:border-color .25s,background .25s,color .25s;
+  color:rgba(26,22,20,.65);
+  box-shadow:0 2px 12px rgba(26,22,20,.1);
+}
+.ab-arrow:hover{border-color:var(--accent);background:#fff;color:var(--black)}
+.ab-arrow svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ab-arrow-prev{left:clamp(10px,2.5vw,28px)}
+.ab-arrow-next{right:clamp(10px,2.5vw,28px)}
+@media(max-width:480px){.ab-arrow{width:34px;height:34px}}
+@media(max-width:768px){
+  .ab-slide .sec{padding:clamp(40px,8vw,60px) 0}
+  .pf-visual{aspect-ratio:4/3!important}
+  .mat-visual{aspect-ratio:4/3!important}
+  .mat-flagship-grid{grid-template-columns:1fr}
+}
+
+/* ── LIGHT THEME OVERRIDES ── */
+
+/* Loader text on white bg */
+.ld-brand{color:var(--black)}
+.ld-sub{color:var(--white3)}
+.ld-ring{border-color:rgba(196,147,74,.2);border-top-color:var(--accent)}
+
+/* Catalog */
+.cat-title{color:var(--black)}
+.cat-filter{border:1px solid rgba(26,22,20,.12);color:rgba(26,22,20,.74)}
+.cat-filter:hover{border-color:rgba(26,22,20,.3);color:var(--black)}
+.cat-filter.active{background:var(--black);color:#ffffff;border-color:var(--black)}
+.cat-card{background:#ffffff;box-shadow:0 2px 14px rgba(26,22,20,.07)}
+.cat-card:hover{background:#fdf8f2;box-shadow:0 0 0 1.5px rgba(196,147,74,.55),0 28px 64px rgba(26,22,20,.16)}
+.cat-card-visual{background:radial-gradient(ellipse 70% 60% at 50% 55%, rgba(196,147,74,.06) 0%, transparent 70%)}
+.cat-card:hover .cat-card-visual{background:radial-gradient(ellipse 80% 70% at 50% 55%, rgba(196,147,74,.14) 0%, transparent 65%)}
+.cat-card-visual::after{background:linear-gradient(to top,var(--black2) 0%,transparent 55%)}
+.cat-card-num{color:rgba(26,22,20,.55)}
+.cat-card-name{color:var(--black)}
+.cat-card-type{color:var(--white3)}
+.cat-card-desc{color:rgba(26,22,20,.69)}
+.cat-card-specs{border-top:1px solid rgba(26,22,20,.08)}
+.cat-spec-row{border-bottom:1px solid rgba(26,22,20,.06)}
+.cat-spec-k{color:var(--white3)}
+.cat-spec-v{color:var(--white2)}
+.cat-finish{border:1px solid rgba(26,22,20,.1);color:rgba(26,22,20,.71)}
+.cat-card-cta{border:1px solid rgba(26,22,20,.12);color:var(--white2)}
+.cat-card-cta:hover{border-color:var(--accent);color:var(--black);background:rgba(196,147,74,.08)}
+.cat-empty{color:rgba(26,22,20,.58)}
+
+/* Materials */
+.mat-title{color:var(--black)}
+.mat-title em{color:rgba(26,22,20,.65)}
+.mat-body{color:rgba(26,22,20,.74)}
+.mat-item{border-bottom:1px solid rgba(26,22,20,.07)}
+.mat-item:first-child{border-top:1px solid rgba(26,22,20,.07)}
+.mat-item-title{color:var(--black)}
+.mat-item-desc{color:rgba(26,22,20,.71)}
+.mat-visual{border:1px solid rgba(26,22,20,.1)}
+.mat-tag{border-top:1px solid rgba(26,22,20,.09);color:rgba(26,22,20,.62)}
+
+/* Certifications */
+#certifications{border-top:1px solid rgba(26,22,20,.07);border-bottom:1px solid rgba(26,22,20,.07)}
+.cert-track-wrap::before{background:linear-gradient(90deg,var(--black2),transparent)}
+.cert-track-wrap::after{background:linear-gradient(270deg,var(--black2),transparent)}
+.cert-item{border-right:1px solid rgba(26,22,20,.08)}
+.cert-item-name{color:rgba(26,22,20,.71)}
+
+/* Contact */
+.ct-header-bar{border-bottom:1px solid rgba(26,22,20,.08)}
+.ct-title{color:var(--black)}
+.ct-tagline{color:rgba(26,22,20,.68)}
+.ct-cd-row{border-bottom:1px solid rgba(26,22,20,.07)}
+.ct-cd-icon{border:1px solid rgba(26,22,20,.12)}
+.ct-cd-lbl{color:rgba(26,22,20,.67)}
+.ct-cd-val{color:var(--black)}
+.ct-wc-title{color:var(--white3)}
+
+.iphone-glow{background:radial-gradient(ellipse,rgba(196,147,74,.18) 0%,transparent 70%)}
+
+/* Keep dark hover states on footer links readable */
+.footer-col a:hover{color:var(--accent2)}
+
+/* ── TYPOGRAPHY VISIBILITY BOOST ── */
+/* Main paragraph / body copy — all sections */
+.hero-sub{font-weight:400;color:rgba(243,233,216,.92);font-size:clamp(14px,1.3vw,17px)}
+.mf-body{font-weight:400;color:rgba(243,233,216,.92);font-size:clamp(14px,1.2vw,16px)}
+.pf-body{font-weight:400;color:rgba(26,22,20,.84);font-size:clamp(14px,1.2vw,16px)}
+.mat-body{font-weight:400;color:rgba(26,22,20,.84);font-size:clamp(14px,1.2vw,16px)}
+.shw-desc{font-weight:400;color:rgba(243,233,216,.92);font-size:clamp(14px,1.2vw,16px)}
+.ct-tagline{font-weight:400;color:rgba(26,22,20,.82);font-size:clamp(15px,1.5vw,18px)}
+/* Card / list body copy */
+.cat-card-name{color:#1a1614!important;font-weight:600}
+.cat-card-type{color:rgba(26,22,20,.65)!important;font-weight:400}
+.cat-card-coll{color:rgba(196,147,74,.75)!important}
+.cat-card-desc{font-weight:400;color:rgba(26,22,20,.72);font-size:12px}
+.mat-item-desc{font-weight:400;color:rgba(26,22,20,.80);font-size:13px}
+.mat-flagship-desc{font-weight:400;color:rgba(26,22,20,.75)}
+.tm-quote{font-weight:400;color:rgba(243,233,216,.90);font-size:14px}
+.nw-snippet{font-weight:400;color:rgba(26,22,20,.72);font-size:13px}
+.faq-a p{font-weight:400;color:rgba(26,22,20,.78);font-size:14px}
+/* Sub-labels and spec values — slight bump */
+.mf-stat-lbl{color:rgba(243,233,216,.88)}
+.shw-spec-k{color:rgba(243,233,216,.80)}
+.ct-cd-lbl{color:rgba(26,22,20,.75)}
+/* Mat item title — was .white2, make solid */
+.mat-item-title{color:var(--black);font-weight:600}
+/* Light-theme mat overrides re-apply */
+.mat-body{color:rgba(26,22,20,.84)}
+
+/* ── PRODUCT DETAIL MODAL ── */
+.pm-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(12,10,7,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;
+}
+.pm-overlay.open{opacity:1;visibility:visible}
+.pm-box{
+  background:var(--black2);border-radius:20px;
+  width:100%;max-width:860px;max-height:90vh;overflow-y:auto;
+  position:relative;
+  transform:translateY(24px);transition:transform .45s cubic-bezier(.22,1,.36,1);
+  scrollbar-width:thin;scrollbar-color:var(--accent) transparent;
+}
+.pm-box::-webkit-scrollbar{width:3px}
+.pm-box::-webkit-scrollbar-thumb{background:var(--accent)}
+.pm-overlay.open .pm-box{transform:translateY(0)}
+.pm-close{
+  position:absolute;top:16px;right:18px;z-index:2;
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(26,22,20,.08);border:1px solid rgba(26,22,20,.12);
+  font-family:var(--font-b);font-size:18px;line-height:1;color:rgba(26,22,20,.6);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background .2s,color .2s;
+}
+.pm-close:hover{background:rgba(26,22,20,.15);color:var(--black)}
+.pm-inner{display:grid;grid-template-columns:1fr 1fr;min-height:420px}
+.pm-img-col{
+  position:relative;background:var(--black3);border-radius:20px 0 0 20px;
+  overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:340px;
+}
+.pm-img-col img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  border-radius:20px 0 0 20px;
+}
+.pm-img-col .pm-no-img{
+  font-family:var(--font-h);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(26,22,20,.3);
+}
+.pm-info-col{padding:clamp(28px,4vw,44px) clamp(24px,3.5vw,40px) clamp(28px,4vw,44px);display:flex;flex-direction:column}
+.pm-coll{font-family:var(--font-h);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(196,147,74,.6);margin-bottom:4px}
+.pm-num{font-family:var(--font-b);font-size:9px;letter-spacing:.08em;color:rgba(26,22,20,.5);margin-bottom:10px}
+.pm-name{font-family:var(--font-h);font-size:clamp(20px,2.8vw,30px);font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--black);line-height:1.1;margin-bottom:6px}
+.pm-type{font-family:var(--font-b);font-size:11px;color:var(--white3);margin-bottom:16px;font-weight:300}
+.pm-desc{font-family:var(--font-b);font-size:13px;line-height:1.75;color:rgba(26,22,20,.7);font-weight:300;margin-bottom:22px;flex:1}
+.pm-specs{display:flex;flex-direction:column;border-top:1px solid rgba(26,22,20,.08);margin-bottom:18px}
+.pm-spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid rgba(26,22,20,.06)}
+.pm-spec-row:last-child{border-bottom:none}
+.pm-spec-k{font-family:var(--font-b);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--white3)}
+.pm-spec-v{font-family:var(--font-h);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--white2)}
+.pm-finishes{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.pm-finish{padding:4px 10px;border:1px solid rgba(26,22,20,.12);font-family:var(--font-h);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(26,22,20,.6)}
+.pm-enquire{
+  display:block;width:100%;text-align:center;padding:13px;
+  background:var(--accent);color:#171410;
+  font-family:var(--font-h);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  transition:background .25s;text-decoration:none;
+}
+.pm-enquire:hover{background:var(--accent2)}
+@media(max-width:640px){
+  .pm-overlay{padding:0;align-items:flex-end}
+  .pm-box{border-radius:20px 20px 0 0;max-height:92vh;max-width:100%}
+  .pm-inner{grid-template-columns:1fr}
+  .pm-img-col{border-radius:20px 20px 0 0;min-height:240px}
+  .pm-img-col img{border-radius:20px 20px 0 0}
+  .pm-close{top:12px;right:14px}
+  .pm-info-col{padding-bottom:calc(72px + env(safe-area-inset-bottom,10px))}
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="scrollProgress"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-brand">ATREO</div>
+  <div class="ld-sub">Premium Sanitaryware · Est. 2008</div>
+  <div class="ld-ring"></div>
+</div>
+
+<!-- TOP NAV -->
+<header id="topNav">
+  <div class="topnav-inner">
+    <a href="#hero" class="topnav-logo">ATREO</a>
+    <nav class="topnav-links" aria-label="Primary navigation">
+      <a href="#hero" data-section="hero" data-en="Home" data-zh="首页">Home</a>
+      <a href="#manifesto" data-section="manifesto" data-en="About" data-zh="品牌理念">About</a>
+      <a href="#profile" data-section="profile" data-en="Profile" data-zh="公司简介">Profile</a>
+      <a href="#showcase" data-section="showcase" data-en="Collections" data-zh="产品系列">Collections</a>
+      <a href="#catalog" data-section="catalog" data-en="Catalog" data-zh="产品目录">Catalog</a>
+      <a href="#testimonials" data-section="testimonials" data-en="Testimonials" data-zh="客户心声">Testimonials</a>
+      <a href="#news" data-section="news" data-en="News" data-zh="最新动态">News</a>
+      <a href="#contact" data-section="contact" data-en="Contact" data-zh="联系我们">Contact</a>
+      <a href="#faq" data-section="faq" data-en="FAQ" data-zh="常见问题">FAQ</a>
+    </nav>
+    <button class="topnav-lang" id="langBtn" aria-label="Switch language">中</button>
+  </div>
+</header>
+<button id="mobLangBtn" aria-label="Switch language">中</button>
+
+<!-- NAV -->
+<!-- MOBILE NAV -->
+<nav id="mob-nav" aria-label="Mobile navigation">
+  <div class="mob-nav-inner">
+    <a class="mob-nav-item active" href="#hero" data-section="hero">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9.5L12 3l9 6.5V21"/><path d="M9 21v-6h6v6"/></svg>
+      <span>Home</span>
+    </a>
+    <a class="mob-nav-item" href="#manifesto" data-section="manifesto">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>About</span>
+    </a>
+    <a class="mob-nav-item" href="#profile" data-section="profile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 012-2h6a2 2 0 012 2v16"/><path d="M14 9h4a2 2 0 012 2v10"/><line x1="2" y1="21" x2="22" y2="21"/><line x1="7" y1="6" x2="7" y2="6.01"/><line x1="10" y1="6" x2="10" y2="6.01"/><line x1="7" y1="10" x2="7" y2="10.01"/><line x1="10" y1="10" x2="10" y2="10.01"/><line x1="7" y1="14" x2="7" y2="14.01"/><line x1="10" y1="14" x2="10" y2="14.01"/></svg>
+      <span>Profile</span>
+    </a>
+    <a class="mob-nav-item" href="#catalog" data-section="catalog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="13" y2="11"/></svg>
+      <span>Catalog</span>
+    </a>
+    <a class="mob-nav-item" href="#contact" data-section="contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 8l10 7 10-7"/></svg>
+      <span>Contact</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('pictures hero/Gemini_Generated_Image_qznptqznptqznptq.webp')"></div>
+    <div class="hero-slide" data-bg="pictures hero/Gemini_Generated_Image_fbcqncfbcqncfbcq.webp"></div>
+    <div class="hero-slide" data-bg="pictures hero/Gemini_Generated_Image_d4gthid4gthid4gt.webp"></div>
+    <div class="hero-slide" data-bg="pictures hero/Gemini_Generated_Image_e2q2m0e2q2m0e2q2.webp"></div>
+    <div class="hero-slide" data-bg="pictures hero/Gemini_Generated_Image_jlugr5jlugr5jlug.webp"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-en="Premium Sanitaryware · Est. 2008" data-zh="高端卫浴精品 · 始于2008年">Premium Sanitaryware · Est. 2008</div>
+    <h1 class="hero-title" data-en="Engineered Water.<br><em>Defined by Craft.</em>" data-zh="精工水艺。<br><em>匠心铸就。</em>">Engineered Water.<br><em>Defined by Craft.</em></h1>
+    <p class="hero-sub" data-en="Solid brass fixtures for architects, hoteliers, and developers who specify once and never look back." data-zh="为建筑师、酒店业主及开发商打造的全铜卫浴精品——一次选定，终身信赖。">Solid brass fixtures for architects, hoteliers, and developers who specify once and never look back.</p>
+    <div class="hero-cta-row">
+      <a href="#catalog" class="hero-cta-primary" data-en="View Catalogue" data-zh="查看产品目录">View Catalogue</a>
+      <a href="#contact" class="hero-cta-secondary" data-en="Get in Touch" data-zh="联系我们">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots">
+    <button class="hero-dot active" data-idx="0"></button>
+    <button class="hero-dot" data-idx="1"></button>
+    <button class="hero-dot" data-idx="2"></button>
+    <button class="hero-dot" data-idx="3"></button>
+    <button class="hero-dot" data-idx="4"></button>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span data-en="Scroll" data-zh="滚动">Scroll</span>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section id="manifesto">
+  <div class="mf-parallax-bg" id="mfParallax"></div>
+  <div class="mf-parallax-overlay"></div>
+  <div class="mf-inner">
+    <div class="mf-left">
+      <div class="mf-eyebrow rv" data-en="Design Philosophy" data-zh="设计理念">Design Philosophy</div>
+      <h2 class="mf-title rv" data-en="Architecture<br>begins<br><em>with water.</em>" data-zh="建筑<br>起源于<br><em>流水之间。</em>">Architecture<br>begins<br><em>with water.</em></h2>
+      <p class="mf-body rv" data-en="Every ATREO fixture is conceived as architectural hardware — not as a utility component, but as a defining element of the space it inhabits. Precision-machined from the finest raw materials, each collection carries a singular character from specification to installation." data-zh="每件 ATREO 卫浴配件均以建筑硬件的标准设计——非单纯功能性部件，而是空间中的标志性元素。以顶级原材料精密加工，每个系列从设计规格到安装完成都保有鲜明的个性。">Every ATREO fixture is conceived as architectural hardware — not as a utility component, but as a defining element of the space it inhabits. Precision-machined from the finest raw materials, each collection carries a singular character from specification to installation.</p>
+      <div class="mf-stats rv">
+        <div class="mf-stat">
+          <div class="mf-stat-val">38,000 m²</div>
+          <div class="mf-stat-lbl" data-en="Manufacturing Floor" data-zh="生产面积">Manufacturing Floor</div>
+        </div>
+        <div class="mf-stat">
+          <div class="mf-stat-val">280+</div>
+          <div class="mf-stat-lbl" data-en="Engineers" data-zh="工程师">Engineers</div>
+        </div>
+        <div class="mf-stat">
+          <div class="mf-stat-val">16yr</div>
+          <div class="mf-stat-lbl" data-en="In Production" data-zh="年制造经验">In Production</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY PROFILE + MATERIAL & CRAFT — combined slider -->
+<section id="profile" style="overflow:hidden;position:relative;scroll-margin-top:72px">
+
+  <!-- Slider track -->
+  <div id="abTrack" class="ab-track">
+
+    <!-- Slide 0: Company Profile -->
+    <div class="ab-slide" style="background:var(--black2)">
+      <div class="wrap sec">
+        <div class="pf-inner">
+          <div>
+            <div class="pf-eyebrow rv" data-en="Company Profile" data-zh="公司简介">Company Profile</div>
+            <h2 class="pf-title rv" data-en="Built on Brass.<br><em>Backed by Trust.</em>" data-zh="铜艺为本。<br><em>信任为基。</em>">Built on Brass.<br><em>Backed by Trust.</em></h2>
+            <p class="pf-body rv" data-en="Founded in 2008 in Wenzhou, ATREO has grown from a single workshop into a full-line sanitaryware manufacturer serving architects, hoteliers, and distributors across 40+ countries. Every fixture that leaves our facility is pressure-tested, finish-inspected, and signed off by hand before it ships." data-zh="ATREO 始创于2008年，总部位于温州，已从一家小型作坊发展为服务全球40多个国家建筑师、酒店业主及经销商的全品类卫浴制造商。每件产品出厂前均经过压力测试、表面检验及人工签核。">Founded in 2008 in Wenzhou, ATREO has grown from a single workshop into a full-line sanitaryware manufacturer serving architects, hoteliers, and distributors across 40+ countries. Every fixture that leaves our facility is pressure-tested, finish-inspected, and signed off by hand before it ships.</p>
+            <div class="pf-certs rv">
+              <span class="pf-cert">ISO 9001:2015</span>
+              <span class="pf-cert">CE Marked</span>
+              <span class="pf-cert">WRAS Approved</span>
+              <span class="pf-cert">REACH Compliant</span>
+            </div>
+          </div>
+          <div class="pf-visual rv-r">
+            <img src="pictures hero/Gemini_Generated_Image_jlugr5jlugr5jlug.webp" alt="ATREO showroom" loading="lazy">
+            <span class="pf-tag" data-en="ATREO Flagship Showroom · Wenzhou, China" data-zh="ATREO 旗舰展厅 · 中国温州">ATREO Flagship Showroom · Wenzhou, China</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 1: Material & Craft -->
+    <div class="ab-slide" id="materials" style="background:var(--black3)">
+      <div class="wrap sec">
+        <div class="mat-inner">
+          <div>
+            <div class="mat-eyebrow rv" data-en="Material &amp; Craft" data-zh="材质与工艺">Material &amp; Craft</div>
+            <h2 class="mat-title rv" data-en="Engineered from<br><em>the inside out.</em>" data-zh="由内而外<br><em>精心设计。</em>">Engineered from<br><em>the inside out.</em></h2>
+            <p class="mat-body rv" data-en="Every alloy, every surface treatment, every internal component is selected for longevity over shortcut. Our Ceramic Disc cartridges are rated to 500,000 operating cycles." data-zh="每种合金、每种表面处理、每个内部零件，均以耐用性而非捷径为优先。我们的陶瓷阀芯额定操作次数达 500,000 次。">Every alloy, every surface treatment, every internal component is selected for longevity over shortcut. Our Ceramic Disc cartridges are rated to 500,000 operating cycles.</p>
+            <div class="mat-items rv">
+              <div class="mat-item">
+                <span class="mat-item-num">01</span>
+                <div>
+                  <div class="mat-item-title" data-en="Solid Brass Body" data-zh="全铜阀体">Solid Brass Body</div>
+                  <div class="mat-item-desc" data-en="C36000 free-machining brass. Superior corrosion resistance and dimensional stability across temperature extremes." data-zh="C36000 易切削黄铜。在极端温度变化下具有卓越的耐腐蚀性和尺寸稳定性。">C36000 free-machining brass. Superior corrosion resistance and dimensional stability across temperature extremes.</div>
+                </div>
+              </div>
+              <div class="mat-item">
+                <span class="mat-item-num">02</span>
+                <div>
+                  <div class="mat-item-title" data-en="PVD Surface Technology" data-zh="PVD 表面技术">PVD Surface Technology</div>
+                  <div class="mat-item-desc" data-en="Physical Vapour Deposition coatings — 5× harder than standard electroplating. Scratch and tarnish resistant for life." data-zh="物理气相沉积涂层——硬度是标准电镀的 5 倍。终身防刮耐腐蚀。">Physical Vapour Deposition coatings — 5× harder than standard electroplating. Scratch and tarnish resistant for life.</div>
+                </div>
+              </div>
+              <div class="mat-item">
+                <span class="mat-item-num">03</span>
+                <div>
+                  <div class="mat-item-title" data-en="Ceramic Disc Cartridge" data-zh="陶瓷阀芯">Ceramic Disc Cartridge</div>
+                  <div class="mat-item-desc" data-en="Precision-lapped ceramic discs provide smooth, drip-free operation across 500,000+ operating cycles." data-zh="精密研磨陶瓷片，500,000+ 次操作循环，提供顺滑无滴漏体验。">Precision-lapped ceramic discs provide smooth, drip-free operation across 500,000+ operating cycles.</div>
+                </div>
+              </div>
+              <div class="mat-item">
+                <span class="mat-item-num">04</span>
+                <div>
+                  <div class="mat-item-title" data-en="316 Marine Grade Steel" data-zh="316 海洋级不锈钢">316 Marine Grade Steel</div>
+                  <div class="mat-item-desc" data-en="SPA series exclusive. Molybdenum-enhanced — preferred for coastal and high-humidity environments." data-zh="SPA 系列专属。含钼增强配方——适用于沿海及高湿度环境。">SPA series exclusive. Molybdenum-enhanced — preferred for coastal and high-humidity environments.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mat-visual rv-r">
+            <img src="pictures hero/material and craft.webp" alt="ATREO material and craft studio" loading="lazy">
+            <div class="mat-tag" data-en="Material &amp; Craft Studio · ATREO R&amp;D" data-zh="材料与工艺工作室 · ATREO 研发中心">Material &amp; Craft Studio · ATREO R&amp;D</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /abTrack -->
+
+  <!-- Side arrows -->
+  <button class="ab-arrow ab-arrow-prev" id="abPrev" aria-label="Previous slide">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="ab-arrow ab-arrow-next" id="abNext" aria-label="Next slide">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+</section>
+
+<!-- FLAGSHIP PIECES — shared strip below both slides -->
+<div style="background:var(--black2);border-top:1px solid rgba(26,22,20,.08)">
+  <div class="wrap" style="padding-top:clamp(44px,6vw,72px);padding-bottom:clamp(44px,6vw,72px)">
+    <div class="mat-eyebrow rv" data-en="Flagship Pieces" data-zh="旗舰之作">Flagship Pieces</div>
+    <h3 class="mat-flagship-title rv" data-en="Our finest work." data-zh="登峰之作。">Our finest work.</h3>
+    <div class="mat-flagship-grid rv">
+      <a class="mat-flagship-card" href="#" onclick="event.preventDefault();openProdModal('p06')">
+        <div class="mat-flagship-img">
+          <img src="catalog pictures/ELITE Freestanding Filler.webp" alt="ELITE Freestanding Filler" loading="lazy">
+          <span class="mat-flagship-badge" data-en="Most Premium" data-zh="顶级精品">Most Premium</span>
+        </div>
+        <div class="mat-flagship-body">
+          <div class="mat-flagship-name" data-en="ELITE Freestanding Filler" data-zh="臻品系列 · 独立式注水龙头">ELITE Freestanding Filler</div>
+          <div class="mat-flagship-desc" data-en="Solid brass 1200mm floor-standing filler in Gunmetal Grey PVD. Integrated volume and temperature control." data-zh="全铜 1200mm 落地式注水龙头，枪灰色 PVD 饰面。集成流量及温度控制。">Solid brass 1200mm floor-standing filler in Gunmetal Grey PVD. Integrated volume and temperature control.</div>
+        </div>
+      </a>
+      <a class="mat-flagship-card" href="#" onclick="event.preventDefault();openProdModal('p12')">
+        <div class="mat-flagship-img">
+          <img src="catalog pictures/ELITE Digital Thermostatic.webp" alt="ELITE Digital Thermostatic" loading="lazy">
+          <span class="mat-flagship-badge" data-en="Most Premium" data-zh="顶级精品">Most Premium</span>
+        </div>
+        <div class="mat-flagship-body">
+          <div class="mat-flagship-name" data-en="ELITE Digital Thermostatic" data-zh="臻品系列 · 数字恒温控制器">ELITE Digital Thermostatic</div>
+          <div class="mat-flagship-desc" data-en="3-outlet digital thermostatic controller in Gunmetal Grey. ±0.5°C precision, Wi-Fi and BLE app control." data-zh="枪灰色数字三出口恒温控制器，精度 ±0.5°C，支持 Wi-Fi 及蓝牙 App 控制。">3-outlet digital thermostatic controller in Gunmetal Grey. ±0.5°C precision, Wi-Fi and BLE app control.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- TRUSTED BY -->
+<section id="trusted">
+  <div class="wrap">
+    <div class="tr-label rv" data-en="Trusted By Architects, Hoteliers &amp; Developers" data-zh="深受建筑师、酒店业主及开发商信赖">Trusted By Architects, Hoteliers &amp; Developers</div>
+    <div class="tr-logos rv">
+      <span class="tr-logo">AURELIA HOTELS</span>
+      <span class="tr-logo">NORTHGATE RESIDENTIAL</span>
+      <span class="tr-logo">VANTAGE BUILD GROUP</span>
+      <span class="tr-logo">CASCADE DEVELOPMENTS</span>
+      <span class="tr-logo">PRIME HOSPITALITY GROUP</span>
+      <span class="tr-logo">META SUITES COLLECTION</span>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION SHOWCASE -->
+<section id="showcase">
+  <div class="shw-wrap">
+    <div class="shw-counter" id="shwCounter">01 / 03</div>
+    <div class="shw-track" id="shwTrack">
+
+      <!-- Slide 1: MODERN -->
+      <div class="shw-slide" data-s="0">
+        <div class="shw-ghost">01</div>
+        <div class="shw-content">
+          <div class="shw-label" data-en="Collection 01 / 03" data-zh="系列 01 / 03">Collection 01 / 03</div>
+          <h2 class="shw-name" data-en="Modern<em>Series</em>" data-zh="摩登<em>系列</em>">Modern<em>Series</em></h2>
+          <p class="shw-desc" data-en="Complete city bathroom suite. Basin and bath taps share identical shadow-line geometry with the matching shower set — seamless specification across every fixture." data-zh="完整城市浴室套件。面盆龙头与浴缸龙头采用相同的阴影线几何造型，与配套淋浴套件无缝搭配——每件配件规格完全统一。">Complete city bathroom suite. Basin and bath taps share identical shadow-line geometry with the matching shower set — seamless specification across every fixture.</p>
+          <div class="shw-specs">
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Material" data-zh="材质">Material</span><span class="shw-spec-v" data-en="Solid Brass" data-zh="全铜">Solid Brass</span></div>
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Finish" data-zh="表面处理">Finish</span><span class="shw-spec-v" data-en="Chrome / Matte Black" data-zh="铬 / 哑黑">Chrome / Matte Black</span></div>
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Valve" data-zh="阀芯">Valve</span><span class="shw-spec-v" data-en="Ceramic Disc" data-zh="陶瓷阀芯">Ceramic Disc</span></div>
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Warranty" data-zh="质保">Warranty</span><span class="shw-spec-v" data-en="10 Years" data-zh="10年质保">10 Years</span></div>
+          </div>
+        </div>
+        <div class="shw-visual shw-visual--video">
+          <video class="shw-video" src="collection videos/modern.mp4" muted loop playsinline preload="metadata"></video>
+        </div>
+      </div>
+
+      <!-- Slide 2: LUXE -->
+      <div class="shw-slide" data-s="1">
+        <div class="shw-ghost">02</div>
+        <div class="shw-content">
+          <div class="shw-label" data-en="Collection 02 / 03" data-zh="系列 02 / 03">Collection 02 / 03</div>
+          <h2 class="shw-name" data-en="Luxe<em>Series</em>" data-zh="奢华<em>系列</em>">Luxe<em>Series</em></h2>
+          <p class="shw-desc" data-en="Full luxury suite for prestige residential and five-star hospitality. PVD Brushed Gold thermostatic shower system coordinates precisely with basin, bath filler, and rain overhead." data-zh="专为高端住宅与五星级酒店打造的全套奢华系列。PVD 拉丝金恒温淋浴系统与面盆龙头、浴缸注水龙头及顶喷完美协调。">Full luxury suite for prestige residential and five-star hospitality. PVD Brushed Gold thermostatic shower system coordinates precisely with basin, bath filler, and rain overhead.</p>
+          <div class="shw-specs">
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Material" data-zh="材质">Material</span><span class="shw-spec-v" data-en="Solid Brass" data-zh="全铜">Solid Brass</span></div>
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Finish" data-zh="表面处理">Finish</span><span class="shw-spec-v" data-en="PVD Brushed Gold" data-zh="PVD 拉丝金">PVD Brushed Gold</span></div>
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Valve" data-zh="阀芯">Valve</span><span class="shw-spec-v" data-en="Thermostatic" data-zh="恒温">Thermostatic</span></div>
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Warranty" data-zh="质保">Warranty</span><span class="shw-spec-v" data-en="15 Years" data-zh="15年质保">15 Years</span></div>
+          </div>
+        </div>
+        <div class="shw-visual shw-visual--video">
+          <video class="shw-video" src="collection videos/luxe.mp4" muted loop playsinline preload="metadata"></video>
+        </div>
+      </div>
+
+      <!-- Slide 3: SPA -->
+      <div class="shw-slide" data-s="2">
+        <div class="shw-ghost">03</div>
+        <div class="shw-content">
+          <div class="shw-label" data-en="Collection 03 / 03" data-zh="系列 03 / 03">Collection 03 / 03</div>
+          <h2 class="shw-name" data-en="Spa<em>Series</em>" data-zh="水疗<em>系列</em>">Spa<em>Series</em></h2>
+          <p class="shw-desc" data-en="Marine-grade 316 stainless steel with Matte Black PVD. Built for wet rooms, steam environments, and coastal properties. Thermostatic multi-outlet system with overhead rain and body jets." data-zh="海洋级 316 不锈钢配哑黑 PVD 涂层。专为湿区、蒸汽环境及沿海住宅而设计。多出口恒温系统，配顶喷及体喷按摩喷头。">Marine-grade 316 stainless steel with Matte Black PVD. Built for wet rooms, steam environments, and coastal properties. Thermostatic multi-outlet system with overhead rain and body jets.</p>
+          <div class="shw-specs">
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Material" data-zh="材质">Material</span><span class="shw-spec-v" data-en="Stainless Steel 316" data-zh="316不锈钢">Stainless Steel 316</span></div>
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Finish" data-zh="表面处理">Finish</span><span class="shw-spec-v" data-en="Matte Black" data-zh="哑黑">Matte Black</span></div>
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Valve" data-zh="阀芯">Valve</span><span class="shw-spec-v" data-en="Thermostatic" data-zh="恒温">Thermostatic</span></div>
+            <div class="shw-spec"><span class="shw-spec-k" data-en="Warranty" data-zh="质保">Warranty</span><span class="shw-spec-v" data-en="15 Years" data-zh="15年质保">15 Years</span></div>
+          </div>
+        </div>
+        <div class="shw-visual shw-visual--video">
+          <video class="shw-video" src="collection videos/spa.mp4" muted loop playsinline preload="metadata"></video>
+        </div>
+      </div>
+
+    </div><!-- /track -->
+
+    <!-- Navigation -->
+    <div class="shw-nav">
+      <button class="shw-arrow" id="shwPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="shw-dots" id="shwDots">
+        <button class="shw-dot active" data-idx="0"></button>
+        <button class="shw-dot" data-idx="1"></button>
+        <button class="shw-dot" data-idx="2"></button>
+      </div>
+      <button class="shw-arrow" id="shwNext" aria-label="Next">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog" class="sec">
+  <div class="wrap">
+    <div class="cat-hdr">
+      <div class="cat-eyebrow rv" data-en="Full Product Range" data-zh="完整产品线">Full Product Range</div>
+      <h2 class="cat-title rv" data-en="Bath &amp; Shower<br><em style='font-style:italic;font-weight:300;color:rgba(26,22,20,.65)'>Equipment</em>" data-zh="浴室与淋浴<br><em style='font-style:italic;font-weight:300;color:rgba(26,22,20,.65)'>产品系列</em>">Bath &amp; Shower<br><em style="font-style:italic;font-weight:300;color:rgba(26,22,20,.65)">Equipment</em></h2>
+    </div>
+    <div class="cat-filters rv">
+      <button class="cat-filter active" data-filter="all" data-en="All Products" data-zh="全部产品">All Products</button>
+      <button class="cat-filter" data-filter="bath" data-en="Bath" data-zh="浴室">Bath</button>
+      <button class="cat-filter" data-filter="shower" data-en="Shower" data-zh="淋浴">Shower</button>
+    </div>
+    <div class="cat-grid" id="catGrid">
+      <!-- rendered by buildCatalog() -->
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<div id="certifications">
+  <div class="cert-label" data-en="Quality &amp; Compliance Standards" data-zh="质量与合规标准">Quality &amp; Compliance Standards</div>
+  <div class="cert-track-wrap">
+    <div class="cert-track">
+      <div class="cert-item"><span class="cert-item-name">ISO 9001:2015</span></div>
+      <div class="cert-item"><span class="cert-item-name">EN 817 Compliant</span></div>
+      <div class="cert-item"><span class="cert-item-name">WRAS Approved</span></div>
+      <div class="cert-item"><span class="cert-item-name">CE Marked</span></div>
+      <div class="cert-item"><span class="cert-item-name">REACH Compliant</span></div>
+      <div class="cert-item"><span class="cert-item-name">RoHS Directive</span></div>
+      <div class="cert-item"><span class="cert-item-name">500,000 Cycle Rated</span></div>
+      <div class="cert-item"><span class="cert-item-name">NSF/ANSI 61</span></div>
+      <div class="cert-item"><span class="cert-item-name">ISO 9001:2015</span></div>
+      <div class="cert-item"><span class="cert-item-name">EN 817 Compliant</span></div>
+      <div class="cert-item"><span class="cert-item-name">WRAS Approved</span></div>
+      <div class="cert-item"><span class="cert-item-name">CE Marked</span></div>
+      <div class="cert-item"><span class="cert-item-name">REACH Compliant</span></div>
+      <div class="cert-item"><span class="cert-item-name">RoHS Directive</span></div>
+      <div class="cert-item"><span class="cert-item-name">500,000 Cycle Rated</span></div>
+      <div class="cert-item"><span class="cert-item-name">NSF/ANSI 61</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="sec">
+  <div class="wrap">
+    <div class="tm-eyebrow rv" data-en="Client Voices" data-zh="客户心声">Client Voices</div>
+    <h2 class="tm-title rv" data-en="Trusted by<br><em>the trade.</em>" data-zh="贸易伙伴的<br><em>信赖之选。</em>">Trusted by<br><em>the trade.</em></h2>
+    <div class="tm-grid rv">
+      <div class="tm-card">
+        <div class="tm-quote-mark">&ldquo;</div>
+        <p class="tm-quote" data-en="ATREO's ELITE series became the standard spec across our entire resort portfolio — consistent quality, zero callbacks in three years." data-zh="ATREO 的臻品系列已成为我们整个度假村项目的标准规格——品质始终如一，三年零售后问题。">ATREO's ELITE series became the standard spec across our entire resort portfolio — consistent quality, zero callbacks in three years.</p>
+        <div class="tm-person-name">James Calloway</div>
+        <div class="tm-person-role" data-en="Procurement Director, Prime Hospitality Group" data-zh="采购总监，Prime Hospitality Group">Procurement Director, Prime Hospitality Group</div>
+      </div>
+      <div class="tm-card">
+        <div class="tm-quote-mark">&ldquo;</div>
+        <p class="tm-quote" data-en="Sample turnaround was under two weeks, and the finish matched the render exactly. Rare in this industry." data-zh="样品交付仅用了不到两周，成品效果与渲染图完全一致。这在行业内非常少见。">Sample turnaround was under two weeks, and the finish matched the render exactly. Rare in this industry.</p>
+        <div class="tm-person-name">Elena Rossi</div>
+        <div class="tm-person-role" data-en="Senior Interior Architect, Vantage Build Group" data-zh="高级室内设计师，Vantage Build Group">Senior Interior Architect, Vantage Build Group</div>
+      </div>
+      <div class="tm-card">
+        <div class="tm-quote-mark">&ldquo;</div>
+        <p class="tm-quote" data-en="We've sourced from four factories over the years. ATREO is the only one whose ceramic cartridges never came back under warranty." data-zh="这些年我们合作过四家工厂，ATREO 是唯一一家陶瓷阀芯从未发生质保返修的供应商。">We've sourced from four factories over the years. ATREO is the only one whose ceramic cartridges never came back under warranty.</p>
+        <div class="tm-person-name">Daniel Osei</div>
+        <div class="tm-person-role" data-en="Technical Buyer, Cascade Developments" data-zh="技术采购，Cascade Developments">Technical Buyer, Cascade Developments</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news" class="sec">
+  <div class="wrap">
+    <div class="nw-eyebrow rv" data-en="Latest News" data-zh="最新动态">Latest News</div>
+    <h2 class="nw-title rv" data-en="From the<br><em>factory floor.</em>" data-zh="工厂前线<br><em>动态。</em>">From the<br><em>factory floor.</em></h2>
+
+    <!-- Centred 3-photo strip -->
+    <div class="nw-photo-strip rv">
+      <div class="nw-photo-col">
+        <img src="tumbnails photo/ATREO Unveils ELITE Digital Series.webp" alt="ATREO ELITE Digital Series" loading="lazy">
+      </div>
+      <div class="nw-photo-col">
+        <img src="tumbnails photo/ISO 9001-2015 Recertification Complete.webp" alt="ISO 9001 Recertification" loading="lazy">
+      </div>
+      <div class="nw-photo-col">
+        <img src="tumbnails photo/Wenzhou Facility Completes Phase II Expansion.webp" alt="Wenzhou Facility Expansion" loading="lazy">
+      </div>
+    </div>
+
+    <!-- News cards -->
+    <div class="nw-grid rv">
+      <div class="nw-card">
+        <div class="nw-date">MAR 2026</div>
+        <div class="nw-headline" data-en="ATREO Unveils ELITE Digital Series" data-zh="ATREO 推出臻品数字系列">ATREO Unveils ELITE Digital Series</div>
+        <div class="nw-snippet" data-en="New Wi-Fi / BLE thermostatic control line debuts at the Kitchen &amp; Bath China trade show." data-zh="全新 Wi-Fi / 蓝牙恒温控制系列于中国厨卫展首次亮相。">New Wi-Fi / BLE thermostatic control line debuts at the Kitchen &amp; Bath China trade show.</div>
+      </div>
+      <div class="nw-card">
+        <div class="nw-date">JAN 2026</div>
+        <div class="nw-headline" data-en="ISO 9001:2015 Recertification Complete" data-zh="ISO 9001:2015 复审通过">ISO 9001:2015 Recertification Complete</div>
+        <div class="nw-snippet" data-en="Third-party audit confirms continued compliance across all production lines." data-zh="第三方审核确认所有生产线持续符合标准要求。">Third-party audit confirms continued compliance across all production lines.</div>
+      </div>
+      <div class="nw-card">
+        <div class="nw-date">NOV 2025</div>
+        <div class="nw-headline" data-en="Wenzhou Facility Completes Phase II Expansion" data-zh="温州工厂二期扩建完工">Wenzhou Facility Completes Phase II Expansion</div>
+        <div class="nw-snippet" data-en="New PVD coating line doubles finishing capacity ahead of 2026 order volume." data-zh="全新 PVD 涂层生产线产能翻倍，为2026年订单量做好准备。">New PVD coating line doubles finishing capacity ahead of 2026 order volume.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec">
+  <div class="wrap">
+    <div class="ct-header-bar rv">
+      <span class="ct-hb-num">06</span>
+      <span class="ct-hb-sep">—</span>
+      <span class="ct-hb-label" data-en="Contact" data-zh="联系我们">Contact</span>
+      <div class="ct-hb-line"></div>
+      <span class="ct-hb-tag" data-en="Get in Touch" data-zh="取得联系">Get in Touch</span>
+    </div>
+    <div class="contact-inner">
+      <!-- Left: title + detail rows + map -->
+      <div class="cu-col-left">
+        <h2 class="ct-title rv" data-en="Let's Talk<br><em>Business</em>" data-zh="商务<br><em>洽谈</em>">Let's Talk<br><em>Business</em></h2>
+        <p class="ct-tagline rv" data-en="Specify with confidence. Our trade team handles enquiries, sampling, and OEM requests directly — no distributors, no markup, no waiting." data-zh="放心规格选型。我们的贸易团队直接处理咨询、样品及 OEM 需求——无中间商，无加价，无需等待。">Specify with confidence. Our trade team handles enquiries, sampling, and OEM requests directly — no distributors, no markup, no waiting.</p>
+        <div class="ct-details rv">
+          <div class="ct-cd-row">
+            <div class="ct-cd-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.1 12.7 19.79 19.79 0 012.03 4.07 2 2 0 014 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div><div class="ct-cd-lbl" data-en="Phone" data-zh="电话">Phone</div><div class="ct-cd-val">+86 577 8800 0000</div></div>
+          </div>
+          <div class="ct-cd-row">
+            <div class="ct-cd-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="ct-cd-lbl" data-en="Email" data-zh="邮箱">Email</div><div class="ct-cd-val">trade@atreo.com</div></div>
+          </div>
+          <div class="ct-cd-row">
+            <div class="ct-cd-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="ct-cd-lbl" data-en="Factory" data-zh="工厂地址">Factory</div><div class="ct-cd-val" data-en="Wenzhou, Zhejiang Province, China" data-zh="中国浙江省温州市">Wenzhou, Zhejiang Province, China</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Phone (WeChat QR + Social) -->
+      <div class="ct-soc-block rv-r">
+          <div class="ct-wc-title" data-en="Stay Connected" data-zh="保持联系">Stay Connected</div>
+          <div class="iphone-wrap">
+            <div class="iphone-glow"></div>
+        <div class="iphone">
+          <div class="iph-btn iph-btn-sl"></div>
+          <div class="iph-btn iph-btn-vu"></div>
+          <div class="iph-btn iph-btn-vd"></div>
+          <div class="iph-btn iph-btn-pw"></div>
+          <div class="iph-screen">
+            <div class="iph-di"><div class="iph-di-pill"></div></div>
+            <div class="iph-content">
+              <div class="iph-profile">
+                <div class="iph-avatar"><span>AT</span></div>
+                <div class="iph-name">ATREO</div>
+                <div class="iph-lbl" data-en="Follow Us" data-zh="关注我们">Follow Us</div>
+              </div>
+              <div class="iph-divider"></div>
+              <div class="iph-link iph-link-wechat" onclick="openWcModal()" style="cursor:pointer">
+                <div class="iph-icon iph-icon-wc">
+                  <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M9.5 2C5.08 2 1.5 5.13 1.5 9c0 2.09.93 3.97 2.42 5.28l-.92 2.72 3.05-1.29c.93.31 1.93.49 2.95.49.2 0 .4-.01.59-.02C9.42 15.43 9.25 14.72 9.25 14c0-3.59 3.25-6.5 7.25-6.5.17 0 .34 0 .5.01C16.01 4.6 13.05 2 9.5 2z"/><path d="M16.5 9C13.19 9 10.5 11.24 10.5 14c0 2.76 2.69 5 6 5 .86 0 1.67-.15 2.42-.41l2.58 1.09-.75-2.32C22.02 16.4 22.5 15.26 22.5 14c0-2.76-2.69-5-6-5z"/></svg>
+                </div>
+                <div class="iph-link-text">
+                  <div class="iph-link-name" data-en="WeChat Business" data-zh="微信商务">WeChat Business</div>
+                  <div class="iph-link-handle" data-en="Tap to view QR code" data-zh="点击查看二维码">Tap to view QR code</div>
+                </div>
+                <svg class="iph-chevron" viewBox="0 0 24 24" fill="none" stroke="#171410" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+              <a href="https://instagram.com/atreo" target="_blank" rel="noopener" class="iph-link">
+                <div class="iph-icon iph-icon-ig">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="white" stroke="none"/></svg>
+                </div>
+                <div class="iph-link-text">
+                  <div class="iph-link-name">Instagram</div>
+                  <div class="iph-link-handle">@atreo.official</div>
+                </div>
+                <svg class="iph-chevron" viewBox="0 0 24 24" fill="none" stroke="#171410" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+              <a href="https://facebook.com/atreo" target="_blank" rel="noopener" class="iph-link">
+                <div class="iph-icon iph-icon-fb">
+                  <svg viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </div>
+                <div class="iph-link-text">
+                  <div class="iph-link-name">Facebook</div>
+                  <div class="iph-link-handle">ATREO Sanitaryware</div>
+                </div>
+                <svg class="iph-chevron" viewBox="0 0 24 24" fill="none" stroke="#171410" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+              <a href="https://xiaohongshu.com" target="_blank" rel="noopener" class="iph-link">
+                <div class="iph-icon iph-icon-xhs">
+                  <svg viewBox="0 0 24 24" fill="white"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM20 19H6.5a.5.5 0 0 0 0 1H20v-1z"/></svg>
+                </div>
+                <div class="iph-link-text">
+                  <div class="iph-link-name">小红书</div>
+                  <div class="iph-link-handle">ATREO Official</div>
+                </div>
+                <svg class="iph-chevron" viewBox="0 0 24 24" fill="none" stroke="#171410" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+            <div class="iph-home"><div class="iph-home-bar"></div></div>
+          </div>
+          <!-- Bottom hardware: speaker · USB-C · speaker -->
+          <div class="iph-bottom">
+            <div class="iph-spk"></div>
+            <div class="iph-usbc"></div>
+            <div class="iph-spk"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec">
+  <div class="wrap">
+    <div class="faq-inner">
+      <div>
+        <div class="faq-eyebrow rv" data-en="FAQ" data-zh="常见问题">FAQ</div>
+        <h2 class="faq-title rv" data-en="Common<br><em>Questions.</em>" data-zh="常见问题<br><em>解答。</em>">Common<br><em>Questions.</em></h2>
+      </div>
+      <div class="faq-list rv">
+        <div class="faq-item open">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="What's your minimum order quantity (MOQ)?" data-zh="最小起订量（MOQ）是多少？">What's your minimum order quantity (MOQ)?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a"><p data-en="Standard MOQ is 50 units per SKU for stocked finishes. Custom finishes and OEM runs start at 200 units." data-zh="现货表面处理标准起订量为每个 SKU 50 件。定制表面处理及 OEM 订单起订量为 200 件。">Standard MOQ is 50 units per SKU for stocked finishes. Custom finishes and OEM runs start at 200 units.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="Can we get samples before ordering?" data-zh="下单前可以申请样品吗？">Can we get samples before ordering?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a"><p data-en="Yes. Samples ship within 5–7 business days; sample cost is credited back on orders over 500 units." data-zh="可以。样品在 5-7 个工作日内发货；订单满 500 件可全额抵扣样品费用。">Yes. Samples ship within 5–7 business days; sample cost is credited back on orders over 500 units.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="Do you offer OEM / ODM services?" data-zh="是否提供 OEM / ODM 服务？">Do you offer OEM / ODM services?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a"><p data-en="Yes — full OEM/ODM support including custom branding, packaging, and bespoke finish development." data-zh="是的——提供完整的 OEM/ODM 支持，包括定制品牌、包装及专属表面处理研发。">Yes — full OEM/ODM support including custom branding, packaging, and bespoke finish development.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="What's your typical lead time?" data-zh="标准交货周期是多久？">What's your typical lead time?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a"><p data-en="4–6 weeks for standard collections, 8–10 weeks for custom finishes or large project orders." data-zh="标准系列 4-6 周；定制表面处理或大型项目订单 8-10 周。">4–6 weeks for standard collections, 8–10 weeks for custom finishes or large project orders.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="What certifications do your products carry?" data-zh="产品具备哪些认证？">What certifications do your products carry?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a"><p data-en="ISO 9001:2015, CE, WRAS, REACH, and RoHS — full documentation provided with every order." data-zh="ISO 9001:2015、CE、WRAS、REACH 及 RoHS——每笔订单均提供完整认证文件。">ISO 9001:2015, CE, WRAS, REACH, and RoHS — full documentation provided with every order.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">ATREO</div>
+      <div class="footer-tagline" data-en="Premium sanitaryware for architecture and interiors. Wenzhou, China." data-zh="面向建筑与室内设计的高端卫浴精品。温州，中国。">Premium sanitaryware for architecture and interiors. Wenzhou, China.</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5 data-en="Collections" data-zh="产品系列">Collections</h5>
+        <ul>
+          <li><a href="#catalog">MODERN</a></li>
+          <li><a href="#catalog">LUXE</a></li>
+          <li><a href="#catalog">MINIMAL</a></li>
+          <li><a href="#catalog">CLASSIC</a></li>
+          <li><a href="#catalog">SPA</a></li>
+          <li><a href="#catalog">ELITE</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-en="Company" data-zh="公司">Company</h5>
+        <ul>
+          <li><a href="#manifesto" data-en="Philosophy" data-zh="品牌理念">Philosophy</a></li>
+          <li><a href="#materials" data-en="Manufacturing" data-zh="制造工艺">Manufacturing</a></li>
+          <li><a href="#certifications" data-en="Certifications" data-zh="质量认证">Certifications</a></li>
+          <li><a href="#faq" data-en="FAQ" data-zh="常见问题">FAQ</a></li>
+          <li><a href="#contact" data-en="Contact" data-zh="联系我们">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-en="Trade" data-zh="贸易合作">Trade</h5>
+        <ul>
+          <li data-en="Project Supply" data-zh="项目供货">Project Supply</li>
+          <li data-en="Custom Finishes" data-zh="定制表面处理">Custom Finishes</li>
+          <li>OEM / ODM</li>
+          <li data-en="Sample Requests" data-zh="样品申请">Sample Requests</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2008–2026 ATREO Sanitaryware Co., Ltd. All rights reserved.</div>
+    <div class="footer-powered">Built by steez.digital</div>
+  </div>
+</footer>
+
+<!-- WECHAT QR MODAL -->
+<div id="wcModal" class="wc-overlay" onclick="if(event.target===this)closeWcModal()">
+  <div class="wc-box">
+    <button class="wc-close" onclick="closeWcModal()">&#x2715;</button>
+    <div class="wc-logo">
+      <div class="wc-logo-icon"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M9.5 2C5.08 2 1.5 5.13 1.5 9c0 2.09.93 3.97 2.42 5.28l-.92 2.72 3.05-1.29c.93.31 1.93.49 2.95.49.2 0 .4-.01.59-.02C9.42 15.43 9.25 14.72 9.25 14c0-3.59 3.25-6.5 7.25-6.5.17 0 .34 0 .5.01C16.01 4.6 13.05 2 9.5 2z"/><path d="M16.5 9C13.19 9 10.5 11.24 10.5 14c0 2.76 2.69 5 6 5 .86 0 1.67-.15 2.42-.41l2.58 1.09-.75-2.32C22.02 16.4 22.5 15.26 22.5 14c0-2.76-2.69-5-6-5z"/></svg></div>
+      <span class="wc-logo-name">WeChat Business</span>
+    </div>
+    <img src="WeChat_QR.webp" alt="ATREO WeChat QR Code" class="wc-qr-img">
+    <div class="wc-sub" data-en="Scan with WeChat to connect with our trade team" data-zh="用微信扫码联系我们的贸易团队">Scan with WeChat to connect with our trade team</div>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div id="prodModal" class="pm-overlay" onclick="if(event.target===this)closeProdModal()" role="dialog" aria-modal="true">
+  <div class="pm-box">
+    <button class="pm-close" onclick="closeProdModal()" aria-label="Close">&#x2715;</button>
+    <div class="pm-inner">
+      <div class="pm-img-col">
+        <img id="pmImg" src="" alt="" loading="lazy">
+        <span class="pm-no-img" id="pmNoImg" style="display:none">No image</span>
+      </div>
+      <div class="pm-info-col">
+        <div id="pmColl" class="pm-coll"></div>
+        <div id="pmNum"  class="pm-num"></div>
+        <h3  id="pmName" class="pm-name"></h3>
+        <div id="pmType" class="pm-type"></div>
+        <p   id="pmDesc" class="pm-desc"></p>
+        <div id="pmSpecs" class="pm-specs"></div>
+        <div id="pmFinishes" class="pm-finishes"></div>
+        <a id="pmEnquire" href="#contact" class="pm-enquire" onclick="closeProdModal()">Enquire →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var currentLang = 'en';
+
+/* ── TRANSLATION MAPS ── */
+var SPEC_KEY_ZH = {
+  'Flow Rate':    '流量',
+  'Spout Reach':  '出水口延伸',
+  'Spout Height': '出水口高度',
+  'Column Height':'柱体高度',
+  'Bar Length':   '导轨长度',
+  'Rail Height':  '导轨高度',
+  'Panel Height': '面板高度',
+  'Connection':   '接口规格',
+  'Outlets':      '出水口数',
+  'Temp Range':   '温度范围',
+  'Temp Precision':'温控精度',
+  'Pressure':     '水压范围',
+  'Spray Modes':  '出水模式',
+  'Hose Length':  '软管长度',
+  'Head Ø':       '花洒直径',
+  'Arm Length':   '臂架长度',
+  'Nozzles':      '喷嘴数量',
+  'Jets':         '喷头数量',
+  'Size':         '尺寸',
+  'Type':         '类型',
+  'Connectivity': '连接方式',
+  'Silicone':     '防水垢材质',
+};
+var FINISH_ZH = {
+  'Chrome':        '铬',
+  'Matte Black':   '哑黑',
+  'Brushed Gold':  '拉丝金',
+  'Rose Gold':     '玫瑰金',
+  'Brushed Nickel':'拉丝镍',
+  'Polished Steel':'抛光钢',
+  'Gunmetal':      '枪灰色',
+  'Gunmetal Grey': '枪灰色',
+  'Brushed Bronze':'拉丝青铜',
+};
+
+/* ── PRODUCT DATA ── */
+const PRODUCTS = [
+  // BATH
+  { id:'p01', cat:'bath', coll:'MODERN', num:'M-BF01', name:'Bath Filler', name_zh:'浴缸注水龙头', type:'Wall-Mounted', type_zh:'壁挂式',
+    desc:'Geometric single-lever bath filler. 180° swivel spout, ceramic disc quarter-turn. Anti-splash aerator.',
+    desc_zh:'几何造型单杆浴缸注水龙头。180° 旋转出水口，陶瓷阀芯四分之一转开关。防溅起泡器。',
+    specs:[['Flow Rate','20 L/min'],['Spout Reach','180mm'],['Connection','½"']],
+    finishes:['Chrome','Matte Black'] },
+  { id:'p02', cat:'bath', coll:'LUXE', num:'L-FF01', name:'Freestanding Filler', name_zh:'独立式注水龙头', type:'Floor-Mounted', type_zh:'落地式',
+    desc:'PVD Brushed Gold floor-standing bath filler. 1100mm brass column with integrated shut-off.',
+    desc_zh:'PVD 拉丝金落地式浴缸注水龙头。1100mm 黄铜柱体，集成截止阀。',
+    specs:[['Flow Rate','20 L/min'],['Column Height','1100mm'],['Connection','¾"']],
+    finishes:['Brushed Gold','Rose Gold'] },
+  { id:'p03', cat:'bath', coll:'MINIMAL', num:'MN-BT01', name:'Bath Tap', name_zh:'浴缸龙头', type:'Deck-Mounted', type_zh:'台面式',
+    desc:'304 stainless steel deck-mounted bath mixer. Ultra-slim 12mm lever handle, tool-free cartridge access.',
+    desc_zh:'304 不锈钢台面式浴缸混水龙头。超薄 12mm 杆型手柄，无工具更换阀芯。',
+    specs:[['Flow Rate','18 L/min'],['Spout Height','92mm'],['Connection','½"']],
+    finishes:['Brushed Nickel','Polished Steel'] },
+  { id:'p04', cat:'bath', coll:'CLASSIC', num:'CL-PT01', name:'Bath Pillar Taps', name_zh:'浴缸柱式龙头', type:'Deck-Mounted Pair', type_zh:'台面式一对',
+    desc:'Traditional cross-handle pillar taps. Ceramic disc internals. Sold as matched hot/cold pair.',
+    desc_zh:'传统十字柄柱式龙头。陶瓷阀芯。冷热配对出售。',
+    specs:[['Type','Hot + Cold Pair'],['Spout Height','80mm'],['Connection','½"']],
+    finishes:['Chrome'] },
+  { id:'p05', cat:'bath', coll:'SPA', num:'SP-BF01', name:'Bath Filler', name_zh:'浴缸注水龙头', type:'Wall-Mounted', type_zh:'壁挂式',
+    desc:'316 stainless steel wall-mounted filler in Matte Black PVD. Anti-scale aerator, WRAS approved.',
+    desc_zh:'316 不锈钢壁挂式注水龙头，哑黑 PVD 饰面。防水垢起泡器，符合 WRAS 认证。',
+    specs:[['Flow Rate','22 L/min'],['Spout Reach','210mm'],['Connection','½"']],
+    finishes:['Matte Black','Gunmetal'] },
+  { id:'p06', cat:'bath', coll:'ELITE', num:'EL-FF01', name:'Freestanding Filler', name_zh:'独立式注水龙头', type:'Floor-Mounted', type_zh:'落地式',
+    desc:'Solid brass 1200mm floor-standing filler in Gunmetal Grey PVD. Integrated volume + temperature.',
+    desc_zh:'全铜 1200mm 落地式注水龙头，枪灰色 PVD 饰面。集成流量及温度控制。',
+    specs:[['Flow Rate','24 L/min'],['Column Height','1200mm'],['Connection','¾"']],
+    finishes:['Gunmetal Grey','Brushed Bronze'] },
+  // SHOWER
+  { id:'p07', cat:'shower', coll:'MODERN', num:'M-SB01', name:'Shower Bar Set', name_zh:'淋浴杆套装', type:'Exposed Bar Valve', type_zh:'明装杆式阀',
+    desc:'900mm thermostatic bar with diverter. Includes 200mm fixed head, 1500mm hose, and handset.',
+    desc_zh:'900mm 恒温杆，带分水阀。含 200mm 固定花洒、1500mm 软管及手持花洒。',
+    specs:[['Bar Length','900mm'],['Outlets','2'],['Head Ø','200mm']],
+    finishes:['Chrome','Matte Black'] },
+  { id:'p08', cat:'shower', coll:'LUXE', num:'L-TS01', name:'Thermostatic System', name_zh:'恒温淋浴系统', type:'Concealed 2-Outlet', type_zh:'暗装双出口',
+    desc:'2-outlet concealed thermostatic trim in PVD Brushed Gold. ±1°C precision. Expandable to 4 outlets.',
+    desc_zh:'PVD 拉丝金暗装双出口恒温控制面板，精度 ±1°C，可扩展至四出口。',
+    specs:[['Outlets','2 → 4'],['Temp Range','25–65°C'],['Pressure','0.5–5 bar']],
+    finishes:['Brushed Gold','Rose Gold'] },
+  { id:'p09', cat:'shower', coll:'MINIMAL', num:'MN-CH01', name:'Ceiling Rain Head', name_zh:'吊顶顶喷', type:'Ceiling-Mounted', type_zh:'吊顶式',
+    desc:'250×250mm square ceiling rain head in brushed stainless. 96-nozzle uniform coverage pattern.',
+    desc_zh:'250×250mm 方形拉丝不锈钢吊顶顶喷。96 个喷嘴，均匀出水。',
+    specs:[['Size','250×250mm'],['Nozzles','96'],['Flow Rate','16 L/min']],
+    finishes:['Brushed Nickel','Polished Steel'] },
+  { id:'p10', cat:'shower', coll:'CLASSIC', num:'CL-RR01', name:'Riser Rail Set', name_zh:'升降杆套装', type:'Exposed Riser', type_zh:'明装升降杆',
+    desc:'600mm chrome riser rail with adjustable bracket, anti-kink hose, and 120mm fixed overhead arm.',
+    desc_zh:'600mm 铬色升降杆，含可调节支架、防折软管及 120mm 固定顶臂。',
+    specs:[['Rail Height','600mm'],['Hose Length','1500mm'],['Head Ø','120mm']],
+    finishes:['Chrome'] },
+  { id:'p11', cat:'shower', coll:'SPA', num:'SP-RH01', name:'Rain Head 400mm', name_zh:'400mm顶喷头', type:'Overhead Fixed', type_zh:'固定顶喷',
+    desc:'400×400mm overhead rain head in Matte Black 316 stainless. PVD anti-limescale silicon nozzles.',
+    desc_zh:'400×400mm 哑黑 316 不锈钢顶喷。PVD 防水垢硅胶喷嘴。',
+    specs:[['Size','400×400mm'],['Nozzles','180'],['Flow Rate','28 L/min']],
+    finishes:['Matte Black','Gunmetal'] },
+  { id:'p12', cat:'shower', coll:'ELITE', num:'EL-DT01', name:'Digital Thermostatic', name_zh:'数字恒温控制器', type:'Digital 3-Outlet', type_zh:'数字三出口',
+    desc:'3-outlet digital thermostatic controller in Gunmetal Grey. ±0.5°C precision, Wi-Fi + BLE app control.',
+    desc_zh:'枪灰色数字三出口恒温控制器，精度 ±0.5°C，支持 Wi-Fi 及蓝牙 App 控制。',
+    specs:[['Outlets','3'],['Temp Precision','±0.5°C'],['Connectivity','Wi-Fi / BLE']],
+    finishes:['Gunmetal Grey','Brushed Bronze'] },
+  { id:'p13', cat:'shower', coll:'LUXE', num:'L-BJ01', name:'Body Jet Panel', name_zh:'体喷面板', type:'In-Wall 6-Jet', type_zh:'嵌墙六喷',
+    desc:'6 adjustable multi-directional body jets in PVD Brushed Gold. 600mm panel, 1–5 bar operating range.',
+    desc_zh:'PVD 拉丝金 6 个可调节多向体喷。600mm 面板，适用水压 1–5 bar。',
+    specs:[['Jets','6 Adjustable'],['Panel Height','600mm'],['Pressure','1–5 bar']],
+    finishes:['Brushed Gold','Rose Gold'] },
+  { id:'p14', cat:'shower', coll:'SPA', num:'SP-HH01', name:'Handset & Hose', name_zh:'手持花洒套装', type:'Anti-Calc 3-Mode', type_zh:'防水垢三档',
+    desc:'Anti-calc handset with 1800mm stainless braided hose. Rain, massage, and jet spray modes.',
+    desc_zh:'防水垢手持花洒，配 1800mm 不锈钢编织软管。雨淋、按摩、喷射三档模式。',
+    specs:[['Spray Modes','3'],['Hose Length','1800mm'],['Anti-Calc','Silicone']],
+    finishes:['Matte Black','Gunmetal'] },
+  { id:'p15', cat:'shower', coll:'MODERN', num:'M-FH01', name:'Fixed Head', name_zh:'固定花洒', type:'Wall-Mounted', type_zh:'壁挂式',
+    desc:'200mm round fixed shower head with 60° adjustable arm. Easy-clean rubber nozzles.',
+    desc_zh:'200mm 圆形固定花洒，带 60° 可调节臂。易清洁橡胶喷嘴。',
+    specs:[['Head Ø','200mm'],['Arm Length','300mm'],['Nozzles','60']],
+    finishes:['Chrome','Matte Black'] },
+  { id:'p16', cat:'shower', coll:'ELITE', num:'EL-CH01', name:'Ceiling Head 300mm', name_zh:'300mm吊顶花洒', type:'Ceiling-Mounted', type_zh:'吊顶式',
+    desc:'Square 300×300mm solid brass ceiling head in Gunmetal Grey. 144 nozzles, rainfall simulation mode.',
+    desc_zh:'300×300mm 方形全铜吊顶花洒，枪灰色饰面。144 个喷嘴，降雨模拟模式。',
+    specs:[['Size','300×300mm'],['Nozzles','144'],['Flow Rate','22 L/min']],
+    finishes:['Gunmetal Grey','Brushed Bronze'] },
+];
+
+const PRODUCT_SVGS = {
+  bath: `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><line x1="60" y1="20" x2="60" y2="80"/><path d="M60 20 Q60 8 72 8 L95 8 Q108 8 108 22 L108 48"/><circle cx="108" cy="54" r="8"/><line x1="30" y1="80" x2="90" y2="80"/><rect x="46" y="80" width="28" height="18" rx="2"/></svg>`,
+  shower: `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><line x1="60" y1="10" x2="60" y2="55"/><path d="M60 10 Q60 2 68 2 L95 2 Q104 2 104 12 L104 36"/><ellipse cx="60" cy="65" rx="28" ry="9"/><line x1="44" y1="78" x2="42" y2="90"/><line x1="52" y1="78" x2="51" y2="92"/><line x1="60" y1="78" x2="60" y2="93"/><line x1="68" y1="78" x2="69" y2="92"/><line x1="76" y1="78" x2="78" y2="90"/></svg>`,
+  rain: `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="28" width="84" height="28" rx="3"/><line x1="60" y1="4" x2="60" y2="28"/><line x1="30" y1="60" x2="28" y2="76"/><line x1="42" y1="60" x2="41" y2="78"/><line x1="54" y1="60" x2="54" y2="80"/><line x1="66" y1="60" x2="66" y2="80"/><line x1="78" y1="60" x2="79" y2="78"/><line x1="90" y1="60" x2="92" y2="76"/></svg>`,
+  bar: `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" y1="60" x2="110" y2="60"/><circle cx="35" cy="60" r="10"/><circle cx="35" cy="60" r="4"/><circle cx="75" cy="60" r="10"/><circle cx="75" cy="60" r="4"/><line x1="10" y1="60" x2="10" y2="100"/><line x1="110" y1="60" x2="110" y2="100"/></svg>`,
+  freestanding: `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><line x1="60" y1="10" x2="60" y2="100"/><path d="M60 10 Q60 2 52 2 L32 2 Q18 2 18 16 L18 46"/><circle cx="18" cy="52" r="8"/><line x1="42" y1="100" x2="78" y2="100"/></svg>`,
+  handset: `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="60" cy="36" rx="18" ry="24"/><line x1="60" y1="60" x2="60" y2="95"/><line x1="48" y1="95" x2="72" y2="95"/><line x1="50" y1="30" x2="50" y2="42"/><line x1="60" y1="28" x2="60" y2="44"/><line x1="70" y1="30" x2="70" y2="42"/></svg>`,
+  digital: `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="30" width="80" height="50" rx="4"/><rect x="28" y="38" width="44" height="28" rx="2"/><circle cx="84" cy="52" r="8"/><circle cx="84" cy="52" r="3"/><line x1="10" y1="80" x2="20" y2="80"/><line x1="100" y1="80" x2="110" y2="80"/></svg>`,
+};
+
+function getProductSVG(p) {
+  if (p.id === 'p09' || p.id === 'p11' || p.id === 'p16') return PRODUCT_SVGS.rain;
+  if (p.id === 'p07' || p.id === 'p08') return PRODUCT_SVGS.bar;
+  if (p.id === 'p14' || p.id === 'p15') return PRODUCT_SVGS.handset;
+  if (p.id === 'p12') return PRODUCT_SVGS.digital;
+  if (p.id === 'p13') return PRODUCT_SVGS.bar;
+  if (p.id === 'p10') return PRODUCT_SVGS.bar;
+  if (p.cat === 'shower') return PRODUCT_SVGS.shower;
+  if (p.id === 'p02' || p.id === 'p06') return PRODUCT_SVGS.freestanding;
+  return PRODUCT_SVGS.bath;
+}
+
+const PRODUCT_IMAGES = {
+  p01: 'catalog pictures/MODERN Bath Filler.webp',
+  p02: 'catalog pictures/LUXE Freestanding Filler.webp',
+  p03: 'catalog pictures/MINIMAL Bath Tap.webp',
+  p04: 'catalog pictures/CLASSIC Bath Pillar Taps.webp',
+  p05: 'catalog pictures/SPA Bath Filler.webp',
+  p06: 'catalog pictures/ELITE Freestanding Filler.webp',
+  p07: 'catalog pictures/MODERN Shower Bar Set.webp',
+  p08: 'catalog pictures/LUXE Thermostatic System.webp',
+  p09: 'catalog pictures/MINIMAL Ceiling Rain Head.webp',
+  p10: 'catalog pictures/CLASSIC Riser Rail Set.webp',
+  p11: 'catalog pictures/SPA Rain Head 400mm.webp',
+  p12: 'catalog pictures/ELITE Digital Thermostatic.webp',
+  p13: 'catalog pictures/LUXE Body Jet Panel.webp',
+  p14: 'catalog pictures/SPA Handset & Hose.webp',
+  p15: 'catalog pictures/MODERN Fixed Head.webp',
+  p16: 'catalog pictures/ELITE Ceiling HeadMain.webp',
+};
+
+const PRODUCT_IMAGES_HOVER = {};
+Object.keys(PRODUCT_IMAGES).forEach(k => {
+  PRODUCT_IMAGES_HOVER[k] = PRODUCT_IMAGES[k].replace('catalog pictures/', 'catalog pictures 2/').replace('.png', '.webp');
+});
+
+const COLL_BG = {
+  MODERN:  'radial-gradient(ellipse at 50% 40%, rgba(160,165,172,.07) 0%, transparent 70%)',
+  LUXE:    'radial-gradient(ellipse at 50% 40%, rgba(180,155,80,.07) 0%, transparent 70%)',
+  MINIMAL: 'radial-gradient(ellipse at 50% 40%, rgba(196,147,74,.07) 0%, transparent 70%)',
+  CLASSIC: 'radial-gradient(ellipse at 50% 40%, rgba(180,178,175,.06) 0%, transparent 70%)',
+  SPA:     'radial-gradient(ellipse at 50% 40%, rgba(40,50,58,.4) 0%, transparent 70%)',
+  ELITE:   'radial-gradient(ellipse at 50% 40%, rgba(90,95,100,.1) 0%, transparent 70%)',
+};
+
+/* ── BUILD CATALOG ── */
+function buildCatalog(filter='all') {
+  const grid = document.getElementById('catGrid');
+  if (!grid) return;
+  const items = filter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === filter);
+  const zh = currentLang === 'zh';
+  if (!items.length) {
+    grid.innerHTML = `<div class="cat-empty">${zh ? '暂无产品。' : 'No products found.'}</div>`;
+    return;
+  }
+  const seriesLabel = zh ? '系列' : 'Series';
+  const ctaLabel    = zh ? '查看详情 →' : 'Details →';
+  grid.innerHTML = items.map(p => `
+    <div class="cat-card rv" data-cat="${p.cat}">
+      <div class="cat-card-visual" style="background:${PRODUCT_IMAGES[p.id] ? 'var(--black2)' : COLL_BG[p.coll]}">
+        ${PRODUCT_IMAGES[p.id] ? `<img src="${PRODUCT_IMAGES[p.id]}" alt="${p.name}" loading="lazy" class="cat-img-base"><img src="${PRODUCT_IMAGES_HOVER[p.id]}" alt="" loading="lazy" class="cat-img-hover">` : getProductSVG(p)}
+        <span class="cat-badge">${p.cat.toUpperCase()}</span>
+      </div>
+      <div class="cat-card-body">
+        <div class="cat-card-coll">${p.coll} ${seriesLabel}</div>
+        <div class="cat-card-num">${p.num}</div>
+        <div class="cat-card-name">${zh && p.name_zh ? p.name_zh : p.name}</div>
+        <div class="cat-card-type">${zh && p.type_zh ? p.type_zh : p.type}</div>
+        <div class="cat-card-desc">${zh && p.desc_zh ? p.desc_zh : p.desc}</div>
+        <div class="cat-card-specs">
+          ${p.specs.map(([k,v]) => `<div class="cat-spec-row"><span class="cat-spec-k">${(zh && SPEC_KEY_ZH[k]) ? SPEC_KEY_ZH[k] : k}</span><span class="cat-spec-v">${v}</span></div>`).join('')}
+        </div>
+        <div class="cat-card-finishes">
+          ${p.finishes.map(f => `<span class="cat-finish">${(zh && FINISH_ZH[f]) ? FINISH_ZH[f] : f}</span>`).join('')}
+        </div>
+        <button class="cat-card-cta" onclick="openProdModal('${p.id}')">${ctaLabel}</button>
+      </div>
+    </div>
+  `).join('');
+  setupReveal();
+}
+
+/* ── PRODUCT MODAL ── */
+function openProdModal(id) {
+  var p = PRODUCTS.find(function(x){ return x.id === id; });
+  if (!p) return;
+  var zh = currentLang === 'zh';
+
+  var imgSrc = PRODUCT_IMAGES[id] || '';
+  var imgEl   = document.getElementById('pmImg');
+  var noImgEl = document.getElementById('pmNoImg');
+  if (imgSrc) {
+    imgEl.src = imgSrc;
+    imgEl.alt = zh && p.name_zh ? p.name_zh : p.name;
+    imgEl.style.display = '';
+    noImgEl.style.display = 'none';
+  } else {
+    imgEl.style.display = 'none';
+    noImgEl.style.display = '';
+  }
+
+  document.getElementById('pmColl').textContent = p.coll + ' ' + (zh ? '系列' : 'Series');
+  document.getElementById('pmNum').textContent   = p.num;
+  document.getElementById('pmName').textContent  = (zh && p.name_zh) ? p.name_zh : p.name;
+  document.getElementById('pmType').textContent  = (zh && p.type_zh) ? p.type_zh : p.type;
+  document.getElementById('pmDesc').textContent  = (zh && p.desc_zh) ? p.desc_zh : p.desc;
+
+  document.getElementById('pmSpecs').innerHTML = p.specs.map(function(s){
+    var key = (zh && SPEC_KEY_ZH[s[0]]) ? SPEC_KEY_ZH[s[0]] : s[0];
+    return '<div class="pm-spec-row"><span class="pm-spec-k">'+key+'</span><span class="pm-spec-v">'+s[1]+'</span></div>';
+  }).join('');
+
+  document.getElementById('pmFinishes').innerHTML = p.finishes.map(function(f){
+    var label = (zh && FINISH_ZH[f]) ? FINISH_ZH[f] : f;
+    return '<span class="pm-finish">'+label+'</span>';
+  }).join('');
+
+  var enquireLabel = zh ? '联系我们 →' : 'Contact →';
+  document.getElementById('pmEnquire').textContent = enquireLabel;
+
+  var modal = document.getElementById('prodModal');
+  modal.dataset.pid = id;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProdModal() {
+  document.getElementById('prodModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') closeProdModal();
+});
+
+/* ── CATALOG FILTERS ── */
+document.querySelectorAll('.cat-filter').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.cat-filter').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    buildCatalog(this.dataset.filter);
+  });
+});
+
+/* ── LANGUAGE SWITCH ── */
+function setLang(lang) {
+  currentLang = lang;
+  var btns = [document.getElementById('langBtn'), document.getElementById('mobLangBtn')];
+  btns.forEach(function(btn) {
+    if (!btn) return;
+    if (lang === 'zh') {
+      btn.textContent = 'EN';
+      btn.classList.add('zh-on');
+    } else {
+      btn.textContent = '中';
+      btn.classList.remove('zh-on');
+    }
+  });
+  /* swap all [data-en] / [data-zh] elements */
+  document.querySelectorAll('[data-en]').forEach(function(el) {
+    el.innerHTML = lang === 'zh' ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+  });
+  /* re-render dynamic sections */
+  var activeFilter = (document.querySelector('.cat-filter.active') || {}).dataset && document.querySelector('.cat-filter.active').dataset.filter || 'all';
+  buildCatalog(activeFilter);
+  /* update open modal language if any */
+  var modal = document.getElementById('prodModal');
+  if (modal && modal.classList.contains('open') && modal.dataset.pid) openProdModal(modal.dataset.pid);
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+
+[document.getElementById('langBtn'), document.getElementById('mobLangBtn')].forEach(function(btn) {
+  if (!btn) return;
+  btn.addEventListener('click', function() {
+    setLang(currentLang === 'en' ? 'zh' : 'en');
+  });
+});
+
+/* ── LOADER ── */
+window.addEventListener('load', () => {
+  buildCatalog('all');
+  setTimeout(() => document.getElementById('loader').classList.add('out'), 500);
+});
+
+/* ── NAV SCROLL DARKEN ── */
+(function(){
+  var nav = document.getElementById('topNav');
+  if (!nav) return;
+  function update(){
+    var hero = document.getElementById('hero');
+    var threshold = hero ? hero.offsetHeight * 0.75 : 300;
+    nav.classList.toggle('scrolled', window.scrollY > threshold);
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+})();
+
+/* ── SCROLL PROGRESS BAR ── */
+(function(){
+  var bar = document.getElementById('scrollProgress');
+  if (!bar) return;
+  function update(){
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+/* ── SCROLL SPY ── */
+(function(){
+  var navIds = ['hero','manifesto','profile','showcase','catalog','testimonials','news','contact','faq'];
+
+  function setActive(id){
+    navIds.forEach(function(sid){
+      var on = sid === id;
+      document.querySelectorAll('[data-section="'+sid+'"]').forEach(function(el){
+        el.classList.toggle('active', on);
+      });
+    });
+  }
+
+  function pickActive(){
+    var best = navIds[0];
+    var mid = window.innerHeight / 2;
+    navIds.forEach(function(id){
+      var sec = document.getElementById(id);
+      if(sec && sec.getBoundingClientRect().top <= mid) best = id;
+    });
+    return best;
+  }
+
+  var raf = null;
+  window.addEventListener('scroll', function(){
+    if(raf) return;
+    raf = requestAnimationFrame(function(){ setActive(pickActive()); raf = null; });
+  }, {passive:true});
+
+  setActive(pickActive());
+
+  document.querySelectorAll('#mob-nav a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = a.getAttribute('href').slice(1);
+      var sec = document.getElementById(id);
+      if(sec) sec.scrollIntoView({behavior:'smooth'});
+      if(navIds.indexOf(id) > -1) setActive(id);
+    });
+  });
+})();
+
+/* ── SCROLL REVEAL ── */
+function setupReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rv, .rv-r').forEach(el => obs.observe(el));
+}
+setupReveal();
+
+/* ── FAQ ACCORDION ── */
+function toggleFaq(el) {
+  var item = el.closest('.faq-item');
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+/* ── HERO SLIDESHOW ── */
+(function(){
+  var slides = document.querySelectorAll('#heroSlides .hero-slide');
+  var dots   = document.querySelectorAll('#heroDots .hero-dot');
+  var cur    = 0;
+  var n      = slides.length;
+  var timer;
+
+  function goTo(idx){
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (idx + n) % n;
+    var s = slides[cur];
+    /* lazy-load background on first approach */
+    if (!s.style.backgroundImage && s.dataset.bg) {
+      s.style.backgroundImage = "url('" + s.dataset.bg + "')";
+    }
+    s.classList.add('active');
+    /* restart Ken Burns by forcing reflow */
+    s.style.animation = 'none';
+    s.offsetWidth;
+    s.style.animation = '';
+    dots[cur].classList.add('active');
+  }
+
+  function preloadNext(idx) {
+    var nextSlide = slides[(idx + 1) % n];
+    if (nextSlide && !nextSlide.style.backgroundImage && nextSlide.dataset.bg) {
+      var img = new Image(); img.src = nextSlide.dataset.bg;
+    }
+  }
+
+  function next(){ goTo(cur + 1); preloadNext(cur); }
+
+  function start(){ timer = setInterval(next, 5000); }
+  function reset(){ clearInterval(timer); start(); }
+
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){
+      goTo(parseInt(d.dataset.idx));
+      reset();
+    });
+  });
+
+  start();
+})();
+
+/* ── ABOUT SLIDER (profile + materials) ── */
+(function(){
+  var abCur = 0;
+  var N = 2;
+  var track = document.getElementById('abTrack');
+  var tabs  = document.querySelectorAll('.ab-tab');
+  if (!track) return;
+  var timer;
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(function(){ window.abGo(abCur + 1); }, 7000);
+  }
+
+  var slides = track.querySelectorAll('.ab-slide');
+
+  function updateSlideClasses() {
+    slides.forEach(function(s, i){
+      s.classList.toggle('ab-active',   i === abCur);
+      s.classList.toggle('ab-inactive', i !== abCur);
+    });
+  }
+
+  window.abGo = function(idx) {
+    abCur = ((idx % N) + N) % N;
+    track.style.transform = 'translateX(-' + (abCur * 100) + '%)';
+    updateSlideClasses();
+    startTimer();
+  };
+
+  /* init classes */
+  updateSlideClasses();
+
+  document.getElementById('abPrev').addEventListener('click', function(){ window.abGo(abCur - 1); });
+  document.getElementById('abNext').addEventListener('click', function(){ window.abGo(abCur + 1); });
+
+  /* intercept nav links pointing to #materials */
+  document.querySelectorAll('a[href="#materials"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var sec = document.getElementById('profile');
+      if (!sec) return;
+      e.preventDefault();
+      sec.scrollIntoView({behavior:'smooth'});
+      setTimeout(function(){ window.abGo(1); }, 350);
+    });
+  });
+
+  /* touch swipe */
+  var startX = null;
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    if (startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) window.abGo(abCur + (dx < 0 ? 1 : -1));
+    startX = null;
+  });
+
+  startTimer();
+})();
+
+/* ── COLLECTION SHOWCASE SLIDER ── */
+(function(){
+  var track   = document.getElementById('shwTrack');
+  var dots    = document.querySelectorAll('#shwDots .shw-dot');
+  var counter = document.getElementById('shwCounter');
+  if (!track) return;
+  var cur = 0;
+  var n   = 3;
+
+  var videos = document.querySelectorAll('#shwTrack .shw-video');
+
+  function goTo(idx){
+    cur = (idx + n) % n;
+    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dots.forEach(function(d, i){ d.classList.toggle('active', i === cur); });
+    counter.textContent = String(cur + 1).padStart(2,'0') + ' / 0' + n;
+    /* play active slide video, pause others */
+    videos.forEach(function(v, i){
+      if (i === cur) { v.play(); }
+      else           { v.pause(); }
+    });
+  }
+
+  /* play first slide video on load */
+  if (videos[0]) videos[0].play();
+
+  document.getElementById('shwPrev').addEventListener('click', function(){ goTo(cur - 1); });
+  document.getElementById('shwNext').addEventListener('click', function(){ goTo(cur + 1); });
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){ goTo(parseInt(d.dataset.idx)); });
+  });
+
+  /* Keyboard arrows when showcase is in view */
+  document.addEventListener('keydown', function(e){
+    var sec = document.getElementById('showcase');
+    if (!sec) return;
+    var r = sec.getBoundingClientRect();
+    if (r.top > window.innerHeight || r.bottom < 0) return;
+    if (e.key === 'ArrowRight') goTo(cur + 1);
+    if (e.key === 'ArrowLeft')  goTo(cur - 1);
+  });
+
+  /* Touch / swipe */
+  var startX = null;
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend',   function(e){
+    if (startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) goTo(dx < 0 ? cur + 1 : cur - 1);
+    startX = null;
+  });
+})();
+
+/* ── WECHAT QR MODAL ── */
+function openWcModal(){
+  var m = document.getElementById('wcModal');
+  if (!m) return;
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeWcModal(){
+  var m = document.getElementById('wcModal');
+  if (!m) return;
+  m.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') closeWcModal();
+});
+</script>
+</body>
+</html>

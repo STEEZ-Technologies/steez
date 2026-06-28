@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bath Demo — Spec Table Components</title>
+</head>
+<body>
+
+<!--
+=======================================================
+  BLOCK A: CSS
+=======================================================
+-->
+<style>
+/* ─── COLLECTION SPEC TABLE ─── */
+.coll-spec-table {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0;
+  background: rgba(255,255,255,0.015);
+  margin: 16px 0 20px;
+}
+
+.coll-spec-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.coll-spec-row:last-child {
+  border-bottom: none;
+}
+
+.coll-spec-label {
+  font-family: var(--font-b);
+  color: var(--white3);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.65rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.coll-spec-value {
+  font-family: var(--font-h);
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  text-align: right;
+}
+</style>
+
+
+<!--
+=======================================================
+  BLOCK B: HTML TEMPLATE — MODERN (full example)
+=======================================================
+-->
+
+<!-- MODERN -->
+<div class="coll-spec-table">
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Material</span>
+    <span class="coll-spec-value">Solid Brass</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Finish</span>
+    <span class="coll-spec-value">Chrome / Black</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Cartridge</span>
+    <span class="coll-spec-value">Ceramic Disc</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Warranty</span>
+    <span class="coll-spec-value">10 Years</span>
+  </div>
+</div>
+
+
+<!--
+=======================================================
+  BLOCK C: COLLECTION SNIPPETS
+=======================================================
+-->
+
+<!-- MODERN -->
+<div class="coll-spec-table">
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Material</span>
+    <span class="coll-spec-value">Solid Brass</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Finish</span>
+    <span class="coll-spec-value">Chrome / Black</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Cartridge</span>
+    <span class="coll-spec-value">Ceramic Disc</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Warranty</span>
+    <span class="coll-spec-value">10 Years</span>
+  </div>
+</div>
+
+<!-- LUXE -->
+<div class="coll-spec-table">
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Material</span>
+    <span class="coll-spec-value">Solid Brass</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Finish</span>
+    <span class="coll-spec-value">PVD Brushed Gold</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Cartridge</span>
+    <span class="coll-spec-value">Ceramic Disc</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Warranty</span>
+    <span class="coll-spec-value">15 Years</span>
+  </div>
+</div>
+
+<!-- MINIMAL -->
+<div class="coll-spec-table">
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Material</span>
+    <span class="coll-spec-value">Stainless Steel 304</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Finish</span>
+    <span class="coll-spec-value">Brushed Nickel</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Cartridge</span>
+    <span class="coll-spec-value">Ceramic Disc</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Warranty</span>
+    <span class="coll-spec-value">10 Years</span>
+  </div>
+</div>
+
+<!-- CLASSIC -->
+<div class="coll-spec-table">
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Material</span>
+    <span class="coll-spec-value">Brass &amp; Zinc Alloy</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Finish</span>
+    <span class="coll-spec-value">Chrome</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Cartridge</span>
+    <span class="coll-spec-value">Ceramic Disc</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Warranty</span>
+    <span class="coll-spec-value">5 Years</span>
+  </div>
+</div>
+
+<!-- SPA -->
+<div class="coll-spec-table">
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Material</span>
+    <span class="coll-spec-value">Stainless Steel 316</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Finish</span>
+    <span class="coll-spec-value">Matte Black</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Cartridge</span>
+    <span class="coll-spec-value">Ceramic Disc</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Warranty</span>
+    <span class="coll-spec-value">15 Years</span>
+  </div>
+</div>
+
+<!-- ELITE -->
+<div class="coll-spec-table">
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Material</span>
+    <span class="coll-spec-value">Solid Brass</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Finish</span>
+    <span class="coll-spec-value">Gunmetal Grey</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Cartridge</span>
+    <span class="coll-spec-value">Ceramic Disc</span>
+  </div>
+  <div class="coll-spec-row">
+    <span class="coll-spec-label">Warranty</span>
+    <span class="coll-spec-value">15 Years</span>
+  </div>
+</div>
+
+</body>
+</html>
