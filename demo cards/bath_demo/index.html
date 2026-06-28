@@ -4,9 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>ATREO — Premium Sanitaryware Catalogue</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="pictures hero/Gemini_Generated_Image_qznptqznptqznptq.webp" fetchpriority="high">
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url('fonts/cormorant-italic-300.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/cormorant-italic-400.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-display:swap;src:url('fonts/cormorant-italic-600.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/cormorant-300.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/cormorant-400.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/cormorant-500.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/cormorant-600.ttf') format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/cormorant-700.ttf') format('truetype')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/jost-300.ttf') format('truetype')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/jost-400.ttf') format('truetype')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/jost-500.ttf') format('truetype')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/jost-600.ttf') format('truetype')}
+</style>
 <style>
 /* ── RESET & TOKENS ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -217,7 +229,7 @@ section{scroll-margin-top:72px}
 #manifesto{background:var(--black);overflow:hidden;color:var(--white);position:relative}
 .mf-parallax-bg{
   position:absolute;inset:0;
-  background:url('pictures hero/philosophy.png') center/cover no-repeat;
+  background:url('pictures hero/philosophy.webp') center/cover no-repeat;
   background-attachment:fixed;
   z-index:0;
 }
@@ -378,8 +390,18 @@ section{scroll-margin-top:72px}
   color:rgba(243,233,216,.65);letter-spacing:.08em;
 }
 @media(max-width:768px){
-  .shw-slide{grid-template-columns:1fr;padding:80px clamp(20px,5vw,40px) 80px}
-  .shw-visual{height:220px}
+  .shw-slide{
+    grid-template-columns:1fr;
+    padding:clamp(60px,7vw,70px) clamp(20px,5vw,40px) clamp(68px,8vw,80px);
+    gap:10px;
+    align-items:start;
+    overflow:hidden;
+  }
+  .shw-desc{
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+    overflow:hidden;margin-bottom:12px;
+  }
+  .shw-visual{height:clamp(150px,24vw,190px)}
   .shw-ghost{font-size:clamp(100px,28vw,160px)}
 }
 
@@ -584,7 +606,7 @@ section{scroll-margin-top:72px}
 }
 #testimonials::before{
   content:'';position:absolute;inset:0;z-index:0;
-  background:url('pictures hero/Testimonials picture.png') center/cover no-repeat;
+  background:url('pictures hero/Testimonials picture.webp') center/cover no-repeat;
   opacity:.38;
   transform:scale(1.03);
 }
@@ -821,6 +843,36 @@ section{scroll-margin-top:72px}
 .iph-icon-ig{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)}
 .iph-icon-fb{background:linear-gradient(135deg,#2d88ff 0%,#0866ff 100%)}
 .iph-icon-xhs{background:linear-gradient(135deg,#ff5c6e 0%,#FF2442 100%)}
+.iph-icon-wc{background:linear-gradient(135deg,#2DC100 0%,#07C160 100%)}
+
+/* ── WECHAT QR MODAL ── */
+.wc-overlay{
+  position:fixed;inset:0;z-index:700;
+  background:rgba(0,0,0,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;
+}
+.wc-overlay.open{opacity:1;visibility:visible}
+.wc-box{
+  background:#fff;border-radius:24px;padding:32px 28px 28px;
+  text-align:center;position:relative;max-width:320px;width:100%;
+  transform:translateY(16px);transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+.wc-overlay.open .wc-box{transform:translateY(0)}
+.wc-close{
+  position:absolute;top:14px;right:16px;
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(0,0,0,.08);border:none;cursor:pointer;
+  font-size:16px;line-height:1;color:rgba(0,0,0,.55);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.wc-close:hover{background:rgba(0,0,0,.15)}
+.wc-logo{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:18px}
+.wc-logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#2DC100,#07C160);display:flex;align-items:center;justify-content:center}
+.wc-logo-name{font-family:var(--font-h);font-size:16px;font-weight:600;color:#1a1614}
+.wc-qr-img{width:220px;height:220px;object-fit:contain;border-radius:12px;display:block;margin:0 auto}
+.wc-sub{font-family:var(--font-b);font-size:12px;color:rgba(26,22,20,.55);margin-top:16px;line-height:1.6}
 .iph-link-text{flex:1;min-width:0}
 .iph-link-name{font-family:var(--font-h);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#171410;line-height:1.2}
 .iph-link-handle{font-family:var(--font-b);font-size:9px;color:rgba(23,25,27,.42);margin-top:1.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -1062,7 +1114,6 @@ section{scroll-margin-top:72px}
       <a href="#hero" data-section="hero" data-en="Home" data-zh="首页">Home</a>
       <a href="#manifesto" data-section="manifesto" data-en="About" data-zh="品牌理念">About</a>
       <a href="#profile" data-section="profile" data-en="Profile" data-zh="公司简介">Profile</a>
-      <a href="#materials" data-section="materials" data-en="Craft" data-zh="工艺材质">Craft</a>
       <a href="#showcase" data-section="showcase" data-en="Collections" data-zh="产品系列">Collections</a>
       <a href="#catalog" data-section="catalog" data-en="Catalog" data-zh="产品目录">Catalog</a>
       <a href="#testimonials" data-section="testimonials" data-en="Testimonials" data-zh="客户心声">Testimonials</a>
@@ -1095,10 +1146,6 @@ section{scroll-margin-top:72px}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="13" y2="11"/></svg>
       <span>Catalog</span>
     </a>
-    <a class="mob-nav-item" href="#materials" data-section="materials">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-7 8-7 13a7 7 0 0014 0c0-5-7-13-7-13z"/></svg>
-      <span>Craft</span>
-    </a>
     <a class="mob-nav-item" href="#contact" data-section="contact">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 8l10 7 10-7"/></svg>
       <span>Contact</span>
@@ -1109,11 +1156,11 @@ section{scroll-margin-top:72px}
 <!-- HERO -->
 <section id="hero">
   <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide active" style="background-image:url('pictures hero/Gemini_Generated_Image_qznptqznptqznptq.png')"></div>
-    <div class="hero-slide" style="background-image:url('pictures hero/Gemini_Generated_Image_fbcqncfbcqncfbcq.png')"></div>
-    <div class="hero-slide" style="background-image:url('pictures hero/Gemini_Generated_Image_d4gthid4gthid4gt.png')"></div>
-    <div class="hero-slide" style="background-image:url('pictures hero/Gemini_Generated_Image_e2q2m0e2q2m0e2q2.png')"></div>
-    <div class="hero-slide" style="background-image:url('pictures hero/Gemini_Generated_Image_jlugr5jlugr5jlug.png')"></div>
+    <div class="hero-slide active" style="background-image:url('pictures hero/Gemini_Generated_Image_qznptqznptqznptq.webp')"></div>
+    <div class="hero-slide" data-bg="pictures hero/Gemini_Generated_Image_fbcqncfbcqncfbcq.webp"></div>
+    <div class="hero-slide" data-bg="pictures hero/Gemini_Generated_Image_d4gthid4gthid4gt.webp"></div>
+    <div class="hero-slide" data-bg="pictures hero/Gemini_Generated_Image_e2q2m0e2q2m0e2q2.webp"></div>
+    <div class="hero-slide" data-bg="pictures hero/Gemini_Generated_Image_jlugr5jlugr5jlug.webp"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -1187,7 +1234,7 @@ section{scroll-margin-top:72px}
             </div>
           </div>
           <div class="pf-visual rv-r">
-            <img src="pictures hero/Gemini_Generated_Image_jlugr5jlugr5jlug.png" alt="ATREO showroom" loading="lazy">
+            <img src="pictures hero/Gemini_Generated_Image_jlugr5jlugr5jlug.webp" alt="ATREO showroom" loading="lazy">
             <span class="pf-tag" data-en="ATREO Flagship Showroom · Wenzhou, China" data-zh="ATREO 旗舰展厅 · 中国温州">ATREO Flagship Showroom · Wenzhou, China</span>
           </div>
         </div>
@@ -1234,7 +1281,7 @@ section{scroll-margin-top:72px}
             </div>
           </div>
           <div class="mat-visual rv-r">
-            <img src="pictures hero/material and craft.png" alt="ATREO material and craft studio" loading="lazy">
+            <img src="pictures hero/material and craft.webp" alt="ATREO material and craft studio" loading="lazy">
             <div class="mat-tag" data-en="Material &amp; Craft Studio · ATREO R&amp;D" data-zh="材料与工艺工作室 · ATREO 研发中心">Material &amp; Craft Studio · ATREO R&amp;D</div>
           </div>
         </div>
@@ -1260,9 +1307,9 @@ section{scroll-margin-top:72px}
     <div class="mat-eyebrow rv" data-en="Flagship Pieces" data-zh="旗舰之作">Flagship Pieces</div>
     <h3 class="mat-flagship-title rv" data-en="Our finest work." data-zh="登峰之作。">Our finest work.</h3>
     <div class="mat-flagship-grid rv">
-      <a class="mat-flagship-card" href="#contact">
+      <a class="mat-flagship-card" href="#" onclick="event.preventDefault();openProdModal('p06')">
         <div class="mat-flagship-img">
-          <img src="catalog pictures/ELITE Freestanding Filler.png" alt="ELITE Freestanding Filler" loading="lazy">
+          <img src="catalog pictures/ELITE Freestanding Filler.webp" alt="ELITE Freestanding Filler" loading="lazy">
           <span class="mat-flagship-badge" data-en="Most Premium" data-zh="顶级精品">Most Premium</span>
         </div>
         <div class="mat-flagship-body">
@@ -1270,9 +1317,9 @@ section{scroll-margin-top:72px}
           <div class="mat-flagship-desc" data-en="Solid brass 1200mm floor-standing filler in Gunmetal Grey PVD. Integrated volume and temperature control." data-zh="全铜 1200mm 落地式注水龙头，枪灰色 PVD 饰面。集成流量及温度控制。">Solid brass 1200mm floor-standing filler in Gunmetal Grey PVD. Integrated volume and temperature control.</div>
         </div>
       </a>
-      <a class="mat-flagship-card" href="#contact">
+      <a class="mat-flagship-card" href="#" onclick="event.preventDefault();openProdModal('p12')">
         <div class="mat-flagship-img">
-          <img src="catalog pictures/ELITE Digital Thermostatic.png" alt="ELITE Digital Thermostatic" loading="lazy">
+          <img src="catalog pictures/ELITE Digital Thermostatic.webp" alt="ELITE Digital Thermostatic" loading="lazy">
           <span class="mat-flagship-badge" data-en="Most Premium" data-zh="顶级精品">Most Premium</span>
         </div>
         <div class="mat-flagship-body">
@@ -1461,13 +1508,13 @@ section{scroll-margin-top:72px}
     <!-- Centred 3-photo strip -->
     <div class="nw-photo-strip rv">
       <div class="nw-photo-col">
-        <img src="tumbnails photo/ATREO Unveils ELITE Digital Series.png" alt="ATREO ELITE Digital Series" loading="lazy">
+        <img src="tumbnails photo/ATREO Unveils ELITE Digital Series.webp" alt="ATREO ELITE Digital Series" loading="lazy">
       </div>
       <div class="nw-photo-col">
-        <img src="tumbnails photo/ISO 9001-2015 Recertification Complete.png" alt="ISO 9001 Recertification" loading="lazy">
+        <img src="tumbnails photo/ISO 9001-2015 Recertification Complete.webp" alt="ISO 9001 Recertification" loading="lazy">
       </div>
       <div class="nw-photo-col">
-        <img src="tumbnails photo/Wenzhou Facility Completes Phase II Expansion.png" alt="Wenzhou Facility Expansion" loading="lazy">
+        <img src="tumbnails photo/Wenzhou Facility Completes Phase II Expansion.webp" alt="Wenzhou Facility Expansion" loading="lazy">
       </div>
     </div>
 
@@ -1541,16 +1588,15 @@ section{scroll-margin-top:72px}
                 <div class="iph-lbl" data-en="Follow Us" data-zh="关注我们">Follow Us</div>
               </div>
               <div class="iph-divider"></div>
-              <div class="iph-link iph-link-wechat">
-                <div class="iph-wc-qr" id="atWcQr">
-                  <div class="iph-wc-qr-ph">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.4"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="5" y="5" width="2" height="2" fill="#aaa" stroke="none"/><rect x="17" y="5" width="2" height="2" fill="#aaa" stroke="none"/><rect x="5" y="17" width="2" height="2" fill="#aaa" stroke="none"/><rect x="14" y="14" width="8" height="8" rx="1"/><rect x="17" y="17" width="2" height="2" fill="#aaa" stroke="none"/></svg>
-                  </div>
+              <div class="iph-link iph-link-wechat" onclick="openWcModal()" style="cursor:pointer">
+                <div class="iph-icon iph-icon-wc">
+                  <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M9.5 2C5.08 2 1.5 5.13 1.5 9c0 2.09.93 3.97 2.42 5.28l-.92 2.72 3.05-1.29c.93.31 1.93.49 2.95.49.2 0 .4-.01.59-.02C9.42 15.43 9.25 14.72 9.25 14c0-3.59 3.25-6.5 7.25-6.5.17 0 .34 0 .5.01C16.01 4.6 13.05 2 9.5 2z"/><path d="M16.5 9C13.19 9 10.5 11.24 10.5 14c0 2.76 2.69 5 6 5 .86 0 1.67-.15 2.42-.41l2.58 1.09-.75-2.32C22.02 16.4 22.5 15.26 22.5 14c0-2.76-2.69-5-6-5z"/></svg>
                 </div>
                 <div class="iph-link-text">
                   <div class="iph-link-name" data-en="WeChat Business" data-zh="微信商务">WeChat Business</div>
-                  <div class="iph-link-handle" data-en="Scan to connect" data-zh="扫码添加">Scan to connect</div>
+                  <div class="iph-link-handle" data-en="Tap to view QR code" data-zh="点击查看二维码">Tap to view QR code</div>
                 </div>
+                <svg class="iph-chevron" viewBox="0 0 24 24" fill="none" stroke="#171410" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><polyline points="9 18 15 12 9 6"/></svg>
               </div>
               <a href="https://instagram.com/atreo" target="_blank" rel="noopener" class="iph-link">
                 <div class="iph-icon iph-icon-ig">
@@ -1692,6 +1738,19 @@ section{scroll-margin-top:72px}
     <div class="footer-powered">Built by steez.digital</div>
   </div>
 </footer>
+
+<!-- WECHAT QR MODAL -->
+<div id="wcModal" class="wc-overlay" onclick="if(event.target===this)closeWcModal()">
+  <div class="wc-box">
+    <button class="wc-close" onclick="closeWcModal()">&#x2715;</button>
+    <div class="wc-logo">
+      <div class="wc-logo-icon"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M9.5 2C5.08 2 1.5 5.13 1.5 9c0 2.09.93 3.97 2.42 5.28l-.92 2.72 3.05-1.29c.93.31 1.93.49 2.95.49.2 0 .4-.01.59-.02C9.42 15.43 9.25 14.72 9.25 14c0-3.59 3.25-6.5 7.25-6.5.17 0 .34 0 .5.01C16.01 4.6 13.05 2 9.5 2z"/><path d="M16.5 9C13.19 9 10.5 11.24 10.5 14c0 2.76 2.69 5 6 5 .86 0 1.67-.15 2.42-.41l2.58 1.09-.75-2.32C22.02 16.4 22.5 15.26 22.5 14c0-2.76-2.69-5-6-5z"/></svg></div>
+      <span class="wc-logo-name">WeChat Business</span>
+    </div>
+    <img src="WeChat_QR.webp" alt="ATREO WeChat QR Code" class="wc-qr-img">
+    <div class="wc-sub" data-en="Scan with WeChat to connect with our trade team" data-zh="用微信扫码联系我们的贸易团队">Scan with WeChat to connect with our trade team</div>
+  </div>
+</div>
 
 <!-- PRODUCT DETAIL MODAL -->
 <div id="prodModal" class="pm-overlay" onclick="if(event.target===this)closeProdModal()" role="dialog" aria-modal="true">
@@ -1865,27 +1924,27 @@ function getProductSVG(p) {
 }
 
 const PRODUCT_IMAGES = {
-  p01: 'catalog pictures/MODERN Bath Filler.png',
-  p02: 'catalog pictures/LUXE Freestanding Filler.png',
-  p03: 'catalog pictures/MINIMAL Bath Tap.png',
-  p04: 'catalog pictures/CLASSIC Bath Pillar Taps.png',
-  p05: 'catalog pictures/SPA Bath Filler.png',
-  p06: 'catalog pictures/ELITE Freestanding Filler.png',
-  p07: 'catalog pictures/MODERN Shower Bar Set.png',
-  p08: 'catalog pictures/LUXE Thermostatic System.png',
-  p09: 'catalog pictures/MINIMAL Ceiling Rain Head.png',
-  p10: 'catalog pictures/CLASSIC Riser Rail Set.png',
-  p11: 'catalog pictures/SPA Rain Head 400mm.png',
-  p12: 'catalog pictures/ELITE Digital Thermostatic.png',
-  p13: 'catalog pictures/LUXE Body Jet Panel.png',
-  p14: 'catalog pictures/SPA Handset & Hose.png',
-  p15: 'catalog pictures/MODERN Fixed Head.png',
-  p16: 'catalog pictures/ELITE Ceiling HeadMain.png',
+  p01: 'catalog pictures/MODERN Bath Filler.webp',
+  p02: 'catalog pictures/LUXE Freestanding Filler.webp',
+  p03: 'catalog pictures/MINIMAL Bath Tap.webp',
+  p04: 'catalog pictures/CLASSIC Bath Pillar Taps.webp',
+  p05: 'catalog pictures/SPA Bath Filler.webp',
+  p06: 'catalog pictures/ELITE Freestanding Filler.webp',
+  p07: 'catalog pictures/MODERN Shower Bar Set.webp',
+  p08: 'catalog pictures/LUXE Thermostatic System.webp',
+  p09: 'catalog pictures/MINIMAL Ceiling Rain Head.webp',
+  p10: 'catalog pictures/CLASSIC Riser Rail Set.webp',
+  p11: 'catalog pictures/SPA Rain Head 400mm.webp',
+  p12: 'catalog pictures/ELITE Digital Thermostatic.webp',
+  p13: 'catalog pictures/LUXE Body Jet Panel.webp',
+  p14: 'catalog pictures/SPA Handset & Hose.webp',
+  p15: 'catalog pictures/MODERN Fixed Head.webp',
+  p16: 'catalog pictures/ELITE Ceiling HeadMain.webp',
 };
 
 const PRODUCT_IMAGES_HOVER = {};
 Object.keys(PRODUCT_IMAGES).forEach(k => {
-  PRODUCT_IMAGES_HOVER[k] = PRODUCT_IMAGES[k].replace('catalog pictures/', 'catalog pictures 2/');
+  PRODUCT_IMAGES_HOVER[k] = PRODUCT_IMAGES[k].replace('catalog pictures/', 'catalog pictures 2/').replace('.png', '.webp');
 });
 
 const COLL_BG = {
@@ -2134,15 +2193,27 @@ function toggleFaq(el) {
     slides[cur].classList.remove('active');
     dots[cur].classList.remove('active');
     cur = (idx + n) % n;
-    slides[cur].classList.add('active');
+    var s = slides[cur];
+    /* lazy-load background on first approach */
+    if (!s.style.backgroundImage && s.dataset.bg) {
+      s.style.backgroundImage = "url('" + s.dataset.bg + "')";
+    }
+    s.classList.add('active');
     /* restart Ken Burns by forcing reflow */
-    slides[cur].style.animation = 'none';
-    slides[cur].offsetWidth;
-    slides[cur].style.animation = '';
+    s.style.animation = 'none';
+    s.offsetWidth;
+    s.style.animation = '';
     dots[cur].classList.add('active');
   }
 
-  function next(){ goTo(cur + 1); }
+  function preloadNext(idx) {
+    var nextSlide = slides[(idx + 1) % n];
+    if (nextSlide && !nextSlide.style.backgroundImage && nextSlide.dataset.bg) {
+      var img = new Image(); img.src = nextSlide.dataset.bg;
+    }
+  }
+
+  function next(){ goTo(cur + 1); preloadNext(cur); }
 
   function start(){ timer = setInterval(next, 5000); }
   function reset(){ clearInterval(timer); start(); }
@@ -2270,16 +2341,22 @@ function toggleFaq(el) {
   });
 })();
 
-/* ── WECHAT QR ── */
-(function(){
-  var box = document.getElementById('atWcQr');
-  if (!box) return;
-  var img = new Image();
-  img.onload = function(){ box.innerHTML = ''; box.appendChild(img); };
-  img.style.cssText = 'width:38px;height:38px;object-fit:contain';
-  img.src = 'wechat_qr.png';
-  img.alt = 'ATREO WeChat QR';
-})();
+/* ── WECHAT QR MODAL ── */
+function openWcModal(){
+  var m = document.getElementById('wcModal');
+  if (!m) return;
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeWcModal(){
+  var m = document.getElementById('wcModal');
+  if (!m) return;
+  m.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') closeWcModal();
+});
 </script>
 </body>
 </html>
