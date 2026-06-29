@@ -73,7 +73,7 @@ export default function PricingSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
           {packages.map((pkg: any, i: number) => (
-            <PackageCard key={i} pkg={pkg} />
+            <PackageCard key={i} pkg={pkg} index={i} />
           ))}
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function PricingSection() {
   );
 }
 
-function PackageCard({ pkg }: { pkg: any }) {
+function PackageCard({ pkg, index }: { pkg: any; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   const x = useMotionValue(0);
@@ -101,6 +101,10 @@ function PackageCard({ pkg }: { pkg: any }) {
   }
 
   const isFeatured = pkg.featured;
+  
+  let tag = "";
+  if (index === 0) tag = "Best for First-Time Exhibitors";
+  if (index === 2) tag = "Best for Established Brands";
 
   return (
     <motion.div
@@ -114,14 +118,13 @@ function PackageCard({ pkg }: { pkg: any }) {
         background: isFeatured ? "rgba(224,169,58,0.07)" : "var(--card-bg)",
         padding: "clamp(32px, 4vw, 48px)",
         position: "relative",
-        boxShadow: isFeatured ? "0 40px 100px -20px rgba(224, 169, 58, 0.25)" : "none",
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
         display: "flex",
         flexDirection: "column",
         gap: 32,
+        perspective: 1000,
+        transformStyle: "preserve-3d",
       }}
+      animate={{ rotateX, rotateY }}
     >
       {isFeatured && (
         <div 
@@ -146,6 +149,23 @@ function PackageCard({ pkg }: { pkg: any }) {
       )}
 
       <div style={{ transform: "translateZ(30px)" }}>
+        {tag && (
+          <div style={{ 
+            fontSize: "0.65rem", 
+            fontWeight: 700, 
+            textTransform: "uppercase", 
+            letterSpacing: "0.1em", 
+            color: "#E0A93A", 
+            marginBottom: 8,
+            border: "1px solid rgba(224,169,58,0.3)",
+            background: "rgba(224,169,58,0.1)",
+            padding: "4px 10px",
+            borderRadius: 6,
+            display: "inline-block"
+          }}>
+            {tag}
+          </div>
+        )}
         <div style={{ fontWeight: 800, fontSize: "1.5rem", letterSpacing: "-0.02em" }}>{pkg.name}</div>
         <p style={{ fontSize: "0.95rem", opacity: 0.6, marginTop: 8, lineHeight: 1.5, minHeight: 45 }}>
           {pkg.desc}
@@ -163,7 +183,7 @@ function PackageCard({ pkg }: { pkg: any }) {
 
       <div style={{ transform: "translateZ(40px)", marginTop: "auto" }}>
         <a
-          href="#contact"
+          href={`#contact?package=${index === 0 ? 'essential' : index === 1 ? 'growth' : 'active'}`}
           style={{
             display: "block",
             textAlign: "center",

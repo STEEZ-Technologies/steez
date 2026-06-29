@@ -1,68 +1,140 @@
 "use client";
 
+import { useIsMobile } from "@/lib/useIsMobile";
+
 export function BrowserMockup() {
+  const isMobile = useIsMobile();
+
   return (
-    <div style={{ position: "relative", width: "100%", maxWidth: "760px", margin: "0 auto" }}>
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          aspectRatio: "16 / 11",
-          background: "#0E0E0E",
-          borderRadius: 14,
-          border: "1px solid rgba(255,255,255,0.08)",
-          boxShadow:
-            "0 50px 100px -20px rgba(0,0,0,0.45), 0 30px 60px -30px rgba(0,0,0,0.5)",
-          overflow: "hidden",
-        }}
-      >
+    <div style={{ position: "relative", width: "100%", maxWidth: isMobile ? "320px" : "760px", margin: "0 auto", transition: "max-width 0.3s ease" }}>
+      {isMobile ? (
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-            padding: "10px 14px",
-            background: "#161616",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
-          }}
-        >
-          <span style={{ width: 11, height: 11, borderRadius: "50%", background: "#FF5F57" }} />
-          <span style={{ width: 11, height: 11, borderRadius: "50%", background: "#FEBC2E" }} />
-          <span style={{ width: 11, height: 11, borderRadius: "50%", background: "#28C840" }} />
-          <div
-            style={{
-              flex: 1,
-              marginLeft: 12,
-              padding: "5px 12px",
-              background: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.06)",
-              borderRadius: 8,
-              fontSize: 11,
-              color: "rgba(255,255,255,0.55)",
-              letterSpacing: "0.02em",
-              fontFamily:
-                "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
-            }}
-          >
-            steez.digital/jiangsu-aquatech
-          </div>
-        </div>
-
-        <iframe
-          srcDoc={SITE_HTML}
-          scrolling="no"
-          style={{
+            position: "relative",
             width: "100%",
-            height: "calc(100% - 38px)",
-            border: "none",
-            background: "#04342C",
-            display: "block",
-            pointerEvents: "none",
+            aspectRatio: "9 / 19",
+            background: "#000",
+            borderRadius: 40,
+            border: "8px solid #111",
+            boxShadow: "0 40px 80px -20px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.05)",
             overflow: "hidden",
           }}
-          title="Company Profile Showcase"
-        />
-      </div>
+        >
+          {/* Dynamic Island */}
+          <div
+            style={{
+              position: "absolute",
+              top: 12,
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: 100,
+              height: 28,
+              background: "#000",
+              borderRadius: 14,
+              zIndex: 10,
+              border: "1px solid rgba(255,255,255,0.05)"
+            }}
+          />
+          
+          <div
+            style={{
+              position: "absolute",
+              top: 60,
+              left: "50%",
+              transform: "translateX(-50%)",
+              background: "rgba(0,0,0,0.65)",
+              backdropFilter: "blur(8px)",
+              color: "#E0A93A",
+              padding: "6px 14px",
+              borderRadius: 99,
+              fontSize: "0.65rem",
+              fontWeight: 800,
+              letterSpacing: "0.1em",
+              zIndex: 20,
+              whiteSpace: "nowrap",
+              border: "1px solid rgba(224,169,58,0.3)",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.5)"
+            }}
+          >
+            INTERACTIVE LIVE DEMO
+          </div>
+
+          <iframe
+            srcDoc={SITE_HTML}
+            scrolling="no"
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              background: "#04342C",
+              display: "block",
+              pointerEvents: "none",
+            }}
+            title="Company Profile Showcase"
+          />
+        </div>
+      ) : (
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            aspectRatio: "16 / 11",
+            background: "#0E0E0E",
+            borderRadius: 14,
+            border: "1px solid rgba(255,255,255,0.08)",
+            boxShadow:
+              "0 50px 100px -20px rgba(0,0,0,0.45), 0 30px 60px -30px rgba(0,0,0,0.5)",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              padding: "10px 14px",
+              background: "#161616",
+              borderBottom: "1px solid rgba(255,255,255,0.06)",
+            }}
+          >
+            <span style={{ width: 11, height: 11, borderRadius: "50%", background: "#FF5F57" }} />
+            <span style={{ width: 11, height: 11, borderRadius: "50%", background: "#FEBC2E" }} />
+            <span style={{ width: 11, height: 11, borderRadius: "50%", background: "#28C840" }} />
+            <div
+              style={{
+                flex: 1,
+                marginLeft: 12,
+                padding: "5px 12px",
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.06)",
+                borderRadius: 8,
+                fontSize: 11,
+                color: "rgba(255,255,255,0.55)",
+                letterSpacing: "0.02em",
+                fontFamily:
+                  "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+              }}
+            >
+              steez.digital/jiangsu-aquatech
+            </div>
+          </div>
+
+          <iframe
+            srcDoc={SITE_HTML}
+            scrolling="no"
+            style={{
+              width: "100%",
+              height: "calc(100% - 38px)",
+              border: "none",
+              background: "#04342C",
+              display: "block",
+              pointerEvents: "none",
+              overflow: "hidden",
+            }}
+            title="Company Profile Showcase"
+          />
+        </div>
+      )}
 
       <div
         style={{

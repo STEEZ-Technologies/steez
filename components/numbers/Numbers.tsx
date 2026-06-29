@@ -32,7 +32,7 @@ export function Numbers() {
     >
       <div
         ref={ref}
-        className="grid grid-cols-2 md:grid-cols-4 w-full py-2"
+        className="flex flex-wrap justify-center md:flex-nowrap md:justify-between w-full py-2 gap-4 md:gap-0"
       >
         {STATS.map((s, i) => (
           <motion.div
@@ -40,9 +40,12 @@ export function Numbers() {
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col items-center text-center gap-1 border-r-0 md:border-r border-[var(--hairline)] last:border-r-0 py-2 md:py-0 px-2"
+            className="flex flex-col items-center text-center gap-1 py-4 px-4 md:py-0 md:px-2 bg-[var(--card-bg)] md:bg-transparent border border-[var(--hairline)] md:border-none md:border-r md:last:border-r-0 rounded-2xl md:rounded-none"
             style={{
+              flex: "1 1 calc(50% - 16px)",
+              minWidth: "140px",
               padding: "clamp(12px, 2vw, 24px) clamp(10px, 1.5vw, 20px)",
+              whiteSpace: "nowrap"
             }}
           >
             <div
