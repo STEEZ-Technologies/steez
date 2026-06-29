@@ -4,13 +4,12 @@ import { useRef, useState, useEffect } from "react";
 import { useScroll, useTransform, motion, useSpring, AnimatePresence } from "motion/react";
 import { InteractivePhone } from "./InteractivePhone";
 import { BrowserMockup } from "./BrowserMockup";
-import { SocialMockup } from "./SocialMockup";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { useHaptic } from "@/lib/useHaptic";
 import { useI18n } from "@/lib/i18n/useI18n";
 
-type ServiceKey = "catalogues" | "social" | "cards";
-const SERVICE_KEYS: ServiceKey[] = ["catalogues", "social", "cards"];
+type ServiceKey = "catalogues" | "cards";
+const SERVICE_KEYS: ServiceKey[] = ["catalogues", "cards"];
 
 export function Services() {
   const containerRef = useRef<HTMLElement>(null);
@@ -227,8 +226,7 @@ function ServiceTabs({ isMobile }: { isMobile: boolean }) {
               }}
             >
               {active === 0 && <BrowserMockup />}
-              {active === 1 && <SocialMockup />}
-              {active === 2 && <InteractivePhone />}
+              {active === 1 && <InteractivePhone />}
             </motion.div>
           </AnimatePresence>
         </div>
@@ -311,29 +309,26 @@ function ServiceTabs({ isMobile }: { isMobile: boolean }) {
 function BentoGrid() {
   const { dict } = useI18n();
   const items = SERVICE_KEYS.map((k) => dict.servicesItems[k]);
-  const mockups = [<BrowserMockup key="b" />, <SocialMockup key="s" />, <InteractivePhone key="p" />];
+  const mockups = [<BrowserMockup key="b" />, <InteractivePhone key="p" />];
 
   return (
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "1.45fr 1fr",
-        gridTemplateRows: "1fr 1fr",
+        gridTemplateColumns: "1fr 1fr",
         gap: "clamp(16px, 1.8vw, 28px)",
         width: "100%",
         maxWidth: 1280,
         margin: "0 auto",
-        minHeight: 720,
+        minHeight: 600,
       }}
     >
       <BentoCard
         service={items[0]}
         mockup={mockups[0]}
         featured
-        style={{ gridColumn: "1", gridRow: "span 2" }}
       />
       <BentoCard service={items[1]} mockup={mockups[1]} />
-      <BentoCard service={items[2]} mockup={mockups[2]} />
     </div>
   );
 }
@@ -439,7 +434,7 @@ function BentoCard({
 function HorizontalScroller() {
   const { dict } = useI18n();
   const items = SERVICE_KEYS.map((k) => dict.servicesItems[k]);
-  const mockups = [<BrowserMockup key="b" />, <SocialMockup key="s" />, <InteractivePhone key="p" />];
+  const mockups = [<BrowserMockup key="b" />, <InteractivePhone key="p" />];
   const scrollRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [active, setActive] = useState(0);
@@ -597,7 +592,7 @@ function HorizontalScroller() {
 function StickyScroll() {
   const { dict } = useI18n();
   const items = SERVICE_KEYS.map((k) => dict.servicesItems[k]);
-  const mockups = [<BrowserMockup key="b" />, <SocialMockup key="s" />, <InteractivePhone key="p" />];
+  const mockups = [<BrowserMockup key="b" />, <InteractivePhone key="p" />];
   const outerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 

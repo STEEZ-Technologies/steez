@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/shared/FadeIn";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { useI18n } from "@/lib/i18n/useI18n";
 import { useState, useEffect } from "react";
-import { QrPattern } from "@/components/booth/QrPattern";
+
 
 export function Contact() {
   const isMobile = useIsMobile();
@@ -203,28 +203,6 @@ export function Contact() {
               gap: "clamp(16px, 2vw, 24px)",
             }}
           >
-            {/* Map — square */}
-            <div
-              style={{
-                width: "100%",
-                aspectRatio: "1 / 1",
-                borderRadius: "var(--radius-cards)",
-                overflow: "hidden",
-                border: "1px solid var(--hairline)",
-                boxShadow: "0 20px 50px -20px rgba(0,0,0,0.12)",
-              }}
-            >
-              <iframe
-                src="https://maps.google.com/maps?q=Shangcheng+District+Hangzhou+Zhejiang+China&output=embed&z=15"
-                width="100%"
-                height="100%"
-                style={{ border: 0, display: "block" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="STEEZ office location"
-              />
-            </div>
 
             {/* QR code */}
             <div
@@ -279,10 +257,15 @@ export function Contact() {
                 boxShadow: "0 30px 60px -30px rgba(0,0,0,0.18)",
               }}
             >
-              <QrPattern
-                size={isMobile ? 200 : 240}
-                foreground="#04342C"
-                background="#FAF9F5"
+              <img 
+                src="/mockups/wechat-qr.png" 
+                alt="WeChat QR Code" 
+                style={{ 
+                  width: isMobile ? 200 : 240, 
+                  height: isMobile ? 200 : 240, 
+                  objectFit: "contain",
+                  borderRadius: 8
+                }} 
               />
             </div>
 
