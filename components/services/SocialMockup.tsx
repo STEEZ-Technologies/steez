@@ -49,27 +49,27 @@ export function SocialMockup() {
 
         <div style={{ height: "100%", display: "flex", flexDirection: "column", background: "#050505" }}>
           {/* Header */}
-          <div style={{ padding: "40px 16px 12px", borderBottom: "1px solid rgba(255,255,255,0.05)", display: "flex", alignItems: "center", justifyContent: "space-between", background: "#050505" }}>
-            <div style={{ fontWeight: 700, fontSize: "1.1rem", color: "#fff", letterSpacing: "0.02em" }}>STEEZ_Official</div>
-            <div style={{ display: "flex", gap: 16 }}>
-              <div style={{ width: 24, height: 24, border: "2px solid #fff", borderRadius: 4, opacity: 0.8 }} />
-              <div style={{ width: 24, height: 24, border: "2px solid #fff", borderRadius: 12, opacity: 0.8 }} />
+          <div style={{ padding: "36px 16px 12px", borderBottom: "1px solid rgba(255,255,255,0.05)", display: "flex", alignItems: "center", justifyContent: "space-between", background: "#050505" }}>
+            <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#fff", letterSpacing: "0.02em" }}>STEEZ_Official</div>
+            <div style={{ display: "flex", gap: 12 }}>
+              <div style={{ width: 20, height: 20, border: "2px solid #fff", borderRadius: 4, opacity: 0.8 }} />
+              <div style={{ width: 20, height: 20, border: "2px solid #fff", borderRadius: 10, opacity: 0.8 }} />
             </div>
           </div>
 
           {/* Profile Info */}
-          <div style={{ padding: "16px", display: "flex", alignItems: "center", gap: 20, background: "#050505" }}>
-            <div style={{ width: 72, height: 72, borderRadius: "50%", background: "linear-gradient(45deg, #E0A93A 0%, #D88E22 50%, #B87211 100%)", padding: 3 }}>
+          <div style={{ padding: "16px", display: "flex", alignItems: "center", gap: 12, background: "#050505" }}>
+            <div style={{ width: 64, height: 64, flexShrink: 0, borderRadius: "50%", background: "linear-gradient(45deg, #E0A93A 0%, #D88E22 50%, #B87211 100%)", padding: 3 }}>
               <div style={{ width: "100%", height: "100%", borderRadius: "50%", border: "2px solid #050505", background: "#E0A93A" }} />
             </div>
             <div style={{ flex: 1, display: "flex", justifyContent: "space-between", color: "#fff", textAlign: "center" }}>
-              <div><div style={{ fontWeight: 700 }}>142</div><div style={{ fontSize: "0.8rem", color: "#888" }}>Posts</div></div>
-              <div><div style={{ fontWeight: 700 }}>10.2K</div><div style={{ fontSize: "0.8rem", color: "#888" }}>Followers</div></div>
-              <div><div style={{ fontWeight: 700 }}>45</div><div style={{ fontSize: "0.8rem", color: "#888" }}>Following</div></div>
+              <div><div style={{ fontWeight: 700, fontSize: "0.9rem" }}>142</div><div style={{ fontSize: "0.7rem", color: "#888" }}>Posts</div></div>
+              <div><div style={{ fontWeight: 700, fontSize: "0.9rem" }}>10.2K</div><div style={{ fontSize: "0.7rem", color: "#888" }}>Followers</div></div>
+              <div><div style={{ fontWeight: 700, fontSize: "0.9rem" }}>45</div><div style={{ fontSize: "0.7rem", color: "#888" }}>Following</div></div>
             </div>
           </div>
 
-          <div style={{ padding: "0 16px 16px", color: "#e0e0e0", fontSize: "0.9rem", background: "#050505" }}>
+          <div style={{ padding: "0 16px 16px", color: "#e0e0e0", fontSize: "0.8rem", background: "#050505" }}>
             <div style={{ fontWeight: 600, color: "#fff" }}>STEEZ Exhibition Group</div>
             <div style={{ color: "#aaa", marginTop: 2 }}>Premium Digital Services 🌎</div>
             <a href="#" style={{ color: "#E0A93A", textDecoration: "none", fontWeight: 500, display: "block", marginTop: 4 }}>linktr.ee/steez</a>
