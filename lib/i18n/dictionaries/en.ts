@@ -48,7 +48,7 @@ export const en: Dict = {
     },
     pricing: {
       eyebrow: "05 — Packages",
-      title: "Pricing",
+      title: "Packages",
       sub: "One premium bundle. Flexible add-ons. Built for Chinese exporters going global.",
     },
     contact: {

@@ -48,7 +48,7 @@ export const zh: Dict = {
     },
     pricing: {
       eyebrow: "05 — 套餐",
-      title: "定价",
+      title: "套餐",
       sub: "一套全能包。灵活的增值服务。为走向全球的中国出口商而打造。",
     },
     contact: {

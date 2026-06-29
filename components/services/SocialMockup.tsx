@@ -1,35 +1,49 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Iphone } from "@/components/ui/iphone";
+
+const SCREEN_LEFT_PCT = (21.25 / 433) * 100;
+const SCREEN_TOP_PCT = (19.25 / 882) * 100;
+const SCREEN_WIDTH_PCT = (389.5 / 433) * 100;
+const SCREEN_HEIGHT_PCT = (843.5 / 882) * 100;
+const SCREEN_RADIUS_H_PCT = (55.75 / 389.5) * 100;
+const SCREEN_RADIUS_V_PCT = (55.75 / 843.5) * 100;
 
 export function SocialMockup() {
   return (
     <div style={{ position: "relative", width: "100%", maxWidth: "320px", margin: "0 auto" }}>
+      <Iphone
+        style={{
+          filter: "drop-shadow(0 50px 100px rgba(0,0,0,0.5)) drop-shadow(0 30px 60px rgba(0,0,0,0.5))",
+        }}
+      />
+
       <div
         style={{
-          position: "relative",
-          width: "100%",
-          aspectRatio: "9 / 19",
-          background: "#000",
-          borderRadius: 40,
-          border: "8px solid #111",
-          boxShadow: "0 40px 80px -20px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.05)",
+          position: "absolute",
+          left: `${SCREEN_LEFT_PCT}%`,
+          top: `${SCREEN_TOP_PCT}%`,
+          width: `${SCREEN_WIDTH_PCT}%`,
+          height: `${SCREEN_HEIGHT_PCT}%`,
+          borderRadius: `${SCREEN_RADIUS_H_PCT}% / ${SCREEN_RADIUS_V_PCT}%`,
           overflow: "hidden",
+          zIndex: 1,
         }}
       >
         {/* Dynamic Island */}
         <div
           style={{
             position: "absolute",
-            top: 12,
+            top: "1.6%",
             left: "50%",
             transform: "translateX(-50%)",
-            width: 100,
-            height: 28,
+            width: "32%",
+            aspectRatio: "10 / 3.2",
             background: "#000",
-            borderRadius: 14,
+            borderRadius: "999px",
             zIndex: 10,
-            border: "1px solid rgba(255,255,255,0.05)"
+            boxShadow: "inset 0 0 0 0.5px rgba(255,255,255,0.04)",
           }}
         />
 
