@@ -123,8 +123,9 @@ function PackageCard({ pkg, index }: { pkg: any; index: number }) {
         gap: 32,
         perspective: 1000,
         transformStyle: "preserve-3d",
+        rotateX,
+        rotateY,
       }}
-      animate={{ rotateX, rotateY }}
     >
       {isFeatured && (
         <div 
