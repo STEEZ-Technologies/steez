@@ -2,7 +2,7 @@ import type { Dict } from "../types";
 
 export const ru: Dict = {
   nav: {
-    pricing: "Цены",
+    pricing: "Пакеты",
     cards: "Карты",
     contact: "Контакт",
     top: "Вверх",
@@ -47,8 +47,8 @@ export const ru: Dict = {
       sub: "Два способа сделать STEEZ доступным на каждой выставке.",
     },
     pricing: {
-      eyebrow: "05 — Тарифы",
-      title: "Цены",
+      eyebrow: "05 — Пакеты",
+      title: "Пакеты",
       sub: "Один премиум-пакет. Гибкие дополнения. Создано для китайских экспортеров, выходящих на глобальный рынок.",
     },
     contact: {

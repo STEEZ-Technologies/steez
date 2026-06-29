@@ -2,7 +2,7 @@ import type { Dict } from "../types";
 
 export const en: Dict = {
   nav: {
-    pricing: "Pricing",
+    pricing: "Packages",
     cards: "Cards",
     contact: "Contact",
     top: "Top",

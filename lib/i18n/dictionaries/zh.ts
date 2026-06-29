@@ -2,7 +2,7 @@ import type { Dict } from "../types";
 
 export const zh: Dict = {
   nav: {
-    pricing: "定价",
+    pricing: "套餐",
     cards: "名片",
     contact: "联系",
     top: "顶部",

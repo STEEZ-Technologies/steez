@@ -2,7 +2,7 @@ import type { Dict } from "../types";
 
 export const ar: Dict = {
   nav: {
-    pricing: "الأسعار",
+    pricing: "الباقات",
     cards: "البطاقات",
     contact: "تواصل",
     top: "الأعلى",
@@ -48,7 +48,7 @@ export const ar: Dict = {
     },
     pricing: {
       eyebrow: "٠٥ — الباقات",
-      title: "الأسعار",
+      title: "الباقات",
       sub: "باقة مميزة واحدة. إضافات مرنة. صُممت للمصدرين الصينيين الذين يتطلعون للعالمية.",
     },
     contact: {
