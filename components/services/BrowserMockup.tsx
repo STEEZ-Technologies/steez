@@ -2,7 +2,7 @@
 
 export function BrowserMockup() {
   return (
-    <div style={{ position: "relative", width: "100%", maxWidth: "560px", margin: "0 auto" }}>
+    <div style={{ position: "relative", width: "100%", maxWidth: "760px", margin: "0 auto" }}>
       <div
         style={{
           position: "relative",

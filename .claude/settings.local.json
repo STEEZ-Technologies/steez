@@ -28,7 +28,10 @@
       "Bash(npx ngrok *)",
       "Bash(git pull *)",
       "mcp__claude_ai_Vercel__list_projects",
-      "Bash(gh api *)"
+      "Bash(gh api *)",
+      "Bash(awk '/<!-- Hero/,/<!-- /End Hero/' /tmp/mat-steez/index.html)",
+      "Bash(awk 'NR>=845 && NR<=900' /tmp/mat-steez/index.html)",
+      "Bash(awk 'NR>=900 && NR<=1110' /tmp/mat-steez/index.html)"
     ]
   },
   "enabledMcpjsonServers": [

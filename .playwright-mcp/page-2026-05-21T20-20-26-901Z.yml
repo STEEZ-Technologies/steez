@@ -1,0 +1,379 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e6] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e7]:
+      - img [ref=e8]
+    - generic [ref=e11]:
+      - button "Open issues overlay" [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: "1"
+          - generic [ref=e15]: "2"
+        - generic [ref=e16]:
+          - text: Issue
+          - generic [ref=e17]: s
+      - button "Collapse issues badge" [ref=e18]:
+        - img [ref=e19]
+  - alert [ref=e21]
+  - main [ref=e22]:
+    - generic:
+      - generic:
+        - navigation [ref=e24]:
+          - link "STEEZ home" [ref=e26] [cursor=pointer]:
+            - /url: "#top"
+            - generic [ref=e27]: STEEZ
+          - generic [ref=e28]:
+            - button "Toggle theme" [ref=e29] [cursor=pointer]:
+              - img [ref=e30]
+            - button "Toggle menu" [ref=e32]:
+              - img [ref=e33]
+        - navigation "Section navigation" [ref=e34]:
+          - link "Top" [ref=e35] [cursor=pointer]:
+            - /url: "#top"
+            - img [ref=e36]
+          - link "Services" [ref=e39] [cursor=pointer]:
+            - /url: "#services"
+            - img [ref=e40]
+          - link "Pricing" [ref=e45] [cursor=pointer]:
+            - /url: "#pricing"
+            - img [ref=e46]
+          - link "Contact" [ref=e49] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e50]
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - heading "STEEZ" [level=1] [ref=e62]
+            - heading "DIGITAL" [level=1] [ref=e63]:
+              - generic [ref=e64]: DIGITAL
+              - generic [ref=e65]: D
+              - generic [ref=e66]: I
+              - generic [ref=e67]: G
+              - generic [ref=e68]: I
+              - generic [ref=e69]: T
+              - generic [ref=e70]: A
+              - generic [ref=e71]: L
+          - paragraph [ref=e72]: the digital bridge between chinese makers and the buyers searching for them
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e75]: Digital cards
+            - generic [ref=e76]: 数字名片
+          - generic [ref=e77]:
+            - generic [ref=e78]: Company profiles
+            - generic [ref=e79]: 公司主页
+          - generic [ref=e80]:
+            - generic [ref=e81]: AR catalogues
+            - generic [ref=e82]: AR 目录
+          - generic [ref=e83]:
+            - generic [ref=e84]: Buyer analytics
+            - generic [ref=e85]: 实时分析
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - generic [ref=e96]: "0"
+              - generic [ref=e97]: +
+            - generic [ref=e98]: Buyer scans activated
+          - generic [ref=e99]:
+            - generic [ref=e106]: "0"
+            - generic [ref=e107]: Countries reached
+          - generic [ref=e108]:
+            - generic [ref=e115]: "0"
+            - generic [ref=e116]: Days to first results
+          - generic [ref=e117]:
+            - generic [ref=e124]: "0"
+            - generic [ref=e125]: Core product lines
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - generic [ref=e129]: 02 — Services
+          - heading "What We Build" [level=2] [ref=e130]
+          - paragraph [ref=e131]: Three products. One stack. Built for Chinese exporters going global.
+        - generic [ref=e132]:
+          - tablist "Services" [ref=e133]:
+            - tab "Cards" [selected] [ref=e134] [cursor=pointer]
+            - tab "Profiles" [ref=e135] [cursor=pointer]
+            - tab "Catalogues" [ref=e136] [cursor=pointer]
+          - generic [ref=e139]:
+            - img [ref=e141]
+            - iframe [ref=e155]:
+              - generic [active] [ref=f7e1]:
+                - button "EN / 中文" [ref=f7e3] [cursor=pointer]
+                - img [ref=f7e6]
+                - heading "Daniel Chen" [level=1] [ref=f7e7]
+                - generic [ref=f7e8]: Export Sales Manager
+                - generic [ref=f7e9]: Aurora Home Manufacturing Co.
+                - paragraph [ref=f7e10]: Helping global buyers connect with reliable Chinese suppliers.
+                - generic [ref=f7e11]:
+                  - link "Save Contact" [ref=f7e12] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Call" [ref=f7e13] [cursor=pointer]:
+                    - /url: "#"
+                  - link "Email" [ref=f7e14] [cursor=pointer]:
+                    - /url: "#"
+                  - link "WhatsApp" [ref=f7e15] [cursor=pointer]:
+                    - /url: "#"
+                  - link "LinkedIn" [ref=f7e16] [cursor=pointer]:
+                    - /url: "#"
+                - generic [ref=f7e17]: Skills
+                - generic [ref=f7e18]:
+                  - generic [ref=f7e19]: International Sales
+                  - generic [ref=f7e20]: OEM / ODM
+          - generic [ref=e156]:
+            - generic [ref=e157]: 01 · Cards
+            - heading "Digital Cards" [level=3] [ref=e158]
+            - paragraph [ref=e159]: Scannable QR-linked profile pages with factory photos, map location, contact info, WeChat & QQ links, service list, about section, and a country-reach infographic. Bilingual EN · 中 · РУ · العربية. Dark / light mode. Share links built in.
+      - generic [ref=e161]:
+        - generic [ref=e162]:
+          - generic [ref=e163]: 03 — Data & Analytics
+          - heading "Buyer Intelligence" [level=2] [ref=e164]
+          - paragraph [ref=e165]: Every scan, dwell-time, and region tracked. Your STEEZ dashboard shows exactly who opened your card, how long they spent, and where in the world they are — so you know which markets are heating up before your competitors do.
+          - generic [ref=e166]:
+            - generic [ref=e167]:
+              - generic [ref=e168]: +
+              - generic [ref=e169]:
+                - generic [ref=e170]: Real-time scans
+                - generic [ref=e171]: See every QR open within seconds, with device & locale fingerprinting.
+            - generic [ref=e172]:
+              - generic [ref=e173]: +
+              - generic [ref=e174]:
+                - generic [ref=e175]: Heat-map regions
+                - generic [ref=e176]: Drill into city-level demand and spot emerging buyer hubs early.
+            - generic [ref=e177]:
+              - generic [ref=e178]: +
+              - generic [ref=e179]:
+                - generic [ref=e180]: Funnel exports
+                - generic [ref=e181]: Push scan → form → reply data straight to your CRM via webhook.
+        - generic [ref=e183]:
+          - generic [ref=e184]:
+            - generic [ref=e185]: STEEZ Dashboard · Aurora Home
+            - generic [ref=e188]: Live
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - generic [ref=e191]: 1,247
+              - generic [ref=e192]: Total Scans
+            - generic [ref=e193]:
+              - generic [ref=e194]: "38"
+              - generic [ref=e195]: Countries
+            - generic [ref=e196]:
+              - generic [ref=e197]: 3m 42s
+              - generic [ref=e198]: Avg. Session
+          - generic [ref=e199]:
+            - generic [ref=e200]: Buyer Scans by Month
+            - generic [ref=e201]:
+              - generic [ref=e203]: Jan
+              - generic [ref=e205]: Feb
+              - generic [ref=e207]: Mar
+              - generic [ref=e209]: Apr
+              - generic [ref=e211]: May
+              - generic [ref=e213]: Jun
+          - generic [ref=e214]:
+            - generic [ref=e215]: Buyers by Region
+            - generic [ref=e216]:
+              - generic [ref=e217]:
+                - generic [ref=e218]: Middle East
+                - generic [ref=e220]: 38%
+              - generic [ref=e221]:
+                - generic [ref=e222]: Russia
+                - generic [ref=e224]: 24%
+              - generic [ref=e225]:
+                - generic [ref=e226]: Europe
+                - generic [ref=e228]: 18%
+              - generic [ref=e229]:
+                - generic [ref=e230]: North America
+                - generic [ref=e232]: 12%
+              - generic [ref=e233]:
+                - generic [ref=e234]: South America
+                - generic [ref=e236]: 8%
+      - generic [ref=e238]:
+        - generic [ref=e239]:
+          - generic [ref=e240]: 05 — Packages
+          - heading "Pricing" [level=2] [ref=e241]
+          - paragraph [ref=e242]: One platform. Three plans. Built for Chinese exporters going global.
+          - generic [ref=e243]:
+            - button "Monthly" [ref=e244] [cursor=pointer]
+            - button "Annually" [ref=e247] [cursor=pointer]
+        - generic [ref=e248]:
+          - generic [ref=e249]:
+            - generic [ref=e250]: Most Popular
+            - generic [ref=e251]:
+              - generic [ref=e252]: Standard
+              - generic [ref=e254]:
+                - generic [ref=e257]: ¥
+                - generic [ref=e260]:
+                  - generic [ref=e262]: "1"
+                  - generic [ref=e264]: ","
+                  - generic [ref=e266]: "2"
+                  - generic [ref=e268]: "8"
+                  - generic [ref=e270]: "0"
+                - generic [ref=e273]: /mo
+              - paragraph [ref=e275]: Billed monthly
+              - paragraph [ref=e276]: For serious exporters. Card, forms, four languages, and quarterly analytics.
+            - link "Get Standard" [ref=e278] [cursor=pointer]:
+              - /url: "#contact"
+            - generic [ref=e280]:
+              - button "Hide features (6)" [expanded] [ref=e281] [cursor=pointer]:
+                - generic [ref=e282]: Hide features (6)
+                - img [ref=e284]
+              - generic [ref=e287]:
+                - generic [ref=e288]:
+                  - img [ref=e289]
+                  - generic [ref=e291]: 1 card + 5 digital forms
+                - generic [ref=e292]:
+                  - img [ref=e293]
+                  - generic [ref=e295]: Full 4-language support
+                - generic [ref=e296]:
+                  - img [ref=e297]
+                  - generic [ref=e299]: Dark / light theme
+                - generic [ref=e300]:
+                  - img [ref=e301]
+                  - generic [ref=e303]: Quarterly analytics
+                - generic [ref=e304]:
+                  - img [ref=e305]
+                  - generic [ref=e307]: Priority support
+                - generic [ref=e308]:
+                  - img [ref=e309]
+                  - generic [ref=e311]: Custom QR + share link
+          - generic [ref=e312]:
+            - generic [ref=e313]:
+              - generic [ref=e314]: Basic
+              - generic [ref=e316]:
+                - generic [ref=e319]: ¥
+                - generic [ref=e322]:
+                  - generic [ref=e324]: "4"
+                  - generic [ref=e326]: "8"
+                  - generic [ref=e328]: "0"
+                - generic [ref=e331]: /mo
+              - paragraph [ref=e333]: Billed monthly
+              - paragraph [ref=e334]: Get online fast. One digital business card, bilingual, with a custom QR code.
+            - link "Get Started" [ref=e336] [cursor=pointer]:
+              - /url: "#contact"
+            - generic [ref=e338]:
+              - button "Show features (6)" [ref=e339] [cursor=pointer]:
+                - generic [ref=e340]: Show features (6)
+                - img [ref=e342]
+              - generic [ref=e344]:
+                - generic [ref=e345]:
+                  - img [ref=e346]
+                  - generic [ref=e348]: 1 digital business card
+                - generic [ref=e349]:
+                  - img [ref=e350]
+                  - generic [ref=e352]: Bilingual EN + 中
+                - generic [ref=e353]:
+                  - img [ref=e354]
+                  - generic [ref=e356]: Dark / light theme
+                - generic [ref=e357]:
+                  - img [ref=e358]
+                  - generic [ref=e360]: Custom QR code
+                - generic [ref=e361]:
+                  - img [ref=e362]
+                  - generic [ref=e364]: Share link
+                - generic [ref=e365]:
+                  - img [ref=e366]
+                  - generic [ref=e368]: Community support
+          - generic [ref=e369]:
+            - generic [ref=e370]:
+              - generic [ref=e371]: Premium
+              - generic [ref=e373]:
+                - generic [ref=e376]: ¥
+                - generic [ref=e379]:
+                  - generic [ref=e381]: "2"
+                  - generic [ref=e383]: ","
+                  - generic [ref=e385]: "8"
+                  - generic [ref=e387]: "8"
+                  - generic [ref=e389]: "0"
+                - generic [ref=e392]: /mo
+              - paragraph [ref=e394]: Billed monthly
+              - paragraph [ref=e395]: The full STEEZ. Unlimited forms, 3D/AR catalogue, dedicated account manager.
+            - link "Get Premium" [ref=e397] [cursor=pointer]:
+              - /url: "#contact"
+            - generic [ref=e399]:
+              - button "Show features (6)" [ref=e400] [cursor=pointer]:
+                - generic [ref=e401]: Show features (6)
+                - img [ref=e403]
+              - generic [ref=e405]:
+                - generic [ref=e406]:
+                  - img [ref=e407]
+                  - generic [ref=e409]: Card + unlimited forms
+                - generic [ref=e410]:
+                  - img [ref=e411]
+                  - generic [ref=e413]: 3D / AR catalogue
+                - generic [ref=e414]:
+                  - img [ref=e415]
+                  - generic [ref=e417]: All 4 languages
+                - generic [ref=e418]:
+                  - img [ref=e419]
+                  - generic [ref=e421]: Monthly analytics review
+                - generic [ref=e422]:
+                  - img [ref=e423]
+                  - generic [ref=e425]: Visitor geo-tracking
+                - generic [ref=e426]:
+                  - img [ref=e427]
+                  - generic [ref=e429]: Dedicated account manager
+        - generic [ref=e430]:
+          - generic [ref=e431]:
+            - generic [ref=e432]: 30-day
+            - generic [ref=e433]: Money-back guarantee
+          - generic [ref=e434]:
+            - generic [ref=e435]: <24h
+            - generic [ref=e436]: Avg. response time
+          - generic [ref=e437]:
+            - generic [ref=e438]: 4 langs
+            - generic [ref=e439]: EN · 中 · РУ · العربية
+          - generic [ref=e440]:
+            - generic [ref=e441]: 0¥
+            - generic [ref=e442]: Setup fee — ever
+      - generic [ref=e443]:
+        - generic [ref=e444]:
+          - generic [ref=e445]: 06 — Contact
+          - heading "Let's Talk" [level=2] [ref=e446]
+        - generic [ref=e447]:
+          - generic [ref=e449]:
+            - generic [ref=e450]:
+              - generic [ref=e451]: Phone
+              - generic [ref=e452]: +86 755 8888 0000
+            - generic [ref=e453]:
+              - generic [ref=e454]: Email
+              - generic [ref=e455]: hello@steez.cn
+            - generic [ref=e456]:
+              - generic [ref=e457]: HQ
+              - generic [ref=e458]: Hangzhou, Zhejiang
+            - generic [ref=e459]:
+              - generic [ref=e460]: Hours
+              - generic [ref=e461]: Mon–Sat 09:00–19:00 CST
+            - generic [ref=e462]:
+              - button "WeChat" [ref=e463] [cursor=pointer]
+              - button "QQ" [ref=e464] [cursor=pointer]
+          - generic [ref=e467]:
+            - textbox "Name" [ref=e470]
+            - textbox "Email" [ref=e473]
+            - textbox "Tell us about your business — products, target markets, what you need." [ref=e476]
+            - button "Send Message" [ref=e477] [cursor=pointer]
+        - generic [ref=e479]:
+          - generic [ref=e480]:
+            - generic [ref=e481]: Response
+            - generic [ref=e482]: Within 24 hrs
+            - generic [ref=e483]: Every inquiry routed to a real account manager — no auto-replies, no bots.
+          - generic [ref=e484]:
+            - generic [ref=e485]: Onboarding
+            - generic [ref=e486]: 7 days avg.
+            - generic [ref=e487]: From signed brief to first scannable card in your buyer's hands.
+          - generic [ref=e488]:
+            - generic [ref=e489]: Languages
+            - generic [ref=e490]: EN · 中 · РУ · العربية
+            - generic [ref=e491]: Native localization on every plan — copy reviewed by in-region editors.
+    - generic [ref=e492]:
+      - generic [ref=e493]:
+        - generic [ref=e494]:
+          - generic [ref=e495]: STEEZ
+          - generic [ref=e496]: 思智
+          - paragraph [ref=e497]: The digital bridge between Chinese makers and the buyers searching for them.
+        - button "Locations · 办事处" [ref=e499] [cursor=pointer]:
+          - generic [ref=e500]: Locations · 办事处
+          - img [ref=e502]
+        - button "Reach us · 联系我们" [ref=e505] [cursor=pointer]:
+          - generic [ref=e506]: Reach us · 联系我们
+          - img [ref=e508]
+        - button "Index · 目录" [ref=e511] [cursor=pointer]:
+          - generic [ref=e512]: Index · 目录
+          - img [ref=e514]
+      - generic [ref=e516]:
+        - generic [ref=e517]: © 2026 STEEZ · 思智 · Designed in Hangzhou
+        - generic [ref=e518]: BUILT FOR CHINESE MAKERS · 为中国制造商而生
