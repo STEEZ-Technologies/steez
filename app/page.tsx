@@ -2,9 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { BoothSection } from "@/components/booth/BoothSection";
 import { Contact } from "@/components/contact/Contact";
-import { SocialSection } from "@/components/social/SocialSection";
+
 import { Footer } from "@/components/footer/Footer";
 import HeroGeometric from "@/components/ui/hero-geometric";
 import PricingSection from "@/components/pricing/PricingSection";
@@ -50,10 +49,9 @@ export default function Home() {
         />
 
         <Services />
-        <BoothSection />
         <PricingSection />
         <Contact />
-        <SocialSection />
+
       </div>
       <Footer />
     </main>

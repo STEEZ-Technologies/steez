@@ -2,7 +2,7 @@ import type { Dict } from "../types";
 
 export const en: Dict = {
   nav: {
-    pricing: "Pricing",
+    pricing: "Packages",
     cards: "Cards",
     contact: "Contact",
     top: "Top",
@@ -48,7 +48,7 @@ export const en: Dict = {
     },
     pricing: {
       eyebrow: "05 — Packages",
-      title: "Pricing",
+      title: "Packages",
       sub: "One premium bundle. Flexible add-ons. Built for Chinese exporters going global.",
     },
     contact: {
@@ -62,20 +62,20 @@ export const en: Dict = {
     },
   },
   servicesItems: {
-    cards: {
-      eyebrow: "01 · Cards",
-      title: "Digital Cards",
-      about: "Scannable QR-linked profile pages with factory photos, map location, contact info, WeChat & QQ links, service list, about section, and a country-reach infographic. Bilingual EN · 中 · РУ · العربية. Dark / light mode. Share links built in.",
-    },
-    profiles: {
-      eyebrow: "02 · Profiles",
-      title: "Company Profiles",
-      about: "Standalone microsites that present your factory, services, production capabilities, location and credentials in one polished page — branded as a profile, not a brochure. Buyers land on a site that closes the deal for you.",
-    },
     catalogues: {
-      eyebrow: "03 · Catalogues",
-      title: "Product Catalogues",
-      about: "Interactive product catalogues replacing static PDFs. Optional 3D / AR product views on request, so buyers in Berlin, Riyadh or São Paulo can rotate, scale and inspect your products before they reach out.",
+      eyebrow: "01 · Showcase",
+      title: "Catalogues & Profiles",
+      about: "Interactive product catalogs and standalone company profiles in one integrated experience. Up to 30 2D products, 10 3D models, factory photos, and credentials in a polished multi-language site. Replaces static PDFs and brochures.",
+    },
+    social: {
+      eyebrow: "02 · Social Media",
+      title: "International Social Media",
+      about: "Professional Instagram and Facebook business page setup. Designed in your brand with bilingual captions. Reusable content calendar and industry-specific hashtag strategy for international reach. Posts link directly to product pages.",
+    },
+    cards: {
+      eyebrow: "03 · Identity & Expo",
+      title: "Digital Cards & Booth",
+      about: "Digital business cards combined with an expo QR display kit (lanyards, desk stands). Buyers scan your booth or staff to instantly access contact info, location maps, and WeChat/WhatsApp links. Replaces paper cards and scattered booth materials.",
     },
   },
   analyticsBlock: {
@@ -121,30 +121,54 @@ export const en: Dict = {
   },
   pricingBlock: {
     annually: "Yearly",
-    bundle: {
-      title: "Export Essential Bundle",
-      desc: "Everything you need for a premium digital exhibition presence.",
-      price: "7,000",
-      button: "Secure This Bundle",
-      features: [
-        "1 Digital Product Catalog",
-        "30 2D product slots included",
-        "10 high-fidelity 3D product slots",
-        "5 Individual Business Cards",
-        "Base QR Display (Lanyards + Stand)",
-        "1 Free revision included",
-        "Unlimited languages included",
-        "Technical support (9-5, Mon-Fri)",
-      ],
-    },
-    addonsTitle: "Custom Add-ons",
-    addons: [
-      { name: "Extra 2D Products", price: "¥200", info: "Per 15 additional items" },
-      { name: "Extra 3D Products", price: "¥200", info: "Per 5 additional items" },
-      { name: "Extra Digital Cards", price: "¥50", info: "Per additional card" },
-      { name: "Content Revisions", price: "¥100", info: "Per additional revision" },
-      { name: "Pro Support", price: "¥500", info: "24/7 dedicated support" },
-    ],
+    packages: [
+      {
+        name: "Essential",
+        desc: "Everything you need for a premium digital exhibition presence.",
+        price: "7,000",
+        yearly: "3,500/yr after",
+        button: "Get Essential",
+        features: [
+          "Digital Product Catalog & Profile",
+          "International Social Media Setup",
+          "30 2D + 10 3D product slots",
+          "5 Digital Business Cards",
+          "Base QR Display Kit (Lanyards + Stand)",
+          "Unlimited languages included"
+        ]
+      },
+      {
+        name: "Growth",
+        desc: "Expanded social presence and deeper market reach.",
+        price: "12,000",
+        yearly: "3,500/yr after",
+        button: "Get Growth",
+        featured: true,
+        features: [
+          "Everything in Essential",
+          "LinkedIn Company Page Setup",
+          "25 Additional Content Pieces",
+          "Canva Brand Template Kit",
+          "Custom Content Strategy",
+          "Deep Social-Catalog Integration"
+        ]
+      },
+      {
+        name: "Active",
+        desc: "We handle your ongoing digital presence.",
+        price: "16,000",
+        yearly: "7,500/yr after",
+        button: "Get Active",
+        features: [
+          "Everything in Growth",
+          "Quarterly Content Batches",
+          "12 New Pieces per Quarter",
+          "Daily Comment & DM Management",
+          "Ongoing Page Optimization",
+          "Monthly Analytics Report"
+        ]
+      }
+    ]
   },
   contactBlock: {
     info: {

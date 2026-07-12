@@ -8,8 +8,7 @@ import { useI18n } from "@/lib/i18n/useI18n";
 export default function PricingSection() {
   const isMobile = useIsMobile();
   const { dict } = useI18n();
-  const b = dict.pricingBlock.bundle;
-  const addons = dict.pricingBlock.addons;
+  const packages = dict.pricingBlock.packages;
 
   return (
     <section
@@ -26,7 +25,7 @@ export default function PricingSection() {
         transition: "background 0.4s ease, color 0.4s ease",
       }}
     >
-      <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+      <div style={{ maxWidth: 1400, margin: "0 auto" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "clamp(40px, 6vw, 72px)" }}>
           <div
@@ -72,102 +71,9 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-12 lg:gap-20 items-center">
-          {/* Main Bundle Card */}
-          <BundleCard bundle={b} />
-
-          {/* Add-ons Section */}
-          <div className="w-full max-w-5xl">
-            <h3 
-              style={{ 
-                fontSize: "clamp(1.2rem, 2vw, 1.5rem)", 
-                fontWeight: 800, 
-                textTransform: "uppercase", 
-                letterSpacing: "0.05em",
-                marginBottom: "24px",
-                textAlign: isMobile ? "center" : "left",
-                color: "#E0A93A"
-              }}
-            >
-              {dict.pricingBlock.addonsTitle}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {addons.map((addon, i) => (
-                <div 
-                  key={i}
-                  style={{
-                    padding: "24px",
-                    borderRadius: "20px",
-                    background: "var(--card-bg)",
-                    border: "1px solid var(--hairline)",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 8,
-                    transition: "border-color 0.3s ease"
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.borderColor = "#E0A93A"}
-                  onMouseLeave={(e) => e.currentTarget.style.borderColor = "var(--hairline)"}
-                >
-                  <div className="flex justify-between items-center">
-                    <div style={{ fontWeight: 700, fontSize: "0.95rem" }}>{addon.name}</div>
-                    <div style={{ fontWeight: 900, color: "#1D9E75", fontSize: "1rem" }}>{addon.price}</div>
-                  </div>
-                  <div style={{ fontSize: "0.8rem", opacity: 0.5, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                    {addon.info}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Trust strip */}
-        <div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-x-0 gap-y-6 lg:gap-0 rounded-[var(--radius-smallercards)] border border-[var(--hairline)] bg-[var(--card-bg)] overflow-hidden"
-          style={{
-            marginTop: "clamp(48px, 6vw, 80px)",
-          }}
-        >
-          {[
-            { k: "Yearly", v: "Subscription model" },
-            { k: "<24h", v: "Avg. response time" },
-            { k: "4 langs", v: "EN · 中 · РУ · العربية" },
-            { k: "7000¥", v: "Fixed base price" },
-          ].map((t, i) => (
-            <div
-              key={t.k}
-              className={i !== 0 ? "lg:border-l lg:border-[var(--hairline)]" : ""}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                gap: 6,
-                padding: "var(--space-32) var(--space-24)",
-              }}
-            >
-              <div
-                style={{
-                  fontWeight: 800,
-                  fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)",
-                  color: "#E0A93A",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                {t.k}
-              </div>
-              <div
-                style={{
-                  fontSize: "clamp(0.7rem, 0.9vw, 0.8rem)",
-                  fontWeight: 500,
-                  color: "inherit",
-                  opacity: 0.65,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                }}
-              >
-                {t.v}
-              </div>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
+          {packages.map((pkg: any, i: number) => (
+            <PackageCard key={i} pkg={pkg} index={i} />
           ))}
         </div>
       </div>
@@ -175,14 +81,14 @@ export default function PricingSection() {
   );
 }
 
-function BundleCard({ bundle }: { bundle: any }) {
+function PackageCard({ pkg, index }: { pkg: any; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), { stiffness: 100, damping: 20 });
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-8, 8]), { stiffness: 100, damping: 20 });
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [4, -4]), { stiffness: 100, damping: 20 });
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-4, 4]), { stiffness: 100, damping: 20 });
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     if (isMobile) return;
@@ -194,6 +100,12 @@ function BundleCard({ bundle }: { bundle: any }) {
     y.set(yPct);
   }
 
+  const isFeatured = pkg.featured;
+  
+  let tag = "";
+  if (index === 0) tag = "Best for First-Time Exhibitors";
+  if (index === 2) tag = "Best for Established Brands";
+
   return (
     <motion.div
       ref={cardRef}
@@ -201,82 +113,97 @@ function BundleCard({ bundle }: { bundle: any }) {
       onMouseLeave={() => { x.set(0); y.set(0); }}
       style={{
         width: "100%",
-        maxWidth: "800px",
         borderRadius: "var(--radius-cards)",
-        border: "1px solid #E0A93A",
-        background: "rgba(224,169,58,0.07)",
-        padding: "clamp(32px, 5vw, 64px)",
+        border: isFeatured ? "1px solid #E0A93A" : "1px solid var(--hairline)",
+        background: isFeatured ? "rgba(224,169,58,0.07)" : "var(--card-bg)",
+        padding: "clamp(32px, 4vw, 48px)",
         position: "relative",
-        boxShadow: "0 40px 100px -20px rgba(224, 169, 58, 0.25)",
+        display: "flex",
+        flexDirection: "column",
+        gap: 32,
+        perspective: 1000,
+        transformStyle: "preserve-3d",
         rotateX,
         rotateY,
-        transformStyle: "preserve-3d",
       }}
     >
-      <div 
-        style={{
-          position: "absolute",
-          top: -14,
-          left: "50%",
-          transform: "translateX(-50%) translateZ(20px)",
-          background: "#E0A93A",
-          color: "#1A1A1A",
-          fontSize: "0.75rem",
-          fontWeight: 800,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          padding: "8px 24px",
-          borderRadius: "99px",
-          whiteSpace: "nowrap",
-        }}
-      >
-        Best Value Bundle
+      {isFeatured && (
+        <div 
+          style={{
+            position: "absolute",
+            top: -14,
+            left: "50%",
+            transform: "translateX(-50%) translateZ(20px)",
+            background: "#E0A93A",
+            color: "#1A1A1A",
+            fontSize: "0.7rem",
+            fontWeight: 800,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            padding: "8px 24px",
+            borderRadius: "99px",
+            whiteSpace: "nowrap",
+          }}
+        >
+          Most Popular
+        </div>
+      )}
+
+      <div style={{ transform: "translateZ(30px)" }}>
+        {tag && (
+          <div style={{ 
+            fontSize: "0.65rem", 
+            fontWeight: 700, 
+            textTransform: "uppercase", 
+            letterSpacing: "0.1em", 
+            color: "#E0A93A", 
+            marginBottom: 8,
+            border: "1px solid rgba(224,169,58,0.3)",
+            background: "rgba(224,169,58,0.1)",
+            padding: "4px 10px",
+            borderRadius: 6,
+            display: "inline-block"
+          }}>
+            {tag}
+          </div>
+        )}
+        <div style={{ fontWeight: 800, fontSize: "1.5rem", letterSpacing: "-0.02em" }}>{pkg.name}</div>
+        <p style={{ fontSize: "0.95rem", opacity: 0.6, marginTop: 8, lineHeight: 1.5, minHeight: 45 }}>
+          {pkg.desc}
+        </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-12 lg:items-start" style={{ transform: "translateZ(40px)" }}>
-        <div className="flex-1">
-          <div style={{ fontStyle: "italic", fontSize: "1.2rem", opacity: 0.6, marginBottom: 8 }}>{bundle.title}</div>
-          <div style={{ fontSize: "clamp(3.5rem, 6vw, 5.5rem)", fontWeight: 900, lineHeight: 1, color: "inherit" }}>
-            <span style={{ fontSize: "2rem", verticalAlign: "super", marginRight: 4 }}>¥</span>
-            {bundle.price}
-            <span style={{ fontSize: "1rem", opacity: 0.4, marginLeft: 8 }}>/YR</span>
+      <div style={{ transform: "translateZ(20px)", display: "flex", flexDirection: "column", gap: 16, flexGrow: 1 }}>
+        {pkg.features.map((f: string, i: number) => (
+          <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+            <CheckIcon style={{ color: isFeatured ? "#E0A93A" : "#1D9E75", flexShrink: 0, marginTop: 2 }} size={18} />
+            <span style={{ fontSize: "0.95rem", fontWeight: 500, opacity: 0.85 }}>{f}</span>
           </div>
-          <p style={{ fontSize: "1.1rem", opacity: 0.6, marginTop: 24, lineHeight: 1.5 }}>
-            {bundle.desc}
-          </p>
-          <div style={{ marginTop: 40 }}>
-            <a
-              href="#contact"
-              style={{
-                display: "inline-block",
-                padding: "18px 48px",
-                background: "#E0A93A",
-                color: "#1A1A1A",
-                borderRadius: "16px",
-                fontWeight: 800,
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                textDecoration: "none",
-                fontSize: "1rem"
-              }}
-            >
-              {bundle.button}
-            </a>
-          </div>
-        </div>
+        ))}
+      </div>
 
-        <div style={{ width: 1, background: "var(--hairline-strong)", alignSelf: "stretch" }} className="hidden lg:block" />
-
-        <div className="flex-1">
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {bundle.features.map((f: string, i: number) => (
-              <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                <CheckIcon style={{ color: "#1D9E75", flexShrink: 0, marginTop: 4 }} size={20} />
-                <span style={{ fontSize: "1.05rem", fontWeight: 500, opacity: 0.85 }}>{f}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div style={{ transform: "translateZ(40px)", marginTop: "auto" }}>
+        <a
+          href={`#contact?package=${index === 0 ? 'essential' : index === 1 ? 'growth' : 'active'}`}
+          style={{
+            display: "block",
+            textAlign: "center",
+            padding: "16px 24px",
+            background: isFeatured ? "#E0A93A" : "var(--hairline-strong)",
+            color: isFeatured ? "#1A1A1A" : "inherit",
+            borderRadius: "12px",
+            fontWeight: 800,
+            textTransform: "uppercase",
+            letterSpacing: "0.1em",
+            textDecoration: "none",
+            fontSize: "0.9rem",
+            transition: "opacity 0.2s"
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = "0.9"}
+          onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+        >
+          {pkg.button}
+        </a>
       </div>
     </motion.div>
   );

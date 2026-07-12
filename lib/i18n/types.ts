@@ -54,9 +54,9 @@ export type Dict = {
     scanLabel: string;
   };
   servicesItems: {
-    cards: { eyebrow: string; title: string; about: string };
-    profiles: { eyebrow: string; title: string; about: string };
     catalogues: { eyebrow: string; title: string; about: string };
+    social: { eyebrow: string; title: string; about: string };
+    cards: { eyebrow: string; title: string; about: string };
   };
   analyticsBlock: {
     metrics: { totalScans: string; countries: string; avgSession: string };
@@ -69,18 +69,14 @@ export type Dict = {
   };
   pricingBlock: {
     annually: string;
-    bundle: {
-      title: string;
+    packages: {
+      name: string;
       desc: string;
       price: string;
-      button: string;
+      yearly: string;
       features: string[];
-    };
-    addonsTitle: string;
-    addons: {
-      name: string;
-      price: string;
-      info: string;
+      button: string;
+      featured?: boolean;
     }[];
   };
   contactBlock: {
