@@ -104,7 +104,7 @@ export function Footer() {
           </a>
         ))}
         <span style={{ flex: 1 }} />
-        <span style={{ opacity: 0.35, fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", fontSize: "0.7rem", display: process.env.NEXT_PUBLIC_SHOW_COMPLIANCE === 'false' ? 'none' : 'inline' }}>
+        <span style={{ opacity: 0.6, fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", fontSize: "0.7rem", display: process.env.NEXT_PUBLIC_SHOW_COMPLIANCE === 'false' ? 'none' : 'inline' }}>
           {process.env.NEXT_PUBLIC_ICP_NUMBER || "浙ICP备 XXXXXXXX 号"} · {process.env.NEXT_PUBLIC_CREDIT_CODE || "统一社会信用代码 XXXXXXXXXXXXXXXXXX"}
         </span>
       </div>

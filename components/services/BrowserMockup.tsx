@@ -184,7 +184,7 @@ const SITE_HTML = `<!DOCTYPE html>
       </div>
     </div>
 
-    <div class="hero-image" style="background-image: url('/mockups/hero-skeleton.png?v=1'); background-size: cover; background-position: center; border: 1px solid var(--hairline-strong);">
+    <div class="hero-image" style="background-image: url('/mockups/hero-skeleton.webp'); background-size: cover; background-position: center; border: 1px solid var(--hairline-strong);">
       <div class="pump-badge"><span class="dot"></span>Live · 2,000 m³/h</div>
       <div class="pump-tag">GX-2000 · Centrifugal</div>
     </div>

@@ -158,9 +158,10 @@ export function Contact() {
               
               <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 16 }}>
                 <input required placeholder="Email / WhatsApp / WeChat" style={{ width: "100%", padding: "12px 16px", background: "rgba(0,0,0,0.2)", border: "1px solid var(--hairline)", borderRadius: 8, color: "inherit", fontSize: "0.9rem" }} />
-                <select 
-                  value={selectedTier} 
+                <select
+                  value={selectedTier}
                   onChange={(e) => setSelectedTier(e.target.value)}
+                  aria-label="Interested in..."
                   style={{ width: "100%", padding: "12px 16px", background: "rgba(0,0,0,0.2)", border: "1px solid var(--hairline)", borderRadius: 8, color: "inherit", fontSize: "0.9rem", appearance: "none" }}
                 >
                   <option value="none">Interested in...</option>
@@ -257,9 +258,9 @@ export function Contact() {
                 boxShadow: "0 30px 60px -30px rgba(0,0,0,0.18)",
               }}
             >
-              <img 
-                src="/mockups/wechat-qr.png" 
-                alt="WeChat QR Code" 
+              <img
+                src="/mockups/wechat-qr.webp"
+                alt="WeChat QR Code"
                 style={{ 
                   width: isMobile ? 200 : 240, 
                   height: isMobile ? 200 : 240, 

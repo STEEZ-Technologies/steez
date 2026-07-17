@@ -148,7 +148,7 @@ export function LangSwitcher({ variant = "compact", onOpenChange }: Props) {
       <button
         ref={btnRef}
         type="button"
-        aria-label={dict.lang.selectLanguage}
+        aria-label={`${dict.lang.selectLanguage}: ${current.flag}`}
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => {

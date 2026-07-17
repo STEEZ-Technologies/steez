@@ -194,37 +194,37 @@ const CATALOGUE_HTML = `<!DOCTYPE html>
 
   <div class="grid">
     <div class="card">
-      <div class="ph" style="background-image: url('/mockups/cat-1.png'); background-size: cover; background-position: center;"><span class="ph-tag hot">Hot</span></div>
+      <div class="ph" style="background-image: url('/mockups/cat-1.webp'); background-size: cover; background-position: center;"><span class="ph-tag hot">Hot</span></div>
       <div class="line-1 pulse"></div>
       <div class="line-2 pulse"></div>
       <div class="card-meta"><span class="price">¥ 18,400</span><span class="moq">MOQ 5</span></div>
     </div>
     <div class="card">
-      <div class="ph" style="background-image: url('/mockups/cat-2.png'); background-size: cover; background-position: center;"><span class="ph-tag">New</span></div>
+      <div class="ph" style="background-image: url('/mockups/cat-2.webp'); background-size: cover; background-position: center;"><span class="ph-tag">New</span></div>
       <div class="line-1 pulse"></div>
       <div class="line-2 pulse"></div>
       <div class="card-meta"><span class="price">¥ 2,250</span><span class="moq">MOQ 20</span></div>
     </div>
     <div class="card">
-      <div class="ph" style="background-image: url('/mockups/cat-3.png'); background-size: cover; background-position: center;"></div>
+      <div class="ph" style="background-image: url('/mockups/cat-3.webp'); background-size: cover; background-position: center;"></div>
       <div class="line-1 pulse"></div>
       <div class="line-2 pulse"></div>
       <div class="card-meta"><span class="price">¥ 480</span><span class="moq">MOQ 100</span></div>
     </div>
     <div class="card">
-      <div class="ph" style="background-image: url('/mockups/cat-4.png'); background-size: cover; background-position: center;"><span class="ph-tag new">3D</span></div>
+      <div class="ph" style="background-image: url('/mockups/cat-4.webp'); background-size: cover; background-position: center;"><span class="ph-tag new">3D</span></div>
       <div class="line-1 pulse"></div>
       <div class="line-2 pulse"></div>
       <div class="card-meta"><span class="price">¥ 6,900</span><span class="moq">MOQ 10</span></div>
     </div>
     <div class="card">
-      <div class="ph" style="background-image: url('/mockups/cat-5.png'); background-size: cover; background-position: center;"></div>
+      <div class="ph" style="background-image: url('/mockups/cat-5.webp'); background-size: cover; background-position: center;"></div>
       <div class="line-1 pulse"></div>
       <div class="line-2 pulse"></div>
       <div class="card-meta"><span class="price">¥ 1,180</span><span class="moq">MOQ 25</span></div>
     </div>
     <div class="card">
-      <div class="ph" style="background-image: url('/mockups/cat-6.png'); background-size: cover; background-position: center;"></div>
+      <div class="ph" style="background-image: url('/mockups/cat-6.webp'); background-size: cover; background-position: center;"></div>
       <div class="line-1 pulse"></div>
       <div class="line-2 pulse"></div>
       <div class="card-meta"><span class="price">¥ 360</span><span class="moq">MOQ 50</span></div>
