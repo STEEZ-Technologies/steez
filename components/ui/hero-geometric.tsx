@@ -277,14 +277,16 @@ export default function HeroGeometric({
                             }}
                         >
                             {(() => {
-                                const m = description?.match(/^(.*?)(\s*[—–-]+\s*)(.*)$/);
+                                // Split at the first comma so the lead-in stays bold and
+                                // the remainder renders lighter (two-tone hero line).
+                                const m = description?.match(/^(.*?[,，،])(.*)$/);
                                 if (!m) return description;
-                                const [, head, dash, tail] = m;
+                                const [, head, tail] = m;
                                 return (
                                     <>
                                         {head}
                                         <span style={{ fontWeight: 300, opacity: 0.85 }}>
-                                            {dash}{tail}
+                                            {tail}
                                         </span>
                                     </>
                                 );

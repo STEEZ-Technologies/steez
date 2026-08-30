@@ -228,7 +228,7 @@ export function Contact() {
 
               {status === "success" && (
                 <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#1D9E75" }}>
-                  Thanks — your request is on its way. We&apos;ll be in touch shortly.
+                  Thanks, your request is on its way. We&apos;ll be in touch shortly.
                 </div>
               )}
               {status === "error" && (

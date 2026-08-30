@@ -46,9 +46,9 @@ const notoKufiArabic = Noto_Kufi_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: "STEEZ · 思智 — The Digital Bridge to Your Next Buyer",
+  title: "STEEZ · 思智 · The Digital Bridge to Your Next Buyer",
   description:
-    "Premium digital business cards for Chinese makers. Each STEEZ card is a digital bridge — scan once, land buyers in Berlin, São Paulo, or Riyadh on your full showroom.",
+    "Premium digital business cards for Chinese makers. Each STEEZ card is a digital bridge, scan once, land buyers in Berlin, São Paulo, or Riyadh on your full showroom.",
 };
 
 export const viewport = {

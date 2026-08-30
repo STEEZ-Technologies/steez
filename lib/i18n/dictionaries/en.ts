@@ -11,7 +11,7 @@ export const en: Dict = {
   hero: {
     title2: "Digital",
     tagline: "The digital bridge between Chinese makers and the buyers searching for them",
-    description: "Bridging Chinese makers to global buyers — a digital upgrade for every exhibition.",
+    description: "Bridging Chinese makers to global buyers, a digital upgrade for every exhibition.",
     cta: "Contact",
     getQuote: "Get a quote",
     talkToUs: "Talk to us",
@@ -31,33 +31,33 @@ export const en: Dict = {
   },
   sections: {
     services: {
-      eyebrow: "02 — Services",
+      eyebrow: "02 · Services",
       title: "What We Build",
       sub: "Three products. One stack. Built for Chinese exporters going global.",
     },
     analytics: {
-      eyebrow: "03 — Data & Analytics",
+      eyebrow: "03 · Data & Analytics",
       title: "Buyer Intelligence",
       sub: "Real-time scans, regions, products. Lightweight CRM built in.",
-      body: "Every scan, dwell-time, and region tracked. Your STEEZ dashboard shows exactly who opened your card, how long they spent, and where in the world they are — so you know which markets are heating up and which to double down on.",
+      body: "Every scan, dwell-time, and region tracked. Your STEEZ dashboard shows exactly who opened your card, how long they spent, and where in the world they are, so you know which markets are heating up and which to double down on.",
     },
     booth: {
-      eyebrow: "03 — Booth Display",
+      eyebrow: "03 · Booth Display",
       title: "Your QR, Everywhere They Look",
       sub: "Two ways to put STEEZ in your buyers' hands at every trade show.",
     },
     pricing: {
-      eyebrow: "05 — Packages",
+      eyebrow: "05 · Packages",
       title: "Packages",
       sub: "One premium bundle. Flexible add-ons. Built for Chinese exporters going global.",
     },
     contact: {
-      eyebrow: "06 — Contact",
+      eyebrow: "06 · Contact",
       title: "Let's Talk",
       sub: "Tell us about your factory. We reply within 24 hours.",
     },
     numbers: {
-      eyebrow: "01 — Numbers",
+      eyebrow: "01 · Numbers",
       title: "Trusted by Makers",
     },
   },
@@ -110,12 +110,12 @@ export const en: Dict = {
     lanyard: {
       name: "Lanyards",
       scanTo: "Digital Business Card",
-      body: "Worn by your booth team. Every staff member becomes a scannable touchpoint — visitors point their phone, land on that team member's digital card, and start a conversation on the spot.",
+      body: "Worn by your booth team. Every staff member becomes a scannable touchpoint, visitors point their phone, land on that team member's digital card, and start a conversation on the spot.",
     },
     stand: {
       name: "Table Stands",
       scanTo: "Product Catalogue",
-      body: "Sits on your booth tables. Scan the QR to open your full interactive catalogue with 3D / AR product views — no app install, instant access, in the buyer's language.",
+      body: "Sits on your booth tables. Scan the QR to open your full interactive catalogue with 3D / AR product views, no app install, instant access, in the buyer's language.",
     },
     scanLabel: "Scan to",
   },
@@ -186,7 +186,7 @@ export const en: Dict = {
     form: {
       name: "Name",
       email: "Email",
-      message: "Tell us about your business — products, target markets, what you need.",
+      message: "Tell us about your business, products, target markets, what you need.",
       send: "Send Message",
       sending: "Sending...",
       sentTitle: "Message sent",
@@ -206,7 +206,7 @@ export const en: Dict = {
       response: {
         k: "Response",
         v: "Within 24 hrs",
-        d: "Every inquiry routed to a real account manager — no auto-replies, no bots.",
+        d: "Every inquiry routed to a real account manager, no auto-replies, no bots.",
       },
       onboarding: {
         k: "Onboarding",
@@ -216,7 +216,7 @@ export const en: Dict = {
       languages: {
         k: "Languages",
         v: "EN · 中 · РУ · العربية",
-        d: "Native localization on every plan — copy reviewed by in-region editors.",
+        d: "Native localization on every plan, copy reviewed by in-region editors.",
       },
     },
   },

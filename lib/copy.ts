@@ -27,7 +27,7 @@ export const COPY = {
         n: "02",
         en: "Digital Showroom",
         cn: "数字展厅",
-        body: "A curated landing page for every maker — your products, certifications, MOQs, lead times, and factory story, presented to buyers exactly the way you'd want them to see it. Mobile-first, lightning-fast, multilingual.",
+        body: "A curated landing page for every maker, your products, certifications, MOQs, lead times, and factory story, presented to buyers exactly the way you'd want them to see it. Mobile-first, lightning-fast, multilingual.",
       },
       {
         n: "03",
@@ -39,7 +39,7 @@ export const COPY = {
         n: "04",
         en: "Multilingual Translation",
         cn: "多语言翻译",
-        body: "Your catalog auto-translated into English, Spanish, Arabic, Russian, and Portuguese — reviewed by native B2B copywriters so it reads like a real export team wrote it, not a machine.",
+        body: "Your catalog auto-translated into English, Spanish, Arabic, Russian, and Portuguese, reviewed by native B2B copywriters so it reads like a real export team wrote it, not a machine.",
       },
       {
         n: "05",
@@ -70,7 +70,7 @@ export const COPY = {
         en: "Yiwu Knit Co.",
         cn: "义乌针织",
         op: "Mei Lin, Export Manager",
-        body: "Knitwear at 220 GSM, 200-cycle wash tested. Catalog auto-translated to ES, AR, PT — Mei Lin closed her first European wholesale account three weeks after the rollout.",
+        body: "Knitwear at 220 GSM, 200-cycle wash tested. Catalog auto-translated to ES, AR, PT, Mei Lin closed her first European wholesale account three weeks after the rollout.",
       },
       {
         n: "03",
@@ -79,7 +79,7 @@ export const COPY = {
         en: "Foshan Hardware Group",
         cn: "佛山五金",
         op: "Liu Jian, Founder",
-        body: "5-axis CNC parts to ±0.005mm. WeChat-first activation flow — a buyer in Riyadh went from card scan to a live thread with Liu Jian in 47 seconds.",
+        body: "5-axis CNC parts to ±0.005mm. WeChat-first activation flow, a buyer in Riyadh went from card scan to a live thread with Liu Jian in 47 seconds.",
       },
     ],
   },
@@ -88,7 +88,7 @@ export const COPY = {
     headingEn: "3D Catalogue",
     headingCn: "三维产品目录",
     subtitle:
-      "Your product in 3D — every buyer in the world, in their own language, in under three seconds.",
+      "Your product in 3D, every buyer in the world, in their own language, in under three seconds.",
     product: {
       cat: "Industrial",
       client: "Jiangsu AquaTech",

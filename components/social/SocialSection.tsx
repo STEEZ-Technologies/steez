@@ -91,7 +91,7 @@ export function SocialSection() {
             marginBottom: "clamp(12px, 1.5vw, 20px)",
           }}
         >
-          07 — Social
+          07 · Social
         </div>
         <h2
           style={{
@@ -119,7 +119,7 @@ export function SocialSection() {
             marginRight: "auto",
           }}
         >
-          Follow STEEZ on social — product stories, client showcases, and coverage from the trade-show floor.
+          Follow STEEZ on social, product stories, client showcases, and coverage from the trade-show floor.
         </p>
       </FadeIn>
 

@@ -15,7 +15,7 @@ export default function CookiesPage() {
         },
         {
           heading: "Categories We Use",
-          body: "Strictly necessary — required for the site to function (session, security, language preference). Analytics — anonymous statistics on page usage (loaded only after consent in EU/UK). Performance — used to measure CDN and shader rendering performance. We do not use third-party advertising cookies.",
+          body: "Strictly necessary, required for the site to function (session, security, language preference). Analytics, anonymous statistics on page usage (loaded only after consent in EU/UK). Performance, used to measure CDN and shader rendering performance. We do not use third-party advertising cookies.",
         },
         {
           heading: "Buyer-Scan Tracking",
@@ -27,7 +27,7 @@ export default function CookiesPage() {
         },
         {
           heading: "Third-Party Cookies",
-          body: "Limited third parties may set cookies on STEEZ pages — payment processor, CDN, font hosts, error monitoring. We list them in this Policy and require each to comply with GDPR / PIPL processing terms.",
+          body: "Limited third parties may set cookies on STEEZ pages, payment processor, CDN, font hosts, error monitoring. We list them in this Policy and require each to comply with GDPR / PIPL processing terms.",
         },
         {
           heading: "Contact",
