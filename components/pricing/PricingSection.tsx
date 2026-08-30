@@ -184,7 +184,13 @@ function PackageCard({ pkg, index }: { pkg: any; index: number }) {
 
       <div style={{ transform: "translateZ(40px)", marginTop: "auto" }}>
         <a
-          href={`#contact?package=${index === 0 ? 'essential' : index === 1 ? 'growth' : 'active'}`}
+          href="#contact"
+          onClick={(e) => {
+            e.preventDefault();
+            const pkg = index === 0 ? "essential" : index === 1 ? "growth" : "active";
+            window.dispatchEvent(new CustomEvent("steez:selectTier", { detail: pkg }));
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+          }}
           style={{
             display: "block",
             textAlign: "center",

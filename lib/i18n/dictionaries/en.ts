@@ -199,7 +199,7 @@ export const en: Dict = {
     wechat: {
       title: "Add us on WeChat",
       sub: "Open WeChat, scan the code, and start a conversation with our team in seconds.",
-      handle: "STEEZ-CN",
+      handle: "steezdigital",
       scanLabel: "Scan with WeChat",
     },
     trust: {

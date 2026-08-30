@@ -199,7 +199,7 @@ export const zh: Dict = {
     wechat: {
       title: "微信添加我们",
       sub: "打开微信,扫一扫,几秒内即可与我们的团队开启对话。",
-      handle: "STEEZ-CN",
+      handle: "steezdigital",
       scanLabel: "使用微信扫一扫",
     },
     trust: {

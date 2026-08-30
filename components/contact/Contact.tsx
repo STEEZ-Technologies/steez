@@ -10,17 +10,41 @@ export function Contact() {
   const isMobile = useIsMobile();
   const { dict } = useI18n();
   const [selectedTier, setSelectedTier] = useState<string>("none");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    setStatus("submitting");
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          company: data.get("company"),
+          contact: data.get("contact"),
+          tier: selectedTier,
+          message: data.get("message"),
+        }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setStatus("success");
+      form.reset();
+      setSelectedTier("none");
+    } catch {
+      setStatus("error");
+    }
+  }
 
   useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash;
-      if (hash.includes("package=essential")) setSelectedTier("essential");
-      else if (hash.includes("package=growth")) setSelectedTier("growth");
-      else if (hash.includes("package=active")) setSelectedTier("active");
+    const onSelectTier = (e: Event) => {
+      const tier = (e as CustomEvent<string>).detail;
+      if (tier) setSelectedTier(tier);
     };
-    handleHash();
-    window.addEventListener("hashchange", handleHash);
-    return () => window.removeEventListener("hashchange", handleHash);
+    window.addEventListener("steez:selectTier", onSelectTier);
+    return () => window.removeEventListener("steez:selectTier", onSelectTier);
   }, []);
 
   return (
@@ -99,33 +123,41 @@ export function Contact() {
               { label: dict.contactBlock.info.phone, value: dict.contactBlock.values.phone },
               { label: dict.contactBlock.info.email, value: dict.contactBlock.values.email },
               { label: dict.contactBlock.info.hq, value: dict.contactBlock.values.hq },
-            ].map((row, i) => (
-              <div key={i}>
-                <div
-                  style={{
-                    fontSize: "clamp(0.62rem, 0.85vw, 0.72rem)",
-                    fontWeight: 600,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "#E0A93A",
-                    marginBottom: 4,
-                  }}
-                >
-                  {row.label}
+            ].map((row, i) => {
+              let href: string | null = null;
+              if (row.value.includes("@")) href = `mailto:${row.value}`;
+              else if (/^\+?[\d\s()-]{6,}$/.test(row.value)) href = `tel:${row.value.replace(/[\s()-]/g, "")}`;
+              const valueStyle = {
+                fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
+                color: "inherit",
+                opacity: 0.8,
+                fontWeight: 400,
+                lineHeight: 1.5,
+              } as const;
+              return (
+                <div key={i}>
+                  <div
+                    style={{
+                      fontSize: "clamp(0.62rem, 0.85vw, 0.72rem)",
+                      fontWeight: 600,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.12em",
+                      color: "#E0A93A",
+                      marginBottom: 4,
+                    }}
+                  >
+                    {row.label}
+                  </div>
+                  {href ? (
+                    <a href={href} style={{ ...valueStyle, textDecoration: "none" }}>
+                      {row.value}
+                    </a>
+                  ) : (
+                    <div style={valueStyle}>{row.value}</div>
+                  )}
                 </div>
-                <div
-                  style={{
-                    fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
-                    color: "inherit",
-                    opacity: 0.8,
-                    fontWeight: 400,
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {row.value}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Lead-Capture Form */}
@@ -150,14 +182,14 @@ export function Contact() {
             >
               Drop a Request
             </div>
-            <form style={{ display: "flex", flexDirection: "column", gap: 16 }} onSubmit={(e) => { e.preventDefault(); alert("Thanks for your request!"); }}>
+            <form style={{ display: "flex", flexDirection: "column", gap: 16 }} onSubmit={handleSubmit}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                <input required placeholder="Name" style={{ width: "100%", padding: "12px 16px", background: "rgba(0,0,0,0.2)", border: "1px solid var(--hairline)", borderRadius: 8, color: "inherit", fontSize: "0.9rem" }} />
-                <input required placeholder="Company" style={{ width: "100%", padding: "12px 16px", background: "rgba(0,0,0,0.2)", border: "1px solid var(--hairline)", borderRadius: 8, color: "inherit", fontSize: "0.9rem" }} />
+                <input required name="name" placeholder="Name" style={{ width: "100%", padding: "12px 16px", background: "rgba(0,0,0,0.2)", border: "1px solid var(--hairline)", borderRadius: 8, color: "inherit", fontSize: "0.9rem" }} />
+                <input required name="company" placeholder="Company" style={{ width: "100%", padding: "12px 16px", background: "rgba(0,0,0,0.2)", border: "1px solid var(--hairline)", borderRadius: 8, color: "inherit", fontSize: "0.9rem" }} />
               </div>
-              
+
               <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 16 }}>
-                <input required placeholder="Email / WhatsApp / WeChat" style={{ width: "100%", padding: "12px 16px", background: "rgba(0,0,0,0.2)", border: "1px solid var(--hairline)", borderRadius: 8, color: "inherit", fontSize: "0.9rem" }} />
+                <input required name="contact" placeholder="Email / WhatsApp / WeChat" style={{ width: "100%", padding: "12px 16px", background: "rgba(0,0,0,0.2)", border: "1px solid var(--hairline)", borderRadius: 8, color: "inherit", fontSize: "0.9rem" }} />
                 <select
                   value={selectedTier}
                   onChange={(e) => setSelectedTier(e.target.value)}
@@ -171,26 +203,39 @@ export function Contact() {
                 </select>
               </div>
 
-              <textarea required placeholder="How can we help you?" rows={3} style={{ width: "100%", padding: "12px 16px", background: "rgba(0,0,0,0.2)", border: "1px solid var(--hairline)", borderRadius: 8, color: "inherit", fontSize: "0.9rem", resize: "none" }} />
-              
-              <button 
-                type="submit" 
-                style={{ 
-                  marginTop: 8, 
-                  padding: "14px 24px", 
-                  background: "#E0A93A", 
-                  color: "#1A1A1A", 
-                  border: "none", 
-                  borderRadius: 8, 
-                  fontWeight: 800, 
-                  textTransform: "uppercase", 
-                  letterSpacing: "0.1em", 
-                  cursor: "pointer",
+              <textarea required name="message" placeholder="How can we help you?" rows={3} style={{ width: "100%", padding: "12px 16px", background: "rgba(0,0,0,0.2)", border: "1px solid var(--hairline)", borderRadius: 8, color: "inherit", fontSize: "0.9rem", resize: "none" }} />
+
+              <button
+                type="submit"
+                disabled={status === "submitting"}
+                style={{
+                  marginTop: 8,
+                  padding: "14px 24px",
+                  background: "#E0A93A",
+                  color: "#1A1A1A",
+                  border: "none",
+                  borderRadius: 8,
+                  fontWeight: 800,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  cursor: status === "submitting" ? "default" : "pointer",
+                  opacity: status === "submitting" ? 0.6 : 1,
                   fontSize: "0.9rem"
                 }}
               >
-                Submit Request
+                {status === "submitting" ? "Sending..." : "Submit Request"}
               </button>
+
+              {status === "success" && (
+                <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#1D9E75" }}>
+                  Thanks — your request is on its way. We&apos;ll be in touch shortly.
+                </div>
+              )}
+              {status === "error" && (
+                <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#D9534F" }}>
+                  Something went wrong. Please try again or reach us on WeChat.
+                </div>
+              )}
             </form>
           </div>
         </FadeIn>

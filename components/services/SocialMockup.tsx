@@ -72,7 +72,7 @@ export function SocialMockup() {
           <div style={{ padding: "0 16px 16px", color: "#e0e0e0", fontSize: "0.8rem", background: "#050505" }}>
             <div style={{ fontWeight: 600, color: "#fff" }}>STEEZ Exhibition Group</div>
             <div style={{ color: "#aaa", marginTop: 2 }}>Premium Digital Services 🌎</div>
-            <a href="#" style={{ color: "#E0A93A", textDecoration: "none", fontWeight: 500, display: "block", marginTop: 4 }}>linktr.ee/steez</a>
+            <span style={{ color: "#E0A93A", fontWeight: 500, display: "block", marginTop: 4 }}>linktr.ee/steez</span>
           </div>
 
           {/* Tabs */}

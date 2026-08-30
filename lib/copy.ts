@@ -118,7 +118,7 @@ export const COPY = {
       heading: { en: "Reach us", cn: "联系我们" },
       items: [
         "steez.workspace@gmail.com",
-        "WeChat: STEEZ-CN",
+        "WeChat: steezdigital",
         "WhatsApp: +86 19818401505",
         "Mon–Sat · 09:00–21:00 CST",
       ],

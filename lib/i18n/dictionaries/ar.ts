@@ -199,7 +199,7 @@ export const ar: Dict = {
     wechat: {
       title: "أضفنا على ويتشات",
       sub: "افتح ويتشات، امسح الرمز، وابدأ محادثة مع فريقنا خلال ثوانٍ.",
-      handle: "STEEZ-CN",
+      handle: "steezdigital",
       scanLabel: "امسح بواسطة ويتشات",
     },
     trust: {

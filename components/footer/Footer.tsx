@@ -64,15 +64,30 @@ export function Footer() {
         </div>
 
         <FooterCol titleEn={dict.footer.locations} collapsible>
-          <li style={ITEM_STYLE}>{dict.footer.locationItems.hangzhou}</li>
+          <li style={ITEM_STYLE}>
+            <a href="/location" style={{ color: "inherit", textDecoration: "none" }}>
+              {dict.footer.locationItems.hangzhou}
+            </a>
+          </li>
         </FooterCol>
 
         <FooterCol titleEn={dict.footer.reachUs} collapsible>
-          {COPY.footer.contact.items.map((it) => (
-            <li key={it} style={ITEM_STYLE}>
-              {it}
-            </li>
-          ))}
+          {COPY.footer.contact.items.map((it) => {
+            let href: string | null = null;
+            if (it.includes("@")) href = `mailto:${it}`;
+            else if (/WhatsApp/i.test(it)) href = `https://wa.me/${it.replace(/\D/g, "")}`;
+            return (
+              <li key={it} style={ITEM_STYLE}>
+                {href ? (
+                  <a href={href} style={{ color: "inherit", textDecoration: "none" }}>
+                    {it}
+                  </a>
+                ) : (
+                  it
+                )}
+              </li>
+            );
+          })}
         </FooterCol>
       </div>
 

@@ -199,7 +199,7 @@ export const ru: Dict = {
     wechat: {
       title: "Добавьте нас в WeChat",
       sub: "Откройте WeChat, отсканируйте код и начните диалог с нашей командой за секунды.",
-      handle: "STEEZ-CN",
+      handle: "steezdigital",
       scanLabel: "Сканировать в WeChat",
     },
     trust: {
